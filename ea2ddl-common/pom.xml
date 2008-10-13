@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>ea2ddl-parent</artifactId>
+		<groupId>jp.sourceforge.ea2ddl</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jp.sourceforge.ea2ddl</groupId>
+	<artifactId>ea2ddl-common</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Enterprise Archetect to DDL</name>
+	<description>Enterprise Archetect to DDL</description>
+	<url>http://ea2ddl.sourceforge.jp/</url>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.seasar.container</groupId>
+			<artifactId>s2-extension</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.seasar.container</groupId>
+			<artifactId>s2-tiger</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-j2ee_1.4_spec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-ejb_3.0_spec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jpa_3.0_spec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jta_1.1_spec</artifactId>
+		</dependency>
+	</dependencies>
+</project>
