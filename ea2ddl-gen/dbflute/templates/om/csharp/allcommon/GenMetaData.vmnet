@@ -1,0 +1,115 @@
+#set ($myClassName = "${glGenMetaDataClassName}")
+
+using System;
+using System.Collections;
+
+namespace ${glPackageBaseCommon} {
+
+    /// <summary>
+    /// The sigleton class that has generate-meta-data(GenMetaData).
+    /// Author: ${database.ClassAuthor}
+    /// </summary>
+    public class ${myClassName} {
+
+        // ===============================================================================
+        //                                                                       Sinpleton
+        //                                                                       =========
+        /// <summary>Singleton instance.</summary>
+        private static readonly ${myClassName} _instance = new ${myClassName}();
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        private ${myClassName}() {
+        }
+
+        /// <summary>
+        /// Get instance.
+        /// </summary>
+        /// <returns>Singleton instance.</returns>
+        public static ${myClassName} GetInstance() {
+            return _instance;
+        }
+
+        // ===============================================================================
+        //                                                                           Basic
+        //                                                                           =====
+        /// <sumarry>
+        /// Get the property-value of targetLanguage.
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public String GetTargetLanguage() {
+            return "${database.TargetLanguage}";
+        }
+
+        /// <sumarry>
+        /// Get the property-value of templateFileExtension.
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public String GetTemplateFileExtension() {
+            return "${database.TemplateFileExtension}";
+        }
+
+        /// <sumarry>
+        /// Get the property-value of classFileExtension.
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public String GetClassFileExtension() {
+            return "${database.ClassFileExtension}";
+        }
+
+        /// <sumarry>
+        /// Get the property-value of templateFileEncoding.
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public String GetTemplateEncoding() {
+            return "${database.TemplateFileEncoding}";
+        }
+
+        /// </sumarry>
+        /// Get the property-value of classAuthor.
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public String GetClassAuthor() {
+            return "${database.ClassAuthor}";
+        }
+
+        // ===============================================================================
+        //                                                                          Naming
+        //                                                                          ======
+        /// <sumarry>
+        /// Is java name of table same as db name? Answer is ${database.isJavaNameOfTableSameAsDbName()}!
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public bool IsJavaNameOfTableSameAsDbName() {
+            return ${database.isJavaNameOfTableSameAsDbName()};
+        }
+
+        /// <sumarry>
+        /// Is java name of column same as db name? Answer is ${database.isJavaNameOfColumnSameAsDbName()}!
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public bool IsJavaNameOfColumnSameAsDbName() {
+            return ${database.isJavaNameOfColumnSameAsDbName()};
+        }
+
+        // ===============================================================================
+        //                                                                          Prefix
+        //                                                                          ======
+        /// <sumarry>
+        /// Get the property-value of projectPrefix.
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public String GetProjectPrefix() {
+            return "${database.ProjectPrefix}";
+        }
+
+        /// <sumarry>
+        /// Get the property-value of basePrefix.
+        /// </sumarry>
+        /// <returns>The property-value.</returns>
+        public String GetBasePrefix() {
+            return "${database.BasePrefix}";
+        }
+    }
+}

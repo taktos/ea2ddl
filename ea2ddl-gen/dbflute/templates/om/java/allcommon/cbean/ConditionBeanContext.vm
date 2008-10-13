@@ -1,0 +1,343 @@
+${database.allClassCopyright}package ${glPackageBaseCommonCBean};
+
+import java.util.Collections;
+import java.util.Map;
+import java.util.LinkedHashMap;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import ${glPackageBaseCommon}.${glDBFluteConfig};
+import ${glPackageBaseCommonSqlClause}.*;
+import ${glPackageBaseCommonS2DaoInternalSqlParser}.${glInternalSqlParser};
+import ${glPackageBaseCommonUtil}.${glSimpleSystemUtil};
+
+/**
+ * Condition-Bean context.
+ * @author ${database.ClassAuthor}
+ */
+public class ${glConditionBeanContextName} {
+
+    /** Log instance. */
+    private static final Log _log = LogFactory.getLog(${glConditionBeanContextName}.class);
+
+    // ===================================================================================
+    //                                                                        Thread Local
+    //                                                                        ============
+    /** The thread-local for this. */
+    private static final ThreadLocal<${glConditionBeanInterfaceName}> _threadLocal = new ThreadLocal${database.filterGenericsString(${glConditionBeanInterfaceName})}();
+
+    /**
+     * Get condition-bean on thread.
+     * @return Condition-bean context. (Nullable)
+     */
+    public static ${glConditionBeanInterfaceName} getConditionBeanOnThread() {
+        return (${glConditionBeanInterfaceName})_threadLocal.get();
+    }
+
+    /**
+     * Set condition-bean on thread.
+     * @param cb Condition-bean. (NotNull)
+     */
+    public static void setConditionBeanOnThread(${glConditionBeanInterfaceName} cb) {
+        if (cb == null) {
+            String msg = "The argument[cb] must not be null.";
+            throw new IllegalArgumentException(msg);
+        }
+        _threadLocal.set(cb);
+    }
+
+    /**
+     * Is existing condition-bean on thread?
+     * @return Determination.
+     */
+    public static boolean isExistConditionBeanOnThread() {
+        return (_threadLocal.get() != null);
+    }
+
+    /**
+     * Clear condition-bean on thread.
+     */
+    public static void clearConditionBeanOnThread() {
+        _threadLocal.set(null);
+    }
+
+    // ===================================================================================
+    //                                         Initialize against the ClassLoader Headache
+    //                                         ===========================================
+	@SuppressWarnings("unused")
+    public static void initialize() {
+        boolean debugEnabled = _log.isDebugEnabled();
+        // Against the ClassLoader Headache!
+        final StringBuilder sb = new StringBuilder();
+        {
+            final Class<?> clazz = ${glPackageBaseCommonCBean}.${glSimplePagingBeanName}.class;
+            if (debugEnabled) { sb.append("  ...Loading class of " + clazz.getName() + " by " + clazz.getClassLoader().getClass()).append(getLineSeparator()); }
+        }
+		{
+            Class<?> clazz = ${glPackageBaseCommonCOption}.${glConditionOptionFromToName}.class;
+            clazz = ${glPackageBaseCommonCOption}.${glConditionOptionLikeSearchName}.class;
+            clazz = ${glPackageBaseCommonCOption}.${glConditionOptionInScopeName}.class;
+            clazz = ${glPackageBaseCommonCBeanGrouping}.${glGroupingOptionName}.class;
+            clazz = ${glPackageBaseCommonCBeanGrouping}.${glGroupingRowEndDeterminerName}.class;
+            clazz = ${glPackageBaseCommonCBeanGrouping}.${glGroupingRowResourceName}.class;
+            clazz = ${glPackageBaseCommonCBeanGrouping}.${glGroupingRowSetupperName}.class;
+            clazz = ${glPackageBaseCommonCBeanPagenavi}.${glPageNumberLinkName}.class;
+            clazz = ${glPackageBaseCommonCBeanPagenavi}.${glPageNumberLinkSetupperName}.class;
+#if ($database.isVersionAfter1047())
+            clazz = ${glPackageBaseCommonJdbc}.${glCursorHandlerName}.class;
+#end
+            if (debugEnabled) { sb.append("  ...Loading class of ...and so on"); }
+        }
+        if (debugEnabled) { 
+            _log.debug("{Initialize against the ClassLoader Headache}" + getLineSeparator() + sb);
+        }
+    }
+
+    // ===================================================================================
+    //                                                                  Type Determination
+    //                                                                  ==================
+    /**
+     * Is the argument condition-bean?
+     * @param dtoInstance DTO instance.
+     * @return Determination.
+     */
+    public static boolean isTheArgumentConditionBean(final Object dtoInstance) {
+        if (dtoInstance instanceof ${glConditionBeanInterfaceName}) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Is the type condition-bean?
+     * @param dtoClass DtoClass.
+     * @return Determination.
+     */
+    public static boolean isTheTypeConditionBean(final Class<?> dtoClass) {
+        if (${glConditionBeanInterfaceName}.class.isAssignableFrom(dtoClass)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // ===================================================================================
+    //                                                                        Product Name
+    //                                                                        ============
+    public static final String DB_NAME_DERBY = "derby";
+    public static final String DB_NAME_H2 = "h2";
+    public static final String DB_NAME_ORACLE = "oracle";
+    public static final String DB_NAME_MYSQL = "mysql";
+    public static final String DB_NAME_POSTGRESQL = "postgresql";
+    public static final String DB_NAME_FIREBIRD = "firebird";
+    public static final String DB_NAME_MSSQL = "mssql";
+    public static final String DB_NAME_SYBASE = "sybase";
+    public static final String DB_NAME_DB2 = "db2";
+
+    protected static final Map<String, String> _driverHintDatabaseProductNameMap;
+    static {
+        final Map<String, String> tmpMap = Collections.synchronizedMap(new LinkedHashMap<String, String>());
+        tmpMap.put("org.apache.derby", DB_NAME_DERBY);
+        tmpMap.put("org.h2", DB_NAME_H2);
+        tmpMap.put("oracle", DB_NAME_ORACLE);
+        tmpMap.put("mysql", DB_NAME_MYSQL);
+        tmpMap.put("postgresql", DB_NAME_POSTGRESQL);
+        tmpMap.put("firebird", DB_NAME_FIREBIRD);
+        tmpMap.put("sqlserver", DB_NAME_MSSQL);
+        tmpMap.put("sybase", DB_NAME_SYBASE);
+        tmpMap.put("db2", DB_NAME_DB2);
+        _driverHintDatabaseProductNameMap = java.util.Collections.unmodifiableMap(tmpMap);
+    }
+
+    public static boolean setupDatabaseProductNameByDriverClassName(String driverClassName) {
+        final java.util.Set<String> keySet = _driverHintDatabaseProductNameMap.keySet();
+        for (final java.util.Iterator<String> ite = keySet.iterator(); ite.hasNext(); ) {
+            final String driverHint = (String)ite.next();
+            if (driverClassName.indexOf(driverHint) >= 0) {
+                final String databaseProductName = (String)_driverHintDatabaseProductNameMap.get(driverHint);
+                setDatabaseProductName(databaseProductName);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** The database product name. */
+    private static String _databaseProductName;
+
+    /**
+     * Get database product name.
+     * @return Database product name.
+     */
+    public static String getDatabaseProductName() {
+        return _databaseProductName;
+    }
+
+    /**
+     * Set database product name.
+     * @param name Database product name. (NotNull)
+     */
+    public static void setDatabaseProductName(String name) {
+        if (_databaseProductName != null) {
+            String msg = "Already set up: current=" + _databaseProductName + " your=" + name;
+            throw new IllegalStateException(msg);
+        }
+        _databaseProductName = name;
+    }
+
+    // ===================================================================================
+    //                                                                   SqlClause Creator
+    //                                                                   =================
+	/**
+	 * Create SQL-clause. {for condition-bean}
+	 * @param cb Condition-bean. (NotNull) 
+	 * @return SQL-clause. (NotNull)
+	 */
+    public static ${glSqlClauseName} createSqlClause(${glConditionBeanInterfaceName} cb) {
+        final String tableSqlName = cb.getTableSqlName();
+		final ${glSqlClauseName} sqlClause = createSqlClause(tableSqlName);
+		if (${glDBFluteConfig}.getInstance().isConditionBeanFormatSql()) {
+		    sqlClause.makeFormatClauseEffective();
+		}
+        return sqlClause;
+    }
+
+	/**
+	 * Create SQL-clause. {for SimplePagingBean}
+	 * @param tableDbName The DB name of table. (NotNull) 
+	 * @return SQL-clause. (NotNull)
+	 */
+    public static ${glSqlClauseName} createSqlClause(String tableDbName) {
+        final String databaseProductName = getDatabaseProductName();
+        if (databaseProductName == null) {
+            return new ${glSqlClauseName}${database.DaoGenDbName}(tableDbName);
+        }
+        final String name = databaseProductName.toLowerCase();
+        if (name.equalsIgnoreCase(DB_NAME_DERBY)) {
+            return new ${glSqlClauseName}Derby(tableDbName);
+        } else if (name.equalsIgnoreCase(DB_NAME_H2)) {
+            return new ${glSqlClauseName}H2(tableDbName);
+        } else if (name.equalsIgnoreCase(DB_NAME_ORACLE)) {
+            return new ${glSqlClauseName}Oracle(tableDbName);
+        } else if (name.equalsIgnoreCase(DB_NAME_FIREBIRD)) {
+            return new ${glSqlClauseName}Firebird(tableDbName);
+        } else if (name.equalsIgnoreCase(DB_NAME_MYSQL)) {
+            return new ${glSqlClauseName}MySql(tableDbName);
+        } else if (name.equalsIgnoreCase(DB_NAME_POSTGRESQL)) {
+            return new ${glSqlClauseName}PostgreSql(tableDbName);
+        } else if (name.equalsIgnoreCase(DB_NAME_MSSQL)) {
+            return new ${glSqlClauseName}SqlServer(tableDbName);
+        } else if (name.equalsIgnoreCase(DB_NAME_DB2)) {
+            return new ${glSqlClauseName}Db2(tableDbName);
+        } else {
+            return new ${glSqlClauseName}${database.DaoGenDbName}(tableDbName);
+        }
+    }
+
+    // ===================================================================================
+    //                                                                  Exception Handling
+    //                                                                  ==================
+    public static void throwEntityAlreadyDeletedException(Object searchKey4Log) {
+        String msg = "Look! Read the message below." + getLineSeparator();
+        msg = msg + "/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" + getLineSeparator();
+        msg = msg + "The entity was Not Found! it has already been deleted!" + getLineSeparator();
+        msg = msg + getLineSeparator();
+        msg = msg + "[Advice]" + getLineSeparator();
+        msg = msg + "Please confirm the existence of your target record on your database." + getLineSeparator();
+        msg = msg + "Does the target record really created before this operation?" + getLineSeparator();
+        msg = msg + "Has the target record been deleted by other thread?" + getLineSeparator();
+        msg = msg + "It is precondition that the record exists on your database." + getLineSeparator();
+        msg = msg + getLineSeparator();
+		if (searchKey4Log != null && searchKey4Log instanceof ${glConditionBeanInterfaceName}) {
+		    final ${glConditionBeanInterfaceName} cb = (${glConditionBeanInterfaceName})searchKey4Log;
+			msg = msg + "[Executed SQL for Display]" + getLineSeparator() + cb.toDisplaySql() + getLineSeparator();
+		} else {
+            msg = msg + "[Search Condition]" + getLineSeparator() + searchKey4Log + getLineSeparator();
+        }
+        msg = msg + "* * * * * * * * * */";
+        throw new ${glPackageBaseCommonException}.${glEntityAlreadyDeletedException}(msg);
+    }
+
+    public static void throwEntityDuplicatedException(String resultCountString, Object searchKey4Log, Throwable cause) {
+        String msg = "Look! Read the message below." + getLineSeparator();
+        msg = msg + "/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" + getLineSeparator();
+        msg = msg + "The entity was Too Many! it has been duplicated. It should be the only one! But the resultCount=" + resultCountString + getLineSeparator();
+        msg = msg + getLineSeparator();
+        msg = msg + "[Advice]" + getLineSeparator();
+        msg = msg + "Please confirm your search condition. Does it really select the only one?" + getLineSeparator();
+        msg = msg + "Please confirm your database. Does it really exist the only one?" + getLineSeparator();
+        msg = msg + getLineSeparator();
+		if (searchKey4Log != null && searchKey4Log instanceof ${glConditionBeanInterfaceName}) {
+		    final ${glConditionBeanInterfaceName} cb = (${glConditionBeanInterfaceName})searchKey4Log;
+			msg = msg + "[Executed SQL for Display]" + getLineSeparator() + cb.toDisplaySql() + getLineSeparator();
+		} else {
+            msg = msg + "[Search Condition]" + getLineSeparator() + searchKey4Log + getLineSeparator();
+        }
+        msg = msg + "* * * * * * * * * */";
+        if (cause != null) {
+            throw new ${glPackageBaseCommonException}.${glEntityDuplicatedException}(msg, cause);
+        } else {
+            throw new ${glPackageBaseCommonException}.${glEntityDuplicatedException}(msg);
+        }
+    }
+
+    // ===================================================================================
+    //                                                                         Display SQL
+    //                                                                         ===========
+	public static String convertConditionBean2DisplaySql(${glConditionBeanInterfaceName} cb) {
+	    final String twoWaySql;
+	    if (cb.isLimitSelect_PKOnly()) {
+		    twoWaySql = cb.getSqlClause().getClausePKOnly();
+		} else {
+		    twoWaySql = cb.getSqlClause().getClause();
+		}
+	    return ${glInternalSqlParser}.convertTwoWaySql2DisplaySql(twoWaySql, cb);
+	}
+
+    // [DBFlute-0.7.7]
+    // ===================================================================================
+    //                                                                   Unique Constraint
+    //                                                                   =================
+    /**
+     * Is the SQLException from unique constraint? {Use both SQLState and ErrorCode}
+     * @param sqlState SQLState of the SQLException. (Nullable)
+     * @param errorCode ErrorCode of the SQLException. (Nullable)
+     * @return Is the SQLException from unique constraint?
+     */
+    public static boolean isUniqueConstraintException(String sqlState, Integer errorCode) {
+        return createSqlClause("dummy").isUniqueConstraintException(sqlState, errorCode);
+    }
+
+    // [DBFlute-0.7.8]
+    // ===================================================================================
+    //                                                                       Database Type
+    //                                                                       =============
+    /**
+     * Is the database Oracle?
+     * @return Is the database Oracle?
+     */
+    public static boolean isOracle() {
+        return createSqlClause("dummy") instanceof ${glSqlClauseName}Oracle;
+    }
+
+    /**
+     * Is the database PostgreSQL?
+     * @return Is the database PostgreSQL?
+     */
+    public static boolean isPostgreSql() {
+        return createSqlClause("dummy") instanceof ${glSqlClauseName}PostgreSql;
+    }
+
+    // ===================================================================================
+    //                                                                              Helper
+    //                                                                              ======
+    /**
+     * Get the value of line separator.
+     * @return The value of line separator. (NotNull)
+     */
+    protected static String getLineSeparator() {
+        return ${glSimpleSystemUtil}.getLineSeparator();
+    }
+}

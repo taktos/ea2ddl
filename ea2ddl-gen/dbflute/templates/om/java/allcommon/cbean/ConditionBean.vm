@@ -1,0 +1,205 @@
+${database.allClassCopyright}package ${glPackageBaseCommonCBean};
+
+import ${glPackageBaseCommonSqlClause}.${glSqlClauseName};
+import ${glPackageBaseCommonJdbc}.${glStatementConfig};
+
+/**
+ * The interface of condition-bean.
+ * @author ${database.ClassAuthor}
+ */
+public interface ${glConditionBeanInterfaceName} extends ${glPagingBeanInterfaceName} {
+
+    // =====================================================================================
+    //                                                                            Definition
+    //                                                                            ==========
+    /** Map-string map-mark. */
+    public static final String MAP_STRING_MAP_MARK = "map:";
+
+    /** Map-string list-mark. */
+    public static final String MAP_STRING_LIST_MARK = "list:";
+
+    /** Map-string start-brace. */
+    public static final String MAP_STRING_START_BRACE = "${database.extractAcceptStartBrace}";
+
+    /** Map-string end-brace. */
+    public static final String MAP_STRING_END_BRACE = "${database.extractAcceptEndBrace}";
+
+    /** Map-string delimiter. */
+    public static final String MAP_STRING_DELIMITER = "${database.extractAcceptDelimiter}";
+
+    /** Map-string equal. */
+    public static final String MAP_STRING_EQUAL = "${database.extractAcceptEqual}";
+
+    // ===================================================================================
+    //                                                                          Table Name
+    //                                                                          ==========
+    /**
+     * Get table DB-name.
+     * @return Table DB-name. (NotNull)
+     */
+    public String getTableDbName();
+
+    /**
+     * Get table SQL-name.
+     * @return Table SQL-name. (NotNull)
+     */
+    public String getTableSqlName();
+
+    // ===================================================================================
+    //                                                                           SqlClause
+    //                                                                           =========
+    /**
+     * Get SQL-clause instance.
+     * @return SQL-clause. (NotNull)
+     */
+    public ${glSqlClauseName} getSqlClause();
+
+    // ===================================================================================
+    //                                                                      PrimaryKey Map
+    //                                                                      ==============
+    /**
+     * Accept primary-key map-string.
+     * @param primaryKeyMap Primary-key map. (NotNull and NotEmpty)
+     */
+    public void acceptPrimaryKeyMap(java.util.Map${database.filterGenericsString('String, ? extends Object')} primaryKeyMap);
+
+    /**
+     * Accept primary-key map-string. Delimiter is at-mark and semicolon.
+     * @param primaryKeyMapString Primary-key map. (NotNull and NotEmpty)
+     */
+    public void acceptPrimaryKeyMapString(String primaryKeyMapString);
+
+    // ===================================================================================
+    //                                                                     OrderBy Setting
+    //                                                                     ===============
+    /**
+     * Add order-by PrimaryKey asc. {order by primaryKey1 asc, primaryKey2 asc...}
+     * @return this. (NotNull)
+     */
+    public ${glConditionBeanInterfaceName} addOrderBy_PK_Asc();
+
+    /**
+     * Add order-by PrimaryKey desc. {order by primaryKey1 desc, primaryKey2 desc...}
+     * @return this. (NotNull)
+     */
+    public ${glConditionBeanInterfaceName} addOrderBy_PK_Desc();
+
+    // ===================================================================================
+    //                                                                               Query
+    //                                                                               =====
+    /**
+     * Get condition-query as interface.
+     * @return Instance of query as interface. (NotNull)
+     * @deprecated
+     */
+    public ${glConditionQueryInterfaceName} getConditionQueryAsInterface();
+
+    /**
+     * Get the conditionQuery of the local table as interface.
+     * @return The conditionQuery of the local table as interface. (NotNull)
+     */
+    public ${glConditionQueryInterfaceName} localCQ();
+
+    // ===================================================================================
+    //                                                                         Union Query
+    //                                                                         ===========
+    /**
+     * Has union query or union all query?
+     * @return Determination.
+     */
+    public boolean hasUnionQueryOrUnionAllQuery();
+
+    // ===================================================================================
+    //                                                                        Limit Select
+    //                                                                        ============
+    /**
+     * Limit select PK only. This is OLD style. You can do the same thing by specify().
+     * @return this. (NotNull)
+     */
+    public ${glConditionBeanInterfaceName} limitSelect_PKOnly();
+
+    /**
+     * Limit select off.
+     * @return this. (NotNull)
+     */
+    public ${glConditionBeanInterfaceName} limitSelect_Off();
+
+    /**
+     * Is limit-select PK only?
+     * @return Determination.
+     */
+    public boolean isLimitSelect_PKOnly();
+
+    // =====================================================================================
+    //                                                                          Lock Setting
+    //                                                                          ============
+    /**
+     * Lock for update.
+	 * <p>
+     * If you invoke this, your SQL lock target records for update.
+     * It depends whether this method supports this on the database type.
+     * </p>
+     * @return this. (NotNull)
+     */
+    public ${glConditionBeanInterfaceName} lockForUpdate();
+
+    // =====================================================================================
+    //                                                                          Select Count
+    //                                                                          ============
+    /**
+     * Set up various things for select-count-ignore-fetch-scope. {Internal}
+     * This method is for INTERNAL. Don't invoke this!
+     * @return this. (NotNull)
+     */
+    public ${glConditionBeanInterfaceName} xsetupSelectCountIgnoreFetchScope();
+
+    /**
+     * Do after-care for select-count-ignore-fetch-scope. {Internal}
+     * This method is for INTERNAL. Don't invoke this!
+     * @return this. (NotNull)
+     */
+    public ${glConditionBeanInterfaceName} xafterCareSelectCountIgnoreFetchScope();
+
+    /**
+     * Is set up various things for select-count-ignore-fetch-scope? {Internal}
+     * This method is for INTERNAL. Don't invoke this!
+     * @return Determination.
+     */
+    public boolean isSelectCountIgnoreFetchScope();
+	
+    // =====================================================================================
+    //                                                                      Statement Config
+    //                                                                      ================
+    /**
+     * @param statementConfig The config of statement. (Nullable)
+     */
+	public void configure(${glStatementConfig} statementConfig);
+	
+    /**
+     * @return The config of statement. (Nullable)
+     */
+	public ${glStatementConfig} getStatementConfig();
+#if ($database.isMakeDeprecated())
+
+    // ===================================================================================
+    //                                                                          Format SQL
+    //                                                                          ==========
+    /** @deprecated Sorry! ConditionBean must be formatted as default.*/
+	public void formatSql();
+
+    /**
+	 * @return Is the SQL formatted?
+	 * @deprecated Sorry! ConditionBean must be formatted as default.
+	 */
+	public boolean isFormatSql();
+#end
+
+    // ===================================================================================
+    //                                                                         Display SQL
+    //                                                                         ===========
+	/**
+	 * Convert this conditionBean to SQL for display.
+	 * @return SQL for display. (NotNull and NotEmpty)
+	 */
+	public String toDisplaySql();
+}

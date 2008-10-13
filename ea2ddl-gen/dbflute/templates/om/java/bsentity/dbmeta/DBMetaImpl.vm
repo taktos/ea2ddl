@@ -1,0 +1,414 @@
+${database.allClassCopyright}package ${myDBMetaPackageName};
+#set ($myClassName = "${myDBMetaClassName}")
+
+import java.util.List;
+import java.util.Map;
+
+import ${glPackageBaseCommon}.${glEntityInterfaceName};
+import ${glPackageBaseCommonDBMeta}.${glDBMetaAbstractName};
+import ${myExtendedEntityPackageName}.${myExtendedObjectClassName};
+import ${glPackageBaseCommonDBMetaInfo}.*;
+
+/**
+ * The DB meta of ${table.Name}. (Singleton)
+ * @author ${database.ClassAuthor}
+ */${database.outputSuppressWarningsAfterLineSeparator()}
+public class ${myClassName} extends ${glDBMetaAbstractName} {
+
+    private static final ${myClassName} _instance = new ${myClassName}();
+    private ${myClassName}() {}
+    public static ${myClassName} getInstance() { return _instance; }
+
+    // ===================================================================================
+    //                                                                          Table Info
+    //                                                                          ==========
+    public String getTableDbName() { return "$table.name"; }
+    public String getTablePropertyName() { return "$table.javaBeansRulePropertyName"; }
+    public String getTableSqlName() { return "$table.tableSqlName"; }
+
+    // ===================================================================================
+    //                                                                         Column Info
+    //                                                                         ===========
+#foreach ($col in $table.columns)
+#if ($col.isVersionNo())
+    protected ${glColumnInfoName} _column${col.javaBeansRulePropertyNameInitCap} = cci("${col.name}", "${col.javaBeansRulePropertyName}", ${col.javaNative}.class, ${col.isPrimaryKey()}, ${col.columnSizeSettingExpression}, ${col.columnDecimalDigitsSettingExpression}, OptimisticLockType.VERSION_NO);
+#elseif ($col.isUpdateDate())
+    protected ${glColumnInfoName} _column${col.javaBeansRulePropertyNameInitCap} = cci("${col.name}", "${col.javaBeansRulePropertyName}", ${col.javaNative}.class, ${col.isPrimaryKey()}, ${col.columnSizeSettingExpression}, ${col.columnDecimalDigitsSettingExpression}, OptimisticLockType.UPDATE_DATE);
+#else
+    protected ${glColumnInfoName} _column${col.javaBeansRulePropertyNameInitCap} = cci("${col.name}", "${col.javaBeansRulePropertyName}", ${col.javaNative}.class, ${col.isPrimaryKey()}, ${col.columnSizeSettingExpression}, ${col.columnDecimalDigitsSettingExpression});
+#end
+#end
+
+#foreach ($col in $table.columns)
+    public ${glColumnInfoName} column${col.javaBeansRulePropertyNameInitCap}() { return _column${col.javaBeansRulePropertyNameInitCap}; }
+#end
+    { initializeColumnInfoList(); }
+#if ($database.isMakeDBMetaStaticDefinition())
+
+    // ===================================================================================
+    //                                                                     Name Definition
+    //                                                                     ===============
+    // -----------------------------------------------------
+    //                                                 Table
+    //                                                 -----
+    public static final String TABLE_DB_NAME = "$table.name";
+    public static final String TABLE_PROPERTY_NAME = "$table.javaBeansRulePropertyName";
+
+    // -----------------------------------------------------
+    //                                        Column DB Name
+    //                                        --------------
+#foreach ($col in $table.columns)
+    public static final String DB_NAME_${col.name} = "$col.name";
+#end
+
+    // -----------------------------------------------------
+    //                                  Column Property Name
+    //                                  (JavaBeansRule)
+    //                                  --------------------
+#foreach ($col in $table.columns)
+    public static final String PROPERTY_NAME_${col.javaBeansRulePropertyName} = "$col.javaBeansRulePropertyName";
+#end
+#end
+
+    // ===================================================================================
+    //                                                                            Name Map
+    //                                                                            ========
+    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
+    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
+    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
+    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
+        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
+        return _dbNamePropertyNameKeyToLowerMap;
+    }
+    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
+    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
+        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
+        return _propertyNameDbNameKeyToLowerMap;
+    }
+
+    // ===================================================================================
+    //                                                                           Type Name
+    //                                                                           =========
+    public String getEntityTypeName() { return "${myExtendedEntityPackageName}.${myExtendedObjectClassName}"; }
+#if ($isExistConditionBean)
+    public String getConditionBeanTypeName() { return "${glPackageBaseCB}.${myConditionBeanClassName}"; }
+#else
+    public String getConditionBeanTypeName() { return null; }
+#end
+#if ($isExistDao)
+    public String getDaoTypeName() { return "${myExtendedDaoPackageName}.${myExtendedDaoClassName}"; }
+#else
+    public String getDaoTypeName() { return null; }
+#end
+#if ($isExistBehavior)
+    public String getBehaviorTypeName() { return "${myExtendedBhvPackageName}.${myExtendedBhvClassName}"; }
+#else
+    public String getBehaviorTypeName() { return null; }
+#end
+
+    // ===================================================================================
+    //                                                                         Object Type
+    //                                                                         ===========
+    public Class<${myExtendedObjectClassName}> getEntityType() { return ${myExtendedObjectClassName}.class; }
+
+    // ===================================================================================
+    //                                                                     Object Instance
+    //                                                                     ===============
+    public ${glEntityInterfaceName} newEntity() { return newMyEntity(); }
+    public ${myExtendedObjectClassName} newMyEntity() { return new ${myExtendedObjectClassName}(); }
+
+    // ===================================================================================
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+#if ($table.hasPrimaryKey())
+#if ($table.hasOnlyOnePrimaryKey())
+    public ${glUniqueInfoName} getPrimaryUniqueInfo() { return createPrimaryUniqueInfo(column${table.primaryKeyAsOne.javaBeansRulePropertyNameInitCap}()); }
+#else
+    public ${glUniqueInfoName} getPrimaryUniqueInfo() {
+        ${glUniqueInfoName} uniqueInfo = createPrimaryUniqueInfo();
+#foreach ($col in $table.primaryKey)
+        uniqueInfo.addUniqueColumnList(column${col.javaBeansRulePropertyNameInitCap}());
+#end
+        return uniqueInfo;
+    }
+#end
+#else
+    public ${glUniqueInfoName} getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
+    }
+#end
+    public boolean hasPrimaryKey() { return ${table.hasPrimaryKey()}; }
+    public boolean hasTwoOrMorePrimaryKeys() { return ${table.hasTwoOrMorePrimaryKeys()}; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+#foreach ($foreignKeys in $table.foreignKeys)
+    public ${glForeignInfoName} foreign${foreignKeys.foreignJavaBeansRulePropertyNameInitCap}() {
+#if ($foreignKeys.isSimpleKeyFK())
+#set ($column = $foreignKeys.localColumnAsOne)
+#set ($yourColumn = ${foreignKeys.getForeignColumnByLocalColumn(${column})})
+		Map<${glColumnInfoName}, ${glColumnInfoName}> map = newLinkedHashMap(column${column.javaBeansRulePropertyNameInitCap}(), ${foreignKeys.foreignTableDBMetaClassName}.getInstance().column${yourColumn.javaBeansRulePropertyNameInitCap}());
+#else
+        Map<${glColumnInfoName}, ${glColumnInfoName}> map = newLinkedHashMap();
+#foreach ($column in $foreignKeys.localColumnList)
+#set ($yourColumn = ${foreignKeys.getForeignColumnByLocalColumn(${column})})
+        map.put(column${column.javaBeansRulePropertyNameInitCap}(), ${foreignKeys.foreignTableDBMetaClassName}.getInstance().column${yourColumn.javaBeansRulePropertyNameInitCap}());
+#end
+#end
+	    return cfi("${foreignKeys.foreignJavaBeansRulePropertyName}", this, ${foreignKeys.foreignTableDBMetaClassName}.getInstance(), map, ${table.resolveForeignIndex($foreignKeys)}, ${foreignKeys.isOneToOne()});
+    }
+#end
+#foreach ($referrer in $table.referrers)
+#set ($genericsColumnInfoMap = "${glColumnInfoName}, ${glColumnInfoName}")
+#if (${referrer.isOneToOne()})
+    public ${glForeignInfoName} foreign${referrer.referrerJavaBeansRulePropertyNameAsOneInitCap}() {
+#if ($referrer.isSimpleKeyFK())
+#set ($column = $referrer.foreignColumnAsOne)
+#set ($yourColumn = ${referrer.getLocalColumnByForeignColumn(${column})})
+        Map<${glColumnInfoName}, ${glColumnInfoName}> map = newLinkedHashMap(column${column.javaBeansRulePropertyNameInitCap}(), ${referrer.referrerTableDBMetaClassName}.getInstance().column${yourColumn.javaBeansRulePropertyNameInitCap}());
+#else
+		Map<${glColumnInfoName}, ${glColumnInfoName}> map = newLinkedHashMap();
+#foreach ($column in $referrer.foreignColumnList)
+#set ($yourColumn = ${referrer.getLocalColumnByForeignColumn(${column})})
+        map.put(column${column.javaBeansRulePropertyNameInitCap}(), ${referrer.referrerTableDBMetaClassName}.getInstance().column${yourColumn.javaBeansRulePropertyNameInitCap}());
+#end
+#end
+	    return cfi("${referrer.refererJavaBeansRulePropertyNameAsOne}", this, ${referrer.referrerTableDBMetaClassName}.getInstance(), map, ${table.resolveReferrerIndexAsOne($referrer)}, ${referrer.isOneToOne()});
+    }
+#end
+#end
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+#foreach ($referrer in $table.referrers)
+#if (!${referrer.isOneToOne()})
+    public ${glReferrerInfoName} referrer${referrer.referrerJavaBeansRulePropertyNameInitCap}() {
+#if ($referrer.isSimpleKeyFK())
+#set ($column = $referrer.foreignColumnAsOne)
+        Map<${glColumnInfoName}, ${glColumnInfoName}> map = newLinkedHashMap(column${column.javaBeansRulePropertyNameInitCap}(), ${referrer.referrerTableDBMetaClassName}.getInstance().column${referrer.getLocalColumnByForeignColumn(${column}).javaBeansRulePropertyNameInitCap}());
+#else
+		Map<${glColumnInfoName}, ${glColumnInfoName}> map = newLinkedHashMap();
+#foreach ($column in $referrer.foreignColumnList)
+        map.put(column${column.javaBeansRulePropertyNameInitCap}(), ${referrer.referrerTableDBMetaClassName}.getInstance().column${referrer.getLocalColumnByForeignColumn(${column}).javaBeansRulePropertyNameInitCap}());
+#end
+#end
+	    return cri("${referrer.referrerJavaBeansRulePropertyName}", this, ${referrer.referrerTableDBMetaClassName}.getInstance(), map, ${referrer.isOneToOne()});
+    }
+#end
+#end
+#if ($database.isMakeFlatExpansion())
+
+    // -----------------------------------------------------
+    //                                        Relation Trace
+    //                                        --------------
+    public ${table.relationTraceClassName}RelationTrace createRelationTrace(RelationTraceFixHandler relationTraceFixHandler) {
+        return new ${table.relationTraceClassName}RelationTrace(relationTraceFixHandler);
+    }
+
+    public ${table.relationTraceClassName}RelationTrace createRelationTrace(List<${glRelationInfoName}> relationList, List<AbstractRelationTrace> relationTraceList) {
+        return new ${table.relationTraceClassName}RelationTrace(relationList, relationTraceList);
+    }
+
+    public static class ${table.relationTraceClassName}RelationTrace extends AbstractRelationTrace {
+
+        /**
+         * Constructor for first step.
+         * @param relationTraceFixHandler The handler of fixed relation trace. (Nullable)
+         */
+        public ${table.relationTraceClassName}RelationTrace(RelationTraceFixHandler relationTraceFixHandler) {
+            super(relationTraceFixHandler);
+        }
+
+        /**
+         * Constructor for relation step.
+         * @param relationList The list of relation. (NotNull)
+         * @param relationTraceList The list of relation trace. (NotNull)
+         */
+        public ${table.relationTraceClassName}RelationTrace(List<${glRelationInfoName}> relationList, List<AbstractRelationTrace> relationTraceList) {
+            super(relationList, relationTraceList);
+        }
+
+#foreach ($foreignKeys in $table.foreignKeys)
+        public ${foreignKeys.foreignTableDBMetaClassName}.${foreignKeys.foreignTable.relationTraceClassName}RelationTrace foreign${foreignKeys.foreignJavaBeansRulePropertyNameInitCap}() {
+            _relationList.add(${myDBMetaClassName}.getInstance().foreign${foreignKeys.foreignJavaBeansRulePropertyNameInitCap}());
+            return ${foreignKeys.foreignTableDBMetaClassName}.getInstance().createRelationTrace(_relationList, _relationTraceList);
+        }
+#end
+#foreach ($referrer in $table.referrers)
+#if (${referrer.isOneToOne()})
+        public ${referrer.referrerTableDBMetaClassName}.${referrer.table.relationTraceClassName}RelationTrace foreign${referrer.referrerJavaBeansRulePropertyNameAsOneInitCap}() {
+            _relationList.add(${myDBMetaClassName}.getInstance().foreign${referrer.referrerJavaBeansRulePropertyNameAsOneInitCap}());
+            return ${referrer.referrerTableDBMetaClassName}.getInstance().createRelationTrace(_relationList, _relationTraceList);
+        }
+#end
+#end
+#foreach ($referrer in $table.referrers)
+#if (!${referrer.isOneToOne()})
+        public ${referrer.referrerTableDBMetaClassName}.${referrer.table.relationTraceClassName}RelationTrace referrer${referrer.referrerJavaBeansRulePropertyNameInitCap}() {
+            _relationList.add(${myDBMetaClassName}.getInstance().referrer${referrer.referrerJavaBeansRulePropertyNameInitCap}());
+            return ${referrer.referrerTableDBMetaClassName}.getInstance().createRelationTrace(_relationList, _relationTraceList);
+        }
+#end
+#end
+
+#foreach ($col in $table.columns)
+        public RelationTrace column${col.javaBeansRulePropertyNameInitCap}() { return fixTrace(_relationList, ${myDBMetaClassName}.getInstance().column${col.javaBeansRulePropertyNameInitCap}()); }
+#end
+    }
+#end
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
+#if ($table.isUseSequence())
+    public boolean hasSequence() { return true; }
+    public String getSequenceNextValSql() { return "${table.sequenceNextSql}"; }
+#end
+#if ($table.isUseVersionNo())
+    public boolean hasVersionNo() { return true; }
+    public ${glColumnInfoName} getVersionNoColumnInfo() { return _column${table.versionNoJavaName}; }
+#end
+#if ($table.isUseUpdateDate())
+    public boolean hasUpdateDate() { return true; }
+    public ${glColumnInfoName} getUpdateDateColumnInfo() { return _column${table.updateDateJavaName}; }
+#end
+#if ($table.hasAllCommonColumn())
+    public boolean hasCommonColumn() { return true; }
+#end
+
+    // ===================================================================================
+    //                                                                     Entity Handling
+    //                                                                     ===============  
+    // -----------------------------------------------------
+    //                                                Accept
+    //                                                ------
+    public void acceptPrimaryKeyMap(${glEntityInterfaceName} entity, Map<String, ? extends Object> primaryKeyMap) {
+		doAcceptPrimaryKeyMap((${myExtendedObjectClassName})entity, primaryKeyMap, _epsMap);
+    }
+
+    public void acceptPrimaryKeyMapString(${glEntityInterfaceName} entity, String primaryKeyMapString) {
+        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
+    }
+
+    public void acceptColumnValueMap(${glEntityInterfaceName} entity, Map<String, ? extends Object> columnValueMap) {
+        doAcceptColumnValueMap((${myExtendedObjectClassName})entity, columnValueMap, _epsMap);
+    }
+
+    public void acceptColumnValueMapString(${glEntityInterfaceName} entity, String columnValueMapString) {
+        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
+    }
+
+    // -----------------------------------------------------
+    //                                               Extract
+    //                                               -------
+    public String extractPrimaryKeyMapString(${glEntityInterfaceName} entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
+    public String extractPrimaryKeyMapString(${glEntityInterfaceName} entity, String startBrace, String endBrace, String delimiter, String equal) {
+        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
+    }
+    public String extractColumnValueMapString(${glEntityInterfaceName} entity) { return MapStringUtil.extractColumnValueMapString(entity); }
+    public String extractColumnValueMapString(${glEntityInterfaceName} entity, String startBrace, String endBrace, String delimiter, String equal) {
+        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
+    }
+#if ($database.isMakeDBMetaCommonColumnHandling())
+#if (${table.hasAllCommonColumn()})
+
+    public String extractCommonColumnValueMapString(${glEntityInterfaceName} entity) {
+        return extractCommonColumnValueMapString(entity, MAP_STRING_START_BRACE, MAP_STRING_END_BRACE, MAP_STRING_DELIMITER, MAP_STRING_EQUAL);
+    }
+
+    public String extractCommonColumnValueMapString(${glEntityInterfaceName} entity, String startBrace, String endBrace, String delimiter, String equal) {
+        final ${myExtendedObjectClassName} myEntity = (${myExtendedObjectClassName})entity;
+        final String mapMarkAndStartBrace = MAP_STRING_MAP_MARK + startBrace;
+        final StringBuffer sb = new StringBuffer();
+  #foreach ($columnName in ${database.commonColumnNameList})
+    #set ($filteredColumnName = ${database.filterCommonColumn(${columnName})})
+    #set ($commonColumnMap = ${database.commonColumnMap})
+    #set ($columnType = ${commonColumnMap.get(${columnName})})
+    #set ($javaNative = ${database.convertJavaNativeByJdbcType(${columnType})})
+    #set ($javaName = ${database.convertJavaNameByJdbcNameAsColumn(${filteredColumnName})})
+    #set ($targetColumnName = ${table.findTargetColumnNameByCommonColumnName(${columnName})})
+    #set ($col = $table.getColumnByFlexibleName($columnName))
+    #if ($col.isJavaNativeDateObject())
+
+        sb.append(delimiter).append("${targetColumnName}").append(equal);
+        sb.append((myEntity.get${javaName}() != null ? helpFormatingDate(myEntity.get${javaName}()) : ""));
+    #else
+
+        sb.append(delimiter).append("${targetColumnName}").append(equal);
+        sb.append((myEntity.get${javaName}() != null ? myEntity.get${javaName}().toString() : ""));
+    #end
+  #end
+
+        sb.delete(0, delimiter.length()).insert(0, mapMarkAndStartBrace).append(endBrace);
+        return sb.toString();
+    }
+#else
+
+    public String extractCommonColumnValueMapString(${glEntityInterfaceName} entity) {
+        return "map:{}";
+    }
+
+    public String extractCommonColumnValueMapString(${glEntityInterfaceName} entity, String startBrace, String endBrace, String delimiter, String equal) {
+        return "map:" + startBrace + endBrace;
+    }
+#end
+#end
+
+    // -----------------------------------------------------
+    //                                               Convert
+    //                                               -------
+    public List<Object> convertToColumnValueList(${glEntityInterfaceName} entity) { return newArrayList(convertToColumnValueMap(entity).values()); }
+    public Map<String, Object> convertToColumnValueMap(${glEntityInterfaceName} entity) { return doConvertToColumnValueMap(entity); }
+    public List<String> convertToColumnStringValueList(${glEntityInterfaceName} entity) { return newArrayList(convertToColumnStringValueMap(entity).values()); }
+    public Map<String, String> convertToColumnStringValueMap(${glEntityInterfaceName} entity) { return doConvertToColumnStringValueMap(entity); }
+#if ($database.isMakeDBMetaJDBCSupport())
+
+    // ===================================================================================
+    //                                                                        JDBC Support
+    //                                                                        ============
+    public String getPreparedInsertClause() {
+        return getPreparedInsertClause(new PreparedInsertClauseOption());
+    }
+
+    public String getPreparedInsertClause(PreparedInsertClauseOption preparedInsertClauseOption) {
+        if (preparedInsertClauseOption.getTablePrefix() != null) {
+            final String tablePrefix = preparedInsertClauseOption.getTablePrefix();
+            return "insert into " + tablePrefix + "${table.name}(${table.ColumnNameCommaString}) values(${table.insertClauseValuesAsQuetionMark})";
+        }
+        return "insert into ${table.name}(${table.ColumnNameCommaString}) values(${table.insertClauseValuesAsQuetionMark})";
+    }
+#end
+
+    // ===================================================================================
+    //                                                               Entity Property Setup
+    //                                                               =====================
+    // It's very INTERNAL!
+    protected Map<String, Eps<${myExtendedObjectClassName}>> _epsMap = newHashMap();
+    {
+#foreach ($column in $table.columns)
+        setupEps(_epsMap, new Eps${column.javaName}(), column${column.javaBeansRulePropertyNameInitCap}());
+#end
+    }
+    
+    public boolean hasEntityPropertySetupper(String propertyName) {
+        return _epsMap.containsKey(propertyName);
+    }
+
+    public void setupEntityProperty(String propertyName, Object entity, Object value) {
+        findEps(_epsMap, propertyName).setup((${myExtendedObjectClassName})entity, value);
+    }
+    
+#foreach ($column in $table.columns)
+    public static class Eps${column.javaName} implements Eps<${myExtendedObjectClassName}> {
+        public void setup(${myExtendedObjectClassName} e, Object v) { e.set${column.javaName}((${column.javaNative})v); }
+    }
+#end
+}

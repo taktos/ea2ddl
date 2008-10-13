@@ -1,0 +1,143 @@
+#set ($myClassName = "${glColumnInfoName}")
+
+using System;
+using System.Reflection;
+
+using ${glPackageBaseCommonDBMeta};
+
+namespace ${glPackageBaseCommonDBMetaInfo} {
+
+    public class ${myClassName} {
+
+        // ===============================================================================
+        //                                                                       Attribute
+        //                                                                       =========
+        protected ${glDBMetaInterfaceName} dbmeta;
+        protected String columnDbName;
+        protected String propertyName;
+        protected Type propertyType;
+        protected bool primary;
+        protected int? columnSize;
+        protected int? columnDecimalDigits;
+        protected OptimisticLockType optimisticLockType;
+
+        // ===============================================================================
+        //                                                                     Constructor
+        //                                                                     ===========
+        public ${myClassName}(${glDBMetaInterfaceName} dbmeta, String columnDbName) : this (dbmeta, columnDbName, null, null, false, null, null) {
+        }
+
+        public ${myClassName}(${glDBMetaInterfaceName} dbmeta, String columnDbName, String propertyName, Type propertyType, bool primary, int? columnSize, int? columnDecimalDigits)
+            : this (dbmeta, columnDbName, propertyName, propertyType, primary, columnSize, columnDecimalDigits, OptimisticLockType.NONE) {
+        }
+
+        public ${myClassName}(${glDBMetaInterfaceName} dbmeta, String columnDbName, String propertyName, Type propertyType, bool primary, int? columnSize, int? columnDecimalDigits, OptimisticLockType optimisticLockType) {
+            this.dbmeta = dbmeta;
+            this.columnDbName = columnDbName;
+            this.propertyName = propertyName;
+            this.propertyType = propertyType;
+            this.primary = primary;
+            this.columnSize = columnSize;
+            this.columnDecimalDigits = columnDecimalDigits;
+            this.optimisticLockType = optimisticLockType;
+        }
+
+        // ===============================================================================
+        //                                                                          Finder
+        //                                                                          ======
+        public PropertyInfo FindProperty() {
+            return FindProperty(dbmeta.EntityType, propertyName);
+        }
+
+        // ===============================================================================
+        //                                                                 Internal Helper
+        //                                                                 ===============
+        protected virtual PropertyInfo FindProperty(Type clazz, String name) {
+            return clazz.GetProperty(name);
+        }
+
+        // ===============================================================================
+        //                                                            Optimistic Lock Type
+        //                                                            ====================
+        public bool IsOptimisticLock { get {
+            return IsVersionNo || IsUpdateDate;
+        }}
+
+        public bool IsVersionNo { get {
+            return OptimisticLockType.VERSION_NO == optimisticLockType;
+        }}
+
+        public bool IsUpdateDate { get {
+            return OptimisticLockType.UPDATE_DATE == optimisticLockType;
+        }}
+
+        // ===============================================================================
+        //                                                                  Basic Override
+        //                                                                  ==============
+        public override int GetHashCode() {
+            return dbmeta.GetHashCode() + columnDbName.GetHashCode();
+        }
+
+        public override bool Equals(Object obj) {
+            if (!(obj is ${myClassName})) {
+                return false;
+            }
+            ${myClassName} target = (${myClassName})obj;
+            if (dbmeta == null || target.DBMeta == null) {
+                return false;
+            }
+            if (!dbmeta.Equals(target.DBMeta)) {
+                return false;
+            }
+            if (columnDbName == null || target.ColumnDbName == null) {
+                return false;
+            }
+            if (!columnDbName.Equals(target.ColumnDbName)) {
+                return false;
+            }
+            return true;
+        }
+
+        public override String ToString() {
+            return dbmeta.TableDbName + "." + columnDbName;
+        }
+
+        // ===============================================================================
+        //                                                                        Accessor
+        //                                                                        ========
+        public ${glDBMetaInterfaceName} DBMeta {
+            get { return dbmeta; }
+            set { dbmeta = value; }
+        }
+
+        public String ColumnDbName {
+            get { return columnDbName; }
+            set { columnDbName = value; }
+        }
+
+        public String PropertyName {
+            get { return propertyName; }
+            set { propertyName = value; }
+        }
+
+        public Type PropertyType {
+            get { return propertyType; }
+            set { propertyType = value; }
+        }
+
+        public bool IsPrimary {
+            get { return primary; }
+            set { primary = value; }
+        }
+
+        public int? ColumnSize {
+            get { return columnSize; }
+            set { columnSize = value; }
+        }
+
+        public int? ColumnDecimalDigits {
+            get { return columnDecimalDigits; }
+            set { columnDecimalDigits = value; }
+        }
+    }
+}

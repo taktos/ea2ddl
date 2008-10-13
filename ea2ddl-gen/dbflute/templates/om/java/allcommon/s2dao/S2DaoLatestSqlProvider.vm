@@ -1,0 +1,33 @@
+${database.allClassCopyright}package ${glPackageBaseCommonS2Dao};
+
+import ${glPackageBaseCommonJdbc}.${glLatestSqlProviderName};
+import ${glPackageBaseCommonS2DaoInternalSqlLog}.${glInternalSqlLogRegistry};
+
+/**
+ * The provider of latest SQL as S2Dao. <br />
+ * This instance should be singleton. <br />
+ * 
+ * @author ${database.ClassAuthor}
+ */
+public class ${glDaoLatestSqlProvider} implements ${glLatestSqlProviderName} {
+
+    /**
+     * The implementation.
+     * 
+     * @return Display SQL. (Nullable: If it was not found, returns null.)
+     */
+    public String getDisplaySql() {
+        return getLastCompleteSql();
+    }
+
+    protected String getLastCompleteSql() {
+        try {
+            return ${glInternalSqlLogRegistry}.peekCompleteSql();
+        } catch (RuntimeException ignored) {
+            return null;
+        }
+    }
+	
+	public void clearSqlCache() {
+	}
+}

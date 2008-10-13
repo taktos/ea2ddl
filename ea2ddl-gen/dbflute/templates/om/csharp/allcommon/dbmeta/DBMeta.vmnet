@@ -1,0 +1,122 @@
+#set ($myClassName = "${glDBMetaInterfaceName}")
+
+using System;
+
+using ${glPackageBaseCommon};
+using ${glPackageBaseCommonCBean};
+using ${glPackageBaseCommonDBMetaInfo};
+using ${glPackageBaseCommonJavaLike};
+
+namespace ${glPackageBaseCommonDBMeta} {
+
+    public interface ${myClassName} {
+
+        // ===============================================================================
+        //                                                                      Table Name
+        //                                                                      ==========
+        String TableDbName { get; }
+        String TablePropertyName { get; }
+        String TableSqlName { get; }
+
+        // ===============================================================================
+        //                                                                   Name Handling
+        //                                                                   =============
+        bool HasFlexibleName(String flexibleName);
+        String FindDbName(String flexibleName);
+        String FindPropertyName(String flexibleName);
+
+        // ===============================================================================
+        //                                                                        Name Map
+        //                                                                        ========
+        Map<String, String> DbNamePropertyNameKeyToLowerMap { get; }
+        Map<String, String> PropertyNameDbNameKeyToLowerMap { get; }
+
+        // ===============================================================================
+        //                                                                       Type Name
+        //                                                                       =========
+        String EntityTypeName { get; }
+        String DaoTypeName { get; }
+        String ConditionBeanTypeName { get; }
+        String BehaviorTypeName { get; }
+
+        // ===============================================================================
+        //                                                                     Object Type
+        //                                                                     ===========
+        Type EntityType { get; }
+
+        // ===============================================================================
+        //                                                                 Object Instance
+        //                                                                 ===============
+        ${glEntityInterfaceName} NewEntity();
+        ${glConditionBeanInterfaceName} NewConditionBean();
+
+        // ===============================================================================
+        //                                                                     Column Info
+        //                                                                     ===========
+        List<${glColumnInfoName}> ColumnInfoList { get; }
+        bool HasColumn(String columnFlexibleName);
+        ${glColumnInfoName} FindColumnInfo(String columnFlexibleName);
+
+        // ===============================================================================
+        //                                                                     Unique Info
+        //                                                                     ===========
+        ${glUniqueInfoName} PrimaryUniqueInfo { get; }
+        bool HasPrimaryKey { get; }
+        bool HasTwoOrMorePrimaryKeys { get; }
+
+        // ===============================================================================
+        //                                                                   Relation Info
+        //                                                                   =============
+        // -------------------------------------------------
+        //                                  Relation Element
+        //                                  ----------------
+        ${glRelationInfoName} FindRelationInfo(String relationPropertyName);
+
+        // -------------------------------------------------
+        //                                   Foreign Element
+        //                                   ---------------
+        bool HasForeign(String foreignPropName);
+        ${myClassName} FindForeignDBMeta(String foreignPropName);
+        ${glForeignInfoName} FindForeignInfo(String foreignPropName);
+
+        // -------------------------------------------------
+        //                                  Referrer Element
+        //                                  ----------------
+        bool HasReferrer(String referrerPropertyName);
+        ${myClassName} FindReferrerDBMeta(String referrerPropertyName);
+        ${glReferrerInfoName} FindReferrerInfo(String referrerPropertyName);
+
+        // ===============================================================================
+        //                                                                   Sequence Info
+        //                                                                   =============
+        bool HasSequence { get; }
+        String SequenceNextValSql { get; }
+
+        // ===============================================================================
+        //                                                            Optimistic Lock Info
+        //                                                            ====================
+        bool HasVersionNo { get; }
+        ${glColumnInfoName} VersionNoColumnInfo { get; }
+        bool HasUpdateDate { get; }
+        ${glColumnInfoName} UpdateDateColumnInfo { get; }
+
+        // ===============================================================================
+        //                                                              Common Column Info
+        //                                                              ==================
+        bool HasCommonColumn { get; }
+
+        // ===============================================================================
+        //                                                           Entity Property Setup
+        //                                                           =====================
+		bool HasEntityPropertySetupper(String propertyName);
+        void SetupEntityProperty(String propertyName, Object entity, Object value);
+    }
+
+    public interface EntityPropertySetupper<ENTITY> where ENTITY : ${glEntityInterfaceName} {
+        void Setup(ENTITY entity, Object value);
+    }
+
+    public enum OptimisticLockType {
+        NONE, VERSION_NO, UPDATE_DATE
+    }
+}

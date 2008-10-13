@@ -1,0 +1,23 @@
+# /---------------------------------------------------------------------------
+# [Database Information]
+#   databaseInfoMap: 
+#     driver   -- The class name of JDBC-Driver.
+#     url      -- The url for connecting database.
+#     schema   -- The schema name.
+#     user     -- The database user name.
+#     password -- The database password.
+#
+# @FirstProperty
+map:{
+	; driver		= sun.jdbc.odbc.JdbcOdbcDriver
+	; url			= jdbc:odbc:simpledb
+	; schema		=
+	; user			=
+	; password		=
+	; propertiesMap	= map:{charSet=MS932}
+	; variousMap	= map:{
+		; columnExceptList=list:{ABSTRACT;CONST;DEFAULT;PACKAGE;PROTECTED;PRIVATE;SYNCHRONIZED;THROWS}
+		; objectTypeTargetList=list:{TABLE;}
+	}
+}
+# ----------------/

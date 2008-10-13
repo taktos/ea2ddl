@@ -1,0 +1,80 @@
+
+using System;
+using System.Collections.Generic;
+
+using ${glPackageBaseCommon};
+using ${glPackageBaseCommonCBean};
+using ${glPackageBaseCommonDBMeta};
+
+namespace ${glPackageBaseCommonBhv} {
+
+    public interface ${glBehaviorReadableInterfaceName} {
+
+        // ===============================================================================
+        //                                                                Initialized Mark
+        //                                                                ================
+        bool IsInitialized { get; }
+
+        // ===============================================================================
+        //                                                                      Table Name
+        //                                                                      ==========
+        String TableDbName { get; }
+
+        // ===============================================================================
+        //                                                                          DBMeta
+        //                                                                          ======
+        ${glDBMetaInterfaceName} DBMeta { get; }
+
+        // ===============================================================================
+        //                                                                    New Instance
+        //                                                                    ============
+        ${glEntityInterfaceName} NewEntity();
+        ${glConditionBeanInterfaceName} NewConditionBean();
+
+        // ===============================================================================
+        //                                                                   Basic Get All
+        //                                                                   =============
+        int GetCountAll();
+
+        // ===============================================================================
+        //                                                                    Basic Select
+        //                                                                    ============
+        /// <summary>
+        /// Read count.
+        /// </summary>
+        /// <param name="cb">Condition-bean. (NotNull)</param>
+        /// <returns>Read count.</returns>
+        int ReadCount(${glConditionBeanInterfaceName} cb);
+
+        /// <summary>
+        /// Read entity.
+        /// </summary>
+        /// <param name="cb">Condition-bean. (NotNull)</param>
+        /// <returns>Read entity. (Nullable)</returns>
+        /// <exception cref="${glPackageBaseCommonException}.${glEntityDuplicatedException}">When the entity has been duplicated.</exception>
+        ${glEntityInterfaceName} ReadEntity(${glConditionBeanInterfaceName} cb);
+
+        /// <summary>
+        /// Read entity with deleted check.
+        /// </summary>
+        /// <param name="cb">Condition-bean. (NotNull)</param>
+        /// <returns>Read entity. (NotNull)</returns>
+        /// <exception cref="${glPackageBaseCommonException}.${glEntityAlreadyDeletedException}">When the entity has been deleted by other thread.</exception>
+        /// <exception cref="${glPackageBaseCommonException}.${glEntityDuplicatedException}">When the entity has been duplicated.</exception>
+        ${glEntityInterfaceName} ReadEntityWithDeletedCheck(${glConditionBeanInterfaceName} cb);
+
+        /// <summary>
+        /// Read list.
+        /// </summary>
+        /// <param name="cb">Condition-bean. (NotNull)</param>
+        /// <returns>Read list. (NotNull)</returns>
+        ${glListResultBeanName}<${glEntityInterfaceName}> ReadList(${glConditionBeanInterfaceName} cb);
+
+        /// <summary>
+        /// Read page.
+        /// </summary>
+        /// <param name="cb">Condition-bean. (NotNull)</param>
+        /// <returns>Read page. (NotNull)</returns>
+        ${glPagingResultBeanName}<${glEntityInterfaceName}> ReadPage(${glConditionBeanInterfaceName} cb);
+    }
+}

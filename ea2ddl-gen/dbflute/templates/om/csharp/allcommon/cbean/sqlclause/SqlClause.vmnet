@@ -1,0 +1,210 @@
+#set ($myClassName = "${glSqlClauseInterfaceName}")
+
+using System;
+using System.Collections;
+using ${glPackageBaseCommonCKey};
+using ${glPackageBaseCommonCValue};
+using ${glPackageBaseCommonCOption};
+using ${glPackageBaseCommonJavaLike};
+
+namespace ${glPackageBaseCommonSqlClause} {
+
+// JavaLike
+public interface ${glSqlClauseInterfaceName} {
+
+    // =====================================================================================
+    //                                                                                Clause
+    //                                                                                ======
+    String getClause();
+	String getClausePKOnly();
+    String getClauseFromWhereWithUnionTemplate();
+    String getClauseFromWhereWithWhereUnionTemplate();
+
+    // =====================================================================================
+    //                                                                          Clause Parts
+    //                                                                          ============
+	String getSelectClause();
+	String getSelectClausePKOnly();
+    String getSelectHint();
+    String getIncludedSelectColumnClause();
+    String getFromClause();
+    String getFromBaseTableHint();
+    String getFromHint();
+    String getWhereClause();
+    String getOrderByClause();
+    String getSqlSuffix();
+
+    // ===================================================================================
+    //                                                                          Copy Parts
+    //                                                                          ==========
+    void copyIncludedSelectColumn(${glSqlClauseInterfaceName} sqlClause);
+
+	// ===================================================================================
+    //                                                                SelectedSelectColumn
+    //                                                                ====================
+    void registerSelectedSelectColumn(String foreignTableAliasName
+			                               , String localTableName
+										   , String foreignPropertyName
+										   , String localRelationPath);
+	
+    // ===================================================================================
+    //                                                                IncludedSelectColumn
+    //                                                                ====================
+    void ignoreIncludedSelectColumn();
+    void makeIncludedSelectColumnEffective();
+    void registerIncludedSelectColumn(String aliasName, String realColumnName);
+
+    // ===================================================================================
+    //                                                                           OuterJoin
+    //                                                                           =========
+    void registerOuterJoin(String joinTableName, String aliasName, Map<String, String> joinOnMap);
+
+    // ===================================================================================
+    //                                                                               Where
+    //                                                                               =====
+    void registerWhereClause(String columnFullName, ${glConditionKeyName} key, ${glConditionValueName} value);
+    void registerWhereClause(String columnFullName, ${glConditionKeyName} key, ${glConditionValueName} value, ${glConditionOptionInterfaceName} option);
+    void registerWhereClause(String clause);
+    void exchangeFirstWhereClauseForLastOne();
+
+    // ===================================================================================
+    //                                                                         InlineWhere
+    //                                                                         ===========
+    void registerBaseTableInlineWhereClause(String columnName, ${glConditionKeyName} key, ${glConditionValueName} value);
+    void registerBaseTableInlineWhereClause(String columnName, ${glConditionKeyName} key, ${glConditionValueName} value, ${glConditionOptionInterfaceName} option);
+    void registerBaseTableInlineWhereClause(String value);
+    void registerOuterJoinInlineWhereClause(String aliasName, String columnName, ${glConditionKeyName} key, ${glConditionValueName} value, bool onClauseInline);
+    void registerOuterJoinInlineWhereClause(String aliasName, String columnName, ${glConditionKeyName} key, ${glConditionValueName} value, ${glConditionOptionInterfaceName} option, bool onClauseInline);
+    void registerOuterJoinInlineWhereClause(String aliasName, String value, bool onClauseInline);
+
+    // ===================================================================================
+    //                                                             AdditionalConditionAsOr
+    //                                                             =======================
+    void makeAdditionalConditionAsOrEffective();
+    void ignoreAdditionalConditionAsOr();
+
+    // ===================================================================================
+    //                                                                             OrderBy
+    //                                                                             =======
+    ${glOrderByClauseName} getSqlComponentOfOrderByClause();
+    ${myClassName} clearOrderBy();
+    ${myClassName} ignoreOrderBy();
+    ${myClassName} makeOrderByEffective();
+	
+    /**
+     * @param orderByProperty Order-by-property. 'aliasName.columnName/aliasName.columnName/...' (NotNull)
+     * @param registeredOrderByProperty Registered-order-by-property. ([table-name].[column-name]) (Nullable)
+     * @param ascOrDesc Is it ascend or descend?
+     */
+    void registerOrderBy(String orderByProperty, String registeredOrderByProperty, bool ascOrDesc);
+	
+    /**
+     * @param orderByProperty Order-by-property. 'aliasName.columnName/aliasName.columnName/...' (NotNull)
+     * @param registeredOrderByProperty Registered-order-by-property. ([table-name].[column-name]) (Nullable)
+     * @param ascOrDesc Is it ascend or descend?
+     */
+    void reverseOrderBy_Or_OverrideOrderBy(String orderByProperty, String registeredOrderByProperty, bool ascOrDesc);
+
+	void addNullsFirstToPreviousOrderBy();
+	void addNullsLastToPreviousOrderBy();
+	
+    // ===================================================================================
+    //                                                                               Union
+    //                                                                               =====
+    void registerUnionQuery(String unionClause, bool unionAll);
+
+    // ===================================================================================
+    //                                                                          FetchScope
+    //                                                                          ==========
+    ${myClassName} fetchFirst(int fetchSize);
+    ${myClassName} fetchScope(int fetchStartIndex, int fetchSize);
+    ${myClassName} fetchPage(int fetchPageNumber);
+    int getFetchStartIndex();
+    int getFetchSize();
+    int getFetchPageNumber();
+    int getPageStartIndex();
+    int getPageEndIndex();
+    bool isFetchScopeEffective();
+    ${myClassName} ignoreFetchScope();
+    ${myClassName} makeFetchScopeEffective();
+    bool isFetchStartIndexSupported();
+    bool isFetchSizeSupported();
+
+    // ===================================================================================
+    //                                                                     Fetch Narrowing
+    //                                                                     ===============
+    bool isFetchNarrowingEffective();
+    int getFetchNarrowingSkipStartIndex();
+    int getFetchNarrowingLoopCount();
+
+    // ===================================================================================
+    //                                                                                Lock
+    //                                                                                ====
+    ${myClassName} lockForUpdate();
+
+    // ===================================================================================
+    //                                                                            Resolver
+    //                                                                            ========
+    String resolveJoinAliasName(String relationPath, int cqNestNo);
+    String resolveNestLevelExpression(String name, int cqNestNo);
+    int resolveRelationNo(String baseTableName, String foreignPropertyName);
+
+	// ===================================================================================
+    //                                                                    Table Alias Info
+    //                                                                    ================
+	String getLocalTableAliasName();
+	String getForeignTableAliasPrefix();
+
+	// ===================================================================================
+    //                                                                       Template Mark
+    //                                                                       =============
+	String getWhereClauseMark();
+	String getWhereFirstConditionMark();
+	String getUnionSelectClauseMark();
+	String getUnionWhereClauseMark();
+	String getUnionWhereFirstConditionMark();
+	
+    // =====================================================================================
+    //                                                            Where Clause Simple Filter
+    //                                                            ==========================
+    // void addWhereClauseSimpleFilter(${glWhereClauseSimpleFilterInterfaceName} whereClauseSimpleFilter);
+	
+    // =====================================================================================
+    //                                                                 Selected Foreign Info
+    //                                                                 =====================
+	bool isSelectedForeignInfoEmpty();
+	bool hasSelectedForeignInfo(String relationPath);
+	void registerSelectedForeignInfo(String relationPath, String foreignPropertyName);
+	
+    // ===================================================================================
+    //                                                                       Format Clause
+    //                                                                       =============
+	bool isFormatClauseEffective();
+    void makeFormatClauseEffective();
+	
+    // ===================================================================================
+    //                                                                    Sub Query Indent
+    //                                                                    ================
+    String resolveSubQueryBeginMark(String subQueryIdentity);
+    String resolveSubQueryEndMark(String subQueryIdentity);
+    String filterSubQueryIndent(String sql);
+
+    // [DBFlute-0.7.4]
+    // ===================================================================================
+    //                                                                       Specification
+    //                                                                       =============
+    void specifySelectColumn(String tableAliasName, String columnName);
+    void specifyDeriveSubQuery(String aliasName, String deriveSubQuery);
+    bool hasSpecifiedDeriveSubQuery(String aliasName);
+    String getSpecifiedColumnNameAsOne();
+    void clearSpecifiedSelectColumn();
+    
+    // [DBFlute-0.7.9]
+    // ===================================================================================
+    //                                                                        Query Update
+    //                                                                        ============
+    String getClauseQueryUpdate(Map<String, String> columnParameterMap);
+    String getClauseQueryDelete();
+}
+
+}

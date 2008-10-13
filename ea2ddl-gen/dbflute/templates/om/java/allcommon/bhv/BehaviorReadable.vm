@@ -1,0 +1,148 @@
+${database.allClassCopyright}package ${glPackageBaseCommonBhv};
+
+import ${glPackageBaseCommon}.${glDaoReadableInterfaceName};
+import ${glPackageBaseCommon}.${glEntityInterfaceName};
+import ${glPackageBaseCommonCBean}.${glConditionBeanInterfaceName};
+import ${glPackageBaseCommonCBean}.${glListResultBeanName};
+import ${glPackageBaseCommonCBean}.${glPagingResultBeanName};
+import ${glPackageBaseCommonDBMeta}.${glDBMetaInterfaceName};
+
+/**
+ * The interface of behavior-readable.
+ * 
+ * @author ${database.ClassAuthor}
+ */
+public interface ${glBehaviorReadableInterfaceName} {
+
+    // ===================================================================================
+    //                                                                          Definition
+    //                                                                          ==========
+    /** Map-string map-mark. */
+    public static final String MAP_STRING_MAP_MARK = "map:";
+
+    /** Map-string list-mark. */
+    public static final String MAP_STRING_LIST_MARK = "list:";
+
+    /** Map-string start-brace. */
+    public static final String MAP_STRING_START_BRACE = "${database.extractAcceptStartBrace}";
+
+    /** Map-string end-brace. */
+    public static final String MAP_STRING_END_BRACE = "${database.extractAcceptEndBrace}";
+
+    /** Map-string delimiter. */
+    public static final String MAP_STRING_DELIMITER = "${database.extractAcceptDelimiter}";
+
+    /** Map-string equal. */
+    public static final String MAP_STRING_EQUAL = "${database.extractAcceptEqual}";
+
+    // ===================================================================================
+    //                                                                          Table name
+    //                                                                          ==========
+    /**
+     * Get table db-name.
+     * @return Table db-name. (NotNull)
+     */
+    public String getTableDbName();
+
+    // ===================================================================================
+    //                                                                              DBMeta
+    //                                                                              ======
+    /**
+     * Get dbmeta.
+     * @return DBMeta. (NotNull)
+     */
+    public ${glDBMetaInterfaceName} getDBMeta();
+
+    // ===================================================================================
+    //                                                                        Dao Accessor
+    //                                                                        ============
+    /**
+     * Get dao-readable.
+     * @return Dao-readable. (NotNull)
+     */
+    public ${glDaoReadableInterfaceName} getDaoReadable();
+
+    // ===================================================================================
+    //                                                                        New Instance
+    //                                                                        ============
+    /**
+     * New entity.
+     * @return Entity. (NotNull)
+     */
+    public ${glEntityInterfaceName} newEntity();
+
+    /**
+     * New condition-bean.
+     * @return Condition-bean. (NotNull)
+     */
+    public ${glConditionBeanInterfaceName} newConditionBean();
+
+    // ===================================================================================
+    //                                                                       Basic Get All
+    //                                                                       =============
+    /**
+     * Get count all.
+     * @return Count all.
+     */
+    public int getCountAll();
+
+    // ===================================================================================
+    //                                                                    Basic Read Count
+    //                                                                    ================
+    /**
+     * Read count by condition-bean.
+     * <pre>
+     * If the argument 'condition-bean' is effective about fetch-scope,
+     * this method invoke select count ignoring the fetch-scope.
+     * </pre>
+     * @param cb Condition-bean. This condition-bean should not be set up about fetch-scope. (NotNull)
+     * @return Read count. (NotNull)
+     */
+    public int readCount(${glConditionBeanInterfaceName} cb);
+
+    // ===================================================================================
+    //                                                                   Basic Read Entity
+    //                                                                   =================
+    /**
+     * Read entity by condition-bean.
+     * @param cb Condition-bean. (NotNull)
+     * @return Read entity. (Nullalble)
+     * @exception ${glPackageBaseCommonException}.${glEntityDuplicatedException} When the entity has been duplicated.
+     */
+    public ${glEntityInterfaceName} readEntity(${glConditionBeanInterfaceName} cb);
+
+    /**
+     * Read simple entity by condition-bean with deleted check.
+     * @param ${glAttachedCBArgsVariableName} Condition-bean. (NotNull)
+     * @return Read entity. (NotNull)
+     * @exception ${glPackageBaseCommonException}.${glEntityAlreadyDeletedException} When the entity has already been deleted.
+     * @exception ${glPackageBaseCommonException}.${glEntityDuplicatedException} When the entity has been duplicated.
+     */
+    public ${glEntityInterfaceName} readEntityWithDeletedCheck(${glConditionBeanInterfaceName} ${glAttachedCBArgsVariableName});
+
+    // ===================================================================================
+    //                                                                     Basic Read List
+    //                                                                     ===============
+    /**
+     * Read list as result-bean.
+     * @param ${glAttachedCBArgsVariableName} Condition-bean. (NotNull)
+     * @return List-result-bean. If the select result is zero, it returns empty list. (NotNull)
+     */
+    public ${glListResultBeanName}${database.filterGenericsString(${glEntityInterfaceName})} readList(${glConditionBeanInterfaceName} ${glAttachedCBArgsVariableName});
+
+    /**
+     * Read page as result-bean.
+     * @param ${glAttachedCBArgsVariableName} Condition-bean. (NotNull)
+     * @return Read page. (NotNull)
+     */
+    public ${glPagingResultBeanName}${database.filterGenericsString(${glEntityInterfaceName})} readPage(final ${glConditionBeanInterfaceName} ${glAttachedCBArgsVariableName});
+
+    // ===================================================================================
+    //                                                                            Sequence
+    //                                                                            ========
+    /**
+     * ${database.ImplementComment}
+     * @return The value of sequence. (NotNull)
+     */
+    public ${database.sequenceReturnType} readNextVal();
+}

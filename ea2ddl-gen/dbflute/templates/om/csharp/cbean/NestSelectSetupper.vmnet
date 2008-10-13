@@ -1,0 +1,67 @@
+#set ($myClassName = "${myNestSelectSetupperClassName}")
+
+using System;
+using ${glPackageCQ};
+
+namespace ${glPackageNss} {
+
+    public class ${myClassName} {
+
+        // ===============================================================================
+        //                                                                       Attribute
+        //                                                                       =========
+        protected ${myConditionQueryClassName} _query;
+
+        // ===============================================================================
+        //                                                                     Constructor
+        //                                                                     ===========
+        public ${myClassName}(${myConditionQueryClassName} query) {
+            _query = query;
+        }
+
+        // ===============================================================================
+        //                                                                    Setup Select
+        //                                                                    ============
+#foreach ($foreignKeys in $table.foreignKeys)
+#set ($tmpPropertyName = "${foreignKeys.foreignPropertyNameInitCap}")
+#set ($tmpPropertyNameInitCap = "${foreignKeys.foreignPropertyNameInitCap}")
+        public ${foreignKeys.foreignTableNestSelectSetupperClassName} With${tmpPropertyNameInitCap}() {
+            AssertConditionQuery();
+            String foreignTableAliasName = _query.Query${tmpPropertyNameInitCap}().getRealAliasName();
+            String localRelationPath = _query.getRelationPath();
+            _query.getSqlClause().registerSelectedSelectColumn(foreignTableAliasName, "${table.name}", "${tmpPropertyName}", localRelationPath);
+            _query.getSqlClause().registerSelectedForeignInfo(_query.Query${tmpPropertyNameInitCap}().getRelationPath(), "${tmpPropertyName}");
+            return new ${foreignKeys.foreignTableNestSelectSetupperClassName}(_query.Query${tmpPropertyNameInitCap}());
+        }
+
+#end
+#foreach ($referrer in $table.referrers)
+#if (${referrer.isOneToOne()})
+#set ($tmpPropertyName = "${referrer.ReffererPropertyNameInitCapAsOne}")
+#set ($tmpPropertyNameInitCap = "${referrer.ReffererPropertyNameInitCapAsOne}")
+        public ${referrer.referrerTableNestSelectSetupperClassName} With${tmpPropertyNameInitCap}() {
+            AssertConditionQuery();
+            String foreignTableAliasName = _query.Query${tmpPropertyNameInitCap}().getRealAliasName();
+            String localRelationPath = _query.getRelationPath();
+            _query.getSqlClause().registerSelectedSelectColumn(foreignTableAliasName, "${table.name}", "${tmpPropertyName}", localRelationPath);
+            _query.getSqlClause().registerSelectedForeignInfo(_query.Query${tmpPropertyNameInitCap}().getRelationPath(), "${tmpPropertyName}");
+            return new ${referrer.referrerTableNestSelectSetupperClassName}(_query.Query${tmpPropertyNameInitCap}());
+        }
+
+#end
+#end
+        // ===============================================================================
+        //                                                                          Helper
+        //                                                                          ======
+        protected void AssertConditionQuery() {
+            if (!this.HasConditionQuery) { String msg = "The query should not be null."; throw new SystemException(msg); }
+        }
+
+        // ===============================================================================
+        //                                                                        Accessor
+        //                                                                        ========
+        public bool HasConditionQuery {
+            get { return _query != null; }
+        }
+    }
+}

@@ -1,0 +1,213 @@
+${database.allClassCopyright}package ${glPackageBaseCommonCBeanOutsidesqlExecutor};
+
+import java.util.List;
+
+import ${glPackageBaseCommonCBeanOutsidesql}.${glOutsideSqlDaoName};
+import ${glPackageBaseCommonCBeanOutsidesql}.${glOutsideSqlOptionName};
+import ${glPackageBaseCommonCBeanOutsidesql}.${glProcedurePmbName};
+import ${glPackageBaseCommonJdbc}.${glStatementConfig};
+
+/**
+ * The executor of outside-sql. <br />
+ * <pre>
+ * {Basic}
+ *   o selectList()
+ *   o execute()
+ *   o call()
+ * 
+ * {Entity}
+ *   o entityHandling().selectEntity()
+ *   o entityHandling().selectEntityWithDeletedCheck()
+ * 
+ * {Cursor}
+ *   o cursorHandling().selectCursor()
+ * 
+ * {Paging}
+ *   o autoPaging().selectList()
+ *   o autoPaging().selectPage()
+ *   o manualPaging().selectList()
+ *   o manualPaging().selectPage()
+ * 
+ * {Option -- Dynamic}
+ *   o dynamicBinding().selectList()
+ * 
+ * </pre>
+ * 
+ * @author ${database.ClassAuthor}
+ */
+public class ${glOutsideSqlBasicExecutorName} {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    /** The DAO of outside-sql. (NotNull) */
+    protected final ${glOutsideSqlDaoName} _outsideSqlDao;
+
+    /** Table DB name. (NotNull) */
+    protected final String _tableDbName;
+
+    /** Is it dynamic binding? */
+    protected boolean _dynamicBinding;
+	
+	/** The config of statement. (Nullable) */
+	protected ${glStatementConfig} _statementConfig;
+
+    // ===================================================================================
+    //                                                                         Constructor
+    //                                                                         ===========
+    public ${glOutsideSqlBasicExecutorName}(${glOutsideSqlDaoName} outsideSqlDao, String tableDbName) {
+        this._outsideSqlDao = outsideSqlDao;
+        this._tableDbName = tableDbName;
+    }
+
+    // ===================================================================================
+    //                                                                              Select
+    //                                                                              ======
+    /**
+     * Select the list of the entity.
+     * @param <ENTITY> The type of entity for element.
+     * @param path The path of SQL file. (NotNull)
+     * @param pmb The parameter-bean. Allowed types are Bean object and Map object. (Nullable)
+     * @param entityType The element type of entity. (NotNull)
+     * @return The list of selected entity. (NotNull)
+     * @exception ${glPackageBaseCommonException}.${glOutsideSqlNotFoundException} When the sql is not found.
+     */
+    public <ENTITY> List<ENTITY> selectList(String path, Object pmb, Class<ENTITY> entityType) {
+        return _outsideSqlDao.selectList(path, pmb, createOutsideSqlOption(), entityType);
+    }
+
+    // ===================================================================================
+    //                                                                             Execute
+    //                                                                             =======
+    /**
+     * Execute. {Insert/Update/Delete/Etc...}
+     * @param path The path of SQL file. (NotNull)
+     * @param pmb The parameter-bean. Allowed types are Bean object and Map object. (Nullable)
+     * @return The count of execution.
+     * @exception ${glPackageBaseCommonException}.${glOutsideSqlNotFoundException} When the sql is not found.
+     */
+    public int execute(String path, Object pmb) {
+        return _outsideSqlDao.execute(path, pmb, createOutsideSqlOption());
+    }
+
+    // [DBFlute-0.7.5]
+    // ===================================================================================
+    //                                                                      Procedure Call
+    //                                                                      ==============
+    /**
+     * Call stored procedure.
+     * @param pmb The parameter-bean for procedure. (NotNull)
+     */
+    public void call(${glProcedurePmbName} pmb) {
+        if (pmb == null) { throw new IllegalArgumentException("The argument of call() 'pmb' should not be null!"); }
+        _outsideSqlDao.call(pmb.getProcedureName(), pmb, createOutsideSqlOption());
+    }
+
+    // ===================================================================================
+    //                                                                              Option
+    //                                                                              ======
+    // -----------------------------------------------------
+    //                                       Result Handling
+    //                                       ---------------
+    /**
+     * Specify cursor handling. <br />
+     * <pre>
+     * # ex) Your Program
+     * #
+     * # executor.cursorHandling().selectCursor(path, pmb, handler);
+     * #
+     * </pre>
+     * @return The cursor executor of outside-sql. (NotNull)
+     */
+    public ${glOutsideSqlCursorExecutorName}<Object> cursorHandling() {
+        return new ${glOutsideSqlCursorExecutorName}<Object>(_outsideSqlDao, createOutsideSqlOption());
+    }
+
+    /**
+     * Specify entity handling. <br />
+     * <pre>
+     * # ex) Your Program
+     * #
+     * # executor.entityHandling().selectEntityWithDeletedCheck(path, pmb, Xxx.class);
+     * #
+     * </pre>
+     * @return The cursor executor of outside-sql. (NotNull)
+     */
+    public ${glOutsideSqlEntityExecutorName}<Object> entityHandling() {
+        return new ${glOutsideSqlEntityExecutorName}<Object>(_outsideSqlDao, createOutsideSqlOption());
+    }
+
+    // -----------------------------------------------------
+    //                                                Paging
+    //                                                ------
+    /**
+     * Option of autoPaging. <br />
+     * If you invoke this, you don't need to write paging condition on your SQL. <br />
+     * <pre>
+     * # ex) Your SQL {MySQL}
+     * #
+     * # select member.MEMBER_ID, member...
+     * #   from Member member
+     * #  where ...
+     * #  order by ...
+     * # -- limit 40, 20        *Here is unnecessary!
+     * #
+     * </pre>
+     * @return The executor of paging that the paging mode is auto. (NotNull)
+     */
+    public ${glOutsideSqlPagingExecutorName} autoPaging() {
+        final ${glOutsideSqlOptionName} option = createOutsideSqlOption();
+        option.autoPaging();
+        return new ${glOutsideSqlPagingExecutorName}(_outsideSqlDao, option, _tableDbName);
+    }
+
+    /**
+     * Option of manualPaging. <br />
+     * If you invoke this, you need to write paging condition on your SQL. <br />
+     * <pre>
+     * # ex) Your SQL {MySQL}
+     * #
+     * # select member.MEMBER_ID, member...
+     * #   from Member member
+     * #  where ...
+     * #  order by ...
+     * #  limit 40, 20        *Here is necessary!
+     * #
+     * </pre>
+     * @return The executor of paging that the paging mode is manual. (NotNull)
+     */
+    public ${glOutsideSqlPagingExecutorName} manualPaging() {
+        final ${glOutsideSqlOptionName} option = createOutsideSqlOption();
+        option.manualPaging();
+        return new ${glOutsideSqlPagingExecutorName}(_outsideSqlDao, option, _tableDbName);
+    }
+
+    // -----------------------------------------------------
+    //                                       Dynamic Binding
+    //                                       ---------------
+    public ${glOutsideSqlBasicExecutorName} dynamicBinding() {
+        _dynamicBinding = true;
+        return this;
+    }
+
+    // -----------------------------------------------------
+    //                                      Statement Config
+    //                                      ----------------
+    public ${glOutsideSqlBasicExecutorName} configure(${glStatementConfig} statementConfig) {
+        _statementConfig = statementConfig;
+        return this;
+    }
+	
+    // ===================================================================================
+    //                                                                       Assist Helper
+    //                                                                       =============
+    protected ${glOutsideSqlOptionName} createOutsideSqlOption() {
+        final ${glOutsideSqlOptionName} option = new ${glOutsideSqlOptionName}();
+		option.setStatementConfig(_statementConfig);
+        if (_dynamicBinding) {
+            option.dynamicBinding();
+        }
+		option.setTableDbName(_tableDbName);// as information
+        return option;
+    }
+}

@@ -1,0 +1,85 @@
+#set ( $database = $dataModel.database )
+${database.initializeClassificationDeployment()}
+
+<html>
+<head>
+  <title>$dataModel.name</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+  .normalFont {
+    $docHtmlNormalFont
+  }
+  </style>
+</head>
+
+<body class="normalFont">
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr bgcolor="#CCCCCC">
+      <th class="normalFont">Table Name</th>
+      <th class="normalFont">Entity Name</th>
+      <th class="normalFont">Foreign Table</th>
+      <th class="normalFont">Referrer Table</th>
+      <th class="normalFont">Comment</th>
+    </tr>
+#foreach ($tbl in $database.tables)
+    <tr>
+      <td class="normalFont"><a href="#$tbl.Name">$tbl.Name</a></td>
+      <td class="normalFont">$tbl.javaName</td>
+      <td class="normalFont">$tbl.foreignTableNameCommaStringWithHtmlHref</td>
+      <td class="normalFont">$tbl.referrerTableNameCommaStringWithHtmlHref</td>
+      <td class="normalFont">#if ($tbl.hasComment()) ${tbl.comment}#else &nbsp;#end</td>
+    </tr>
+#end
+  </table>
+
+#foreach ($tbl in $database.tables)
+$generator.parse("doc/html/table.vm", null, "table", $tbl)
+#end
+
+#if ($database.hasClassificationDefinitionMap())
+  <p/>
+  <p/>
+  <h2>Classification Definition</h2>
+  <p/>
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr bgcolor="#CCCCCC">
+      <th class="normalFont">Classification</th>
+      <th class="normalFont">Top Comment</th>
+      <th class="normalFont">Definition</th>
+    </tr>
+#foreach ($classificationName in $database.classificationNameList)
+  #set ($classificationMapList = $database.classificationDefinitionMap.get($classificationName))
+  #set ($existTop = false)
+  #if ($database.classificationTopDefinitionMap.containsKey($classificationName))
+    #set ($classificationTopMap = $database.classificationTopDefinitionMap.get($classificationName))
+    #set ($existTop = true)
+  #else
+    #set ($existTop = false)
+  #end
+
+    <tr>
+      <td class="normalFont">$classificationName</td>
+      <td class="normalFont">#if ($existTop && $classificationTopMap.containsKey('topComment'))$classificationTopMap.get('topComment')#else &nbsp;#end</td>
+      <td class="normalFont">
+	    <table border="1">
+          <tr bgcolor="#EEEEEE">
+            <th class="normalFont">Code</th>
+            <th class="normalFont">Name</th>
+            <th class="normalFont">Comment</th>
+          </tr>
+#foreach ($classificationMap in $classificationMapList)
+          <tr>
+            <td><a name="$classificationName"/>$classificationMap.get('code')</td>
+            <td>${classificationMap.get('name')}</td>
+            <td>#if ($classificationMap.containsKey('comment'))${classificationMap.get('comment')}#else &nbsp;#end</td>
+          </tr>
+#end
+        </table>
+	  </td>
+    </tr>
+#end
+  </table>
+#end
+
+</body>
+</html>

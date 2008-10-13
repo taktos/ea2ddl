@@ -1,0 +1,31 @@
+${database.allClassCopyright}package ${glPackageBaseCommon};
+
+import ${glPackageBaseCommonBhv}.${glBehaviorReadableInterfaceName};
+
+/**
+ * The interface of behavior-selector.
+ * @author ${database.ClassAuthor}
+ */
+public interface ${glBehaviorSelectorInterfaceName} {
+
+    /**
+     * Initialize condition-bean meta data. <br />
+	 * If you call this, Hot Deploy of OutsideSql becomes Cool!
+     */
+    public void initializeConditionBeanMetaData();
+	
+    /**
+     * Select behavior.
+	 * @param <BEHAVIOR> The type of behavior.
+     * @param behaviorType Behavior type. (NotNull)
+     * @return Behavior. (NotNull)
+     */
+    public <BEHAVIOR extends ${glBehaviorReadableInterfaceName}> BEHAVIOR select(Class<BEHAVIOR> behaviorType);
+
+    /**
+     * Select behavior-readable.
+     * @param tableFlexibleName Table flexible-name. (NotNull)
+     * @return Behavior-readable. (NotNull)
+     */
+    public ${glBehaviorReadableInterfaceName} byName(String tableFlexibleName);
+}
