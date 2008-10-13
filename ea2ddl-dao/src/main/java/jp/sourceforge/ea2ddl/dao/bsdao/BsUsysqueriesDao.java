@@ -1,0 +1,19 @@
+package jp.sourceforge.ea2ddl.dao.bsdao;
+
+import java.util.List;
+
+import jp.sourceforge.ea2ddl.dao.exentity.Usysqueries;
+import jp.sourceforge.ea2ddl.dao.cbean.UsysqueriesCB;
+
+/**
+ * The DAO interface of usysQueries.
+ * @author DBFlute(AutoGenerator)
+ */
+public interface BsUsysqueriesDao extends jp.sourceforge.ea2ddl.dao.allcommon.DaoReadable {
+
+    public Class<?> BEAN = Usysqueries.class; // For S2Dao
+
+    public int selectCount(UsysqueriesCB cb);
+    public List<Usysqueries> selectList(UsysqueriesCB cb);
+
+}

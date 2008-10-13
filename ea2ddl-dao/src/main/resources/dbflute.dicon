@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+    "http://www.seasar.org/dtd/components21.dtd">
+
+<components namespace="dbflute">
+	<include path="app-config.dicon"/>
+    <include path="j2ee.dicon"/>
+
+    <!-- S2Dao component. -->
+    <component class="jp.sourceforge.ea2ddl.dao.allcommon.s2dao.S2DaoMetaDataFactoryImpl">
+        <property name="sqlFileEncoding">"UTF-8"</property>
+    </component>
+    <component name="interceptor" class="jp.sourceforge.ea2ddl.dao.allcommon.s2dao.S2DaoInterceptor"/>
+    <component class="org.seasar.dao.impl.AnnotationReaderFactoryImpl"/>
+    <component class="org.seasar.dao.impl.ValueTypeFactoryImpl"/>
+    <component class="jp.sourceforge.ea2ddl.dao.allcommon.s2dao.S2BeanMetaDataFactoryImpl"/>
+    <component class="org.seasar.dao.impl.DaoNamingConventionImpl"/>
+    <component class="org.seasar.dao.impl.NullBeanEnhancer"/>
+    <component class="jp.sourceforge.ea2ddl.dao.allcommon.s2dao.S2DaoMetaDataExtension$ResultSetHandlerFactoryExtension"/>
+    <component class="org.seasar.dao.impl.DtoMetaDataFactoryImpl"/>
+    <component class="jp.sourceforge.ea2ddl.dao.allcommon.s2dao.S2DaoPropertyTypeFactoryBuilderExtension"/>
+    <component class="org.seasar.dao.impl.RelationPropertyTypeFactoryBuilderImpl"/>
+    <component class="org.seasar.dao.impl.DefaultTableNaming"/>
+    <component class="org.seasar.dao.impl.DefaultColumnNaming"/>
+    <component class="org.seasar.dao.impl.ProcedureMetaDataFactoryImpl"/>
+    <component class="jp.sourceforge.ea2ddl.dao.allcommon.s2dao.S2DaoLatestSqlProvider"/>
+	<component name="dbfluteStringClobType" class="org.seasar.extension.jdbc.types.StringClobType" />
+
+    <!-- The selector of behavior. -->
+    <component name="behaviorSelector" class="jp.sourceforge.ea2ddl.dao.allcommon.CacheBehaviorSelector">
+        <destroyMethod name="destroy"/>
+    </component>
+
+    <!-- The selector of DAO. -->
+    <component name="daoSelector" class="jp.sourceforge.ea2ddl.dao.allcommon.CacheDaoSelector">
+        <destroyMethod name="destroy"/>
+    </component>
+
+    <!-- The dao of outsideSql. -->
+    <component class="jp.sourceforge.ea2ddl.dao.allcommon.cbean.outsidesql.OutsideSqlDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+
+
+    <!-- t_attribute -->
+    <component name="tAttributeDao" class="jp.sourceforge.ea2ddl.dao.exdao.TAttributeDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tAttributeBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TAttributeBhv"/>
+
+    <!-- t_attributeconstraints -->
+    <component name="tAttributeconstraintsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TAttributeconstraintsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tAttributeconstraintsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TAttributeconstraintsBhv"/>
+
+    <!-- t_attributetag -->
+    <component name="tAttributetagDao" class="jp.sourceforge.ea2ddl.dao.exdao.TAttributetagDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tAttributetagBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TAttributetagBhv"/>
+
+    <!-- t_authors -->
+    <component name="tAuthorsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TAuthorsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tAuthorsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TAuthorsBhv"/>
+
+    <!-- t_cardinality -->
+    <component name="tCardinalityDao" class="jp.sourceforge.ea2ddl.dao.exdao.TCardinalityDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tCardinalityBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TCardinalityBhv"/>
+
+    <!-- t_category -->
+    <component name="tCategoryDao" class="jp.sourceforge.ea2ddl.dao.exdao.TCategoryDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tCategoryBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TCategoryBhv"/>
+
+    <!-- t_clients -->
+    <component name="tClientsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TClientsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tClientsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TClientsBhv"/>
+
+    <!-- t_complexitytypes -->
+    <component name="tComplexitytypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TComplexitytypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tComplexitytypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TComplexitytypesBhv"/>
+
+    <!-- t_connector -->
+    <component name="tConnectorDao" class="jp.sourceforge.ea2ddl.dao.exdao.TConnectorDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tConnectorBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TConnectorBhv"/>
+
+    <!-- t_connectorconstraint -->
+    <component name="tConnectorconstraintDao" class="jp.sourceforge.ea2ddl.dao.exdao.TConnectorconstraintDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tConnectorconstraintBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TConnectorconstraintBhv"/>
+
+    <!-- t_connectortag -->
+    <component name="tConnectortagDao" class="jp.sourceforge.ea2ddl.dao.exdao.TConnectortagDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tConnectortagBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TConnectortagBhv"/>
+
+    <!-- t_connectortypes -->
+    <component name="tConnectortypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TConnectortypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tConnectortypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TConnectortypesBhv"/>
+
+    <!-- t_constants -->
+    <component name="tConstantsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TConstantsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tConstantsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TConstantsBhv"/>
+
+    <!-- t_constrainttypes -->
+    <component name="tConstrainttypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TConstrainttypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tConstrainttypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TConstrainttypesBhv"/>
+
+    <!-- t_datatypes -->
+    <component name="tDatatypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TDatatypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tDatatypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TDatatypesBhv"/>
+
+    <!-- t_diagram -->
+    <component name="tDiagramDao" class="jp.sourceforge.ea2ddl.dao.exdao.TDiagramDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tDiagramBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TDiagramBhv"/>
+
+    <!-- t_diagramlinks -->
+    <component name="tDiagramlinksDao" class="jp.sourceforge.ea2ddl.dao.exdao.TDiagramlinksDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tDiagramlinksBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TDiagramlinksBhv"/>
+
+    <!-- t_diagramobjects -->
+    <component name="tDiagramobjectsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TDiagramobjectsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tDiagramobjectsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TDiagramobjectsBhv"/>
+
+    <!-- t_diagramtypes -->
+    <component name="tDiagramtypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TDiagramtypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tDiagramtypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TDiagramtypesBhv"/>
+
+    <!-- t_document -->
+    <component name="tDocumentDao" class="jp.sourceforge.ea2ddl.dao.exdao.TDocumentDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tDocumentBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TDocumentBhv"/>
+
+    <!-- t_ecf -->
+    <component name="tEcfDao" class="jp.sourceforge.ea2ddl.dao.exdao.TEcfDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tEcfBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TEcfBhv"/>
+
+    <!-- t_efforttypes -->
+    <component name="tEfforttypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TEfforttypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tEfforttypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TEfforttypesBhv"/>
+
+    <!-- t_files -->
+    <component name="tFilesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TFilesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tFilesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TFilesBhv"/>
+
+    <!-- t_genopt -->
+    <component name="tGenoptDao" class="jp.sourceforge.ea2ddl.dao.exdao.TGenoptDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tGenoptBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TGenoptBhv"/>
+
+    <!-- t_glossary -->
+    <component name="tGlossaryDao" class="jp.sourceforge.ea2ddl.dao.exdao.TGlossaryDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tGlossaryBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TGlossaryBhv"/>
+
+    <!-- t_html -->
+    <component name="tHtmlDao" class="jp.sourceforge.ea2ddl.dao.exdao.THtmlDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tHtmlBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.THtmlBhv"/>
+
+    <!-- t_image -->
+    <component name="tImageDao" class="jp.sourceforge.ea2ddl.dao.exdao.TImageDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tImageBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TImageBhv"/>
+
+    <!-- t_implement -->
+    <component name="tImplementDao" class="jp.sourceforge.ea2ddl.dao.exdao.TImplementDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tImplementBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TImplementBhv"/>
+
+    <!-- t_issues -->
+    <component name="tIssuesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TIssuesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tIssuesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TIssuesBhv"/>
+
+    <!-- t_lists -->
+    <component name="tListsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TListsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tListsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TListsBhv"/>
+
+    <!-- t_mainttypes -->
+    <component name="tMainttypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TMainttypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tMainttypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TMainttypesBhv"/>
+
+    <!-- t_method -->
+    <component name="tMethodDao" class="jp.sourceforge.ea2ddl.dao.exdao.TMethodDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tMethodBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TMethodBhv"/>
+
+    <!-- t_metrictypes -->
+    <component name="tMetrictypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TMetrictypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tMetrictypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TMetrictypesBhv"/>
+
+    <!-- t_object -->
+    <component name="tObjectDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectBhv"/>
+
+    <!-- t_objectconstraint -->
+    <component name="tObjectconstraintDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectconstraintDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectconstraintBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectconstraintBhv"/>
+
+    <!-- t_objecteffort -->
+    <component name="tObjecteffortDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjecteffortDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjecteffortBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjecteffortBhv"/>
+
+    <!-- t_objectfiles -->
+    <component name="tObjectfilesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectfilesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectfilesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectfilesBhv"/>
+
+    <!-- t_objectmetrics -->
+    <component name="tObjectmetricsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectmetricsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectmetricsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectmetricsBhv"/>
+
+    <!-- t_objectproblems -->
+    <component name="tObjectproblemsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectproblemsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectproblemsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectproblemsBhv"/>
+
+    <!-- t_objectproperties -->
+    <component name="tObjectpropertiesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectpropertiesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectpropertiesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectpropertiesBhv"/>
+
+    <!-- t_objectrequires -->
+    <component name="tObjectrequiresDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectrequiresDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectrequiresBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectrequiresBhv"/>
+
+    <!-- t_objectresource -->
+    <component name="tObjectresourceDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectresourceDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectresourceBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectresourceBhv"/>
+
+    <!-- t_objectrisks -->
+    <component name="tObjectrisksDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectrisksDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectrisksBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectrisksBhv"/>
+
+    <!-- t_objectscenarios -->
+    <component name="tObjectscenariosDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjectscenariosDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjectscenariosBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjectscenariosBhv"/>
+
+    <!-- t_objecttests -->
+    <component name="tObjecttestsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjecttestsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjecttestsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjecttestsBhv"/>
+
+    <!-- t_objecttrx -->
+    <component name="tObjecttrxDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjecttrxDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjecttrxBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjecttrxBhv"/>
+
+    <!-- t_objecttypes -->
+    <component name="tObjecttypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TObjecttypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tObjecttypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TObjecttypesBhv"/>
+
+    <!-- t_ocf -->
+    <component name="tOcfDao" class="jp.sourceforge.ea2ddl.dao.exdao.TOcfDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tOcfBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TOcfBhv"/>
+
+    <!-- t_operation -->
+    <component name="tOperationDao" class="jp.sourceforge.ea2ddl.dao.exdao.TOperationDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tOperationBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TOperationBhv"/>
+
+    <!-- t_operationparams -->
+    <component name="tOperationparamsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TOperationparamsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tOperationparamsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TOperationparamsBhv"/>
+
+    <!-- t_operationposts -->
+    <component name="tOperationpostsDao" class="jp.sourceforge.ea2ddl.dao.exdao.TOperationpostsDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tOperationpostsBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TOperationpostsBhv"/>
+
+    <!-- t_operationpres -->
+    <component name="tOperationpresDao" class="jp.sourceforge.ea2ddl.dao.exdao.TOperationpresDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tOperationpresBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TOperationpresBhv"/>
+
+    <!-- t_operationtag -->
+    <component name="tOperationtagDao" class="jp.sourceforge.ea2ddl.dao.exdao.TOperationtagDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tOperationtagBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TOperationtagBhv"/>
+
+    <!-- t_package -->
+    <component name="tPackageDao" class="jp.sourceforge.ea2ddl.dao.exdao.TPackageDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tPackageBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TPackageBhv"/>
+
+    <!-- t_palette -->
+    <component name="tPaletteDao" class="jp.sourceforge.ea2ddl.dao.exdao.TPaletteDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tPaletteBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TPaletteBhv"/>
+
+    <!-- t_paletteitem -->
+    <component name="tPaletteitemDao" class="jp.sourceforge.ea2ddl.dao.exdao.TPaletteitemDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tPaletteitemBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TPaletteitemBhv"/>
+
+    <!-- t_phase -->
+    <component name="tPhaseDao" class="jp.sourceforge.ea2ddl.dao.exdao.TPhaseDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tPhaseBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TPhaseBhv"/>
+
+    <!-- t_primitives -->
+    <component name="tPrimitivesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TPrimitivesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tPrimitivesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TPrimitivesBhv"/>
+
+    <!-- t_problemtypes -->
+    <component name="tProblemtypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TProblemtypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tProblemtypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TProblemtypesBhv"/>
+
+    <!-- t_projectroles -->
+    <component name="tProjectrolesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TProjectrolesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tProjectrolesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TProjectrolesBhv"/>
+
+    <!-- t_propertytypes -->
+    <component name="tPropertytypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TPropertytypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tPropertytypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TPropertytypesBhv"/>
+
+    <!-- t_requiretypes -->
+    <component name="tRequiretypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TRequiretypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tRequiretypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TRequiretypesBhv"/>
+
+    <!-- t_resources -->
+    <component name="tResourcesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TResourcesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tResourcesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TResourcesBhv"/>
+
+    <!-- t_risktypes -->
+    <component name="tRisktypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TRisktypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tRisktypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TRisktypesBhv"/>
+
+    <!-- t_roleconstraint -->
+    <component name="tRoleconstraintDao" class="jp.sourceforge.ea2ddl.dao.exdao.TRoleconstraintDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tRoleconstraintBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TRoleconstraintBhv"/>
+
+    <!-- t_rtf -->
+    <component name="tRtfDao" class="jp.sourceforge.ea2ddl.dao.exdao.TRtfDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tRtfBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TRtfBhv"/>
+
+    <!-- t_rtfreport -->
+    <component name="tRtfreportDao" class="jp.sourceforge.ea2ddl.dao.exdao.TRtfreportDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tRtfreportBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TRtfreportBhv"/>
+
+    <!-- t_rules -->
+    <component name="tRulesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TRulesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tRulesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TRulesBhv"/>
+
+    <!-- t_scenariotypes -->
+    <component name="tScenariotypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TScenariotypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tScenariotypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TScenariotypesBhv"/>
+
+    <!-- t_script -->
+    <component name="tScriptDao" class="jp.sourceforge.ea2ddl.dao.exdao.TScriptDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tScriptBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TScriptBhv"/>
+
+    <!-- t_secgroup -->
+    <component name="tSecgroupDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSecgroupDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSecgroupBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSecgroupBhv"/>
+
+    <!-- t_secgrouppermission -->
+    <component name="tSecgrouppermissionDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSecgrouppermissionDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSecgrouppermissionBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSecgrouppermissionBhv"/>
+
+    <!-- t_seclocks -->
+    <component name="tSeclocksDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSeclocksDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSeclocksBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSeclocksBhv"/>
+
+    <!-- t_secpermission -->
+    <component name="tSecpermissionDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSecpermissionDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSecpermissionBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSecpermissionBhv"/>
+
+    <!-- t_secpolicies -->
+    <component name="tSecpoliciesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSecpoliciesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSecpoliciesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSecpoliciesBhv"/>
+
+    <!-- t_secuser -->
+    <component name="tSecuserDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSecuserDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSecuserBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSecuserBhv"/>
+
+    <!-- t_secusergroup -->
+    <component name="tSecusergroupDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSecusergroupDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSecusergroupBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSecusergroupBhv"/>
+
+    <!-- t_secuserpermission -->
+    <component name="tSecuserpermissionDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSecuserpermissionDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSecuserpermissionBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSecuserpermissionBhv"/>
+
+    <!-- t_snapshot -->
+    <component name="tSnapshotDao" class="jp.sourceforge.ea2ddl.dao.exdao.TSnapshotDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tSnapshotBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TSnapshotBhv"/>
+
+    <!-- t_statustypes -->
+    <component name="tStatustypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TStatustypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tStatustypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TStatustypesBhv"/>
+
+    <!-- t_stereotypes -->
+    <component name="tStereotypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TStereotypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tStereotypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TStereotypesBhv"/>
+
+    <!-- t_taggedvalue -->
+    <component name="tTaggedvalueDao" class="jp.sourceforge.ea2ddl.dao.exdao.TTaggedvalueDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tTaggedvalueBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TTaggedvalueBhv"/>
+
+    <!-- t_tasks -->
+    <component name="tTasksDao" class="jp.sourceforge.ea2ddl.dao.exdao.TTasksDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tTasksBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TTasksBhv"/>
+
+    <!-- t_tcf -->
+    <component name="tTcfDao" class="jp.sourceforge.ea2ddl.dao.exdao.TTcfDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tTcfBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TTcfBhv"/>
+
+    <!-- t_template -->
+    <component name="tTemplateDao" class="jp.sourceforge.ea2ddl.dao.exdao.TTemplateDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tTemplateBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TTemplateBhv"/>
+
+    <!-- t_testclass -->
+    <component name="tTestclassDao" class="jp.sourceforge.ea2ddl.dao.exdao.TTestclassDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tTestclassBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TTestclassBhv"/>
+
+    <!-- t_testplans -->
+    <component name="tTestplansDao" class="jp.sourceforge.ea2ddl.dao.exdao.TTestplansDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tTestplansBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TTestplansBhv"/>
+
+    <!-- t_testtypes -->
+    <component name="tTesttypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TTesttypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tTesttypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TTesttypesBhv"/>
+
+    <!-- t_trxtypes -->
+    <component name="tTrxtypesDao" class="jp.sourceforge.ea2ddl.dao.exdao.TTrxtypesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tTrxtypesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TTrxtypesBhv"/>
+
+    <!-- t_umlpattern -->
+    <component name="tUmlpatternDao" class="jp.sourceforge.ea2ddl.dao.exdao.TUmlpatternDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tUmlpatternBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TUmlpatternBhv"/>
+
+    <!-- t_version -->
+    <component name="tVersionDao" class="jp.sourceforge.ea2ddl.dao.exdao.TVersionDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tVersionBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TVersionBhv"/>
+
+    <!-- t_xref -->
+    <component name="tXrefDao" class="jp.sourceforge.ea2ddl.dao.exdao.TXrefDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tXrefBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TXrefBhv"/>
+
+    <!-- t_xrefsystem -->
+    <component name="tXrefsystemDao" class="jp.sourceforge.ea2ddl.dao.exdao.TXrefsystemDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tXrefsystemBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TXrefsystemBhv"/>
+
+    <!-- t_xrefuser -->
+    <component name="tXrefuserDao" class="jp.sourceforge.ea2ddl.dao.exdao.TXrefuserDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="tXrefuserBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.TXrefuserBhv"/>
+
+    <!-- usys_system -->
+    <component name="usysSystemDao" class="jp.sourceforge.ea2ddl.dao.exdao.UsysSystemDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="usysSystemBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.UsysSystemBhv"/>
+
+    <!-- usysOldTables -->
+    <component name="usysoldtablesDao" class="jp.sourceforge.ea2ddl.dao.exdao.UsysoldtablesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="usysoldtablesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.UsysoldtablesBhv"/>
+
+    <!-- usysQueries -->
+    <component name="usysqueriesDao" class="jp.sourceforge.ea2ddl.dao.exdao.UsysqueriesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="usysqueriesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.UsysqueriesBhv"/>
+
+    <!-- usysTables -->
+    <component name="usystablesDao" class="jp.sourceforge.ea2ddl.dao.exdao.UsystablesDao">
+        <aspect>dbflute.interceptor</aspect>
+    </component>
+    <component name="usystablesBhv" class="jp.sourceforge.ea2ddl.dao.exbhv.UsystablesBhv"/>
+
+</components>
