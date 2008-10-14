@@ -8,7 +8,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.sourceforge.ea2ddl</groupId>
 	<artifactId>ea2ddl-common</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>Enterprise Archetect to DDL</name>
 	<description>Enterprise Archetect to DDL</description>
 	<url>http://ea2ddl.sourceforge.jp/</url>
