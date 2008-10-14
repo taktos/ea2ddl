@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ea2ddl-comment" default="gen-comment" basedir=".">
+
+	<property name="classpathdir" value="target/classes"/>
+
+	<path id="classpath">
+		<pathelement location="${classpathdir}"/>
+		<fileset dir="target/dependency">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<taskdef resource="ea2ddl-comment-task.properties" classpathref="classpath"/>
+
+	<target name="gen-comment">
+		<gen-comment
+			classpathref="classpath"
+			outputDirectory="hoge">
+		</gen-comment>
+	</target>
+</project>
