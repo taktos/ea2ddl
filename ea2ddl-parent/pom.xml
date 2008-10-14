@@ -25,6 +25,7 @@
 	<modules>
 		<module>../ea2ddl-common</module>
 		<module>../ea2ddl-dao</module>
+		<module>../ea2ddl-comment</module>
 	</modules>
 	<repositories>
 		<repository>
@@ -242,6 +243,12 @@
 				<groupId>org.seasar.dbflute</groupId>
 				<artifactId>dbflute</artifactId>
 				<version>0.8.1</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.ant</groupId>
+				<artifactId>ant</artifactId>
+				<version>1.7.1</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
