@@ -10,7 +10,6 @@
 	<groupId>jp.sourceforge.ea2ddl</groupId>
 	<artifactId>ea2ddl-dao</artifactId>
 	<name>ea2ddl-dao</name>
-	<version>0.0.1-SNAPSHOT</version>
 	<url>http://ea2ddl.sourceforge.jp/</url>
 
 	<dependencies>

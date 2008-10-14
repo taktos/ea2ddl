@@ -56,6 +56,7 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     //                                                                          Definition
     //                                                                          ==========
     /*df:BehaviorQueryPathBegin*/
+    public static final String PATH_selectForeignKeys = "selectForeignKeys";
     /*df:BehaviorQueryPathEnd*/
 
     // ===================================================================================
