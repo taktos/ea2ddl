@@ -1,4 +1,4 @@
-<project name="ea2ddl-gen" default="jdbc" basedir=".">
+<project name="dbflute-ea2ddl" default="jdbc" basedir=".">
   <!--
     Note - You should not have to edit this file.
 
