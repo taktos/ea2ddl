@@ -7,6 +7,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ValueLabelSetupper;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
@@ -137,22 +138,22 @@ public abstract class BsTOperationpostsBhv extends jp.sourceforge.ea2ddl.dao.all
     //                                                                         List Select
     //                                                                         ===========
     /**
-     * Select the list as result-bean.
+     * Select the list as result bean.
      * @param cb The condition-bean of TOperationposts. (NotNull)
-     * @return The result-bean of selected list. (NotNull)
+     * @return The result bean of selected list. (NotNull)
      */
     public ListResultBean<TOperationposts> selectList(TOperationpostsCB cb) {
         assertConditionBeanNotNull(cb);
-        return new jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder<TOperationposts>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
+        return new ResultBeanBuilder<TOperationposts>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
     }
 
     // ===================================================================================
     //                                                                         Page Select
     //                                                                         ===========
     /**
-     * Select the page as result-bean.
+     * Select the page as result bean.
      * @param cb The condition-bean of TOperationposts. (NotNull)
-     * @return The result-bean of selected page. (NotNull)
+     * @return The result bean of selected page. (NotNull)
      */
     public PagingResultBean<TOperationposts> selectPage(final TOperationpostsCB cb) {
         assertConditionBeanNotNull(cb);

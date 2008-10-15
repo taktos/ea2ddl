@@ -2,6 +2,8 @@ package jp.sourceforge.ea2ddl.dao.exbhv;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.seasar.framework.container.annotation.tiger.Binding;
+
 import jp.sourceforge.ea2ddl.common.config.Config;
 import jp.sourceforge.ea2ddl.dao.cbean.TPackageCB;
 import jp.sourceforge.ea2ddl.dao.exentity.TPackage;
@@ -16,7 +18,8 @@ import jp.sourceforge.ea2ddl.dao.exentity.TPackage;
  */
 public class TPackageBhv extends jp.sourceforge.ea2ddl.dao.bsbhv.BsTPackageBhv {
 	private Config _config;
-	
+
+	@Binding
 	public void setConfig(Config config) {
 		_config = config;
 	}

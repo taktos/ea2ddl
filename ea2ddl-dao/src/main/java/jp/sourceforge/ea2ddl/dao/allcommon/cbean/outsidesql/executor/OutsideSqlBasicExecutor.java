@@ -2,6 +2,8 @@ package jp.sourceforge.ea2ddl.dao.allcommon.cbean.outsidesql.executor;
 
 import java.util.List;
 
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.outsidesql.OutsideSqlDao;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.outsidesql.OutsideSqlOption;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.outsidesql.ProcedurePmb;
@@ -69,11 +71,12 @@ public class OutsideSqlBasicExecutor {
      * @param path The path of SQL file. (NotNull)
      * @param pmb The parameter-bean. Allowed types are Bean object and Map object. (Nullable)
      * @param entityType The element type of entity. (NotNull)
-     * @return The list of selected entity. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the sql is not found.
+     * @return The result bean of selected list. (NotNull)
+     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the outside-sql is not found.
      */
-    public <ENTITY> List<ENTITY> selectList(String path, Object pmb, Class<ENTITY> entityType) {
-        return _outsideSqlDao.selectList(path, pmb, createOutsideSqlOption(), entityType);
+    public <ENTITY> ListResultBean<ENTITY> selectList(String path, Object pmb, Class<ENTITY> entityType) {
+        List<ENTITY> resultList = _outsideSqlDao.selectList(path, pmb, createOutsideSqlOption(), entityType);
+        return new ResultBeanBuilder<ENTITY>(_tableDbName).buildListResultBean(resultList);
     }
 
     // ===================================================================================
@@ -84,7 +87,7 @@ public class OutsideSqlBasicExecutor {
      * @param path The path of SQL file. (NotNull)
      * @param pmb The parameter-bean. Allowed types are Bean object and Map object. (Nullable)
      * @return The count of execution.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the sql is not found.
+     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the outside-sql is not found.
      */
     public int execute(String path, Object pmb) {
         return _outsideSqlDao.execute(path, pmb, createOutsideSqlOption());

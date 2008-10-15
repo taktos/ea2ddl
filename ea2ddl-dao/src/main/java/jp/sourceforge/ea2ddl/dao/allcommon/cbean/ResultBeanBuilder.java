@@ -3,8 +3,7 @@ package jp.sourceforge.ea2ddl.dao.allcommon.cbean;
 import java.util.List;
 
 /**
- * The list-result-bean for ${myClassName}.
- * 
+ * The builder of result bean.
  * @param <ENTITY> The type of entity.
  * @author DBFlute(AutoGenerator)
  */
@@ -26,24 +25,35 @@ public class ResultBeanBuilder<ENTITY> {
     //                                                                             Builder
     //                                                                             =======
     /**
-     * Build the result bean of list.
-     * 
-     * @param ob The bean of orderBy. (NotNull)
+     * Build the result bean of list without order-by clause. {for Various}
      * @param selectedList Selected list. (NotNull)
      * @return The result bean of list. (NotNull)
      */
-    public ListResultBean<ENTITY> buildListResultBean(ConditionBean ob, List<ENTITY> selectedList) {
+    public ListResultBean<ENTITY> buildListResultBean(List<ENTITY> selectedList) {
         ListResultBean<ENTITY> rb = new ListResultBean<ENTITY>();
         rb.setTableDbName(_tableDbName);
         rb.setAllRecordCount(selectedList.size());
         rb.setSelectedList(selectedList);
-        rb.setOrderByClause(ob.getSqlComponentOfOrderByClause());
         return rb;
     }
 
     /**
-     * Build the result bean of paging.
-     * 
+     * Build the result bean of list. {for CB}
+     * @param cb The condition-bean. (NotNull)
+     * @param selectedList Selected list. (NotNull)
+     * @return The result bean of list. (NotNull)
+     */
+    public ListResultBean<ENTITY> buildListResultBean(ConditionBean cb, List<ENTITY> selectedList) {
+        ListResultBean<ENTITY> rb = new ListResultBean<ENTITY>();
+        rb.setTableDbName(_tableDbName);
+        rb.setAllRecordCount(selectedList.size());
+        rb.setSelectedList(selectedList);
+        rb.setOrderByClause(cb.getSqlComponentOfOrderByClause());
+        return rb;
+    }
+
+    /**
+     * Build the result bean of paging. {for Paging}
      * @param pb The bean of paging. (NotNull)
      * @param allRecordCount All record count.
      * @param selectedList The list of selected entity. (NotNull)

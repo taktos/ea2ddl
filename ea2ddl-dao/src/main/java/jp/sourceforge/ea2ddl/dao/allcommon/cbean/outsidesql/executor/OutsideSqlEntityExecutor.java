@@ -10,7 +10,6 @@ import jp.sourceforge.ea2ddl.dao.allcommon.util.SimpleSystemUtil;
 
 /**
  * The cursor executor of outside-sql.
- * 
  * @param <PARAMETER_BEAN> The type of parameter-bean.
  * @author DBFlute(AutoGenerator)
  */
@@ -36,14 +35,13 @@ public class OutsideSqlEntityExecutor<PARAMETER_BEAN> {
     //                                                                              ======
     /**
      * Select entity.
-     * 
      * @param <ENTITY> The type of entity.
      * @param path The path of SQL file. (NotNull)
      * @param pmb The parameter-bean. Allowed types are Bean object and Map object. (Nullable)
      * @param entityType The type of entity. (NotNull)
      * @return The selected entity. (Nullable)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the sql is not found.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException
+     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the outside-sql is not found.
+     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity is duplicated.
      */
     public <ENTITY> ENTITY selectEntity(String path, PARAMETER_BEAN pmb, Class<ENTITY> entityType) {
         final List<ENTITY> ls = _outsideSqlDao.selectList(path, pmb, _outsideSqlOption, entityType);
@@ -58,13 +56,12 @@ public class OutsideSqlEntityExecutor<PARAMETER_BEAN> {
 
     /**
      * Select entity with deleted check.
-     * 
      * @param <ENTITY> The type of entity.
      * @param path The path of SQL file. (NotNull)
      * @param pmb The parameter-bean. Allowed types are Bean object and Map object. (Nullable)
      * @param entityType The type of entity. (NotNull)
      * @return The selected entity. (Nullable)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the sql is not found.
+     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the outside-sql is not found.
      * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted(not found).
      * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity is duplicated.
      */

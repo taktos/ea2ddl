@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
+import jp.sourceforge.ea2ddl.dao.exdao.pmbean.SelectTablesInPackagePmb;
 import jp.sourceforge.ea2ddl.dao.exentity.TObject;
+import jp.sourceforge.ea2ddl.dao.exentity.TPackage;
 
 /**
  * The behavior of t_object.
@@ -21,5 +23,12 @@ public class TObjectBhv extends jp.sourceforge.ea2ddl.dao.bsbhv.BsTObjectBhv {
 			throw new EntityNotFoundException();
 		}
 		return list.get(0);
+	}
+
+	public List<TObject> selectListByStereotype(TPackage pkg, String stereotype) {
+		final SelectTablesInPackagePmb pmb = new SelectTablesInPackagePmb();
+		pmb.setPackageId(pkg.getPackageId());
+		pmb.setStereotype(stereotype);
+		return outsideSql().selectList(PATH_selectListByStereotype, pmb, TObject.class);
 	}
 }

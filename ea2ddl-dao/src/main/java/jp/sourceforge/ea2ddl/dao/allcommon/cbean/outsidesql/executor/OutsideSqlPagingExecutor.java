@@ -3,6 +3,8 @@ package jp.sourceforge.ea2ddl.dao.allcommon.cbean.outsidesql.executor;
 import java.util.List;
 
 import jp.sourceforge.ea2ddl.dao.allcommon.DBFluteConfig;
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
@@ -41,9 +43,10 @@ public class OutsideSqlPagingExecutor {
     // ===================================================================================
     //                                                                              Select
     //                                                                              ======
-    public <ENTITY> List<ENTITY> selectList(String path, PagingBean pmb, Class<ENTITY> entityType) {
+    public <ENTITY> ListResultBean<ENTITY> selectList(String path, PagingBean pmb, Class<ENTITY> entityType) {
         setupScrollableCursorIfNeeds();
-        return _outsideSqlDao.selectList(path, pmb, _outsideSqlOption, entityType);
+        List<ENTITY> resultList = _outsideSqlDao.selectList(path, pmb, _outsideSqlOption, entityType);
+        return new ResultBeanBuilder<ENTITY>(_tableDbName).buildListResultBean(resultList);
     }
 
     /**
@@ -101,10 +104,11 @@ public class OutsideSqlPagingExecutor {
      * @param pmb The bean of paging parameter. (NotNull)
      * @param entityType The type of result entity. (NotNull)
      * @return The result bean of paging. (NotNull)
+     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the outside-sql is not found.
      */
     public <ENTITY> PagingResultBean<ENTITY> selectPage(final String path
-                                                      , final PagingBean pmb
-                                                      , final Class<ENTITY> entityType) {
+                                                       , final PagingBean pmb
+                                                       , final Class<ENTITY> entityType) {
         final OutsideSqlOption countOption = _outsideSqlOption.copyOptionWithoutPaging();
         final OutsideSqlEntityExecutor<PagingBean> countExecutor = new OutsideSqlEntityExecutor<PagingBean>(_outsideSqlDao, countOption);
         final PagingHandler<ENTITY> handler = new PagingHandler<ENTITY>() {

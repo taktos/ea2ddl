@@ -7,6 +7,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ValueLabelSetupper;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
@@ -137,22 +138,22 @@ public abstract class BsTOcfBhv extends jp.sourceforge.ea2ddl.dao.allcommon.bhv.
     //                                                                         List Select
     //                                                                         ===========
     /**
-     * Select the list as result-bean.
+     * Select the list as result bean.
      * @param cb The condition-bean of TOcf. (NotNull)
-     * @return The result-bean of selected list. (NotNull)
+     * @return The result bean of selected list. (NotNull)
      */
     public ListResultBean<TOcf> selectList(TOcfCB cb) {
         assertConditionBeanNotNull(cb);
-        return new jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder<TOcf>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
+        return new ResultBeanBuilder<TOcf>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
     }
 
     // ===================================================================================
     //                                                                         Page Select
     //                                                                         ===========
     /**
-     * Select the page as result-bean.
+     * Select the page as result bean.
      * @param cb The condition-bean of TOcf. (NotNull)
-     * @return The result-bean of selected page. (NotNull)
+     * @return The result bean of selected page. (NotNull)
      */
     public PagingResultBean<TOcf> selectPage(final TOcfCB cb) {
         assertConditionBeanNotNull(cb);

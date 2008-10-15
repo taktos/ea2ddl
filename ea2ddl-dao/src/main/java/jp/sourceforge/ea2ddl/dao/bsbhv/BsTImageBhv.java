@@ -7,6 +7,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ValueLabelSetupper;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
@@ -137,22 +138,22 @@ public abstract class BsTImageBhv extends jp.sourceforge.ea2ddl.dao.allcommon.bh
     //                                                                         List Select
     //                                                                         ===========
     /**
-     * Select the list as result-bean.
+     * Select the list as result bean.
      * @param cb The condition-bean of TImage. (NotNull)
-     * @return The result-bean of selected list. (NotNull)
+     * @return The result bean of selected list. (NotNull)
      */
     public ListResultBean<TImage> selectList(TImageCB cb) {
         assertConditionBeanNotNull(cb);
-        return new jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder<TImage>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
+        return new ResultBeanBuilder<TImage>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
     }
 
     // ===================================================================================
     //                                                                         Page Select
     //                                                                         ===========
     /**
-     * Select the page as result-bean.
+     * Select the page as result bean.
      * @param cb The condition-bean of TImage. (NotNull)
-     * @return The result-bean of selected page. (NotNull)
+     * @return The result bean of selected page. (NotNull)
      */
     public PagingResultBean<TImage> selectPage(final TImageCB cb) {
         assertConditionBeanNotNull(cb);

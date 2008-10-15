@@ -7,7 +7,6 @@ import jp.sourceforge.ea2ddl.dao.allcommon.jdbc.StatementConfig;
 
 /**
  * The cursor executor of outside-sql.
- * 
  * @param <PARAMETER_BEAN> The type of parameter-bean.
  * @author DBFlute(AutoGenerator)
  */
@@ -31,6 +30,14 @@ public class OutsideSqlCursorExecutor<PARAMETER_BEAN> {
     // ===================================================================================
     //                                                                              Select
     //                                                                              ======
+    /**
+     * Select the cursor of the entity.
+     * @param path The path of SQL file. (NotNull)
+     * @param pmb The parameter-bean. Allowed types are Bean object and Map object. (Nullable)
+     * @param handler The handler of cursor. (NotNull)
+     * @return The result object that the cursor handler returns. (Nullable)
+     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.OutsideSqlNotFoundException When the outside-sql is not found.
+     */
     public Object selectCursor(String path, PARAMETER_BEAN pmb, CursorHandler handler) {
         return _outsideSqlDao.selectCursor(path, pmb, _outsideSqlOption, handler);
     }
@@ -38,13 +45,13 @@ public class OutsideSqlCursorExecutor<PARAMETER_BEAN> {
     // ===================================================================================
     //                                                                              Option
     //                                                                              ======
-    public OutsideSqlCursorExecutor<PARAMETER_BEAN> configure(StatementConfig statementConfig) {
-		_outsideSqlOption.setStatementConfig(statementConfig);
-        return this;
-    }
-	
     public OutsideSqlCursorExecutor<PARAMETER_BEAN> dynamicBinding() {
         _outsideSqlOption.dynamicBinding();
+        return this;
+    }
+
+    public OutsideSqlCursorExecutor<PARAMETER_BEAN> configure(StatementConfig statementConfig) {
+		_outsideSqlOption.setStatementConfig(statementConfig);
         return this;
     }
 }

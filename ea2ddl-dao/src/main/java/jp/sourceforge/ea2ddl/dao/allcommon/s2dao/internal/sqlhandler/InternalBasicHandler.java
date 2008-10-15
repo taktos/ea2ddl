@@ -482,12 +482,35 @@ public class InternalBasicHandler {
     }
 
     // ===================================================================================
+    //                                                                       Assist Helper
+    //                                                                       =============
+    // It needs this method if the target database doest not support line comment.
+    protected String removeLineComment(final String sql) { // With removing CR!
+        if (sql == null || sql.trim().length() == 0) {
+            return sql;
+        }
+        final StringBuilder sb = new StringBuilder();
+        final String[] lines = sql.split("\n");
+        for (String line : lines) {
+            if (line == null) {
+                continue;
+            }
+            line = line.replaceAll("\r", ""); // Remove CR!
+            if (line.startsWith("--")) {
+                continue;
+            }
+            sb.append(line).append("\n");
+        }
+        return sb.toString();
+    }
+
+    // ===================================================================================
     //                                                                      General Helper
     //                                                                      ==============
     protected String getLineSeparator() {
         return SimpleSystemUtil.getLineSeparator();
     }
-    
+
 	// ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
@@ -504,6 +527,7 @@ public class InternalBasicHandler {
     }
 
     public void setSql(String sql) {
+        sql = removeLineComment(sql);
         this.sql = sql;
     }
 

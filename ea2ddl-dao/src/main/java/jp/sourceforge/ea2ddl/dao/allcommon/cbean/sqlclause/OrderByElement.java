@@ -1,5 +1,6 @@
 package jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import jp.sourceforge.ea2ddl.dao.allcommon.util.SimpleSystemUtil;
@@ -7,7 +8,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.util.SimpleSystemUtil;
 /**
  * @author DBFlute(AutoGenerator)
  */
-public class OrderByElement implements java.io.Serializable {
+public class OrderByElement implements Serializable {
 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
@@ -37,46 +38,8 @@ public class OrderByElement implements java.io.Serializable {
 	protected boolean _nullsFirst;
 
     // =====================================================================================
-    //                                                                              Accessor
-    //                                                                              ========
-    public String getAliasName() {
-        return _aliasName;
-    }
-    public String getColumnName() {
-        return _columnName;
-    }
-    public String getRegisteredAliasName() {
-        return _registeredAliasName;
-    }
-    public String getRegisteredColumnName() {
-        return _registeredColumnName;
-    }
-    public String getAscDesc() {
-        return _ascDesc;
-    }
-    public void setAliasName(String value) {
-        _aliasName = value;
-    }
-    public void setColumnName(String value) {
-        _columnName = value;
-    }
-    public void setRegisteredAliasName(String value) {
-        _registeredAliasName = value;
-    }
-    public void setRegisteredColumnName(String value) {
-        _registeredColumnName = value;
-    }
-    public void setAscDesc(String value) {
-        _ascDesc = value;
-    }
-    public void setOrderByNullsSetupper(OrderByClause.OrderByNullsSetupper value, boolean nullsFirst) {
-        _orderByNullsSetupper = value;
-		_nullsFirst = nullsFirst;
-    }
-
-    // =====================================================================================
-    //                                                                              Behavior
-    //                                                                              ========
+    //                                                                          Manipulation
+    //                                                                          ============
     public void setupAsc() {
         _ascDesc = "asc";
     }
@@ -100,6 +63,9 @@ public class OrderByElement implements java.io.Serializable {
         }
     }
 
+    // =====================================================================================
+    //                                                                   Order-By Expression
+    //                                                                   ===================
     public boolean isAsc() {
         if (_ascDesc == null) {
             String msg = "The attribute[ascDesc] should not be null.";
@@ -215,15 +181,53 @@ public class OrderByElement implements java.io.Serializable {
     //                                                                        ==============
     /**
      * This method overrides the method that is declared at super.
-     * @return View-string of all-columns value.
+     * @return The view-string of all-columns value. (NotNull)
      */
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("[OrderByElement] aliasName=").append(_aliasName);
+        sb.append("{aliasName=").append(_aliasName);
         sb.append(" columnName=").append(_columnName);
         sb.append(" registeredAliasName=").append(_registeredAliasName);
         sb.append(" registeredColumnName=").append(_registeredColumnName);
-        sb.append(" ascDesc=").append(_ascDesc);
+        sb.append(" ascDesc=").append(_ascDesc).append("}");
         return sb.toString();
+    }
+
+    // =====================================================================================
+    //                                                                              Accessor
+    //                                                                              ========
+    public String getAliasName() {
+        return _aliasName;
+    }
+    public String getColumnName() {
+        return _columnName;
+    }
+    public String getRegisteredAliasName() {
+        return _registeredAliasName;
+    }
+    public String getRegisteredColumnName() {
+        return _registeredColumnName;
+    }
+    public String getAscDesc() {
+        return _ascDesc;
+    }
+    public void setAliasName(String value) {
+        _aliasName = value;
+    }
+    public void setColumnName(String value) {
+        _columnName = value;
+    }
+    public void setRegisteredAliasName(String value) {
+        _registeredAliasName = value;
+    }
+    public void setRegisteredColumnName(String value) {
+        _registeredColumnName = value;
+    }
+    public void setAscDesc(String value) {
+        _ascDesc = value;
+    }
+    public void setOrderByNullsSetupper(OrderByClause.OrderByNullsSetupper value, boolean nullsFirst) {
+        _orderByNullsSetupper = value;
+		_nullsFirst = nullsFirst;
     }
 }

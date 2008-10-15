@@ -1,5 +1,6 @@
 package jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.StringTokenizer;
 /**
  * @author DBFlute(AutoGenerator)
  */
-public class OrderByClause implements java.io.Serializable {
+public class OrderByClause implements Serializable {
 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
@@ -29,8 +30,8 @@ public class OrderByClause implements java.io.Serializable {
     }
 
     // =====================================================================================
-    //                                                                              Behavior
-    //                                                                              ========
+    //                                                                          Manipulation
+    //                                                                          ============
     /**
      * Add order-by element.
      * @param orderByElement Order-by element. (NotNull)
@@ -82,6 +83,9 @@ public class OrderByClause implements java.io.Serializable {
         public String setup(String columnName, String orderByElementClause, boolean nullsFirst);
 	}
 
+    // =====================================================================================
+    //                                                                   Order-By Expression
+    //                                                                   ===================
     public List<OrderByElement> getOrderByList() {
         return _orderByList;
     }
@@ -231,7 +235,7 @@ public class OrderByClause implements java.io.Serializable {
      * Get iterator of order-by list.
      * @return Determination.
      */
-    public java.util.Iterator<OrderByElement> iterator() {
+    public Iterator<OrderByElement> iterator() {
         return _orderByList.iterator();
     }
 
@@ -243,11 +247,11 @@ public class OrderByClause implements java.io.Serializable {
     }
 
     // =====================================================================================
-    //                                                                 Basic-Override Method
-    //                                                                 =====================
+    //                                                                        Basic Override
+    //                                                                        ==============
     /**
      * This method overrides the method that is declared at super.
-     * @return View-string of all-columns value.
+     * @return The view string of all-columns value. (NotNUll)
      */
     public String toString() {
         return _orderByList.toString();
