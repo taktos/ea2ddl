@@ -41,8 +41,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<configuration>
 						<encoding>UTF-8</encoding>
-						<source>1.6</source>
-						<target>1.6</target>
+						<source>1.5</source>
+						<target>1.5</target>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -68,7 +68,7 @@
 						</execution>
 					</executions>
 					<configuration>
-						<source>1.6</source>
+						<source>1.5</source>
 						<encoding>UTF-8</encoding>
 						<docencoding>UTF-8</docencoding>
 						<charset>UTF-8</charset>
@@ -76,7 +76,7 @@
 						<aggregate>true</aggregate>
 						<additionalJOption>-J-Xmx512m</additionalJOption>
 						<links>
-							<link>http://java.sun.com/javase/ja/6/docs/ja/api/</link>
+							<link>http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/</link>
 							<link>http://java.sun.com/j2ee/1.4/docs/api/</link>
 							<link>http://aopalliance.sourceforge.net/doc/</link>
 						</links>
