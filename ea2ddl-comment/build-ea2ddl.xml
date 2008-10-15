@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ea2ddl-comment" default="gen-comment" basedir=".">
 
-	<property name="classpathdir" value="target/classes"/>
+	<property name="classpathdir" value="target/classes" />
 
-	<path id="classpath">
-		<pathelement location="${classpathdir}"/>
+	<path id="lib.path">
+		<pathelement path="${classpathdir}"/>
 		<fileset dir="target/dependency">
-			<include name="**/*.jar"/>
+			<include name="**/*.jar" />
+			<exclude name="**/*.zip"/>
 		</fileset>
 	</path>
 
-	<taskdef resource="ea2ddl-comment-task.properties" classpathref="classpath"/>
+	<typedef resource="ea2ddl-comment-task.properties"
+		classpathref="lib.path" loaderref="parentFirst" />
 
 	<target name="gen-comment">
 		<gen-comment
-			classpathref="classpath"
-			outputDirectory="hoge">
+			outputDirectory="/project/ea2ddl/ea2ddl-gen/dbflute/playsql">
 		</gen-comment>
 	</target>
 </project>

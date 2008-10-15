@@ -5,7 +5,7 @@
 	<include path="app-config.dicon" />
 	<include path="aop.dicon" />
 	<include path="dbflute.dicon" />
-	
+
 	<component class="jp.sourceforge.ea2ddl.comment.command.impl.GenerateCommentCommand">
 	</component>
 </components>
