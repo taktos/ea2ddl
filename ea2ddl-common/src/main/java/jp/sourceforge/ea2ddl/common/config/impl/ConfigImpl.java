@@ -37,6 +37,7 @@ public class ConfigImpl implements Config {
 		if (in != null) {
 			try {
 				_prop.load(in);
+				_log.info("config initialized.");
 			} catch (IOException e) {
 				_log.info("Failed to read resource:" + e);
 			}
