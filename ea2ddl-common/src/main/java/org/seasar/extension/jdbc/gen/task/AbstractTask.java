@@ -32,7 +32,10 @@ import org.seasar.extension.jdbc.gen.internal.command.CommandInvokerImpl;
 /**
  * {@link Task}の抽象クラスです。
  * 
+ * S2JDBC-Gen依存部分を切り離し、AntからS2を使うための汎用タスクとしました。
+ * 
  * @author taedium
+ * @author taktos
  */
 public abstract class AbstractTask extends Task {
 
