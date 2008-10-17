@@ -26,6 +26,7 @@
 		<module>../ea2ddl-common</module>
 		<module>../ea2ddl-dao</module>
 		<module>../ea2ddl-comment</module>
+		<module>../ea2ddl-ddl</module>
 	</modules>
 	<repositories>
 		<repository>
