@@ -107,7 +107,7 @@ public abstract class AbstractCommand implements Command {
         BeanDesc beanDesc = BeanDescFactory.getBeanDesc(getClass());
         for (int i = 0; i < beanDesc.getPropertyDescSize(); i++) {
             PropertyDesc propertyDesc = beanDesc.getPropertyDesc(i);
-            if (propertyDesc.hasWriteMethod() && propertyDesc.hasReadMethod()) {
+            if (propertyDesc.hasWriteMethod()) {
                 getLogger().info(propertyDesc.getPropertyName());
                 getLogger().info(propertyDesc.getWriteMethod());
                 getLogger().log(

@@ -29,7 +29,7 @@ public class ConfigImpl implements Config {
 			in = new URL(configPath).openStream();
 		} catch (MalformedURLException e) {
 		} catch (IOException e) {
-			_log.info("Failed to read resource:", e);
+			_log.warn("Failed to read resource:", e);
 		}
 		if (in == null) {
 			in = Thread.currentThread().getContextClassLoader().getResourceAsStream(configPath);
@@ -37,21 +37,22 @@ public class ConfigImpl implements Config {
 		if (in != null) {
 			try {
 				_prop.load(in);
-				_log.info("config initialized.");
+				_log.debug("config initialized.");
 			} catch (IOException e) {
-				_log.info("Failed to read resource:" + e);
+				_log.warn("Failed to read resource:" + e);
 			}
 		}
 	}
 
-	@Override
 	public String getProperty(String key) {
 		return _prop.getProperty(key);
 	}
 
-	@Override
 	public String getProperty(String key, String defaultValue) {
 		return _prop.getProperty(key, defaultValue);
 	}
 
+	public boolean getBoolean(String key) {
+		return "true".equalsIgnoreCase(getProperty(key, "false"));
+	}
 }
