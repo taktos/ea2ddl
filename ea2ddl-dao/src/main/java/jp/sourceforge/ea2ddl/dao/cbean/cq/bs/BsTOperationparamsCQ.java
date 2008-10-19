@@ -63,6 +63,14 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
     }
     protected ConditionValue getCValueOperationid() { return getOperationid(); }
           
+    protected Map<String, TOperationCQ> _operationid_InScopeSubQuery_TOperationMap;
+    public Map<String, TOperationCQ> getOperationid_InScopeSubQuery_TOperation() { return _operationid_InScopeSubQuery_TOperationMap; }
+    public String keepOperationid_InScopeSubQuery_TOperation(TOperationCQ subQuery) {
+        if (_operationid_InScopeSubQuery_TOperationMap == null) { _operationid_InScopeSubQuery_TOperationMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_operationid_InScopeSubQuery_TOperationMap.size() + 1);
+        _operationid_InScopeSubQuery_TOperationMap.put(key, subQuery); return "operationid_InScopeSubQuery_TOperation." + key;
+    }
+      
     public BsTOperationparamsCQ addOrderBy_Operationid_Asc() { regOBA("OperationID"); return this; }
     public BsTOperationparamsCQ addOrderBy_Operationid_Desc() { regOBD("OperationID"); return this; }
 
@@ -166,11 +174,42 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
     //                                                                         Union Query
     //                                                                         ===========
     protected void reflectRelationOnUnionQuery(ConditionQuery baseQueryAsSuper, ConditionQuery unionQueryAsSuper) {
+        TOperationparamsCQ baseQuery = (TOperationparamsCQ)baseQueryAsSuper;
+        TOperationparamsCQ unionQuery = (TOperationparamsCQ)unionQueryAsSuper;
+        if (baseQuery.hasConditionQueryTOperation()) {
+            unionQuery.queryTOperation().reflectRelationOnUnionQuery(baseQuery.queryTOperation(), unionQuery.queryTOperation());
+        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
+    
+    public TOperationCQ queryTOperation() {
+        return getConditionQueryTOperation();
+    }
+    protected TOperationCQ _conditionQueryTOperation;
+    public TOperationCQ getConditionQueryTOperation() {
+        if (_conditionQueryTOperation == null) {
+            _conditionQueryTOperation = createQueryTOperation();
+            setupOuterJoin_TOperation();
+        }
+        return _conditionQueryTOperation;
+    }
+    protected void setupOuterJoin_TOperation() {
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("OperationID"), getConditionQueryTOperation().getRealColumnName("OperationID"));
+        registerOuterJoin(getConditionQueryTOperation(), joinOnMap);
+    }
+    protected TOperationCQ createQueryTOperation() {
+        String nrp = resolveNextRelationPath("t_operationparams", "tOperation");
+        String jan = resolveJoinAliasName(nrp, getNextNestLevel());
+        TOperationCQ cq = new TOperationCQ(this, getSqlClause(), jan, getNextNestLevel());
+        cq.xsetForeignPropertyName("tOperation"); cq.xsetRelationPath(nrp); return cq;
+    }
+    public boolean hasConditionQueryTOperation() {
+        return _conditionQueryTOperation != null;
+    }
 
 
     protected String getConditionQueryClassNameInternally() { return TOperationparamsCQ.class.getName(); }

@@ -243,6 +243,22 @@ public class TConnectorDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                      Foreign Property
     //                                      ----------------
+    public ForeignInfo foreignTOperationBySourcerole() {
+		Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnSourcerole(), TOperationDbm.getInstance().columnName());
+	    return cfi("TOperationBySourcerole", this, TOperationDbm.getInstance(), map, 0, false);
+    }
+    public ForeignInfo foreignTOperationByDestrole() {
+		Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnDestrole(), TOperationDbm.getInstance().columnName());
+	    return cfi("TOperationByDestrole", this, TOperationDbm.getInstance(), map, 1, false);
+    }
+    public ForeignInfo foreignTObjectByStartObjectId() {
+		Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnStartObjectId(), TObjectDbm.getInstance().columnObjectId());
+	    return cfi("TObjectByStartObjectId", this, TObjectDbm.getInstance(), map, 2, false);
+    }
+    public ForeignInfo foreignTObjectByEndObjectId() {
+		Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnEndObjectId(), TObjectDbm.getInstance().columnObjectId());
+	    return cfi("TObjectByEndObjectId", this, TObjectDbm.getInstance(), map, 3, false);
+    }
 
     // -----------------------------------------------------
     //                                     Referrer Property

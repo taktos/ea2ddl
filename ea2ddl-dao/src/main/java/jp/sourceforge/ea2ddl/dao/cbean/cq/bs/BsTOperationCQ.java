@@ -63,6 +63,46 @@ public class BsTOperationCQ extends AbstractBsTOperationCQ {
     }
     protected ConditionValue getCValueOperationid() { return getOperationid(); }
           
+    protected Map<String, TOperationparamsCQ> _operationid_InScopeSubQuery_TOperationparamsListMap;
+    public Map<String, TOperationparamsCQ> getOperationid_InScopeSubQuery_TOperationparamsList() { return _operationid_InScopeSubQuery_TOperationparamsListMap; }
+    public String keepOperationid_InScopeSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        if (_operationid_InScopeSubQuery_TOperationparamsListMap == null) { _operationid_InScopeSubQuery_TOperationparamsListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_operationid_InScopeSubQuery_TOperationparamsListMap.size() + 1);
+        _operationid_InScopeSubQuery_TOperationparamsListMap.put(key, subQuery); return "operationid_InScopeSubQuery_TOperationparamsList." + key;
+    }
+
+    protected Map<String, TOperationparamsCQ> _operationid_NotInScopeSubQuery_TOperationparamsListMap;
+    public Map<String, TOperationparamsCQ> getOperationid_NotInScopeSubQuery_TOperationparamsList() { return _operationid_NotInScopeSubQuery_TOperationparamsListMap; }
+    public String keepOperationid_NotInScopeSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        if (_operationid_NotInScopeSubQuery_TOperationparamsListMap == null) { _operationid_NotInScopeSubQuery_TOperationparamsListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_operationid_NotInScopeSubQuery_TOperationparamsListMap.size() + 1);
+        _operationid_NotInScopeSubQuery_TOperationparamsListMap.put(key, subQuery); return "operationid_NotInScopeSubQuery_TOperationparamsList." + key;
+    }
+
+    protected Map<String, TOperationparamsCQ> _operationid_ExistsSubQuery_TOperationparamsListMap;
+    public Map<String, TOperationparamsCQ> getOperationid_ExistsSubQuery_TOperationparamsList() { return _operationid_ExistsSubQuery_TOperationparamsListMap; }
+    public String keepOperationid_ExistsSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        if (_operationid_ExistsSubQuery_TOperationparamsListMap == null) { _operationid_ExistsSubQuery_TOperationparamsListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_operationid_ExistsSubQuery_TOperationparamsListMap.size() + 1);
+        _operationid_ExistsSubQuery_TOperationparamsListMap.put(key, subQuery); return "operationid_ExistsSubQuery_TOperationparamsList." + key;
+    }
+
+    protected Map<String, TOperationparamsCQ> _operationid_NotExistsSubQuery_TOperationparamsListMap;
+    public Map<String, TOperationparamsCQ> getOperationid_NotExistsSubQuery_TOperationparamsList() { return _operationid_NotExistsSubQuery_TOperationparamsListMap; }
+    public String keepOperationid_NotExistsSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        if (_operationid_NotExistsSubQuery_TOperationparamsListMap == null) { _operationid_NotExistsSubQuery_TOperationparamsListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_operationid_NotExistsSubQuery_TOperationparamsListMap.size() + 1);
+        _operationid_NotExistsSubQuery_TOperationparamsListMap.put(key, subQuery); return "operationid_NotExistsSubQuery_TOperationparamsList." + key;
+    }
+
+    protected Map<String, TOperationparamsCQ> _operationid_DeriveSubQuery_TOperationparamsListMap;
+    public Map<String, TOperationparamsCQ> getOperationid_DeriveSubQuery_TOperationparamsList() { return _operationid_DeriveSubQuery_TOperationparamsListMap; }
+    public String keepOperationid_DeriveSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        if (_operationid_DeriveSubQuery_TOperationparamsListMap == null) { _operationid_DeriveSubQuery_TOperationparamsListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_operationid_DeriveSubQuery_TOperationparamsListMap.size() + 1);
+        _operationid_DeriveSubQuery_TOperationparamsListMap.put(key, subQuery); return "operationid_DeriveSubQuery_TOperationparamsList." + key;
+    }
+
     public BsTOperationCQ addOrderBy_Operationid_Asc() { regOBA("OperationID"); return this; }
     public BsTOperationCQ addOrderBy_Operationid_Desc() { regOBD("OperationID"); return this; }
 
@@ -82,6 +122,86 @@ public class BsTOperationCQ extends AbstractBsTOperationCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
+
+    protected Map<String, TConnectorCQ> _name_InScopeSubQuery_TConnectorBySourceroleListMap;
+    public Map<String, TConnectorCQ> getName_InScopeSubQuery_TConnectorBySourceroleList() { return _name_InScopeSubQuery_TConnectorBySourceroleListMap; }
+    public String keepName_InScopeSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        if (_name_InScopeSubQuery_TConnectorBySourceroleListMap == null) { _name_InScopeSubQuery_TConnectorBySourceroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_InScopeSubQuery_TConnectorBySourceroleListMap.size() + 1);
+        _name_InScopeSubQuery_TConnectorBySourceroleListMap.put(key, subQuery); return "name_InScopeSubQuery_TConnectorBySourceroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_InScopeSubQuery_TConnectorByDestroleListMap;
+    public Map<String, TConnectorCQ> getName_InScopeSubQuery_TConnectorByDestroleList() { return _name_InScopeSubQuery_TConnectorByDestroleListMap; }
+    public String keepName_InScopeSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        if (_name_InScopeSubQuery_TConnectorByDestroleListMap == null) { _name_InScopeSubQuery_TConnectorByDestroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_InScopeSubQuery_TConnectorByDestroleListMap.size() + 1);
+        _name_InScopeSubQuery_TConnectorByDestroleListMap.put(key, subQuery); return "name_InScopeSubQuery_TConnectorByDestroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_NotInScopeSubQuery_TConnectorBySourceroleListMap;
+    public Map<String, TConnectorCQ> getName_NotInScopeSubQuery_TConnectorBySourceroleList() { return _name_NotInScopeSubQuery_TConnectorBySourceroleListMap; }
+    public String keepName_NotInScopeSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        if (_name_NotInScopeSubQuery_TConnectorBySourceroleListMap == null) { _name_NotInScopeSubQuery_TConnectorBySourceroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_NotInScopeSubQuery_TConnectorBySourceroleListMap.size() + 1);
+        _name_NotInScopeSubQuery_TConnectorBySourceroleListMap.put(key, subQuery); return "name_NotInScopeSubQuery_TConnectorBySourceroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_NotInScopeSubQuery_TConnectorByDestroleListMap;
+    public Map<String, TConnectorCQ> getName_NotInScopeSubQuery_TConnectorByDestroleList() { return _name_NotInScopeSubQuery_TConnectorByDestroleListMap; }
+    public String keepName_NotInScopeSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        if (_name_NotInScopeSubQuery_TConnectorByDestroleListMap == null) { _name_NotInScopeSubQuery_TConnectorByDestroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_NotInScopeSubQuery_TConnectorByDestroleListMap.size() + 1);
+        _name_NotInScopeSubQuery_TConnectorByDestroleListMap.put(key, subQuery); return "name_NotInScopeSubQuery_TConnectorByDestroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_ExistsSubQuery_TConnectorBySourceroleListMap;
+    public Map<String, TConnectorCQ> getName_ExistsSubQuery_TConnectorBySourceroleList() { return _name_ExistsSubQuery_TConnectorBySourceroleListMap; }
+    public String keepName_ExistsSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        if (_name_ExistsSubQuery_TConnectorBySourceroleListMap == null) { _name_ExistsSubQuery_TConnectorBySourceroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_ExistsSubQuery_TConnectorBySourceroleListMap.size() + 1);
+        _name_ExistsSubQuery_TConnectorBySourceroleListMap.put(key, subQuery); return "name_ExistsSubQuery_TConnectorBySourceroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_ExistsSubQuery_TConnectorByDestroleListMap;
+    public Map<String, TConnectorCQ> getName_ExistsSubQuery_TConnectorByDestroleList() { return _name_ExistsSubQuery_TConnectorByDestroleListMap; }
+    public String keepName_ExistsSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        if (_name_ExistsSubQuery_TConnectorByDestroleListMap == null) { _name_ExistsSubQuery_TConnectorByDestroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_ExistsSubQuery_TConnectorByDestroleListMap.size() + 1);
+        _name_ExistsSubQuery_TConnectorByDestroleListMap.put(key, subQuery); return "name_ExistsSubQuery_TConnectorByDestroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_NotExistsSubQuery_TConnectorBySourceroleListMap;
+    public Map<String, TConnectorCQ> getName_NotExistsSubQuery_TConnectorBySourceroleList() { return _name_NotExistsSubQuery_TConnectorBySourceroleListMap; }
+    public String keepName_NotExistsSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        if (_name_NotExistsSubQuery_TConnectorBySourceroleListMap == null) { _name_NotExistsSubQuery_TConnectorBySourceroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_NotExistsSubQuery_TConnectorBySourceroleListMap.size() + 1);
+        _name_NotExistsSubQuery_TConnectorBySourceroleListMap.put(key, subQuery); return "name_NotExistsSubQuery_TConnectorBySourceroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_NotExistsSubQuery_TConnectorByDestroleListMap;
+    public Map<String, TConnectorCQ> getName_NotExistsSubQuery_TConnectorByDestroleList() { return _name_NotExistsSubQuery_TConnectorByDestroleListMap; }
+    public String keepName_NotExistsSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        if (_name_NotExistsSubQuery_TConnectorByDestroleListMap == null) { _name_NotExistsSubQuery_TConnectorByDestroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_NotExistsSubQuery_TConnectorByDestroleListMap.size() + 1);
+        _name_NotExistsSubQuery_TConnectorByDestroleListMap.put(key, subQuery); return "name_NotExistsSubQuery_TConnectorByDestroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_DeriveSubQuery_TConnectorBySourceroleListMap;
+    public Map<String, TConnectorCQ> getName_DeriveSubQuery_TConnectorBySourceroleList() { return _name_DeriveSubQuery_TConnectorBySourceroleListMap; }
+    public String keepName_DeriveSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        if (_name_DeriveSubQuery_TConnectorBySourceroleListMap == null) { _name_DeriveSubQuery_TConnectorBySourceroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_DeriveSubQuery_TConnectorBySourceroleListMap.size() + 1);
+        _name_DeriveSubQuery_TConnectorBySourceroleListMap.put(key, subQuery); return "name_DeriveSubQuery_TConnectorBySourceroleList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _name_DeriveSubQuery_TConnectorByDestroleListMap;
+    public Map<String, TConnectorCQ> getName_DeriveSubQuery_TConnectorByDestroleList() { return _name_DeriveSubQuery_TConnectorByDestroleListMap; }
+    public String keepName_DeriveSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        if (_name_DeriveSubQuery_TConnectorByDestroleListMap == null) { _name_DeriveSubQuery_TConnectorByDestroleListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_name_DeriveSubQuery_TConnectorByDestroleListMap.size() + 1);
+        _name_DeriveSubQuery_TConnectorByDestroleListMap.put(key, subQuery); return "name_DeriveSubQuery_TConnectorByDestroleList." + key;
+    }
     
     public BsTOperationCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTOperationCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
@@ -296,11 +416,42 @@ public class BsTOperationCQ extends AbstractBsTOperationCQ {
     //                                                                         Union Query
     //                                                                         ===========
     protected void reflectRelationOnUnionQuery(ConditionQuery baseQueryAsSuper, ConditionQuery unionQueryAsSuper) {
+        TOperationCQ baseQuery = (TOperationCQ)baseQueryAsSuper;
+        TOperationCQ unionQuery = (TOperationCQ)unionQueryAsSuper;
+        if (baseQuery.hasConditionQueryTObject()) {
+            unionQuery.queryTObject().reflectRelationOnUnionQuery(baseQuery.queryTObject(), unionQuery.queryTObject());
+        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
+    
+    public TObjectCQ queryTObject() {
+        return getConditionQueryTObject();
+    }
+    protected TObjectCQ _conditionQueryTObject;
+    public TObjectCQ getConditionQueryTObject() {
+        if (_conditionQueryTObject == null) {
+            _conditionQueryTObject = createQueryTObject();
+            setupOuterJoin_TObject();
+        }
+        return _conditionQueryTObject;
+    }
+    protected void setupOuterJoin_TObject() {
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("Object_ID"), getConditionQueryTObject().getRealColumnName("Object_ID"));
+        registerOuterJoin(getConditionQueryTObject(), joinOnMap);
+    }
+    protected TObjectCQ createQueryTObject() {
+        String nrp = resolveNextRelationPath("t_operation", "tObject");
+        String jan = resolveJoinAliasName(nrp, getNextNestLevel());
+        TObjectCQ cq = new TObjectCQ(this, getSqlClause(), jan, getNextNestLevel());
+        cq.xsetForeignPropertyName("tObject"); cq.xsetRelationPath(nrp); return cq;
+    }
+    public boolean hasConditionQueryTObject() {
+        return _conditionQueryTObject != null;
+    }
 
 
     protected String getConditionQueryClassNameInternally() { return TOperationCQ.class.getName(); }

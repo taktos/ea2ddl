@@ -9,6 +9,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.cbean.SubQuery;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.UnionQuery;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.nss.*;
 
 /**
  * The base condition-bean of t_objectproperties.
@@ -133,6 +134,17 @@ public class BsTObjectpropertiesCB extends AbstractConditionBean {
     //                                                                        Setup Select
     //                                                                        ============
 
+    protected TObjectNss _nssTObject;
+    public TObjectNss getNssTObject() {
+        if (_nssTObject == null) { _nssTObject = new TObjectNss(null); }
+        return _nssTObject;
+    }
+    public TObjectNss setupSelect_TObject() {
+        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryTObject(); } });
+        if (_nssTObject == null || !_nssTObject.hasConditionQuery()) { _nssTObject = new TObjectNss(query().queryTObject()); }
+        return _nssTObject;
+    }
+
     // [DBFlute-0.7.4]
     // ===================================================================================
     //                                                                             Specify
@@ -144,6 +156,7 @@ public class BsTObjectpropertiesCB extends AbstractConditionBean {
     }
     public static class Specification extends AbstractSpecification<TObjectpropertiesCQ> {
         protected SpQyCall<TObjectpropertiesCQ> _myQyCall;
+        protected TObjectCB.Specification _tObject;
         public Specification(ConditionBean baseCB, SpQyCall<TObjectpropertiesCQ> qyCall, boolean forDeriveReferrer) { super(baseCB, qyCall, forDeriveReferrer); _myQyCall = qyCall; }
         public void columnPropertyid() { doColumn("PropertyID"); }
         public void columnObjectId() { doColumn("Object_ID"); }
@@ -152,8 +165,20 @@ public class BsTObjectpropertiesCB extends AbstractConditionBean {
         public void columnNotes() { doColumn("Notes"); }
         public void columnEaGuid() { doColumn("ea_guid"); }
         protected void doSpecifyRequiredColumn() {
+            if (_myQyCall.qy().hasConditionQueryTObject()) {
+                columnObjectId();// FK
+            }
         }
         protected String getTableDbName() { return "t_objectproperties"; }
+        public TObjectCB.Specification specifyTObject() {
+            assertForeign("tObject");
+            if (_tObject == null) {
+                _tObject = new TObjectCB.Specification(_baseCB, new SpQyCall<TObjectCQ>() {
+                    public boolean has() { return _myQyCall.has() && _myQyCall.qy().hasConditionQueryTObject(); }
+                    public TObjectCQ qy() { return _myQyCall.qy().queryTObject(); } }, _forDeriveReferrer);
+            }
+            return _tObject;
+        }
     }
 
     // Very Internal (for Suppressing Warn about 'Not Use Import')

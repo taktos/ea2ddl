@@ -11,7 +11,7 @@
 			"sun.jdbc.odbc.JdbcOdbcDriver"
 		</property>
 		<property name="URL">
-			"jdbc:odbc:simpledb"
+			"jdbc:odbc:exampledb"
 		</property>
 		<property name="user">"sa"</property>
 		<property name="password">""</property>

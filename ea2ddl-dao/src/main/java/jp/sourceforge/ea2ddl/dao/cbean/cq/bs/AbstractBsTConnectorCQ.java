@@ -1203,7 +1203,7 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     abstract protected ConditionValue getCValueDestelement();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255) : FK to t_operation}
      * @param sourcerole The value of sourcerole as equal.
      */
     public void setSourcerole_Equal(String sourcerole) {
@@ -1283,6 +1283,22 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     public void setSourcerole_InScope(String sourcerole, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
         registerInScopeQuery(CK_INS, fRES(sourcerole), getCValueSourcerole(), "SourceRole", "Sourcerole", "sourcerole", inScopeOption);
     }
+
+    /**
+	 * @param tOperationCBquery Query.
+	 * @deprecated Please use inScopeTOperationBySourcerole(subQuery) method.
+	 */
+    public void setSourcerole_InScopeSubQuery_TOperationBySourcerole(TOperationCQ tOperationCBquery) {
+        String subQueryPropertyName = keepSourcerole_InScopeSubQuery_TOperationBySourcerole(tOperationCBquery);// for saving query-value.
+        registerInScopeSubQuery(tOperationCBquery, "SourceRole", "Name", subQueryPropertyName);
+    }
+    public void inScopeTOperationBySourcerole(SubQuery<TOperationCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationCB>", subQuery);
+        TOperationCB cb = new TOperationCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepSourcerole_InScopeSubQuery_TOperationBySourcerole(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "SourceRole", "Name", subQueryPropertyName);
+    }
+    abstract public String keepSourcerole_InScopeSubQuery_TOperationBySourcerole(jp.sourceforge.ea2ddl.dao.cbean.cq.TOperationCQ subQuery);
 
     /**
      * IsNull(is null). And OnceRegistered.
@@ -1851,7 +1867,7 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     abstract protected ConditionValue getCValueSourcequalifier();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255) : FK to t_operation}
      * @param destrole The value of destrole as equal.
      */
     public void setDestrole_Equal(String destrole) {
@@ -1931,6 +1947,22 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     public void setDestrole_InScope(String destrole, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
         registerInScopeQuery(CK_INS, fRES(destrole), getCValueDestrole(), "DestRole", "Destrole", "destrole", inScopeOption);
     }
+
+    /**
+	 * @param tOperationCBquery Query.
+	 * @deprecated Please use inScopeTOperationByDestrole(subQuery) method.
+	 */
+    public void setDestrole_InScopeSubQuery_TOperationByDestrole(TOperationCQ tOperationCBquery) {
+        String subQueryPropertyName = keepDestrole_InScopeSubQuery_TOperationByDestrole(tOperationCBquery);// for saving query-value.
+        registerInScopeSubQuery(tOperationCBquery, "DestRole", "Name", subQueryPropertyName);
+    }
+    public void inScopeTOperationByDestrole(SubQuery<TOperationCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationCB>", subQuery);
+        TOperationCB cb = new TOperationCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepDestrole_InScopeSubQuery_TOperationByDestrole(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "DestRole", "Name", subQueryPropertyName);
+    }
+    abstract public String keepDestrole_InScopeSubQuery_TOperationByDestrole(jp.sourceforge.ea2ddl.dao.cbean.cq.TOperationCQ subQuery);
 
     /**
      * IsNull(is null). And OnceRegistered.
@@ -2499,7 +2531,7 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     abstract protected ConditionValue getCValueDestqualifier();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER : FK to t_object}
      * @param startObjectId The value of startObjectId as equal.
      */
     public void setStartObjectId_Equal(java.lang.Integer startObjectId) {
@@ -2555,6 +2587,22 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     }
 
     /**
+	 * @param tObjectCBquery Query.
+	 * @deprecated Please use inScopeTObjectByStartObjectId(subQuery) method.
+	 */
+    public void setStartObjectId_InScopeSubQuery_TObjectByStartObjectId(TObjectCQ tObjectCBquery) {
+        String subQueryPropertyName = keepStartObjectId_InScopeSubQuery_TObjectByStartObjectId(tObjectCBquery);// for saving query-value.
+        registerInScopeSubQuery(tObjectCBquery, "Start_Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    public void inScopeTObjectByStartObjectId(SubQuery<TObjectCB> subQuery) {
+        assertObjectNotNull("subQuery<TObjectCB>", subQuery);
+        TObjectCB cb = new TObjectCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepStartObjectId_InScopeSubQuery_TObjectByStartObjectId(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Start_Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepStartObjectId_InScopeSubQuery_TObjectByStartObjectId(TObjectCQ subQuery);
+
+    /**
      * IsNull(is null). And OnceRegistered.
      */
     public void setStartObjectId_IsNull() { regStartObjectId(CK_ISN, DUMMY_OBJECT); }
@@ -2573,7 +2621,7 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     abstract protected ConditionValue getCValueStartObjectId();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER : FK to t_object}
      * @param endObjectId The value of endObjectId as equal.
      */
     public void setEndObjectId_Equal(java.lang.Integer endObjectId) {
@@ -2627,6 +2675,22 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     public void setEndObjectId_InScope(Collection<java.lang.Integer> endObjectIdList) {
         regEndObjectId(CK_INS, cTL(endObjectIdList));
     }
+
+    /**
+	 * @param tObjectCBquery Query.
+	 * @deprecated Please use inScopeTObjectByEndObjectId(subQuery) method.
+	 */
+    public void setEndObjectId_InScopeSubQuery_TObjectByEndObjectId(TObjectCQ tObjectCBquery) {
+        String subQueryPropertyName = keepEndObjectId_InScopeSubQuery_TObjectByEndObjectId(tObjectCBquery);// for saving query-value.
+        registerInScopeSubQuery(tObjectCBquery, "End_Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    public void inScopeTObjectByEndObjectId(SubQuery<TObjectCB> subQuery) {
+        assertObjectNotNull("subQuery<TObjectCB>", subQuery);
+        TObjectCB cb = new TObjectCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepEndObjectId_InScopeSubQuery_TObjectByEndObjectId(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "End_Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepEndObjectId_InScopeSubQuery_TObjectByEndObjectId(TObjectCQ subQuery);
 
     /**
      * IsNull(is null). And OnceRegistered.

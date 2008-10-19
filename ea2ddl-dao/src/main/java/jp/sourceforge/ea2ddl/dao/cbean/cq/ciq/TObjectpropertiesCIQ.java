@@ -78,6 +78,9 @@ public class TObjectpropertiesCIQ extends AbstractBsTObjectpropertiesCQ {
     protected ConditionValue getCValueObjectId() {
         return _myCQ.getObjectId();
     }
+    public String keepObjectId_InScopeSubQuery_TObject(TObjectCQ subQuery) {
+        return _myCQ.keepObjectId_InScopeSubQuery_TObject(subQuery);
+    }
     protected ConditionValue getCValueProperty() {
         return _myCQ.getProperty();
     }

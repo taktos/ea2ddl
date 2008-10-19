@@ -94,6 +94,70 @@ public abstract class AbstractBsTOperationCQ extends AbstractConditionQuery {
         regOperationid(CK_INS, cTL(operationidList));
     }
 
+    /**
+	 * @param tOperationparamsCBquery Query.
+	 * @deprecated Please use inScopeTOperationparamsList(subQuery) method.
+	 */
+    public void setOperationid_InScopeSubQuery_TOperationparamsList(TOperationparamsCQ tOperationparamsCBquery) {
+        String subQueryPropertyName = keepOperationid_InScopeSubQuery_TOperationparamsList(tOperationparamsCBquery);// for saving query-value.
+        registerInScopeSubQuery(tOperationparamsCBquery, "OperationID", "OperationID", subQueryPropertyName);
+    }
+    public void inScopeTOperationparamsList(SubQuery<TOperationparamsCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationparamsCB>", subQuery);
+        TOperationparamsCB cb = new TOperationparamsCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepOperationid_InScopeSubQuery_TOperationparamsList(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "OperationID", "OperationID", subQueryPropertyName);
+    }
+    abstract public String keepOperationid_InScopeSubQuery_TOperationparamsList(TOperationparamsCQ subQuery);
+
+    public void notInScopeTOperationparamsList(SubQuery<TOperationparamsCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationparamsCB>", subQuery);
+        TOperationparamsCB cb = new TOperationparamsCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepOperationid_NotInScopeSubQuery_TOperationparamsList(cb.query());// for saving query-value.
+        registerNotInScopeSubQuery(cb.query(), "OperationID", "OperationID", subQueryPropertyName);
+    }
+    abstract public String keepOperationid_NotInScopeSubQuery_TOperationparamsList(TOperationparamsCQ subQuery);
+
+    /**
+	 * @param tOperationparamsCBquery Query.
+	 * @deprecated Please use existsTOperationparamsList(subQuery) method.
+	 */
+    public void setOperationid_ExistsSubQuery_TOperationparamsList(TOperationparamsCQ tOperationparamsCBquery) {
+        String subQueryPropertyName = keepOperationid_ExistsSubQuery_TOperationparamsList(tOperationparamsCBquery);// for saving query-value.
+        registerExistsSubQuery(tOperationparamsCBquery, "OperationID", "OperationID", subQueryPropertyName);
+    }
+    /**
+     * Set up 'exists' sub-query. {exists (select OperationID from t_operationparams where ...)}
+     * @param subQuery The sub-query of Operationid_ExistsSubQuery_TOperationparamsList for 'exists'. (NotNull)
+     */
+    public void existsTOperationparamsList(SubQuery<TOperationparamsCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationparamsCB>", subQuery);
+        TOperationparamsCB cb = new TOperationparamsCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepOperationid_ExistsSubQuery_TOperationparamsList(cb.query());// for saving query-value.
+        registerExistsSubQuery(cb.query(), "OperationID", "OperationID", subQueryPropertyName);
+    }
+    abstract public String keepOperationid_ExistsSubQuery_TOperationparamsList(TOperationparamsCQ subQuery);
+
+    /**
+     * Set up 'not exists' sub-query. {not exists (select OperationID from t_operationparams where ...)}
+     * @param subQuery The sub-query of Operationid_NotExistsSubQuery_TOperationparamsList for 'not exists'. (NotNull)
+     */
+    public void notExistsTOperationparamsList(SubQuery<TOperationparamsCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationparamsCB>", subQuery);
+        TOperationparamsCB cb = new TOperationparamsCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepOperationid_NotExistsSubQuery_TOperationparamsList(cb.query());// for saving query-value.
+        registerNotExistsSubQuery(cb.query(), "OperationID", "OperationID", subQueryPropertyName);
+    }
+    abstract public String keepOperationid_NotExistsSubQuery_TOperationparamsList(TOperationparamsCQ subQuery);
+
+    public void xderiveTOperationparamsList(String function, SubQuery<TOperationparamsCB> subQuery, String aliasName) {
+        assertObjectNotNull("subQuery<TOperationparamsCB>", subQuery);
+        TOperationparamsCB cb = new TOperationparamsCB(); cb.xsetupForDeriveReferrer(); subQuery.query(cb);
+        String subQueryPropertyName = keepOperationid_DeriveSubQuery_TOperationparamsList(cb.query());// for saving query-value.
+        registerDeriveSubQuery(function, cb.query(), "OperationID", "OperationID", subQueryPropertyName, aliasName);
+    }
+    abstract public String keepOperationid_DeriveSubQuery_TOperationparamsList(TOperationparamsCQ subQuery);
+
     protected void regOperationid(ConditionKey key, Object value) {
         registerQuery(key, value, getCValueOperationid(), "OperationID", "Operationid", "operationid");
     }
@@ -257,6 +321,134 @@ public abstract class AbstractBsTOperationCQ extends AbstractConditionQuery {
     public void setName_InScope(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
         registerInScopeQuery(CK_INS, fRES(name), getCValueName(), "Name", "Name", "name", inScopeOption);
     }
+
+    /**
+	 * @param tConnectorCBquery Query.
+	 * @deprecated Please use inScopeTConnectorBySourceroleList(subQuery) method.
+	 */
+    public void setName_InScopeSubQuery_TConnectorBySourceroleList(TConnectorCQ tConnectorCBquery) {
+        String subQueryPropertyName = keepName_InScopeSubQuery_TConnectorBySourceroleList(tConnectorCBquery);// for saving query-value.
+        registerInScopeSubQuery(tConnectorCBquery, "Name", "SourceRole", subQueryPropertyName);
+    }
+    public void inScopeTConnectorBySourceroleList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_InScopeSubQuery_TConnectorBySourceroleList(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Name", "SourceRole", subQueryPropertyName);
+    }
+    abstract public String keepName_InScopeSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery);
+
+    /**
+	 * @param tConnectorCBquery Query.
+	 * @deprecated Please use inScopeTConnectorByDestroleList(subQuery) method.
+	 */
+    public void setName_InScopeSubQuery_TConnectorByDestroleList(TConnectorCQ tConnectorCBquery) {
+        String subQueryPropertyName = keepName_InScopeSubQuery_TConnectorByDestroleList(tConnectorCBquery);// for saving query-value.
+        registerInScopeSubQuery(tConnectorCBquery, "Name", "DestRole", subQueryPropertyName);
+    }
+    public void inScopeTConnectorByDestroleList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_InScopeSubQuery_TConnectorByDestroleList(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Name", "DestRole", subQueryPropertyName);
+    }
+    abstract public String keepName_InScopeSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery);
+
+    public void notInScopeTConnectorBySourceroleList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_NotInScopeSubQuery_TConnectorBySourceroleList(cb.query());// for saving query-value.
+        registerNotInScopeSubQuery(cb.query(), "Name", "SourceRole", subQueryPropertyName);
+    }
+    abstract public String keepName_NotInScopeSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery);
+
+    public void notInScopeTConnectorByDestroleList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_NotInScopeSubQuery_TConnectorByDestroleList(cb.query());// for saving query-value.
+        registerNotInScopeSubQuery(cb.query(), "Name", "DestRole", subQueryPropertyName);
+    }
+    abstract public String keepName_NotInScopeSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery);
+
+    /**
+	 * @param tConnectorCBquery Query.
+	 * @deprecated Please use existsTConnectorBySourceroleList(subQuery) method.
+	 */
+    public void setName_ExistsSubQuery_TConnectorBySourceroleList(TConnectorCQ tConnectorCBquery) {
+        String subQueryPropertyName = keepName_ExistsSubQuery_TConnectorBySourceroleList(tConnectorCBquery);// for saving query-value.
+        registerExistsSubQuery(tConnectorCBquery, "Name", "SourceRole", subQueryPropertyName);
+    }
+    /**
+     * Set up 'exists' sub-query. {exists (select SourceRole from t_connector where ...)}
+     * @param subQuery The sub-query of Name_ExistsSubQuery_TConnectorBySourceroleList for 'exists'. (NotNull)
+     */
+    public void existsTConnectorBySourceroleList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_ExistsSubQuery_TConnectorBySourceroleList(cb.query());// for saving query-value.
+        registerExistsSubQuery(cb.query(), "Name", "SourceRole", subQueryPropertyName);
+    }
+    abstract public String keepName_ExistsSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery);
+
+    /**
+	 * @param tConnectorCBquery Query.
+	 * @deprecated Please use existsTConnectorByDestroleList(subQuery) method.
+	 */
+    public void setName_ExistsSubQuery_TConnectorByDestroleList(TConnectorCQ tConnectorCBquery) {
+        String subQueryPropertyName = keepName_ExistsSubQuery_TConnectorByDestroleList(tConnectorCBquery);// for saving query-value.
+        registerExistsSubQuery(tConnectorCBquery, "Name", "DestRole", subQueryPropertyName);
+    }
+    /**
+     * Set up 'exists' sub-query. {exists (select DestRole from t_connector where ...)}
+     * @param subQuery The sub-query of Name_ExistsSubQuery_TConnectorByDestroleList for 'exists'. (NotNull)
+     */
+    public void existsTConnectorByDestroleList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_ExistsSubQuery_TConnectorByDestroleList(cb.query());// for saving query-value.
+        registerExistsSubQuery(cb.query(), "Name", "DestRole", subQueryPropertyName);
+    }
+    abstract public String keepName_ExistsSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery);
+
+    /**
+     * Set up 'not exists' sub-query. {not exists (select SourceRole from t_connector where ...)}
+     * @param subQuery The sub-query of Name_NotExistsSubQuery_TConnectorBySourceroleList for 'not exists'. (NotNull)
+     */
+    public void notExistsTConnectorBySourceroleList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_NotExistsSubQuery_TConnectorBySourceroleList(cb.query());// for saving query-value.
+        registerNotExistsSubQuery(cb.query(), "Name", "SourceRole", subQueryPropertyName);
+    }
+    abstract public String keepName_NotExistsSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery);
+
+    /**
+     * Set up 'not exists' sub-query. {not exists (select DestRole from t_connector where ...)}
+     * @param subQuery The sub-query of Name_NotExistsSubQuery_TConnectorByDestroleList for 'not exists'. (NotNull)
+     */
+    public void notExistsTConnectorByDestroleList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_NotExistsSubQuery_TConnectorByDestroleList(cb.query());// for saving query-value.
+        registerNotExistsSubQuery(cb.query(), "Name", "DestRole", subQueryPropertyName);
+    }
+    abstract public String keepName_NotExistsSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery);
+
+    public void xderiveTConnectorBySourceroleList(String function, SubQuery<TConnectorCB> subQuery, String aliasName) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForDeriveReferrer(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_DeriveSubQuery_TConnectorBySourceroleList(cb.query());// for saving query-value.
+        registerDeriveSubQuery(function, cb.query(), "Name", "SourceRole", subQueryPropertyName, aliasName);
+    }
+    abstract public String keepName_DeriveSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery);
+
+    public void xderiveTConnectorByDestroleList(String function, SubQuery<TConnectorCB> subQuery, String aliasName) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForDeriveReferrer(); subQuery.query(cb);
+        String subQueryPropertyName = keepName_DeriveSubQuery_TConnectorByDestroleList(cb.query());// for saving query-value.
+        registerDeriveSubQuery(function, cb.query(), "Name", "DestRole", subQueryPropertyName, aliasName);
+    }
+    abstract public String keepName_DeriveSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery);
 
     /**
      * IsNull(is null). And OnceRegistered.

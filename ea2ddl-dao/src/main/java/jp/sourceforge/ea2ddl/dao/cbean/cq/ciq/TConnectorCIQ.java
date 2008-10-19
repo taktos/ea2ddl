@@ -111,6 +111,9 @@ public class TConnectorCIQ extends AbstractBsTConnectorCQ {
     protected ConditionValue getCValueSourcerole() {
         return _myCQ.getSourcerole();
     }
+    public String keepSourcerole_InScopeSubQuery_TOperationBySourcerole(TOperationCQ subQuery) {
+        return _myCQ.keepSourcerole_InScopeSubQuery_TOperationBySourcerole(subQuery);
+    }
     protected ConditionValue getCValueSourceroletype() {
         return _myCQ.getSourceroletype();
     }
@@ -131,6 +134,9 @@ public class TConnectorCIQ extends AbstractBsTConnectorCQ {
     }
     protected ConditionValue getCValueDestrole() {
         return _myCQ.getDestrole();
+    }
+    public String keepDestrole_InScopeSubQuery_TOperationByDestrole(TOperationCQ subQuery) {
+        return _myCQ.keepDestrole_InScopeSubQuery_TOperationByDestrole(subQuery);
     }
     protected ConditionValue getCValueDestroletype() {
         return _myCQ.getDestroletype();
@@ -153,8 +159,14 @@ public class TConnectorCIQ extends AbstractBsTConnectorCQ {
     protected ConditionValue getCValueStartObjectId() {
         return _myCQ.getStartObjectId();
     }
+    public String keepStartObjectId_InScopeSubQuery_TObjectByStartObjectId(TObjectCQ subQuery) {
+        return _myCQ.keepStartObjectId_InScopeSubQuery_TObjectByStartObjectId(subQuery);
+    }
     protected ConditionValue getCValueEndObjectId() {
         return _myCQ.getEndObjectId();
+    }
+    public String keepEndObjectId_InScopeSubQuery_TObjectByEndObjectId(TObjectCQ subQuery) {
+        return _myCQ.keepEndObjectId_InScopeSubQuery_TObjectByEndObjectId(subQuery);
     }
     protected ConditionValue getCValueTopStartLabel() {
         return _myCQ.getTopStartLabel();

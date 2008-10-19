@@ -75,6 +75,9 @@ public class TAttributeCIQ extends AbstractBsTAttributeCQ {
     protected ConditionValue getCValueObjectId() {
         return _myCQ.getObjectId();
     }
+    public String keepObjectId_InScopeSubQuery_TObject(TObjectCQ subQuery) {
+        return _myCQ.keepObjectId_InScopeSubQuery_TObject(subQuery);
+    }
     protected ConditionValue getCValueName() {
         return _myCQ.getName();
     }

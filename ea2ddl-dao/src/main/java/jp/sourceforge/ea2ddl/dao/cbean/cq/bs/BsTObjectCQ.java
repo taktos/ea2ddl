@@ -63,6 +63,206 @@ public class BsTObjectCQ extends AbstractBsTObjectCQ {
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
           
+    protected Map<String, TObjectpropertiesCQ> _objectId_InScopeSubQuery_TObjectpropertiesListMap;
+    public Map<String, TObjectpropertiesCQ> getObjectId_InScopeSubQuery_TObjectpropertiesList() { return _objectId_InScopeSubQuery_TObjectpropertiesListMap; }
+    public String keepObjectId_InScopeSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        if (_objectId_InScopeSubQuery_TObjectpropertiesListMap == null) { _objectId_InScopeSubQuery_TObjectpropertiesListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_InScopeSubQuery_TObjectpropertiesListMap.size() + 1);
+        _objectId_InScopeSubQuery_TObjectpropertiesListMap.put(key, subQuery); return "objectId_InScopeSubQuery_TObjectpropertiesList." + key;
+    }
+
+    protected Map<String, TAttributeCQ> _objectId_InScopeSubQuery_TAttributeListMap;
+    public Map<String, TAttributeCQ> getObjectId_InScopeSubQuery_TAttributeList() { return _objectId_InScopeSubQuery_TAttributeListMap; }
+    public String keepObjectId_InScopeSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        if (_objectId_InScopeSubQuery_TAttributeListMap == null) { _objectId_InScopeSubQuery_TAttributeListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_InScopeSubQuery_TAttributeListMap.size() + 1);
+        _objectId_InScopeSubQuery_TAttributeListMap.put(key, subQuery); return "objectId_InScopeSubQuery_TAttributeList." + key;
+    }
+
+    protected Map<String, TOperationCQ> _objectId_InScopeSubQuery_TOperationListMap;
+    public Map<String, TOperationCQ> getObjectId_InScopeSubQuery_TOperationList() { return _objectId_InScopeSubQuery_TOperationListMap; }
+    public String keepObjectId_InScopeSubQuery_TOperationList(TOperationCQ subQuery) {
+        if (_objectId_InScopeSubQuery_TOperationListMap == null) { _objectId_InScopeSubQuery_TOperationListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_InScopeSubQuery_TOperationListMap.size() + 1);
+        _objectId_InScopeSubQuery_TOperationListMap.put(key, subQuery); return "objectId_InScopeSubQuery_TOperationList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_InScopeSubQuery_TConnectorByStartObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_InScopeSubQuery_TConnectorByStartObjectIdList() { return _objectId_InScopeSubQuery_TConnectorByStartObjectIdListMap; }
+    public String keepObjectId_InScopeSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_InScopeSubQuery_TConnectorByStartObjectIdListMap == null) { _objectId_InScopeSubQuery_TConnectorByStartObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_InScopeSubQuery_TConnectorByStartObjectIdListMap.size() + 1);
+        _objectId_InScopeSubQuery_TConnectorByStartObjectIdListMap.put(key, subQuery); return "objectId_InScopeSubQuery_TConnectorByStartObjectIdList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_InScopeSubQuery_TConnectorByEndObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_InScopeSubQuery_TConnectorByEndObjectIdList() { return _objectId_InScopeSubQuery_TConnectorByEndObjectIdListMap; }
+    public String keepObjectId_InScopeSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_InScopeSubQuery_TConnectorByEndObjectIdListMap == null) { _objectId_InScopeSubQuery_TConnectorByEndObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_InScopeSubQuery_TConnectorByEndObjectIdListMap.size() + 1);
+        _objectId_InScopeSubQuery_TConnectorByEndObjectIdListMap.put(key, subQuery); return "objectId_InScopeSubQuery_TConnectorByEndObjectIdList." + key;
+    }
+
+    protected Map<String, TObjectpropertiesCQ> _objectId_NotInScopeSubQuery_TObjectpropertiesListMap;
+    public Map<String, TObjectpropertiesCQ> getObjectId_NotInScopeSubQuery_TObjectpropertiesList() { return _objectId_NotInScopeSubQuery_TObjectpropertiesListMap; }
+    public String keepObjectId_NotInScopeSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        if (_objectId_NotInScopeSubQuery_TObjectpropertiesListMap == null) { _objectId_NotInScopeSubQuery_TObjectpropertiesListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotInScopeSubQuery_TObjectpropertiesListMap.size() + 1);
+        _objectId_NotInScopeSubQuery_TObjectpropertiesListMap.put(key, subQuery); return "objectId_NotInScopeSubQuery_TObjectpropertiesList." + key;
+    }
+
+    protected Map<String, TAttributeCQ> _objectId_NotInScopeSubQuery_TAttributeListMap;
+    public Map<String, TAttributeCQ> getObjectId_NotInScopeSubQuery_TAttributeList() { return _objectId_NotInScopeSubQuery_TAttributeListMap; }
+    public String keepObjectId_NotInScopeSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        if (_objectId_NotInScopeSubQuery_TAttributeListMap == null) { _objectId_NotInScopeSubQuery_TAttributeListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotInScopeSubQuery_TAttributeListMap.size() + 1);
+        _objectId_NotInScopeSubQuery_TAttributeListMap.put(key, subQuery); return "objectId_NotInScopeSubQuery_TAttributeList." + key;
+    }
+
+    protected Map<String, TOperationCQ> _objectId_NotInScopeSubQuery_TOperationListMap;
+    public Map<String, TOperationCQ> getObjectId_NotInScopeSubQuery_TOperationList() { return _objectId_NotInScopeSubQuery_TOperationListMap; }
+    public String keepObjectId_NotInScopeSubQuery_TOperationList(TOperationCQ subQuery) {
+        if (_objectId_NotInScopeSubQuery_TOperationListMap == null) { _objectId_NotInScopeSubQuery_TOperationListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotInScopeSubQuery_TOperationListMap.size() + 1);
+        _objectId_NotInScopeSubQuery_TOperationListMap.put(key, subQuery); return "objectId_NotInScopeSubQuery_TOperationList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_NotInScopeSubQuery_TConnectorByStartObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_NotInScopeSubQuery_TConnectorByStartObjectIdList() { return _objectId_NotInScopeSubQuery_TConnectorByStartObjectIdListMap; }
+    public String keepObjectId_NotInScopeSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_NotInScopeSubQuery_TConnectorByStartObjectIdListMap == null) { _objectId_NotInScopeSubQuery_TConnectorByStartObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotInScopeSubQuery_TConnectorByStartObjectIdListMap.size() + 1);
+        _objectId_NotInScopeSubQuery_TConnectorByStartObjectIdListMap.put(key, subQuery); return "objectId_NotInScopeSubQuery_TConnectorByStartObjectIdList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_NotInScopeSubQuery_TConnectorByEndObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_NotInScopeSubQuery_TConnectorByEndObjectIdList() { return _objectId_NotInScopeSubQuery_TConnectorByEndObjectIdListMap; }
+    public String keepObjectId_NotInScopeSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_NotInScopeSubQuery_TConnectorByEndObjectIdListMap == null) { _objectId_NotInScopeSubQuery_TConnectorByEndObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotInScopeSubQuery_TConnectorByEndObjectIdListMap.size() + 1);
+        _objectId_NotInScopeSubQuery_TConnectorByEndObjectIdListMap.put(key, subQuery); return "objectId_NotInScopeSubQuery_TConnectorByEndObjectIdList." + key;
+    }
+
+    protected Map<String, TObjectpropertiesCQ> _objectId_ExistsSubQuery_TObjectpropertiesListMap;
+    public Map<String, TObjectpropertiesCQ> getObjectId_ExistsSubQuery_TObjectpropertiesList() { return _objectId_ExistsSubQuery_TObjectpropertiesListMap; }
+    public String keepObjectId_ExistsSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        if (_objectId_ExistsSubQuery_TObjectpropertiesListMap == null) { _objectId_ExistsSubQuery_TObjectpropertiesListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_ExistsSubQuery_TObjectpropertiesListMap.size() + 1);
+        _objectId_ExistsSubQuery_TObjectpropertiesListMap.put(key, subQuery); return "objectId_ExistsSubQuery_TObjectpropertiesList." + key;
+    }
+
+    protected Map<String, TAttributeCQ> _objectId_ExistsSubQuery_TAttributeListMap;
+    public Map<String, TAttributeCQ> getObjectId_ExistsSubQuery_TAttributeList() { return _objectId_ExistsSubQuery_TAttributeListMap; }
+    public String keepObjectId_ExistsSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        if (_objectId_ExistsSubQuery_TAttributeListMap == null) { _objectId_ExistsSubQuery_TAttributeListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_ExistsSubQuery_TAttributeListMap.size() + 1);
+        _objectId_ExistsSubQuery_TAttributeListMap.put(key, subQuery); return "objectId_ExistsSubQuery_TAttributeList." + key;
+    }
+
+    protected Map<String, TOperationCQ> _objectId_ExistsSubQuery_TOperationListMap;
+    public Map<String, TOperationCQ> getObjectId_ExistsSubQuery_TOperationList() { return _objectId_ExistsSubQuery_TOperationListMap; }
+    public String keepObjectId_ExistsSubQuery_TOperationList(TOperationCQ subQuery) {
+        if (_objectId_ExistsSubQuery_TOperationListMap == null) { _objectId_ExistsSubQuery_TOperationListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_ExistsSubQuery_TOperationListMap.size() + 1);
+        _objectId_ExistsSubQuery_TOperationListMap.put(key, subQuery); return "objectId_ExistsSubQuery_TOperationList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_ExistsSubQuery_TConnectorByStartObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_ExistsSubQuery_TConnectorByStartObjectIdList() { return _objectId_ExistsSubQuery_TConnectorByStartObjectIdListMap; }
+    public String keepObjectId_ExistsSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_ExistsSubQuery_TConnectorByStartObjectIdListMap == null) { _objectId_ExistsSubQuery_TConnectorByStartObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_ExistsSubQuery_TConnectorByStartObjectIdListMap.size() + 1);
+        _objectId_ExistsSubQuery_TConnectorByStartObjectIdListMap.put(key, subQuery); return "objectId_ExistsSubQuery_TConnectorByStartObjectIdList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_ExistsSubQuery_TConnectorByEndObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_ExistsSubQuery_TConnectorByEndObjectIdList() { return _objectId_ExistsSubQuery_TConnectorByEndObjectIdListMap; }
+    public String keepObjectId_ExistsSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_ExistsSubQuery_TConnectorByEndObjectIdListMap == null) { _objectId_ExistsSubQuery_TConnectorByEndObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_ExistsSubQuery_TConnectorByEndObjectIdListMap.size() + 1);
+        _objectId_ExistsSubQuery_TConnectorByEndObjectIdListMap.put(key, subQuery); return "objectId_ExistsSubQuery_TConnectorByEndObjectIdList." + key;
+    }
+
+    protected Map<String, TObjectpropertiesCQ> _objectId_NotExistsSubQuery_TObjectpropertiesListMap;
+    public Map<String, TObjectpropertiesCQ> getObjectId_NotExistsSubQuery_TObjectpropertiesList() { return _objectId_NotExistsSubQuery_TObjectpropertiesListMap; }
+    public String keepObjectId_NotExistsSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        if (_objectId_NotExistsSubQuery_TObjectpropertiesListMap == null) { _objectId_NotExistsSubQuery_TObjectpropertiesListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotExistsSubQuery_TObjectpropertiesListMap.size() + 1);
+        _objectId_NotExistsSubQuery_TObjectpropertiesListMap.put(key, subQuery); return "objectId_NotExistsSubQuery_TObjectpropertiesList." + key;
+    }
+
+    protected Map<String, TAttributeCQ> _objectId_NotExistsSubQuery_TAttributeListMap;
+    public Map<String, TAttributeCQ> getObjectId_NotExistsSubQuery_TAttributeList() { return _objectId_NotExistsSubQuery_TAttributeListMap; }
+    public String keepObjectId_NotExistsSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        if (_objectId_NotExistsSubQuery_TAttributeListMap == null) { _objectId_NotExistsSubQuery_TAttributeListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotExistsSubQuery_TAttributeListMap.size() + 1);
+        _objectId_NotExistsSubQuery_TAttributeListMap.put(key, subQuery); return "objectId_NotExistsSubQuery_TAttributeList." + key;
+    }
+
+    protected Map<String, TOperationCQ> _objectId_NotExistsSubQuery_TOperationListMap;
+    public Map<String, TOperationCQ> getObjectId_NotExistsSubQuery_TOperationList() { return _objectId_NotExistsSubQuery_TOperationListMap; }
+    public String keepObjectId_NotExistsSubQuery_TOperationList(TOperationCQ subQuery) {
+        if (_objectId_NotExistsSubQuery_TOperationListMap == null) { _objectId_NotExistsSubQuery_TOperationListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotExistsSubQuery_TOperationListMap.size() + 1);
+        _objectId_NotExistsSubQuery_TOperationListMap.put(key, subQuery); return "objectId_NotExistsSubQuery_TOperationList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_NotExistsSubQuery_TConnectorByStartObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_NotExistsSubQuery_TConnectorByStartObjectIdList() { return _objectId_NotExistsSubQuery_TConnectorByStartObjectIdListMap; }
+    public String keepObjectId_NotExistsSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_NotExistsSubQuery_TConnectorByStartObjectIdListMap == null) { _objectId_NotExistsSubQuery_TConnectorByStartObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotExistsSubQuery_TConnectorByStartObjectIdListMap.size() + 1);
+        _objectId_NotExistsSubQuery_TConnectorByStartObjectIdListMap.put(key, subQuery); return "objectId_NotExistsSubQuery_TConnectorByStartObjectIdList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_NotExistsSubQuery_TConnectorByEndObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_NotExistsSubQuery_TConnectorByEndObjectIdList() { return _objectId_NotExistsSubQuery_TConnectorByEndObjectIdListMap; }
+    public String keepObjectId_NotExistsSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_NotExistsSubQuery_TConnectorByEndObjectIdListMap == null) { _objectId_NotExistsSubQuery_TConnectorByEndObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_NotExistsSubQuery_TConnectorByEndObjectIdListMap.size() + 1);
+        _objectId_NotExistsSubQuery_TConnectorByEndObjectIdListMap.put(key, subQuery); return "objectId_NotExistsSubQuery_TConnectorByEndObjectIdList." + key;
+    }
+
+    protected Map<String, TObjectpropertiesCQ> _objectId_DeriveSubQuery_TObjectpropertiesListMap;
+    public Map<String, TObjectpropertiesCQ> getObjectId_DeriveSubQuery_TObjectpropertiesList() { return _objectId_DeriveSubQuery_TObjectpropertiesListMap; }
+    public String keepObjectId_DeriveSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        if (_objectId_DeriveSubQuery_TObjectpropertiesListMap == null) { _objectId_DeriveSubQuery_TObjectpropertiesListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_DeriveSubQuery_TObjectpropertiesListMap.size() + 1);
+        _objectId_DeriveSubQuery_TObjectpropertiesListMap.put(key, subQuery); return "objectId_DeriveSubQuery_TObjectpropertiesList." + key;
+    }
+
+    protected Map<String, TAttributeCQ> _objectId_DeriveSubQuery_TAttributeListMap;
+    public Map<String, TAttributeCQ> getObjectId_DeriveSubQuery_TAttributeList() { return _objectId_DeriveSubQuery_TAttributeListMap; }
+    public String keepObjectId_DeriveSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        if (_objectId_DeriveSubQuery_TAttributeListMap == null) { _objectId_DeriveSubQuery_TAttributeListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_DeriveSubQuery_TAttributeListMap.size() + 1);
+        _objectId_DeriveSubQuery_TAttributeListMap.put(key, subQuery); return "objectId_DeriveSubQuery_TAttributeList." + key;
+    }
+
+    protected Map<String, TOperationCQ> _objectId_DeriveSubQuery_TOperationListMap;
+    public Map<String, TOperationCQ> getObjectId_DeriveSubQuery_TOperationList() { return _objectId_DeriveSubQuery_TOperationListMap; }
+    public String keepObjectId_DeriveSubQuery_TOperationList(TOperationCQ subQuery) {
+        if (_objectId_DeriveSubQuery_TOperationListMap == null) { _objectId_DeriveSubQuery_TOperationListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_DeriveSubQuery_TOperationListMap.size() + 1);
+        _objectId_DeriveSubQuery_TOperationListMap.put(key, subQuery); return "objectId_DeriveSubQuery_TOperationList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_DeriveSubQuery_TConnectorByStartObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_DeriveSubQuery_TConnectorByStartObjectIdList() { return _objectId_DeriveSubQuery_TConnectorByStartObjectIdListMap; }
+    public String keepObjectId_DeriveSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_DeriveSubQuery_TConnectorByStartObjectIdListMap == null) { _objectId_DeriveSubQuery_TConnectorByStartObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_DeriveSubQuery_TConnectorByStartObjectIdListMap.size() + 1);
+        _objectId_DeriveSubQuery_TConnectorByStartObjectIdListMap.put(key, subQuery); return "objectId_DeriveSubQuery_TConnectorByStartObjectIdList." + key;
+    }
+
+    protected Map<String, TConnectorCQ> _objectId_DeriveSubQuery_TConnectorByEndObjectIdListMap;
+    public Map<String, TConnectorCQ> getObjectId_DeriveSubQuery_TConnectorByEndObjectIdList() { return _objectId_DeriveSubQuery_TConnectorByEndObjectIdListMap; }
+    public String keepObjectId_DeriveSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        if (_objectId_DeriveSubQuery_TConnectorByEndObjectIdListMap == null) { _objectId_DeriveSubQuery_TConnectorByEndObjectIdListMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_DeriveSubQuery_TConnectorByEndObjectIdListMap.size() + 1);
+        _objectId_DeriveSubQuery_TConnectorByEndObjectIdListMap.put(key, subQuery); return "objectId_DeriveSubQuery_TConnectorByEndObjectIdList." + key;
+    }
+
     public BsTObjectCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjectCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 

@@ -5,6 +5,7 @@ import java.util.*;
 import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
  * The entity of t_attribute(TABLE).
@@ -25,13 +26,13 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  *     
  * 
  * [foreign-table]
- *     
+ *     t_object
  * 
  * [referrer-table]
  *     
  * 
  * [foreign-property]
- *     
+ *     tObject
  * 
  * [referrer-property]
  *     
@@ -57,7 +58,7 @@ public abstract class BsTAttribute implements Entity, java.io.Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {INTEGER} */
+    /** The attribute of the column 'Object_ID'. {INTEGER : FK to t_object} */
     protected java.lang.Integer _objectId;
 
     /** The attribute of the column 'Name'. {VARCHAR(255)} */
@@ -174,6 +175,31 @@ public abstract class BsTAttribute implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Foreign Property = [TObject]
+    // * * * * * * * * */
+    public static final int TObject_RELNO = 0;
+    public static final String TObject_RELKEYS = "Object_ID:Object_ID";
+
+    /** The entity of foreign property 'TObject'. */
+    protected TObject _parentTObject;
+
+    /**
+     * Get the entity of foreign property 'TObject'. {without lazy-load}
+     * @return The entity of foreign property 'TObject'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
+     */
+    public TObject getTObject() {
+        return _parentTObject;
+    }
+
+    /**
+     * Set the entity of foreign property 'TObject'.
+     * @param tObject The entity of foreign property 'TObject'. (Nullable)
+     */
+    public void setTObject(TObject tObject) {
+        _parentTObject = tObject;
+    }
+
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
@@ -322,12 +348,12 @@ public abstract class BsTAttribute implements Entity, java.io.Serializable {
     //                                                                            Accessor
     //                                                                            ========
 
-    /** The column annotation for S2Dao. {INTEGER} */
+    /** The column annotation for S2Dao. {INTEGER : FK to t_object} */
     public static final String objectId_COLUMN = "Object_ID";
 
     /**
      * Get the value of the column 'Object_ID'. <br />
-     * {INTEGER}
+     * {INTEGER : FK to t_object}
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -336,7 +362,7 @@ public abstract class BsTAttribute implements Entity, java.io.Serializable {
 
     /**
      * Set the value of the column 'Object_ID'. <br />
-     * {INTEGER}
+     * {INTEGER : FK to t_object}
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {

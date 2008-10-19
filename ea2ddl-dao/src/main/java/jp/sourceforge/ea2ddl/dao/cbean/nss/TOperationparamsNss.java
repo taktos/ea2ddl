@@ -1,5 +1,6 @@
 package jp.sourceforge.ea2ddl.dao.cbean.nss;
 
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionQuery;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TOperationparamsCQ;
 
 /**
@@ -16,6 +17,10 @@ public class TOperationparamsNss {
     // ===================================================================================
     //                                                           With Nested Foreign Table
     //                                                           =========================
+    public TOperationNss withTOperation() {
+        _query.doNss(new TOperationparamsCQ.NssCall() { public ConditionQuery qf() { return _query.queryTOperation(); }});
+		return new TOperationNss(_query.queryTOperation());
+    }
 
     // ===================================================================================
     //                                                          With Nested Referrer Table

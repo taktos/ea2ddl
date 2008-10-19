@@ -39,7 +39,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER : FK to t_object}
      * @param objectId The value of objectId as equal.
      */
     public void setObjectId_Equal(java.lang.Integer objectId) {
@@ -93,6 +93,22 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     public void setObjectId_InScope(Collection<java.lang.Integer> objectIdList) {
         regObjectId(CK_INS, cTL(objectIdList));
     }
+
+    /**
+	 * @param tObjectCBquery Query.
+	 * @deprecated Please use inScopeTObject(subQuery) method.
+	 */
+    public void setObjectId_InScopeSubQuery_TObject(TObjectCQ tObjectCBquery) {
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TObject(tObjectCBquery);// for saving query-value.
+        registerInScopeSubQuery(tObjectCBquery, "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    public void inScopeTObject(SubQuery<TObjectCB> subQuery) {
+        assertObjectNotNull("subQuery<TObjectCB>", subQuery);
+        TObjectCB cb = new TObjectCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TObject(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_InScopeSubQuery_TObject(TObjectCQ subQuery);
 
     /**
      * IsNull(is null). And OnceRegistered.

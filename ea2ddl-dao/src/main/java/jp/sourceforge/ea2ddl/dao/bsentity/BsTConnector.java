@@ -5,6 +5,7 @@ import java.util.*;
 import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
  * The entity of t_connector(TABLE).
@@ -25,13 +26,13 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  *     
  * 
  * [foreign-table]
- *     
+ *     t_operation, t_object
  * 
  * [referrer-table]
  *     
  * 
  * [foreign-property]
- *     
+ *     tOperationBySourcerole, tOperationByDestrole, tObjectByStartObjectId, tObjectByEndObjectId
  * 
  * [referrer-property]
  *     
@@ -93,7 +94,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     /** The attribute of the column 'DestElement'. {VARCHAR(50)} */
     protected String _destelement;
 
-    /** The attribute of the column 'SourceRole'. {VARCHAR(255)} */
+    /** The attribute of the column 'SourceRole'. {VARCHAR(255) : FK to t_operation} */
     protected String _sourcerole;
 
     /** The attribute of the column 'SourceRoleType'. {VARCHAR(50)} */
@@ -114,7 +115,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     /** The attribute of the column 'SourceQualifier'. {VARCHAR(50)} */
     protected String _sourcequalifier;
 
-    /** The attribute of the column 'DestRole'. {VARCHAR(255)} */
+    /** The attribute of the column 'DestRole'. {VARCHAR(255) : FK to t_operation} */
     protected String _destrole;
 
     /** The attribute of the column 'DestRoleType'. {VARCHAR(50)} */
@@ -135,10 +136,10 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     /** The attribute of the column 'DestQualifier'. {VARCHAR(50)} */
     protected String _destqualifier;
 
-    /** The attribute of the column 'Start_Object_ID'. {INTEGER} */
+    /** The attribute of the column 'Start_Object_ID'. {INTEGER : FK to t_object} */
     protected java.lang.Integer _startObjectId;
 
-    /** The attribute of the column 'End_Object_ID'. {INTEGER} */
+    /** The attribute of the column 'End_Object_ID'. {INTEGER : FK to t_object} */
     protected java.lang.Integer _endObjectId;
 
     /** The attribute of the column 'Top_Start_Label'. {VARCHAR(50)} */
@@ -336,6 +337,106 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Foreign Property = [TOperationBySourcerole]
+    // * * * * * * * * */
+    public static final int TOperationBySourcerole_RELNO = 0;
+    public static final String TOperationBySourcerole_RELKEYS = "SourceRole:Name";
+
+    /** The entity of foreign property 'TOperationBySourcerole'. */
+    protected TOperation _parentTOperationBySourcerole;
+
+    /**
+     * Get the entity of foreign property 'TOperationBySourcerole'. {without lazy-load}
+     * @return The entity of foreign property 'TOperationBySourcerole'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
+     */
+    public TOperation getTOperationBySourcerole() {
+        return _parentTOperationBySourcerole;
+    }
+
+    /**
+     * Set the entity of foreign property 'TOperationBySourcerole'.
+     * @param tOperationBySourcerole The entity of foreign property 'TOperationBySourcerole'. (Nullable)
+     */
+    public void setTOperationBySourcerole(TOperation tOperationBySourcerole) {
+        _parentTOperationBySourcerole = tOperationBySourcerole;
+    }
+
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Foreign Property = [TOperationByDestrole]
+    // * * * * * * * * */
+    public static final int TOperationByDestrole_RELNO = 1;
+    public static final String TOperationByDestrole_RELKEYS = "DestRole:Name";
+
+    /** The entity of foreign property 'TOperationByDestrole'. */
+    protected TOperation _parentTOperationByDestrole;
+
+    /**
+     * Get the entity of foreign property 'TOperationByDestrole'. {without lazy-load}
+     * @return The entity of foreign property 'TOperationByDestrole'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
+     */
+    public TOperation getTOperationByDestrole() {
+        return _parentTOperationByDestrole;
+    }
+
+    /**
+     * Set the entity of foreign property 'TOperationByDestrole'.
+     * @param tOperationByDestrole The entity of foreign property 'TOperationByDestrole'. (Nullable)
+     */
+    public void setTOperationByDestrole(TOperation tOperationByDestrole) {
+        _parentTOperationByDestrole = tOperationByDestrole;
+    }
+
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Foreign Property = [TObjectByStartObjectId]
+    // * * * * * * * * */
+    public static final int TObjectByStartObjectId_RELNO = 2;
+    public static final String TObjectByStartObjectId_RELKEYS = "Start_Object_ID:Object_ID";
+
+    /** The entity of foreign property 'TObjectByStartObjectId'. */
+    protected TObject _parentTObjectByStartObjectId;
+
+    /**
+     * Get the entity of foreign property 'TObjectByStartObjectId'. {without lazy-load}
+     * @return The entity of foreign property 'TObjectByStartObjectId'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
+     */
+    public TObject getTObjectByStartObjectId() {
+        return _parentTObjectByStartObjectId;
+    }
+
+    /**
+     * Set the entity of foreign property 'TObjectByStartObjectId'.
+     * @param tObjectByStartObjectId The entity of foreign property 'TObjectByStartObjectId'. (Nullable)
+     */
+    public void setTObjectByStartObjectId(TObject tObjectByStartObjectId) {
+        _parentTObjectByStartObjectId = tObjectByStartObjectId;
+    }
+
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Foreign Property = [TObjectByEndObjectId]
+    // * * * * * * * * */
+    public static final int TObjectByEndObjectId_RELNO = 3;
+    public static final String TObjectByEndObjectId_RELKEYS = "End_Object_ID:Object_ID";
+
+    /** The entity of foreign property 'TObjectByEndObjectId'. */
+    protected TObject _parentTObjectByEndObjectId;
+
+    /**
+     * Get the entity of foreign property 'TObjectByEndObjectId'. {without lazy-load}
+     * @return The entity of foreign property 'TObjectByEndObjectId'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
+     */
+    public TObject getTObjectByEndObjectId() {
+        return _parentTObjectByEndObjectId;
+    }
+
+    /**
+     * Set the entity of foreign property 'TObjectByEndObjectId'.
+     * @param tObjectByEndObjectId The entity of foreign property 'TObjectByEndObjectId'. (Nullable)
+     */
+    public void setTObjectByEndObjectId(TObject tObjectByEndObjectId) {
+        _parentTObjectByEndObjectId = tObjectByEndObjectId;
+    }
+
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
@@ -910,12 +1011,12 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destelement = destelement;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
+    /** The column annotation for S2Dao. {VARCHAR(255) : FK to t_operation} */
     public static final String sourcerole_COLUMN = "SourceRole";
 
     /**
      * Get the value of the column 'SourceRole'. <br />
-     * {VARCHAR(255)}
+     * {VARCHAR(255) : FK to t_operation}
      * @return The value of the column 'SourceRole'. (Nullable)
      */
     public String getSourcerole() {
@@ -924,7 +1025,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
 
     /**
      * Set the value of the column 'SourceRole'. <br />
-     * {VARCHAR(255)}
+     * {VARCHAR(255) : FK to t_operation}
      * @param sourcerole The value of the column 'SourceRole'. (Nullable)
      */
     public void setSourcerole(String sourcerole) {
@@ -1064,12 +1165,12 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcequalifier = sourcequalifier;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
+    /** The column annotation for S2Dao. {VARCHAR(255) : FK to t_operation} */
     public static final String destrole_COLUMN = "DestRole";
 
     /**
      * Get the value of the column 'DestRole'. <br />
-     * {VARCHAR(255)}
+     * {VARCHAR(255) : FK to t_operation}
      * @return The value of the column 'DestRole'. (Nullable)
      */
     public String getDestrole() {
@@ -1078,7 +1179,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
 
     /**
      * Set the value of the column 'DestRole'. <br />
-     * {VARCHAR(255)}
+     * {VARCHAR(255) : FK to t_operation}
      * @param destrole The value of the column 'DestRole'. (Nullable)
      */
     public void setDestrole(String destrole) {
@@ -1218,12 +1319,12 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destqualifier = destqualifier;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
+    /** The column annotation for S2Dao. {INTEGER : FK to t_object} */
     public static final String startObjectId_COLUMN = "Start_Object_ID";
 
     /**
      * Get the value of the column 'Start_Object_ID'. <br />
-     * {INTEGER}
+     * {INTEGER : FK to t_object}
      * @return The value of the column 'Start_Object_ID'. (Nullable)
      */
     public java.lang.Integer getStartObjectId() {
@@ -1232,7 +1333,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
 
     /**
      * Set the value of the column 'Start_Object_ID'. <br />
-     * {INTEGER}
+     * {INTEGER : FK to t_object}
      * @param startObjectId The value of the column 'Start_Object_ID'. (Nullable)
      */
     public void setStartObjectId(java.lang.Integer startObjectId) {
@@ -1240,12 +1341,12 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._startObjectId = startObjectId;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
+    /** The column annotation for S2Dao. {INTEGER : FK to t_object} */
     public static final String endObjectId_COLUMN = "End_Object_ID";
 
     /**
      * Get the value of the column 'End_Object_ID'. <br />
-     * {INTEGER}
+     * {INTEGER : FK to t_object}
      * @return The value of the column 'End_Object_ID'. (Nullable)
      */
     public java.lang.Integer getEndObjectId() {
@@ -1254,7 +1355,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
 
     /**
      * Set the value of the column 'End_Object_ID'. <br />
-     * {INTEGER}
+     * {INTEGER : FK to t_object}
      * @param endObjectId The value of the column 'End_Object_ID'. (Nullable)
      */
     public void setEndObjectId(java.lang.Integer endObjectId) {

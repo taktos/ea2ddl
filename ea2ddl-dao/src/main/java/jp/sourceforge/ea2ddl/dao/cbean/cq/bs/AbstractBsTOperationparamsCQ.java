@@ -39,7 +39,7 @@ public abstract class AbstractBsTOperationparamsCQ extends AbstractConditionQuer
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : INTEGER}
+     * Equal(=). And NullIgnored, OnceRegistered. {UQ : INTEGER : FK to T_OPERATION}
      * @param operationid The value of operationid as equal.
      */
     public void setOperationid_Equal(java.lang.Integer operationid) {
@@ -93,6 +93,22 @@ public abstract class AbstractBsTOperationparamsCQ extends AbstractConditionQuer
     public void setOperationid_InScope(Collection<java.lang.Integer> operationidList) {
         regOperationid(CK_INS, cTL(operationidList));
     }
+
+    /**
+	 * @param tOperationCBquery Query.
+	 * @deprecated Please use inScopeTOperation(subQuery) method.
+	 */
+    public void setOperationid_InScopeSubQuery_TOperation(TOperationCQ tOperationCBquery) {
+        String subQueryPropertyName = keepOperationid_InScopeSubQuery_TOperation(tOperationCBquery);// for saving query-value.
+        registerInScopeSubQuery(tOperationCBquery, "OperationID", "OperationID", subQueryPropertyName);
+    }
+    public void inScopeTOperation(SubQuery<TOperationCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationCB>", subQuery);
+        TOperationCB cb = new TOperationCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepOperationid_InScopeSubQuery_TOperation(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "OperationID", "OperationID", subQueryPropertyName);
+    }
+    abstract public String keepOperationid_InScopeSubQuery_TOperation(TOperationCQ subQuery);
 
     /**
      * IsNull(is null). And OnceRegistered.

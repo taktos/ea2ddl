@@ -105,6 +105,10 @@ public class TOperationparamsDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                      Foreign Property
     //                                      ----------------
+    public ForeignInfo foreignTOperation() {
+		Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnOperationid(), TOperationDbm.getInstance().columnOperationid());
+	    return cfi("TOperation", this, TOperationDbm.getInstance(), map, 0, false);
+    }
 
     // -----------------------------------------------------
     //                                     Referrer Property

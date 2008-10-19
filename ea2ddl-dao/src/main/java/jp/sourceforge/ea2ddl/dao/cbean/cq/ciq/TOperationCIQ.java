@@ -75,11 +75,56 @@ public class TOperationCIQ extends AbstractBsTOperationCQ {
     protected ConditionValue getCValueOperationid() {
         return _myCQ.getOperationid();
     }
+    public String keepOperationid_InScopeSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        return _myCQ.keepOperationid_InScopeSubQuery_TOperationparamsList(subQuery);
+    }
+    public String keepOperationid_NotInScopeSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        return _myCQ.keepOperationid_NotInScopeSubQuery_TOperationparamsList(subQuery);
+    }
+    public String keepOperationid_ExistsSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        throw new UnsupportedOperationException("ExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepOperationid_NotExistsSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepOperationid_DeriveSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
+        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    }
     protected ConditionValue getCValueObjectId() {
         return _myCQ.getObjectId();
     }
     protected ConditionValue getCValueName() {
         return _myCQ.getName();
+    }
+    public String keepName_InScopeSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        return _myCQ.keepName_InScopeSubQuery_TConnectorBySourceroleList(subQuery);
+    }
+    public String keepName_InScopeSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        return _myCQ.keepName_InScopeSubQuery_TConnectorByDestroleList(subQuery);
+    }
+    public String keepName_NotInScopeSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        return _myCQ.keepName_NotInScopeSubQuery_TConnectorBySourceroleList(subQuery);
+    }
+    public String keepName_NotInScopeSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        return _myCQ.keepName_NotInScopeSubQuery_TConnectorByDestroleList(subQuery);
+    }
+    public String keepName_ExistsSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("ExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepName_ExistsSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("ExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepName_NotExistsSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepName_NotExistsSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepName_DeriveSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepName_DeriveSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
     }
     protected ConditionValue getCValueScope() {
         return _myCQ.getScope();

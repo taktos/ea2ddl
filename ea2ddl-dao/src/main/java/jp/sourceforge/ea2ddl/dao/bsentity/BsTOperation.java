@@ -5,6 +5,7 @@ import java.util.*;
 import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
  * The entity of t_operation(TABLE).
@@ -25,13 +26,13 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  *     
  * 
  * [foreign-table]
- *     
+ *     t_object
  * 
  * [referrer-table]
  *     
  * 
  * [foreign-property]
- *     
+ *     tObject
  * 
  * [referrer-property]
  *     
@@ -168,6 +169,31 @@ public abstract class BsTOperation implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Foreign Property = [TObject]
+    // * * * * * * * * */
+    public static final int TObject_RELNO = 0;
+    public static final String TObject_RELKEYS = "Object_ID:Object_ID";
+
+    /** The entity of foreign property 'TObject'. */
+    protected TObject _parentTObject;
+
+    /**
+     * Get the entity of foreign property 'TObject'. {without lazy-load}
+     * @return The entity of foreign property 'TObject'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
+     */
+    public TObject getTObject() {
+        return _parentTObject;
+    }
+
+    /**
+     * Set the entity of foreign property 'TObject'.
+     * @param tObject The entity of foreign property 'TObject'. (Nullable)
+     */
+    public void setTObject(TObject tObject) {
+        _parentTObject = tObject;
+    }
+
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================

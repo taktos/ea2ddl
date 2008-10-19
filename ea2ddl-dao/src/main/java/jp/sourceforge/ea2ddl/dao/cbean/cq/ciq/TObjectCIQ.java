@@ -75,6 +75,81 @@ public class TObjectCIQ extends AbstractBsTObjectCQ {
     protected ConditionValue getCValueObjectId() {
         return _myCQ.getObjectId();
     }
+    public String keepObjectId_InScopeSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        return _myCQ.keepObjectId_InScopeSubQuery_TObjectpropertiesList(subQuery);
+    }
+    public String keepObjectId_InScopeSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        return _myCQ.keepObjectId_InScopeSubQuery_TAttributeList(subQuery);
+    }
+    public String keepObjectId_InScopeSubQuery_TOperationList(TOperationCQ subQuery) {
+        return _myCQ.keepObjectId_InScopeSubQuery_TOperationList(subQuery);
+    }
+    public String keepObjectId_InScopeSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        return _myCQ.keepObjectId_InScopeSubQuery_TConnectorByStartObjectIdList(subQuery);
+    }
+    public String keepObjectId_InScopeSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        return _myCQ.keepObjectId_InScopeSubQuery_TConnectorByEndObjectIdList(subQuery);
+    }
+    public String keepObjectId_NotInScopeSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        return _myCQ.keepObjectId_NotInScopeSubQuery_TObjectpropertiesList(subQuery);
+    }
+    public String keepObjectId_NotInScopeSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        return _myCQ.keepObjectId_NotInScopeSubQuery_TAttributeList(subQuery);
+    }
+    public String keepObjectId_NotInScopeSubQuery_TOperationList(TOperationCQ subQuery) {
+        return _myCQ.keepObjectId_NotInScopeSubQuery_TOperationList(subQuery);
+    }
+    public String keepObjectId_NotInScopeSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        return _myCQ.keepObjectId_NotInScopeSubQuery_TConnectorByStartObjectIdList(subQuery);
+    }
+    public String keepObjectId_NotInScopeSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        return _myCQ.keepObjectId_NotInScopeSubQuery_TConnectorByEndObjectIdList(subQuery);
+    }
+    public String keepObjectId_ExistsSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        throw new UnsupportedOperationException("ExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_ExistsSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        throw new UnsupportedOperationException("ExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_ExistsSubQuery_TOperationList(TOperationCQ subQuery) {
+        throw new UnsupportedOperationException("ExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_ExistsSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("ExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_ExistsSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("ExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_NotExistsSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_NotExistsSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_NotExistsSubQuery_TOperationList(TOperationCQ subQuery) {
+        throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_NotExistsSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_NotExistsSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_DeriveSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_DeriveSubQuery_TAttributeList(TAttributeCQ subQuery) {
+        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_DeriveSubQuery_TOperationList(TOperationCQ subQuery) {
+        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_DeriveSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_DeriveSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    }
     protected ConditionValue getCValueObjectType() {
         return _myCQ.getObjectType();
     }

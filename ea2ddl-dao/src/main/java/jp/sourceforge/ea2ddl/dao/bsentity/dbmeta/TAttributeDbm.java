@@ -135,6 +135,10 @@ public class TAttributeDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                      Foreign Property
     //                                      ----------------
+    public ForeignInfo foreignTObject() {
+		Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TObjectDbm.getInstance().columnObjectId());
+	    return cfi("TObject", this, TObjectDbm.getInstance(), map, 0, false);
+    }
 
     // -----------------------------------------------------
     //                                     Referrer Property

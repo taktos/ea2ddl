@@ -38,13 +38,13 @@ import jp.sourceforge.ea2ddl.dao.cbean.*;
  *     
  * 
  * [foreign-table]
- *     
+ *     t_object
  * 
  * [referrer-table]
  *     
  * 
  * [foreign-property]
- *     
+ *     tObject
  * 
  * [referrer-property]
  *     
@@ -184,6 +184,15 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
     // ===================================================================================
     //                                                                     Pullout Foreign
     //                                                                     ===============
+    /**
+     * Pull out the list of foreign table 'TObject'.
+     * @param tObjectpropertiesList The list of tObjectproperties. (NotNull)
+     * @return The list of foreign table. (NotNull)
+     */
+    public List<TObject> pulloutTObject(List<TObjectproperties> tObjectpropertiesList) {
+        return helpPulloutInternally(tObjectpropertiesList, new InternalPulloutCallback<TObjectproperties, TObject>() {
+            public TObject callbackGetForeignEntity(TObjectproperties entity) { return entity.getTObject(); } });
+    }
   
     // ===================================================================================
     //                                                                     Delegate Method

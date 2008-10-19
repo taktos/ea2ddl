@@ -9,6 +9,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.cbean.SubQuery;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.UnionQuery;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.nss.*;
 
 /**
  * The base condition-bean of t_operationparams.
@@ -133,6 +134,17 @@ public class BsTOperationparamsCB extends AbstractConditionBean {
     //                                                                        Setup Select
     //                                                                        ============
 
+    protected TOperationNss _nssTOperation;
+    public TOperationNss getNssTOperation() {
+        if (_nssTOperation == null) { _nssTOperation = new TOperationNss(null); }
+        return _nssTOperation;
+    }
+    public TOperationNss setupSelect_TOperation() {
+        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryTOperation(); } });
+        if (_nssTOperation == null || !_nssTOperation.hasConditionQuery()) { _nssTOperation = new TOperationNss(query().queryTOperation()); }
+        return _nssTOperation;
+    }
+
     // [DBFlute-0.7.4]
     // ===================================================================================
     //                                                                             Specify
@@ -144,6 +156,7 @@ public class BsTOperationparamsCB extends AbstractConditionBean {
     }
     public static class Specification extends AbstractSpecification<TOperationparamsCQ> {
         protected SpQyCall<TOperationparamsCQ> _myQyCall;
+        protected TOperationCB.Specification _tOperation;
         public Specification(ConditionBean baseCB, SpQyCall<TOperationparamsCQ> qyCall, boolean forDeriveReferrer) { super(baseCB, qyCall, forDeriveReferrer); _myQyCall = qyCall; }
         public void columnOperationid() { doColumn("OperationID"); }
         public void columnName() { doColumn("Name"); }
@@ -156,8 +169,20 @@ public class BsTOperationparamsCB extends AbstractConditionBean {
         public void columnEaGuid() { doColumn("ea_guid"); }
         public void columnStyleex() { doColumn("StyleEx"); }
         protected void doSpecifyRequiredColumn() {
+            if (_myQyCall.qy().hasConditionQueryTOperation()) {
+                columnOperationid();// FK
+            }
         }
         protected String getTableDbName() { return "t_operationparams"; }
+        public TOperationCB.Specification specifyTOperation() {
+            assertForeign("tOperation");
+            if (_tOperation == null) {
+                _tOperation = new TOperationCB.Specification(_baseCB, new SpQyCall<TOperationCQ>() {
+                    public boolean has() { return _myQyCall.has() && _myQyCall.qy().hasConditionQueryTOperation(); }
+                    public TOperationCQ qy() { return _myQyCall.qy().queryTOperation(); } }, _forDeriveReferrer);
+            }
+            return _tOperation;
+        }
     }
 
     // Very Internal (for Suppressing Warn about 'Not Use Import')

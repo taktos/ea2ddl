@@ -94,6 +94,326 @@ public abstract class AbstractBsTObjectCQ extends AbstractConditionQuery {
         regObjectId(CK_INS, cTL(objectIdList));
     }
 
+    /**
+	 * @param tObjectpropertiesCBquery Query.
+	 * @deprecated Please use inScopeTObjectpropertiesList(subQuery) method.
+	 */
+    public void setObjectId_InScopeSubQuery_TObjectpropertiesList(TObjectpropertiesCQ tObjectpropertiesCBquery) {
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TObjectpropertiesList(tObjectpropertiesCBquery);// for saving query-value.
+        registerInScopeSubQuery(tObjectpropertiesCBquery, "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    public void inScopeTObjectpropertiesList(SubQuery<TObjectpropertiesCB> subQuery) {
+        assertObjectNotNull("subQuery<TObjectpropertiesCB>", subQuery);
+        TObjectpropertiesCB cb = new TObjectpropertiesCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TObjectpropertiesList(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_InScopeSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery);
+
+    /**
+	 * @param tAttributeCBquery Query.
+	 * @deprecated Please use inScopeTAttributeList(subQuery) method.
+	 */
+    public void setObjectId_InScopeSubQuery_TAttributeList(TAttributeCQ tAttributeCBquery) {
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TAttributeList(tAttributeCBquery);// for saving query-value.
+        registerInScopeSubQuery(tAttributeCBquery, "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    public void inScopeTAttributeList(SubQuery<TAttributeCB> subQuery) {
+        assertObjectNotNull("subQuery<TAttributeCB>", subQuery);
+        TAttributeCB cb = new TAttributeCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TAttributeList(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_InScopeSubQuery_TAttributeList(TAttributeCQ subQuery);
+
+    /**
+	 * @param tOperationCBquery Query.
+	 * @deprecated Please use inScopeTOperationList(subQuery) method.
+	 */
+    public void setObjectId_InScopeSubQuery_TOperationList(TOperationCQ tOperationCBquery) {
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TOperationList(tOperationCBquery);// for saving query-value.
+        registerInScopeSubQuery(tOperationCBquery, "Object_ID", "ObjectID", subQueryPropertyName);
+    }
+    public void inScopeTOperationList(SubQuery<TOperationCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationCB>", subQuery);
+        TOperationCB cb = new TOperationCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TOperationList(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Object_ID", "ObjectID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_InScopeSubQuery_TOperationList(TOperationCQ subQuery);
+
+    /**
+	 * @param tConnectorCBquery Query.
+	 * @deprecated Please use inScopeTConnectorByStartObjectIdList(subQuery) method.
+	 */
+    public void setObjectId_InScopeSubQuery_TConnectorByStartObjectIdList(TConnectorCQ tConnectorCBquery) {
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TConnectorByStartObjectIdList(tConnectorCBquery);// for saving query-value.
+        registerInScopeSubQuery(tConnectorCBquery, "Object_ID", "Start_Object_ID", subQueryPropertyName);
+    }
+    public void inScopeTConnectorByStartObjectIdList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TConnectorByStartObjectIdList(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Object_ID", "Start_Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_InScopeSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery);
+
+    /**
+	 * @param tConnectorCBquery Query.
+	 * @deprecated Please use inScopeTConnectorByEndObjectIdList(subQuery) method.
+	 */
+    public void setObjectId_InScopeSubQuery_TConnectorByEndObjectIdList(TConnectorCQ tConnectorCBquery) {
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TConnectorByEndObjectIdList(tConnectorCBquery);// for saving query-value.
+        registerInScopeSubQuery(tConnectorCBquery, "Object_ID", "End_Object_ID", subQueryPropertyName);
+    }
+    public void inScopeTConnectorByEndObjectIdList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TConnectorByEndObjectIdList(cb.query());// for saving query-value.
+        registerInScopeSubQuery(cb.query(), "Object_ID", "End_Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_InScopeSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery);
+
+    public void notInScopeTObjectpropertiesList(SubQuery<TObjectpropertiesCB> subQuery) {
+        assertObjectNotNull("subQuery<TObjectpropertiesCB>", subQuery);
+        TObjectpropertiesCB cb = new TObjectpropertiesCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotInScopeSubQuery_TObjectpropertiesList(cb.query());// for saving query-value.
+        registerNotInScopeSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotInScopeSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery);
+
+    public void notInScopeTAttributeList(SubQuery<TAttributeCB> subQuery) {
+        assertObjectNotNull("subQuery<TAttributeCB>", subQuery);
+        TAttributeCB cb = new TAttributeCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotInScopeSubQuery_TAttributeList(cb.query());// for saving query-value.
+        registerNotInScopeSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotInScopeSubQuery_TAttributeList(TAttributeCQ subQuery);
+
+    public void notInScopeTOperationList(SubQuery<TOperationCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationCB>", subQuery);
+        TOperationCB cb = new TOperationCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotInScopeSubQuery_TOperationList(cb.query());// for saving query-value.
+        registerNotInScopeSubQuery(cb.query(), "Object_ID", "ObjectID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotInScopeSubQuery_TOperationList(TOperationCQ subQuery);
+
+    public void notInScopeTConnectorByStartObjectIdList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotInScopeSubQuery_TConnectorByStartObjectIdList(cb.query());// for saving query-value.
+        registerNotInScopeSubQuery(cb.query(), "Object_ID", "Start_Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotInScopeSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery);
+
+    public void notInScopeTConnectorByEndObjectIdList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotInScopeSubQuery_TConnectorByEndObjectIdList(cb.query());// for saving query-value.
+        registerNotInScopeSubQuery(cb.query(), "Object_ID", "End_Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotInScopeSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery);
+
+    /**
+	 * @param tObjectpropertiesCBquery Query.
+	 * @deprecated Please use existsTObjectpropertiesList(subQuery) method.
+	 */
+    public void setObjectId_ExistsSubQuery_TObjectpropertiesList(TObjectpropertiesCQ tObjectpropertiesCBquery) {
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TObjectpropertiesList(tObjectpropertiesCBquery);// for saving query-value.
+        registerExistsSubQuery(tObjectpropertiesCBquery, "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    /**
+     * Set up 'exists' sub-query. {exists (select Object_ID from t_objectproperties where ...)}
+     * @param subQuery The sub-query of ObjectId_ExistsSubQuery_TObjectpropertiesList for 'exists'. (NotNull)
+     */
+    public void existsTObjectpropertiesList(SubQuery<TObjectpropertiesCB> subQuery) {
+        assertObjectNotNull("subQuery<TObjectpropertiesCB>", subQuery);
+        TObjectpropertiesCB cb = new TObjectpropertiesCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TObjectpropertiesList(cb.query());// for saving query-value.
+        registerExistsSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_ExistsSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery);
+
+    /**
+	 * @param tAttributeCBquery Query.
+	 * @deprecated Please use existsTAttributeList(subQuery) method.
+	 */
+    public void setObjectId_ExistsSubQuery_TAttributeList(TAttributeCQ tAttributeCBquery) {
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TAttributeList(tAttributeCBquery);// for saving query-value.
+        registerExistsSubQuery(tAttributeCBquery, "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    /**
+     * Set up 'exists' sub-query. {exists (select Object_ID from t_attribute where ...)}
+     * @param subQuery The sub-query of ObjectId_ExistsSubQuery_TAttributeList for 'exists'. (NotNull)
+     */
+    public void existsTAttributeList(SubQuery<TAttributeCB> subQuery) {
+        assertObjectNotNull("subQuery<TAttributeCB>", subQuery);
+        TAttributeCB cb = new TAttributeCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TAttributeList(cb.query());// for saving query-value.
+        registerExistsSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_ExistsSubQuery_TAttributeList(TAttributeCQ subQuery);
+
+    /**
+	 * @param tOperationCBquery Query.
+	 * @deprecated Please use existsTOperationList(subQuery) method.
+	 */
+    public void setObjectId_ExistsSubQuery_TOperationList(TOperationCQ tOperationCBquery) {
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TOperationList(tOperationCBquery);// for saving query-value.
+        registerExistsSubQuery(tOperationCBquery, "Object_ID", "ObjectID", subQueryPropertyName);
+    }
+    /**
+     * Set up 'exists' sub-query. {exists (select ObjectID from t_operation where ...)}
+     * @param subQuery The sub-query of ObjectId_ExistsSubQuery_TOperationList for 'exists'. (NotNull)
+     */
+    public void existsTOperationList(SubQuery<TOperationCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationCB>", subQuery);
+        TOperationCB cb = new TOperationCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TOperationList(cb.query());// for saving query-value.
+        registerExistsSubQuery(cb.query(), "Object_ID", "ObjectID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_ExistsSubQuery_TOperationList(TOperationCQ subQuery);
+
+    /**
+	 * @param tConnectorCBquery Query.
+	 * @deprecated Please use existsTConnectorByStartObjectIdList(subQuery) method.
+	 */
+    public void setObjectId_ExistsSubQuery_TConnectorByStartObjectIdList(TConnectorCQ tConnectorCBquery) {
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TConnectorByStartObjectIdList(tConnectorCBquery);// for saving query-value.
+        registerExistsSubQuery(tConnectorCBquery, "Object_ID", "Start_Object_ID", subQueryPropertyName);
+    }
+    /**
+     * Set up 'exists' sub-query. {exists (select Start_Object_ID from t_connector where ...)}
+     * @param subQuery The sub-query of ObjectId_ExistsSubQuery_TConnectorByStartObjectIdList for 'exists'. (NotNull)
+     */
+    public void existsTConnectorByStartObjectIdList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TConnectorByStartObjectIdList(cb.query());// for saving query-value.
+        registerExistsSubQuery(cb.query(), "Object_ID", "Start_Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_ExistsSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery);
+
+    /**
+	 * @param tConnectorCBquery Query.
+	 * @deprecated Please use existsTConnectorByEndObjectIdList(subQuery) method.
+	 */
+    public void setObjectId_ExistsSubQuery_TConnectorByEndObjectIdList(TConnectorCQ tConnectorCBquery) {
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TConnectorByEndObjectIdList(tConnectorCBquery);// for saving query-value.
+        registerExistsSubQuery(tConnectorCBquery, "Object_ID", "End_Object_ID", subQueryPropertyName);
+    }
+    /**
+     * Set up 'exists' sub-query. {exists (select End_Object_ID from t_connector where ...)}
+     * @param subQuery The sub-query of ObjectId_ExistsSubQuery_TConnectorByEndObjectIdList for 'exists'. (NotNull)
+     */
+    public void existsTConnectorByEndObjectIdList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_ExistsSubQuery_TConnectorByEndObjectIdList(cb.query());// for saving query-value.
+        registerExistsSubQuery(cb.query(), "Object_ID", "End_Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_ExistsSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery);
+
+    /**
+     * Set up 'not exists' sub-query. {not exists (select Object_ID from t_objectproperties where ...)}
+     * @param subQuery The sub-query of ObjectId_NotExistsSubQuery_TObjectpropertiesList for 'not exists'. (NotNull)
+     */
+    public void notExistsTObjectpropertiesList(SubQuery<TObjectpropertiesCB> subQuery) {
+        assertObjectNotNull("subQuery<TObjectpropertiesCB>", subQuery);
+        TObjectpropertiesCB cb = new TObjectpropertiesCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotExistsSubQuery_TObjectpropertiesList(cb.query());// for saving query-value.
+        registerNotExistsSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotExistsSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery);
+
+    /**
+     * Set up 'not exists' sub-query. {not exists (select Object_ID from t_attribute where ...)}
+     * @param subQuery The sub-query of ObjectId_NotExistsSubQuery_TAttributeList for 'not exists'. (NotNull)
+     */
+    public void notExistsTAttributeList(SubQuery<TAttributeCB> subQuery) {
+        assertObjectNotNull("subQuery<TAttributeCB>", subQuery);
+        TAttributeCB cb = new TAttributeCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotExistsSubQuery_TAttributeList(cb.query());// for saving query-value.
+        registerNotExistsSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotExistsSubQuery_TAttributeList(TAttributeCQ subQuery);
+
+    /**
+     * Set up 'not exists' sub-query. {not exists (select ObjectID from t_operation where ...)}
+     * @param subQuery The sub-query of ObjectId_NotExistsSubQuery_TOperationList for 'not exists'. (NotNull)
+     */
+    public void notExistsTOperationList(SubQuery<TOperationCB> subQuery) {
+        assertObjectNotNull("subQuery<TOperationCB>", subQuery);
+        TOperationCB cb = new TOperationCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotExistsSubQuery_TOperationList(cb.query());// for saving query-value.
+        registerNotExistsSubQuery(cb.query(), "Object_ID", "ObjectID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotExistsSubQuery_TOperationList(TOperationCQ subQuery);
+
+    /**
+     * Set up 'not exists' sub-query. {not exists (select Start_Object_ID from t_connector where ...)}
+     * @param subQuery The sub-query of ObjectId_NotExistsSubQuery_TConnectorByStartObjectIdList for 'not exists'. (NotNull)
+     */
+    public void notExistsTConnectorByStartObjectIdList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotExistsSubQuery_TConnectorByStartObjectIdList(cb.query());// for saving query-value.
+        registerNotExistsSubQuery(cb.query(), "Object_ID", "Start_Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotExistsSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery);
+
+    /**
+     * Set up 'not exists' sub-query. {not exists (select End_Object_ID from t_connector where ...)}
+     * @param subQuery The sub-query of ObjectId_NotExistsSubQuery_TConnectorByEndObjectIdList for 'not exists'. (NotNull)
+     */
+    public void notExistsTConnectorByEndObjectIdList(SubQuery<TConnectorCB> subQuery) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForExistsSubQuery(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_NotExistsSubQuery_TConnectorByEndObjectIdList(cb.query());// for saving query-value.
+        registerNotExistsSubQuery(cb.query(), "Object_ID", "End_Object_ID", subQueryPropertyName);
+    }
+    abstract public String keepObjectId_NotExistsSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery);
+
+    public void xderiveTObjectpropertiesList(String function, SubQuery<TObjectpropertiesCB> subQuery, String aliasName) {
+        assertObjectNotNull("subQuery<TObjectpropertiesCB>", subQuery);
+        TObjectpropertiesCB cb = new TObjectpropertiesCB(); cb.xsetupForDeriveReferrer(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_DeriveSubQuery_TObjectpropertiesList(cb.query());// for saving query-value.
+        registerDeriveSubQuery(function, cb.query(), "Object_ID", "Object_ID", subQueryPropertyName, aliasName);
+    }
+    abstract public String keepObjectId_DeriveSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery);
+
+    public void xderiveTAttributeList(String function, SubQuery<TAttributeCB> subQuery, String aliasName) {
+        assertObjectNotNull("subQuery<TAttributeCB>", subQuery);
+        TAttributeCB cb = new TAttributeCB(); cb.xsetupForDeriveReferrer(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_DeriveSubQuery_TAttributeList(cb.query());// for saving query-value.
+        registerDeriveSubQuery(function, cb.query(), "Object_ID", "Object_ID", subQueryPropertyName, aliasName);
+    }
+    abstract public String keepObjectId_DeriveSubQuery_TAttributeList(TAttributeCQ subQuery);
+
+    public void xderiveTOperationList(String function, SubQuery<TOperationCB> subQuery, String aliasName) {
+        assertObjectNotNull("subQuery<TOperationCB>", subQuery);
+        TOperationCB cb = new TOperationCB(); cb.xsetupForDeriveReferrer(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_DeriveSubQuery_TOperationList(cb.query());// for saving query-value.
+        registerDeriveSubQuery(function, cb.query(), "Object_ID", "ObjectID", subQueryPropertyName, aliasName);
+    }
+    abstract public String keepObjectId_DeriveSubQuery_TOperationList(TOperationCQ subQuery);
+
+    public void xderiveTConnectorByStartObjectIdList(String function, SubQuery<TConnectorCB> subQuery, String aliasName) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForDeriveReferrer(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_DeriveSubQuery_TConnectorByStartObjectIdList(cb.query());// for saving query-value.
+        registerDeriveSubQuery(function, cb.query(), "Object_ID", "Start_Object_ID", subQueryPropertyName, aliasName);
+    }
+    abstract public String keepObjectId_DeriveSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery);
+
+    public void xderiveTConnectorByEndObjectIdList(String function, SubQuery<TConnectorCB> subQuery, String aliasName) {
+        assertObjectNotNull("subQuery<TConnectorCB>", subQuery);
+        TConnectorCB cb = new TConnectorCB(); cb.xsetupForDeriveReferrer(); subQuery.query(cb);
+        String subQueryPropertyName = keepObjectId_DeriveSubQuery_TConnectorByEndObjectIdList(cb.query());// for saving query-value.
+        registerDeriveSubQuery(function, cb.query(), "Object_ID", "End_Object_ID", subQueryPropertyName, aliasName);
+    }
+    abstract public String keepObjectId_DeriveSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery);
+
     protected void regObjectId(ConditionKey key, Object value) {
         registerQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
     }

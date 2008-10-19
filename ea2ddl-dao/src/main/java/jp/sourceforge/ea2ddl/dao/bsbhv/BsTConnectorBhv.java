@@ -38,13 +38,13 @@ import jp.sourceforge.ea2ddl.dao.cbean.*;
  *     
  * 
  * [foreign-table]
- *     
+ *     t_operation, t_object
  * 
  * [referrer-table]
  *     
  * 
  * [foreign-property]
- *     
+ *     tOperationBySourcerole, tOperationByDestrole, tObjectByStartObjectId, tObjectByEndObjectId
  * 
  * [referrer-property]
  *     
@@ -185,6 +185,42 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     // ===================================================================================
     //                                                                     Pullout Foreign
     //                                                                     ===============
+    /**
+     * Pull out the list of foreign table 'TOperation'.
+     * @param tConnectorList The list of tConnector. (NotNull)
+     * @return The list of foreign table. (NotNull)
+     */
+    public List<TOperation> pulloutTOperationBySourcerole(List<TConnector> tConnectorList) {
+        return helpPulloutInternally(tConnectorList, new InternalPulloutCallback<TConnector, TOperation>() {
+            public TOperation callbackGetForeignEntity(TConnector entity) { return entity.getTOperationBySourcerole(); } });
+    }
+    /**
+     * Pull out the list of foreign table 'TOperation'.
+     * @param tConnectorList The list of tConnector. (NotNull)
+     * @return The list of foreign table. (NotNull)
+     */
+    public List<TOperation> pulloutTOperationByDestrole(List<TConnector> tConnectorList) {
+        return helpPulloutInternally(tConnectorList, new InternalPulloutCallback<TConnector, TOperation>() {
+            public TOperation callbackGetForeignEntity(TConnector entity) { return entity.getTOperationByDestrole(); } });
+    }
+    /**
+     * Pull out the list of foreign table 'TObject'.
+     * @param tConnectorList The list of tConnector. (NotNull)
+     * @return The list of foreign table. (NotNull)
+     */
+    public List<TObject> pulloutTObjectByStartObjectId(List<TConnector> tConnectorList) {
+        return helpPulloutInternally(tConnectorList, new InternalPulloutCallback<TConnector, TObject>() {
+            public TObject callbackGetForeignEntity(TConnector entity) { return entity.getTObjectByStartObjectId(); } });
+    }
+    /**
+     * Pull out the list of foreign table 'TObject'.
+     * @param tConnectorList The list of tConnector. (NotNull)
+     * @return The list of foreign table. (NotNull)
+     */
+    public List<TObject> pulloutTObjectByEndObjectId(List<TConnector> tConnectorList) {
+        return helpPulloutInternally(tConnectorList, new InternalPulloutCallback<TConnector, TObject>() {
+            public TObject callbackGetForeignEntity(TConnector entity) { return entity.getTObjectByEndObjectId(); } });
+    }
   
     // ===================================================================================
     //                                                                     Delegate Method

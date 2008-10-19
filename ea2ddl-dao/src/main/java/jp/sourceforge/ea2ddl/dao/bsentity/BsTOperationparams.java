@@ -5,6 +5,7 @@ import java.util.*;
 import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
  * The entity of t_operationparams(TABLE).
@@ -25,13 +26,13 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  *     
  * 
  * [foreign-table]
- *     
+ *     T_OPERATION
  * 
  * [referrer-table]
  *     
  * 
  * [foreign-property]
- *     
+ *     tOperation
  * 
  * [referrer-property]
  *     
@@ -57,7 +58,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'OperationID'. {UQ : INTEGER} */
+    /** The attribute of the column 'OperationID'. {UQ : INTEGER : FK to T_OPERATION} */
     protected java.lang.Integer _operationid;
 
     /** The attribute of the column 'Name'. {UQ : VARCHAR(255)} */
@@ -129,6 +130,31 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Foreign Property = [TOperation]
+    // * * * * * * * * */
+    public static final int TOperation_RELNO = 0;
+    public static final String TOperation_RELKEYS = "OperationID:OperationID";
+
+    /** The entity of foreign property 'TOperation'. */
+    protected TOperation _parentTOperation;
+
+    /**
+     * Get the entity of foreign property 'TOperation'. {without lazy-load}
+     * @return The entity of foreign property 'TOperation'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
+     */
+    public TOperation getTOperation() {
+        return _parentTOperation;
+    }
+
+    /**
+     * Set the entity of foreign property 'TOperation'.
+     * @param tOperation The entity of foreign property 'TOperation'. (Nullable)
+     */
+    public void setTOperation(TOperation tOperation) {
+        _parentTOperation = tOperation;
+    }
+
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
@@ -232,12 +258,12 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     //                                                                            Accessor
     //                                                                            ========
 
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
+    /** The column annotation for S2Dao. {UQ : INTEGER : FK to T_OPERATION} */
     public static final String operationid_COLUMN = "OperationID";
 
     /**
      * Get the value of the column 'OperationID'. <br />
-     * {UQ : INTEGER}
+     * {UQ : INTEGER : FK to T_OPERATION}
      * @return The value of the column 'OperationID'. (Nullable)
      */
     public java.lang.Integer getOperationid() {
@@ -246,7 +272,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
 
     /**
      * Set the value of the column 'OperationID'. <br />
-     * {UQ : INTEGER}
+     * {UQ : INTEGER : FK to T_OPERATION}
      * @param operationid The value of the column 'OperationID'. (Nullable)
      */
     public void setOperationid(java.lang.Integer operationid) {

@@ -1,5 +1,6 @@
 package jp.sourceforge.ea2ddl.dao.cbean.nss;
 
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionQuery;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TAttributeCQ;
 
 /**
@@ -16,6 +17,10 @@ public class TAttributeNss {
     // ===================================================================================
     //                                                           With Nested Foreign Table
     //                                                           =========================
+    public TObjectNss withTObject() {
+        _query.doNss(new TAttributeCQ.NssCall() { public ConditionQuery qf() { return _query.queryTObject(); }});
+		return new TObjectNss(_query.queryTObject());
+    }
 
     // ===================================================================================
     //                                                          With Nested Referrer Table

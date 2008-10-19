@@ -73,6 +73,14 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
           
+    protected Map<String, TObjectCQ> _objectId_InScopeSubQuery_TObjectMap;
+    public Map<String, TObjectCQ> getObjectId_InScopeSubQuery_TObject() { return _objectId_InScopeSubQuery_TObjectMap; }
+    public String keepObjectId_InScopeSubQuery_TObject(TObjectCQ subQuery) {
+        if (_objectId_InScopeSubQuery_TObjectMap == null) { _objectId_InScopeSubQuery_TObjectMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_objectId_InScopeSubQuery_TObjectMap.size() + 1);
+        _objectId_InScopeSubQuery_TObjectMap.put(key, subQuery); return "objectId_InScopeSubQuery_TObject." + key;
+    }
+      
     public BsTObjectpropertiesCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjectpropertiesCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -126,11 +134,42 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
     //                                                                         Union Query
     //                                                                         ===========
     protected void reflectRelationOnUnionQuery(ConditionQuery baseQueryAsSuper, ConditionQuery unionQueryAsSuper) {
+        TObjectpropertiesCQ baseQuery = (TObjectpropertiesCQ)baseQueryAsSuper;
+        TObjectpropertiesCQ unionQuery = (TObjectpropertiesCQ)unionQueryAsSuper;
+        if (baseQuery.hasConditionQueryTObject()) {
+            unionQuery.queryTObject().reflectRelationOnUnionQuery(baseQuery.queryTObject(), unionQuery.queryTObject());
+        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
+    
+    public TObjectCQ queryTObject() {
+        return getConditionQueryTObject();
+    }
+    protected TObjectCQ _conditionQueryTObject;
+    public TObjectCQ getConditionQueryTObject() {
+        if (_conditionQueryTObject == null) {
+            _conditionQueryTObject = createQueryTObject();
+            setupOuterJoin_TObject();
+        }
+        return _conditionQueryTObject;
+    }
+    protected void setupOuterJoin_TObject() {
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("Object_ID"), getConditionQueryTObject().getRealColumnName("Object_ID"));
+        registerOuterJoin(getConditionQueryTObject(), joinOnMap);
+    }
+    protected TObjectCQ createQueryTObject() {
+        String nrp = resolveNextRelationPath("t_objectproperties", "tObject");
+        String jan = resolveJoinAliasName(nrp, getNextNestLevel());
+        TObjectCQ cq = new TObjectCQ(this, getSqlClause(), jan, getNextNestLevel());
+        cq.xsetForeignPropertyName("tObject"); cq.xsetRelationPath(nrp); return cq;
+    }
+    public boolean hasConditionQueryTObject() {
+        return _conditionQueryTObject != null;
+    }
 
 
     protected String getConditionQueryClassNameInternally() { return TObjectpropertiesCQ.class.getName(); }

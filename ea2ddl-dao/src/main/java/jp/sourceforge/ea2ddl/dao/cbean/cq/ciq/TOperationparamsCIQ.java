@@ -75,6 +75,9 @@ public class TOperationparamsCIQ extends AbstractBsTOperationparamsCQ {
     protected ConditionValue getCValueOperationid() {
         return _myCQ.getOperationid();
     }
+    public String keepOperationid_InScopeSubQuery_TOperation(TOperationCQ subQuery) {
+        return _myCQ.keepOperationid_InScopeSubQuery_TOperation(subQuery);
+    }
     protected ConditionValue getCValueName() {
         return _myCQ.getName();
     }
