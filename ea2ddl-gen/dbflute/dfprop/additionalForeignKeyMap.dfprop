@@ -1,0 +1,65 @@
+# /---------------------------------------------------------------------------
+# [Additional Foreign Key]
+#   additionalForeignKeyMap: (NotRequired - Default 'map:{}')
+#
+#   If foreign key does not exist in your database,
+#   you can set up here as virtual foreign key for DBFlute.
+#
+#   And it's one-to-one relation if you add one fixed condition to 'many' table, 
+#   you can set virtual foreign key with fixedCondition and fixedSuffix.
+#
+#    ex) map:{
+#            ; FK_MEMBER_MEMBER_STATUS_CODE = map:{
+#                ; localTableName  = MEMBER             ; foreignTableName  = MEMBER_STATUS
+#                ; localColumnName = MEMBER_STATUS_CODE ; foreignColumnName = MEMBER_STATUS_CODE
+#            }
+#            ; FK_PURCHASE_MEMBER_ID = map:{
+#                ; localTableName  = PURCHASE  ; foreignTableName  = MEMBER
+#                ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+#            }
+#            ; FK_PARENT_CHILD_ID = map:{
+#                ; localTableName  = PARENT  ; foreignTableName  = CHILD
+#                ; localColumnName = PARENT_ID ; foreignColumnName = CHILD_ID
+#                ; fixedCondition = $$foreignAlias$$.CHILD_TYPE = 'BIG'
+#                ; fixedSuffix = AsBig
+#            }
+#        }
+#
+map:{
+	; FK_TOBJECTPROPERTIES_TOBJECT = map:{
+		; localTableName = T_OBJECTPROPERTIES	; foreignTableName = t_object
+		; localColumnName = Object_ID			; foreignColumnName = Object_ID
+	}
+	; FK_TATTRIBUTE_TOBJECT = map:{
+		; localTableName = T_ATTRIBUTE			; foreignTableName = t_object
+		; localColumnName = Object_ID			; foreignColumnName = Object_ID
+	}
+	; FK_TOPERATION_TOBJECT = map:{
+		; localTableName = T_OPERATION			; foreignTableName = t_object
+		; localColumnName = ObjectID			; foreignColumnName = Object_ID
+	}
+	; FK_CONNECTOR_SRCROLE = map:{
+		; localTableName = T_CONNECTOR			; foreignTableName = t_operation
+		; localColumnName = SourceRole			; foreignColumnName = Name
+	}
+	; FK_CONNECTOR_DSTROLE = map:{
+		; localTableName = T_CONNECTOR			; foreignTableName = t_operation
+		; localColumnName = DestRole			; foreignColumnName = Name
+	}
+	; FK_CONNECTOR_SRCOBJECT = map:{
+		; localTableName = T_CONNECTOR			; foreignTableName = t_object
+		; localColumnName = Start_Object_ID		; foreignColumnName = Object_ID
+	}
+	; FK_CONNECTOR_DSTOBJECT = map:{
+		; localTableName = T_CONNECTOR			; foreignTableName = t_object
+		; localColumnName = End_Object_ID		; foreignColumnName = Object_ID
+	}
+	; FK_OPERATION_PARAMS = map:{
+		; localTableName = T_OPERATIONPARAMS	; foreignTableName = T_OPERATION
+		; localColumnName = OperationID			; foreignColumnName = OperationID
+	}
+}
+
+# ----------------/
+
+
