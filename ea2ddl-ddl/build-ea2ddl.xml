@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ea2ddl-ddl" default="gen-ddl" basedir=".">
+
+	<property name="configPath" value="ea2ddl.dicon"/>
+	<property name="classpathdir" value="target/classes" />
+	<property name="common-classpathdir" value="../ea2ddl-common/target/classes"/>
+	<property name="dao-classpathdir" value="../ea2ddl-dao/target/classes"/>
+
+	<path id="classpath">
+		<pathelement path="${classpathdir}"/>
+		<pathelement path="${common-classpathdir}"/>
+		<pathelement path="${dao-classpathdir}"/>
+		<fileset dir="lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<typedef resource="ea2ddl-taskdef.properties" classpathref="classpath" />
+
+	<target name="gen-ddl">
+		<gen-ddl
+			configPath="${configPath}"
+			classpathref="classpath"
+			factoryClassName="jp.sourceforge.ea2ddl.ddl.factory.impl.DatabaseModelFactoryImpl"
+			>
+		</gen-ddl>
+	</target>
+</project>

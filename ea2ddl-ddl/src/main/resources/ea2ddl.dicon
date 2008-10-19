@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN" 
+	"http://www.seasar.org/dtd/components24.dtd">
+<components>
+	<include path="app-config.dicon" />
+	<include path="aop.dicon" />
+	<include path="dbflute.dicon" />
+
+    <component class="org.seasar.framework.container.autoregister.ComponentAutoRegister">
+		<initMethod name="addReferenceClass">
+			<arg>@jp.sourceforge.ea2ddl.ddl.factory.DatabaseModelFactory@class</arg>
+		</initMethod>
+		<initMethod name="addClassPattern">
+			<arg>"jp.sourceforge.ea2ddl.ddl.factory.impl"</arg>
+			<arg>".*Impl"</arg>
+		</initMethod>
+	</component>
+</components>
