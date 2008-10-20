@@ -143,6 +143,7 @@ public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
 	protected void generateColumnModel(TableModel table, TObject tobject) {
 		final TAttributeCB cb = new TAttributeCB();
 		cb.query().setObjectId_Equal(tobject.getObjectId());
+		cb.query().addOrderBy_Pos_Asc();
 		final ListResultBean<TAttribute> attributes = _tAttributeBhv
 				.selectList(cb);
 		for (TAttribute attribute : attributes) {
