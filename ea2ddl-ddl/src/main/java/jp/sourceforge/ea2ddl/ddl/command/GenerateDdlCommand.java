@@ -25,17 +25,71 @@ public class GenerateDdlCommand extends AbstractCommand {
 	protected Logger _logger = Logger.getLogger(GenerateDdlCommand.class);
 
 	protected String _factoryClassName;
+	protected String _templateFileDir = "target/classes";
+	protected String _templateFileEncoding = "UTF-8";
+	protected String _sqlFileEncoding = "UTF-8";
+	protected String _outputDirName = "output";
+	protected String _baseSqlFileName = "replace-schema-10-base.sql";
+	protected String _baseSqlTemplateFileName = "base.ftl";
 
 	public String getFactoryClassName() {
 		return _factoryClassName;
 	}
 
-	public void setFactoryClassName(String generatorClassName) {
-		_factoryClassName = generatorClassName;
+	public void setFactoryClassName(String factoryClassName) {
+		_factoryClassName = factoryClassName;
+	}
+
+	public String getTemplateFileDir() {
+		return _templateFileDir;
+	}
+
+	public void setTemplateFileDir(String templateFileDir) {
+		_templateFileDir = templateFileDir;
+	}
+
+	public String getTemplateFileEncoding() {
+		return _templateFileEncoding;
+	}
+
+	public void setTemplateFileEncoding(String templateFileEncoding) {
+		_templateFileEncoding = templateFileEncoding;
+	}
+
+	public String getSqlFileEncoding() {
+		return _sqlFileEncoding;
+	}
+
+	public void setSqlFileEncoding(String sqlFileEncoding) {
+		_sqlFileEncoding = sqlFileEncoding;
+	}
+
+	public String getOutputDirName() {
+		return _outputDirName;
+	}
+
+	public void setOutputDirName(String outputDirName) {
+		_outputDirName = outputDirName;
+	}
+
+	public String getBaseSqlFileName() {
+		return _baseSqlFileName;
+	}
+
+	public void setBaseSqlFileName(String baseSqlFileName) {
+		_baseSqlFileName = baseSqlFileName;
+	}
+
+	public String getBaseSqlTemplateFileName() {
+		return _baseSqlTemplateFileName;
+	}
+
+	public void setBaseSqlTemplateFileName(String baseSqlTemplateFileName) {
+		_baseSqlTemplateFileName = baseSqlTemplateFileName;
 	}
 
 	/*
-	 * (”ñ Javadoc)
+	 * (ï¿½ï¿½ Javadoc)
 	 * 
 	 * @see
 	 * org.seasar.extension.jdbc.gen.internal.command.AbstractCommand#doValidate
@@ -46,7 +100,7 @@ public class GenerateDdlCommand extends AbstractCommand {
 	}
 
 	/*
-	 * (”ñ Javadoc)
+	 * (ï¿½ï¿½ Javadoc)
 	 * 
 	 * @see
 	 * org.seasar.extension.jdbc.gen.internal.command.AbstractCommand#doInit()
@@ -56,7 +110,7 @@ public class GenerateDdlCommand extends AbstractCommand {
 	}
 
 	/*
-	 * (”ñ Javadoc)
+	 * (ï¿½ï¿½ Javadoc)
 	 * 
 	 * @see
 	 * org.seasar.extension.jdbc.gen.internal.command.AbstractCommand#doExecute
@@ -71,16 +125,17 @@ public class GenerateDdlCommand extends AbstractCommand {
 	}
 
 	protected void generate(DatabaseModel model) {
-		final File templateDir = new File("target/classes");
-		final Generator generator = new GeneratorImpl("UTF-8", templateDir);
-		File output = new File("base.sql");
+		final File templateDir = new File(_templateFileDir);
+		final Generator generator = new GeneratorImpl(_templateFileEncoding,
+				templateDir);
+		File output = new File(_outputDirName, _baseSqlFileName);
 		final GenerationContext context = new GenerationContextImpl(model,
-				output, "base.ftl", "UTF-8", true);
+				output, _baseSqlTemplateFileName, _sqlFileEncoding, true);
 		generator.generate(context);
 	}
 
 	/*
-	 * (”ñ Javadoc)
+	 * (ï¿½ï¿½ Javadoc)
 	 * 
 	 * @see
 	 * org.seasar.extension.jdbc.gen.internal.command.AbstractCommand#doDestroy
@@ -91,7 +146,7 @@ public class GenerateDdlCommand extends AbstractCommand {
 	}
 
 	/*
-	 * (”ñ Javadoc)
+	 * (ï¿½ï¿½ Javadoc)
 	 * 
 	 * @see
 	 * org.seasar.extension.jdbc.gen.internal.command.AbstractCommand#getLogger
