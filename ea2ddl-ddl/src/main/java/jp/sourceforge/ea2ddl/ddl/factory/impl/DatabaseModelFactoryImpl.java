@@ -7,9 +7,7 @@ import java.util.List;
 
 import jp.sourceforge.ea2ddl.common.config.Config;
 import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
-import jp.sourceforge.ea2ddl.dao.cbean.TAttributeCB;
 import jp.sourceforge.ea2ddl.dao.cbean.TConnectorCB;
-import jp.sourceforge.ea2ddl.dao.cbean.TObjectpropertiesCB;
 import jp.sourceforge.ea2ddl.dao.cbean.TOperationCB;
 import jp.sourceforge.ea2ddl.dao.cbean.TOperationparamsCB;
 import jp.sourceforge.ea2ddl.dao.exbhv.TAttributeBhv;
@@ -22,7 +20,6 @@ import jp.sourceforge.ea2ddl.dao.exbhv.TPackageBhv;
 import jp.sourceforge.ea2ddl.dao.exentity.TAttribute;
 import jp.sourceforge.ea2ddl.dao.exentity.TConnector;
 import jp.sourceforge.ea2ddl.dao.exentity.TObject;
-import jp.sourceforge.ea2ddl.dao.exentity.TObjectproperties;
 import jp.sourceforge.ea2ddl.dao.exentity.TOperation;
 import jp.sourceforge.ea2ddl.dao.exentity.TOperationparams;
 import jp.sourceforge.ea2ddl.dao.exentity.TPackage;
@@ -102,8 +99,7 @@ public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
 	public DatabaseModel create() {
 		final DatabaseModel dbModel = new DatabaseModel();
 		final TPackage pkg = getPackage(_config.getProperty("er.package.tree"));
-		final List<TObject> objectList = _tObjectBhv.selectListByStereotype(
-				pkg, "table");
+		final List<TObject> objectList = _tObjectBhv.selectListByStereotype(pkg, "table");
 		_log.debug(objectList.size());
 
 		for (TObject object : objectList) {
@@ -123,14 +119,7 @@ public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
 		table.setAlias(tobject.getAlias());
 		table.setNote(tobject.getNote());
 		if (_config.getBoolean("use.schema")) {
-			final TObjectpropertiesCB cb = new TObjectpropertiesCB();
-			cb.query().setObjectId_Equal(tobject.getObjectId());
-			cb.query().setProperty_Equal("OWNER");
-			final TObjectproperties owner = _tObjectpropertiesBhv
-					.selectEntity(cb);
-			if (owner != null) {
-				table.setSchema(owner.getValue());
-			}
+			table.setSchema(_tObjectpropertiesBhv.getValue(tobject, "OWNER"));
 		}
 		generateColumnModel(table, tobject);
 		generatePKModel(table, tobject);
@@ -141,11 +130,7 @@ public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
 	}
 
 	protected void generateColumnModel(TableModel table, TObject tobject) {
-		final TAttributeCB cb = new TAttributeCB();
-		cb.query().setObjectId_Equal(tobject.getObjectId());
-		cb.query().addOrderBy_Pos_Asc();
-		final ListResultBean<TAttribute> attributes = _tAttributeBhv
-				.selectList(cb);
+		final List<TAttribute> attributes = _tAttributeBhv.selectColumns(tobject);
 		for (TAttribute attribute : attributes) {
 			final ColumnModel column = new ColumnModel();
 			column.setName(attribute.getName());
@@ -154,27 +139,20 @@ public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
 			column.setLength(attribute.getLength());
 			column.setPrecision(attribute.getPrecision());
 			column.setScale(attribute.getScale());
-			column.setNullable(Integer.valueOf(0).equals(
-					attribute.getAllowduplicates()));
+			column.setNullable(Integer.valueOf(0).equals(attribute.getAllowduplicates()));
 			column.setNote(attribute.getNotes());
 			table.addColumn(column);
 		}
 	}
 
 	protected void generatePKModel(TableModel table, TObject tobject) {
-		final TOperationCB opeCB = new TOperationCB();
-		opeCB.query().setObjectId_Equal(tobject.getObjectId());
-		opeCB.query().setStereotype_Equal("PK");
-		final TOperation opePK = _tOperationBhv.selectEntity(opeCB);
-		if (opePK == null) {
+		final ListResultBean<TOperation> pkList = _tOperationBhv.selectOperation(tobject, "PK");
+		if (pkList.isEmpty()) {
 			return;
 		}
-		final TOperationparamsCB cb = new TOperationparamsCB();
-		cb.query().setOperationid_Equal(opePK.getOperationid());
-		cb.query().addOrderBy_Pos_Asc();
-		final ListResultBean<TOperationparams> params = _tOperationparamsBhv
-				.selectList(cb);
-		if (0 < params.size()) {
+		final TOperation opePK = pkList.get(0);
+		final ListResultBean<TOperationparams> params = _tOperationparamsBhv.selectOperationParams(opePK);
+		if (!params.isEmpty()) {
 			final PrimaryKeyModel pk = new PrimaryKeyModel();
 			pk.setName(opePK.getName());
 			for (TOperationparams param : params) {
@@ -185,22 +163,15 @@ public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
 	}
 
 	protected void generateFKModel(TableModel table, TObject tobject) {
-		final TOperationCB opeCB = new TOperationCB();
-		opeCB.query().setObjectId_Equal(tobject.getObjectId());
-		opeCB.query().setStereotype_Equal("FK");
-		final ListResultBean<TOperation> opeFKList = _tOperationBhv
-				.selectList(opeCB);
-		for (TOperation opeFK : opeFKList) {
-			final ForeignKeyModel fk = new ForeignKeyModel();
-			fk.setName(opeFK.getName());
+		final ListResultBean<TOperation> fkList = _tOperationBhv.selectOperation(tobject, "FK");
+		for (TOperation opeFK : fkList) {
+			final ForeignKeyModel fkModel = new ForeignKeyModel();
+			fkModel.setName(opeFK.getName());
+
 			{
-				final TOperationparamsCB paraCB = new TOperationparamsCB();
-				paraCB.query().setOperationid_Equal(opeFK.getOperationid());
-				paraCB.query().addOrderBy_Pos_Asc();
-				final ListResultBean<TOperationparams> params = _tOperationparamsBhv
-						.selectList(paraCB);
+				final ListResultBean<TOperationparams> params = _tOperationparamsBhv.selectOperationParams(opeFK);
 				for (TOperationparams param : params) {
-					fk.addColumnName(param.getName());
+					fkModel.addColumnName(param.getName());
 				}
 			}
 			{
@@ -209,27 +180,21 @@ public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
 				conCB.query().setSourcerole_Equal(opeFK.getName());
 				final TConnector con = _tConnectorBhv.selectEntity(conCB);
 
-				final TObject targetTable = _tObjectBhv.selectEntity(con
-						.getEndObjectId());
-				fk.setTargetTable(targetTable.getName());
+				final TObject targetTable = _tObjectBhv.selectEntity(con.getEndObjectId());
+				fkModel.setTargetTable(targetTable.getName());
 
 				final TOperationCB targetOpeCB = new TOperationCB();
 				targetOpeCB.query().setObjectId_Equal(con.getEndObjectId());
 				targetOpeCB.query().setName_Equal(con.getDestrole());
-				final TOperation targetOpe = _tOperationBhv
-						.selectEntity(targetOpeCB);
+				final TOperation targetOpe = _tOperationBhv.selectEntity(targetOpeCB);
 
-				final TOperationparamsCB targetParaCB = new TOperationparamsCB();
-				targetParaCB.query().setOperationid_Equal(
-						targetOpe.getOperationid());
-				targetParaCB.query().addOrderBy_Pos_Asc();
 				final ListResultBean<TOperationparams> targetParams = _tOperationparamsBhv
-						.selectList(targetParaCB);
+						.selectOperationParams(targetOpe);
 				for (TOperationparams targetParam : targetParams) {
-					fk.addTargetColumnName(targetParam.getName());
+					fkModel.addTargetColumnName(targetParam.getName());
 				}
 			}
-			table.addForeignKey(fk);
+			table.addForeignKey(fkModel);
 		}
 	}
 
@@ -237,16 +202,14 @@ public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
 		final TOperationCB cb = new TOperationCB();
 		cb.query().setObjectId_Equal(tobject.getObjectId());
 		cb.query().setStereotype_Equal("unique");
-		final ListResultBean<TOperation> uniqueList = _tOperationBhv
-				.selectList(cb);
+		final ListResultBean<TOperation> uniqueList = _tOperationBhv.selectList(cb);
 		for (TOperation unique : uniqueList) {
 			final UniqueModel uniqueModel = new UniqueModel();
 			uniqueModel.setName(unique.getName());
 			final TOperationparamsCB opeCB = new TOperationparamsCB();
 			opeCB.query().setOperationid_Equal(unique.getOperationid());
 			opeCB.query().addOrderBy_Pos_Asc();
-			final ListResultBean<TOperationparams> cols = _tOperationparamsBhv
-					.selectList(opeCB);
+			final ListResultBean<TOperationparams> cols = _tOperationparamsBhv.selectList(opeCB);
 			for (TOperationparams param : cols) {
 				uniqueModel.addColumnName(param.getName());
 			}

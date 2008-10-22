@@ -129,17 +129,4 @@ public class TableModel implements Serializable {
 		_indexList = indexList;
 	}
 
-	public String getComment() {
-		StringBuffer b = new StringBuffer();
-		if (getAlias() != null) {
-			b.append(getAlias()).append(".").append("\r\n");
-		}
-		if (getNote() != null) {
-			b.append(getNote());
-		}
-		if (b.length() == 0) {
-			return null;
-		}
-		return b.toString();
-	}
 }

@@ -1,4 +1,9 @@
 <#list tableList as table>
+<#list table.foreignKeyList as fk>ALTER TABLE ${table.name} DROP CONSTRAINT ${fk.name}
+;
+</#list>
+</#list>
+<#list tableList as table>
 DROP TABLE ${table.name};
 </#list>
 
@@ -16,13 +21,13 @@ CREATE TABLE ${table.name} (
 	UNIQUE (<#list unique.columnNameList as columnName>${columnName}<#if columnName_has_next>,</#if></#list>)
 ;
 </#list>
-<#if table.comment??>
-COMMENT ON TABLE ${table.name} IS '${table.comment}'
+<#if table.alias?? || table.note??>
+COMMENT ON TABLE ${table.name} IS '<#if table.alias??>[${table.alias}]:</#if><#if table.note??>${table.note}</#if>'
 ;
 </#if>
 <#list table.columnList as column>
-<#if column.comment??>
-COMMENT ON COLUMN ${table.name}.${column.name} IS '${column.comment}'
+<#if column.alias?? || column.note??>
+COMMENT ON COLUMN ${table.name}.${column.name} IS '<#if column.alias??>[${column.alias}]:</#if><#if column.note??>${column.note}</#if>'
 ;
 </#if>
 </#list>
