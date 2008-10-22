@@ -29,7 +29,7 @@ public class TObjectDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnObjectId = cci("Object_ID", "objectId", java.lang.Integer.class, false, null, null);
+    protected ColumnInfo _columnObjectId = cci("Object_ID", "objectId", java.lang.Integer.class, true, null, null);
     protected ColumnInfo _columnObjectType = cci("Object_Type", "objectType", String.class, false, 255, 0);
     protected ColumnInfo _columnDiagramId = cci("Diagram_ID", "diagramId", java.lang.Integer.class, false, null, null);
     protected ColumnInfo _columnName = cci("Name", "name", String.class, false, 255, 0);
@@ -185,10 +185,8 @@ public class TObjectDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
+    public UniqueInfo getPrimaryUniqueInfo() { return createPrimaryUniqueInfo(columnObjectId()); }
+    public boolean hasPrimaryKey() { return true; }
     public boolean hasTwoOrMorePrimaryKeys() { return false; }
 
     // ===================================================================================
@@ -201,6 +199,26 @@ public class TObjectDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
+    public ReferrerInfo referrerTObjectpropertiesList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TObjectpropertiesDbm.getInstance().columnObjectId());
+	    return cri("TObjectpropertiesList", this, TObjectpropertiesDbm.getInstance(), map, false);
+    }
+    public ReferrerInfo referrerTAttributeList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TAttributeDbm.getInstance().columnObjectId());
+	    return cri("TAttributeList", this, TAttributeDbm.getInstance(), map, false);
+    }
+    public ReferrerInfo referrerTOperationList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TOperationDbm.getInstance().columnObjectId());
+	    return cri("TOperationList", this, TOperationDbm.getInstance(), map, false);
+    }
+    public ReferrerInfo referrerTConnectorByStartObjectIdList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TConnectorDbm.getInstance().columnStartObjectId());
+	    return cri("TConnectorByStartObjectIdList", this, TConnectorDbm.getInstance(), map, false);
+    }
+    public ReferrerInfo referrerTConnectorByEndObjectIdList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TConnectorDbm.getInstance().columnEndObjectId());
+	    return cri("TConnectorByEndObjectIdList", this, TConnectorDbm.getInstance(), map, false);
+    }
 
     // ===================================================================================
     //                                                                        Various Info

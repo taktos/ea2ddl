@@ -39,7 +39,7 @@ public abstract class AbstractBsTObjectCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnceRegistered. {PK : UQ : COUNTER : NotNull}
      * @param objectId The value of objectId as equal.
      */
     public void setObjectId_Equal(java.lang.Integer objectId) {
@@ -413,6 +413,16 @@ public abstract class AbstractBsTObjectCQ extends AbstractConditionQuery {
         registerDeriveSubQuery(function, cb.query(), "Object_ID", "End_Object_ID", subQueryPropertyName, aliasName);
     }
     abstract public String keepObjectId_DeriveSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery);
+
+    /**
+     * IsNull(is null). And OnceRegistered.
+     */
+    public void setObjectId_IsNull() { regObjectId(CK_ISN, DUMMY_OBJECT); }
+
+    /**
+     * IsNotNull(is not null). And OnceRegistered.
+     */
+    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DUMMY_OBJECT); }
 
     protected void regObjectId(ConditionKey key, Object value) {
         registerQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");

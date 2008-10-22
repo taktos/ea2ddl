@@ -38,9 +38,15 @@ public class BsTOperationCB extends AbstractConditionBean {
     //                                                                      PrimaryKey Map
     //                                                                      ==============
     public void acceptPrimaryKeyMap(Map<String, ? extends Object> primaryKeyMap) {
-
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        assertPrimaryKeyMap(primaryKeyMap);
+        {
+            Object obj = primaryKeyMap.get("OperationID");
+            if (obj instanceof java.lang.Integer) {
+                query().setOperationid_Equal((java.lang.Integer)obj);
+            } else {
+                query().setOperationid_Equal(new java.lang.Integer((String)obj));
+            }
+        }
 
     }
 
@@ -48,13 +54,13 @@ public class BsTOperationCB extends AbstractConditionBean {
     //                                                                     OrderBy Setting
     //                                                                     ===============
     public ConditionBean addOrderBy_PK_Asc() {
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        query().addOrderBy_Operationid_Asc();
+        return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        query().addOrderBy_Operationid_Desc();
+        return this;
     }
 
     // ===================================================================================
@@ -182,6 +188,7 @@ public class BsTOperationCB extends AbstractConditionBean {
         public void columnEaGuid() { doColumn("ea_guid"); }
         public void columnStyleex() { doColumn("StyleEx"); }
         protected void doSpecifyRequiredColumn() {
+            columnOperationid();// PK
             if (_myQyCall.qy().hasConditionQueryTObject()) {
                 columnObjectId();// FK
             }
@@ -195,6 +202,11 @@ public class BsTOperationCB extends AbstractConditionBean {
                     public TObjectCQ qy() { return _myQyCall.qy().queryTObject(); } }, _forDeriveReferrer);
             }
             return _tObject;
+        }
+        public RAFunction<TOperationparamsCB, TOperationCQ> derivedTOperationparamsList() {
+            return new RAFunction<TOperationparamsCB, TOperationCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TOperationparamsCB, TOperationCQ>() {
+                public void setup(String function, SubQuery<TOperationparamsCB> subQuery, TOperationCQ cq, String aliasName) {
+                    cq.xderiveTOperationparamsList(function, subQuery, aliasName); } });
         }
     }
 

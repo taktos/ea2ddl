@@ -5,12 +5,13 @@ import java.util.*;
 import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
 import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
  * The entity of t_object(TABLE).
  * <pre>
  * [primary-key]
- *     
+ *     Object_ID
  * 
  * [column]
  *     Object_ID, Object_Type, Diagram_ID, Name, Alias, Author, Version, Note, Package_ID, Stereotype, NType, Complexity, Effort, Style, Backcolor, BorderStyle, BorderWidth, Fontcolor, Bordercolor, CreatedDate, ModifiedDate, Status, Tagged, PDATA1, PDATA2, PDATA3, PDATA4, PDATA5, Concurrency, Visibility, Persistence, Cardinality, GenType, GenFile, Header1, Header2, Phase, Scope, GenOption, GenLinks, Classifier, ea_guid, ParentID, RunState, Classifier_guid, TPos, IsRoot, IsLeaf, IsSpec, IsActive, StateFlags, PackageFlags, Multiplicity, StyleEx, ActionFlags, EventFlags
@@ -28,13 +29,13 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  *     
  * 
  * [referrer-table]
- *     
+ *     t_objectproperties, t_attribute, t_operation, t_connector
  * 
  * [foreign-property]
  *     
  * 
  * [referrer-property]
- *     
+ *     tObjectpropertiesList, tAttributeList, tOperationList, tConnectorByStartObjectIdList, tConnectorByEndObjectIdList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -57,7 +58,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : COUNTER : NotNull} */
+    /** The attribute of the column 'Object_ID'. {PK : UQ : COUNTER : NotNull} */
     protected java.lang.Integer _objectId;
 
     /** The attribute of the column 'Object_Type'. {VARCHAR(255)} */
@@ -270,12 +271,133 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Referrer Property = [TObjectpropertiesList]
+    // * * * * * * * * */
+
+    /** The entity list of referrer property 'TObjectpropertiesList'. */
+    protected List<TObjectproperties> _childrenTObjectpropertiesList;
+
+    /**
+     * Get the entity list of referrer property 'TObjectpropertiesList'. {without lazy-load} <br />
+     * @return The entity list of referrer property 'TObjectpropertiesList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
+     */
+    public List<TObjectproperties> getTObjectpropertiesList() {
+        if (_childrenTObjectpropertiesList == null) { _childrenTObjectpropertiesList = new ArrayList<TObjectproperties>(); }
+        return _childrenTObjectpropertiesList;
+    }
+
+    /**
+     * Set the entity list of referrer property 'TObjectpropertiesList'.
+     * @param tObjectpropertiesList The entity list of referrer property 'TObjectpropertiesList'. (Nullable)
+     */
+    public void setTObjectpropertiesList(List<TObjectproperties> tObjectpropertiesList) {
+        _childrenTObjectpropertiesList = tObjectpropertiesList;
+    }
+
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Referrer Property = [TAttributeList]
+    // * * * * * * * * */
+
+    /** The entity list of referrer property 'TAttributeList'. */
+    protected List<TAttribute> _childrenTAttributeList;
+
+    /**
+     * Get the entity list of referrer property 'TAttributeList'. {without lazy-load} <br />
+     * @return The entity list of referrer property 'TAttributeList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
+     */
+    public List<TAttribute> getTAttributeList() {
+        if (_childrenTAttributeList == null) { _childrenTAttributeList = new ArrayList<TAttribute>(); }
+        return _childrenTAttributeList;
+    }
+
+    /**
+     * Set the entity list of referrer property 'TAttributeList'.
+     * @param tAttributeList The entity list of referrer property 'TAttributeList'. (Nullable)
+     */
+    public void setTAttributeList(List<TAttribute> tAttributeList) {
+        _childrenTAttributeList = tAttributeList;
+    }
+
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Referrer Property = [TOperationList]
+    // * * * * * * * * */
+
+    /** The entity list of referrer property 'TOperationList'. */
+    protected List<TOperation> _childrenTOperationList;
+
+    /**
+     * Get the entity list of referrer property 'TOperationList'. {without lazy-load} <br />
+     * @return The entity list of referrer property 'TOperationList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
+     */
+    public List<TOperation> getTOperationList() {
+        if (_childrenTOperationList == null) { _childrenTOperationList = new ArrayList<TOperation>(); }
+        return _childrenTOperationList;
+    }
+
+    /**
+     * Set the entity list of referrer property 'TOperationList'.
+     * @param tOperationList The entity list of referrer property 'TOperationList'. (Nullable)
+     */
+    public void setTOperationList(List<TOperation> tOperationList) {
+        _childrenTOperationList = tOperationList;
+    }
+
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Referrer Property = [TConnectorByStartObjectIdList]
+    // * * * * * * * * */
+
+    /** The entity list of referrer property 'TConnectorByStartObjectIdList'. */
+    protected List<TConnector> _childrenTConnectorByStartObjectIdList;
+
+    /**
+     * Get the entity list of referrer property 'TConnectorByStartObjectIdList'. {without lazy-load} <br />
+     * @return The entity list of referrer property 'TConnectorByStartObjectIdList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
+     */
+    public List<TConnector> getTConnectorByStartObjectIdList() {
+        if (_childrenTConnectorByStartObjectIdList == null) { _childrenTConnectorByStartObjectIdList = new ArrayList<TConnector>(); }
+        return _childrenTConnectorByStartObjectIdList;
+    }
+
+    /**
+     * Set the entity list of referrer property 'TConnectorByStartObjectIdList'.
+     * @param tConnectorByStartObjectIdList The entity list of referrer property 'TConnectorByStartObjectIdList'. (Nullable)
+     */
+    public void setTConnectorByStartObjectIdList(List<TConnector> tConnectorByStartObjectIdList) {
+        _childrenTConnectorByStartObjectIdList = tConnectorByStartObjectIdList;
+    }
+
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Referrer Property = [TConnectorByEndObjectIdList]
+    // * * * * * * * * */
+
+    /** The entity list of referrer property 'TConnectorByEndObjectIdList'. */
+    protected List<TConnector> _childrenTConnectorByEndObjectIdList;
+
+    /**
+     * Get the entity list of referrer property 'TConnectorByEndObjectIdList'. {without lazy-load} <br />
+     * @return The entity list of referrer property 'TConnectorByEndObjectIdList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
+     */
+    public List<TConnector> getTConnectorByEndObjectIdList() {
+        if (_childrenTConnectorByEndObjectIdList == null) { _childrenTConnectorByEndObjectIdList = new ArrayList<TConnector>(); }
+        return _childrenTConnectorByEndObjectIdList;
+    }
+
+    /**
+     * Set the entity list of referrer property 'TConnectorByEndObjectIdList'.
+     * @param tConnectorByEndObjectIdList The entity list of referrer property 'TConnectorByEndObjectIdList'. (Nullable)
+     */
+    public void setTConnectorByEndObjectIdList(List<TConnector> tConnectorByEndObjectIdList) {
+        _childrenTConnectorByEndObjectIdList = tConnectorByEndObjectIdList;
+    }
+
 
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
     public boolean hasPrimaryKeyValue() {
-        return false;
+        if (_objectId == null) { return false; }
+        return true;
     }
 
     // ===================================================================================
@@ -301,69 +423,14 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     //                                                                      Basic Override
     //                                                                      ==============
     /**
-     * If the all-column value of the other is same as this one, returns true.
-     * @param other Other entity. (Nullable)
-     * @return Comparing result. If other is null, returns false.
+     * If the primary-key of the other is same as this one, returns true.
+     * @param other Other entity.
+     * @return Comparing result.
      */
     public boolean equals(Object other) {
         if (other == null || !(other instanceof BsTObject)) { return false; }
-        final BsTObject otherEntity = (BsTObject)other;
+        BsTObject otherEntity = (BsTObject)other;
         if (!helpComparingValue(getObjectId(), otherEntity.getObjectId())) { return false; }
-        if (!helpComparingValue(getObjectType(), otherEntity.getObjectType())) { return false; }
-        if (!helpComparingValue(getDiagramId(), otherEntity.getDiagramId())) { return false; }
-        if (!helpComparingValue(getName(), otherEntity.getName())) { return false; }
-        if (!helpComparingValue(getAlias(), otherEntity.getAlias())) { return false; }
-        if (!helpComparingValue(getAuthor(), otherEntity.getAuthor())) { return false; }
-        if (!helpComparingValue(getVersion(), otherEntity.getVersion())) { return false; }
-        if (!helpComparingValue(getNote(), otherEntity.getNote())) { return false; }
-        if (!helpComparingValue(getPackageId(), otherEntity.getPackageId())) { return false; }
-        if (!helpComparingValue(getStereotype(), otherEntity.getStereotype())) { return false; }
-        if (!helpComparingValue(getNtype(), otherEntity.getNtype())) { return false; }
-        if (!helpComparingValue(getComplexity(), otherEntity.getComplexity())) { return false; }
-        if (!helpComparingValue(getEffort(), otherEntity.getEffort())) { return false; }
-        if (!helpComparingValue(getStyle(), otherEntity.getStyle())) { return false; }
-        if (!helpComparingValue(getBackcolor(), otherEntity.getBackcolor())) { return false; }
-        if (!helpComparingValue(getBorderstyle(), otherEntity.getBorderstyle())) { return false; }
-        if (!helpComparingValue(getBorderwidth(), otherEntity.getBorderwidth())) { return false; }
-        if (!helpComparingValue(getFontcolor(), otherEntity.getFontcolor())) { return false; }
-        if (!helpComparingValue(getBordercolor(), otherEntity.getBordercolor())) { return false; }
-        if (!helpComparingValue(getCreateddate(), otherEntity.getCreateddate())) { return false; }
-        if (!helpComparingValue(getModifieddate(), otherEntity.getModifieddate())) { return false; }
-        if (!helpComparingValue(getStatus(), otherEntity.getStatus())) { return false; }
-        if (!helpComparingValue(getTagged(), otherEntity.getTagged())) { return false; }
-        if (!helpComparingValue(getPdata1(), otherEntity.getPdata1())) { return false; }
-        if (!helpComparingValue(getPdata2(), otherEntity.getPdata2())) { return false; }
-        if (!helpComparingValue(getPdata3(), otherEntity.getPdata3())) { return false; }
-        if (!helpComparingValue(getPdata4(), otherEntity.getPdata4())) { return false; }
-        if (!helpComparingValue(getPdata5(), otherEntity.getPdata5())) { return false; }
-        if (!helpComparingValue(getConcurrency(), otherEntity.getConcurrency())) { return false; }
-        if (!helpComparingValue(getVisibility(), otherEntity.getVisibility())) { return false; }
-        if (!helpComparingValue(getPersistence(), otherEntity.getPersistence())) { return false; }
-        if (!helpComparingValue(getCardinality(), otherEntity.getCardinality())) { return false; }
-        if (!helpComparingValue(getGentype(), otherEntity.getGentype())) { return false; }
-        if (!helpComparingValue(getGenfile(), otherEntity.getGenfile())) { return false; }
-        if (!helpComparingValue(getHeader1(), otherEntity.getHeader1())) { return false; }
-        if (!helpComparingValue(getHeader2(), otherEntity.getHeader2())) { return false; }
-        if (!helpComparingValue(getPhase(), otherEntity.getPhase())) { return false; }
-        if (!helpComparingValue(getScope(), otherEntity.getScope())) { return false; }
-        if (!helpComparingValue(getGenoption(), otherEntity.getGenoption())) { return false; }
-        if (!helpComparingValue(getGenlinks(), otherEntity.getGenlinks())) { return false; }
-        if (!helpComparingValue(getClassifier(), otherEntity.getClassifier())) { return false; }
-        if (!helpComparingValue(getEaGuid(), otherEntity.getEaGuid())) { return false; }
-        if (!helpComparingValue(getParentid(), otherEntity.getParentid())) { return false; }
-        if (!helpComparingValue(getRunstate(), otherEntity.getRunstate())) { return false; }
-        if (!helpComparingValue(getClassifierGuid(), otherEntity.getClassifierGuid())) { return false; }
-        if (!helpComparingValue(getTpos(), otherEntity.getTpos())) { return false; }
-        if (!helpComparingValue(getIsroot(), otherEntity.getIsroot())) { return false; }
-        if (!helpComparingValue(getIsleaf(), otherEntity.getIsleaf())) { return false; }
-        if (!helpComparingValue(getIsspec(), otherEntity.getIsspec())) { return false; }
-        if (!helpComparingValue(getIsactive(), otherEntity.getIsactive())) { return false; }
-        if (!helpComparingValue(getStateflags(), otherEntity.getStateflags())) { return false; }
-        if (!helpComparingValue(getPackageflags(), otherEntity.getPackageflags())) { return false; }
-        if (!helpComparingValue(getMultiplicity(), otherEntity.getMultiplicity())) { return false; }
-        if (!helpComparingValue(getStyleex(), otherEntity.getStyleex())) { return false; }
-        if (!helpComparingValue(getActionflags(), otherEntity.getActionflags())) { return false; }
-        if (!helpComparingValue(getEventflags(), otherEntity.getEventflags())) { return false; }
         return true;
     }
 
@@ -373,67 +440,12 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Calculates hash-code from all columns.
-     * @return Hash-code from all-columns.
+     * Calculates hash-code from primary-key.
+     * @return Hash-code from primary-keys.
      */
     public int hashCode() {
         int result = 17;
-        if (this.getObjectId() != null) { result = result + this.getObjectId().hashCode(); }
-        if (this.getObjectType() != null) { result = result + this.getObjectType().hashCode(); }
-        if (this.getDiagramId() != null) { result = result + this.getDiagramId().hashCode(); }
-        if (this.getName() != null) { result = result + this.getName().hashCode(); }
-        if (this.getAlias() != null) { result = result + this.getAlias().hashCode(); }
-        if (this.getAuthor() != null) { result = result + this.getAuthor().hashCode(); }
-        if (this.getVersion() != null) { result = result + this.getVersion().hashCode(); }
-        if (this.getNote() != null) { result = result + this.getNote().hashCode(); }
-        if (this.getPackageId() != null) { result = result + this.getPackageId().hashCode(); }
-        if (this.getStereotype() != null) { result = result + this.getStereotype().hashCode(); }
-        if (this.getNtype() != null) { result = result + this.getNtype().hashCode(); }
-        if (this.getComplexity() != null) { result = result + this.getComplexity().hashCode(); }
-        if (this.getEffort() != null) { result = result + this.getEffort().hashCode(); }
-        if (this.getStyle() != null) { result = result + this.getStyle().hashCode(); }
-        if (this.getBackcolor() != null) { result = result + this.getBackcolor().hashCode(); }
-        if (this.getBorderstyle() != null) { result = result + this.getBorderstyle().hashCode(); }
-        if (this.getBorderwidth() != null) { result = result + this.getBorderwidth().hashCode(); }
-        if (this.getFontcolor() != null) { result = result + this.getFontcolor().hashCode(); }
-        if (this.getBordercolor() != null) { result = result + this.getBordercolor().hashCode(); }
-        if (this.getCreateddate() != null) { result = result + this.getCreateddate().hashCode(); }
-        if (this.getModifieddate() != null) { result = result + this.getModifieddate().hashCode(); }
-        if (this.getStatus() != null) { result = result + this.getStatus().hashCode(); }
-        if (this.getTagged() != null) { result = result + this.getTagged().hashCode(); }
-        if (this.getPdata1() != null) { result = result + this.getPdata1().hashCode(); }
-        if (this.getPdata2() != null) { result = result + this.getPdata2().hashCode(); }
-        if (this.getPdata3() != null) { result = result + this.getPdata3().hashCode(); }
-        if (this.getPdata4() != null) { result = result + this.getPdata4().hashCode(); }
-        if (this.getPdata5() != null) { result = result + this.getPdata5().hashCode(); }
-        if (this.getConcurrency() != null) { result = result + this.getConcurrency().hashCode(); }
-        if (this.getVisibility() != null) { result = result + this.getVisibility().hashCode(); }
-        if (this.getPersistence() != null) { result = result + this.getPersistence().hashCode(); }
-        if (this.getCardinality() != null) { result = result + this.getCardinality().hashCode(); }
-        if (this.getGentype() != null) { result = result + this.getGentype().hashCode(); }
-        if (this.getGenfile() != null) { result = result + this.getGenfile().hashCode(); }
-        if (this.getHeader1() != null) { result = result + this.getHeader1().hashCode(); }
-        if (this.getHeader2() != null) { result = result + this.getHeader2().hashCode(); }
-        if (this.getPhase() != null) { result = result + this.getPhase().hashCode(); }
-        if (this.getScope() != null) { result = result + this.getScope().hashCode(); }
-        if (this.getGenoption() != null) { result = result + this.getGenoption().hashCode(); }
-        if (this.getGenlinks() != null) { result = result + this.getGenlinks().hashCode(); }
-        if (this.getClassifier() != null) { result = result + this.getClassifier().hashCode(); }
-        if (this.getEaGuid() != null) { result = result + this.getEaGuid().hashCode(); }
-        if (this.getParentid() != null) { result = result + this.getParentid().hashCode(); }
-        if (this.getRunstate() != null) { result = result + this.getRunstate().hashCode(); }
-        if (this.getClassifierGuid() != null) { result = result + this.getClassifierGuid().hashCode(); }
-        if (this.getTpos() != null) { result = result + this.getTpos().hashCode(); }
-        if (this.getIsroot() != null) { result = result + this.getIsroot().hashCode(); }
-        if (this.getIsleaf() != null) { result = result + this.getIsleaf().hashCode(); }
-        if (this.getIsspec() != null) { result = result + this.getIsspec().hashCode(); }
-        if (this.getIsactive() != null) { result = result + this.getIsactive().hashCode(); }
-        if (this.getStateflags() != null) { result = result + this.getStateflags().hashCode(); }
-        if (this.getPackageflags() != null) { result = result + this.getPackageflags().hashCode(); }
-        if (this.getMultiplicity() != null) { result = result + this.getMultiplicity().hashCode(); }
-        if (this.getStyleex() != null) { result = result + this.getStyleex().hashCode(); }
-        if (this.getActionflags() != null) { result = result + this.getActionflags().hashCode(); }
-        if (this.getEventflags() != null) { result = result + this.getEventflags().hashCode(); }
+        if (this.getObjectId() != null) { result = result + getObjectId().hashCode(); }
         return result;
     }
 
@@ -508,12 +520,12 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     //                                                                            Accessor
     //                                                                            ========
 
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
+    /** The column annotation for S2Dao. {PK : UQ : COUNTER : NotNull} */
     public static final String objectId_COLUMN = "Object_ID";
 
     /**
      * Get the value of the column 'Object_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * {PK : UQ : COUNTER : NotNull}
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -522,7 +534,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
 
     /**
      * Set the value of the column 'Object_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * {PK : UQ : COUNTER : NotNull}
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {

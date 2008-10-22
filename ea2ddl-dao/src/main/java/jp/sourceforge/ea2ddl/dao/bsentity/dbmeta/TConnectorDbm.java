@@ -29,7 +29,7 @@ public class TConnectorDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnConnectorId = cci("Connector_ID", "connectorId", java.lang.Integer.class, false, null, null);
+    protected ColumnInfo _columnConnectorId = cci("Connector_ID", "connectorId", java.lang.Integer.class, true, null, null);
     protected ColumnInfo _columnName = cci("Name", "name", String.class, false, 255, 0);
     protected ColumnInfo _columnDirection = cci("Direction", "direction", String.class, false, 50, 0);
     protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 2147483647, 0);
@@ -231,10 +231,8 @@ public class TConnectorDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
+    public UniqueInfo getPrimaryUniqueInfo() { return createPrimaryUniqueInfo(columnConnectorId()); }
+    public boolean hasPrimaryKey() { return true; }
     public boolean hasTwoOrMorePrimaryKeys() { return false; }
 
     // ===================================================================================

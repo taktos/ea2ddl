@@ -11,7 +11,7 @@ import jp.sourceforge.ea2ddl.dao.exentity.*;
  * The entity of t_connector(TABLE).
  * <pre>
  * [primary-key]
- *     
+ *     Connector_ID
  * 
  * [column]
  *     Connector_ID, Name, Direction, Notes, Connector_Type, SubType, SourceCard, SourceAccess, SourceElement, DestCard, DestAccess, DestElement, SourceRole, SourceRoleType, SourceRoleNote, SourceContainment, SourceIsAggregate, SourceIsOrdered, SourceQualifier, DestRole, DestRoleType, DestRoleNote, DestContainment, DestIsAggregate, DestIsOrdered, DestQualifier, Start_Object_ID, End_Object_ID, Top_Start_Label, Top_Mid_Label, Top_End_Label, Btm_Start_Label, Btm_Mid_Label, Btm_End_Label, Start_Edge, End_Edge, PtStartX, PtStartY, PtEndX, PtEndY, SeqNo, HeadStyle, LineStyle, RouteStyle, IsBold, LineColor, Stereotype, VirtualInheritance, LinkAccess, PDATA1, PDATA2, PDATA3, PDATA4, PDATA5, DiagramID, ea_guid, SourceConstraint, DestConstraint, SourceIsNavigable, DestIsNavigable, IsRoot, IsLeaf, IsSpec, SourceChangeable, DestChangeable, SourceTS, DestTS, StateFlags, ActionFlags, IsSignal, IsStimulus, DispatchAction, Target2, StyleEx, SourceStereotype, DestStereotype, SourceStyle, DestStyle, EventFlags
@@ -58,7 +58,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Connector_ID'. {UQ : COUNTER : NotNull} */
+    /** The attribute of the column 'Connector_ID'. {PK : UQ : COUNTER : NotNull} */
     protected java.lang.Integer _connectorId;
 
     /** The attribute of the column 'Name'. {VARCHAR(255)} */
@@ -445,7 +445,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     //                                                                       Determination
     //                                                                       =============
     public boolean hasPrimaryKeyValue() {
-        return false;
+        if (_connectorId == null) { return false; }
+        return true;
     }
 
     // ===================================================================================
@@ -471,92 +472,14 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     //                                                                      Basic Override
     //                                                                      ==============
     /**
-     * If the all-column value of the other is same as this one, returns true.
-     * @param other Other entity. (Nullable)
-     * @return Comparing result. If other is null, returns false.
+     * If the primary-key of the other is same as this one, returns true.
+     * @param other Other entity.
+     * @return Comparing result.
      */
     public boolean equals(Object other) {
         if (other == null || !(other instanceof BsTConnector)) { return false; }
-        final BsTConnector otherEntity = (BsTConnector)other;
+        BsTConnector otherEntity = (BsTConnector)other;
         if (!helpComparingValue(getConnectorId(), otherEntity.getConnectorId())) { return false; }
-        if (!helpComparingValue(getName(), otherEntity.getName())) { return false; }
-        if (!helpComparingValue(getDirection(), otherEntity.getDirection())) { return false; }
-        if (!helpComparingValue(getNotes(), otherEntity.getNotes())) { return false; }
-        if (!helpComparingValue(getConnectorType(), otherEntity.getConnectorType())) { return false; }
-        if (!helpComparingValue(getSubtype(), otherEntity.getSubtype())) { return false; }
-        if (!helpComparingValue(getSourcecard(), otherEntity.getSourcecard())) { return false; }
-        if (!helpComparingValue(getSourceaccess(), otherEntity.getSourceaccess())) { return false; }
-        if (!helpComparingValue(getSourceelement(), otherEntity.getSourceelement())) { return false; }
-        if (!helpComparingValue(getDestcard(), otherEntity.getDestcard())) { return false; }
-        if (!helpComparingValue(getDestaccess(), otherEntity.getDestaccess())) { return false; }
-        if (!helpComparingValue(getDestelement(), otherEntity.getDestelement())) { return false; }
-        if (!helpComparingValue(getSourcerole(), otherEntity.getSourcerole())) { return false; }
-        if (!helpComparingValue(getSourceroletype(), otherEntity.getSourceroletype())) { return false; }
-        if (!helpComparingValue(getSourcerolenote(), otherEntity.getSourcerolenote())) { return false; }
-        if (!helpComparingValue(getSourcecontainment(), otherEntity.getSourcecontainment())) { return false; }
-        if (!helpComparingValue(getSourceisaggregate(), otherEntity.getSourceisaggregate())) { return false; }
-        if (!helpComparingValue(getSourceisordered(), otherEntity.getSourceisordered())) { return false; }
-        if (!helpComparingValue(getSourcequalifier(), otherEntity.getSourcequalifier())) { return false; }
-        if (!helpComparingValue(getDestrole(), otherEntity.getDestrole())) { return false; }
-        if (!helpComparingValue(getDestroletype(), otherEntity.getDestroletype())) { return false; }
-        if (!helpComparingValue(getDestrolenote(), otherEntity.getDestrolenote())) { return false; }
-        if (!helpComparingValue(getDestcontainment(), otherEntity.getDestcontainment())) { return false; }
-        if (!helpComparingValue(getDestisaggregate(), otherEntity.getDestisaggregate())) { return false; }
-        if (!helpComparingValue(getDestisordered(), otherEntity.getDestisordered())) { return false; }
-        if (!helpComparingValue(getDestqualifier(), otherEntity.getDestqualifier())) { return false; }
-        if (!helpComparingValue(getStartObjectId(), otherEntity.getStartObjectId())) { return false; }
-        if (!helpComparingValue(getEndObjectId(), otherEntity.getEndObjectId())) { return false; }
-        if (!helpComparingValue(getTopStartLabel(), otherEntity.getTopStartLabel())) { return false; }
-        if (!helpComparingValue(getTopMidLabel(), otherEntity.getTopMidLabel())) { return false; }
-        if (!helpComparingValue(getTopEndLabel(), otherEntity.getTopEndLabel())) { return false; }
-        if (!helpComparingValue(getBtmStartLabel(), otherEntity.getBtmStartLabel())) { return false; }
-        if (!helpComparingValue(getBtmMidLabel(), otherEntity.getBtmMidLabel())) { return false; }
-        if (!helpComparingValue(getBtmEndLabel(), otherEntity.getBtmEndLabel())) { return false; }
-        if (!helpComparingValue(getStartEdge(), otherEntity.getStartEdge())) { return false; }
-        if (!helpComparingValue(getEndEdge(), otherEntity.getEndEdge())) { return false; }
-        if (!helpComparingValue(getPtstartx(), otherEntity.getPtstartx())) { return false; }
-        if (!helpComparingValue(getPtstarty(), otherEntity.getPtstarty())) { return false; }
-        if (!helpComparingValue(getPtendx(), otherEntity.getPtendx())) { return false; }
-        if (!helpComparingValue(getPtendy(), otherEntity.getPtendy())) { return false; }
-        if (!helpComparingValue(getSeqno(), otherEntity.getSeqno())) { return false; }
-        if (!helpComparingValue(getHeadstyle(), otherEntity.getHeadstyle())) { return false; }
-        if (!helpComparingValue(getLinestyle(), otherEntity.getLinestyle())) { return false; }
-        if (!helpComparingValue(getRoutestyle(), otherEntity.getRoutestyle())) { return false; }
-        if (!helpComparingValue(getIsbold(), otherEntity.getIsbold())) { return false; }
-        if (!helpComparingValue(getLinecolor(), otherEntity.getLinecolor())) { return false; }
-        if (!helpComparingValue(getStereotype(), otherEntity.getStereotype())) { return false; }
-        if (!helpComparingValue(getVirtualinheritance(), otherEntity.getVirtualinheritance())) { return false; }
-        if (!helpComparingValue(getLinkaccess(), otherEntity.getLinkaccess())) { return false; }
-        if (!helpComparingValue(getPdata1(), otherEntity.getPdata1())) { return false; }
-        if (!helpComparingValue(getPdata2(), otherEntity.getPdata2())) { return false; }
-        if (!helpComparingValue(getPdata3(), otherEntity.getPdata3())) { return false; }
-        if (!helpComparingValue(getPdata4(), otherEntity.getPdata4())) { return false; }
-        if (!helpComparingValue(getPdata5(), otherEntity.getPdata5())) { return false; }
-        if (!helpComparingValue(getDiagramid(), otherEntity.getDiagramid())) { return false; }
-        if (!helpComparingValue(getEaGuid(), otherEntity.getEaGuid())) { return false; }
-        if (!helpComparingValue(getSourceconstraint(), otherEntity.getSourceconstraint())) { return false; }
-        if (!helpComparingValue(getDestconstraint(), otherEntity.getDestconstraint())) { return false; }
-        if (!helpComparingValue(getSourceisnavigable(), otherEntity.getSourceisnavigable())) { return false; }
-        if (!helpComparingValue(getDestisnavigable(), otherEntity.getDestisnavigable())) { return false; }
-        if (!helpComparingValue(getIsroot(), otherEntity.getIsroot())) { return false; }
-        if (!helpComparingValue(getIsleaf(), otherEntity.getIsleaf())) { return false; }
-        if (!helpComparingValue(getIsspec(), otherEntity.getIsspec())) { return false; }
-        if (!helpComparingValue(getSourcechangeable(), otherEntity.getSourcechangeable())) { return false; }
-        if (!helpComparingValue(getDestchangeable(), otherEntity.getDestchangeable())) { return false; }
-        if (!helpComparingValue(getSourcets(), otherEntity.getSourcets())) { return false; }
-        if (!helpComparingValue(getDestts(), otherEntity.getDestts())) { return false; }
-        if (!helpComparingValue(getStateflags(), otherEntity.getStateflags())) { return false; }
-        if (!helpComparingValue(getActionflags(), otherEntity.getActionflags())) { return false; }
-        if (!helpComparingValue(getIssignal(), otherEntity.getIssignal())) { return false; }
-        if (!helpComparingValue(getIsstimulus(), otherEntity.getIsstimulus())) { return false; }
-        if (!helpComparingValue(getDispatchaction(), otherEntity.getDispatchaction())) { return false; }
-        if (!helpComparingValue(getTarget2(), otherEntity.getTarget2())) { return false; }
-        if (!helpComparingValue(getStyleex(), otherEntity.getStyleex())) { return false; }
-        if (!helpComparingValue(getSourcestereotype(), otherEntity.getSourcestereotype())) { return false; }
-        if (!helpComparingValue(getDeststereotype(), otherEntity.getDeststereotype())) { return false; }
-        if (!helpComparingValue(getSourcestyle(), otherEntity.getSourcestyle())) { return false; }
-        if (!helpComparingValue(getDeststyle(), otherEntity.getDeststyle())) { return false; }
-        if (!helpComparingValue(getEventflags(), otherEntity.getEventflags())) { return false; }
         return true;
     }
 
@@ -566,90 +489,12 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Calculates hash-code from all columns.
-     * @return Hash-code from all-columns.
+     * Calculates hash-code from primary-key.
+     * @return Hash-code from primary-keys.
      */
     public int hashCode() {
         int result = 17;
-        if (this.getConnectorId() != null) { result = result + this.getConnectorId().hashCode(); }
-        if (this.getName() != null) { result = result + this.getName().hashCode(); }
-        if (this.getDirection() != null) { result = result + this.getDirection().hashCode(); }
-        if (this.getNotes() != null) { result = result + this.getNotes().hashCode(); }
-        if (this.getConnectorType() != null) { result = result + this.getConnectorType().hashCode(); }
-        if (this.getSubtype() != null) { result = result + this.getSubtype().hashCode(); }
-        if (this.getSourcecard() != null) { result = result + this.getSourcecard().hashCode(); }
-        if (this.getSourceaccess() != null) { result = result + this.getSourceaccess().hashCode(); }
-        if (this.getSourceelement() != null) { result = result + this.getSourceelement().hashCode(); }
-        if (this.getDestcard() != null) { result = result + this.getDestcard().hashCode(); }
-        if (this.getDestaccess() != null) { result = result + this.getDestaccess().hashCode(); }
-        if (this.getDestelement() != null) { result = result + this.getDestelement().hashCode(); }
-        if (this.getSourcerole() != null) { result = result + this.getSourcerole().hashCode(); }
-        if (this.getSourceroletype() != null) { result = result + this.getSourceroletype().hashCode(); }
-        if (this.getSourcerolenote() != null) { result = result + this.getSourcerolenote().hashCode(); }
-        if (this.getSourcecontainment() != null) { result = result + this.getSourcecontainment().hashCode(); }
-        if (this.getSourceisaggregate() != null) { result = result + this.getSourceisaggregate().hashCode(); }
-        if (this.getSourceisordered() != null) { result = result + this.getSourceisordered().hashCode(); }
-        if (this.getSourcequalifier() != null) { result = result + this.getSourcequalifier().hashCode(); }
-        if (this.getDestrole() != null) { result = result + this.getDestrole().hashCode(); }
-        if (this.getDestroletype() != null) { result = result + this.getDestroletype().hashCode(); }
-        if (this.getDestrolenote() != null) { result = result + this.getDestrolenote().hashCode(); }
-        if (this.getDestcontainment() != null) { result = result + this.getDestcontainment().hashCode(); }
-        if (this.getDestisaggregate() != null) { result = result + this.getDestisaggregate().hashCode(); }
-        if (this.getDestisordered() != null) { result = result + this.getDestisordered().hashCode(); }
-        if (this.getDestqualifier() != null) { result = result + this.getDestqualifier().hashCode(); }
-        if (this.getStartObjectId() != null) { result = result + this.getStartObjectId().hashCode(); }
-        if (this.getEndObjectId() != null) { result = result + this.getEndObjectId().hashCode(); }
-        if (this.getTopStartLabel() != null) { result = result + this.getTopStartLabel().hashCode(); }
-        if (this.getTopMidLabel() != null) { result = result + this.getTopMidLabel().hashCode(); }
-        if (this.getTopEndLabel() != null) { result = result + this.getTopEndLabel().hashCode(); }
-        if (this.getBtmStartLabel() != null) { result = result + this.getBtmStartLabel().hashCode(); }
-        if (this.getBtmMidLabel() != null) { result = result + this.getBtmMidLabel().hashCode(); }
-        if (this.getBtmEndLabel() != null) { result = result + this.getBtmEndLabel().hashCode(); }
-        if (this.getStartEdge() != null) { result = result + this.getStartEdge().hashCode(); }
-        if (this.getEndEdge() != null) { result = result + this.getEndEdge().hashCode(); }
-        if (this.getPtstartx() != null) { result = result + this.getPtstartx().hashCode(); }
-        if (this.getPtstarty() != null) { result = result + this.getPtstarty().hashCode(); }
-        if (this.getPtendx() != null) { result = result + this.getPtendx().hashCode(); }
-        if (this.getPtendy() != null) { result = result + this.getPtendy().hashCode(); }
-        if (this.getSeqno() != null) { result = result + this.getSeqno().hashCode(); }
-        if (this.getHeadstyle() != null) { result = result + this.getHeadstyle().hashCode(); }
-        if (this.getLinestyle() != null) { result = result + this.getLinestyle().hashCode(); }
-        if (this.getRoutestyle() != null) { result = result + this.getRoutestyle().hashCode(); }
-        if (this.getIsbold() != null) { result = result + this.getIsbold().hashCode(); }
-        if (this.getLinecolor() != null) { result = result + this.getLinecolor().hashCode(); }
-        if (this.getStereotype() != null) { result = result + this.getStereotype().hashCode(); }
-        if (this.getVirtualinheritance() != null) { result = result + this.getVirtualinheritance().hashCode(); }
-        if (this.getLinkaccess() != null) { result = result + this.getLinkaccess().hashCode(); }
-        if (this.getPdata1() != null) { result = result + this.getPdata1().hashCode(); }
-        if (this.getPdata2() != null) { result = result + this.getPdata2().hashCode(); }
-        if (this.getPdata3() != null) { result = result + this.getPdata3().hashCode(); }
-        if (this.getPdata4() != null) { result = result + this.getPdata4().hashCode(); }
-        if (this.getPdata5() != null) { result = result + this.getPdata5().hashCode(); }
-        if (this.getDiagramid() != null) { result = result + this.getDiagramid().hashCode(); }
-        if (this.getEaGuid() != null) { result = result + this.getEaGuid().hashCode(); }
-        if (this.getSourceconstraint() != null) { result = result + this.getSourceconstraint().hashCode(); }
-        if (this.getDestconstraint() != null) { result = result + this.getDestconstraint().hashCode(); }
-        if (this.getSourceisnavigable() != null) { result = result + this.getSourceisnavigable().hashCode(); }
-        if (this.getDestisnavigable() != null) { result = result + this.getDestisnavigable().hashCode(); }
-        if (this.getIsroot() != null) { result = result + this.getIsroot().hashCode(); }
-        if (this.getIsleaf() != null) { result = result + this.getIsleaf().hashCode(); }
-        if (this.getIsspec() != null) { result = result + this.getIsspec().hashCode(); }
-        if (this.getSourcechangeable() != null) { result = result + this.getSourcechangeable().hashCode(); }
-        if (this.getDestchangeable() != null) { result = result + this.getDestchangeable().hashCode(); }
-        if (this.getSourcets() != null) { result = result + this.getSourcets().hashCode(); }
-        if (this.getDestts() != null) { result = result + this.getDestts().hashCode(); }
-        if (this.getStateflags() != null) { result = result + this.getStateflags().hashCode(); }
-        if (this.getActionflags() != null) { result = result + this.getActionflags().hashCode(); }
-        if (this.getIssignal() != null) { result = result + this.getIssignal().hashCode(); }
-        if (this.getIsstimulus() != null) { result = result + this.getIsstimulus().hashCode(); }
-        if (this.getDispatchaction() != null) { result = result + this.getDispatchaction().hashCode(); }
-        if (this.getTarget2() != null) { result = result + this.getTarget2().hashCode(); }
-        if (this.getStyleex() != null) { result = result + this.getStyleex().hashCode(); }
-        if (this.getSourcestereotype() != null) { result = result + this.getSourcestereotype().hashCode(); }
-        if (this.getDeststereotype() != null) { result = result + this.getDeststereotype().hashCode(); }
-        if (this.getSourcestyle() != null) { result = result + this.getSourcestyle().hashCode(); }
-        if (this.getDeststyle() != null) { result = result + this.getDeststyle().hashCode(); }
-        if (this.getEventflags() != null) { result = result + this.getEventflags().hashCode(); }
+        if (this.getConnectorId() != null) { result = result + getConnectorId().hashCode(); }
         return result;
     }
 
@@ -747,12 +592,12 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     //                                                                            Accessor
     //                                                                            ========
 
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
+    /** The column annotation for S2Dao. {PK : UQ : COUNTER : NotNull} */
     public static final String connectorId_COLUMN = "Connector_ID";
 
     /**
      * Get the value of the column 'Connector_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * {PK : UQ : COUNTER : NotNull}
      * @return The value of the column 'Connector_ID'. (Nullable)
      */
     public java.lang.Integer getConnectorId() {
@@ -761,7 +606,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
 
     /**
      * Set the value of the column 'Connector_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * {PK : UQ : COUNTER : NotNull}
      * @param connectorId The value of the column 'Connector_ID'. (Nullable)
      */
     public void setConnectorId(java.lang.Integer connectorId) {

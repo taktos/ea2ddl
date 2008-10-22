@@ -39,7 +39,7 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnceRegistered. {PK : UQ : COUNTER : NotNull}
      * @param connectorId The value of connectorId as equal.
      */
     public void setConnectorId_Equal(java.lang.Integer connectorId) {
@@ -93,6 +93,16 @@ public abstract class AbstractBsTConnectorCQ extends AbstractConditionQuery {
     public void setConnectorId_InScope(Collection<java.lang.Integer> connectorIdList) {
         regConnectorId(CK_INS, cTL(connectorIdList));
     }
+
+    /**
+     * IsNull(is null). And OnceRegistered.
+     */
+    public void setConnectorId_IsNull() { regConnectorId(CK_ISN, DUMMY_OBJECT); }
+
+    /**
+     * IsNotNull(is not null). And OnceRegistered.
+     */
+    public void setConnectorId_IsNotNull() { regConnectorId(CK_ISNN, DUMMY_OBJECT); }
 
     protected void regConnectorId(ConditionKey key, Object value) {
         registerQuery(key, value, getCValueConnectorId(), "Connector_ID", "ConnectorId", "connectorId");

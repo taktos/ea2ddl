@@ -29,7 +29,7 @@ public class TOperationDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnOperationid = cci("OperationID", "operationid", java.lang.Integer.class, false, null, null);
+    protected ColumnInfo _columnOperationid = cci("OperationID", "operationid", java.lang.Integer.class, true, null, null);
     protected ColumnInfo _columnObjectId = cci("Object_ID", "objectId", java.lang.Integer.class, false, null, null);
     protected ColumnInfo _columnName = cci("Name", "name", String.class, false, 255, 0);
     protected ColumnInfo _columnScope = cci("Scope", "scope", String.class, false, 50, 0);
@@ -119,10 +119,8 @@ public class TOperationDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
+    public UniqueInfo getPrimaryUniqueInfo() { return createPrimaryUniqueInfo(columnOperationid()); }
+    public boolean hasPrimaryKey() { return true; }
     public boolean hasTwoOrMorePrimaryKeys() { return false; }
 
     // ===================================================================================
@@ -139,6 +137,10 @@ public class TOperationDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
+    public ReferrerInfo referrerTOperationparamsList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnOperationid(), TOperationparamsDbm.getInstance().columnOperationid());
+	    return cri("TOperationparamsList", this, TOperationparamsDbm.getInstance(), map, false);
+    }
 
     // ===================================================================================
     //                                                                        Various Info

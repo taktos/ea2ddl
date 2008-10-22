@@ -1,5 +1,10 @@
 package jp.sourceforge.ea2ddl.dao.exbhv;
 
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
+import jp.sourceforge.ea2ddl.dao.cbean.TObjectconstraintCB;
+import jp.sourceforge.ea2ddl.dao.exentity.TObject;
+import jp.sourceforge.ea2ddl.dao.exentity.TObjectconstraint;
+
 /**
  * The behavior of t_objectconstraint.
  * <p>
@@ -8,6 +13,12 @@ package jp.sourceforge.ea2ddl.dao.exbhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TObjectconstraintBhv extends jp.sourceforge.ea2ddl.dao.bsbhv.BsTObjectconstraintBhv {
+	public boolean hasConstraint(TObject object, String constraint) {
+		final TObjectconstraintCB cb = new TObjectconstraintCB();
+		cb.query().setObjectId_Equal(object.getObjectId());
+		cb.query().setConstraint_Equal(constraint);
+		final ListResultBean<TObjectconstraint> constraints = selectList(cb);
+		return !constraints.isEmpty();
+	}
 }

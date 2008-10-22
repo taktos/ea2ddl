@@ -37,9 +37,15 @@ public class BsTObjectCB extends AbstractConditionBean {
     //                                                                      PrimaryKey Map
     //                                                                      ==============
     public void acceptPrimaryKeyMap(Map<String, ? extends Object> primaryKeyMap) {
-
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        assertPrimaryKeyMap(primaryKeyMap);
+        {
+            Object obj = primaryKeyMap.get("Object_ID");
+            if (obj instanceof java.lang.Integer) {
+                query().setObjectId_Equal((java.lang.Integer)obj);
+            } else {
+                query().setObjectId_Equal(new java.lang.Integer((String)obj));
+            }
+        }
 
     }
 
@@ -47,13 +53,13 @@ public class BsTObjectCB extends AbstractConditionBean {
     //                                                                     OrderBy Setting
     //                                                                     ===============
     public ConditionBean addOrderBy_PK_Asc() {
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        query().addOrderBy_ObjectId_Asc();
+        return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        query().addOrderBy_ObjectId_Desc();
+        return this;
     }
 
     // ===================================================================================
@@ -202,8 +208,34 @@ public class BsTObjectCB extends AbstractConditionBean {
         public void columnActionflags() { doColumn("ActionFlags"); }
         public void columnEventflags() { doColumn("EventFlags"); }
         protected void doSpecifyRequiredColumn() {
+            columnObjectId();// PK
         }
         protected String getTableDbName() { return "t_object"; }
+        public RAFunction<TObjectpropertiesCB, TObjectCQ> derivedTObjectpropertiesList() {
+            return new RAFunction<TObjectpropertiesCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TObjectpropertiesCB, TObjectCQ>() {
+                public void setup(String function, SubQuery<TObjectpropertiesCB> subQuery, TObjectCQ cq, String aliasName) {
+                    cq.xderiveTObjectpropertiesList(function, subQuery, aliasName); } });
+        }
+        public RAFunction<TAttributeCB, TObjectCQ> derivedTAttributeList() {
+            return new RAFunction<TAttributeCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TAttributeCB, TObjectCQ>() {
+                public void setup(String function, SubQuery<TAttributeCB> subQuery, TObjectCQ cq, String aliasName) {
+                    cq.xderiveTAttributeList(function, subQuery, aliasName); } });
+        }
+        public RAFunction<TOperationCB, TObjectCQ> derivedTOperationList() {
+            return new RAFunction<TOperationCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TOperationCB, TObjectCQ>() {
+                public void setup(String function, SubQuery<TOperationCB> subQuery, TObjectCQ cq, String aliasName) {
+                    cq.xderiveTOperationList(function, subQuery, aliasName); } });
+        }
+        public RAFunction<TConnectorCB, TObjectCQ> derivedTConnectorByStartObjectIdList() {
+            return new RAFunction<TConnectorCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TConnectorCB, TObjectCQ>() {
+                public void setup(String function, SubQuery<TConnectorCB> subQuery, TObjectCQ cq, String aliasName) {
+                    cq.xderiveTConnectorByStartObjectIdList(function, subQuery, aliasName); } });
+        }
+        public RAFunction<TConnectorCB, TObjectCQ> derivedTConnectorByEndObjectIdList() {
+            return new RAFunction<TConnectorCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TConnectorCB, TObjectCQ>() {
+                public void setup(String function, SubQuery<TConnectorCB> subQuery, TObjectCQ cq, String aliasName) {
+                    cq.xderiveTConnectorByEndObjectIdList(function, subQuery, aliasName); } });
+        }
     }
 
     // Very Internal (for Suppressing Warn about 'Not Use Import')

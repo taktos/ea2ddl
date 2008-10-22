@@ -11,7 +11,7 @@ import jp.sourceforge.ea2ddl.dao.exentity.*;
  * The entity of t_operation(TABLE).
  * <pre>
  * [primary-key]
- *     
+ *     OperationID
  * 
  * [column]
  *     OperationID, Object_ID, Name, Scope, Type, ReturnArray, Stereotype, IsStatic, Concurrency, Notes, Behaviour, GenOption, Pos, Style, Pure, Classifier, Code, IsRoot, IsLeaf, IsQuery, StateFlags, ea_guid, StyleEx
@@ -29,13 +29,13 @@ import jp.sourceforge.ea2ddl.dao.exentity.*;
  *     t_object
  * 
  * [referrer-table]
- *     
+ *     t_operationparams
  * 
  * [foreign-property]
  *     tObject
  * 
  * [referrer-property]
- *     
+ *     tOperationparamsList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -58,7 +58,7 @@ public abstract class BsTOperation implements Entity, java.io.Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'OperationID'. {UQ : COUNTER : NotNull} */
+    /** The attribute of the column 'OperationID'. {PK : UQ : COUNTER : NotNull} */
     protected java.lang.Integer _operationid;
 
     /** The attribute of the column 'Object_ID'. {INTEGER} */
@@ -197,12 +197,37 @@ public abstract class BsTOperation implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
+    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    //   Referrer Property = [TOperationparamsList]
+    // * * * * * * * * */
+
+    /** The entity list of referrer property 'TOperationparamsList'. */
+    protected List<TOperationparams> _childrenTOperationparamsList;
+
+    /**
+     * Get the entity list of referrer property 'TOperationparamsList'. {without lazy-load} <br />
+     * @return The entity list of referrer property 'TOperationparamsList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
+     */
+    public List<TOperationparams> getTOperationparamsList() {
+        if (_childrenTOperationparamsList == null) { _childrenTOperationparamsList = new ArrayList<TOperationparams>(); }
+        return _childrenTOperationparamsList;
+    }
+
+    /**
+     * Set the entity list of referrer property 'TOperationparamsList'.
+     * @param tOperationparamsList The entity list of referrer property 'TOperationparamsList'. (Nullable)
+     */
+    public void setTOperationparamsList(List<TOperationparams> tOperationparamsList) {
+        _childrenTOperationparamsList = tOperationparamsList;
+    }
+
 
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
     public boolean hasPrimaryKeyValue() {
-        return false;
+        if (_operationid == null) { return false; }
+        return true;
     }
 
     // ===================================================================================
@@ -228,36 +253,14 @@ public abstract class BsTOperation implements Entity, java.io.Serializable {
     //                                                                      Basic Override
     //                                                                      ==============
     /**
-     * If the all-column value of the other is same as this one, returns true.
-     * @param other Other entity. (Nullable)
-     * @return Comparing result. If other is null, returns false.
+     * If the primary-key of the other is same as this one, returns true.
+     * @param other Other entity.
+     * @return Comparing result.
      */
     public boolean equals(Object other) {
         if (other == null || !(other instanceof BsTOperation)) { return false; }
-        final BsTOperation otherEntity = (BsTOperation)other;
+        BsTOperation otherEntity = (BsTOperation)other;
         if (!helpComparingValue(getOperationid(), otherEntity.getOperationid())) { return false; }
-        if (!helpComparingValue(getObjectId(), otherEntity.getObjectId())) { return false; }
-        if (!helpComparingValue(getName(), otherEntity.getName())) { return false; }
-        if (!helpComparingValue(getScope(), otherEntity.getScope())) { return false; }
-        if (!helpComparingValue(getType(), otherEntity.getType())) { return false; }
-        if (!helpComparingValue(getReturnarray(), otherEntity.getReturnarray())) { return false; }
-        if (!helpComparingValue(getStereotype(), otherEntity.getStereotype())) { return false; }
-        if (!helpComparingValue(getIsstatic(), otherEntity.getIsstatic())) { return false; }
-        if (!helpComparingValue(getConcurrency(), otherEntity.getConcurrency())) { return false; }
-        if (!helpComparingValue(getNotes(), otherEntity.getNotes())) { return false; }
-        if (!helpComparingValue(getBehaviour(), otherEntity.getBehaviour())) { return false; }
-        if (!helpComparingValue(getGenoption(), otherEntity.getGenoption())) { return false; }
-        if (!helpComparingValue(getPos(), otherEntity.getPos())) { return false; }
-        if (!helpComparingValue(getStyle(), otherEntity.getStyle())) { return false; }
-        if (!helpComparingValue(getPure(), otherEntity.getPure())) { return false; }
-        if (!helpComparingValue(getClassifier(), otherEntity.getClassifier())) { return false; }
-        if (!helpComparingValue(getCode(), otherEntity.getCode())) { return false; }
-        if (!helpComparingValue(getIsroot(), otherEntity.getIsroot())) { return false; }
-        if (!helpComparingValue(getIsleaf(), otherEntity.getIsleaf())) { return false; }
-        if (!helpComparingValue(getIsquery(), otherEntity.getIsquery())) { return false; }
-        if (!helpComparingValue(getStateflags(), otherEntity.getStateflags())) { return false; }
-        if (!helpComparingValue(getEaGuid(), otherEntity.getEaGuid())) { return false; }
-        if (!helpComparingValue(getStyleex(), otherEntity.getStyleex())) { return false; }
         return true;
     }
 
@@ -267,34 +270,12 @@ public abstract class BsTOperation implements Entity, java.io.Serializable {
     }
 
     /**
-     * Calculates hash-code from all columns.
-     * @return Hash-code from all-columns.
+     * Calculates hash-code from primary-key.
+     * @return Hash-code from primary-keys.
      */
     public int hashCode() {
         int result = 17;
-        if (this.getOperationid() != null) { result = result + this.getOperationid().hashCode(); }
-        if (this.getObjectId() != null) { result = result + this.getObjectId().hashCode(); }
-        if (this.getName() != null) { result = result + this.getName().hashCode(); }
-        if (this.getScope() != null) { result = result + this.getScope().hashCode(); }
-        if (this.getType() != null) { result = result + this.getType().hashCode(); }
-        if (this.getReturnarray() != null) { result = result + this.getReturnarray().hashCode(); }
-        if (this.getStereotype() != null) { result = result + this.getStereotype().hashCode(); }
-        if (this.getIsstatic() != null) { result = result + this.getIsstatic().hashCode(); }
-        if (this.getConcurrency() != null) { result = result + this.getConcurrency().hashCode(); }
-        if (this.getNotes() != null) { result = result + this.getNotes().hashCode(); }
-        if (this.getBehaviour() != null) { result = result + this.getBehaviour().hashCode(); }
-        if (this.getGenoption() != null) { result = result + this.getGenoption().hashCode(); }
-        if (this.getPos() != null) { result = result + this.getPos().hashCode(); }
-        if (this.getStyle() != null) { result = result + this.getStyle().hashCode(); }
-        if (this.getPure() != null) { result = result + this.getPure().hashCode(); }
-        if (this.getClassifier() != null) { result = result + this.getClassifier().hashCode(); }
-        if (this.getCode() != null) { result = result + this.getCode().hashCode(); }
-        if (this.getIsroot() != null) { result = result + this.getIsroot().hashCode(); }
-        if (this.getIsleaf() != null) { result = result + this.getIsleaf().hashCode(); }
-        if (this.getIsquery() != null) { result = result + this.getIsquery().hashCode(); }
-        if (this.getStateflags() != null) { result = result + this.getStateflags().hashCode(); }
-        if (this.getEaGuid() != null) { result = result + this.getEaGuid().hashCode(); }
-        if (this.getStyleex() != null) { result = result + this.getStyleex().hashCode(); }
+        if (this.getOperationid() != null) { result = result + getOperationid().hashCode(); }
         return result;
     }
 
@@ -336,12 +317,12 @@ public abstract class BsTOperation implements Entity, java.io.Serializable {
     //                                                                            Accessor
     //                                                                            ========
 
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
+    /** The column annotation for S2Dao. {PK : UQ : COUNTER : NotNull} */
     public static final String operationid_COLUMN = "OperationID";
 
     /**
      * Get the value of the column 'OperationID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * {PK : UQ : COUNTER : NotNull}
      * @return The value of the column 'OperationID'. (Nullable)
      */
     public java.lang.Integer getOperationid() {
@@ -350,7 +331,7 @@ public abstract class BsTOperation implements Entity, java.io.Serializable {
 
     /**
      * Set the value of the column 'OperationID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * {PK : UQ : COUNTER : NotNull}
      * @param operationid The value of the column 'OperationID'. (Nullable)
      */
     public void setOperationid(java.lang.Integer operationid) {

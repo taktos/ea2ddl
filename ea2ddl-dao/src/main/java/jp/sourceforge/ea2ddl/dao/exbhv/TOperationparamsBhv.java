@@ -1,5 +1,10 @@
 package jp.sourceforge.ea2ddl.dao.exbhv;
 
+import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
+import jp.sourceforge.ea2ddl.dao.cbean.TOperationparamsCB;
+import jp.sourceforge.ea2ddl.dao.exentity.TOperation;
+import jp.sourceforge.ea2ddl.dao.exentity.TOperationparams;
+
 /**
  * The behavior of t_operationparams.
  * <p>
@@ -8,6 +13,11 @@ package jp.sourceforge.ea2ddl.dao.exbhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TOperationparamsBhv extends jp.sourceforge.ea2ddl.dao.bsbhv.BsTOperationparamsBhv {
+	public ListResultBean<TOperationparams> selectOperationParams(TOperation operation) {
+		final TOperationparamsCB cb = new TOperationparamsCB();
+		cb.query().setOperationid_Equal(operation.getOperationid());
+		cb.query().addOrderBy_Pos_Asc();
+		return selectList(cb);
+	}
 }

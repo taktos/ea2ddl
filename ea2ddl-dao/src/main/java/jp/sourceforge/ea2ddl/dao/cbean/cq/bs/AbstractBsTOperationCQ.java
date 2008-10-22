@@ -39,7 +39,7 @@ public abstract class AbstractBsTOperationCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnceRegistered. {PK : UQ : COUNTER : NotNull}
      * @param operationid The value of operationid as equal.
      */
     public void setOperationid_Equal(java.lang.Integer operationid) {
@@ -157,6 +157,16 @@ public abstract class AbstractBsTOperationCQ extends AbstractConditionQuery {
         registerDeriveSubQuery(function, cb.query(), "OperationID", "OperationID", subQueryPropertyName, aliasName);
     }
     abstract public String keepOperationid_DeriveSubQuery_TOperationparamsList(TOperationparamsCQ subQuery);
+
+    /**
+     * IsNull(is null). And OnceRegistered.
+     */
+    public void setOperationid_IsNull() { regOperationid(CK_ISN, DUMMY_OBJECT); }
+
+    /**
+     * IsNotNull(is not null). And OnceRegistered.
+     */
+    public void setOperationid_IsNotNull() { regOperationid(CK_ISNN, DUMMY_OBJECT); }
 
     protected void regOperationid(ConditionKey key, Object value) {
         registerQuery(key, value, getCValueOperationid(), "OperationID", "Operationid", "operationid");

@@ -38,9 +38,15 @@ public class BsTConnectorCB extends AbstractConditionBean {
     //                                                                      PrimaryKey Map
     //                                                                      ==============
     public void acceptPrimaryKeyMap(Map<String, ? extends Object> primaryKeyMap) {
-
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        assertPrimaryKeyMap(primaryKeyMap);
+        {
+            Object obj = primaryKeyMap.get("Connector_ID");
+            if (obj instanceof java.lang.Integer) {
+                query().setConnectorId_Equal((java.lang.Integer)obj);
+            } else {
+                query().setConnectorId_Equal(new java.lang.Integer((String)obj));
+            }
+        }
 
     }
 
@@ -48,13 +54,13 @@ public class BsTConnectorCB extends AbstractConditionBean {
     //                                                                     OrderBy Setting
     //                                                                     ===============
     public ConditionBean addOrderBy_PK_Asc() {
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        query().addOrderBy_ConnectorId_Asc();
+        return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        String msg = "This table has no primary-keys: " + getTableDbName();
-        throw new IllegalStateException(msg);
+        query().addOrderBy_ConnectorId_Desc();
+        return this;
     }
 
     // ===================================================================================
@@ -274,6 +280,7 @@ public class BsTConnectorCB extends AbstractConditionBean {
         public void columnDeststyle() { doColumn("DestStyle"); }
         public void columnEventflags() { doColumn("EventFlags"); }
         protected void doSpecifyRequiredColumn() {
+            columnConnectorId();// PK
             if (_myQyCall.qy().hasConditionQueryTOperationBySourcerole()) {
                 columnSourcerole();// FK
             }
