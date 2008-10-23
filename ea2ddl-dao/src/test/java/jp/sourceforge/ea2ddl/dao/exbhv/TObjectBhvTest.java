@@ -1,11 +1,10 @@
 package jp.sourceforge.ea2ddl.dao.exbhv;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
 import jp.sourceforge.ea2ddl.dao.exentity.TObject;
-import jp.sourceforge.ea2ddl.dao.exentity.TPackage;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,14 +19,14 @@ public class TObjectBhvTest {
 	TPackageBhv _pkgBhv;
 
 	@Test
-	public void testSelectEntityInteger() {
-		fail("まだ実装されていません");
+	public void testSelectList() {
+		final List<TObject> tableList = _bhv.selectList("ビュー/クラスビュー/ER図/EXAMPLEDB", "table", null);
+		assertTrue(0 < tableList.size());
 	}
 
 	@Test
-	public void testSelectListByStereotype() {
-		final TPackage pkg = _pkgBhv.selectPackage("クラスビュー/ER図/SIMPLEDB");
-		final List<TObject> tables = _bhv.selectListByStereotype(pkg, "table");
+	public void testSelectList_Note() {
+		final List<TObject> noteList = _bhv.selectList("ビュー/クラスビュー/ER図/EXAMPLEDB", null, "Note");
+		assertTrue(0 < noteList.size());
 	}
-
 }

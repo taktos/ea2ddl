@@ -4,7 +4,6 @@
 
 <components namespace="dbflute">
     <include path="j2ee.dicon"/>
-    <include path="app-config.dicon"/>
 
     <!-- S2Dao component. -->
     <component class="jp.sourceforge.ea2ddl.dao.allcommon.s2dao.S2DaoMetaDataFactoryImpl">
