@@ -10,7 +10,7 @@
 # @FirstProperty
 map:{
 	; driver		= sun.jdbc.odbc.JdbcOdbcDriver
-	; url			= jdbc:odbc:simpledb
+	; url			= jdbc:odbc:exampledb
 	; schema		=
 	; user			=
 	; password		=
