@@ -60,7 +60,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     //                                                                          Definition
     //                                                                          ==========
     /*df:BehaviorQueryPathBegin*/
-    public static final String PATH_selectListByStereotype = "selectListByStereotype";
+    public static final String PATH_selectList = "selectList";
     public static final String PATH_selectTableById = "selectTableById";
     /*df:BehaviorQueryPathEnd*/
 

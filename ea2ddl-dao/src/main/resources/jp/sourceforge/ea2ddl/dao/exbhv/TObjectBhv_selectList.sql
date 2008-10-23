@@ -1,6 +1,7 @@
 -- !SelectTablesInPackagePmb!
 -- !!java.lang.Integer packageId!!
 -- !!java.lang.String stereotype!!
+-- !!java.lang.String objectType!!
 select dflocal.Name as [Name], dflocal.Object_ID as Object_ID
   , dflocal.Scope as Scope, dflocal.Stereotype as Stereotype
   , dflocal.GenOption as GenOption, dflocal.Style as Style
@@ -29,8 +30,10 @@ select dflocal.Name as [Name], dflocal.Object_ID as Object_ID
   , dflocal.GenLinks as GenLinks, dflocal.RunState as RunState
   , dflocal.Classifier_guid as Classifier_guid
   , dflocal.PackageFlags as PackageFlags, dflocal.Multiplicity as Multiplicity 
-  from t_object dflocal 
- where
-   dflocal.Package_ID = /*pmb.packageId*/21
-   and dflocal.Stereotype = /*pmb.stereotype*/'table'
+  from t_object dflocal
+/*BEGIN*/where
+   /*IF pmb.packageId != null*/dflocal.Package_ID = /*pmb.packageId*/21/*END*/
+   /*IF pmb.stereotype != null*/and dflocal.Stereotype = /*pmb.stereotype*/'table'/*END*/
+   /*IF pmb.objectType != null*/and dflocal.Object_Type = /*pmb.objectType*/'Class'/*END*/
+/*END*/
  order by dflocal.Name

@@ -16,16 +16,9 @@ public class TPackageBhvTest {
 
 	@Test
 	public void testSelectPackage() {
-		final TPackage pkg = _bhv.selectPackage("クラスビュー/ER図/SIMPLEDB");
+		final TPackage pkg = _bhv.selectPackage("ビュー/クラスビュー/ER図/EXAMPLE");
 		assertNotNull(pkg);
-		assertEquals("SIMPLEDB", pkg.getName());
-	}
-
-	@Test
-	public void testSelectRoot() {
-		final TPackage root = _bhv.selectRoot();
-		assertNotNull(root);
-		assertEquals("ビュー", root.getName());
+		assertEquals("EXAMPLE", pkg.getName());
 	}
 
 }

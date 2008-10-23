@@ -16,6 +16,9 @@ public class BsSelectTablesInPackagePmb  {
     /** The value of stereotype. */
     protected java.lang.String _stereotype;
 
+    /** The value of objectType. */
+    protected java.lang.String _objectType;
+
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
@@ -54,6 +57,7 @@ public class BsSelectTablesInPackagePmb  {
         final StringBuffer sb = new StringBuffer();
         sb.append(delimiter).append(_packageId);
         sb.append(delimiter).append(_stereotype);
+        sb.append(delimiter).append(_objectType);
         if (sb.length() > 0) { sb.delete(0, delimiter.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
@@ -92,6 +96,22 @@ public class BsSelectTablesInPackagePmb  {
      */
     public void setStereotype(java.lang.String stereotype) {
         _stereotype = stereotype;
+    }
+
+    /**
+     * Get the value of objectType. (Converted empty to null)
+     * @return The value of objectType. (Nullable & NotEmptyString: if the value is empty string, returns null)
+     */
+    public java.lang.String getObjectType() {
+        return (java.lang.String)convertEmptyToNullIfString(_objectType);
+    }
+
+    /**
+     * Set the value of objectType.
+     * @param objectType The value of objectType. (Nullable)
+     */
+    public void setObjectType(java.lang.String objectType) {
+        _objectType = objectType;
     }
 
 }
