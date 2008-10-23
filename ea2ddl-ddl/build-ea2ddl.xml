@@ -18,19 +18,23 @@
 	<typedef resource="ea2ddl-taskdef.properties" classpathref="classpath" />
 
 	<target name="gen-ddl">
-		<gen-ddl
+		<gen-merge
 			configPath="${configPath}"
 			classpathref="classpath"
 			factoryClassName="jp.sourceforge.ea2ddl.ddl.factory.impl.DatabaseModelFactoryImpl"
+			templatefilename="ddl.ftl"
+			outputfilename="replace-schema-10-base.sql"
+			outputdirname="output"
 			>
-		</gen-ddl>
-		<gen-classification
+		</gen-merge>
+		<gen-merge
 			configPath="${configPath}"
 			classpathref="classpath"
 			factoryClassName="jp.sourceforge.ea2ddl.ddl.factory.impl.ClassificationModelFactoryImpl"
 			templateFileName="classification.ftl"
 			outputFileName="classification.txt"
+			outputdirname="output"
 			>
-		</gen-classification>
+		</gen-merge>
 	</target>
 </project>

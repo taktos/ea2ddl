@@ -12,9 +12,12 @@ import org.seasar.extension.jdbc.gen.task.AbstractTask;
  * @author taktos
  * 
  */
-public abstract class TemplateTask extends AbstractTask {
+public class TemplateTask extends AbstractTask {
+	private TemplateCommand _command = new TemplateCommand();
 
-	protected abstract TemplateCommand getTemplateCommand();
+	protected TemplateCommand getTemplateCommand() {
+		return _command;
+	}
 
 	@Override
 	protected Command getCommand() {

@@ -3,20 +3,26 @@
  */
 package jp.sourceforge.ea2ddl.ddl.command;
 
+import java.io.File;
+
 import jp.sourceforge.ea2ddl.ddl.factory.ModelFactory;
 import jp.sourceforge.ea2ddl.ddl.model.Model;
 
 import org.seasar.extension.jdbc.gen.generator.GenerationContext;
 import org.seasar.extension.jdbc.gen.generator.Generator;
 import org.seasar.extension.jdbc.gen.internal.command.AbstractCommand;
+import org.seasar.extension.jdbc.gen.internal.generator.GenerationContextImpl;
+import org.seasar.extension.jdbc.gen.internal.generator.GeneratorImpl;
 import org.seasar.framework.container.SingletonS2Container;
+import org.seasar.framework.log.Logger;
 import org.seasar.framework.util.ClassUtil;
 
 /**
  * @author taktos
  * 
  */
-public abstract class TemplateCommand extends AbstractCommand {
+public class TemplateCommand extends AbstractCommand {
+	private Logger _logger = Logger.getLogger(TemplateCommand.class);
 
 	protected String _factoryClassName;
 	protected String _templateFileDir = "target/classes";
@@ -83,6 +89,14 @@ public abstract class TemplateCommand extends AbstractCommand {
 	}
 
 	@Override
+	protected void doInit() {
+	}
+
+	@Override
+	protected void doValidate() {
+	}
+
+	@Override
 	protected void doExecute() throws Throwable {
 		final ModelFactory modelFactory = (ModelFactory) SingletonS2Container.getComponent(ClassUtil
 				.convertClass(getFactoryClassName()));
@@ -90,7 +104,24 @@ public abstract class TemplateCommand extends AbstractCommand {
 		createGenerator().generate(createGenerationContext(model));
 	}
 
-	protected abstract Generator createGenerator();
+	@Override
+	protected void doDestroy() {
+	}
 
-	protected abstract GenerationContext createGenerationContext(Model model);
+	@Override
+	protected Logger getLogger() {
+		return _logger;
+	}
+
+	protected Generator createGenerator() {
+		final File dir = new File(getTemplateFileDir());
+		return new GeneratorImpl(getTemplateFileEncoding(), dir);
+	}
+
+	protected GenerationContext createGenerationContext(Model model) {
+		final File output = new File(getOutputDirName(), getOutputFileName());
+		final GenerationContextImpl generationContext = new GenerationContextImpl(model, output, getTemplateFileName(),
+				getOutputFileEncoding(), true);
+		return generationContext;
+	}
 }
