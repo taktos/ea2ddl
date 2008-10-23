@@ -8,7 +8,7 @@
 
     <component class="org.seasar.framework.container.autoregister.ComponentAutoRegister">
 		<initMethod name="addReferenceClass">
-			<arg>@jp.sourceforge.ea2ddl.ddl.factory.DatabaseModelFactory@class</arg>
+			<arg>@jp.sourceforge.ea2ddl.ddl.factory.ModelFactory@class</arg>
 		</initMethod>
 		<initMethod name="addClassPattern">
 			<arg>"jp.sourceforge.ea2ddl.ddl.factory.impl"</arg>

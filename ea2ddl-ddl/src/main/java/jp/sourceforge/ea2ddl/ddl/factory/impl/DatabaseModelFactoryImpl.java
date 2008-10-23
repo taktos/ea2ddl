@@ -23,7 +23,7 @@ import jp.sourceforge.ea2ddl.dao.exentity.TObject;
 import jp.sourceforge.ea2ddl.dao.exentity.TOperation;
 import jp.sourceforge.ea2ddl.dao.exentity.TOperationparams;
 import jp.sourceforge.ea2ddl.dao.exentity.TPackage;
-import jp.sourceforge.ea2ddl.ddl.factory.DatabaseModelFactory;
+import jp.sourceforge.ea2ddl.ddl.factory.ModelFactory;
 import jp.sourceforge.ea2ddl.ddl.model.ColumnModel;
 import jp.sourceforge.ea2ddl.ddl.model.DatabaseModel;
 import jp.sourceforge.ea2ddl.ddl.model.ForeignKeyModel;
@@ -39,7 +39,7 @@ import org.seasar.framework.container.annotation.tiger.Binding;
  * @author taktos
  * 
  */
-public class DatabaseModelFactoryImpl implements DatabaseModelFactory {
+public class DatabaseModelFactoryImpl implements ModelFactory {
 	private Log _log = LogFactory.getLog(DatabaseModelFactoryImpl.class);
 
 	private Config _config;

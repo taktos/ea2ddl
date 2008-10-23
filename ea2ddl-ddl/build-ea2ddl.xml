@@ -24,5 +24,13 @@
 			factoryClassName="jp.sourceforge.ea2ddl.ddl.factory.impl.DatabaseModelFactoryImpl"
 			>
 		</gen-ddl>
+		<gen-classification
+			configPath="${configPath}"
+			classpathref="classpath"
+			factoryClassName="jp.sourceforge.ea2ddl.ddl.factory.impl.ClassificationModelFactoryImpl"
+			templateFileName="classification.ftl"
+			outputFileName="classification.txt"
+			>
+		</gen-classification>
 	</target>
 </project>

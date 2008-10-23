@@ -5,8 +5,8 @@ package jp.sourceforge.ea2ddl.ddl.command;
 
 import java.io.File;
 
-import jp.sourceforge.ea2ddl.ddl.factory.DatabaseModelFactory;
-import jp.sourceforge.ea2ddl.ddl.model.DatabaseModel;
+import jp.sourceforge.ea2ddl.ddl.factory.ModelFactory;
+import jp.sourceforge.ea2ddl.ddl.model.Model;
 
 import org.seasar.extension.jdbc.gen.generator.GenerationContext;
 import org.seasar.extension.jdbc.gen.generator.Generator;
@@ -118,19 +118,18 @@ public class GenerateDdlCommand extends AbstractCommand {
 	 */
 	@Override
 	protected void doExecute() throws Throwable {
-		DatabaseModelFactory factory = (DatabaseModelFactory) SingletonS2Container
-				.getComponent(ClassUtil.convertClass(_factoryClassName));
-		final DatabaseModel dbModel = factory.create();
+		ModelFactory modelFactory = (ModelFactory) SingletonS2Container.getComponent(ClassUtil
+				.convertClass(_factoryClassName));
+		final Model dbModel = modelFactory.create();
 		generate(dbModel);
 	}
 
-	protected void generate(DatabaseModel model) {
+	protected void generate(Model model) {
 		final File templateDir = new File(_templateFileDir);
-		final Generator generator = new GeneratorImpl(_templateFileEncoding,
-				templateDir);
+		final Generator generator = new GeneratorImpl(_templateFileEncoding, templateDir);
 		File output = new File(_outputDirName, _baseSqlFileName);
-		final GenerationContext context = new GenerationContextImpl(model,
-				output, _baseSqlTemplateFileName, _sqlFileEncoding, true);
+		final GenerationContext context = new GenerationContextImpl(model, output, _baseSqlTemplateFileName,
+				_sqlFileEncoding, true);
 		generator.generate(context);
 	}
 

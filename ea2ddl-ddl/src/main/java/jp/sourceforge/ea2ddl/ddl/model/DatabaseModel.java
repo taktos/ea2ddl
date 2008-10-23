@@ -3,7 +3,6 @@
  */
 package jp.sourceforge.ea2ddl.ddl.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,7 @@ import java.util.List;
  * @author taktos
  * 
  */
-public class DatabaseModel implements Serializable {
+public class DatabaseModel extends Model {
 	private static final long serialVersionUID = 1L;
 
 	private List<TableModel> _tableList;

@@ -1,3 +1,4 @@
+<#comment>
 <#list tableList as table>
 <#list table.foreignKeyList as fk>ALTER TABLE ${table.name} DROP CONSTRAINT ${fk.name}
 ;
@@ -6,6 +7,7 @@
 <#list tableList as table>
 DROP TABLE ${table.name};
 </#list>
+</#comment>
 
 <#list tableList as table>
 CREATE TABLE ${table.name} (
