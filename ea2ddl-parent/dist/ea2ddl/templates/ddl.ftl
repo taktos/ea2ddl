@@ -13,6 +13,13 @@ DROP TABLE ${table.name};
 CREATE TABLE ${table.name} (
 <#list table.columnList as column>	${column.name} ${column.definition}<#if column_has_next>,</#if>
 </#list>
+<#if !table.suppressCommonColumn>
+	, CREATE_USER	VARCHAR2(20)	NOT NULL
+	, CREATE_DATETIME	DATE	NOT NULL
+	, UPDATE_USER	VARCHAR2(20)	NOT NULL
+	, UPDATE_DATETIME	DATE	NOT NULL
+	, VERSION_NO	NUMBER(8)	NOT NULL
+</#if>
 )
 ;
 <#if table.primaryKey??>ALTER TABLE ${table.name} ADD CONSTRAINT ${table.primaryKey.name}
@@ -21,6 +28,10 @@ CREATE TABLE ${table.name} (
 </#if>
 <#list table.uniqueList as unique>ALTER TABLE ${table.name} ADD CONSTRAINT ${unique.name}
 	UNIQUE (<#list unique.columnNameList as columnName>${columnName}<#if columnName_has_next>,</#if></#list>)
+;
+</#list>
+<#list table.indexList as index>CREATE INDEX ${index.name} ON ${table.name}
+	(<#list index.columnList as columnName>${columnName}<#if columnName_has_next>,</#if></#list>)
 ;
 </#list>
 <#if table.alias?? || table.note??>
