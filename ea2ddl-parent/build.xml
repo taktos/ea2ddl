@@ -30,6 +30,12 @@
 			</fileset>
 		</copy>
 
+        <copy todir="dist/ea2ddl/templates">
+            <fileset dir="../ea2ddl-ddl/templates">
+                <include name="**/*.ftl"/>
+            </fileset>
+        </copy>
+
 		<zip destfile="dist/ea2ddl-${version}.zip">
 			<zipfileset dir="dist">
 				<exclude name="*.zip"/>
