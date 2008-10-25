@@ -8,9 +8,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.sourceforge.ea2ddl</groupId>
 	<artifactId>ea2ddl-ddl</artifactId>
-	<name>Enterprise Archetect to DDL</name>
+	<name>Enterprise Architect to DDL</name>
 	<version>0.0.1-SNAPSHOT</version>
-	<description>Enterprise Archetect to DDL</description>
+	<description>Enterprise Architect to DDL</description>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
