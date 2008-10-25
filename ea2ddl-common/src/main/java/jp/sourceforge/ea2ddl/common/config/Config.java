@@ -4,7 +4,7 @@
 package jp.sourceforge.ea2ddl.common.config;
 
 /**
- * @author takiguchi
+ * @author taktos
  *
  */
 public interface Config {

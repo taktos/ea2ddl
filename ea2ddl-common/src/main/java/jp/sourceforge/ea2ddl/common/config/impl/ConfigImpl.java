@@ -15,7 +15,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * @author takiguchi
+ * @author taktos
  *
  */
 public class ConfigImpl implements Config {
