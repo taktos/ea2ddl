@@ -25,7 +25,7 @@ public class TemplateCommand extends AbstractCommand {
 	private Logger _logger = Logger.getLogger(TemplateCommand.class);
 
 	protected String _factoryClassName;
-	protected String _templateFileDir = "target/classes";
+	protected String _templateFileDir = "templates";
 	protected String _templateFileName;
 	protected String _templateFileEncoding = "UTF-8";
 	protected String _outputDirName = "output";

@@ -8,6 +8,7 @@
 
 	<path id="classpath">
 		<pathelement path="${classpathdir}"/>
+        <pathelement path="target/test-classes"/>
 		<pathelement path="${common-classpathdir}"/>
 		<pathelement path="${dao-classpathdir}"/>
 		<fileset dir="lib">

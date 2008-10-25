@@ -4,6 +4,7 @@
 package jp.sourceforge.ea2ddl.ddl.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,10 +25,21 @@ public class IndexModel implements Serializable {
 	}
 
 	public List<String> getColumnList() {
+		if (_columnList == null) {
+			synchronized (this) {
+				if (_columnList == null) {
+					_columnList = new ArrayList<String>();
+				}
+			}
+		}
 		return _columnList;
 	}
 
 	public void setColumnList(List<String> columnList) {
 		_columnList = columnList;
+	}
+
+	public void addColumn(String column) {
+		getColumnList().add(column);
 	}
 }

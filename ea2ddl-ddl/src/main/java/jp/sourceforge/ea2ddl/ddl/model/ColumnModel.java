@@ -6,7 +6,7 @@ package jp.sourceforge.ea2ddl.ddl.model;
 import java.io.Serializable;
 
 /**
- * @author takiguchi
+ * @author taktos
  * 
  */
 public class ColumnModel implements Serializable {

@@ -10,6 +10,8 @@ import jp.sourceforge.ea2ddl.dao.exbhv.TObjectBhv;
 import jp.sourceforge.ea2ddl.dao.exbhv.TPackageBhv;
 import jp.sourceforge.ea2ddl.dao.exentity.TObject;
 import jp.sourceforge.ea2ddl.dao.exentity.TPackage;
+import jp.sourceforge.ea2ddl.ddl.ConfigKey;
+import jp.sourceforge.ea2ddl.ddl.Constants;
 import jp.sourceforge.ea2ddl.ddl.factory.ModelFactory;
 import jp.sourceforge.ea2ddl.ddl.model.ClassificationModel;
 import jp.sourceforge.ea2ddl.ddl.model.Model;
@@ -43,7 +45,8 @@ public class ClassificationModelFactoryImpl implements ModelFactory {
 	 */
 	public Model create() {
 		final ClassificationModel model = new ClassificationModel();
-		final List<TObject> noteList = _tObjectBhv.selectList(_config.getProperty("er.package.tree"), null, "Note");
+		final List<TObject> noteList = _tObjectBhv.selectList(_config.getProperty(ConfigKey.ER_PACKAGE_TREE), null,
+				Constants.OBJECT_TYPE_NOTE);
 		for (TObject note : noteList) {
 			model.addClassification(note.getNote());
 		}

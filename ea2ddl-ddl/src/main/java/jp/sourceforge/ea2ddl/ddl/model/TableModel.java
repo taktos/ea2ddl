@@ -18,6 +18,8 @@ public class TableModel implements Serializable {
 	private String note;
 	private String schema;
 
+	private boolean suppressCommonColumn = false;
+
 	private List<ColumnModel> _columnList;
 	private PrimaryKeyModel _primaryKey;
 	private List<UniqueModel> _uniqueList;
@@ -54,6 +56,14 @@ public class TableModel implements Serializable {
 
 	public void setSchema(String schema) {
 		this.schema = schema;
+	}
+
+	public boolean isSuppressCommonColumn() {
+		return suppressCommonColumn;
+	}
+
+	public void setSuppressCommonColumn(boolean suppressCommonColumn) {
+		this.suppressCommonColumn = suppressCommonColumn;
 	}
 
 	public List<ColumnModel> getColumnList() {
@@ -122,6 +132,13 @@ public class TableModel implements Serializable {
 	}
 
 	public List<IndexModel> getIndexList() {
+		if (_indexList == null) {
+			synchronized (this) {
+				if (_indexList == null) {
+					_indexList = new ArrayList<IndexModel>();
+				}
+			}
+		}
 		return _indexList;
 	}
 
@@ -129,4 +146,7 @@ public class TableModel implements Serializable {
 		_indexList = indexList;
 	}
 
+	public void addIndex(IndexModel indexModel) {
+		getIndexList().add(indexModel);
+	}
 }
