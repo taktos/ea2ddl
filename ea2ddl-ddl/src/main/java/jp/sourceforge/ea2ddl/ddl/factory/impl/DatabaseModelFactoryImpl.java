@@ -147,7 +147,7 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 			final ColumnModel column = new ColumnModel();
 			column.setName(attribute.getName());
 			column.setAlias(attribute.getStyle());
-			column.setType(attribute.getType());
+			column.setType(getColumnType(attribute));
 			column.setLength(attribute.getLength());
 			column.setPrecision(attribute.getPrecision());
 			column.setScale(attribute.getScale());
@@ -155,6 +155,14 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 			column.setNote(attribute.getNotes());
 			table.addColumn(column);
 		}
+	}
+
+	protected String getColumnType(TAttribute attribute) {
+		final String dictionary = _config.getProperty(attribute.getName());
+		if (dictionary != null) {
+			return dictionary;
+		}
+		return attribute.getType();
 	}
 
 	protected void generatePKModel(TableModel table, TObject tobject) {

@@ -7,5 +7,8 @@
 		<initMethod name="load">
 			<arg>"ea2ddl.properties"</arg>
 		</initMethod>
+		<initMethod name="load">
+			<arg>"dictionary.properties"</arg>
+		</initMethod>
 	</component>
 </components>
