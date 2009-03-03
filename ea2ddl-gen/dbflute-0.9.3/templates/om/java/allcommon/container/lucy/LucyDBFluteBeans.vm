@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lucy-config PUBLIC "-//LUCY//DTD LUCY//EN" "http://www.lucy.org/dtd/lucy-config.dtd">
+<lucy-config>
+    <!-- The components of DBFlute Runtime. -->
+    <component name="dbfluteInitializer" class="${glPackageBaseCommon}.DBFluteInitializer"/>
+    <component name="invokerAssistant" class="${glPackageBaseCommon}.ImplementedInvokerAssistant">
+        <inject method="setDataSource">dataSource</inject>
+    </component>
+    <component name="commonColumnAutoSetupper" class="${glPackageBaseCommon}.ImplementedCommonColumnAutoSetupper"/>
+    <component name="behaviorSelector" class="${glPackageBaseCommon}.ImplementedBehaviorSelector">
+        <inject method="setContainer">lucy</inject>
+    </component>
+    <component name="behaviorCommandInvoker" class="org.seasar.dbflute.bhv.core.BehaviorCommandInvoker">
+        <inject method="setInvokerAssistant">invokerAssistant</inject>
+    </component>
+    
+    <!-- The components of Behavior. -->
+#foreach ($table in $database.tables)
+	<component name="${table.behaviorComponentName}" class="${table.extendedBehaviorFullClassName}">
+        <inject method="setBehaviorCommandInvoker">behaviorCommandInvoker</inject>
+        <inject method="setBehaviorSelector">behaviorSelector</inject>
+#if ($table.isWritable())
+        <inject method="setCommonColumnAutoSetupper">commonColumnAutoSetupper</inject>
+#end
+    </component>
+#end
+</lucy-config>
