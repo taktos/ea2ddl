@@ -3,13 +3,12 @@
 	<parent>
 		<artifactId>ea2ddl-parent</artifactId>
 		<groupId>jp.sourceforge.ea2ddl</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.sourceforge.ea2ddl</groupId>
 	<artifactId>ea2ddl-ddl</artifactId>
 	<name>Enterprise Architect to DDL</name>
-	<version>0.0.1-SNAPSHOT</version>
 	<description>Enterprise Architect to DDL</description>
 	<dependencies>
 		<dependency>

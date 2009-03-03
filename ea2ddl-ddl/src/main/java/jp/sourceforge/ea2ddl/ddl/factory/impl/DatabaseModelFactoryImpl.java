@@ -6,7 +6,6 @@ package jp.sourceforge.ea2ddl.ddl.factory.impl;
 import java.util.List;
 
 import jp.sourceforge.ea2ddl.common.config.Config;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
 import jp.sourceforge.ea2ddl.dao.cbean.TConnectorCB;
 import jp.sourceforge.ea2ddl.dao.cbean.TOperationCB;
 import jp.sourceforge.ea2ddl.dao.cbean.TOperationparamsCB;
@@ -37,6 +36,7 @@ import jp.sourceforge.ea2ddl.ddl.model.UniqueModel;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.seasar.dbflute.cbean.ListResultBean;
 import org.seasar.framework.container.annotation.tiger.Binding;
 
 /**
