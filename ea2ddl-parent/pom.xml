@@ -225,17 +225,6 @@
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.seasar.dao</groupId>
-				<artifactId>s2-dao</artifactId>
-				<version>1.0.47</version>
-			</dependency>
-			<dependency>
-				<groupId>org.seasar.dao</groupId>
-				<artifactId>s2-dao-tiger</artifactId>
-				<version>1.0.47</version>
-			</dependency>
-
-			<dependency>
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi</artifactId>
 				<version>3.0.2-FINAL</version>
@@ -245,7 +234,6 @@
 				<artifactId>dbflute</artifactId>
 				<version>0.8.1</version>
 			</dependency>
-			
 			<dependency>
 				<groupId>org.apache.ant</groupId>
 				<artifactId>ant</artifactId>
@@ -255,6 +243,11 @@
 				<groupId>org.freemarker</groupId>
 				<artifactId>freemarker</artifactId>
 				<version>2.3.13</version>
+			</dependency>
+			<dependency>
+				<groupId>org.seasar.dbflute</groupId>
+				<artifactId>dbflute-runtime</artifactId>
+				<version>0.9.3</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
