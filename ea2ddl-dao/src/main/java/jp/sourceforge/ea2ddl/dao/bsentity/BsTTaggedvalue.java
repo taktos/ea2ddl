@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_taggedvalue(TABLE).
+ * The entity of t_taggedvalue that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
+public abstract class BsTTaggedvalue implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,29 +47,25 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_taggedvalue. */
-    public static final String TABLE = "t_taggedvalue";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'PropertyID'. {UQ : VARCHAR(40)} */
+    /** PropertyID: {UQ : VARCHAR(40)} */
     protected String _propertyid;
 
-    /** The attribute of the column 'ElementID'. {VARCHAR(40)} */
+    /** ElementID: {VARCHAR(40)} */
     protected String _elementid;
 
-    /** The attribute of the column 'BaseClass'. {VARCHAR(100)} */
+    /** BaseClass: {VARCHAR(100)} */
     protected String _baseclass;
 
-    /** The attribute of the column 'TagValue'. {LONGCHAR(2147483647)} */
+    /** TagValue: {LONGCHAR(2147483647)} */
     protected String _tagvalue;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -79,19 +75,13 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTTaggedvalue() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_taggedvalue";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TTaggedvalue";
     }
 
@@ -117,7 +107,6 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -201,13 +190,8 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String propertyid_COLUMN = "PropertyID";
-
     /**
-     * Get the value of the column 'PropertyID'. <br />
-     * {UQ : VARCHAR(40)}
+     * PropertyID: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'PropertyID'. (Nullable)
      */
     public String getPropertyid() {
@@ -215,8 +199,7 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PropertyID'. <br />
-     * {UQ : VARCHAR(40)}
+     * PropertyID: {UQ : VARCHAR(40)} <br />
      * @param propertyid The value of the column 'PropertyID'. (Nullable)
      */
     public void setPropertyid(String propertyid) {
@@ -224,12 +207,8 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
         this._propertyid = propertyid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String elementid_COLUMN = "ElementID";
-
     /**
-     * Get the value of the column 'ElementID'. <br />
-     * {VARCHAR(40)}
+     * ElementID: {VARCHAR(40)} <br />
      * @return The value of the column 'ElementID'. (Nullable)
      */
     public String getElementid() {
@@ -237,8 +216,7 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementID'. <br />
-     * {VARCHAR(40)}
+     * ElementID: {VARCHAR(40)} <br />
      * @param elementid The value of the column 'ElementID'. (Nullable)
      */
     public void setElementid(String elementid) {
@@ -246,12 +224,8 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
         this._elementid = elementid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String baseclass_COLUMN = "BaseClass";
-
     /**
-     * Get the value of the column 'BaseClass'. <br />
-     * {VARCHAR(100)}
+     * BaseClass: {VARCHAR(100)} <br />
      * @return The value of the column 'BaseClass'. (Nullable)
      */
     public String getBaseclass() {
@@ -259,8 +233,7 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'BaseClass'. <br />
-     * {VARCHAR(100)}
+     * BaseClass: {VARCHAR(100)} <br />
      * @param baseclass The value of the column 'BaseClass'. (Nullable)
      */
     public void setBaseclass(String baseclass) {
@@ -268,12 +241,8 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
         this._baseclass = baseclass;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String tagvalue_COLUMN = "TagValue";
-
     /**
-     * Get the value of the column 'TagValue'. <br />
-     * {LONGCHAR(2147483647)}
+     * TagValue: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'TagValue'. (Nullable)
      */
     public String getTagvalue() {
@@ -281,8 +250,7 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TagValue'. <br />
-     * {LONGCHAR(2147483647)}
+     * TagValue: {LONGCHAR(2147483647)} <br />
      * @param tagvalue The value of the column 'TagValue'. (Nullable)
      */
     public void setTagvalue(String tagvalue) {
@@ -290,12 +258,8 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
         this._tagvalue = tagvalue;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -303,13 +267,11 @@ public abstract class BsTTaggedvalue implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

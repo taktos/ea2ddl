@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_metrictypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTMetrictypesCQ extends AbstractBsTMetrictypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTMetrictypesCQ extends AbstractBsTMetrictypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TMetrictypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TMetrictypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTMetrictypesCQ extends AbstractBsTMetrictypesCQ {
         return _metric;
     }
     protected ConditionValue getCValueMetric() { return getMetric(); }
-    
+
     public BsTMetrictypesCQ addOrderBy_Metric_Asc() { regOBA("Metric"); return this; }
     public BsTMetrictypesCQ addOrderBy_Metric_Desc() { regOBD("Metric"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTMetrictypesCQ extends AbstractBsTMetrictypesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTMetrictypesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTMetrictypesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTMetrictypesCQ extends AbstractBsTMetrictypesCQ {
         return _numericweight;
     }
     protected ConditionValue getCValueNumericweight() { return getNumericweight(); }
-          
+
     public BsTMetrictypesCQ addOrderBy_Numericweight_Asc() { regOBA("NumericWeight"); return this; }
     public BsTMetrictypesCQ addOrderBy_Numericweight_Desc() { regOBD("NumericWeight"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTMetrictypesCQ extends AbstractBsTMetrictypesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTMetrictypesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTMetrictypesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTMetrictypesCQ extends AbstractBsTMetrictypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TMetrictypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TMetrictypesCB.class.getName(); }
+    String xCQ() { return TMetrictypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

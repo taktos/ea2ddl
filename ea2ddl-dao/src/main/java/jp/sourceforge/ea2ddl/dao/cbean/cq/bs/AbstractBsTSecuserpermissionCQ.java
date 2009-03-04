@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_secuserpermission.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTSecuserpermissionCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(40)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(40)}
      * @param userid The value of userid as equal.
      */
     public void setUserid_Equal(String userid) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as notEqual.
      */
     public void setUserid_NotEqual(String userid) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as greaterThan.
      */
     public void setUserid_GreaterThan(String userid) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as lessThan.
      */
     public void setUserid_LessThan(String userid) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as greaterEqual.
      */
     public void setUserid_GreaterEqual(String userid) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as lessEqual.
      */
     public void setUserid_LessEqual(String userid) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as prefixSearch.
      */
     public void setUserid_PrefixSearch(String userid) {
         regUserid(CK_PS, fRES(userid));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param userid The value of userid as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setUserid_LikeSearch(String userid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(userid), getCValueUserid(), "UserID", "Userid", "userid", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param userid The collection of userid as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param userid The value of userid as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setUserid_InScope(String userid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(userid), getCValueUserid(), "UserID", "Userid", "userid", inScopeOption);
+    public void setUserid_LikeSearch(String userid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(userid), getCValueUserid(), "UserID", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param userid The value of userid as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setUserid_IsNull() { regUserid(CK_ISN, DUMMY_OBJECT); }
+    public void setUserid_NotLikeSearch(String userid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(userid), getCValueUserid(), "UserID", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setUserid_IsNotNull() { regUserid(CK_ISNN, DUMMY_OBJECT); }
+    public void setUserid_IsNull() { regUserid(CK_ISN, DOBJ); }
 
-    protected void regUserid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueUserid(), "UserID", "Userid", "userid");
-    }
-    protected void registerInlineUserid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueUserid(), "UserID", "Userid", "userid");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setUserid_IsNotNull() { regUserid(CK_ISNN, DOBJ); }
+
+    protected void regUserid(ConditionKey k, Object v) { regQ(k, v, getCValueUserid(), "UserID"); }
     abstract protected ConditionValue getCValueUserid();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : INTEGER}
      * @param permissionid The value of permissionid as equal.
      */
     public void setPermissionid_Equal(java.lang.Integer permissionid) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as notEqual.
      */
     public void setPermissionid_NotEqual(java.lang.Integer permissionid) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as greaterThan.
      */
     public void setPermissionid_GreaterThan(java.lang.Integer permissionid) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as lessThan.
      */
     public void setPermissionid_LessThan(java.lang.Integer permissionid) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as greaterEqual.
      */
     public void setPermissionid_GreaterEqual(java.lang.Integer permissionid) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as lessEqual.
      */
     public void setPermissionid_LessEqual(java.lang.Integer permissionid) {
@@ -195,24 +205,23 @@ public abstract class AbstractBsTSecuserpermissionCQ extends AbstractConditionQu
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPermissionid_IsNull() { regPermissionid(CK_ISN, DUMMY_OBJECT); }
+    public void setPermissionid_IsNull() { regPermissionid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setPermissionid_IsNotNull() { regPermissionid(CK_ISNN, DUMMY_OBJECT); }
+    public void setPermissionid_IsNotNull() { regPermissionid(CK_ISNN, DOBJ); }
 
-    protected void regPermissionid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePermissionid(), "PermissionID", "Permissionid", "permissionid");
-    }
-    protected void registerInlinePermissionid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePermissionid(), "PermissionID", "Permissionid", "permissionid");
-    }
+    protected void regPermissionid(ConditionKey k, Object v) { regQ(k, v, getCValuePermissionid(), "PermissionID"); }
     abstract protected ConditionValue getCValuePermissionid();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TSecuserpermissionCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TSecuserpermissionCQ.class.getName(); }
+    String xCB() { return TSecuserpermissionCB.class.getName(); }
+    String xCQ() { return TSecuserpermissionCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

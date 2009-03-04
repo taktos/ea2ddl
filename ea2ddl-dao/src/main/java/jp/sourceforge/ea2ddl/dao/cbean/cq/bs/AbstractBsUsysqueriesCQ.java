@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of usysQueries.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsUsysqueriesCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param queryname The value of queryname as equal.
      */
     public void setQueryname_Equal(String queryname) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param queryname The value of queryname as notEqual.
      */
     public void setQueryname_NotEqual(String queryname) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param queryname The value of queryname as greaterThan.
      */
     public void setQueryname_GreaterThan(String queryname) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param queryname The value of queryname as lessThan.
      */
     public void setQueryname_LessThan(String queryname) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param queryname The value of queryname as greaterEqual.
      */
     public void setQueryname_GreaterEqual(String queryname) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param queryname The value of queryname as lessEqual.
      */
     public void setQueryname_LessEqual(String queryname) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param queryname The value of queryname as prefixSearch.
      */
     public void setQueryname_PrefixSearch(String queryname) {
         regQueryname(CK_PS, fRES(queryname));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param queryname The value of queryname as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setQueryname_LikeSearch(String queryname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(queryname), getCValueQueryname(), "QueryName", "Queryname", "queryname", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param queryname The collection of queryname as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param queryname The value of queryname as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setQueryname_InScope(String queryname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(queryname), getCValueQueryname(), "QueryName", "Queryname", "queryname", inScopeOption);
+    public void setQueryname_LikeSearch(String queryname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(queryname), getCValueQueryname(), "QueryName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param queryname The value of queryname as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setQueryname_IsNull() { regQueryname(CK_ISN, DUMMY_OBJECT); }
+    public void setQueryname_NotLikeSearch(String queryname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(queryname), getCValueQueryname(), "QueryName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setQueryname_IsNotNull() { regQueryname(CK_ISNN, DUMMY_OBJECT); }
+    public void setQueryname_IsNull() { regQueryname(CK_ISN, DOBJ); }
 
-    protected void regQueryname(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueQueryname(), "QueryName", "Queryname", "queryname");
-    }
-    protected void registerInlineQueryname(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueQueryname(), "QueryName", "Queryname", "queryname");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setQueryname_IsNotNull() { regQueryname(CK_ISNN, DOBJ); }
+
+    protected void regQueryname(ConditionKey k, Object v) { regQ(k, v, getCValueQueryname(), "QueryName"); }
     abstract protected ConditionValue getCValueQueryname();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param newname The value of newname as equal.
      */
     public void setNewname_Equal(String newname) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param newname The value of newname as notEqual.
      */
     public void setNewname_NotEqual(String newname) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param newname The value of newname as greaterThan.
      */
     public void setNewname_GreaterThan(String newname) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param newname The value of newname as lessThan.
      */
     public void setNewname_LessThan(String newname) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param newname The value of newname as greaterEqual.
      */
     public void setNewname_GreaterEqual(String newname) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param newname The value of newname as lessEqual.
      */
     public void setNewname_LessEqual(String newname) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param newname The value of newname as prefixSearch.
      */
     public void setNewname_PrefixSearch(String newname) {
         regNewname(CK_PS, fRES(newname));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param newname The value of newname as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNewname_LikeSearch(String newname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(newname), getCValueNewname(), "NewName", "Newname", "newname", likeSearchOption);
     }
 
     /**
@@ -212,49 +213,52 @@ public abstract class AbstractBsUsysqueriesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param newname The collection of newname as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param newname The value of newname as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNewname_InScope(String newname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(newname), getCValueNewname(), "NewName", "Newname", "newname", inScopeOption);
+    public void setNewname_LikeSearch(String newname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(newname), getCValueNewname(), "NewName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param newname The value of newname as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNewname_IsNull() { regNewname(CK_ISN, DUMMY_OBJECT); }
+    public void setNewname_NotLikeSearch(String newname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(newname), getCValueNewname(), "NewName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNewname_IsNotNull() { regNewname(CK_ISNN, DUMMY_OBJECT); }
+    public void setNewname_IsNull() { regNewname(CK_ISN, DOBJ); }
 
-    protected void regNewname(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNewname(), "NewName", "Newname", "newname");
-    }
-    protected void registerInlineNewname(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNewname(), "NewName", "Newname", "newname");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNewname_IsNotNull() { regNewname(CK_ISNN, DOBJ); }
+
+    protected void regNewname(ConditionKey k, Object v) { regQ(k, v, getCValueNewname(), "NewName"); }
     abstract protected ConditionValue getCValueNewname();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param fixcode The value of fixcode as equal.
      */
     public void setFixcode_Equal(Boolean fixcode) {
         regFixcode(CK_EQ, fixcode);
     }
 
-    protected void regFixcode(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueFixcode(), "FixCode", "Fixcode", "fixcode");
-    }
-    protected void registerInlineFixcode(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueFixcode(), "FixCode", "Fixcode", "fixcode");
-    }
+    protected void regFixcode(ConditionKey k, Object v) { regQ(k, v, getCValueFixcode(), "FixCode"); }
     abstract protected ConditionValue getCValueFixcode();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return UsysqueriesCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return UsysqueriesCQ.class.getName(); }
+    String xCB() { return UsysqueriesCB.class.getName(); }
+    String xCQ() { return UsysqueriesCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

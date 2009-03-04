@@ -1,10 +1,17 @@
 package jp.sourceforge.ea2ddl.dao.allcommon;
 
+import org.seasar.dbflute.Entity;
+
 /**
- * The interface of entity defined common column.
+ * The interface of entity defined common columns.
  * @author DBFlute(AutoGenerator)
  */
 public interface EntityDefinedCommonColumn extends Entity {
+
+    /**
+	 * Enable common column auto set up. {for after disable because the default is enabled}
+	 */
+    public void enableCommonColumnAutoSetup();
 
     /**
 	 * Disable common column auto set up.

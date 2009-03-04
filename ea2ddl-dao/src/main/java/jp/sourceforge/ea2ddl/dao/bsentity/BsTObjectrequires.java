@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objectrequires(TABLE).
+ * The entity of t_objectrequires that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjectrequires implements Entity, java.io.Serializable {
+public abstract class BsTObjectrequires implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,44 +47,40 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objectrequires. */
-    public static final String TABLE = "t_objectrequires";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'ReqID'. {UQ : COUNTER : NotNull} */
+    /** ReqID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _reqid;
 
-    /** The attribute of the column 'Object_ID'. {INTEGER} */
+    /** Object_ID: {INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Requirement'. {VARCHAR(255)} */
+    /** Requirement: {VARCHAR(255)} */
     protected String _requirement;
 
-    /** The attribute of the column 'ReqType'. {VARCHAR(255)} */
+    /** ReqType: {VARCHAR(255)} */
     protected String _reqtype;
 
-    /** The attribute of the column 'Status'. {VARCHAR(50)} */
+    /** Status: {VARCHAR(50)} */
     protected String _status;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Stability'. {VARCHAR(50)} */
+    /** Stability: {VARCHAR(50)} */
     protected String _stability;
 
-    /** The attribute of the column 'Difficulty'. {VARCHAR(50)} */
+    /** Difficulty: {VARCHAR(50)} */
     protected String _difficulty;
 
-    /** The attribute of the column 'Priority'. {VARCHAR(50)} */
+    /** Priority: {VARCHAR(50)} */
     protected String _priority;
 
-    /** The attribute of the column 'LastUpdate'. {DATETIME} */
+    /** LastUpdate: {DATETIME} */
     protected java.sql.Timestamp _lastupdate;
 
     // -----------------------------------------------------
@@ -94,19 +90,13 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjectrequires() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objectrequires";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjectrequires";
     }
 
@@ -132,7 +122,6 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -231,13 +220,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String reqid_COLUMN = "ReqID";
-
     /**
-     * Get the value of the column 'ReqID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * ReqID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'ReqID'. (Nullable)
      */
     public java.lang.Integer getReqid() {
@@ -245,8 +229,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ReqID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * ReqID: {UQ : NotNull : COUNTER} <br />
      * @param reqid The value of the column 'ReqID'. (Nullable)
      */
     public void setReqid(java.lang.Integer reqid) {
@@ -254,12 +237,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._reqid = reqid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {INTEGER}
+     * Object_ID: {INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -267,8 +246,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {INTEGER}
+     * Object_ID: {INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -276,12 +254,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String requirement_COLUMN = "Requirement";
-
     /**
-     * Get the value of the column 'Requirement'. <br />
-     * {VARCHAR(255)}
+     * Requirement: {VARCHAR(255)} <br />
      * @return The value of the column 'Requirement'. (Nullable)
      */
     public String getRequirement() {
@@ -289,8 +263,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Requirement'. <br />
-     * {VARCHAR(255)}
+     * Requirement: {VARCHAR(255)} <br />
      * @param requirement The value of the column 'Requirement'. (Nullable)
      */
     public void setRequirement(String requirement) {
@@ -298,12 +271,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._requirement = requirement;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String reqtype_COLUMN = "ReqType";
-
     /**
-     * Get the value of the column 'ReqType'. <br />
-     * {VARCHAR(255)}
+     * ReqType: {VARCHAR(255)} <br />
      * @return The value of the column 'ReqType'. (Nullable)
      */
     public String getReqtype() {
@@ -311,8 +280,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ReqType'. <br />
-     * {VARCHAR(255)}
+     * ReqType: {VARCHAR(255)} <br />
      * @param reqtype The value of the column 'ReqType'. (Nullable)
      */
     public void setReqtype(String reqtype) {
@@ -320,12 +288,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._reqtype = reqtype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String status_COLUMN = "Status";
-
     /**
-     * Get the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @return The value of the column 'Status'. (Nullable)
      */
     public String getStatus() {
@@ -333,8 +297,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @param status The value of the column 'Status'. (Nullable)
      */
     public void setStatus(String status) {
@@ -342,12 +305,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._status = status;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -355,8 +314,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -364,12 +322,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String stability_COLUMN = "Stability";
-
     /**
-     * Get the value of the column 'Stability'. <br />
-     * {VARCHAR(50)}
+     * Stability: {VARCHAR(50)} <br />
      * @return The value of the column 'Stability'. (Nullable)
      */
     public String getStability() {
@@ -377,8 +331,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Stability'. <br />
-     * {VARCHAR(50)}
+     * Stability: {VARCHAR(50)} <br />
      * @param stability The value of the column 'Stability'. (Nullable)
      */
     public void setStability(String stability) {
@@ -386,12 +339,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._stability = stability;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String difficulty_COLUMN = "Difficulty";
-
     /**
-     * Get the value of the column 'Difficulty'. <br />
-     * {VARCHAR(50)}
+     * Difficulty: {VARCHAR(50)} <br />
      * @return The value of the column 'Difficulty'. (Nullable)
      */
     public String getDifficulty() {
@@ -399,8 +348,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Difficulty'. <br />
-     * {VARCHAR(50)}
+     * Difficulty: {VARCHAR(50)} <br />
      * @param difficulty The value of the column 'Difficulty'. (Nullable)
      */
     public void setDifficulty(String difficulty) {
@@ -408,12 +356,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._difficulty = difficulty;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String priority_COLUMN = "Priority";
-
     /**
-     * Get the value of the column 'Priority'. <br />
-     * {VARCHAR(50)}
+     * Priority: {VARCHAR(50)} <br />
      * @return The value of the column 'Priority'. (Nullable)
      */
     public String getPriority() {
@@ -421,8 +365,7 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Priority'. <br />
-     * {VARCHAR(50)}
+     * Priority: {VARCHAR(50)} <br />
      * @param priority The value of the column 'Priority'. (Nullable)
      */
     public void setPriority(String priority) {
@@ -430,12 +373,8 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
         this._priority = priority;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String lastupdate_COLUMN = "LastUpdate";
-
     /**
-     * Get the value of the column 'LastUpdate'. <br />
-     * {DATETIME}
+     * LastUpdate: {DATETIME} <br />
      * @return The value of the column 'LastUpdate'. (Nullable)
      */
     public java.sql.Timestamp getLastupdate() {
@@ -443,13 +382,11 @@ public abstract class BsTObjectrequires implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'LastUpdate'. <br />
-     * {DATETIME}
+     * LastUpdate: {DATETIME} <br />
      * @param lastupdate The value of the column 'LastUpdate'. (Nullable)
      */
     public void setLastupdate(java.sql.Timestamp lastupdate) {
         _modifiedProperties.addPropertyName("lastupdate");
         this._lastupdate = lastupdate;
     }
-
 }

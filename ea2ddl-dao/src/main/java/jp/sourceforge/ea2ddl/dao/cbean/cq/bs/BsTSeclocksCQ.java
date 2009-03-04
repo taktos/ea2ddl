@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_seclocks.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
      * @return On-clause query. (NotNull)
      */
     public TSeclocksCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TSeclocksCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
         return _userid;
     }
     protected ConditionValue getCValueUserid() { return getUserid(); }
-    
+
     public BsTSeclocksCQ addOrderBy_Userid_Asc() { regOBA("UserID"); return this; }
     public BsTSeclocksCQ addOrderBy_Userid_Desc() { regOBD("UserID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
         return _groupid;
     }
     protected ConditionValue getCValueGroupid() { return getGroupid(); }
-    
+
     public BsTSeclocksCQ addOrderBy_Groupid_Asc() { regOBA("GroupID"); return this; }
     public BsTSeclocksCQ addOrderBy_Groupid_Desc() { regOBD("GroupID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
         return _entitytype;
     }
     protected ConditionValue getCValueEntitytype() { return getEntitytype(); }
-    
+
     public BsTSeclocksCQ addOrderBy_Entitytype_Asc() { regOBA("EntityType"); return this; }
     public BsTSeclocksCQ addOrderBy_Entitytype_Desc() { regOBD("EntityType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
         return _entityid;
     }
     protected ConditionValue getCValueEntityid() { return getEntityid(); }
-    
+
     public BsTSeclocksCQ addOrderBy_Entityid_Asc() { regOBA("EntityID"); return this; }
     public BsTSeclocksCQ addOrderBy_Entityid_Desc() { regOBD("EntityID"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
         return _timestamp;
     }
     protected ConditionValue getCValueTimestamp() { return getTimestamp(); }
-    
+
     public BsTSeclocksCQ addOrderBy_Timestamp_Asc() { regOBA("Timestamp"); return this; }
     public BsTSeclocksCQ addOrderBy_Timestamp_Desc() { regOBD("Timestamp"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
         return _locktype;
     }
     protected ConditionValue getCValueLocktype() { return getLocktype(); }
-    
+
     public BsTSeclocksCQ addOrderBy_Locktype_Asc() { regOBA("LockType"); return this; }
     public BsTSeclocksCQ addOrderBy_Locktype_Desc() { regOBD("LockType"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTSeclocksCQ extends AbstractBsTSeclocksCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TSeclocksCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TSeclocksCB.class.getName(); }
+    String xCQ() { return TSeclocksCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_complexitytypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTComplexitytypesCQ extends AbstractBsTComplexitytypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTComplexitytypesCQ extends AbstractBsTComplexitytypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TComplexitytypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TComplexitytypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTComplexitytypesCQ extends AbstractBsTComplexitytypesCQ {
         return _complexity;
     }
     protected ConditionValue getCValueComplexity() { return getComplexity(); }
-    
+
     public BsTComplexitytypesCQ addOrderBy_Complexity_Asc() { regOBA("Complexity"); return this; }
     public BsTComplexitytypesCQ addOrderBy_Complexity_Desc() { regOBD("Complexity"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTComplexitytypesCQ extends AbstractBsTComplexitytypesCQ {
         return _numericweight;
     }
     protected ConditionValue getCValueNumericweight() { return getNumericweight(); }
-          
+
     public BsTComplexitytypesCQ addOrderBy_Numericweight_Asc() { regOBA("NumericWeight"); return this; }
     public BsTComplexitytypesCQ addOrderBy_Numericweight_Desc() { regOBD("NumericWeight"); return this; }
 
@@ -91,8 +91,11 @@ public class BsTComplexitytypesCQ extends AbstractBsTComplexitytypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TComplexitytypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TComplexitytypesCB.class.getName(); }
+    String xCQ() { return TComplexitytypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

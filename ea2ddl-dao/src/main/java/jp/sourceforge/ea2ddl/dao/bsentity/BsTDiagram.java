@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_diagram(TABLE).
+ * The entity of t_diagram that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTDiagram implements Entity, java.io.Serializable {
+public abstract class BsTDiagram implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,101 +47,97 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_diagram. */
-    public static final String TABLE = "t_diagram";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Diagram_ID'. {UQ : COUNTER : NotNull} */
+    /** Diagram_ID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _diagramId;
 
-    /** The attribute of the column 'Package_ID'. {INTEGER} */
+    /** Package_ID: {INTEGER} */
     protected java.lang.Integer _packageId;
 
-    /** The attribute of the column 'ParentID'. {INTEGER} */
+    /** ParentID: {INTEGER} */
     protected java.lang.Integer _parentid;
 
-    /** The attribute of the column 'Diagram_Type'. {VARCHAR(50)} */
+    /** Diagram_Type: {VARCHAR(50)} */
     protected String _diagramType;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Version'. {VARCHAR(50)} */
+    /** Version: {VARCHAR(50)} */
     protected String _version;
 
-    /** The attribute of the column 'Author'. {VARCHAR(255)} */
+    /** Author: {VARCHAR(255)} */
     protected String _author;
 
-    /** The attribute of the column 'ShowDetails'. {INTEGER} */
+    /** ShowDetails: {INTEGER} */
     protected java.lang.Integer _showdetails;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Stereotype'. {VARCHAR(50)} */
+    /** Stereotype: {VARCHAR(50)} */
     protected String _stereotype;
 
-    /** The attribute of the column 'AttPub'. {BIT : NotNull} */
+    /** AttPub: {NotNull : BIT} */
     protected Boolean _attpub;
 
-    /** The attribute of the column 'AttPri'. {BIT : NotNull} */
+    /** AttPri: {NotNull : BIT} */
     protected Boolean _attpri;
 
-    /** The attribute of the column 'AttPro'. {BIT : NotNull} */
+    /** AttPro: {NotNull : BIT} */
     protected Boolean _attpro;
 
-    /** The attribute of the column 'Orientation'. {VARCHAR(1)} */
+    /** Orientation: {VARCHAR(1)} */
     protected String _orientation;
 
-    /** The attribute of the column 'cx'. {INTEGER} */
+    /** cx: {INTEGER} */
     protected java.lang.Integer _cx;
 
-    /** The attribute of the column 'cy'. {INTEGER} */
+    /** cy: {INTEGER} */
     protected java.lang.Integer _cy;
 
-    /** The attribute of the column 'Scale'. {INTEGER} */
+    /** Scale: {INTEGER} */
     protected java.lang.Integer _scale;
 
-    /** The attribute of the column 'CreatedDate'. {DATETIME} */
+    /** CreatedDate: {DATETIME} */
     protected java.sql.Timestamp _createddate;
 
-    /** The attribute of the column 'ModifiedDate'. {DATETIME} */
+    /** ModifiedDate: {DATETIME} */
     protected java.sql.Timestamp _modifieddate;
 
-    /** The attribute of the column 'HTMLPath'. {VARCHAR(255)} */
+    /** HTMLPath: {VARCHAR(255)} */
     protected String _htmlpath;
 
-    /** The attribute of the column 'ShowForeign'. {BIT : NotNull} */
+    /** ShowForeign: {NotNull : BIT} */
     protected Boolean _showforeign;
 
-    /** The attribute of the column 'ShowBorder'. {BIT : NotNull} */
+    /** ShowBorder: {NotNull : BIT} */
     protected Boolean _showborder;
 
-    /** The attribute of the column 'ShowPackageContents'. {BIT : NotNull} */
+    /** ShowPackageContents: {NotNull : BIT} */
     protected Boolean _showpackagecontents;
 
-    /** The attribute of the column 'PDATA'. {VARCHAR(255)} */
+    /** PDATA: {VARCHAR(255)} */
     protected String _pdata;
 
-    /** The attribute of the column 'Locked'. {BIT : NotNull} */
+    /** Locked: {NotNull : BIT} */
     protected Boolean _locked;
 
-    /** The attribute of the column 'ea_guid'. {UQ : VARCHAR(40)} */
+    /** ea_guid: {UQ : VARCHAR(40)} */
     protected String _eaGuid;
 
-    /** The attribute of the column 'TPos'. {INTEGER} */
+    /** TPos: {INTEGER} */
     protected java.lang.Integer _tpos;
 
-    /** The attribute of the column 'Swimlanes'. {VARCHAR(255)} */
+    /** Swimlanes: {VARCHAR(255)} */
     protected String _swimlanes;
 
-    /** The attribute of the column 'StyleEx'. {LONGCHAR(2147483647)} */
+    /** StyleEx: {LONGCHAR(2147483647)} */
     protected String _styleex;
 
     // -----------------------------------------------------
@@ -151,19 +147,13 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTDiagram() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_diagram";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TDiagram";
     }
 
@@ -189,7 +179,6 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -345,13 +334,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String diagramId_COLUMN = "Diagram_ID";
-
     /**
-     * Get the value of the column 'Diagram_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * Diagram_ID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'Diagram_ID'. (Nullable)
      */
     public java.lang.Integer getDiagramId() {
@@ -359,8 +343,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Diagram_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * Diagram_ID: {UQ : NotNull : COUNTER} <br />
      * @param diagramId The value of the column 'Diagram_ID'. (Nullable)
      */
     public void setDiagramId(java.lang.Integer diagramId) {
@@ -368,12 +351,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._diagramId = diagramId;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String packageId_COLUMN = "Package_ID";
-
     /**
-     * Get the value of the column 'Package_ID'. <br />
-     * {INTEGER}
+     * Package_ID: {INTEGER} <br />
      * @return The value of the column 'Package_ID'. (Nullable)
      */
     public java.lang.Integer getPackageId() {
@@ -381,8 +360,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Package_ID'. <br />
-     * {INTEGER}
+     * Package_ID: {INTEGER} <br />
      * @param packageId The value of the column 'Package_ID'. (Nullable)
      */
     public void setPackageId(java.lang.Integer packageId) {
@@ -390,12 +368,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._packageId = packageId;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String parentid_COLUMN = "ParentID";
-
     /**
-     * Get the value of the column 'ParentID'. <br />
-     * {INTEGER}
+     * ParentID: {INTEGER} <br />
      * @return The value of the column 'ParentID'. (Nullable)
      */
     public java.lang.Integer getParentid() {
@@ -403,8 +377,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ParentID'. <br />
-     * {INTEGER}
+     * ParentID: {INTEGER} <br />
      * @param parentid The value of the column 'ParentID'. (Nullable)
      */
     public void setParentid(java.lang.Integer parentid) {
@@ -412,12 +385,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._parentid = parentid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String diagramType_COLUMN = "Diagram_Type";
-
     /**
-     * Get the value of the column 'Diagram_Type'. <br />
-     * {VARCHAR(50)}
+     * Diagram_Type: {VARCHAR(50)} <br />
      * @return The value of the column 'Diagram_Type'. (Nullable)
      */
     public String getDiagramType() {
@@ -425,8 +394,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Diagram_Type'. <br />
-     * {VARCHAR(50)}
+     * Diagram_Type: {VARCHAR(50)} <br />
      * @param diagramType The value of the column 'Diagram_Type'. (Nullable)
      */
     public void setDiagramType(String diagramType) {
@@ -434,12 +402,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._diagramType = diagramType;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -447,8 +411,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -456,12 +419,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String version_COLUMN = "Version";
-
     /**
-     * Get the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @return The value of the column 'Version'. (Nullable)
      */
     public String getVersion() {
@@ -469,8 +428,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @param version The value of the column 'Version'. (Nullable)
      */
     public void setVersion(String version) {
@@ -478,12 +436,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._version = version;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String author_COLUMN = "Author";
-
     /**
-     * Get the value of the column 'Author'. <br />
-     * {VARCHAR(255)}
+     * Author: {VARCHAR(255)} <br />
      * @return The value of the column 'Author'. (Nullable)
      */
     public String getAuthor() {
@@ -491,8 +445,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Author'. <br />
-     * {VARCHAR(255)}
+     * Author: {VARCHAR(255)} <br />
      * @param author The value of the column 'Author'. (Nullable)
      */
     public void setAuthor(String author) {
@@ -500,12 +453,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._author = author;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String showdetails_COLUMN = "ShowDetails";
-
     /**
-     * Get the value of the column 'ShowDetails'. <br />
-     * {INTEGER}
+     * ShowDetails: {INTEGER} <br />
      * @return The value of the column 'ShowDetails'. (Nullable)
      */
     public java.lang.Integer getShowdetails() {
@@ -513,8 +462,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ShowDetails'. <br />
-     * {INTEGER}
+     * ShowDetails: {INTEGER} <br />
      * @param showdetails The value of the column 'ShowDetails'. (Nullable)
      */
     public void setShowdetails(java.lang.Integer showdetails) {
@@ -522,12 +470,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._showdetails = showdetails;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -535,8 +479,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -544,12 +487,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String stereotype_COLUMN = "Stereotype";
-
     /**
-     * Get the value of the column 'Stereotype'. <br />
-     * {VARCHAR(50)}
+     * Stereotype: {VARCHAR(50)} <br />
      * @return The value of the column 'Stereotype'. (Nullable)
      */
     public String getStereotype() {
@@ -557,8 +496,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Stereotype'. <br />
-     * {VARCHAR(50)}
+     * Stereotype: {VARCHAR(50)} <br />
      * @param stereotype The value of the column 'Stereotype'. (Nullable)
      */
     public void setStereotype(String stereotype) {
@@ -566,12 +504,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._stereotype = stereotype;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String attpub_COLUMN = "AttPub";
-
     /**
-     * Get the value of the column 'AttPub'. <br />
-     * {BIT : NotNull}
+     * AttPub: {NotNull : BIT} <br />
      * @return The value of the column 'AttPub'. (Nullable)
      */
     public Boolean getAttpub() {
@@ -579,8 +513,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'AttPub'. <br />
-     * {BIT : NotNull}
+     * AttPub: {NotNull : BIT} <br />
      * @param attpub The value of the column 'AttPub'. (Nullable)
      */
     public void setAttpub(Boolean attpub) {
@@ -588,12 +521,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._attpub = attpub;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String attpri_COLUMN = "AttPri";
-
     /**
-     * Get the value of the column 'AttPri'. <br />
-     * {BIT : NotNull}
+     * AttPri: {NotNull : BIT} <br />
      * @return The value of the column 'AttPri'. (Nullable)
      */
     public Boolean getAttpri() {
@@ -601,8 +530,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'AttPri'. <br />
-     * {BIT : NotNull}
+     * AttPri: {NotNull : BIT} <br />
      * @param attpri The value of the column 'AttPri'. (Nullable)
      */
     public void setAttpri(Boolean attpri) {
@@ -610,12 +538,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._attpri = attpri;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String attpro_COLUMN = "AttPro";
-
     /**
-     * Get the value of the column 'AttPro'. <br />
-     * {BIT : NotNull}
+     * AttPro: {NotNull : BIT} <br />
      * @return The value of the column 'AttPro'. (Nullable)
      */
     public Boolean getAttpro() {
@@ -623,8 +547,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'AttPro'. <br />
-     * {BIT : NotNull}
+     * AttPro: {NotNull : BIT} <br />
      * @param attpro The value of the column 'AttPro'. (Nullable)
      */
     public void setAttpro(Boolean attpro) {
@@ -632,12 +555,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._attpro = attpro;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(1)} */
-    public static final String orientation_COLUMN = "Orientation";
-
     /**
-     * Get the value of the column 'Orientation'. <br />
-     * {VARCHAR(1)}
+     * Orientation: {VARCHAR(1)} <br />
      * @return The value of the column 'Orientation'. (Nullable)
      */
     public String getOrientation() {
@@ -645,8 +564,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Orientation'. <br />
-     * {VARCHAR(1)}
+     * Orientation: {VARCHAR(1)} <br />
      * @param orientation The value of the column 'Orientation'. (Nullable)
      */
     public void setOrientation(String orientation) {
@@ -654,12 +572,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._orientation = orientation;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String cx_COLUMN = "cx";
-
     /**
-     * Get the value of the column 'cx'. <br />
-     * {INTEGER}
+     * cx: {INTEGER} <br />
      * @return The value of the column 'cx'. (Nullable)
      */
     public java.lang.Integer getCx() {
@@ -667,8 +581,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'cx'. <br />
-     * {INTEGER}
+     * cx: {INTEGER} <br />
      * @param cx The value of the column 'cx'. (Nullable)
      */
     public void setCx(java.lang.Integer cx) {
@@ -676,12 +589,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._cx = cx;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String cy_COLUMN = "cy";
-
     /**
-     * Get the value of the column 'cy'. <br />
-     * {INTEGER}
+     * cy: {INTEGER} <br />
      * @return The value of the column 'cy'. (Nullable)
      */
     public java.lang.Integer getCy() {
@@ -689,8 +598,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'cy'. <br />
-     * {INTEGER}
+     * cy: {INTEGER} <br />
      * @param cy The value of the column 'cy'. (Nullable)
      */
     public void setCy(java.lang.Integer cy) {
@@ -698,12 +606,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._cy = cy;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String scale_COLUMN = "Scale";
-
     /**
-     * Get the value of the column 'Scale'. <br />
-     * {INTEGER}
+     * Scale: {INTEGER} <br />
      * @return The value of the column 'Scale'. (Nullable)
      */
     public java.lang.Integer getScale() {
@@ -711,8 +615,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Scale'. <br />
-     * {INTEGER}
+     * Scale: {INTEGER} <br />
      * @param scale The value of the column 'Scale'. (Nullable)
      */
     public void setScale(java.lang.Integer scale) {
@@ -720,12 +623,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._scale = scale;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String createddate_COLUMN = "CreatedDate";
-
     /**
-     * Get the value of the column 'CreatedDate'. <br />
-     * {DATETIME}
+     * CreatedDate: {DATETIME} <br />
      * @return The value of the column 'CreatedDate'. (Nullable)
      */
     public java.sql.Timestamp getCreateddate() {
@@ -733,8 +632,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'CreatedDate'. <br />
-     * {DATETIME}
+     * CreatedDate: {DATETIME} <br />
      * @param createddate The value of the column 'CreatedDate'. (Nullable)
      */
     public void setCreateddate(java.sql.Timestamp createddate) {
@@ -742,12 +640,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._createddate = createddate;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String modifieddate_COLUMN = "ModifiedDate";
-
     /**
-     * Get the value of the column 'ModifiedDate'. <br />
-     * {DATETIME}
+     * ModifiedDate: {DATETIME} <br />
      * @return The value of the column 'ModifiedDate'. (Nullable)
      */
     public java.sql.Timestamp getModifieddate() {
@@ -755,8 +649,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ModifiedDate'. <br />
-     * {DATETIME}
+     * ModifiedDate: {DATETIME} <br />
      * @param modifieddate The value of the column 'ModifiedDate'. (Nullable)
      */
     public void setModifieddate(java.sql.Timestamp modifieddate) {
@@ -764,12 +657,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._modifieddate = modifieddate;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String htmlpath_COLUMN = "HTMLPath";
-
     /**
-     * Get the value of the column 'HTMLPath'. <br />
-     * {VARCHAR(255)}
+     * HTMLPath: {VARCHAR(255)} <br />
      * @return The value of the column 'HTMLPath'. (Nullable)
      */
     public String getHtmlpath() {
@@ -777,8 +666,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'HTMLPath'. <br />
-     * {VARCHAR(255)}
+     * HTMLPath: {VARCHAR(255)} <br />
      * @param htmlpath The value of the column 'HTMLPath'. (Nullable)
      */
     public void setHtmlpath(String htmlpath) {
@@ -786,12 +674,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._htmlpath = htmlpath;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String showforeign_COLUMN = "ShowForeign";
-
     /**
-     * Get the value of the column 'ShowForeign'. <br />
-     * {BIT : NotNull}
+     * ShowForeign: {NotNull : BIT} <br />
      * @return The value of the column 'ShowForeign'. (Nullable)
      */
     public Boolean getShowforeign() {
@@ -799,8 +683,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ShowForeign'. <br />
-     * {BIT : NotNull}
+     * ShowForeign: {NotNull : BIT} <br />
      * @param showforeign The value of the column 'ShowForeign'. (Nullable)
      */
     public void setShowforeign(Boolean showforeign) {
@@ -808,12 +691,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._showforeign = showforeign;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String showborder_COLUMN = "ShowBorder";
-
     /**
-     * Get the value of the column 'ShowBorder'. <br />
-     * {BIT : NotNull}
+     * ShowBorder: {NotNull : BIT} <br />
      * @return The value of the column 'ShowBorder'. (Nullable)
      */
     public Boolean getShowborder() {
@@ -821,8 +700,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ShowBorder'. <br />
-     * {BIT : NotNull}
+     * ShowBorder: {NotNull : BIT} <br />
      * @param showborder The value of the column 'ShowBorder'. (Nullable)
      */
     public void setShowborder(Boolean showborder) {
@@ -830,12 +708,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._showborder = showborder;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String showpackagecontents_COLUMN = "ShowPackageContents";
-
     /**
-     * Get the value of the column 'ShowPackageContents'. <br />
-     * {BIT : NotNull}
+     * ShowPackageContents: {NotNull : BIT} <br />
      * @return The value of the column 'ShowPackageContents'. (Nullable)
      */
     public Boolean getShowpackagecontents() {
@@ -843,8 +717,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ShowPackageContents'. <br />
-     * {BIT : NotNull}
+     * ShowPackageContents: {NotNull : BIT} <br />
      * @param showpackagecontents The value of the column 'ShowPackageContents'. (Nullable)
      */
     public void setShowpackagecontents(Boolean showpackagecontents) {
@@ -852,12 +725,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._showpackagecontents = showpackagecontents;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata_COLUMN = "PDATA";
-
     /**
-     * Get the value of the column 'PDATA'. <br />
-     * {VARCHAR(255)}
+     * PDATA: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA'. (Nullable)
      */
     public String getPdata() {
@@ -865,8 +734,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA'. <br />
-     * {VARCHAR(255)}
+     * PDATA: {VARCHAR(255)} <br />
      * @param pdata The value of the column 'PDATA'. (Nullable)
      */
     public void setPdata(String pdata) {
@@ -874,12 +742,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._pdata = pdata;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String locked_COLUMN = "Locked";
-
     /**
-     * Get the value of the column 'Locked'. <br />
-     * {BIT : NotNull}
+     * Locked: {NotNull : BIT} <br />
      * @return The value of the column 'Locked'. (Nullable)
      */
     public Boolean getLocked() {
@@ -887,8 +751,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Locked'. <br />
-     * {BIT : NotNull}
+     * Locked: {NotNull : BIT} <br />
      * @param locked The value of the column 'Locked'. (Nullable)
      */
     public void setLocked(Boolean locked) {
@@ -896,12 +759,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._locked = locked;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {UQ : VARCHAR(40)}
+     * ea_guid: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -909,8 +768,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {UQ : VARCHAR(40)}
+     * ea_guid: {UQ : VARCHAR(40)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
@@ -918,12 +776,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._eaGuid = eaGuid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String tpos_COLUMN = "TPos";
-
     /**
-     * Get the value of the column 'TPos'. <br />
-     * {INTEGER}
+     * TPos: {INTEGER} <br />
      * @return The value of the column 'TPos'. (Nullable)
      */
     public java.lang.Integer getTpos() {
@@ -931,8 +785,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TPos'. <br />
-     * {INTEGER}
+     * TPos: {INTEGER} <br />
      * @param tpos The value of the column 'TPos'. (Nullable)
      */
     public void setTpos(java.lang.Integer tpos) {
@@ -940,12 +793,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._tpos = tpos;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String swimlanes_COLUMN = "Swimlanes";
-
     /**
-     * Get the value of the column 'Swimlanes'. <br />
-     * {VARCHAR(255)}
+     * Swimlanes: {VARCHAR(255)} <br />
      * @return The value of the column 'Swimlanes'. (Nullable)
      */
     public String getSwimlanes() {
@@ -953,8 +802,7 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Swimlanes'. <br />
-     * {VARCHAR(255)}
+     * Swimlanes: {VARCHAR(255)} <br />
      * @param swimlanes The value of the column 'Swimlanes'. (Nullable)
      */
     public void setSwimlanes(String swimlanes) {
@@ -962,12 +810,8 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
         this._swimlanes = swimlanes;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String styleex_COLUMN = "StyleEx";
-
     /**
-     * Get the value of the column 'StyleEx'. <br />
-     * {LONGCHAR(2147483647)}
+     * StyleEx: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'StyleEx'. (Nullable)
      */
     public String getStyleex() {
@@ -975,13 +819,11 @@ public abstract class BsTDiagram implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StyleEx'. <br />
-     * {LONGCHAR(2147483647)}
+     * StyleEx: {LONGCHAR(2147483647)} <br />
      * @param styleex The value of the column 'StyleEx'. (Nullable)
      */
     public void setStyleex(String styleex) {
         _modifiedProperties.addPropertyName("styleex");
         this._styleex = styleex;
     }
-
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objectfiles(TABLE).
+ * The entity of t_objectfiles that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
+public abstract class BsTObjectfiles implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objectfiles. */
-    public static final String TABLE = "t_objectfiles";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : INTEGER} */
+    /** Object_ID: {UQ : INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'FileName'. {UQ : VARCHAR(255)} */
+    /** FileName: {UQ : VARCHAR(255)} */
     protected String _filename;
 
-    /** The attribute of the column 'Type'. {VARCHAR(50)} */
+    /** Type: {VARCHAR(50)} */
     protected String _type;
 
-    /** The attribute of the column 'Note'. {LONGCHAR(2147483647)} */
+    /** Note: {LONGCHAR(2147483647)} */
     protected String _note;
 
-    /** The attribute of the column 'FileSize'. {VARCHAR(255)} */
+    /** FileSize: {VARCHAR(255)} */
     protected String _filesize;
 
-    /** The attribute of the column 'FileDate'. {VARCHAR(255)} */
+    /** FileDate: {VARCHAR(255)} */
     protected String _filedate;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjectfiles() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objectfiles";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjectfiles";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -221,8 +205,7 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -230,12 +213,8 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String filename_COLUMN = "FileName";
-
     /**
-     * Get the value of the column 'FileName'. <br />
-     * {UQ : VARCHAR(255)}
+     * FileName: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'FileName'. (Nullable)
      */
     public String getFilename() {
@@ -243,8 +222,7 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'FileName'. <br />
-     * {UQ : VARCHAR(255)}
+     * FileName: {UQ : VARCHAR(255)} <br />
      * @param filename The value of the column 'FileName'. (Nullable)
      */
     public void setFilename(String filename) {
@@ -252,12 +230,8 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
         this._filename = filename;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(50)}
+     * Type: {VARCHAR(50)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -265,8 +239,7 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(50)}
+     * Type: {VARCHAR(50)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -274,12 +247,8 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String note_COLUMN = "Note";
-
     /**
-     * Get the value of the column 'Note'. <br />
-     * {LONGCHAR(2147483647)}
+     * Note: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Note'. (Nullable)
      */
     public String getNote() {
@@ -287,8 +256,7 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Note'. <br />
-     * {LONGCHAR(2147483647)}
+     * Note: {LONGCHAR(2147483647)} <br />
      * @param note The value of the column 'Note'. (Nullable)
      */
     public void setNote(String note) {
@@ -296,12 +264,8 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
         this._note = note;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String filesize_COLUMN = "FileSize";
-
     /**
-     * Get the value of the column 'FileSize'. <br />
-     * {VARCHAR(255)}
+     * FileSize: {VARCHAR(255)} <br />
      * @return The value of the column 'FileSize'. (Nullable)
      */
     public String getFilesize() {
@@ -309,8 +273,7 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'FileSize'. <br />
-     * {VARCHAR(255)}
+     * FileSize: {VARCHAR(255)} <br />
      * @param filesize The value of the column 'FileSize'. (Nullable)
      */
     public void setFilesize(String filesize) {
@@ -318,12 +281,8 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
         this._filesize = filesize;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String filedate_COLUMN = "FileDate";
-
     /**
-     * Get the value of the column 'FileDate'. <br />
-     * {VARCHAR(255)}
+     * FileDate: {VARCHAR(255)} <br />
      * @return The value of the column 'FileDate'. (Nullable)
      */
     public String getFiledate() {
@@ -331,13 +290,11 @@ public abstract class BsTObjectfiles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'FileDate'. <br />
-     * {VARCHAR(255)}
+     * FileDate: {VARCHAR(255)} <br />
      * @param filedate The value of the column 'FileDate'. (Nullable)
      */
     public void setFiledate(String filedate) {
         _modifiedProperties.addPropertyName("filedate");
         this._filedate = filedate;
     }
-
 }

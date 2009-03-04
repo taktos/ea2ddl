@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_template.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
      * @return On-clause query. (NotNull)
      */
     public TTemplateCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TTemplateCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
         return _templateid;
     }
     protected ConditionValue getCValueTemplateid() { return getTemplateid(); }
-    
+
     public BsTTemplateCQ addOrderBy_Templateid_Asc() { regOBA("TemplateID"); return this; }
     public BsTTemplateCQ addOrderBy_Templateid_Desc() { regOBD("TemplateID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
         return _templatetype;
     }
     protected ConditionValue getCValueTemplatetype() { return getTemplatetype(); }
-    
+
     public BsTTemplateCQ addOrderBy_Templatetype_Asc() { regOBA("TemplateType"); return this; }
     public BsTTemplateCQ addOrderBy_Templatetype_Desc() { regOBD("TemplateType"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
         return _templatename;
     }
     protected ConditionValue getCValueTemplatename() { return getTemplatename(); }
-    
+
     public BsTTemplateCQ addOrderBy_Templatename_Asc() { regOBA("TemplateName"); return this; }
     public BsTTemplateCQ addOrderBy_Templatename_Desc() { regOBD("TemplateName"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTTemplateCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTTemplateCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
         return _style;
     }
     protected ConditionValue getCValueStyle() { return getStyle(); }
-    
+
     public BsTTemplateCQ addOrderBy_Style_Asc() { regOBA("Style"); return this; }
     public BsTTemplateCQ addOrderBy_Style_Desc() { regOBD("Style"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
         return _template;
     }
     protected ConditionValue getCValueTemplate() { return getTemplate(); }
-    
+
     public BsTTemplateCQ addOrderBy_Template_Asc() { regOBA("Template"); return this; }
     public BsTTemplateCQ addOrderBy_Template_Desc() { regOBD("Template"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTTemplateCQ extends AbstractBsTTemplateCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TTemplateCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TTemplateCB.class.getName(); }
+    String xCQ() { return TTemplateCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

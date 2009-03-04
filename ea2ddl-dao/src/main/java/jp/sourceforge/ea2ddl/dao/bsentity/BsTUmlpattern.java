@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_umlpattern(TABLE).
+ * The entity of t_umlpattern that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
+public abstract class BsTUmlpattern implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,35 +47,31 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_umlpattern. */
-    public static final String TABLE = "t_umlpattern";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'PatternID'. {COUNTER : NotNull} */
+    /** PatternID: {NotNull : COUNTER} */
     protected java.lang.Integer _patternid;
 
-    /** The attribute of the column 'PatternCategory'. {VARCHAR(100)} */
+    /** PatternCategory: {VARCHAR(100)} */
     protected String _patterncategory;
 
-    /** The attribute of the column 'PatternName'. {VARCHAR(150)} */
+    /** PatternName: {VARCHAR(150)} */
     protected String _patternname;
 
-    /** The attribute of the column 'Style'. {VARCHAR(255)} */
+    /** Style: {VARCHAR(255)} */
     protected String _style;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'PatternXML'. {LONGCHAR(2147483647)} */
+    /** PatternXML: {LONGCHAR(2147483647)} */
     protected String _patternxml;
 
-    /** The attribute of the column 'Version'. {VARCHAR(50)} */
+    /** Version: {VARCHAR(50)} */
     protected String _version;
 
     // -----------------------------------------------------
@@ -85,19 +81,13 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTUmlpattern() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_umlpattern";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TUmlpattern";
     }
 
@@ -123,7 +113,6 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -213,13 +202,8 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {COUNTER : NotNull} */
-    public static final String patternid_COLUMN = "PatternID";
-
     /**
-     * Get the value of the column 'PatternID'. <br />
-     * {COUNTER : NotNull}
+     * PatternID: {NotNull : COUNTER} <br />
      * @return The value of the column 'PatternID'. (Nullable)
      */
     public java.lang.Integer getPatternid() {
@@ -227,8 +211,7 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PatternID'. <br />
-     * {COUNTER : NotNull}
+     * PatternID: {NotNull : COUNTER} <br />
      * @param patternid The value of the column 'PatternID'. (Nullable)
      */
     public void setPatternid(java.lang.Integer patternid) {
@@ -236,12 +219,8 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
         this._patternid = patternid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String patterncategory_COLUMN = "PatternCategory";
-
     /**
-     * Get the value of the column 'PatternCategory'. <br />
-     * {VARCHAR(100)}
+     * PatternCategory: {VARCHAR(100)} <br />
      * @return The value of the column 'PatternCategory'. (Nullable)
      */
     public String getPatterncategory() {
@@ -249,8 +228,7 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PatternCategory'. <br />
-     * {VARCHAR(100)}
+     * PatternCategory: {VARCHAR(100)} <br />
      * @param patterncategory The value of the column 'PatternCategory'. (Nullable)
      */
     public void setPatterncategory(String patterncategory) {
@@ -258,12 +236,8 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
         this._patterncategory = patterncategory;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(150)} */
-    public static final String patternname_COLUMN = "PatternName";
-
     /**
-     * Get the value of the column 'PatternName'. <br />
-     * {VARCHAR(150)}
+     * PatternName: {VARCHAR(150)} <br />
      * @return The value of the column 'PatternName'. (Nullable)
      */
     public String getPatternname() {
@@ -271,8 +245,7 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PatternName'. <br />
-     * {VARCHAR(150)}
+     * PatternName: {VARCHAR(150)} <br />
      * @param patternname The value of the column 'PatternName'. (Nullable)
      */
     public void setPatternname(String patternname) {
@@ -280,12 +253,8 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
         this._patternname = patternname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -293,8 +262,7 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
@@ -302,12 +270,8 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
         this._style = style;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -315,8 +279,7 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -324,12 +287,8 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String patternxml_COLUMN = "PatternXML";
-
     /**
-     * Get the value of the column 'PatternXML'. <br />
-     * {LONGCHAR(2147483647)}
+     * PatternXML: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'PatternXML'. (Nullable)
      */
     public String getPatternxml() {
@@ -337,8 +296,7 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PatternXML'. <br />
-     * {LONGCHAR(2147483647)}
+     * PatternXML: {LONGCHAR(2147483647)} <br />
      * @param patternxml The value of the column 'PatternXML'. (Nullable)
      */
     public void setPatternxml(String patternxml) {
@@ -346,12 +304,8 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
         this._patternxml = patternxml;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String version_COLUMN = "Version";
-
     /**
-     * Get the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @return The value of the column 'Version'. (Nullable)
      */
     public String getVersion() {
@@ -359,13 +313,11 @@ public abstract class BsTUmlpattern implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @param version The value of the column 'Version'. (Nullable)
      */
     public void setVersion(String version) {
         _modifiedProperties.addPropertyName("version");
         this._version = version;
     }
-
 }

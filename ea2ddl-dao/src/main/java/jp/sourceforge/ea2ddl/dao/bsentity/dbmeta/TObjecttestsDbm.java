@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TObjecttests;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_objecttests. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TObjecttestsDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TObjecttestsDbm _instance = new TObjecttestsDbm();
     private TObjecttestsDbm() {}
     public static TObjecttestsDbm getInstance() { return _instance; }
@@ -29,18 +32,18 @@ public class TObjecttestsDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnObjectId = cci("Object_ID", "objectId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnTest = cci("Test", "test", String.class, false, 255, 0);
-    protected ColumnInfo _columnTestclass = cci("TestClass", "testclass", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnTesttype = cci("TestType", "testtype", String.class, false, 50, 0);
-    protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnInputdata = cci("InputData", "inputdata", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnAcceptancecriteria = cci("AcceptanceCriteria", "acceptancecriteria", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnStatus = cci("Status", "status", String.class, false, 32, 0);
-    protected ColumnInfo _columnDaterun = cci("DateRun", "daterun", java.sql.Timestamp.class, false, null, null);
-    protected ColumnInfo _columnResults = cci("Results", "results", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnRunby = cci("RunBy", "runby", String.class, false, 255, 0);
-    protected ColumnInfo _columnCheckby = cci("CheckBy", "checkby", String.class, false, 255, 0);
+    protected ColumnInfo _columnObjectId = cci("Object_ID", null, "objectId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnTest = cci("Test", null, "test", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnTestclass = cci("TestClass", null, "testclass", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnTesttype = cci("TestType", null, "testtype", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnNotes = cci("Notes", null, "notes", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnInputdata = cci("InputData", null, "inputdata", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnAcceptancecriteria = cci("AcceptanceCriteria", null, "acceptancecriteria", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnStatus = cci("Status", null, "status", String.class, false, false, 32, 0);
+    protected ColumnInfo _columnDaterun = cci("DateRun", null, "daterun", java.sql.Timestamp.class, false, false, null, null);
+    protected ColumnInfo _columnResults = cci("Results", null, "results", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnRunby = cci("RunBy", null, "runby", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnCheckby = cci("CheckBy", null, "checkby", String.class, false, false, 255, 0);
 
     public ColumnInfo columnObjectId() { return _columnObjectId; }
     public ColumnInfo columnTest() { return _columnTest; }
@@ -54,23 +57,35 @@ public class TObjecttestsDbm extends AbstractDBMeta {
     public ColumnInfo columnResults() { return _columnResults; }
     public ColumnInfo columnRunby() { return _columnRunby; }
     public ColumnInfo columnCheckby() { return _columnCheckby; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -92,65 +107,29 @@ public class TObjecttestsDbm extends AbstractDBMeta {
     public TObjecttests newMyEntity() { return new TObjecttests(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TObjecttests)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TObjecttests)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TObjecttests)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TObjecttests)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -164,7 +143,7 @@ public class TObjecttestsDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TObjecttests>> _epsMap = newHashMap();
+    protected Map<String, Eps<TObjecttests>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsObjectId(), columnObjectId());
         setupEps(_epsMap, new EpsTest(), columnTest());
@@ -179,49 +158,33 @@ public class TObjecttestsDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsRunby(), columnRunby());
         setupEps(_epsMap, new EpsCheckby(), columnCheckby());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TObjecttests)entity, value);
-    }
-    
-    public static class EpsObjectId implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setObjectId((java.lang.Integer)v); }
-    }
-    public static class EpsTest implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setTest((String)v); }
-    }
-    public static class EpsTestclass implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setTestclass((java.lang.Integer)v); }
-    }
-    public static class EpsTesttype implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setTesttype((String)v); }
-    }
-    public static class EpsNotes implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setNotes((String)v); }
-    }
-    public static class EpsInputdata implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setInputdata((String)v); }
-    }
-    public static class EpsAcceptancecriteria implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setAcceptancecriteria((String)v); }
-    }
-    public static class EpsStatus implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setStatus((String)v); }
-    }
-    public static class EpsDaterun implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setDaterun((java.sql.Timestamp)v); }
-    }
-    public static class EpsResults implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setResults((String)v); }
-    }
-    public static class EpsRunby implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setRunby((String)v); }
-    }
-    public static class EpsCheckby implements Eps<TObjecttests> {
-        public void setup(TObjecttests e, Object v) { e.setCheckby((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TObjecttests)entity, value); }
+
+    public static class EpsObjectId implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setObjectId((java.lang.Integer)v); } }
+    public static class EpsTest implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setTest((String)v); } }
+    public static class EpsTestclass implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setTestclass((java.lang.Integer)v); } }
+    public static class EpsTesttype implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setTesttype((String)v); } }
+    public static class EpsNotes implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setNotes((String)v); } }
+    public static class EpsInputdata implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setInputdata((String)v); } }
+    public static class EpsAcceptancecriteria implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setAcceptancecriteria((String)v); } }
+    public static class EpsStatus implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setStatus((String)v); } }
+    public static class EpsDaterun implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setDaterun((java.sql.Timestamp)v); } }
+    public static class EpsResults implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setResults((String)v); } }
+    public static class EpsRunby implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setRunby((String)v); } }
+    public static class EpsCheckby implements Eps<TObjecttests>
+    { public void setup(TObjecttests e, Object v) { e.setCheckby((String)v); } }
 }

@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_objectrisks.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTObjectrisksCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : INTEGER}
      * @param objectId The value of objectId as equal.
      */
     public void setObjectId_Equal(java.lang.Integer objectId) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as notEqual.
      */
     public void setObjectId_NotEqual(java.lang.Integer objectId) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterThan.
      */
     public void setObjectId_GreaterThan(java.lang.Integer objectId) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessThan.
      */
     public void setObjectId_LessThan(java.lang.Integer objectId) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterEqual.
      */
     public void setObjectId_GreaterEqual(java.lang.Integer objectId) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessEqual.
      */
     public void setObjectId_LessEqual(java.lang.Integer objectId) {
@@ -95,25 +110,20 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNull() { regObjectId(CK_ISN, DUMMY_OBJECT); }
+    public void setObjectId_IsNull() { regObjectId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DUMMY_OBJECT); }
+    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DOBJ); }
 
-    protected void regObjectId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
-    protected void registerInlineObjectId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
+    protected void regObjectId(ConditionKey k, Object v) { regQ(k, v, getCValueObjectId(), "Object_ID"); }
     abstract protected ConditionValue getCValueObjectId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(255)}
      * @param risk The value of risk as equal.
      */
     public void setRisk_Equal(String risk) {
@@ -121,7 +131,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risk The value of risk as notEqual.
      */
     public void setRisk_NotEqual(String risk) {
@@ -129,7 +139,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risk The value of risk as greaterThan.
      */
     public void setRisk_GreaterThan(String risk) {
@@ -137,7 +147,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risk The value of risk as lessThan.
      */
     public void setRisk_LessThan(String risk) {
@@ -145,7 +155,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risk The value of risk as greaterEqual.
      */
     public void setRisk_GreaterEqual(String risk) {
@@ -153,7 +163,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risk The value of risk as lessEqual.
      */
     public void setRisk_LessEqual(String risk) {
@@ -161,20 +171,11 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risk The value of risk as prefixSearch.
      */
     public void setRisk_PrefixSearch(String risk) {
         regRisk(CK_PS, fRES(risk));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param risk The value of risk as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setRisk_LikeSearch(String risk, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(risk), getCValueRisk(), "Risk", "Risk", "risk", likeSearchOption);
     }
 
     /**
@@ -186,34 +187,38 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param risk The collection of risk as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param risk The value of risk as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setRisk_InScope(String risk, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(risk), getCValueRisk(), "Risk", "Risk", "risk", inScopeOption);
+    public void setRisk_LikeSearch(String risk, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(risk), getCValueRisk(), "Risk", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param risk The value of risk as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setRisk_IsNull() { regRisk(CK_ISN, DUMMY_OBJECT); }
+    public void setRisk_NotLikeSearch(String risk, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(risk), getCValueRisk(), "Risk", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRisk_IsNotNull() { regRisk(CK_ISNN, DUMMY_OBJECT); }
+    public void setRisk_IsNull() { regRisk(CK_ISN, DOBJ); }
 
-    protected void regRisk(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRisk(), "Risk", "Risk", "risk");
-    }
-    protected void registerInlineRisk(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRisk(), "Risk", "Risk", "risk");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setRisk_IsNotNull() { regRisk(CK_ISNN, DOBJ); }
+
+    protected void regRisk(ConditionKey k, Object v) { regQ(k, v, getCValueRisk(), "Risk"); }
     abstract protected ConditionValue getCValueRisk();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(12)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(12)}
      * @param risktype The value of risktype as equal.
      */
     public void setRisktype_Equal(String risktype) {
@@ -221,7 +226,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risktype The value of risktype as notEqual.
      */
     public void setRisktype_NotEqual(String risktype) {
@@ -229,7 +234,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risktype The value of risktype as greaterThan.
      */
     public void setRisktype_GreaterThan(String risktype) {
@@ -237,7 +242,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risktype The value of risktype as lessThan.
      */
     public void setRisktype_LessThan(String risktype) {
@@ -245,7 +250,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risktype The value of risktype as greaterEqual.
      */
     public void setRisktype_GreaterEqual(String risktype) {
@@ -253,7 +258,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risktype The value of risktype as lessEqual.
      */
     public void setRisktype_LessEqual(String risktype) {
@@ -261,20 +266,11 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param risktype The value of risktype as prefixSearch.
      */
     public void setRisktype_PrefixSearch(String risktype) {
         regRisktype(CK_PS, fRES(risktype));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param risktype The value of risktype as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setRisktype_LikeSearch(String risktype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(risktype), getCValueRisktype(), "RiskType", "Risktype", "risktype", likeSearchOption);
     }
 
     /**
@@ -286,34 +282,38 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param risktype The collection of risktype as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param risktype The value of risktype as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setRisktype_InScope(String risktype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(risktype), getCValueRisktype(), "RiskType", "Risktype", "risktype", inScopeOption);
+    public void setRisktype_LikeSearch(String risktype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(risktype), getCValueRisktype(), "RiskType", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param risktype The value of risktype as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setRisktype_IsNull() { regRisktype(CK_ISN, DUMMY_OBJECT); }
+    public void setRisktype_NotLikeSearch(String risktype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(risktype), getCValueRisktype(), "RiskType", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRisktype_IsNotNull() { regRisktype(CK_ISNN, DUMMY_OBJECT); }
+    public void setRisktype_IsNull() { regRisktype(CK_ISN, DOBJ); }
 
-    protected void regRisktype(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRisktype(), "RiskType", "Risktype", "risktype");
-    }
-    protected void registerInlineRisktype(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRisktype(), "RiskType", "Risktype", "risktype");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setRisktype_IsNotNull() { regRisktype(CK_ISNN, DOBJ); }
+
+    protected void regRisktype(ConditionKey k, Object v) { regQ(k, v, getCValueRisktype(), "RiskType"); }
     abstract protected ConditionValue getCValueRisktype();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {DOUBLE}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {DOUBLE}
      * @param evalue The value of evalue as equal.
      */
     public void setEvalue_Equal(java.math.BigDecimal evalue) {
@@ -321,7 +321,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as notEqual.
      */
     public void setEvalue_NotEqual(java.math.BigDecimal evalue) {
@@ -329,7 +329,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as greaterThan.
      */
     public void setEvalue_GreaterThan(java.math.BigDecimal evalue) {
@@ -337,7 +337,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as lessThan.
      */
     public void setEvalue_LessThan(java.math.BigDecimal evalue) {
@@ -345,7 +345,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as greaterEqual.
      */
     public void setEvalue_GreaterEqual(java.math.BigDecimal evalue) {
@@ -353,7 +353,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as lessEqual.
      */
     public void setEvalue_LessEqual(java.math.BigDecimal evalue) {
@@ -369,25 +369,20 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setEvalue_IsNull() { regEvalue(CK_ISN, DUMMY_OBJECT); }
+    public void setEvalue_IsNull() { regEvalue(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setEvalue_IsNotNull() { regEvalue(CK_ISNN, DUMMY_OBJECT); }
+    public void setEvalue_IsNotNull() { regEvalue(CK_ISNN, DOBJ); }
 
-    protected void regEvalue(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueEvalue(), "EValue", "Evalue", "evalue");
-    }
-    protected void registerInlineEvalue(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueEvalue(), "EValue", "Evalue", "evalue");
-    }
+    protected void regEvalue(ConditionKey k, Object v) { regQ(k, v, getCValueEvalue(), "EValue"); }
     abstract protected ConditionValue getCValueEvalue();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param notes The value of notes as equal.
      */
     public void setNotes_Equal(String notes) {
@@ -395,7 +390,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as notEqual.
      */
     public void setNotes_NotEqual(String notes) {
@@ -403,7 +398,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterThan.
      */
     public void setNotes_GreaterThan(String notes) {
@@ -411,7 +406,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessThan.
      */
     public void setNotes_LessThan(String notes) {
@@ -419,7 +414,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterEqual.
      */
     public void setNotes_GreaterEqual(String notes) {
@@ -427,7 +422,7 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessEqual.
      */
     public void setNotes_LessEqual(String notes) {
@@ -435,20 +430,11 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as prefixSearch.
      */
     public void setNotes_PrefixSearch(String notes) {
         regNotes(CK_PS, fRES(notes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param notes The value of notes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNotes_LikeSearch(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", likeSearchOption);
     }
 
     /**
@@ -460,33 +446,41 @@ public abstract class AbstractBsTObjectrisksCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param notes The collection of notes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotes_InScope(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", inScopeOption);
+    public void setNotes_LikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotes_IsNull() { regNotes(CK_ISN, DUMMY_OBJECT); }
+    public void setNotes_NotLikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setNotes_IsNull() { regNotes(CK_ISN, DOBJ); }
 
-    protected void regNotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
-    protected void registerInlineNotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DOBJ); }
+
+    protected void regNotes(ConditionKey k, Object v) { regQ(k, v, getCValueNotes(), "Notes"); }
     abstract protected ConditionValue getCValueNotes();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TObjectrisksCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TObjectrisksCQ.class.getName(); }
+    String xCB() { return TObjectrisksCB.class.getName(); }
+    String xCQ() { return TObjectrisksCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

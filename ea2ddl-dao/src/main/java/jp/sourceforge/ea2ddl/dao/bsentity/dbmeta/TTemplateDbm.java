@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TTemplate;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_template. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TTemplateDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TTemplateDbm _instance = new TTemplateDbm();
     private TTemplateDbm() {}
     public static TTemplateDbm getInstance() { return _instance; }
@@ -29,12 +32,12 @@ public class TTemplateDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnTemplateid = cci("TemplateID", "templateid", String.class, false, 40, 0);
-    protected ColumnInfo _columnTemplatetype = cci("TemplateType", "templatetype", String.class, false, 50, 0);
-    protected ColumnInfo _columnTemplatename = cci("TemplateName", "templatename", String.class, false, 100, 0);
-    protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 255, 0);
-    protected ColumnInfo _columnStyle = cci("Style", "style", String.class, false, 255, 0);
-    protected ColumnInfo _columnTemplate = cci("Template", "template", String.class, false, 2147483647, 0);
+    protected ColumnInfo _columnTemplateid = cci("TemplateID", null, "templateid", String.class, false, false, 40, 0);
+    protected ColumnInfo _columnTemplatetype = cci("TemplateType", null, "templatetype", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnTemplatename = cci("TemplateName", null, "templatename", String.class, false, false, 100, 0);
+    protected ColumnInfo _columnNotes = cci("Notes", null, "notes", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnStyle = cci("Style", null, "style", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnTemplate = cci("Template", null, "template", String.class, false, false, 2147483647, 0);
 
     public ColumnInfo columnTemplateid() { return _columnTemplateid; }
     public ColumnInfo columnTemplatetype() { return _columnTemplatetype; }
@@ -42,23 +45,35 @@ public class TTemplateDbm extends AbstractDBMeta {
     public ColumnInfo columnNotes() { return _columnNotes; }
     public ColumnInfo columnStyle() { return _columnStyle; }
     public ColumnInfo columnTemplate() { return _columnTemplate; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -80,65 +95,29 @@ public class TTemplateDbm extends AbstractDBMeta {
     public TTemplate newMyEntity() { return new TTemplate(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TTemplate)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TTemplate)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TTemplate)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TTemplate)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -152,7 +131,7 @@ public class TTemplateDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TTemplate>> _epsMap = newHashMap();
+    protected Map<String, Eps<TTemplate>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsTemplateid(), columnTemplateid());
         setupEps(_epsMap, new EpsTemplatetype(), columnTemplatetype());
@@ -161,31 +140,21 @@ public class TTemplateDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsStyle(), columnStyle());
         setupEps(_epsMap, new EpsTemplate(), columnTemplate());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TTemplate)entity, value);
-    }
-    
-    public static class EpsTemplateid implements Eps<TTemplate> {
-        public void setup(TTemplate e, Object v) { e.setTemplateid((String)v); }
-    }
-    public static class EpsTemplatetype implements Eps<TTemplate> {
-        public void setup(TTemplate e, Object v) { e.setTemplatetype((String)v); }
-    }
-    public static class EpsTemplatename implements Eps<TTemplate> {
-        public void setup(TTemplate e, Object v) { e.setTemplatename((String)v); }
-    }
-    public static class EpsNotes implements Eps<TTemplate> {
-        public void setup(TTemplate e, Object v) { e.setNotes((String)v); }
-    }
-    public static class EpsStyle implements Eps<TTemplate> {
-        public void setup(TTemplate e, Object v) { e.setStyle((String)v); }
-    }
-    public static class EpsTemplate implements Eps<TTemplate> {
-        public void setup(TTemplate e, Object v) { e.setTemplate((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TTemplate)entity, value); }
+
+    public static class EpsTemplateid implements Eps<TTemplate>
+    { public void setup(TTemplate e, Object v) { e.setTemplateid((String)v); } }
+    public static class EpsTemplatetype implements Eps<TTemplate>
+    { public void setup(TTemplate e, Object v) { e.setTemplatetype((String)v); } }
+    public static class EpsTemplatename implements Eps<TTemplate>
+    { public void setup(TTemplate e, Object v) { e.setTemplatename((String)v); } }
+    public static class EpsNotes implements Eps<TTemplate>
+    { public void setup(TTemplate e, Object v) { e.setNotes((String)v); } }
+    public static class EpsStyle implements Eps<TTemplate>
+    { public void setup(TTemplate e, Object v) { e.setStyle((String)v); } }
+    public static class EpsTemplate implements Eps<TTemplate>
+    { public void setup(TTemplate e, Object v) { e.setTemplate((String)v); } }
 }

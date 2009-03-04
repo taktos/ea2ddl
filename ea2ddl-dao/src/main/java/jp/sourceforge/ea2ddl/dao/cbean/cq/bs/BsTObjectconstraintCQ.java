@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objectconstraint.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjectconstraintCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjectconstraintCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTObjectconstraintCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjectconstraintCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
         return _constraint;
     }
     protected ConditionValue getCValueConstraint() { return getConstraint(); }
-    
+
     public BsTObjectconstraintCQ addOrderBy_Constraint_Asc() { regOBA("Constraint"); return this; }
     public BsTObjectconstraintCQ addOrderBy_Constraint_Desc() { regOBD("Constraint"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
         return _constrainttype;
     }
     protected ConditionValue getCValueConstrainttype() { return getConstrainttype(); }
-    
+
     public BsTObjectconstraintCQ addOrderBy_Constrainttype_Asc() { regOBA("ConstraintType"); return this; }
     public BsTObjectconstraintCQ addOrderBy_Constrainttype_Desc() { regOBD("ConstraintType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
         return _weight;
     }
     protected ConditionValue getCValueWeight() { return getWeight(); }
-          
+
     public BsTObjectconstraintCQ addOrderBy_Weight_Asc() { regOBA("Weight"); return this; }
     public BsTObjectconstraintCQ addOrderBy_Weight_Desc() { regOBD("Weight"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTObjectconstraintCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTObjectconstraintCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
         return _status;
     }
     protected ConditionValue getCValueStatus() { return getStatus(); }
-    
+
     public BsTObjectconstraintCQ addOrderBy_Status_Asc() { regOBA("Status"); return this; }
     public BsTObjectconstraintCQ addOrderBy_Status_Desc() { regOBD("Status"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTObjectconstraintCQ extends AbstractBsTObjectconstraintCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjectconstraintCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjectconstraintCB.class.getName(); }
+    String xCQ() { return TObjectconstraintCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

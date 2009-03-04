@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_seclocks(TABLE).
+ * The entity of t_seclocks that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTSeclocks implements Entity, java.io.Serializable {
+public abstract class BsTSeclocks implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_seclocks. */
-    public static final String TABLE = "t_seclocks";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'UserID'. {VARCHAR(40)} */
+    /** UserID: {VARCHAR(40)} */
     protected String _userid;
 
-    /** The attribute of the column 'GroupID'. {VARCHAR(40)} */
+    /** GroupID: {VARCHAR(40)} */
     protected String _groupid;
 
-    /** The attribute of the column 'EntityType'. {VARCHAR(32)} */
+    /** EntityType: {VARCHAR(32)} */
     protected String _entitytype;
 
-    /** The attribute of the column 'EntityID'. {UQ : VARCHAR(40)} */
+    /** EntityID: {UQ : VARCHAR(40)} */
     protected String _entityid;
 
-    /** The attribute of the column 'Timestamp'. {DATETIME} */
+    /** Timestamp: {DATETIME} */
     protected java.sql.Timestamp _timestamp;
 
-    /** The attribute of the column 'LockType'. {VARCHAR(255)} */
+    /** LockType: {VARCHAR(255)} */
     protected String _locktype;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTSeclocks() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_seclocks";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TSeclocks";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String userid_COLUMN = "UserID";
-
     /**
-     * Get the value of the column 'UserID'. <br />
-     * {VARCHAR(40)}
+     * UserID: {VARCHAR(40)} <br />
      * @return The value of the column 'UserID'. (Nullable)
      */
     public String getUserid() {
@@ -221,8 +205,7 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'UserID'. <br />
-     * {VARCHAR(40)}
+     * UserID: {VARCHAR(40)} <br />
      * @param userid The value of the column 'UserID'. (Nullable)
      */
     public void setUserid(String userid) {
@@ -230,12 +213,8 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
         this._userid = userid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String groupid_COLUMN = "GroupID";
-
     /**
-     * Get the value of the column 'GroupID'. <br />
-     * {VARCHAR(40)}
+     * GroupID: {VARCHAR(40)} <br />
      * @return The value of the column 'GroupID'. (Nullable)
      */
     public String getGroupid() {
@@ -243,8 +222,7 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GroupID'. <br />
-     * {VARCHAR(40)}
+     * GroupID: {VARCHAR(40)} <br />
      * @param groupid The value of the column 'GroupID'. (Nullable)
      */
     public void setGroupid(String groupid) {
@@ -252,12 +230,8 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
         this._groupid = groupid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(32)} */
-    public static final String entitytype_COLUMN = "EntityType";
-
     /**
-     * Get the value of the column 'EntityType'. <br />
-     * {VARCHAR(32)}
+     * EntityType: {VARCHAR(32)} <br />
      * @return The value of the column 'EntityType'. (Nullable)
      */
     public String getEntitytype() {
@@ -265,8 +239,7 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'EntityType'. <br />
-     * {VARCHAR(32)}
+     * EntityType: {VARCHAR(32)} <br />
      * @param entitytype The value of the column 'EntityType'. (Nullable)
      */
     public void setEntitytype(String entitytype) {
@@ -274,12 +247,8 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
         this._entitytype = entitytype;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String entityid_COLUMN = "EntityID";
-
     /**
-     * Get the value of the column 'EntityID'. <br />
-     * {UQ : VARCHAR(40)}
+     * EntityID: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'EntityID'. (Nullable)
      */
     public String getEntityid() {
@@ -287,8 +256,7 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'EntityID'. <br />
-     * {UQ : VARCHAR(40)}
+     * EntityID: {UQ : VARCHAR(40)} <br />
      * @param entityid The value of the column 'EntityID'. (Nullable)
      */
     public void setEntityid(String entityid) {
@@ -296,12 +264,8 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
         this._entityid = entityid;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String timestamp_COLUMN = "Timestamp";
-
     /**
-     * Get the value of the column 'Timestamp'. <br />
-     * {DATETIME}
+     * Timestamp: {DATETIME} <br />
      * @return The value of the column 'Timestamp'. (Nullable)
      */
     public java.sql.Timestamp getTimestamp() {
@@ -309,8 +273,7 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Timestamp'. <br />
-     * {DATETIME}
+     * Timestamp: {DATETIME} <br />
      * @param timestamp The value of the column 'Timestamp'. (Nullable)
      */
     public void setTimestamp(java.sql.Timestamp timestamp) {
@@ -318,12 +281,8 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
         this._timestamp = timestamp;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String locktype_COLUMN = "LockType";
-
     /**
-     * Get the value of the column 'LockType'. <br />
-     * {VARCHAR(255)}
+     * LockType: {VARCHAR(255)} <br />
      * @return The value of the column 'LockType'. (Nullable)
      */
     public String getLocktype() {
@@ -331,13 +290,11 @@ public abstract class BsTSeclocks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'LockType'. <br />
-     * {VARCHAR(255)}
+     * LockType: {VARCHAR(255)} <br />
      * @param locktype The value of the column 'LockType'. (Nullable)
      */
     public void setLocktype(String locktype) {
         _modifiedProperties.addPropertyName("locktype");
         this._locktype = locktype;
     }
-
 }

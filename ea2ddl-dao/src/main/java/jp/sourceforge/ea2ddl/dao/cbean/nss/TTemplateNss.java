@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TTemplateCQ;
 
 /**
- * The nest-select-setupper of t_template.
+ * The nest select set-upper of t_template.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TTemplateNss {
 
     protected TTemplateCQ _query;

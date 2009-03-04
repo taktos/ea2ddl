@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TDatatypes;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_datatypes. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TDatatypesDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TDatatypesDbm _instance = new TDatatypesDbm();
     private TDatatypesDbm() {}
     public static TDatatypesDbm getInstance() { return _instance; }
@@ -29,24 +32,24 @@ public class TDatatypesDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnType = cci("Type", "type", String.class, false, 50, 0);
-    protected ColumnInfo _columnProductname = cci("ProductName", "productname", String.class, false, 50, 0);
-    protected ColumnInfo _columnDatatype = cci("DataType", "datatype", String.class, false, 50, 0);
-    protected ColumnInfo _columnSize = cci("Size", "size", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnMaxlen = cci("MaxLen", "maxlen", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnMaxprec = cci("MaxPrec", "maxprec", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnMaxscale = cci("MaxScale", "maxscale", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnDefaultlen = cci("DefaultLen", "defaultlen", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnDefaultprec = cci("DefaultPrec", "defaultprec", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnDefaultscale = cci("DefaultScale", "defaultscale", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnUser = cci("User", "user", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnPdata1 = cci("PDATA1", "pdata1", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata2 = cci("PDATA2", "pdata2", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata3 = cci("PDATA3", "pdata3", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata4 = cci("PDATA4", "pdata4", String.class, false, 255, 0);
-    protected ColumnInfo _columnHaslength = cci("HasLength", "haslength", String.class, false, 50, 0);
-    protected ColumnInfo _columnGenerictype = cci("GenericType", "generictype", String.class, false, 255, 0);
-    protected ColumnInfo _columnDatatypeid = cci("DatatypeID", "datatypeid", java.lang.Integer.class, false, null, null);
+    protected ColumnInfo _columnType = cci("Type", null, "type", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnProductname = cci("ProductName", null, "productname", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnDatatype = cci("DataType", null, "datatype", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnSize = cci("Size", null, "size", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnMaxlen = cci("MaxLen", null, "maxlen", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnMaxprec = cci("MaxPrec", null, "maxprec", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnMaxscale = cci("MaxScale", null, "maxscale", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnDefaultlen = cci("DefaultLen", null, "defaultlen", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnDefaultprec = cci("DefaultPrec", null, "defaultprec", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnDefaultscale = cci("DefaultScale", null, "defaultscale", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnUser = cci("User", null, "user", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnPdata1 = cci("PDATA1", null, "pdata1", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata2 = cci("PDATA2", null, "pdata2", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata3 = cci("PDATA3", null, "pdata3", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata4 = cci("PDATA4", null, "pdata4", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnHaslength = cci("HasLength", null, "haslength", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnGenerictype = cci("GenericType", null, "generictype", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnDatatypeid = cci("DatatypeID", null, "datatypeid", java.lang.Integer.class, false, false, null, null);
 
     public ColumnInfo columnType() { return _columnType; }
     public ColumnInfo columnProductname() { return _columnProductname; }
@@ -66,23 +69,35 @@ public class TDatatypesDbm extends AbstractDBMeta {
     public ColumnInfo columnHaslength() { return _columnHaslength; }
     public ColumnInfo columnGenerictype() { return _columnGenerictype; }
     public ColumnInfo columnDatatypeid() { return _columnDatatypeid; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -104,65 +119,29 @@ public class TDatatypesDbm extends AbstractDBMeta {
     public TDatatypes newMyEntity() { return new TDatatypes(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TDatatypes)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TDatatypes)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TDatatypes)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TDatatypes)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -176,7 +155,7 @@ public class TDatatypesDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TDatatypes>> _epsMap = newHashMap();
+    protected Map<String, Eps<TDatatypes>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsType(), columnType());
         setupEps(_epsMap, new EpsProductname(), columnProductname());
@@ -197,67 +176,45 @@ public class TDatatypesDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsGenerictype(), columnGenerictype());
         setupEps(_epsMap, new EpsDatatypeid(), columnDatatypeid());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TDatatypes)entity, value);
-    }
-    
-    public static class EpsType implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setType((String)v); }
-    }
-    public static class EpsProductname implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setProductname((String)v); }
-    }
-    public static class EpsDatatype implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setDatatype((String)v); }
-    }
-    public static class EpsSize implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setSize((java.lang.Integer)v); }
-    }
-    public static class EpsMaxlen implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setMaxlen((java.lang.Integer)v); }
-    }
-    public static class EpsMaxprec implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setMaxprec((java.lang.Integer)v); }
-    }
-    public static class EpsMaxscale implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setMaxscale((java.lang.Integer)v); }
-    }
-    public static class EpsDefaultlen implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setDefaultlen((java.lang.Integer)v); }
-    }
-    public static class EpsDefaultprec implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setDefaultprec((java.lang.Integer)v); }
-    }
-    public static class EpsDefaultscale implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setDefaultscale((java.lang.Integer)v); }
-    }
-    public static class EpsUser implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setUser((java.lang.Integer)v); }
-    }
-    public static class EpsPdata1 implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setPdata1((String)v); }
-    }
-    public static class EpsPdata2 implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setPdata2((String)v); }
-    }
-    public static class EpsPdata3 implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setPdata3((String)v); }
-    }
-    public static class EpsPdata4 implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setPdata4((String)v); }
-    }
-    public static class EpsHaslength implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setHaslength((String)v); }
-    }
-    public static class EpsGenerictype implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setGenerictype((String)v); }
-    }
-    public static class EpsDatatypeid implements Eps<TDatatypes> {
-        public void setup(TDatatypes e, Object v) { e.setDatatypeid((java.lang.Integer)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TDatatypes)entity, value); }
+
+    public static class EpsType implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setType((String)v); } }
+    public static class EpsProductname implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setProductname((String)v); } }
+    public static class EpsDatatype implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setDatatype((String)v); } }
+    public static class EpsSize implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setSize((java.lang.Integer)v); } }
+    public static class EpsMaxlen implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setMaxlen((java.lang.Integer)v); } }
+    public static class EpsMaxprec implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setMaxprec((java.lang.Integer)v); } }
+    public static class EpsMaxscale implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setMaxscale((java.lang.Integer)v); } }
+    public static class EpsDefaultlen implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setDefaultlen((java.lang.Integer)v); } }
+    public static class EpsDefaultprec implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setDefaultprec((java.lang.Integer)v); } }
+    public static class EpsDefaultscale implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setDefaultscale((java.lang.Integer)v); } }
+    public static class EpsUser implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setUser((java.lang.Integer)v); } }
+    public static class EpsPdata1 implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setPdata1((String)v); } }
+    public static class EpsPdata2 implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setPdata2((String)v); } }
+    public static class EpsPdata3 implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setPdata3((String)v); } }
+    public static class EpsPdata4 implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setPdata4((String)v); } }
+    public static class EpsHaslength implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setHaslength((String)v); } }
+    public static class EpsGenerictype implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setGenerictype((String)v); } }
+    public static class EpsDatatypeid implements Eps<TDatatypes>
+    { public void setup(TDatatypes e, Object v) { e.setDatatypeid((java.lang.Integer)v); } }
 }

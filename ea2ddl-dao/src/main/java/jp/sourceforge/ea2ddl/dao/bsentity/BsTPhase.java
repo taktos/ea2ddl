@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_phase(TABLE).
+ * The entity of t_phase that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTPhase implements Entity, java.io.Serializable {
+public abstract class BsTPhase implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,35 +47,31 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_phase. */
-    public static final String TABLE = "t_phase";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'PhaseID'. {UQ : VARCHAR(40)} */
+    /** PhaseID: {UQ : VARCHAR(40)} */
     protected String _phaseid;
 
-    /** The attribute of the column 'PhaseName'. {VARCHAR(100)} */
+    /** PhaseName: {VARCHAR(100)} */
     protected String _phasename;
 
-    /** The attribute of the column 'PhaseNotes'. {LONGCHAR(2147483647)} */
+    /** PhaseNotes: {LONGCHAR(2147483647)} */
     protected String _phasenotes;
 
-    /** The attribute of the column 'PhaseStyle'. {VARCHAR(255)} */
+    /** PhaseStyle: {VARCHAR(255)} */
     protected String _phasestyle;
 
-    /** The attribute of the column 'StartDate'. {DATETIME} */
+    /** StartDate: {DATETIME} */
     protected java.sql.Timestamp _startdate;
 
-    /** The attribute of the column 'EndDate'. {DATETIME} */
+    /** EndDate: {DATETIME} */
     protected java.sql.Timestamp _enddate;
 
-    /** The attribute of the column 'PhaseContent'. {LONGCHAR(2147483647)} */
+    /** PhaseContent: {LONGCHAR(2147483647)} */
     protected String _phasecontent;
 
     // -----------------------------------------------------
@@ -85,19 +81,13 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTPhase() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_phase";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TPhase";
     }
 
@@ -123,7 +113,6 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -213,13 +202,8 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String phaseid_COLUMN = "PhaseID";
-
     /**
-     * Get the value of the column 'PhaseID'. <br />
-     * {UQ : VARCHAR(40)}
+     * PhaseID: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'PhaseID'. (Nullable)
      */
     public String getPhaseid() {
@@ -227,8 +211,7 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PhaseID'. <br />
-     * {UQ : VARCHAR(40)}
+     * PhaseID: {UQ : VARCHAR(40)} <br />
      * @param phaseid The value of the column 'PhaseID'. (Nullable)
      */
     public void setPhaseid(String phaseid) {
@@ -236,12 +219,8 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
         this._phaseid = phaseid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String phasename_COLUMN = "PhaseName";
-
     /**
-     * Get the value of the column 'PhaseName'. <br />
-     * {VARCHAR(100)}
+     * PhaseName: {VARCHAR(100)} <br />
      * @return The value of the column 'PhaseName'. (Nullable)
      */
     public String getPhasename() {
@@ -249,8 +228,7 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PhaseName'. <br />
-     * {VARCHAR(100)}
+     * PhaseName: {VARCHAR(100)} <br />
      * @param phasename The value of the column 'PhaseName'. (Nullable)
      */
     public void setPhasename(String phasename) {
@@ -258,12 +236,8 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
         this._phasename = phasename;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String phasenotes_COLUMN = "PhaseNotes";
-
     /**
-     * Get the value of the column 'PhaseNotes'. <br />
-     * {LONGCHAR(2147483647)}
+     * PhaseNotes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'PhaseNotes'. (Nullable)
      */
     public String getPhasenotes() {
@@ -271,8 +245,7 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PhaseNotes'. <br />
-     * {LONGCHAR(2147483647)}
+     * PhaseNotes: {LONGCHAR(2147483647)} <br />
      * @param phasenotes The value of the column 'PhaseNotes'. (Nullable)
      */
     public void setPhasenotes(String phasenotes) {
@@ -280,12 +253,8 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
         this._phasenotes = phasenotes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String phasestyle_COLUMN = "PhaseStyle";
-
     /**
-     * Get the value of the column 'PhaseStyle'. <br />
-     * {VARCHAR(255)}
+     * PhaseStyle: {VARCHAR(255)} <br />
      * @return The value of the column 'PhaseStyle'. (Nullable)
      */
     public String getPhasestyle() {
@@ -293,8 +262,7 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PhaseStyle'. <br />
-     * {VARCHAR(255)}
+     * PhaseStyle: {VARCHAR(255)} <br />
      * @param phasestyle The value of the column 'PhaseStyle'. (Nullable)
      */
     public void setPhasestyle(String phasestyle) {
@@ -302,12 +270,8 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
         this._phasestyle = phasestyle;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String startdate_COLUMN = "StartDate";
-
     /**
-     * Get the value of the column 'StartDate'. <br />
-     * {DATETIME}
+     * StartDate: {DATETIME} <br />
      * @return The value of the column 'StartDate'. (Nullable)
      */
     public java.sql.Timestamp getStartdate() {
@@ -315,8 +279,7 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StartDate'. <br />
-     * {DATETIME}
+     * StartDate: {DATETIME} <br />
      * @param startdate The value of the column 'StartDate'. (Nullable)
      */
     public void setStartdate(java.sql.Timestamp startdate) {
@@ -324,12 +287,8 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
         this._startdate = startdate;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String enddate_COLUMN = "EndDate";
-
     /**
-     * Get the value of the column 'EndDate'. <br />
-     * {DATETIME}
+     * EndDate: {DATETIME} <br />
      * @return The value of the column 'EndDate'. (Nullable)
      */
     public java.sql.Timestamp getEnddate() {
@@ -337,8 +296,7 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'EndDate'. <br />
-     * {DATETIME}
+     * EndDate: {DATETIME} <br />
      * @param enddate The value of the column 'EndDate'. (Nullable)
      */
     public void setEnddate(java.sql.Timestamp enddate) {
@@ -346,12 +304,8 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
         this._enddate = enddate;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String phasecontent_COLUMN = "PhaseContent";
-
     /**
-     * Get the value of the column 'PhaseContent'. <br />
-     * {LONGCHAR(2147483647)}
+     * PhaseContent: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'PhaseContent'. (Nullable)
      */
     public String getPhasecontent() {
@@ -359,13 +313,11 @@ public abstract class BsTPhase implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PhaseContent'. <br />
-     * {LONGCHAR(2147483647)}
+     * PhaseContent: {LONGCHAR(2147483647)} <br />
      * @param phasecontent The value of the column 'PhaseContent'. (Nullable)
      */
     public void setPhasecontent(String phasecontent) {
         _modifiedProperties.addPropertyName("phasecontent");
         this._phasecontent = phasecontent;
     }
-
 }

@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_authors.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTAuthorsCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(255)}
      * @param authorname The value of authorname as equal.
      */
     public void setAuthorname_Equal(String authorname) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param authorname The value of authorname as notEqual.
      */
     public void setAuthorname_NotEqual(String authorname) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param authorname The value of authorname as greaterThan.
      */
     public void setAuthorname_GreaterThan(String authorname) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param authorname The value of authorname as lessThan.
      */
     public void setAuthorname_LessThan(String authorname) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param authorname The value of authorname as greaterEqual.
      */
     public void setAuthorname_GreaterEqual(String authorname) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param authorname The value of authorname as lessEqual.
      */
     public void setAuthorname_LessEqual(String authorname) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param authorname The value of authorname as prefixSearch.
      */
     public void setAuthorname_PrefixSearch(String authorname) {
         regAuthorname(CK_PS, fRES(authorname));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param authorname The value of authorname as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setAuthorname_LikeSearch(String authorname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(authorname), getCValueAuthorname(), "AuthorName", "Authorname", "authorname", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param authorname The collection of authorname as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param authorname The value of authorname as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setAuthorname_InScope(String authorname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(authorname), getCValueAuthorname(), "AuthorName", "Authorname", "authorname", inScopeOption);
+    public void setAuthorname_LikeSearch(String authorname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(authorname), getCValueAuthorname(), "AuthorName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param authorname The value of authorname as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setAuthorname_IsNull() { regAuthorname(CK_ISN, DUMMY_OBJECT); }
+    public void setAuthorname_NotLikeSearch(String authorname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(authorname), getCValueAuthorname(), "AuthorName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setAuthorname_IsNotNull() { regAuthorname(CK_ISNN, DUMMY_OBJECT); }
+    public void setAuthorname_IsNull() { regAuthorname(CK_ISN, DOBJ); }
 
-    protected void regAuthorname(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueAuthorname(), "AuthorName", "Authorname", "authorname");
-    }
-    protected void registerInlineAuthorname(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueAuthorname(), "AuthorName", "Authorname", "authorname");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setAuthorname_IsNotNull() { regAuthorname(CK_ISNN, DOBJ); }
+
+    protected void regAuthorname(ConditionKey k, Object v) { regQ(k, v, getCValueAuthorname(), "AuthorName"); }
     abstract protected ConditionValue getCValueAuthorname();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param roles The value of roles as equal.
      */
     public void setRoles_Equal(String roles) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as notEqual.
      */
     public void setRoles_NotEqual(String roles) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as greaterThan.
      */
     public void setRoles_GreaterThan(String roles) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as lessThan.
      */
     public void setRoles_LessThan(String roles) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as greaterEqual.
      */
     public void setRoles_GreaterEqual(String roles) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as lessEqual.
      */
     public void setRoles_LessEqual(String roles) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as prefixSearch.
      */
     public void setRoles_PrefixSearch(String roles) {
         regRoles(CK_PS, fRES(roles));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param roles The value of roles as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setRoles_LikeSearch(String roles, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(roles), getCValueRoles(), "Roles", "Roles", "roles", likeSearchOption);
     }
 
     /**
@@ -212,34 +213,38 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param roles The collection of roles as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param roles The value of roles as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setRoles_InScope(String roles, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(roles), getCValueRoles(), "Roles", "Roles", "roles", inScopeOption);
+    public void setRoles_LikeSearch(String roles, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(roles), getCValueRoles(), "Roles", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param roles The value of roles as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setRoles_IsNull() { regRoles(CK_ISN, DUMMY_OBJECT); }
+    public void setRoles_NotLikeSearch(String roles, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(roles), getCValueRoles(), "Roles", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRoles_IsNotNull() { regRoles(CK_ISNN, DUMMY_OBJECT); }
+    public void setRoles_IsNull() { regRoles(CK_ISN, DOBJ); }
 
-    protected void regRoles(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRoles(), "Roles", "Roles", "roles");
-    }
-    protected void registerInlineRoles(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRoles(), "Roles", "Roles", "roles");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setRoles_IsNotNull() { regRoles(CK_ISNN, DOBJ); }
+
+    protected void regRoles(ConditionKey k, Object v) { regQ(k, v, getCValueRoles(), "Roles"); }
     abstract protected ConditionValue getCValueRoles();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param notes The value of notes as equal.
      */
     public void setNotes_Equal(String notes) {
@@ -247,7 +252,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as notEqual.
      */
     public void setNotes_NotEqual(String notes) {
@@ -255,7 +260,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterThan.
      */
     public void setNotes_GreaterThan(String notes) {
@@ -263,7 +268,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessThan.
      */
     public void setNotes_LessThan(String notes) {
@@ -271,7 +276,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterEqual.
      */
     public void setNotes_GreaterEqual(String notes) {
@@ -279,7 +284,7 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessEqual.
      */
     public void setNotes_LessEqual(String notes) {
@@ -287,20 +292,11 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as prefixSearch.
      */
     public void setNotes_PrefixSearch(String notes) {
         regNotes(CK_PS, fRES(notes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param notes The value of notes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNotes_LikeSearch(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", likeSearchOption);
     }
 
     /**
@@ -312,33 +308,41 @@ public abstract class AbstractBsTAuthorsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param notes The collection of notes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotes_InScope(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", inScopeOption);
+    public void setNotes_LikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotes_IsNull() { regNotes(CK_ISN, DUMMY_OBJECT); }
+    public void setNotes_NotLikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setNotes_IsNull() { regNotes(CK_ISN, DOBJ); }
 
-    protected void regNotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
-    protected void registerInlineNotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DOBJ); }
+
+    protected void regNotes(ConditionKey k, Object v) { regQ(k, v, getCValueNotes(), "Notes"); }
     abstract protected ConditionValue getCValueNotes();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TAuthorsCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TAuthorsCQ.class.getName(); }
+    String xCB() { return TAuthorsCB.class.getName(); }
+    String xCQ() { return TAuthorsCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

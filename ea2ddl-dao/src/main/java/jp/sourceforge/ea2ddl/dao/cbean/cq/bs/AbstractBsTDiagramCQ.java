@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_diagram.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTDiagramCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : NotNull : COUNTER}
      * @param diagramId The value of diagramId as equal.
      */
     public void setDiagramId_Equal(java.lang.Integer diagramId) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as notEqual.
      */
     public void setDiagramId_NotEqual(java.lang.Integer diagramId) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as greaterThan.
      */
     public void setDiagramId_GreaterThan(java.lang.Integer diagramId) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as lessThan.
      */
     public void setDiagramId_LessThan(java.lang.Integer diagramId) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as greaterEqual.
      */
     public void setDiagramId_GreaterEqual(java.lang.Integer diagramId) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as lessEqual.
      */
     public void setDiagramId_LessEqual(java.lang.Integer diagramId) {
@@ -94,16 +109,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
         regDiagramId(CK_INS, cTL(diagramIdList));
     }
 
-    protected void regDiagramId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDiagramId(), "Diagram_ID", "DiagramId", "diagramId");
-    }
-    protected void registerInlineDiagramId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDiagramId(), "Diagram_ID", "DiagramId", "diagramId");
-    }
+    protected void regDiagramId(ConditionKey k, Object v) { regQ(k, v, getCValueDiagramId(), "Diagram_ID"); }
     abstract protected ConditionValue getCValueDiagramId();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param packageId The value of packageId as equal.
      */
     public void setPackageId_Equal(java.lang.Integer packageId) {
@@ -111,7 +121,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as notEqual.
      */
     public void setPackageId_NotEqual(java.lang.Integer packageId) {
@@ -119,7 +129,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as greaterThan.
      */
     public void setPackageId_GreaterThan(java.lang.Integer packageId) {
@@ -127,7 +137,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as lessThan.
      */
     public void setPackageId_LessThan(java.lang.Integer packageId) {
@@ -135,7 +145,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as greaterEqual.
      */
     public void setPackageId_GreaterEqual(java.lang.Integer packageId) {
@@ -143,7 +153,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as lessEqual.
      */
     public void setPackageId_LessEqual(java.lang.Integer packageId) {
@@ -159,25 +169,20 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPackageId_IsNull() { regPackageId(CK_ISN, DUMMY_OBJECT); }
+    public void setPackageId_IsNull() { regPackageId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setPackageId_IsNotNull() { regPackageId(CK_ISNN, DUMMY_OBJECT); }
+    public void setPackageId_IsNotNull() { regPackageId(CK_ISNN, DOBJ); }
 
-    protected void regPackageId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePackageId(), "Package_ID", "PackageId", "packageId");
-    }
-    protected void registerInlinePackageId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePackageId(), "Package_ID", "PackageId", "packageId");
-    }
+    protected void regPackageId(ConditionKey k, Object v) { regQ(k, v, getCValuePackageId(), "Package_ID"); }
     abstract protected ConditionValue getCValuePackageId();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param parentid The value of parentid as equal.
      */
     public void setParentid_Equal(java.lang.Integer parentid) {
@@ -185,7 +190,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param parentid The value of parentid as notEqual.
      */
     public void setParentid_NotEqual(java.lang.Integer parentid) {
@@ -193,7 +198,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param parentid The value of parentid as greaterThan.
      */
     public void setParentid_GreaterThan(java.lang.Integer parentid) {
@@ -201,7 +206,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param parentid The value of parentid as lessThan.
      */
     public void setParentid_LessThan(java.lang.Integer parentid) {
@@ -209,7 +214,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param parentid The value of parentid as greaterEqual.
      */
     public void setParentid_GreaterEqual(java.lang.Integer parentid) {
@@ -217,7 +222,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param parentid The value of parentid as lessEqual.
      */
     public void setParentid_LessEqual(java.lang.Integer parentid) {
@@ -233,25 +238,20 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setParentid_IsNull() { regParentid(CK_ISN, DUMMY_OBJECT); }
+    public void setParentid_IsNull() { regParentid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setParentid_IsNotNull() { regParentid(CK_ISNN, DUMMY_OBJECT); }
+    public void setParentid_IsNotNull() { regParentid(CK_ISNN, DOBJ); }
 
-    protected void regParentid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueParentid(), "ParentID", "Parentid", "parentid");
-    }
-    protected void registerInlineParentid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueParentid(), "ParentID", "Parentid", "parentid");
-    }
+    protected void regParentid(ConditionKey k, Object v) { regQ(k, v, getCValueParentid(), "ParentID"); }
     abstract protected ConditionValue getCValueParentid();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param diagramType The value of diagramType as equal.
      */
     public void setDiagramType_Equal(String diagramType) {
@@ -259,7 +259,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as notEqual.
      */
     public void setDiagramType_NotEqual(String diagramType) {
@@ -267,7 +267,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as greaterThan.
      */
     public void setDiagramType_GreaterThan(String diagramType) {
@@ -275,7 +275,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as lessThan.
      */
     public void setDiagramType_LessThan(String diagramType) {
@@ -283,7 +283,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as greaterEqual.
      */
     public void setDiagramType_GreaterEqual(String diagramType) {
@@ -291,7 +291,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as lessEqual.
      */
     public void setDiagramType_LessEqual(String diagramType) {
@@ -299,20 +299,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as prefixSearch.
      */
     public void setDiagramType_PrefixSearch(String diagramType) {
         regDiagramType(CK_PS, fRES(diagramType));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param diagramType The value of diagramType as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setDiagramType_LikeSearch(String diagramType, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(diagramType), getCValueDiagramType(), "Diagram_Type", "DiagramType", "diagramType", likeSearchOption);
     }
 
     /**
@@ -324,34 +315,38 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param diagramType The collection of diagramType as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param diagramType The value of diagramType as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setDiagramType_InScope(String diagramType, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(diagramType), getCValueDiagramType(), "Diagram_Type", "DiagramType", "diagramType", inScopeOption);
+    public void setDiagramType_LikeSearch(String diagramType, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(diagramType), getCValueDiagramType(), "Diagram_Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param diagramType The value of diagramType as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setDiagramType_IsNull() { regDiagramType(CK_ISN, DUMMY_OBJECT); }
+    public void setDiagramType_NotLikeSearch(String diagramType, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(diagramType), getCValueDiagramType(), "Diagram_Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setDiagramType_IsNotNull() { regDiagramType(CK_ISNN, DUMMY_OBJECT); }
+    public void setDiagramType_IsNull() { regDiagramType(CK_ISN, DOBJ); }
 
-    protected void regDiagramType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDiagramType(), "Diagram_Type", "DiagramType", "diagramType");
-    }
-    protected void registerInlineDiagramType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDiagramType(), "Diagram_Type", "DiagramType", "diagramType");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setDiagramType_IsNotNull() { regDiagramType(CK_ISNN, DOBJ); }
+
+    protected void regDiagramType(ConditionKey k, Object v) { regQ(k, v, getCValueDiagramType(), "Diagram_Type"); }
     abstract protected ConditionValue getCValueDiagramType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param name The value of name as equal.
      */
     public void setName_Equal(String name) {
@@ -359,7 +354,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as notEqual.
      */
     public void setName_NotEqual(String name) {
@@ -367,7 +362,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterThan.
      */
     public void setName_GreaterThan(String name) {
@@ -375,7 +370,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessThan.
      */
     public void setName_LessThan(String name) {
@@ -383,7 +378,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterEqual.
      */
     public void setName_GreaterEqual(String name) {
@@ -391,7 +386,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessEqual.
      */
     public void setName_LessEqual(String name) {
@@ -399,20 +394,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as prefixSearch.
      */
     public void setName_PrefixSearch(String name) {
         regName(CK_PS, fRES(name));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param name The value of name as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setName_LikeSearch(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(name), getCValueName(), "Name", "Name", "name", likeSearchOption);
     }
 
     /**
@@ -424,34 +410,38 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param name The collection of name as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setName_InScope(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(name), getCValueName(), "Name", "Name", "name", inScopeOption);
+    public void setName_LikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(name), getCValueName(), "Name", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setName_IsNull() { regName(CK_ISN, DUMMY_OBJECT); }
+    public void setName_NotLikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(name), getCValueName(), "Name", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setName_IsNotNull() { regName(CK_ISNN, DUMMY_OBJECT); }
+    public void setName_IsNull() { regName(CK_ISN, DOBJ); }
 
-    protected void regName(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
-    protected void registerInlineName(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setName_IsNotNull() { regName(CK_ISNN, DOBJ); }
+
+    protected void regName(ConditionKey k, Object v) { regQ(k, v, getCValueName(), "Name"); }
     abstract protected ConditionValue getCValueName();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param version The value of version as equal.
      */
     public void setVersion_Equal(String version) {
@@ -459,7 +449,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param version The value of version as notEqual.
      */
     public void setVersion_NotEqual(String version) {
@@ -467,7 +457,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param version The value of version as greaterThan.
      */
     public void setVersion_GreaterThan(String version) {
@@ -475,7 +465,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param version The value of version as lessThan.
      */
     public void setVersion_LessThan(String version) {
@@ -483,7 +473,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param version The value of version as greaterEqual.
      */
     public void setVersion_GreaterEqual(String version) {
@@ -491,7 +481,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param version The value of version as lessEqual.
      */
     public void setVersion_LessEqual(String version) {
@@ -499,20 +489,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param version The value of version as prefixSearch.
      */
     public void setVersion_PrefixSearch(String version) {
         regVersion(CK_PS, fRES(version));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param version The value of version as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setVersion_LikeSearch(String version, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(version), getCValueVersion(), "Version", "Version", "version", likeSearchOption);
     }
 
     /**
@@ -524,34 +505,38 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param version The collection of version as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param version The value of version as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setVersion_InScope(String version, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(version), getCValueVersion(), "Version", "Version", "version", inScopeOption);
+    public void setVersion_LikeSearch(String version, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(version), getCValueVersion(), "Version", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param version The value of version as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setVersion_IsNull() { regVersion(CK_ISN, DUMMY_OBJECT); }
+    public void setVersion_NotLikeSearch(String version, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(version), getCValueVersion(), "Version", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setVersion_IsNotNull() { regVersion(CK_ISNN, DUMMY_OBJECT); }
+    public void setVersion_IsNull() { regVersion(CK_ISN, DOBJ); }
 
-    protected void regVersion(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueVersion(), "Version", "Version", "version");
-    }
-    protected void registerInlineVersion(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueVersion(), "Version", "Version", "version");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setVersion_IsNotNull() { regVersion(CK_ISNN, DOBJ); }
+
+    protected void regVersion(ConditionKey k, Object v) { regQ(k, v, getCValueVersion(), "Version"); }
     abstract protected ConditionValue getCValueVersion();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param author The value of author as equal.
      */
     public void setAuthor_Equal(String author) {
@@ -559,7 +544,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param author The value of author as notEqual.
      */
     public void setAuthor_NotEqual(String author) {
@@ -567,7 +552,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param author The value of author as greaterThan.
      */
     public void setAuthor_GreaterThan(String author) {
@@ -575,7 +560,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param author The value of author as lessThan.
      */
     public void setAuthor_LessThan(String author) {
@@ -583,7 +568,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param author The value of author as greaterEqual.
      */
     public void setAuthor_GreaterEqual(String author) {
@@ -591,7 +576,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param author The value of author as lessEqual.
      */
     public void setAuthor_LessEqual(String author) {
@@ -599,20 +584,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param author The value of author as prefixSearch.
      */
     public void setAuthor_PrefixSearch(String author) {
         regAuthor(CK_PS, fRES(author));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param author The value of author as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setAuthor_LikeSearch(String author, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(author), getCValueAuthor(), "Author", "Author", "author", likeSearchOption);
     }
 
     /**
@@ -624,34 +600,38 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param author The collection of author as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param author The value of author as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setAuthor_InScope(String author, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(author), getCValueAuthor(), "Author", "Author", "author", inScopeOption);
+    public void setAuthor_LikeSearch(String author, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(author), getCValueAuthor(), "Author", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param author The value of author as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setAuthor_IsNull() { regAuthor(CK_ISN, DUMMY_OBJECT); }
+    public void setAuthor_NotLikeSearch(String author, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(author), getCValueAuthor(), "Author", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setAuthor_IsNotNull() { regAuthor(CK_ISNN, DUMMY_OBJECT); }
+    public void setAuthor_IsNull() { regAuthor(CK_ISN, DOBJ); }
 
-    protected void regAuthor(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueAuthor(), "Author", "Author", "author");
-    }
-    protected void registerInlineAuthor(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueAuthor(), "Author", "Author", "author");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setAuthor_IsNotNull() { regAuthor(CK_ISNN, DOBJ); }
+
+    protected void regAuthor(ConditionKey k, Object v) { regQ(k, v, getCValueAuthor(), "Author"); }
     abstract protected ConditionValue getCValueAuthor();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param showdetails The value of showdetails as equal.
      */
     public void setShowdetails_Equal(java.lang.Integer showdetails) {
@@ -659,7 +639,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param showdetails The value of showdetails as notEqual.
      */
     public void setShowdetails_NotEqual(java.lang.Integer showdetails) {
@@ -667,7 +647,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param showdetails The value of showdetails as greaterThan.
      */
     public void setShowdetails_GreaterThan(java.lang.Integer showdetails) {
@@ -675,7 +655,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param showdetails The value of showdetails as lessThan.
      */
     public void setShowdetails_LessThan(java.lang.Integer showdetails) {
@@ -683,7 +663,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param showdetails The value of showdetails as greaterEqual.
      */
     public void setShowdetails_GreaterEqual(java.lang.Integer showdetails) {
@@ -691,7 +671,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param showdetails The value of showdetails as lessEqual.
      */
     public void setShowdetails_LessEqual(java.lang.Integer showdetails) {
@@ -707,25 +687,20 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setShowdetails_IsNull() { regShowdetails(CK_ISN, DUMMY_OBJECT); }
+    public void setShowdetails_IsNull() { regShowdetails(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setShowdetails_IsNotNull() { regShowdetails(CK_ISNN, DUMMY_OBJECT); }
+    public void setShowdetails_IsNotNull() { regShowdetails(CK_ISNN, DOBJ); }
 
-    protected void regShowdetails(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueShowdetails(), "ShowDetails", "Showdetails", "showdetails");
-    }
-    protected void registerInlineShowdetails(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueShowdetails(), "ShowDetails", "Showdetails", "showdetails");
-    }
+    protected void regShowdetails(ConditionKey k, Object v) { regQ(k, v, getCValueShowdetails(), "ShowDetails"); }
     abstract protected ConditionValue getCValueShowdetails();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param notes The value of notes as equal.
      */
     public void setNotes_Equal(String notes) {
@@ -733,7 +708,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as notEqual.
      */
     public void setNotes_NotEqual(String notes) {
@@ -741,7 +716,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterThan.
      */
     public void setNotes_GreaterThan(String notes) {
@@ -749,7 +724,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessThan.
      */
     public void setNotes_LessThan(String notes) {
@@ -757,7 +732,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterEqual.
      */
     public void setNotes_GreaterEqual(String notes) {
@@ -765,7 +740,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessEqual.
      */
     public void setNotes_LessEqual(String notes) {
@@ -773,20 +748,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as prefixSearch.
      */
     public void setNotes_PrefixSearch(String notes) {
         regNotes(CK_PS, fRES(notes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param notes The value of notes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNotes_LikeSearch(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", likeSearchOption);
     }
 
     /**
@@ -798,34 +764,38 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param notes The collection of notes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotes_InScope(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", inScopeOption);
+    public void setNotes_LikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotes_IsNull() { regNotes(CK_ISN, DUMMY_OBJECT); }
+    public void setNotes_NotLikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setNotes_IsNull() { regNotes(CK_ISN, DOBJ); }
 
-    protected void regNotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
-    protected void registerInlineNotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DOBJ); }
+
+    protected void regNotes(ConditionKey k, Object v) { regQ(k, v, getCValueNotes(), "Notes"); }
     abstract protected ConditionValue getCValueNotes();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param stereotype The value of stereotype as equal.
      */
     public void setStereotype_Equal(String stereotype) {
@@ -833,7 +803,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as notEqual.
      */
     public void setStereotype_NotEqual(String stereotype) {
@@ -841,7 +811,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as greaterThan.
      */
     public void setStereotype_GreaterThan(String stereotype) {
@@ -849,7 +819,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as lessThan.
      */
     public void setStereotype_LessThan(String stereotype) {
@@ -857,7 +827,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as greaterEqual.
      */
     public void setStereotype_GreaterEqual(String stereotype) {
@@ -865,7 +835,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as lessEqual.
      */
     public void setStereotype_LessEqual(String stereotype) {
@@ -873,20 +843,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as prefixSearch.
      */
     public void setStereotype_PrefixSearch(String stereotype) {
         regStereotype(CK_PS, fRES(stereotype));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param stereotype The value of stereotype as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setStereotype_LikeSearch(String stereotype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(stereotype), getCValueStereotype(), "Stereotype", "Stereotype", "stereotype", likeSearchOption);
     }
 
     /**
@@ -898,82 +859,71 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param stereotype The collection of stereotype as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param stereotype The value of stereotype as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStereotype_InScope(String stereotype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(stereotype), getCValueStereotype(), "Stereotype", "Stereotype", "stereotype", inScopeOption);
+    public void setStereotype_LikeSearch(String stereotype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(stereotype), getCValueStereotype(), "Stereotype", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param stereotype The value of stereotype as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStereotype_IsNull() { regStereotype(CK_ISN, DUMMY_OBJECT); }
+    public void setStereotype_NotLikeSearch(String stereotype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(stereotype), getCValueStereotype(), "Stereotype", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setStereotype_IsNotNull() { regStereotype(CK_ISNN, DUMMY_OBJECT); }
+    public void setStereotype_IsNull() { regStereotype(CK_ISN, DOBJ); }
 
-    protected void regStereotype(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueStereotype(), "Stereotype", "Stereotype", "stereotype");
-    }
-    protected void registerInlineStereotype(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueStereotype(), "Stereotype", "Stereotype", "stereotype");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setStereotype_IsNotNull() { regStereotype(CK_ISNN, DOBJ); }
+
+    protected void regStereotype(ConditionKey k, Object v) { regQ(k, v, getCValueStereotype(), "Stereotype"); }
     abstract protected ConditionValue getCValueStereotype();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param attpub The value of attpub as equal.
      */
     public void setAttpub_Equal(Boolean attpub) {
         regAttpub(CK_EQ, attpub);
     }
 
-    protected void regAttpub(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueAttpub(), "AttPub", "Attpub", "attpub");
-    }
-    protected void registerInlineAttpub(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueAttpub(), "AttPub", "Attpub", "attpub");
-    }
+    protected void regAttpub(ConditionKey k, Object v) { regQ(k, v, getCValueAttpub(), "AttPub"); }
     abstract protected ConditionValue getCValueAttpub();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param attpri The value of attpri as equal.
      */
     public void setAttpri_Equal(Boolean attpri) {
         regAttpri(CK_EQ, attpri);
     }
 
-    protected void regAttpri(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueAttpri(), "AttPri", "Attpri", "attpri");
-    }
-    protected void registerInlineAttpri(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueAttpri(), "AttPri", "Attpri", "attpri");
-    }
+    protected void regAttpri(ConditionKey k, Object v) { regQ(k, v, getCValueAttpri(), "AttPri"); }
     abstract protected ConditionValue getCValueAttpri();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param attpro The value of attpro as equal.
      */
     public void setAttpro_Equal(Boolean attpro) {
         regAttpro(CK_EQ, attpro);
     }
 
-    protected void regAttpro(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueAttpro(), "AttPro", "Attpro", "attpro");
-    }
-    protected void registerInlineAttpro(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueAttpro(), "AttPro", "Attpro", "attpro");
-    }
+    protected void regAttpro(ConditionKey k, Object v) { regQ(k, v, getCValueAttpro(), "AttPro"); }
     abstract protected ConditionValue getCValueAttpro();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(1)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(1)}
      * @param orientation The value of orientation as equal.
      */
     public void setOrientation_Equal(String orientation) {
@@ -981,7 +931,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param orientation The value of orientation as notEqual.
      */
     public void setOrientation_NotEqual(String orientation) {
@@ -989,7 +939,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param orientation The value of orientation as greaterThan.
      */
     public void setOrientation_GreaterThan(String orientation) {
@@ -997,7 +947,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param orientation The value of orientation as lessThan.
      */
     public void setOrientation_LessThan(String orientation) {
@@ -1005,7 +955,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param orientation The value of orientation as greaterEqual.
      */
     public void setOrientation_GreaterEqual(String orientation) {
@@ -1013,7 +963,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param orientation The value of orientation as lessEqual.
      */
     public void setOrientation_LessEqual(String orientation) {
@@ -1021,20 +971,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param orientation The value of orientation as prefixSearch.
      */
     public void setOrientation_PrefixSearch(String orientation) {
         regOrientation(CK_PS, fRES(orientation));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param orientation The value of orientation as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setOrientation_LikeSearch(String orientation, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(orientation), getCValueOrientation(), "Orientation", "Orientation", "orientation", likeSearchOption);
     }
 
     /**
@@ -1046,34 +987,38 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param orientation The collection of orientation as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param orientation The value of orientation as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setOrientation_InScope(String orientation, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(orientation), getCValueOrientation(), "Orientation", "Orientation", "orientation", inScopeOption);
+    public void setOrientation_LikeSearch(String orientation, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(orientation), getCValueOrientation(), "Orientation", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param orientation The value of orientation as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setOrientation_IsNull() { regOrientation(CK_ISN, DUMMY_OBJECT); }
+    public void setOrientation_NotLikeSearch(String orientation, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(orientation), getCValueOrientation(), "Orientation", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setOrientation_IsNotNull() { regOrientation(CK_ISNN, DUMMY_OBJECT); }
+    public void setOrientation_IsNull() { regOrientation(CK_ISN, DOBJ); }
 
-    protected void regOrientation(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueOrientation(), "Orientation", "Orientation", "orientation");
-    }
-    protected void registerInlineOrientation(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueOrientation(), "Orientation", "Orientation", "orientation");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setOrientation_IsNotNull() { regOrientation(CK_ISNN, DOBJ); }
+
+    protected void regOrientation(ConditionKey k, Object v) { regQ(k, v, getCValueOrientation(), "Orientation"); }
     abstract protected ConditionValue getCValueOrientation();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param cx The value of cx as equal.
      */
     public void setCx_Equal(java.lang.Integer cx) {
@@ -1081,7 +1026,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param cx The value of cx as notEqual.
      */
     public void setCx_NotEqual(java.lang.Integer cx) {
@@ -1089,7 +1034,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param cx The value of cx as greaterThan.
      */
     public void setCx_GreaterThan(java.lang.Integer cx) {
@@ -1097,7 +1042,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param cx The value of cx as lessThan.
      */
     public void setCx_LessThan(java.lang.Integer cx) {
@@ -1105,7 +1050,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param cx The value of cx as greaterEqual.
      */
     public void setCx_GreaterEqual(java.lang.Integer cx) {
@@ -1113,7 +1058,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param cx The value of cx as lessEqual.
      */
     public void setCx_LessEqual(java.lang.Integer cx) {
@@ -1129,25 +1074,20 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setCx_IsNull() { regCx(CK_ISN, DUMMY_OBJECT); }
+    public void setCx_IsNull() { regCx(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setCx_IsNotNull() { regCx(CK_ISNN, DUMMY_OBJECT); }
+    public void setCx_IsNotNull() { regCx(CK_ISNN, DOBJ); }
 
-    protected void regCx(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueCx(), "cx", "Cx", "cx");
-    }
-    protected void registerInlineCx(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueCx(), "cx", "Cx", "cx");
-    }
+    protected void regCx(ConditionKey k, Object v) { regQ(k, v, getCValueCx(), "cx"); }
     abstract protected ConditionValue getCValueCx();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param cy The value of cy as equal.
      */
     public void setCy_Equal(java.lang.Integer cy) {
@@ -1155,7 +1095,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param cy The value of cy as notEqual.
      */
     public void setCy_NotEqual(java.lang.Integer cy) {
@@ -1163,7 +1103,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param cy The value of cy as greaterThan.
      */
     public void setCy_GreaterThan(java.lang.Integer cy) {
@@ -1171,7 +1111,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param cy The value of cy as lessThan.
      */
     public void setCy_LessThan(java.lang.Integer cy) {
@@ -1179,7 +1119,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param cy The value of cy as greaterEqual.
      */
     public void setCy_GreaterEqual(java.lang.Integer cy) {
@@ -1187,7 +1127,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param cy The value of cy as lessEqual.
      */
     public void setCy_LessEqual(java.lang.Integer cy) {
@@ -1203,25 +1143,20 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setCy_IsNull() { regCy(CK_ISN, DUMMY_OBJECT); }
+    public void setCy_IsNull() { regCy(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setCy_IsNotNull() { regCy(CK_ISNN, DUMMY_OBJECT); }
+    public void setCy_IsNotNull() { regCy(CK_ISNN, DOBJ); }
 
-    protected void regCy(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueCy(), "cy", "Cy", "cy");
-    }
-    protected void registerInlineCy(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueCy(), "cy", "Cy", "cy");
-    }
+    protected void regCy(ConditionKey k, Object v) { regQ(k, v, getCValueCy(), "cy"); }
     abstract protected ConditionValue getCValueCy();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param scale The value of scale as equal.
      */
     public void setScale_Equal(java.lang.Integer scale) {
@@ -1229,7 +1164,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as notEqual.
      */
     public void setScale_NotEqual(java.lang.Integer scale) {
@@ -1237,7 +1172,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as greaterThan.
      */
     public void setScale_GreaterThan(java.lang.Integer scale) {
@@ -1245,7 +1180,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as lessThan.
      */
     public void setScale_LessThan(java.lang.Integer scale) {
@@ -1253,7 +1188,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as greaterEqual.
      */
     public void setScale_GreaterEqual(java.lang.Integer scale) {
@@ -1261,7 +1196,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as lessEqual.
      */
     public void setScale_LessEqual(java.lang.Integer scale) {
@@ -1277,25 +1212,20 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setScale_IsNull() { regScale(CK_ISN, DUMMY_OBJECT); }
+    public void setScale_IsNull() { regScale(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setScale_IsNotNull() { regScale(CK_ISNN, DUMMY_OBJECT); }
+    public void setScale_IsNotNull() { regScale(CK_ISNN, DOBJ); }
 
-    protected void regScale(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueScale(), "Scale", "Scale", "scale");
-    }
-    protected void registerInlineScale(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueScale(), "Scale", "Scale", "scale");
-    }
+    protected void regScale(ConditionKey k, Object v) { regQ(k, v, getCValueScale(), "Scale"); }
     abstract protected ConditionValue getCValueScale();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {DATETIME}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param createddate The value of createddate as equal.
      */
     public void setCreateddate_Equal(java.sql.Timestamp createddate) {
@@ -1303,7 +1233,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param createddate The value of createddate as greaterThan.
      */
     public void setCreateddate_GreaterThan(java.sql.Timestamp createddate) {
@@ -1311,7 +1241,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&gt;). And NullIgnored, OnceRegistered.
+     * LessThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param createddate The value of createddate as lessThan.
      */
     public void setCreateddate_LessThan(java.sql.Timestamp createddate) {
@@ -1319,7 +1249,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param createddate The value of createddate as greaterEqual.
      */
     public void setCreateddate_GreaterEqual(java.sql.Timestamp createddate) {
@@ -1327,7 +1257,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&gt;). And NullIgnored, OnceRegistered.
+     * LessEqual(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param createddate The value of createddate as lessEqual.
      */
     public void setCreateddate_LessEqual(java.sql.Timestamp createddate) {
@@ -1335,44 +1265,39 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo($fromDate &lt;= COLUMN_NAME &lt;= $toDate). And NullIgnored, OnceRegistered. {DATETIME}
+     * FromTo($fromDate &lt;= COLUMN_NAME &lt;= $toDate). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param fromDate The from-date of createddate. (Nullable)
      * @param toDate The to-date of createddate. (Nullable)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setCreateddate_FromTo(java.util.Date fromDate, java.util.Date toDate, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.FromToOption fromToOption) {
-        registerFromToQuery((fromDate != null ? new java.sql.Timestamp(fromDate.getTime()) : null), (toDate != null ? new java.sql.Timestamp(toDate.getTime()) : null), getCValueCreateddate(), "CreatedDate", "Createddate", "createddate", fromToOption);
+    public void setCreateddate_FromTo(java.util.Date fromDate, java.util.Date toDate, FromToOption fromToOption) {
+        regFTQ((fromDate != null ? new java.sql.Timestamp(fromDate.getTime()) : null), (toDate != null ? new java.sql.Timestamp(toDate.getTime()) : null), getCValueCreateddate(), "CreatedDate", fromToOption);
     }
 
     /**
-     * FromTo($fromDate &lt;= COLUMN_NAME &lt; $toDate + 1). And NullIgnored, OnceRegistered. {DATETIME}
+     * FromTo($fromDate &lt;= COLUMN_NAME &lt; $toDate + 1). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param fromDate The from-date of createddate. (Nullable)
      * @param toDate The to-date of createddate. (Nullable)
      */
     public void setCreateddate_DateFromTo(java.util.Date fromDate, java.util.Date toDate) {
-        setCreateddate_FromTo(fromDate, toDate, new jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.DateFromToOption());
+        setCreateddate_FromTo(fromDate, toDate, new DateFromToOption());
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setCreateddate_IsNull() { regCreateddate(CK_ISN, DUMMY_OBJECT); }
+    public void setCreateddate_IsNull() { regCreateddate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setCreateddate_IsNotNull() { regCreateddate(CK_ISNN, DUMMY_OBJECT); }
+    public void setCreateddate_IsNotNull() { regCreateddate(CK_ISNN, DOBJ); }
 
-    protected void regCreateddate(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueCreateddate(), "CreatedDate", "Createddate", "createddate");
-    }
-    protected void registerInlineCreateddate(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueCreateddate(), "CreatedDate", "Createddate", "createddate");
-    }
+    protected void regCreateddate(ConditionKey k, Object v) { regQ(k, v, getCValueCreateddate(), "CreatedDate"); }
     abstract protected ConditionValue getCValueCreateddate();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {DATETIME}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param modifieddate The value of modifieddate as equal.
      */
     public void setModifieddate_Equal(java.sql.Timestamp modifieddate) {
@@ -1380,7 +1305,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param modifieddate The value of modifieddate as greaterThan.
      */
     public void setModifieddate_GreaterThan(java.sql.Timestamp modifieddate) {
@@ -1388,7 +1313,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&gt;). And NullIgnored, OnceRegistered.
+     * LessThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param modifieddate The value of modifieddate as lessThan.
      */
     public void setModifieddate_LessThan(java.sql.Timestamp modifieddate) {
@@ -1396,7 +1321,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param modifieddate The value of modifieddate as greaterEqual.
      */
     public void setModifieddate_GreaterEqual(java.sql.Timestamp modifieddate) {
@@ -1404,7 +1329,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&gt;). And NullIgnored, OnceRegistered.
+     * LessEqual(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param modifieddate The value of modifieddate as lessEqual.
      */
     public void setModifieddate_LessEqual(java.sql.Timestamp modifieddate) {
@@ -1412,44 +1337,39 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo($fromDate &lt;= COLUMN_NAME &lt;= $toDate). And NullIgnored, OnceRegistered. {DATETIME}
+     * FromTo($fromDate &lt;= COLUMN_NAME &lt;= $toDate). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param fromDate The from-date of modifieddate. (Nullable)
      * @param toDate The to-date of modifieddate. (Nullable)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setModifieddate_FromTo(java.util.Date fromDate, java.util.Date toDate, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.FromToOption fromToOption) {
-        registerFromToQuery((fromDate != null ? new java.sql.Timestamp(fromDate.getTime()) : null), (toDate != null ? new java.sql.Timestamp(toDate.getTime()) : null), getCValueModifieddate(), "ModifiedDate", "Modifieddate", "modifieddate", fromToOption);
+    public void setModifieddate_FromTo(java.util.Date fromDate, java.util.Date toDate, FromToOption fromToOption) {
+        regFTQ((fromDate != null ? new java.sql.Timestamp(fromDate.getTime()) : null), (toDate != null ? new java.sql.Timestamp(toDate.getTime()) : null), getCValueModifieddate(), "ModifiedDate", fromToOption);
     }
 
     /**
-     * FromTo($fromDate &lt;= COLUMN_NAME &lt; $toDate + 1). And NullIgnored, OnceRegistered. {DATETIME}
+     * FromTo($fromDate &lt;= COLUMN_NAME &lt; $toDate + 1). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param fromDate The from-date of modifieddate. (Nullable)
      * @param toDate The to-date of modifieddate. (Nullable)
      */
     public void setModifieddate_DateFromTo(java.util.Date fromDate, java.util.Date toDate) {
-        setModifieddate_FromTo(fromDate, toDate, new jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.DateFromToOption());
+        setModifieddate_FromTo(fromDate, toDate, new DateFromToOption());
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setModifieddate_IsNull() { regModifieddate(CK_ISN, DUMMY_OBJECT); }
+    public void setModifieddate_IsNull() { regModifieddate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setModifieddate_IsNotNull() { regModifieddate(CK_ISNN, DUMMY_OBJECT); }
+    public void setModifieddate_IsNotNull() { regModifieddate(CK_ISNN, DOBJ); }
 
-    protected void regModifieddate(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueModifieddate(), "ModifiedDate", "Modifieddate", "modifieddate");
-    }
-    protected void registerInlineModifieddate(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueModifieddate(), "ModifiedDate", "Modifieddate", "modifieddate");
-    }
+    protected void regModifieddate(ConditionKey k, Object v) { regQ(k, v, getCValueModifieddate(), "ModifiedDate"); }
     abstract protected ConditionValue getCValueModifieddate();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param htmlpath The value of htmlpath as equal.
      */
     public void setHtmlpath_Equal(String htmlpath) {
@@ -1457,7 +1377,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param htmlpath The value of htmlpath as notEqual.
      */
     public void setHtmlpath_NotEqual(String htmlpath) {
@@ -1465,7 +1385,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param htmlpath The value of htmlpath as greaterThan.
      */
     public void setHtmlpath_GreaterThan(String htmlpath) {
@@ -1473,7 +1393,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param htmlpath The value of htmlpath as lessThan.
      */
     public void setHtmlpath_LessThan(String htmlpath) {
@@ -1481,7 +1401,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param htmlpath The value of htmlpath as greaterEqual.
      */
     public void setHtmlpath_GreaterEqual(String htmlpath) {
@@ -1489,7 +1409,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param htmlpath The value of htmlpath as lessEqual.
      */
     public void setHtmlpath_LessEqual(String htmlpath) {
@@ -1497,20 +1417,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param htmlpath The value of htmlpath as prefixSearch.
      */
     public void setHtmlpath_PrefixSearch(String htmlpath) {
         regHtmlpath(CK_PS, fRES(htmlpath));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param htmlpath The value of htmlpath as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setHtmlpath_LikeSearch(String htmlpath, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(htmlpath), getCValueHtmlpath(), "HTMLPath", "Htmlpath", "htmlpath", likeSearchOption);
     }
 
     /**
@@ -1522,82 +1433,71 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param htmlpath The collection of htmlpath as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param htmlpath The value of htmlpath as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setHtmlpath_InScope(String htmlpath, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(htmlpath), getCValueHtmlpath(), "HTMLPath", "Htmlpath", "htmlpath", inScopeOption);
+    public void setHtmlpath_LikeSearch(String htmlpath, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(htmlpath), getCValueHtmlpath(), "HTMLPath", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param htmlpath The value of htmlpath as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setHtmlpath_IsNull() { regHtmlpath(CK_ISN, DUMMY_OBJECT); }
+    public void setHtmlpath_NotLikeSearch(String htmlpath, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(htmlpath), getCValueHtmlpath(), "HTMLPath", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setHtmlpath_IsNotNull() { regHtmlpath(CK_ISNN, DUMMY_OBJECT); }
+    public void setHtmlpath_IsNull() { regHtmlpath(CK_ISN, DOBJ); }
 
-    protected void regHtmlpath(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueHtmlpath(), "HTMLPath", "Htmlpath", "htmlpath");
-    }
-    protected void registerInlineHtmlpath(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueHtmlpath(), "HTMLPath", "Htmlpath", "htmlpath");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setHtmlpath_IsNotNull() { regHtmlpath(CK_ISNN, DOBJ); }
+
+    protected void regHtmlpath(ConditionKey k, Object v) { regQ(k, v, getCValueHtmlpath(), "HTMLPath"); }
     abstract protected ConditionValue getCValueHtmlpath();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param showforeign The value of showforeign as equal.
      */
     public void setShowforeign_Equal(Boolean showforeign) {
         regShowforeign(CK_EQ, showforeign);
     }
 
-    protected void regShowforeign(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueShowforeign(), "ShowForeign", "Showforeign", "showforeign");
-    }
-    protected void registerInlineShowforeign(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueShowforeign(), "ShowForeign", "Showforeign", "showforeign");
-    }
+    protected void regShowforeign(ConditionKey k, Object v) { regQ(k, v, getCValueShowforeign(), "ShowForeign"); }
     abstract protected ConditionValue getCValueShowforeign();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param showborder The value of showborder as equal.
      */
     public void setShowborder_Equal(Boolean showborder) {
         regShowborder(CK_EQ, showborder);
     }
 
-    protected void regShowborder(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueShowborder(), "ShowBorder", "Showborder", "showborder");
-    }
-    protected void registerInlineShowborder(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueShowborder(), "ShowBorder", "Showborder", "showborder");
-    }
+    protected void regShowborder(ConditionKey k, Object v) { regQ(k, v, getCValueShowborder(), "ShowBorder"); }
     abstract protected ConditionValue getCValueShowborder();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param showpackagecontents The value of showpackagecontents as equal.
      */
     public void setShowpackagecontents_Equal(Boolean showpackagecontents) {
         regShowpackagecontents(CK_EQ, showpackagecontents);
     }
 
-    protected void regShowpackagecontents(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueShowpackagecontents(), "ShowPackageContents", "Showpackagecontents", "showpackagecontents");
-    }
-    protected void registerInlineShowpackagecontents(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueShowpackagecontents(), "ShowPackageContents", "Showpackagecontents", "showpackagecontents");
-    }
+    protected void regShowpackagecontents(ConditionKey k, Object v) { regQ(k, v, getCValueShowpackagecontents(), "ShowPackageContents"); }
     abstract protected ConditionValue getCValueShowpackagecontents();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param pdata The value of pdata as equal.
      */
     public void setPdata_Equal(String pdata) {
@@ -1605,7 +1505,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param pdata The value of pdata as notEqual.
      */
     public void setPdata_NotEqual(String pdata) {
@@ -1613,7 +1513,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param pdata The value of pdata as greaterThan.
      */
     public void setPdata_GreaterThan(String pdata) {
@@ -1621,7 +1521,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param pdata The value of pdata as lessThan.
      */
     public void setPdata_LessThan(String pdata) {
@@ -1629,7 +1529,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param pdata The value of pdata as greaterEqual.
      */
     public void setPdata_GreaterEqual(String pdata) {
@@ -1637,7 +1537,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param pdata The value of pdata as lessEqual.
      */
     public void setPdata_LessEqual(String pdata) {
@@ -1645,20 +1545,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param pdata The value of pdata as prefixSearch.
      */
     public void setPdata_PrefixSearch(String pdata) {
         regPdata(CK_PS, fRES(pdata));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param pdata The value of pdata as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPdata_LikeSearch(String pdata, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(pdata), getCValuePdata(), "PDATA", "Pdata", "pdata", likeSearchOption);
     }
 
     /**
@@ -1670,50 +1561,49 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param pdata The collection of pdata as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param pdata The value of pdata as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPdata_InScope(String pdata, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(pdata), getCValuePdata(), "PDATA", "Pdata", "pdata", inScopeOption);
+    public void setPdata_LikeSearch(String pdata, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(pdata), getCValuePdata(), "PDATA", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param pdata The value of pdata as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPdata_IsNull() { regPdata(CK_ISN, DUMMY_OBJECT); }
+    public void setPdata_NotLikeSearch(String pdata, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(pdata), getCValuePdata(), "PDATA", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPdata_IsNotNull() { regPdata(CK_ISNN, DUMMY_OBJECT); }
+    public void setPdata_IsNull() { regPdata(CK_ISN, DOBJ); }
 
-    protected void regPdata(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePdata(), "PDATA", "Pdata", "pdata");
-    }
-    protected void registerInlinePdata(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePdata(), "PDATA", "Pdata", "pdata");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPdata_IsNotNull() { regPdata(CK_ISNN, DOBJ); }
+
+    protected void regPdata(ConditionKey k, Object v) { regQ(k, v, getCValuePdata(), "PDATA"); }
     abstract protected ConditionValue getCValuePdata();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param locked The value of locked as equal.
      */
     public void setLocked_Equal(Boolean locked) {
         regLocked(CK_EQ, locked);
     }
 
-    protected void regLocked(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueLocked(), "Locked", "Locked", "locked");
-    }
-    protected void registerInlineLocked(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueLocked(), "Locked", "Locked", "locked");
-    }
+    protected void regLocked(ConditionKey k, Object v) { regQ(k, v, getCValueLocked(), "Locked"); }
     abstract protected ConditionValue getCValueLocked();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(40)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(40)}
      * @param eaGuid The value of eaGuid as equal.
      */
     public void setEaGuid_Equal(String eaGuid) {
@@ -1721,7 +1611,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as notEqual.
      */
     public void setEaGuid_NotEqual(String eaGuid) {
@@ -1729,7 +1619,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as greaterThan.
      */
     public void setEaGuid_GreaterThan(String eaGuid) {
@@ -1737,7 +1627,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as lessThan.
      */
     public void setEaGuid_LessThan(String eaGuid) {
@@ -1745,7 +1635,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as greaterEqual.
      */
     public void setEaGuid_GreaterEqual(String eaGuid) {
@@ -1753,7 +1643,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as lessEqual.
      */
     public void setEaGuid_LessEqual(String eaGuid) {
@@ -1761,20 +1651,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as prefixSearch.
      */
     public void setEaGuid_PrefixSearch(String eaGuid) {
         regEaGuid(CK_PS, fRES(eaGuid));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param eaGuid The value of eaGuid as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setEaGuid_LikeSearch(String eaGuid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(eaGuid), getCValueEaGuid(), "ea_guid", "EaGuid", "eaGuid", likeSearchOption);
     }
 
     /**
@@ -1786,34 +1667,38 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param eaGuid The collection of eaGuid as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param eaGuid The value of eaGuid as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setEaGuid_InScope(String eaGuid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(eaGuid), getCValueEaGuid(), "ea_guid", "EaGuid", "eaGuid", inScopeOption);
+    public void setEaGuid_LikeSearch(String eaGuid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(eaGuid), getCValueEaGuid(), "ea_guid", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param eaGuid The value of eaGuid as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setEaGuid_IsNull() { regEaGuid(CK_ISN, DUMMY_OBJECT); }
+    public void setEaGuid_NotLikeSearch(String eaGuid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(eaGuid), getCValueEaGuid(), "ea_guid", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setEaGuid_IsNotNull() { regEaGuid(CK_ISNN, DUMMY_OBJECT); }
+    public void setEaGuid_IsNull() { regEaGuid(CK_ISN, DOBJ); }
 
-    protected void regEaGuid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueEaGuid(), "ea_guid", "EaGuid", "eaGuid");
-    }
-    protected void registerInlineEaGuid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueEaGuid(), "ea_guid", "EaGuid", "eaGuid");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setEaGuid_IsNotNull() { regEaGuid(CK_ISNN, DOBJ); }
+
+    protected void regEaGuid(ConditionKey k, Object v) { regQ(k, v, getCValueEaGuid(), "ea_guid"); }
     abstract protected ConditionValue getCValueEaGuid();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param tpos The value of tpos as equal.
      */
     public void setTpos_Equal(java.lang.Integer tpos) {
@@ -1821,7 +1706,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param tpos The value of tpos as notEqual.
      */
     public void setTpos_NotEqual(java.lang.Integer tpos) {
@@ -1829,7 +1714,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param tpos The value of tpos as greaterThan.
      */
     public void setTpos_GreaterThan(java.lang.Integer tpos) {
@@ -1837,7 +1722,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param tpos The value of tpos as lessThan.
      */
     public void setTpos_LessThan(java.lang.Integer tpos) {
@@ -1845,7 +1730,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param tpos The value of tpos as greaterEqual.
      */
     public void setTpos_GreaterEqual(java.lang.Integer tpos) {
@@ -1853,7 +1738,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param tpos The value of tpos as lessEqual.
      */
     public void setTpos_LessEqual(java.lang.Integer tpos) {
@@ -1869,25 +1754,20 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setTpos_IsNull() { regTpos(CK_ISN, DUMMY_OBJECT); }
+    public void setTpos_IsNull() { regTpos(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setTpos_IsNotNull() { regTpos(CK_ISNN, DUMMY_OBJECT); }
+    public void setTpos_IsNotNull() { regTpos(CK_ISNN, DOBJ); }
 
-    protected void regTpos(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueTpos(), "TPos", "Tpos", "tpos");
-    }
-    protected void registerInlineTpos(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueTpos(), "TPos", "Tpos", "tpos");
-    }
+    protected void regTpos(ConditionKey k, Object v) { regQ(k, v, getCValueTpos(), "TPos"); }
     abstract protected ConditionValue getCValueTpos();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param swimlanes The value of swimlanes as equal.
      */
     public void setSwimlanes_Equal(String swimlanes) {
@@ -1895,7 +1775,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param swimlanes The value of swimlanes as notEqual.
      */
     public void setSwimlanes_NotEqual(String swimlanes) {
@@ -1903,7 +1783,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param swimlanes The value of swimlanes as greaterThan.
      */
     public void setSwimlanes_GreaterThan(String swimlanes) {
@@ -1911,7 +1791,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param swimlanes The value of swimlanes as lessThan.
      */
     public void setSwimlanes_LessThan(String swimlanes) {
@@ -1919,7 +1799,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param swimlanes The value of swimlanes as greaterEqual.
      */
     public void setSwimlanes_GreaterEqual(String swimlanes) {
@@ -1927,7 +1807,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param swimlanes The value of swimlanes as lessEqual.
      */
     public void setSwimlanes_LessEqual(String swimlanes) {
@@ -1935,20 +1815,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param swimlanes The value of swimlanes as prefixSearch.
      */
     public void setSwimlanes_PrefixSearch(String swimlanes) {
         regSwimlanes(CK_PS, fRES(swimlanes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param swimlanes The value of swimlanes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setSwimlanes_LikeSearch(String swimlanes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(swimlanes), getCValueSwimlanes(), "Swimlanes", "Swimlanes", "swimlanes", likeSearchOption);
     }
 
     /**
@@ -1960,34 +1831,38 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param swimlanes The collection of swimlanes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param swimlanes The value of swimlanes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setSwimlanes_InScope(String swimlanes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(swimlanes), getCValueSwimlanes(), "Swimlanes", "Swimlanes", "swimlanes", inScopeOption);
+    public void setSwimlanes_LikeSearch(String swimlanes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(swimlanes), getCValueSwimlanes(), "Swimlanes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param swimlanes The value of swimlanes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setSwimlanes_IsNull() { regSwimlanes(CK_ISN, DUMMY_OBJECT); }
+    public void setSwimlanes_NotLikeSearch(String swimlanes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(swimlanes), getCValueSwimlanes(), "Swimlanes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setSwimlanes_IsNotNull() { regSwimlanes(CK_ISNN, DUMMY_OBJECT); }
+    public void setSwimlanes_IsNull() { regSwimlanes(CK_ISN, DOBJ); }
 
-    protected void regSwimlanes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueSwimlanes(), "Swimlanes", "Swimlanes", "swimlanes");
-    }
-    protected void registerInlineSwimlanes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueSwimlanes(), "Swimlanes", "Swimlanes", "swimlanes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setSwimlanes_IsNotNull() { regSwimlanes(CK_ISNN, DOBJ); }
+
+    protected void regSwimlanes(ConditionKey k, Object v) { regQ(k, v, getCValueSwimlanes(), "Swimlanes"); }
     abstract protected ConditionValue getCValueSwimlanes();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param styleex The value of styleex as equal.
      */
     public void setStyleex_Equal(String styleex) {
@@ -1995,7 +1870,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as notEqual.
      */
     public void setStyleex_NotEqual(String styleex) {
@@ -2003,7 +1878,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as greaterThan.
      */
     public void setStyleex_GreaterThan(String styleex) {
@@ -2011,7 +1886,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as lessThan.
      */
     public void setStyleex_LessThan(String styleex) {
@@ -2019,7 +1894,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as greaterEqual.
      */
     public void setStyleex_GreaterEqual(String styleex) {
@@ -2027,7 +1902,7 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as lessEqual.
      */
     public void setStyleex_LessEqual(String styleex) {
@@ -2035,20 +1910,11 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as prefixSearch.
      */
     public void setStyleex_PrefixSearch(String styleex) {
         regStyleex(CK_PS, fRES(styleex));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param styleex The value of styleex as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setStyleex_LikeSearch(String styleex, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(styleex), getCValueStyleex(), "StyleEx", "Styleex", "styleex", likeSearchOption);
     }
 
     /**
@@ -2060,33 +1926,41 @@ public abstract class AbstractBsTDiagramCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param styleex The collection of styleex as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param styleex The value of styleex as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStyleex_InScope(String styleex, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(styleex), getCValueStyleex(), "StyleEx", "Styleex", "styleex", inScopeOption);
+    public void setStyleex_LikeSearch(String styleex, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(styleex), getCValueStyleex(), "StyleEx", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param styleex The value of styleex as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStyleex_IsNull() { regStyleex(CK_ISN, DUMMY_OBJECT); }
+    public void setStyleex_NotLikeSearch(String styleex, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(styleex), getCValueStyleex(), "StyleEx", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setStyleex_IsNotNull() { regStyleex(CK_ISNN, DUMMY_OBJECT); }
+    public void setStyleex_IsNull() { regStyleex(CK_ISN, DOBJ); }
 
-    protected void regStyleex(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueStyleex(), "StyleEx", "Styleex", "styleex");
-    }
-    protected void registerInlineStyleex(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueStyleex(), "StyleEx", "Styleex", "styleex");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setStyleex_IsNotNull() { regStyleex(CK_ISNN, DOBJ); }
+
+    protected void regStyleex(ConditionKey k, Object v) { regQ(k, v, getCValueStyleex(), "StyleEx"); }
     abstract protected ConditionValue getCValueStyleex();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TDiagramCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TDiagramCQ.class.getName(); }
+    String xCB() { return TDiagramCB.class.getName(); }
+    String xCQ() { return TDiagramCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

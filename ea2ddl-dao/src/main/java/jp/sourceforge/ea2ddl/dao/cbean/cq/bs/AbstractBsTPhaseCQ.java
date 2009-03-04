@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_phase.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTPhaseCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(40)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(40)}
      * @param phaseid The value of phaseid as equal.
      */
     public void setPhaseid_Equal(String phaseid) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phaseid The value of phaseid as notEqual.
      */
     public void setPhaseid_NotEqual(String phaseid) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phaseid The value of phaseid as greaterThan.
      */
     public void setPhaseid_GreaterThan(String phaseid) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phaseid The value of phaseid as lessThan.
      */
     public void setPhaseid_LessThan(String phaseid) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phaseid The value of phaseid as greaterEqual.
      */
     public void setPhaseid_GreaterEqual(String phaseid) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phaseid The value of phaseid as lessEqual.
      */
     public void setPhaseid_LessEqual(String phaseid) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phaseid The value of phaseid as prefixSearch.
      */
     public void setPhaseid_PrefixSearch(String phaseid) {
         regPhaseid(CK_PS, fRES(phaseid));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param phaseid The value of phaseid as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPhaseid_LikeSearch(String phaseid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(phaseid), getCValuePhaseid(), "PhaseID", "Phaseid", "phaseid", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param phaseid The collection of phaseid as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phaseid The value of phaseid as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPhaseid_InScope(String phaseid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(phaseid), getCValuePhaseid(), "PhaseID", "Phaseid", "phaseid", inScopeOption);
+    public void setPhaseid_LikeSearch(String phaseid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(phaseid), getCValuePhaseid(), "PhaseID", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phaseid The value of phaseid as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPhaseid_IsNull() { regPhaseid(CK_ISN, DUMMY_OBJECT); }
+    public void setPhaseid_NotLikeSearch(String phaseid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(phaseid), getCValuePhaseid(), "PhaseID", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPhaseid_IsNotNull() { regPhaseid(CK_ISNN, DUMMY_OBJECT); }
+    public void setPhaseid_IsNull() { regPhaseid(CK_ISN, DOBJ); }
 
-    protected void regPhaseid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePhaseid(), "PhaseID", "Phaseid", "phaseid");
-    }
-    protected void registerInlinePhaseid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePhaseid(), "PhaseID", "Phaseid", "phaseid");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPhaseid_IsNotNull() { regPhaseid(CK_ISNN, DOBJ); }
+
+    protected void regPhaseid(ConditionKey k, Object v) { regQ(k, v, getCValuePhaseid(), "PhaseID"); }
     abstract protected ConditionValue getCValuePhaseid();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(100)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(100)}
      * @param phasename The value of phasename as equal.
      */
     public void setPhasename_Equal(String phasename) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasename The value of phasename as notEqual.
      */
     public void setPhasename_NotEqual(String phasename) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasename The value of phasename as greaterThan.
      */
     public void setPhasename_GreaterThan(String phasename) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasename The value of phasename as lessThan.
      */
     public void setPhasename_LessThan(String phasename) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasename The value of phasename as greaterEqual.
      */
     public void setPhasename_GreaterEqual(String phasename) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasename The value of phasename as lessEqual.
      */
     public void setPhasename_LessEqual(String phasename) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasename The value of phasename as prefixSearch.
      */
     public void setPhasename_PrefixSearch(String phasename) {
         regPhasename(CK_PS, fRES(phasename));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param phasename The value of phasename as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPhasename_LikeSearch(String phasename, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(phasename), getCValuePhasename(), "PhaseName", "Phasename", "phasename", likeSearchOption);
     }
 
     /**
@@ -212,34 +213,38 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param phasename The collection of phasename as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phasename The value of phasename as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPhasename_InScope(String phasename, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(phasename), getCValuePhasename(), "PhaseName", "Phasename", "phasename", inScopeOption);
+    public void setPhasename_LikeSearch(String phasename, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(phasename), getCValuePhasename(), "PhaseName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phasename The value of phasename as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPhasename_IsNull() { regPhasename(CK_ISN, DUMMY_OBJECT); }
+    public void setPhasename_NotLikeSearch(String phasename, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(phasename), getCValuePhasename(), "PhaseName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPhasename_IsNotNull() { regPhasename(CK_ISNN, DUMMY_OBJECT); }
+    public void setPhasename_IsNull() { regPhasename(CK_ISN, DOBJ); }
 
-    protected void regPhasename(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePhasename(), "PhaseName", "Phasename", "phasename");
-    }
-    protected void registerInlinePhasename(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePhasename(), "PhaseName", "Phasename", "phasename");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPhasename_IsNotNull() { regPhasename(CK_ISNN, DOBJ); }
+
+    protected void regPhasename(ConditionKey k, Object v) { regQ(k, v, getCValuePhasename(), "PhaseName"); }
     abstract protected ConditionValue getCValuePhasename();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param phasenotes The value of phasenotes as equal.
      */
     public void setPhasenotes_Equal(String phasenotes) {
@@ -247,7 +252,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasenotes The value of phasenotes as notEqual.
      */
     public void setPhasenotes_NotEqual(String phasenotes) {
@@ -255,7 +260,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasenotes The value of phasenotes as greaterThan.
      */
     public void setPhasenotes_GreaterThan(String phasenotes) {
@@ -263,7 +268,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasenotes The value of phasenotes as lessThan.
      */
     public void setPhasenotes_LessThan(String phasenotes) {
@@ -271,7 +276,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasenotes The value of phasenotes as greaterEqual.
      */
     public void setPhasenotes_GreaterEqual(String phasenotes) {
@@ -279,7 +284,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasenotes The value of phasenotes as lessEqual.
      */
     public void setPhasenotes_LessEqual(String phasenotes) {
@@ -287,20 +292,11 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasenotes The value of phasenotes as prefixSearch.
      */
     public void setPhasenotes_PrefixSearch(String phasenotes) {
         regPhasenotes(CK_PS, fRES(phasenotes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param phasenotes The value of phasenotes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPhasenotes_LikeSearch(String phasenotes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(phasenotes), getCValuePhasenotes(), "PhaseNotes", "Phasenotes", "phasenotes", likeSearchOption);
     }
 
     /**
@@ -312,34 +308,38 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param phasenotes The collection of phasenotes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phasenotes The value of phasenotes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPhasenotes_InScope(String phasenotes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(phasenotes), getCValuePhasenotes(), "PhaseNotes", "Phasenotes", "phasenotes", inScopeOption);
+    public void setPhasenotes_LikeSearch(String phasenotes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(phasenotes), getCValuePhasenotes(), "PhaseNotes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phasenotes The value of phasenotes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPhasenotes_IsNull() { regPhasenotes(CK_ISN, DUMMY_OBJECT); }
+    public void setPhasenotes_NotLikeSearch(String phasenotes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(phasenotes), getCValuePhasenotes(), "PhaseNotes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPhasenotes_IsNotNull() { regPhasenotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setPhasenotes_IsNull() { regPhasenotes(CK_ISN, DOBJ); }
 
-    protected void regPhasenotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePhasenotes(), "PhaseNotes", "Phasenotes", "phasenotes");
-    }
-    protected void registerInlinePhasenotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePhasenotes(), "PhaseNotes", "Phasenotes", "phasenotes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPhasenotes_IsNotNull() { regPhasenotes(CK_ISNN, DOBJ); }
+
+    protected void regPhasenotes(ConditionKey k, Object v) { regQ(k, v, getCValuePhasenotes(), "PhaseNotes"); }
     abstract protected ConditionValue getCValuePhasenotes();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param phasestyle The value of phasestyle as equal.
      */
     public void setPhasestyle_Equal(String phasestyle) {
@@ -347,7 +347,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasestyle The value of phasestyle as notEqual.
      */
     public void setPhasestyle_NotEqual(String phasestyle) {
@@ -355,7 +355,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasestyle The value of phasestyle as greaterThan.
      */
     public void setPhasestyle_GreaterThan(String phasestyle) {
@@ -363,7 +363,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasestyle The value of phasestyle as lessThan.
      */
     public void setPhasestyle_LessThan(String phasestyle) {
@@ -371,7 +371,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasestyle The value of phasestyle as greaterEqual.
      */
     public void setPhasestyle_GreaterEqual(String phasestyle) {
@@ -379,7 +379,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasestyle The value of phasestyle as lessEqual.
      */
     public void setPhasestyle_LessEqual(String phasestyle) {
@@ -387,20 +387,11 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasestyle The value of phasestyle as prefixSearch.
      */
     public void setPhasestyle_PrefixSearch(String phasestyle) {
         regPhasestyle(CK_PS, fRES(phasestyle));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param phasestyle The value of phasestyle as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPhasestyle_LikeSearch(String phasestyle, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(phasestyle), getCValuePhasestyle(), "PhaseStyle", "Phasestyle", "phasestyle", likeSearchOption);
     }
 
     /**
@@ -412,34 +403,38 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param phasestyle The collection of phasestyle as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phasestyle The value of phasestyle as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPhasestyle_InScope(String phasestyle, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(phasestyle), getCValuePhasestyle(), "PhaseStyle", "Phasestyle", "phasestyle", inScopeOption);
+    public void setPhasestyle_LikeSearch(String phasestyle, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(phasestyle), getCValuePhasestyle(), "PhaseStyle", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phasestyle The value of phasestyle as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPhasestyle_IsNull() { regPhasestyle(CK_ISN, DUMMY_OBJECT); }
+    public void setPhasestyle_NotLikeSearch(String phasestyle, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(phasestyle), getCValuePhasestyle(), "PhaseStyle", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPhasestyle_IsNotNull() { regPhasestyle(CK_ISNN, DUMMY_OBJECT); }
+    public void setPhasestyle_IsNull() { regPhasestyle(CK_ISN, DOBJ); }
 
-    protected void regPhasestyle(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePhasestyle(), "PhaseStyle", "Phasestyle", "phasestyle");
-    }
-    protected void registerInlinePhasestyle(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePhasestyle(), "PhaseStyle", "Phasestyle", "phasestyle");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPhasestyle_IsNotNull() { regPhasestyle(CK_ISNN, DOBJ); }
+
+    protected void regPhasestyle(ConditionKey k, Object v) { regQ(k, v, getCValuePhasestyle(), "PhaseStyle"); }
     abstract protected ConditionValue getCValuePhasestyle();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {DATETIME}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param startdate The value of startdate as equal.
      */
     public void setStartdate_Equal(java.sql.Timestamp startdate) {
@@ -447,7 +442,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param startdate The value of startdate as greaterThan.
      */
     public void setStartdate_GreaterThan(java.sql.Timestamp startdate) {
@@ -455,7 +450,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&gt;). And NullIgnored, OnceRegistered.
+     * LessThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param startdate The value of startdate as lessThan.
      */
     public void setStartdate_LessThan(java.sql.Timestamp startdate) {
@@ -463,7 +458,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param startdate The value of startdate as greaterEqual.
      */
     public void setStartdate_GreaterEqual(java.sql.Timestamp startdate) {
@@ -471,7 +466,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&gt;). And NullIgnored, OnceRegistered.
+     * LessEqual(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param startdate The value of startdate as lessEqual.
      */
     public void setStartdate_LessEqual(java.sql.Timestamp startdate) {
@@ -479,44 +474,39 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo($fromDate &lt;= COLUMN_NAME &lt;= $toDate). And NullIgnored, OnceRegistered. {DATETIME}
+     * FromTo($fromDate &lt;= COLUMN_NAME &lt;= $toDate). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param fromDate The from-date of startdate. (Nullable)
      * @param toDate The to-date of startdate. (Nullable)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setStartdate_FromTo(java.util.Date fromDate, java.util.Date toDate, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.FromToOption fromToOption) {
-        registerFromToQuery((fromDate != null ? new java.sql.Timestamp(fromDate.getTime()) : null), (toDate != null ? new java.sql.Timestamp(toDate.getTime()) : null), getCValueStartdate(), "StartDate", "Startdate", "startdate", fromToOption);
+    public void setStartdate_FromTo(java.util.Date fromDate, java.util.Date toDate, FromToOption fromToOption) {
+        regFTQ((fromDate != null ? new java.sql.Timestamp(fromDate.getTime()) : null), (toDate != null ? new java.sql.Timestamp(toDate.getTime()) : null), getCValueStartdate(), "StartDate", fromToOption);
     }
 
     /**
-     * FromTo($fromDate &lt;= COLUMN_NAME &lt; $toDate + 1). And NullIgnored, OnceRegistered. {DATETIME}
+     * FromTo($fromDate &lt;= COLUMN_NAME &lt; $toDate + 1). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param fromDate The from-date of startdate. (Nullable)
      * @param toDate The to-date of startdate. (Nullable)
      */
     public void setStartdate_DateFromTo(java.util.Date fromDate, java.util.Date toDate) {
-        setStartdate_FromTo(fromDate, toDate, new jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.DateFromToOption());
+        setStartdate_FromTo(fromDate, toDate, new DateFromToOption());
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setStartdate_IsNull() { regStartdate(CK_ISN, DUMMY_OBJECT); }
+    public void setStartdate_IsNull() { regStartdate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setStartdate_IsNotNull() { regStartdate(CK_ISNN, DUMMY_OBJECT); }
+    public void setStartdate_IsNotNull() { regStartdate(CK_ISNN, DOBJ); }
 
-    protected void regStartdate(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueStartdate(), "StartDate", "Startdate", "startdate");
-    }
-    protected void registerInlineStartdate(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueStartdate(), "StartDate", "Startdate", "startdate");
-    }
+    protected void regStartdate(ConditionKey k, Object v) { regQ(k, v, getCValueStartdate(), "StartDate"); }
     abstract protected ConditionValue getCValueStartdate();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {DATETIME}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param enddate The value of enddate as equal.
      */
     public void setEnddate_Equal(java.sql.Timestamp enddate) {
@@ -524,7 +514,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param enddate The value of enddate as greaterThan.
      */
     public void setEnddate_GreaterThan(java.sql.Timestamp enddate) {
@@ -532,7 +522,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&gt;). And NullIgnored, OnceRegistered.
+     * LessThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param enddate The value of enddate as lessThan.
      */
     public void setEnddate_LessThan(java.sql.Timestamp enddate) {
@@ -540,7 +530,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param enddate The value of enddate as greaterEqual.
      */
     public void setEnddate_GreaterEqual(java.sql.Timestamp enddate) {
@@ -548,7 +538,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&gt;). And NullIgnored, OnceRegistered.
+     * LessEqual(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param enddate The value of enddate as lessEqual.
      */
     public void setEnddate_LessEqual(java.sql.Timestamp enddate) {
@@ -556,44 +546,39 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo($fromDate &lt;= COLUMN_NAME &lt;= $toDate). And NullIgnored, OnceRegistered. {DATETIME}
+     * FromTo($fromDate &lt;= COLUMN_NAME &lt;= $toDate). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param fromDate The from-date of enddate. (Nullable)
      * @param toDate The to-date of enddate. (Nullable)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setEnddate_FromTo(java.util.Date fromDate, java.util.Date toDate, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.FromToOption fromToOption) {
-        registerFromToQuery((fromDate != null ? new java.sql.Timestamp(fromDate.getTime()) : null), (toDate != null ? new java.sql.Timestamp(toDate.getTime()) : null), getCValueEnddate(), "EndDate", "Enddate", "enddate", fromToOption);
+    public void setEnddate_FromTo(java.util.Date fromDate, java.util.Date toDate, FromToOption fromToOption) {
+        regFTQ((fromDate != null ? new java.sql.Timestamp(fromDate.getTime()) : null), (toDate != null ? new java.sql.Timestamp(toDate.getTime()) : null), getCValueEnddate(), "EndDate", fromToOption);
     }
 
     /**
-     * FromTo($fromDate &lt;= COLUMN_NAME &lt; $toDate + 1). And NullIgnored, OnceRegistered. {DATETIME}
+     * FromTo($fromDate &lt;= COLUMN_NAME &lt; $toDate + 1). And NullIgnored, OnlyOnceRegistered. {DATETIME}
      * @param fromDate The from-date of enddate. (Nullable)
      * @param toDate The to-date of enddate. (Nullable)
      */
     public void setEnddate_DateFromTo(java.util.Date fromDate, java.util.Date toDate) {
-        setEnddate_FromTo(fromDate, toDate, new jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.DateFromToOption());
+        setEnddate_FromTo(fromDate, toDate, new DateFromToOption());
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setEnddate_IsNull() { regEnddate(CK_ISN, DUMMY_OBJECT); }
+    public void setEnddate_IsNull() { regEnddate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setEnddate_IsNotNull() { regEnddate(CK_ISNN, DUMMY_OBJECT); }
+    public void setEnddate_IsNotNull() { regEnddate(CK_ISNN, DOBJ); }
 
-    protected void regEnddate(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueEnddate(), "EndDate", "Enddate", "enddate");
-    }
-    protected void registerInlineEnddate(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueEnddate(), "EndDate", "Enddate", "enddate");
-    }
+    protected void regEnddate(ConditionKey k, Object v) { regQ(k, v, getCValueEnddate(), "EndDate"); }
     abstract protected ConditionValue getCValueEnddate();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param phasecontent The value of phasecontent as equal.
      */
     public void setPhasecontent_Equal(String phasecontent) {
@@ -601,7 +586,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasecontent The value of phasecontent as notEqual.
      */
     public void setPhasecontent_NotEqual(String phasecontent) {
@@ -609,7 +594,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasecontent The value of phasecontent as greaterThan.
      */
     public void setPhasecontent_GreaterThan(String phasecontent) {
@@ -617,7 +602,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasecontent The value of phasecontent as lessThan.
      */
     public void setPhasecontent_LessThan(String phasecontent) {
@@ -625,7 +610,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasecontent The value of phasecontent as greaterEqual.
      */
     public void setPhasecontent_GreaterEqual(String phasecontent) {
@@ -633,7 +618,7 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasecontent The value of phasecontent as lessEqual.
      */
     public void setPhasecontent_LessEqual(String phasecontent) {
@@ -641,20 +626,11 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phasecontent The value of phasecontent as prefixSearch.
      */
     public void setPhasecontent_PrefixSearch(String phasecontent) {
         regPhasecontent(CK_PS, fRES(phasecontent));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param phasecontent The value of phasecontent as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPhasecontent_LikeSearch(String phasecontent, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(phasecontent), getCValuePhasecontent(), "PhaseContent", "Phasecontent", "phasecontent", likeSearchOption);
     }
 
     /**
@@ -666,33 +642,41 @@ public abstract class AbstractBsTPhaseCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param phasecontent The collection of phasecontent as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phasecontent The value of phasecontent as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPhasecontent_InScope(String phasecontent, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(phasecontent), getCValuePhasecontent(), "PhaseContent", "Phasecontent", "phasecontent", inScopeOption);
+    public void setPhasecontent_LikeSearch(String phasecontent, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(phasecontent), getCValuePhasecontent(), "PhaseContent", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phasecontent The value of phasecontent as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPhasecontent_IsNull() { regPhasecontent(CK_ISN, DUMMY_OBJECT); }
+    public void setPhasecontent_NotLikeSearch(String phasecontent, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(phasecontent), getCValuePhasecontent(), "PhaseContent", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPhasecontent_IsNotNull() { regPhasecontent(CK_ISNN, DUMMY_OBJECT); }
+    public void setPhasecontent_IsNull() { regPhasecontent(CK_ISN, DOBJ); }
 
-    protected void regPhasecontent(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePhasecontent(), "PhaseContent", "Phasecontent", "phasecontent");
-    }
-    protected void registerInlinePhasecontent(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePhasecontent(), "PhaseContent", "Phasecontent", "phasecontent");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPhasecontent_IsNotNull() { regPhasecontent(CK_ISNN, DOBJ); }
+
+    protected void regPhasecontent(ConditionKey k, Object v) { regQ(k, v, getCValuePhasecontent(), "PhaseContent"); }
     abstract protected ConditionValue getCValuePhasecontent();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TPhaseCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TPhaseCQ.class.getName(); }
+    String xCB() { return TPhaseCB.class.getName(); }
+    String xCQ() { return TPhaseCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

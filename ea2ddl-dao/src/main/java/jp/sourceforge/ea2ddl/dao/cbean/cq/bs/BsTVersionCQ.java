@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_version.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTVersionCQ extends AbstractBsTVersionCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
      * @return On-clause query. (NotNull)
      */
     public TVersionCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TVersionCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _elementid;
     }
     protected ConditionValue getCValueElementid() { return getElementid(); }
-    
+
     public BsTVersionCQ addOrderBy_Elementid_Asc() { regOBA("ElementID"); return this; }
     public BsTVersionCQ addOrderBy_Elementid_Desc() { regOBD("ElementID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _versionid;
     }
     protected ConditionValue getCValueVersionid() { return getVersionid(); }
-    
+
     public BsTVersionCQ addOrderBy_Versionid_Asc() { regOBA("VersionID"); return this; }
     public BsTVersionCQ addOrderBy_Versionid_Desc() { regOBD("VersionID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _elementtype;
     }
     protected ConditionValue getCValueElementtype() { return getElementtype(); }
-    
+
     public BsTVersionCQ addOrderBy_Elementtype_Asc() { regOBA("ElementType"); return this; }
     public BsTVersionCQ addOrderBy_Elementtype_Desc() { regOBD("ElementType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _flags;
     }
     protected ConditionValue getCValueFlags() { return getFlags(); }
-    
+
     public BsTVersionCQ addOrderBy_Flags_Asc() { regOBA("Flags"); return this; }
     public BsTVersionCQ addOrderBy_Flags_Desc() { regOBD("Flags"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _externalfile;
     }
     protected ConditionValue getCValueExternalfile() { return getExternalfile(); }
-    
+
     public BsTVersionCQ addOrderBy_Externalfile_Asc() { regOBA("ExternalFile"); return this; }
     public BsTVersionCQ addOrderBy_Externalfile_Desc() { regOBD("ExternalFile"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTVersionCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTVersionCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _owner;
     }
     protected ConditionValue getCValueOwner() { return getOwner(); }
-    
+
     public BsTVersionCQ addOrderBy_Owner_Asc() { regOBA("Owner"); return this; }
     public BsTVersionCQ addOrderBy_Owner_Desc() { regOBD("Owner"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _versiondate;
     }
     protected ConditionValue getCValueVersiondate() { return getVersiondate(); }
-    
+
     public BsTVersionCQ addOrderBy_Versiondate_Asc() { regOBA("VersionDate"); return this; }
     public BsTVersionCQ addOrderBy_Versiondate_Desc() { regOBD("VersionDate"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _branch;
     }
     protected ConditionValue getCValueBranch() { return getBranch(); }
-    
+
     public BsTVersionCQ addOrderBy_Branch_Asc() { regOBA("Branch"); return this; }
     public BsTVersionCQ addOrderBy_Branch_Desc() { regOBD("Branch"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
         return _elementxml;
     }
     protected ConditionValue getCValueElementxml() { return getElementxml(); }
-    
+
     public BsTVersionCQ addOrderBy_Elementxml_Asc() { regOBA("ElementXML"); return this; }
     public BsTVersionCQ addOrderBy_Elementxml_Desc() { regOBD("ElementXML"); return this; }
 
@@ -171,8 +171,11 @@ public class BsTVersionCQ extends AbstractBsTVersionCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TVersionCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TVersionCB.class.getName(); }
+    String xCQ() { return TVersionCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

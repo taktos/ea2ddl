@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_diagramobjects(TABLE).
+ * The entity of t_diagramobjects that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTDiagramobjects implements Entity, java.io.Serializable {
+public abstract class BsTDiagramobjects implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,41 +47,37 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_diagramobjects. */
-    public static final String TABLE = "t_diagramobjects";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Diagram_ID'. {INTEGER} */
+    /** Diagram_ID: {INTEGER} */
     protected java.lang.Integer _diagramId;
 
-    /** The attribute of the column 'Object_ID'. {INTEGER} */
+    /** Object_ID: {INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'RectTop'. {INTEGER} */
+    /** RectTop: {INTEGER} */
     protected java.lang.Integer _recttop;
 
-    /** The attribute of the column 'RectLeft'. {INTEGER} */
+    /** RectLeft: {INTEGER} */
     protected java.lang.Integer _rectleft;
 
-    /** The attribute of the column 'RectRight'. {INTEGER} */
+    /** RectRight: {INTEGER} */
     protected java.lang.Integer _rectright;
 
-    /** The attribute of the column 'RectBottom'. {INTEGER} */
+    /** RectBottom: {INTEGER} */
     protected java.lang.Integer _rectbottom;
 
-    /** The attribute of the column 'Sequence'. {INTEGER} */
+    /** Sequence: {INTEGER} */
     protected java.lang.Integer _sequence;
 
-    /** The attribute of the column 'ObjectStyle'. {VARCHAR(255)} */
+    /** ObjectStyle: {VARCHAR(255)} */
     protected String _objectstyle;
 
-    /** The attribute of the column 'Instance_ID'. {UQ : COUNTER : NotNull} */
+    /** Instance_ID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _instanceId;
 
     // -----------------------------------------------------
@@ -91,19 +87,13 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTDiagramobjects() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_diagramobjects";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TDiagramobjects";
     }
 
@@ -129,7 +119,6 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -225,13 +214,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String diagramId_COLUMN = "Diagram_ID";
-
     /**
-     * Get the value of the column 'Diagram_ID'. <br />
-     * {INTEGER}
+     * Diagram_ID: {INTEGER} <br />
      * @return The value of the column 'Diagram_ID'. (Nullable)
      */
     public java.lang.Integer getDiagramId() {
@@ -239,8 +223,7 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Diagram_ID'. <br />
-     * {INTEGER}
+     * Diagram_ID: {INTEGER} <br />
      * @param diagramId The value of the column 'Diagram_ID'. (Nullable)
      */
     public void setDiagramId(java.lang.Integer diagramId) {
@@ -248,12 +231,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
         this._diagramId = diagramId;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {INTEGER}
+     * Object_ID: {INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -261,8 +240,7 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {INTEGER}
+     * Object_ID: {INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -270,12 +248,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String recttop_COLUMN = "RectTop";
-
     /**
-     * Get the value of the column 'RectTop'. <br />
-     * {INTEGER}
+     * RectTop: {INTEGER} <br />
      * @return The value of the column 'RectTop'. (Nullable)
      */
     public java.lang.Integer getRecttop() {
@@ -283,8 +257,7 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'RectTop'. <br />
-     * {INTEGER}
+     * RectTop: {INTEGER} <br />
      * @param recttop The value of the column 'RectTop'. (Nullable)
      */
     public void setRecttop(java.lang.Integer recttop) {
@@ -292,12 +265,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
         this._recttop = recttop;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String rectleft_COLUMN = "RectLeft";
-
     /**
-     * Get the value of the column 'RectLeft'. <br />
-     * {INTEGER}
+     * RectLeft: {INTEGER} <br />
      * @return The value of the column 'RectLeft'. (Nullable)
      */
     public java.lang.Integer getRectleft() {
@@ -305,8 +274,7 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'RectLeft'. <br />
-     * {INTEGER}
+     * RectLeft: {INTEGER} <br />
      * @param rectleft The value of the column 'RectLeft'. (Nullable)
      */
     public void setRectleft(java.lang.Integer rectleft) {
@@ -314,12 +282,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
         this._rectleft = rectleft;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String rectright_COLUMN = "RectRight";
-
     /**
-     * Get the value of the column 'RectRight'. <br />
-     * {INTEGER}
+     * RectRight: {INTEGER} <br />
      * @return The value of the column 'RectRight'. (Nullable)
      */
     public java.lang.Integer getRectright() {
@@ -327,8 +291,7 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'RectRight'. <br />
-     * {INTEGER}
+     * RectRight: {INTEGER} <br />
      * @param rectright The value of the column 'RectRight'. (Nullable)
      */
     public void setRectright(java.lang.Integer rectright) {
@@ -336,12 +299,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
         this._rectright = rectright;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String rectbottom_COLUMN = "RectBottom";
-
     /**
-     * Get the value of the column 'RectBottom'. <br />
-     * {INTEGER}
+     * RectBottom: {INTEGER} <br />
      * @return The value of the column 'RectBottom'. (Nullable)
      */
     public java.lang.Integer getRectbottom() {
@@ -349,8 +308,7 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'RectBottom'. <br />
-     * {INTEGER}
+     * RectBottom: {INTEGER} <br />
      * @param rectbottom The value of the column 'RectBottom'. (Nullable)
      */
     public void setRectbottom(java.lang.Integer rectbottom) {
@@ -358,12 +316,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
         this._rectbottom = rectbottom;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String sequence_COLUMN = "Sequence";
-
     /**
-     * Get the value of the column 'Sequence'. <br />
-     * {INTEGER}
+     * Sequence: {INTEGER} <br />
      * @return The value of the column 'Sequence'. (Nullable)
      */
     public java.lang.Integer getSequence() {
@@ -371,8 +325,7 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Sequence'. <br />
-     * {INTEGER}
+     * Sequence: {INTEGER} <br />
      * @param sequence The value of the column 'Sequence'. (Nullable)
      */
     public void setSequence(java.lang.Integer sequence) {
@@ -380,12 +333,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
         this._sequence = sequence;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String objectstyle_COLUMN = "ObjectStyle";
-
     /**
-     * Get the value of the column 'ObjectStyle'. <br />
-     * {VARCHAR(255)}
+     * ObjectStyle: {VARCHAR(255)} <br />
      * @return The value of the column 'ObjectStyle'. (Nullable)
      */
     public String getObjectstyle() {
@@ -393,8 +342,7 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ObjectStyle'. <br />
-     * {VARCHAR(255)}
+     * ObjectStyle: {VARCHAR(255)} <br />
      * @param objectstyle The value of the column 'ObjectStyle'. (Nullable)
      */
     public void setObjectstyle(String objectstyle) {
@@ -402,12 +350,8 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
         this._objectstyle = objectstyle;
     }
 
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String instanceId_COLUMN = "Instance_ID";
-
     /**
-     * Get the value of the column 'Instance_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * Instance_ID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'Instance_ID'. (Nullable)
      */
     public java.lang.Integer getInstanceId() {
@@ -415,13 +359,11 @@ public abstract class BsTDiagramobjects implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Instance_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * Instance_ID: {UQ : NotNull : COUNTER} <br />
      * @param instanceId The value of the column 'Instance_ID'. (Nullable)
      */
     public void setInstanceId(java.lang.Integer instanceId) {
         _modifiedProperties.addPropertyName("instanceId");
         this._instanceId = instanceId;
     }
-
 }

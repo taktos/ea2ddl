@@ -2,11 +2,16 @@ package jp.sourceforge.ea2ddl.dao.cbean.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.AbstractConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.SubQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.UnionQuery;
+import org.seasar.dbflute.cbean.AbstractConditionBean;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.ConditionQuery;
+import org.seasar.dbflute.cbean.SubQuery;
+import org.seasar.dbflute.cbean.UnionQuery;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBFluteConfig;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.allcommon.ImplementedSqlClauseCreator;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 import jp.sourceforge.ea2ddl.dao.cbean.nss.*;
@@ -15,13 +20,29 @@ import jp.sourceforge.ea2ddl.dao.cbean.nss.*;
  * The base condition-bean of t_attribute.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTAttributeCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    private final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
     protected TAttributeCQ _conditionQuery;
+
+    // ===================================================================================
+    //                                                                           SqlClause
+    //                                                                           =========
+    @Override
+    protected SqlClause createSqlClause() {
+        return new ImplementedSqlClauseCreator().createSqlClause(this);
+    }
+    
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
+    }
 
     // ===================================================================================
     //                                                                          Table Name
@@ -71,7 +92,11 @@ public class BsTAttributeCB extends AbstractConditionBean {
         return _conditionQuery;
     }
 
-    public ConditionQuery getConditionQueryAsInterface() {
+    /**
+     * {@inheritDoc}
+     * @return The conditionQuery of the local table as interface. (NotNull)
+     */
+    public ConditionQuery localCQ() {
         return getConditionQuery();
     }
 
@@ -109,22 +134,6 @@ public class BsTAttributeCB extends AbstractConditionBean {
         final TAttributeCB cb = new TAttributeCB(); cb.xsetupForUnion(); unionQuery.query(cb);
         final TAttributeCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
-    
-    /**
-     * @param unionQuery The query of 'union'. (NotNull)
-     * @deprecated Sorry! Please use union(UnionQuery<TAttributeCB> unionQuery).
-     */
-    public void union(TAttributeCQ unionQuery) {
-        query().xsetUnionQuery(unionQuery);
-    }
-
-    /**
-     * @param unionQuery The query of 'union'. (NotNull)
-     * @deprecated Sorry! Please use unionAll(UnionQuery<TAttributeCB> unionQuery).
-     */
-    public void unionAll(TAttributeCQ unionQuery) {
-        query().xsetUnionAllQuery(unionQuery);
-    }
 
     public boolean hasUnionQueryOrUnionAllQuery() {
         return query().hasUnionQueryOrUnionAllQuery();
@@ -133,7 +142,6 @@ public class BsTAttributeCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                        Setup Select
     //                                                                        ============
-
     protected TObjectNss _nssTObject;
     public TObjectNss getNssTObject() {
         if (_nssTObject == null) { _nssTObject = new TObjectNss(null); }
@@ -141,7 +149,8 @@ public class BsTAttributeCB extends AbstractConditionBean {
     }
     public TObjectNss setupSelect_TObject() {
         doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryTObject(); } });
-        if (_nssTObject == null || !_nssTObject.hasConditionQuery()) { _nssTObject = new TObjectNss(query().queryTObject()); }
+        if (_nssTObject == null || !_nssTObject.hasConditionQuery())
+        { _nssTObject = new TObjectNss(query().queryTObject()); }
         return _nssTObject;
     }
 
@@ -152,12 +161,17 @@ public class BsTAttributeCB extends AbstractConditionBean {
     protected Specification _specification;
     public Specification specify() {
         if (_specification == null) { _specification = new Specification(this, new SpQyCall<TAttributeCQ>() {
-            public boolean has() { return true; } public TAttributeCQ qy() { return query(); } }, _forDeriveReferrer); } return _specification;
+            public boolean has() { return true; } public TAttributeCQ qy() { return query(); } }, _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, getDBMetaProvider()); }
+        return _specification;
     }
+
     public static class Specification extends AbstractSpecification<TAttributeCQ> {
         protected SpQyCall<TAttributeCQ> _myQyCall;
         protected TObjectCB.Specification _tObject;
-        public Specification(ConditionBean baseCB, SpQyCall<TAttributeCQ> qyCall, boolean forDeriveReferrer) { super(baseCB, qyCall, forDeriveReferrer); _myQyCall = qyCall; }
+        public Specification(ConditionBean baseCB, SpQyCall<TAttributeCQ> qyCall
+                           , boolean forDeriveReferrer, boolean forScalarSelect, boolean forScalarSubQuery
+                           , DBMetaProvider dbmetaProvider)
+        { super(baseCB, qyCall, forDeriveReferrer, forScalarSelect, forScalarSubQuery, dbmetaProvider); _myQyCall = qyCall; }
         public void columnObjectId() { doColumn("Object_ID"); }
         public void columnName() { doColumn("Name"); }
         public void columnScope() { doColumn("Scope"); }
@@ -194,12 +208,24 @@ public class BsTAttributeCB extends AbstractConditionBean {
             if (_tObject == null) {
                 _tObject = new TObjectCB.Specification(_baseCB, new SpQyCall<TObjectCQ>() {
                     public boolean has() { return _myQyCall.has() && _myQyCall.qy().hasConditionQueryTObject(); }
-                    public TObjectCQ qy() { return _myQyCall.qy().queryTObject(); } }, _forDeriveReferrer);
+                    public TObjectCQ qy() { return _myQyCall.qy().queryTObject(); } }
+                    , _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, _dbmetaProvider);
             }
             return _tObject;
         }
     }
 
+    // ===================================================================================
+    //                                                                         Display SQL
+    //                                                                         ===========
+    @Override
+    protected String getLogDateFormat() { return DBFluteConfig.getInstance().getLogDateFormat(); }
+    @Override
+    protected String getLogTimestampFormat() { return DBFluteConfig.getInstance().getLogTimestampFormat(); }
+
+    // ===================================================================================
+    //                                                                            Internal
+    //                                                                            ========
     // Very Internal (for Suppressing Warn about 'Not Use Import')
     protected String getConditionBeanClassNameInternally() { return TAttributeCB.class.getName(); }
     protected String getConditionQueryClassNameInternally() { return TAttributeCQ.class.getName(); }

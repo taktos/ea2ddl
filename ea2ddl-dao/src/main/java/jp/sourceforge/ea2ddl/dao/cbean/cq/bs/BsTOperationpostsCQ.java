@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_operationposts.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTOperationpostsCQ extends AbstractBsTOperationpostsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTOperationpostsCQ extends AbstractBsTOperationpostsCQ {
      * @return On-clause query. (NotNull)
      */
     public TOperationpostsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TOperationpostsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTOperationpostsCQ extends AbstractBsTOperationpostsCQ {
         return _operationid;
     }
     protected ConditionValue getCValueOperationid() { return getOperationid(); }
-          
+
     public BsTOperationpostsCQ addOrderBy_Operationid_Asc() { regOBA("OperationID"); return this; }
     public BsTOperationpostsCQ addOrderBy_Operationid_Desc() { regOBD("OperationID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTOperationpostsCQ extends AbstractBsTOperationpostsCQ {
         return _postcondition;
     }
     protected ConditionValue getCValuePostcondition() { return getPostcondition(); }
-    
+
     public BsTOperationpostsCQ addOrderBy_Postcondition_Asc() { regOBA("PostCondition"); return this; }
     public BsTOperationpostsCQ addOrderBy_Postcondition_Desc() { regOBD("PostCondition"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTOperationpostsCQ extends AbstractBsTOperationpostsCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTOperationpostsCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTOperationpostsCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTOperationpostsCQ extends AbstractBsTOperationpostsCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTOperationpostsCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTOperationpostsCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTOperationpostsCQ extends AbstractBsTOperationpostsCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TOperationpostsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TOperationpostsCB.class.getName(); }
+    String xCQ() { return TOperationpostsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

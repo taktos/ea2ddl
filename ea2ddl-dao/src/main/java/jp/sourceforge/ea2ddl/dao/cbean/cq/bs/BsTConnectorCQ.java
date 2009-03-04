@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_connector.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
      * @return On-clause query. (NotNull)
      */
     public TConnectorCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TConnectorCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _connectorId;
     }
     protected ConditionValue getCValueConnectorId() { return getConnectorId(); }
-          
+
     public BsTConnectorCQ addOrderBy_ConnectorId_Asc() { regOBA("Connector_ID"); return this; }
     public BsTConnectorCQ addOrderBy_ConnectorId_Desc() { regOBD("Connector_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTConnectorCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTConnectorCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _direction;
     }
     protected ConditionValue getCValueDirection() { return getDirection(); }
-    
+
     public BsTConnectorCQ addOrderBy_Direction_Asc() { regOBA("Direction"); return this; }
     public BsTConnectorCQ addOrderBy_Direction_Desc() { regOBD("Direction"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTConnectorCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTConnectorCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _connectorType;
     }
     protected ConditionValue getCValueConnectorType() { return getConnectorType(); }
-    
+
     public BsTConnectorCQ addOrderBy_ConnectorType_Asc() { regOBA("Connector_Type"); return this; }
     public BsTConnectorCQ addOrderBy_ConnectorType_Desc() { regOBD("Connector_Type"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _subtype;
     }
     protected ConditionValue getCValueSubtype() { return getSubtype(); }
-    
+
     public BsTConnectorCQ addOrderBy_Subtype_Asc() { regOBA("SubType"); return this; }
     public BsTConnectorCQ addOrderBy_Subtype_Desc() { regOBD("SubType"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourcecard;
     }
     protected ConditionValue getCValueSourcecard() { return getSourcecard(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcecard_Asc() { regOBA("SourceCard"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcecard_Desc() { regOBD("SourceCard"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourceaccess;
     }
     protected ConditionValue getCValueSourceaccess() { return getSourceaccess(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourceaccess_Asc() { regOBA("SourceAccess"); return this; }
     public BsTConnectorCQ addOrderBy_Sourceaccess_Desc() { regOBD("SourceAccess"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourceelement;
     }
     protected ConditionValue getCValueSourceelement() { return getSourceelement(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourceelement_Asc() { regOBA("SourceElement"); return this; }
     public BsTConnectorCQ addOrderBy_Sourceelement_Desc() { regOBD("SourceElement"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destcard;
     }
     protected ConditionValue getCValueDestcard() { return getDestcard(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destcard_Asc() { regOBA("DestCard"); return this; }
     public BsTConnectorCQ addOrderBy_Destcard_Desc() { regOBD("DestCard"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destaccess;
     }
     protected ConditionValue getCValueDestaccess() { return getDestaccess(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destaccess_Asc() { regOBA("DestAccess"); return this; }
     public BsTConnectorCQ addOrderBy_Destaccess_Desc() { regOBD("DestAccess"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destelement;
     }
     protected ConditionValue getCValueDestelement() { return getDestelement(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destelement_Asc() { regOBA("DestElement"); return this; }
     public BsTConnectorCQ addOrderBy_Destelement_Desc() { regOBD("DestElement"); return this; }
 
@@ -190,7 +190,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         String key = "subQueryMapKey" + (_sourcerole_InScopeSubQuery_TOperationBySourceroleMap.size() + 1);
         _sourcerole_InScopeSubQuery_TOperationBySourceroleMap.put(key, subQuery); return "sourcerole_InScopeSubQuery_TOperationBySourcerole." + key;
     }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcerole_Asc() { regOBA("SourceRole"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcerole_Desc() { regOBD("SourceRole"); return this; }
 
@@ -200,7 +200,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourceroletype;
     }
     protected ConditionValue getCValueSourceroletype() { return getSourceroletype(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourceroletype_Asc() { regOBA("SourceRoleType"); return this; }
     public BsTConnectorCQ addOrderBy_Sourceroletype_Desc() { regOBD("SourceRoleType"); return this; }
 
@@ -210,7 +210,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourcerolenote;
     }
     protected ConditionValue getCValueSourcerolenote() { return getSourcerolenote(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcerolenote_Asc() { regOBA("SourceRoleNote"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcerolenote_Desc() { regOBD("SourceRoleNote"); return this; }
 
@@ -220,7 +220,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourcecontainment;
     }
     protected ConditionValue getCValueSourcecontainment() { return getSourcecontainment(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcecontainment_Asc() { regOBA("SourceContainment"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcecontainment_Desc() { regOBD("SourceContainment"); return this; }
 
@@ -230,7 +230,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourceisaggregate;
     }
     protected ConditionValue getCValueSourceisaggregate() { return getSourceisaggregate(); }
-          
+
     public BsTConnectorCQ addOrderBy_Sourceisaggregate_Asc() { regOBA("SourceIsAggregate"); return this; }
     public BsTConnectorCQ addOrderBy_Sourceisaggregate_Desc() { regOBD("SourceIsAggregate"); return this; }
 
@@ -240,7 +240,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourceisordered;
     }
     protected ConditionValue getCValueSourceisordered() { return getSourceisordered(); }
-          
+
     public BsTConnectorCQ addOrderBy_Sourceisordered_Asc() { regOBA("SourceIsOrdered"); return this; }
     public BsTConnectorCQ addOrderBy_Sourceisordered_Desc() { regOBD("SourceIsOrdered"); return this; }
 
@@ -250,7 +250,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourcequalifier;
     }
     protected ConditionValue getCValueSourcequalifier() { return getSourcequalifier(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcequalifier_Asc() { regOBA("SourceQualifier"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcequalifier_Desc() { regOBD("SourceQualifier"); return this; }
 
@@ -268,7 +268,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         String key = "subQueryMapKey" + (_destrole_InScopeSubQuery_TOperationByDestroleMap.size() + 1);
         _destrole_InScopeSubQuery_TOperationByDestroleMap.put(key, subQuery); return "destrole_InScopeSubQuery_TOperationByDestrole." + key;
     }
-    
+
     public BsTConnectorCQ addOrderBy_Destrole_Asc() { regOBA("DestRole"); return this; }
     public BsTConnectorCQ addOrderBy_Destrole_Desc() { regOBD("DestRole"); return this; }
 
@@ -278,7 +278,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destroletype;
     }
     protected ConditionValue getCValueDestroletype() { return getDestroletype(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destroletype_Asc() { regOBA("DestRoleType"); return this; }
     public BsTConnectorCQ addOrderBy_Destroletype_Desc() { regOBD("DestRoleType"); return this; }
 
@@ -288,7 +288,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destrolenote;
     }
     protected ConditionValue getCValueDestrolenote() { return getDestrolenote(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destrolenote_Asc() { regOBA("DestRoleNote"); return this; }
     public BsTConnectorCQ addOrderBy_Destrolenote_Desc() { regOBD("DestRoleNote"); return this; }
 
@@ -298,7 +298,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destcontainment;
     }
     protected ConditionValue getCValueDestcontainment() { return getDestcontainment(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destcontainment_Asc() { regOBA("DestContainment"); return this; }
     public BsTConnectorCQ addOrderBy_Destcontainment_Desc() { regOBD("DestContainment"); return this; }
 
@@ -308,7 +308,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destisaggregate;
     }
     protected ConditionValue getCValueDestisaggregate() { return getDestisaggregate(); }
-          
+
     public BsTConnectorCQ addOrderBy_Destisaggregate_Asc() { regOBA("DestIsAggregate"); return this; }
     public BsTConnectorCQ addOrderBy_Destisaggregate_Desc() { regOBD("DestIsAggregate"); return this; }
 
@@ -318,7 +318,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destisordered;
     }
     protected ConditionValue getCValueDestisordered() { return getDestisordered(); }
-          
+
     public BsTConnectorCQ addOrderBy_Destisordered_Asc() { regOBA("DestIsOrdered"); return this; }
     public BsTConnectorCQ addOrderBy_Destisordered_Desc() { regOBD("DestIsOrdered"); return this; }
 
@@ -328,7 +328,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destqualifier;
     }
     protected ConditionValue getCValueDestqualifier() { return getDestqualifier(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destqualifier_Asc() { regOBA("DestQualifier"); return this; }
     public BsTConnectorCQ addOrderBy_Destqualifier_Desc() { regOBD("DestQualifier"); return this; }
 
@@ -338,7 +338,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _startObjectId;
     }
     protected ConditionValue getCValueStartObjectId() { return getStartObjectId(); }
-          
+
     protected Map<String, TObjectCQ> _startObjectId_InScopeSubQuery_TObjectByStartObjectIdMap;
     public Map<String, TObjectCQ> getStartObjectId_InScopeSubQuery_TObjectByStartObjectId() { return _startObjectId_InScopeSubQuery_TObjectByStartObjectIdMap; }
     public String keepStartObjectId_InScopeSubQuery_TObjectByStartObjectId(TObjectCQ subQuery) {
@@ -356,7 +356,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _endObjectId;
     }
     protected ConditionValue getCValueEndObjectId() { return getEndObjectId(); }
-          
+
     protected Map<String, TObjectCQ> _endObjectId_InScopeSubQuery_TObjectByEndObjectIdMap;
     public Map<String, TObjectCQ> getEndObjectId_InScopeSubQuery_TObjectByEndObjectId() { return _endObjectId_InScopeSubQuery_TObjectByEndObjectIdMap; }
     public String keepEndObjectId_InScopeSubQuery_TObjectByEndObjectId(TObjectCQ subQuery) {
@@ -374,7 +374,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _topStartLabel;
     }
     protected ConditionValue getCValueTopStartLabel() { return getTopStartLabel(); }
-    
+
     public BsTConnectorCQ addOrderBy_TopStartLabel_Asc() { regOBA("Top_Start_Label"); return this; }
     public BsTConnectorCQ addOrderBy_TopStartLabel_Desc() { regOBD("Top_Start_Label"); return this; }
 
@@ -384,7 +384,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _topMidLabel;
     }
     protected ConditionValue getCValueTopMidLabel() { return getTopMidLabel(); }
-    
+
     public BsTConnectorCQ addOrderBy_TopMidLabel_Asc() { regOBA("Top_Mid_Label"); return this; }
     public BsTConnectorCQ addOrderBy_TopMidLabel_Desc() { regOBD("Top_Mid_Label"); return this; }
 
@@ -394,7 +394,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _topEndLabel;
     }
     protected ConditionValue getCValueTopEndLabel() { return getTopEndLabel(); }
-    
+
     public BsTConnectorCQ addOrderBy_TopEndLabel_Asc() { regOBA("Top_End_Label"); return this; }
     public BsTConnectorCQ addOrderBy_TopEndLabel_Desc() { regOBD("Top_End_Label"); return this; }
 
@@ -404,7 +404,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _btmStartLabel;
     }
     protected ConditionValue getCValueBtmStartLabel() { return getBtmStartLabel(); }
-    
+
     public BsTConnectorCQ addOrderBy_BtmStartLabel_Asc() { regOBA("Btm_Start_Label"); return this; }
     public BsTConnectorCQ addOrderBy_BtmStartLabel_Desc() { regOBD("Btm_Start_Label"); return this; }
 
@@ -414,7 +414,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _btmMidLabel;
     }
     protected ConditionValue getCValueBtmMidLabel() { return getBtmMidLabel(); }
-    
+
     public BsTConnectorCQ addOrderBy_BtmMidLabel_Asc() { regOBA("Btm_Mid_Label"); return this; }
     public BsTConnectorCQ addOrderBy_BtmMidLabel_Desc() { regOBD("Btm_Mid_Label"); return this; }
 
@@ -424,7 +424,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _btmEndLabel;
     }
     protected ConditionValue getCValueBtmEndLabel() { return getBtmEndLabel(); }
-    
+
     public BsTConnectorCQ addOrderBy_BtmEndLabel_Asc() { regOBA("Btm_End_Label"); return this; }
     public BsTConnectorCQ addOrderBy_BtmEndLabel_Desc() { regOBD("Btm_End_Label"); return this; }
 
@@ -434,7 +434,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _startEdge;
     }
     protected ConditionValue getCValueStartEdge() { return getStartEdge(); }
-          
+
     public BsTConnectorCQ addOrderBy_StartEdge_Asc() { regOBA("Start_Edge"); return this; }
     public BsTConnectorCQ addOrderBy_StartEdge_Desc() { regOBD("Start_Edge"); return this; }
 
@@ -444,7 +444,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _endEdge;
     }
     protected ConditionValue getCValueEndEdge() { return getEndEdge(); }
-          
+
     public BsTConnectorCQ addOrderBy_EndEdge_Asc() { regOBA("End_Edge"); return this; }
     public BsTConnectorCQ addOrderBy_EndEdge_Desc() { regOBD("End_Edge"); return this; }
 
@@ -454,7 +454,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _ptstartx;
     }
     protected ConditionValue getCValuePtstartx() { return getPtstartx(); }
-          
+
     public BsTConnectorCQ addOrderBy_Ptstartx_Asc() { regOBA("PtStartX"); return this; }
     public BsTConnectorCQ addOrderBy_Ptstartx_Desc() { regOBD("PtStartX"); return this; }
 
@@ -464,7 +464,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _ptstarty;
     }
     protected ConditionValue getCValuePtstarty() { return getPtstarty(); }
-          
+
     public BsTConnectorCQ addOrderBy_Ptstarty_Asc() { regOBA("PtStartY"); return this; }
     public BsTConnectorCQ addOrderBy_Ptstarty_Desc() { regOBD("PtStartY"); return this; }
 
@@ -474,7 +474,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _ptendx;
     }
     protected ConditionValue getCValuePtendx() { return getPtendx(); }
-          
+
     public BsTConnectorCQ addOrderBy_Ptendx_Asc() { regOBA("PtEndX"); return this; }
     public BsTConnectorCQ addOrderBy_Ptendx_Desc() { regOBD("PtEndX"); return this; }
 
@@ -484,7 +484,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _ptendy;
     }
     protected ConditionValue getCValuePtendy() { return getPtendy(); }
-          
+
     public BsTConnectorCQ addOrderBy_Ptendy_Asc() { regOBA("PtEndY"); return this; }
     public BsTConnectorCQ addOrderBy_Ptendy_Desc() { regOBD("PtEndY"); return this; }
 
@@ -494,7 +494,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _seqno;
     }
     protected ConditionValue getCValueSeqno() { return getSeqno(); }
-          
+
     public BsTConnectorCQ addOrderBy_Seqno_Asc() { regOBA("SeqNo"); return this; }
     public BsTConnectorCQ addOrderBy_Seqno_Desc() { regOBD("SeqNo"); return this; }
 
@@ -504,7 +504,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _headstyle;
     }
     protected ConditionValue getCValueHeadstyle() { return getHeadstyle(); }
-          
+
     public BsTConnectorCQ addOrderBy_Headstyle_Asc() { regOBA("HeadStyle"); return this; }
     public BsTConnectorCQ addOrderBy_Headstyle_Desc() { regOBD("HeadStyle"); return this; }
 
@@ -514,7 +514,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _linestyle;
     }
     protected ConditionValue getCValueLinestyle() { return getLinestyle(); }
-          
+
     public BsTConnectorCQ addOrderBy_Linestyle_Asc() { regOBA("LineStyle"); return this; }
     public BsTConnectorCQ addOrderBy_Linestyle_Desc() { regOBD("LineStyle"); return this; }
 
@@ -524,7 +524,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _routestyle;
     }
     protected ConditionValue getCValueRoutestyle() { return getRoutestyle(); }
-          
+
     public BsTConnectorCQ addOrderBy_Routestyle_Asc() { regOBA("RouteStyle"); return this; }
     public BsTConnectorCQ addOrderBy_Routestyle_Desc() { regOBD("RouteStyle"); return this; }
 
@@ -534,7 +534,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _isbold;
     }
     protected ConditionValue getCValueIsbold() { return getIsbold(); }
-          
+
     public BsTConnectorCQ addOrderBy_Isbold_Asc() { regOBA("IsBold"); return this; }
     public BsTConnectorCQ addOrderBy_Isbold_Desc() { regOBD("IsBold"); return this; }
 
@@ -544,7 +544,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _linecolor;
     }
     protected ConditionValue getCValueLinecolor() { return getLinecolor(); }
-          
+
     public BsTConnectorCQ addOrderBy_Linecolor_Asc() { regOBA("LineColor"); return this; }
     public BsTConnectorCQ addOrderBy_Linecolor_Desc() { regOBD("LineColor"); return this; }
 
@@ -554,7 +554,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _stereotype;
     }
     protected ConditionValue getCValueStereotype() { return getStereotype(); }
-    
+
     public BsTConnectorCQ addOrderBy_Stereotype_Asc() { regOBA("Stereotype"); return this; }
     public BsTConnectorCQ addOrderBy_Stereotype_Desc() { regOBD("Stereotype"); return this; }
 
@@ -564,7 +564,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _virtualinheritance;
     }
     protected ConditionValue getCValueVirtualinheritance() { return getVirtualinheritance(); }
-    
+
     public BsTConnectorCQ addOrderBy_Virtualinheritance_Asc() { regOBA("VirtualInheritance"); return this; }
     public BsTConnectorCQ addOrderBy_Virtualinheritance_Desc() { regOBD("VirtualInheritance"); return this; }
 
@@ -574,7 +574,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _linkaccess;
     }
     protected ConditionValue getCValueLinkaccess() { return getLinkaccess(); }
-    
+
     public BsTConnectorCQ addOrderBy_Linkaccess_Asc() { regOBA("LinkAccess"); return this; }
     public BsTConnectorCQ addOrderBy_Linkaccess_Desc() { regOBD("LinkAccess"); return this; }
 
@@ -584,7 +584,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _pdata1;
     }
     protected ConditionValue getCValuePdata1() { return getPdata1(); }
-    
+
     public BsTConnectorCQ addOrderBy_Pdata1_Asc() { regOBA("PDATA1"); return this; }
     public BsTConnectorCQ addOrderBy_Pdata1_Desc() { regOBD("PDATA1"); return this; }
 
@@ -594,7 +594,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _pdata2;
     }
     protected ConditionValue getCValuePdata2() { return getPdata2(); }
-    
+
     public BsTConnectorCQ addOrderBy_Pdata2_Asc() { regOBA("PDATA2"); return this; }
     public BsTConnectorCQ addOrderBy_Pdata2_Desc() { regOBD("PDATA2"); return this; }
 
@@ -604,7 +604,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _pdata3;
     }
     protected ConditionValue getCValuePdata3() { return getPdata3(); }
-    
+
     public BsTConnectorCQ addOrderBy_Pdata3_Asc() { regOBA("PDATA3"); return this; }
     public BsTConnectorCQ addOrderBy_Pdata3_Desc() { regOBD("PDATA3"); return this; }
 
@@ -614,7 +614,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _pdata4;
     }
     protected ConditionValue getCValuePdata4() { return getPdata4(); }
-    
+
     public BsTConnectorCQ addOrderBy_Pdata4_Asc() { regOBA("PDATA4"); return this; }
     public BsTConnectorCQ addOrderBy_Pdata4_Desc() { regOBD("PDATA4"); return this; }
 
@@ -624,7 +624,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _pdata5;
     }
     protected ConditionValue getCValuePdata5() { return getPdata5(); }
-    
+
     public BsTConnectorCQ addOrderBy_Pdata5_Asc() { regOBA("PDATA5"); return this; }
     public BsTConnectorCQ addOrderBy_Pdata5_Desc() { regOBD("PDATA5"); return this; }
 
@@ -634,7 +634,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _diagramid;
     }
     protected ConditionValue getCValueDiagramid() { return getDiagramid(); }
-          
+
     public BsTConnectorCQ addOrderBy_Diagramid_Asc() { regOBA("DiagramID"); return this; }
     public BsTConnectorCQ addOrderBy_Diagramid_Desc() { regOBD("DiagramID"); return this; }
 
@@ -644,7 +644,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _eaGuid;
     }
     protected ConditionValue getCValueEaGuid() { return getEaGuid(); }
-    
+
     public BsTConnectorCQ addOrderBy_EaGuid_Asc() { regOBA("ea_guid"); return this; }
     public BsTConnectorCQ addOrderBy_EaGuid_Desc() { regOBD("ea_guid"); return this; }
 
@@ -654,7 +654,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourceconstraint;
     }
     protected ConditionValue getCValueSourceconstraint() { return getSourceconstraint(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourceconstraint_Asc() { regOBA("SourceConstraint"); return this; }
     public BsTConnectorCQ addOrderBy_Sourceconstraint_Desc() { regOBD("SourceConstraint"); return this; }
 
@@ -664,7 +664,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destconstraint;
     }
     protected ConditionValue getCValueDestconstraint() { return getDestconstraint(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destconstraint_Asc() { regOBA("DestConstraint"); return this; }
     public BsTConnectorCQ addOrderBy_Destconstraint_Desc() { regOBD("DestConstraint"); return this; }
 
@@ -674,7 +674,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourceisnavigable;
     }
     protected ConditionValue getCValueSourceisnavigable() { return getSourceisnavigable(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourceisnavigable_Asc() { regOBA("SourceIsNavigable"); return this; }
     public BsTConnectorCQ addOrderBy_Sourceisnavigable_Desc() { regOBD("SourceIsNavigable"); return this; }
 
@@ -684,7 +684,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destisnavigable;
     }
     protected ConditionValue getCValueDestisnavigable() { return getDestisnavigable(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destisnavigable_Asc() { regOBA("DestIsNavigable"); return this; }
     public BsTConnectorCQ addOrderBy_Destisnavigable_Desc() { regOBD("DestIsNavigable"); return this; }
 
@@ -694,7 +694,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _isroot;
     }
     protected ConditionValue getCValueIsroot() { return getIsroot(); }
-    
+
     public BsTConnectorCQ addOrderBy_Isroot_Asc() { regOBA("IsRoot"); return this; }
     public BsTConnectorCQ addOrderBy_Isroot_Desc() { regOBD("IsRoot"); return this; }
 
@@ -704,7 +704,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _isleaf;
     }
     protected ConditionValue getCValueIsleaf() { return getIsleaf(); }
-    
+
     public BsTConnectorCQ addOrderBy_Isleaf_Asc() { regOBA("IsLeaf"); return this; }
     public BsTConnectorCQ addOrderBy_Isleaf_Desc() { regOBD("IsLeaf"); return this; }
 
@@ -714,7 +714,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _isspec;
     }
     protected ConditionValue getCValueIsspec() { return getIsspec(); }
-    
+
     public BsTConnectorCQ addOrderBy_Isspec_Asc() { regOBA("IsSpec"); return this; }
     public BsTConnectorCQ addOrderBy_Isspec_Desc() { regOBD("IsSpec"); return this; }
 
@@ -724,7 +724,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourcechangeable;
     }
     protected ConditionValue getCValueSourcechangeable() { return getSourcechangeable(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcechangeable_Asc() { regOBA("SourceChangeable"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcechangeable_Desc() { regOBD("SourceChangeable"); return this; }
 
@@ -734,7 +734,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destchangeable;
     }
     protected ConditionValue getCValueDestchangeable() { return getDestchangeable(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destchangeable_Asc() { regOBA("DestChangeable"); return this; }
     public BsTConnectorCQ addOrderBy_Destchangeable_Desc() { regOBD("DestChangeable"); return this; }
 
@@ -744,7 +744,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourcets;
     }
     protected ConditionValue getCValueSourcets() { return getSourcets(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcets_Asc() { regOBA("SourceTS"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcets_Desc() { regOBD("SourceTS"); return this; }
 
@@ -754,7 +754,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _destts;
     }
     protected ConditionValue getCValueDestts() { return getDestts(); }
-    
+
     public BsTConnectorCQ addOrderBy_Destts_Asc() { regOBA("DestTS"); return this; }
     public BsTConnectorCQ addOrderBy_Destts_Desc() { regOBD("DestTS"); return this; }
 
@@ -764,7 +764,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _stateflags;
     }
     protected ConditionValue getCValueStateflags() { return getStateflags(); }
-    
+
     public BsTConnectorCQ addOrderBy_Stateflags_Asc() { regOBA("StateFlags"); return this; }
     public BsTConnectorCQ addOrderBy_Stateflags_Desc() { regOBD("StateFlags"); return this; }
 
@@ -774,7 +774,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _actionflags;
     }
     protected ConditionValue getCValueActionflags() { return getActionflags(); }
-    
+
     public BsTConnectorCQ addOrderBy_Actionflags_Asc() { regOBA("ActionFlags"); return this; }
     public BsTConnectorCQ addOrderBy_Actionflags_Desc() { regOBD("ActionFlags"); return this; }
 
@@ -784,7 +784,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _issignal;
     }
     protected ConditionValue getCValueIssignal() { return getIssignal(); }
-    
+
     public BsTConnectorCQ addOrderBy_Issignal_Asc() { regOBA("IsSignal"); return this; }
     public BsTConnectorCQ addOrderBy_Issignal_Desc() { regOBD("IsSignal"); return this; }
 
@@ -794,7 +794,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _isstimulus;
     }
     protected ConditionValue getCValueIsstimulus() { return getIsstimulus(); }
-    
+
     public BsTConnectorCQ addOrderBy_Isstimulus_Asc() { regOBA("IsStimulus"); return this; }
     public BsTConnectorCQ addOrderBy_Isstimulus_Desc() { regOBD("IsStimulus"); return this; }
 
@@ -804,7 +804,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _dispatchaction;
     }
     protected ConditionValue getCValueDispatchaction() { return getDispatchaction(); }
-    
+
     public BsTConnectorCQ addOrderBy_Dispatchaction_Asc() { regOBA("DispatchAction"); return this; }
     public BsTConnectorCQ addOrderBy_Dispatchaction_Desc() { regOBD("DispatchAction"); return this; }
 
@@ -814,7 +814,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _target2;
     }
     protected ConditionValue getCValueTarget2() { return getTarget2(); }
-          
+
     public BsTConnectorCQ addOrderBy_Target2_Asc() { regOBA("Target2"); return this; }
     public BsTConnectorCQ addOrderBy_Target2_Desc() { regOBD("Target2"); return this; }
 
@@ -824,7 +824,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _styleex;
     }
     protected ConditionValue getCValueStyleex() { return getStyleex(); }
-    
+
     public BsTConnectorCQ addOrderBy_Styleex_Asc() { regOBA("StyleEx"); return this; }
     public BsTConnectorCQ addOrderBy_Styleex_Desc() { regOBD("StyleEx"); return this; }
 
@@ -834,7 +834,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourcestereotype;
     }
     protected ConditionValue getCValueSourcestereotype() { return getSourcestereotype(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcestereotype_Asc() { regOBA("SourceStereotype"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcestereotype_Desc() { regOBD("SourceStereotype"); return this; }
 
@@ -844,7 +844,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _deststereotype;
     }
     protected ConditionValue getCValueDeststereotype() { return getDeststereotype(); }
-    
+
     public BsTConnectorCQ addOrderBy_Deststereotype_Asc() { regOBA("DestStereotype"); return this; }
     public BsTConnectorCQ addOrderBy_Deststereotype_Desc() { regOBD("DestStereotype"); return this; }
 
@@ -854,7 +854,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _sourcestyle;
     }
     protected ConditionValue getCValueSourcestyle() { return getSourcestyle(); }
-    
+
     public BsTConnectorCQ addOrderBy_Sourcestyle_Asc() { regOBA("SourceStyle"); return this; }
     public BsTConnectorCQ addOrderBy_Sourcestyle_Desc() { regOBD("SourceStyle"); return this; }
 
@@ -864,7 +864,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _deststyle;
     }
     protected ConditionValue getCValueDeststyle() { return getDeststyle(); }
-    
+
     public BsTConnectorCQ addOrderBy_Deststyle_Asc() { regOBA("DestStyle"); return this; }
     public BsTConnectorCQ addOrderBy_Deststyle_Desc() { regOBD("DestStyle"); return this; }
 
@@ -874,7 +874,7 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
         return _eventflags;
     }
     protected ConditionValue getCValueEventflags() { return getEventflags(); }
-    
+
     public BsTConnectorCQ addOrderBy_Eventflags_Asc() { regOBA("EventFlags"); return this; }
     public BsTConnectorCQ addOrderBy_Eventflags_Desc() { regOBD("EventFlags"); return this; }
 
@@ -907,112 +907,141 @@ public class BsTConnectorCQ extends AbstractBsTConnectorCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-    
     public TOperationCQ queryTOperationBySourcerole() {
         return getConditionQueryTOperationBySourcerole();
     }
     protected TOperationCQ _conditionQueryTOperationBySourcerole;
     public TOperationCQ getConditionQueryTOperationBySourcerole() {
         if (_conditionQueryTOperationBySourcerole == null) {
-            _conditionQueryTOperationBySourcerole = createQueryTOperationBySourcerole();
-            setupOuterJoin_TOperationBySourcerole();
+            _conditionQueryTOperationBySourcerole = xcreateQueryTOperationBySourcerole();
+            xsetupOuterJoinTOperationBySourcerole();
         }
         return _conditionQueryTOperationBySourcerole;
     }
-    protected void setupOuterJoin_TOperationBySourcerole() {
-        Map<String, String> joinOnMap = newLinkedHashMap();
-        joinOnMap.put(getRealColumnName("SourceRole"), getConditionQueryTOperationBySourcerole().getRealColumnName("Name"));
-        registerOuterJoin(getConditionQueryTOperationBySourcerole(), joinOnMap);
-    }
-    protected TOperationCQ createQueryTOperationBySourcerole() {
+    protected TOperationCQ xcreateQueryTOperationBySourcerole() {
         String nrp = resolveNextRelationPath("t_connector", "tOperationBySourcerole");
         String jan = resolveJoinAliasName(nrp, getNextNestLevel());
         TOperationCQ cq = new TOperationCQ(this, getSqlClause(), jan, getNextNestLevel());
         cq.xsetForeignPropertyName("tOperationBySourcerole"); cq.xsetRelationPath(nrp); return cq;
     }
+    protected void xsetupOuterJoinTOperationBySourcerole() {
+        TOperationCQ cq = getConditionQueryTOperationBySourcerole();
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("SourceRole"), cq.getRealColumnName("Name"));
+        registerOuterJoin(cq, joinOnMap);
+    }
     public boolean hasConditionQueryTOperationBySourcerole() {
         return _conditionQueryTOperationBySourcerole != null;
     }
-    
+
     public TOperationCQ queryTOperationByDestrole() {
         return getConditionQueryTOperationByDestrole();
     }
     protected TOperationCQ _conditionQueryTOperationByDestrole;
     public TOperationCQ getConditionQueryTOperationByDestrole() {
         if (_conditionQueryTOperationByDestrole == null) {
-            _conditionQueryTOperationByDestrole = createQueryTOperationByDestrole();
-            setupOuterJoin_TOperationByDestrole();
+            _conditionQueryTOperationByDestrole = xcreateQueryTOperationByDestrole();
+            xsetupOuterJoinTOperationByDestrole();
         }
         return _conditionQueryTOperationByDestrole;
     }
-    protected void setupOuterJoin_TOperationByDestrole() {
-        Map<String, String> joinOnMap = newLinkedHashMap();
-        joinOnMap.put(getRealColumnName("DestRole"), getConditionQueryTOperationByDestrole().getRealColumnName("Name"));
-        registerOuterJoin(getConditionQueryTOperationByDestrole(), joinOnMap);
-    }
-    protected TOperationCQ createQueryTOperationByDestrole() {
+    protected TOperationCQ xcreateQueryTOperationByDestrole() {
         String nrp = resolveNextRelationPath("t_connector", "tOperationByDestrole");
         String jan = resolveJoinAliasName(nrp, getNextNestLevel());
         TOperationCQ cq = new TOperationCQ(this, getSqlClause(), jan, getNextNestLevel());
         cq.xsetForeignPropertyName("tOperationByDestrole"); cq.xsetRelationPath(nrp); return cq;
     }
+    protected void xsetupOuterJoinTOperationByDestrole() {
+        TOperationCQ cq = getConditionQueryTOperationByDestrole();
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("DestRole"), cq.getRealColumnName("Name"));
+        registerOuterJoin(cq, joinOnMap);
+    }
     public boolean hasConditionQueryTOperationByDestrole() {
         return _conditionQueryTOperationByDestrole != null;
     }
-    
+
     public TObjectCQ queryTObjectByStartObjectId() {
         return getConditionQueryTObjectByStartObjectId();
     }
     protected TObjectCQ _conditionQueryTObjectByStartObjectId;
     public TObjectCQ getConditionQueryTObjectByStartObjectId() {
         if (_conditionQueryTObjectByStartObjectId == null) {
-            _conditionQueryTObjectByStartObjectId = createQueryTObjectByStartObjectId();
-            setupOuterJoin_TObjectByStartObjectId();
+            _conditionQueryTObjectByStartObjectId = xcreateQueryTObjectByStartObjectId();
+            xsetupOuterJoinTObjectByStartObjectId();
         }
         return _conditionQueryTObjectByStartObjectId;
     }
-    protected void setupOuterJoin_TObjectByStartObjectId() {
-        Map<String, String> joinOnMap = newLinkedHashMap();
-        joinOnMap.put(getRealColumnName("Start_Object_ID"), getConditionQueryTObjectByStartObjectId().getRealColumnName("Object_ID"));
-        registerOuterJoin(getConditionQueryTObjectByStartObjectId(), joinOnMap);
-    }
-    protected TObjectCQ createQueryTObjectByStartObjectId() {
+    protected TObjectCQ xcreateQueryTObjectByStartObjectId() {
         String nrp = resolveNextRelationPath("t_connector", "tObjectByStartObjectId");
         String jan = resolveJoinAliasName(nrp, getNextNestLevel());
         TObjectCQ cq = new TObjectCQ(this, getSqlClause(), jan, getNextNestLevel());
         cq.xsetForeignPropertyName("tObjectByStartObjectId"); cq.xsetRelationPath(nrp); return cq;
     }
+    protected void xsetupOuterJoinTObjectByStartObjectId() {
+        TObjectCQ cq = getConditionQueryTObjectByStartObjectId();
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("Start_Object_ID"), cq.getRealColumnName("Object_ID"));
+        registerOuterJoin(cq, joinOnMap);
+    }
     public boolean hasConditionQueryTObjectByStartObjectId() {
         return _conditionQueryTObjectByStartObjectId != null;
     }
-    
+
     public TObjectCQ queryTObjectByEndObjectId() {
         return getConditionQueryTObjectByEndObjectId();
     }
     protected TObjectCQ _conditionQueryTObjectByEndObjectId;
     public TObjectCQ getConditionQueryTObjectByEndObjectId() {
         if (_conditionQueryTObjectByEndObjectId == null) {
-            _conditionQueryTObjectByEndObjectId = createQueryTObjectByEndObjectId();
-            setupOuterJoin_TObjectByEndObjectId();
+            _conditionQueryTObjectByEndObjectId = xcreateQueryTObjectByEndObjectId();
+            xsetupOuterJoinTObjectByEndObjectId();
         }
         return _conditionQueryTObjectByEndObjectId;
     }
-    protected void setupOuterJoin_TObjectByEndObjectId() {
-        Map<String, String> joinOnMap = newLinkedHashMap();
-        joinOnMap.put(getRealColumnName("End_Object_ID"), getConditionQueryTObjectByEndObjectId().getRealColumnName("Object_ID"));
-        registerOuterJoin(getConditionQueryTObjectByEndObjectId(), joinOnMap);
-    }
-    protected TObjectCQ createQueryTObjectByEndObjectId() {
+    protected TObjectCQ xcreateQueryTObjectByEndObjectId() {
         String nrp = resolveNextRelationPath("t_connector", "tObjectByEndObjectId");
         String jan = resolveJoinAliasName(nrp, getNextNestLevel());
         TObjectCQ cq = new TObjectCQ(this, getSqlClause(), jan, getNextNestLevel());
         cq.xsetForeignPropertyName("tObjectByEndObjectId"); cq.xsetRelationPath(nrp); return cq;
     }
+    protected void xsetupOuterJoinTObjectByEndObjectId() {
+        TObjectCQ cq = getConditionQueryTObjectByEndObjectId();
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("End_Object_ID"), cq.getRealColumnName("Object_ID"));
+        registerOuterJoin(cq, joinOnMap);
+    }
     public boolean hasConditionQueryTObjectByEndObjectId() {
         return _conditionQueryTObjectByEndObjectId != null;
     }
 
+    // ===================================================================================
+    //                                                                     Scalar SubQuery
+    //                                                                     ===============
+    protected Map<String, TConnectorCQ> _scalarSubQueryMap;
+    public Map<String, TConnectorCQ> getScalarSubQuery() { return _scalarSubQueryMap; }
+    public String keepScalarSubQuery(TConnectorCQ subQuery) {
+        if (_scalarSubQueryMap == null) { _scalarSubQueryMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_scalarSubQueryMap.size() + 1);
+        _scalarSubQueryMap.put(key, subQuery); return "scalarSubQuery." + key;
+    }
 
-    protected String getConditionQueryClassNameInternally() { return TConnectorCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                             MySelf InScope SubQuery
+    //                                                             =======================
+    protected Map<String, TConnectorCQ> _myselfInScopeSubQueryMap;
+    public Map<String, TConnectorCQ> getMyselfInScopeSubQuery() { return _myselfInScopeSubQueryMap; }
+    public String keepMyselfInScopeSubQuery(TConnectorCQ subQuery) {
+        if (_myselfInScopeSubQueryMap == null) { _myselfInScopeSubQueryMap = newLinkedHashMap(); }
+        String key = "subQueryMapKey" + (_myselfInScopeSubQueryMap.size() + 1);
+        _myselfInScopeSubQueryMap.put(key, subQuery); return "myselfInScopeSubQuery." + key;
+    }
+
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TConnectorCB.class.getName(); }
+    String xCQ() { return TConnectorCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

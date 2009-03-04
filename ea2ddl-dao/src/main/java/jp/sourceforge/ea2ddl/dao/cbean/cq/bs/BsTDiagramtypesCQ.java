@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_diagramtypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTDiagramtypesCQ extends AbstractBsTDiagramtypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTDiagramtypesCQ extends AbstractBsTDiagramtypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TDiagramtypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TDiagramtypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTDiagramtypesCQ extends AbstractBsTDiagramtypesCQ {
         return _diagramType;
     }
     protected ConditionValue getCValueDiagramType() { return getDiagramType(); }
-    
+
     public BsTDiagramtypesCQ addOrderBy_DiagramType_Asc() { regOBA("Diagram_Type"); return this; }
     public BsTDiagramtypesCQ addOrderBy_DiagramType_Desc() { regOBD("Diagram_Type"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTDiagramtypesCQ extends AbstractBsTDiagramtypesCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTDiagramtypesCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTDiagramtypesCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTDiagramtypesCQ extends AbstractBsTDiagramtypesCQ {
         return _packageId;
     }
     protected ConditionValue getCValuePackageId() { return getPackageId(); }
-          
+
     public BsTDiagramtypesCQ addOrderBy_PackageId_Asc() { regOBA("Package_ID"); return this; }
     public BsTDiagramtypesCQ addOrderBy_PackageId_Desc() { regOBD("Package_ID"); return this; }
 
@@ -101,8 +101,11 @@ public class BsTDiagramtypesCQ extends AbstractBsTDiagramtypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TDiagramtypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TDiagramtypesCB.class.getName(); }
+    String xCQ() { return TDiagramtypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

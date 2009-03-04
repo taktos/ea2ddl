@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_glossary(TABLE).
+ * The entity of t_glossary that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTGlossary implements Entity, java.io.Serializable {
+public abstract class BsTGlossary implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_glossary. */
-    public static final String TABLE = "t_glossary";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Term'. {UQ : VARCHAR(255)} */
+    /** Term: {UQ : VARCHAR(255)} */
     protected String _term;
 
-    /** The attribute of the column 'Type'. {VARCHAR(255)} */
+    /** Type: {VARCHAR(255)} */
     protected String _type;
 
-    /** The attribute of the column 'Meaning'. {LONGCHAR(2147483647)} */
+    /** Meaning: {LONGCHAR(2147483647)} */
     protected String _meaning;
 
-    /** The attribute of the column 'GlossaryID'. {COUNTER : NotNull} */
+    /** GlossaryID: {NotNull : COUNTER} */
     protected java.lang.Integer _glossaryid;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTGlossary() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_glossary";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TGlossary";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String term_COLUMN = "Term";
-
     /**
-     * Get the value of the column 'Term'. <br />
-     * {UQ : VARCHAR(255)}
+     * Term: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Term'. (Nullable)
      */
     public String getTerm() {
@@ -209,8 +193,7 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Term'. <br />
-     * {UQ : VARCHAR(255)}
+     * Term: {UQ : VARCHAR(255)} <br />
      * @param term The value of the column 'Term'. (Nullable)
      */
     public void setTerm(String term) {
@@ -218,12 +201,8 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
         this._term = term;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -231,8 +210,7 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -240,12 +218,8 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String meaning_COLUMN = "Meaning";
-
     /**
-     * Get the value of the column 'Meaning'. <br />
-     * {LONGCHAR(2147483647)}
+     * Meaning: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Meaning'. (Nullable)
      */
     public String getMeaning() {
@@ -253,8 +227,7 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Meaning'. <br />
-     * {LONGCHAR(2147483647)}
+     * Meaning: {LONGCHAR(2147483647)} <br />
      * @param meaning The value of the column 'Meaning'. (Nullable)
      */
     public void setMeaning(String meaning) {
@@ -262,12 +235,8 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
         this._meaning = meaning;
     }
 
-    /** The column annotation for S2Dao. {COUNTER : NotNull} */
-    public static final String glossaryid_COLUMN = "GlossaryID";
-
     /**
-     * Get the value of the column 'GlossaryID'. <br />
-     * {COUNTER : NotNull}
+     * GlossaryID: {NotNull : COUNTER} <br />
      * @return The value of the column 'GlossaryID'. (Nullable)
      */
     public java.lang.Integer getGlossaryid() {
@@ -275,13 +244,11 @@ public abstract class BsTGlossary implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GlossaryID'. <br />
-     * {COUNTER : NotNull}
+     * GlossaryID: {NotNull : COUNTER} <br />
      * @param glossaryid The value of the column 'GlossaryID'. (Nullable)
      */
     public void setGlossaryid(java.lang.Integer glossaryid) {
         _modifiedProperties.addPropertyName("glossaryid");
         this._glossaryid = glossaryid;
     }
-
 }

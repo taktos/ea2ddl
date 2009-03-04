@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_glossary.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTGlossaryCQ extends AbstractBsTGlossaryCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTGlossaryCQ extends AbstractBsTGlossaryCQ {
      * @return On-clause query. (NotNull)
      */
     public TGlossaryCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TGlossaryCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTGlossaryCQ extends AbstractBsTGlossaryCQ {
         return _term;
     }
     protected ConditionValue getCValueTerm() { return getTerm(); }
-    
+
     public BsTGlossaryCQ addOrderBy_Term_Asc() { regOBA("Term"); return this; }
     public BsTGlossaryCQ addOrderBy_Term_Desc() { regOBD("Term"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTGlossaryCQ extends AbstractBsTGlossaryCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTGlossaryCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTGlossaryCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTGlossaryCQ extends AbstractBsTGlossaryCQ {
         return _meaning;
     }
     protected ConditionValue getCValueMeaning() { return getMeaning(); }
-    
+
     public BsTGlossaryCQ addOrderBy_Meaning_Asc() { regOBA("Meaning"); return this; }
     public BsTGlossaryCQ addOrderBy_Meaning_Desc() { regOBD("Meaning"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTGlossaryCQ extends AbstractBsTGlossaryCQ {
         return _glossaryid;
     }
     protected ConditionValue getCValueGlossaryid() { return getGlossaryid(); }
-          
+
     public BsTGlossaryCQ addOrderBy_Glossaryid_Asc() { regOBA("GlossaryID"); return this; }
     public BsTGlossaryCQ addOrderBy_Glossaryid_Desc() { regOBD("GlossaryID"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTGlossaryCQ extends AbstractBsTGlossaryCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TGlossaryCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TGlossaryCB.class.getName(); }
+    String xCQ() { return TGlossaryCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TAttribute;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_attribute. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TAttributeDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TAttributeDbm _instance = new TAttributeDbm();
     private TAttributeDbm() {}
     public static TAttributeDbm getInstance() { return _instance; }
@@ -29,31 +32,31 @@ public class TAttributeDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnObjectId = cci("Object_ID", "objectId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnName = cci("Name", "name", String.class, false, 255, 0);
-    protected ColumnInfo _columnScope = cci("Scope", "scope", String.class, false, 50, 0);
-    protected ColumnInfo _columnStereotype = cci("Stereotype", "stereotype", String.class, false, 50, 0);
-    protected ColumnInfo _columnContainment = cci("Containment", "containment", String.class, false, 50, 0);
-    protected ColumnInfo _columnIsstatic = cci("IsStatic", "isstatic", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnIscollection = cci("IsCollection", "iscollection", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnIsordered = cci("IsOrdered", "isordered", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnAllowduplicates = cci("AllowDuplicates", "allowduplicates", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnLowerbound = cci("LowerBound", "lowerbound", String.class, false, 50, 0);
-    protected ColumnInfo _columnUpperbound = cci("UpperBound", "upperbound", String.class, false, 50, 0);
-    protected ColumnInfo _columnContainer = cci("Container", "container", String.class, false, 50, 0);
-    protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnDerived = cci("Derived", "derived", String.class, false, 1, 0);
-    protected ColumnInfo _columnId = cci("ID", "id", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnPos = cci("Pos", "pos", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnGenoption = cci("GenOption", "genoption", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnLength = cci("Length", "length", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnPrecision = cci("Precision", "precision", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnScale = cci("Scale", "scale", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnStyle = cci("Style", "style", String.class, false, 255, 0);
-    protected ColumnInfo _columnClassifier = cci("Classifier", "classifier", String.class, false, 50, 0);
-    protected ColumnInfo _columnType = cci("Type", "type", String.class, false, 255, 0);
-    protected ColumnInfo _columnEaGuid = cci("ea_guid", "eaGuid", String.class, false, 50, 0);
-    protected ColumnInfo _columnStyleex = cci("StyleEx", "styleex", String.class, false, 2147483647, 0);
+    protected ColumnInfo _columnObjectId = cci("Object_ID", null, "objectId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnName = cci("Name", null, "name", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnScope = cci("Scope", null, "scope", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnStereotype = cci("Stereotype", null, "stereotype", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnContainment = cci("Containment", null, "containment", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnIsstatic = cci("IsStatic", null, "isstatic", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnIscollection = cci("IsCollection", null, "iscollection", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnIsordered = cci("IsOrdered", null, "isordered", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnAllowduplicates = cci("AllowDuplicates", null, "allowduplicates", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnLowerbound = cci("LowerBound", null, "lowerbound", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnUpperbound = cci("UpperBound", null, "upperbound", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnContainer = cci("Container", null, "container", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnNotes = cci("Notes", null, "notes", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnDerived = cci("Derived", null, "derived", String.class, false, false, 1, 0);
+    protected ColumnInfo _columnId = cci("ID", null, "id", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnPos = cci("Pos", null, "pos", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnGenoption = cci("GenOption", null, "genoption", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnLength = cci("Length", null, "length", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnPrecision = cci("Precision", null, "precision", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnScale = cci("Scale", null, "scale", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnStyle = cci("Style", null, "style", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnClassifier = cci("Classifier", null, "classifier", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnType = cci("Type", null, "type", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnEaGuid = cci("ea_guid", null, "eaGuid", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnStyleex = cci("StyleEx", null, "styleex", String.class, false, false, 2147483647, 0);
 
     public ColumnInfo columnObjectId() { return _columnObjectId; }
     public ColumnInfo columnName() { return _columnName; }
@@ -80,23 +83,39 @@ public class TAttributeDbm extends AbstractDBMeta {
     public ColumnInfo columnType() { return _columnType; }
     public ColumnInfo columnEaGuid() { return _columnEaGuid; }
     public ColumnInfo columnStyleex() { return _columnStyleex; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+    public ForeignInfo foreignTObject() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TObjectDbm.getInstance().columnObjectId());
+        return cfi("TObject", this, TObjectDbm.getInstance(), map, 0, false);
     }
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -118,69 +137,29 @@ public class TAttributeDbm extends AbstractDBMeta {
     public TAttribute newMyEntity() { return new TAttribute(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-    public ForeignInfo foreignTObject() {
-		Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TObjectDbm.getInstance().columnObjectId());
-	    return cfi("TObject", this, TObjectDbm.getInstance(), map, 0, false);
-    }
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TAttribute)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TAttribute)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TAttribute)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TAttribute)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -194,7 +173,7 @@ public class TAttributeDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TAttribute>> _epsMap = newHashMap();
+    protected Map<String, Eps<TAttribute>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsObjectId(), columnObjectId());
         setupEps(_epsMap, new EpsName(), columnName());
@@ -222,88 +201,59 @@ public class TAttributeDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsEaGuid(), columnEaGuid());
         setupEps(_epsMap, new EpsStyleex(), columnStyleex());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TAttribute)entity, value);
-    }
-    
-    public static class EpsObjectId implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setObjectId((java.lang.Integer)v); }
-    }
-    public static class EpsName implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setName((String)v); }
-    }
-    public static class EpsScope implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setScope((String)v); }
-    }
-    public static class EpsStereotype implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setStereotype((String)v); }
-    }
-    public static class EpsContainment implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setContainment((String)v); }
-    }
-    public static class EpsIsstatic implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setIsstatic((java.lang.Integer)v); }
-    }
-    public static class EpsIscollection implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setIscollection((java.lang.Integer)v); }
-    }
-    public static class EpsIsordered implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setIsordered((java.lang.Integer)v); }
-    }
-    public static class EpsAllowduplicates implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setAllowduplicates((java.lang.Integer)v); }
-    }
-    public static class EpsLowerbound implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setLowerbound((String)v); }
-    }
-    public static class EpsUpperbound implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setUpperbound((String)v); }
-    }
-    public static class EpsContainer implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setContainer((String)v); }
-    }
-    public static class EpsNotes implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setNotes((String)v); }
-    }
-    public static class EpsDerived implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setDerived((String)v); }
-    }
-    public static class EpsId implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setId((java.lang.Integer)v); }
-    }
-    public static class EpsPos implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setPos((java.lang.Integer)v); }
-    }
-    public static class EpsGenoption implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setGenoption((String)v); }
-    }
-    public static class EpsLength implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setLength((java.lang.Integer)v); }
-    }
-    public static class EpsPrecision implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setPrecision((java.lang.Integer)v); }
-    }
-    public static class EpsScale implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setScale((java.lang.Integer)v); }
-    }
-    public static class EpsStyle implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setStyle((String)v); }
-    }
-    public static class EpsClassifier implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setClassifier((String)v); }
-    }
-    public static class EpsType implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setType((String)v); }
-    }
-    public static class EpsEaGuid implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setEaGuid((String)v); }
-    }
-    public static class EpsStyleex implements Eps<TAttribute> {
-        public void setup(TAttribute e, Object v) { e.setStyleex((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TAttribute)entity, value); }
+
+    public static class EpsObjectId implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setObjectId((java.lang.Integer)v); } }
+    public static class EpsName implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setName((String)v); } }
+    public static class EpsScope implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setScope((String)v); } }
+    public static class EpsStereotype implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setStereotype((String)v); } }
+    public static class EpsContainment implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setContainment((String)v); } }
+    public static class EpsIsstatic implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setIsstatic((java.lang.Integer)v); } }
+    public static class EpsIscollection implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setIscollection((java.lang.Integer)v); } }
+    public static class EpsIsordered implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setIsordered((java.lang.Integer)v); } }
+    public static class EpsAllowduplicates implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setAllowduplicates((java.lang.Integer)v); } }
+    public static class EpsLowerbound implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setLowerbound((String)v); } }
+    public static class EpsUpperbound implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setUpperbound((String)v); } }
+    public static class EpsContainer implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setContainer((String)v); } }
+    public static class EpsNotes implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setNotes((String)v); } }
+    public static class EpsDerived implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setDerived((String)v); } }
+    public static class EpsId implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setId((java.lang.Integer)v); } }
+    public static class EpsPos implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setPos((java.lang.Integer)v); } }
+    public static class EpsGenoption implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setGenoption((String)v); } }
+    public static class EpsLength implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setLength((java.lang.Integer)v); } }
+    public static class EpsPrecision implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setPrecision((java.lang.Integer)v); } }
+    public static class EpsScale implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setScale((java.lang.Integer)v); } }
+    public static class EpsStyle implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setStyle((String)v); } }
+    public static class EpsClassifier implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setClassifier((String)v); } }
+    public static class EpsType implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setType((String)v); } }
+    public static class EpsEaGuid implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setEaGuid((String)v); } }
+    public static class EpsStyleex implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setStyleex((String)v); } }
 }

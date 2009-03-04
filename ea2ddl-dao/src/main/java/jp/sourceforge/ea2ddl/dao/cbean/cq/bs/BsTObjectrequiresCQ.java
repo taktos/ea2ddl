@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objectrequires.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjectrequiresCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjectrequiresCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _reqid;
     }
     protected ConditionValue getCValueReqid() { return getReqid(); }
-          
+
     public BsTObjectrequiresCQ addOrderBy_Reqid_Asc() { regOBA("ReqID"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Reqid_Desc() { regOBD("ReqID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTObjectrequiresCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjectrequiresCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _requirement;
     }
     protected ConditionValue getCValueRequirement() { return getRequirement(); }
-    
+
     public BsTObjectrequiresCQ addOrderBy_Requirement_Asc() { regOBA("Requirement"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Requirement_Desc() { regOBD("Requirement"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _reqtype;
     }
     protected ConditionValue getCValueReqtype() { return getReqtype(); }
-    
+
     public BsTObjectrequiresCQ addOrderBy_Reqtype_Asc() { regOBA("ReqType"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Reqtype_Desc() { regOBD("ReqType"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _status;
     }
     protected ConditionValue getCValueStatus() { return getStatus(); }
-    
+
     public BsTObjectrequiresCQ addOrderBy_Status_Asc() { regOBA("Status"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Status_Desc() { regOBD("Status"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTObjectrequiresCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _stability;
     }
     protected ConditionValue getCValueStability() { return getStability(); }
-    
+
     public BsTObjectrequiresCQ addOrderBy_Stability_Asc() { regOBA("Stability"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Stability_Desc() { regOBD("Stability"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _difficulty;
     }
     protected ConditionValue getCValueDifficulty() { return getDifficulty(); }
-    
+
     public BsTObjectrequiresCQ addOrderBy_Difficulty_Asc() { regOBA("Difficulty"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Difficulty_Desc() { regOBD("Difficulty"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _priority;
     }
     protected ConditionValue getCValuePriority() { return getPriority(); }
-    
+
     public BsTObjectrequiresCQ addOrderBy_Priority_Asc() { regOBA("Priority"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Priority_Desc() { regOBD("Priority"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
         return _lastupdate;
     }
     protected ConditionValue getCValueLastupdate() { return getLastupdate(); }
-    
+
     public BsTObjectrequiresCQ addOrderBy_Lastupdate_Asc() { regOBA("LastUpdate"); return this; }
     public BsTObjectrequiresCQ addOrderBy_Lastupdate_Desc() { regOBD("LastUpdate"); return this; }
 
@@ -171,8 +171,11 @@ public class BsTObjectrequiresCQ extends AbstractBsTObjectrequiresCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjectrequiresCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjectrequiresCB.class.getName(); }
+    String xCQ() { return TObjectrequiresCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_template(TABLE).
+ * The entity of t_template that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTTemplate implements Entity, java.io.Serializable {
+public abstract class BsTTemplate implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_template. */
-    public static final String TABLE = "t_template";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'TemplateID'. {UQ : VARCHAR(40)} */
+    /** TemplateID: {UQ : VARCHAR(40)} */
     protected String _templateid;
 
-    /** The attribute of the column 'TemplateType'. {VARCHAR(50)} */
+    /** TemplateType: {VARCHAR(50)} */
     protected String _templatetype;
 
-    /** The attribute of the column 'TemplateName'. {VARCHAR(100)} */
+    /** TemplateName: {VARCHAR(100)} */
     protected String _templatename;
 
-    /** The attribute of the column 'Notes'. {VARCHAR(255)} */
+    /** Notes: {VARCHAR(255)} */
     protected String _notes;
 
-    /** The attribute of the column 'Style'. {VARCHAR(255)} */
+    /** Style: {VARCHAR(255)} */
     protected String _style;
 
-    /** The attribute of the column 'Template'. {LONGCHAR(2147483647)} */
+    /** Template: {LONGCHAR(2147483647)} */
     protected String _template;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTTemplate() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_template";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TTemplate";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String templateid_COLUMN = "TemplateID";
-
     /**
-     * Get the value of the column 'TemplateID'. <br />
-     * {UQ : VARCHAR(40)}
+     * TemplateID: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'TemplateID'. (Nullable)
      */
     public String getTemplateid() {
@@ -221,8 +205,7 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TemplateID'. <br />
-     * {UQ : VARCHAR(40)}
+     * TemplateID: {UQ : VARCHAR(40)} <br />
      * @param templateid The value of the column 'TemplateID'. (Nullable)
      */
     public void setTemplateid(String templateid) {
@@ -230,12 +213,8 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
         this._templateid = templateid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String templatetype_COLUMN = "TemplateType";
-
     /**
-     * Get the value of the column 'TemplateType'. <br />
-     * {VARCHAR(50)}
+     * TemplateType: {VARCHAR(50)} <br />
      * @return The value of the column 'TemplateType'. (Nullable)
      */
     public String getTemplatetype() {
@@ -243,8 +222,7 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TemplateType'. <br />
-     * {VARCHAR(50)}
+     * TemplateType: {VARCHAR(50)} <br />
      * @param templatetype The value of the column 'TemplateType'. (Nullable)
      */
     public void setTemplatetype(String templatetype) {
@@ -252,12 +230,8 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
         this._templatetype = templatetype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String templatename_COLUMN = "TemplateName";
-
     /**
-     * Get the value of the column 'TemplateName'. <br />
-     * {VARCHAR(100)}
+     * TemplateName: {VARCHAR(100)} <br />
      * @return The value of the column 'TemplateName'. (Nullable)
      */
     public String getTemplatename() {
@@ -265,8 +239,7 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TemplateName'. <br />
-     * {VARCHAR(100)}
+     * TemplateName: {VARCHAR(100)} <br />
      * @param templatename The value of the column 'TemplateName'. (Nullable)
      */
     public void setTemplatename(String templatename) {
@@ -274,12 +247,8 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
         this._templatename = templatename;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -287,8 +256,7 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -296,12 +264,8 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -309,8 +273,7 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
@@ -318,12 +281,8 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
         this._style = style;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String template_COLUMN = "Template";
-
     /**
-     * Get the value of the column 'Template'. <br />
-     * {LONGCHAR(2147483647)}
+     * Template: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Template'. (Nullable)
      */
     public String getTemplate() {
@@ -331,13 +290,11 @@ public abstract class BsTTemplate implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Template'. <br />
-     * {LONGCHAR(2147483647)}
+     * Template: {LONGCHAR(2147483647)} <br />
      * @param template The value of the column 'Template'. (Nullable)
      */
     public void setTemplate(String template) {
         _modifiedProperties.addPropertyName("template");
         this._template = template;
     }
-
 }

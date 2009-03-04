@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_attribute.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTAttributeCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER : FK to t_object}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER : FK to t_object}
      * @param objectId The value of objectId as equal.
      */
     public void setObjectId_Equal(java.lang.Integer objectId) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as notEqual.
      */
     public void setObjectId_NotEqual(java.lang.Integer objectId) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterThan.
      */
     public void setObjectId_GreaterThan(java.lang.Integer objectId) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessThan.
      */
     public void setObjectId_LessThan(java.lang.Integer objectId) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterEqual.
      */
     public void setObjectId_GreaterEqual(java.lang.Integer objectId) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessEqual.
      */
     public void setObjectId_LessEqual(java.lang.Integer objectId) {
@@ -94,42 +109,29 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
         regObjectId(CK_INS, cTL(objectIdList));
     }
 
-    /**
-	 * @param tObjectCBquery Query.
-	 * @deprecated Please use inScopeTObject(subQuery) method.
-	 */
-    public void setObjectId_InScopeSubQuery_TObject(TObjectCQ tObjectCBquery) {
-        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TObject(tObjectCBquery);// for saving query-value.
-        registerInScopeSubQuery(tObjectCBquery, "Object_ID", "Object_ID", subQueryPropertyName);
-    }
     public void inScopeTObject(SubQuery<TObjectCB> subQuery) {
         assertObjectNotNull("subQuery<TObjectCB>", subQuery);
         TObjectCB cb = new TObjectCB(); cb.xsetupForInScopeSubQuery(); subQuery.query(cb);
-        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TObject(cb.query());// for saving query-value.
+        String subQueryPropertyName = keepObjectId_InScopeSubQuery_TObject(cb.query()); // for saving query-value.
         registerInScopeSubQuery(cb.query(), "Object_ID", "Object_ID", subQueryPropertyName);
     }
-    abstract public String keepObjectId_InScopeSubQuery_TObject(TObjectCQ subQuery);
+    public abstract String keepObjectId_InScopeSubQuery_TObject(TObjectCQ subQuery);
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNull() { regObjectId(CK_ISN, DUMMY_OBJECT); }
+    public void setObjectId_IsNull() { regObjectId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DUMMY_OBJECT); }
+    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DOBJ); }
 
-    protected void regObjectId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
-    protected void registerInlineObjectId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
+    protected void regObjectId(ConditionKey k, Object v) { regQ(k, v, getCValueObjectId(), "Object_ID"); }
     abstract protected ConditionValue getCValueObjectId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param name The value of name as equal.
      */
     public void setName_Equal(String name) {
@@ -137,7 +139,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as notEqual.
      */
     public void setName_NotEqual(String name) {
@@ -145,7 +147,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterThan.
      */
     public void setName_GreaterThan(String name) {
@@ -153,7 +155,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessThan.
      */
     public void setName_LessThan(String name) {
@@ -161,7 +163,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterEqual.
      */
     public void setName_GreaterEqual(String name) {
@@ -169,7 +171,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessEqual.
      */
     public void setName_LessEqual(String name) {
@@ -177,20 +179,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as prefixSearch.
      */
     public void setName_PrefixSearch(String name) {
         regName(CK_PS, fRES(name));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param name The value of name as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setName_LikeSearch(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(name), getCValueName(), "Name", "Name", "name", likeSearchOption);
     }
 
     /**
@@ -202,34 +195,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param name The collection of name as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setName_InScope(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(name), getCValueName(), "Name", "Name", "name", inScopeOption);
+    public void setName_LikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(name), getCValueName(), "Name", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setName_IsNull() { regName(CK_ISN, DUMMY_OBJECT); }
+    public void setName_NotLikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(name), getCValueName(), "Name", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setName_IsNotNull() { regName(CK_ISNN, DUMMY_OBJECT); }
+    public void setName_IsNull() { regName(CK_ISN, DOBJ); }
 
-    protected void regName(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
-    protected void registerInlineName(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setName_IsNotNull() { regName(CK_ISNN, DOBJ); }
+
+    protected void regName(ConditionKey k, Object v) { regQ(k, v, getCValueName(), "Name"); }
     abstract protected ConditionValue getCValueName();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param scope The value of scope as equal.
      */
     public void setScope_Equal(String scope) {
@@ -237,7 +234,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scope The value of scope as notEqual.
      */
     public void setScope_NotEqual(String scope) {
@@ -245,7 +242,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scope The value of scope as greaterThan.
      */
     public void setScope_GreaterThan(String scope) {
@@ -253,7 +250,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scope The value of scope as lessThan.
      */
     public void setScope_LessThan(String scope) {
@@ -261,7 +258,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scope The value of scope as greaterEqual.
      */
     public void setScope_GreaterEqual(String scope) {
@@ -269,7 +266,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scope The value of scope as lessEqual.
      */
     public void setScope_LessEqual(String scope) {
@@ -277,20 +274,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scope The value of scope as prefixSearch.
      */
     public void setScope_PrefixSearch(String scope) {
         regScope(CK_PS, fRES(scope));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param scope The value of scope as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setScope_LikeSearch(String scope, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(scope), getCValueScope(), "Scope", "Scope", "scope", likeSearchOption);
     }
 
     /**
@@ -302,34 +290,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param scope The collection of scope as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param scope The value of scope as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setScope_InScope(String scope, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(scope), getCValueScope(), "Scope", "Scope", "scope", inScopeOption);
+    public void setScope_LikeSearch(String scope, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(scope), getCValueScope(), "Scope", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param scope The value of scope as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setScope_IsNull() { regScope(CK_ISN, DUMMY_OBJECT); }
+    public void setScope_NotLikeSearch(String scope, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(scope), getCValueScope(), "Scope", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setScope_IsNotNull() { regScope(CK_ISNN, DUMMY_OBJECT); }
+    public void setScope_IsNull() { regScope(CK_ISN, DOBJ); }
 
-    protected void regScope(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueScope(), "Scope", "Scope", "scope");
-    }
-    protected void registerInlineScope(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueScope(), "Scope", "Scope", "scope");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setScope_IsNotNull() { regScope(CK_ISNN, DOBJ); }
+
+    protected void regScope(ConditionKey k, Object v) { regQ(k, v, getCValueScope(), "Scope"); }
     abstract protected ConditionValue getCValueScope();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param stereotype The value of stereotype as equal.
      */
     public void setStereotype_Equal(String stereotype) {
@@ -337,7 +329,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as notEqual.
      */
     public void setStereotype_NotEqual(String stereotype) {
@@ -345,7 +337,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as greaterThan.
      */
     public void setStereotype_GreaterThan(String stereotype) {
@@ -353,7 +345,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as lessThan.
      */
     public void setStereotype_LessThan(String stereotype) {
@@ -361,7 +353,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as greaterEqual.
      */
     public void setStereotype_GreaterEqual(String stereotype) {
@@ -369,7 +361,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as lessEqual.
      */
     public void setStereotype_LessEqual(String stereotype) {
@@ -377,20 +369,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param stereotype The value of stereotype as prefixSearch.
      */
     public void setStereotype_PrefixSearch(String stereotype) {
         regStereotype(CK_PS, fRES(stereotype));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param stereotype The value of stereotype as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setStereotype_LikeSearch(String stereotype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(stereotype), getCValueStereotype(), "Stereotype", "Stereotype", "stereotype", likeSearchOption);
     }
 
     /**
@@ -402,34 +385,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param stereotype The collection of stereotype as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param stereotype The value of stereotype as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStereotype_InScope(String stereotype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(stereotype), getCValueStereotype(), "Stereotype", "Stereotype", "stereotype", inScopeOption);
+    public void setStereotype_LikeSearch(String stereotype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(stereotype), getCValueStereotype(), "Stereotype", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param stereotype The value of stereotype as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStereotype_IsNull() { regStereotype(CK_ISN, DUMMY_OBJECT); }
+    public void setStereotype_NotLikeSearch(String stereotype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(stereotype), getCValueStereotype(), "Stereotype", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setStereotype_IsNotNull() { regStereotype(CK_ISNN, DUMMY_OBJECT); }
+    public void setStereotype_IsNull() { regStereotype(CK_ISN, DOBJ); }
 
-    protected void regStereotype(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueStereotype(), "Stereotype", "Stereotype", "stereotype");
-    }
-    protected void registerInlineStereotype(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueStereotype(), "Stereotype", "Stereotype", "stereotype");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setStereotype_IsNotNull() { regStereotype(CK_ISNN, DOBJ); }
+
+    protected void regStereotype(ConditionKey k, Object v) { regQ(k, v, getCValueStereotype(), "Stereotype"); }
     abstract protected ConditionValue getCValueStereotype();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param containment The value of containment as equal.
      */
     public void setContainment_Equal(String containment) {
@@ -437,7 +424,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param containment The value of containment as notEqual.
      */
     public void setContainment_NotEqual(String containment) {
@@ -445,7 +432,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param containment The value of containment as greaterThan.
      */
     public void setContainment_GreaterThan(String containment) {
@@ -453,7 +440,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param containment The value of containment as lessThan.
      */
     public void setContainment_LessThan(String containment) {
@@ -461,7 +448,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param containment The value of containment as greaterEqual.
      */
     public void setContainment_GreaterEqual(String containment) {
@@ -469,7 +456,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param containment The value of containment as lessEqual.
      */
     public void setContainment_LessEqual(String containment) {
@@ -477,20 +464,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param containment The value of containment as prefixSearch.
      */
     public void setContainment_PrefixSearch(String containment) {
         regContainment(CK_PS, fRES(containment));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param containment The value of containment as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setContainment_LikeSearch(String containment, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(containment), getCValueContainment(), "Containment", "Containment", "containment", likeSearchOption);
     }
 
     /**
@@ -502,34 +480,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param containment The collection of containment as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param containment The value of containment as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setContainment_InScope(String containment, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(containment), getCValueContainment(), "Containment", "Containment", "containment", inScopeOption);
+    public void setContainment_LikeSearch(String containment, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(containment), getCValueContainment(), "Containment", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param containment The value of containment as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setContainment_IsNull() { regContainment(CK_ISN, DUMMY_OBJECT); }
+    public void setContainment_NotLikeSearch(String containment, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(containment), getCValueContainment(), "Containment", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setContainment_IsNotNull() { regContainment(CK_ISNN, DUMMY_OBJECT); }
+    public void setContainment_IsNull() { regContainment(CK_ISN, DOBJ); }
 
-    protected void regContainment(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueContainment(), "Containment", "Containment", "containment");
-    }
-    protected void registerInlineContainment(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueContainment(), "Containment", "Containment", "containment");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setContainment_IsNotNull() { regContainment(CK_ISNN, DOBJ); }
+
+    protected void regContainment(ConditionKey k, Object v) { regQ(k, v, getCValueContainment(), "Containment"); }
     abstract protected ConditionValue getCValueContainment();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param isstatic The value of isstatic as equal.
      */
     public void setIsstatic_Equal(java.lang.Integer isstatic) {
@@ -537,7 +519,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param isstatic The value of isstatic as notEqual.
      */
     public void setIsstatic_NotEqual(java.lang.Integer isstatic) {
@@ -545,7 +527,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param isstatic The value of isstatic as greaterThan.
      */
     public void setIsstatic_GreaterThan(java.lang.Integer isstatic) {
@@ -553,7 +535,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param isstatic The value of isstatic as lessThan.
      */
     public void setIsstatic_LessThan(java.lang.Integer isstatic) {
@@ -561,7 +543,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param isstatic The value of isstatic as greaterEqual.
      */
     public void setIsstatic_GreaterEqual(java.lang.Integer isstatic) {
@@ -569,7 +551,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param isstatic The value of isstatic as lessEqual.
      */
     public void setIsstatic_LessEqual(java.lang.Integer isstatic) {
@@ -585,25 +567,20 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setIsstatic_IsNull() { regIsstatic(CK_ISN, DUMMY_OBJECT); }
+    public void setIsstatic_IsNull() { regIsstatic(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setIsstatic_IsNotNull() { regIsstatic(CK_ISNN, DUMMY_OBJECT); }
+    public void setIsstatic_IsNotNull() { regIsstatic(CK_ISNN, DOBJ); }
 
-    protected void regIsstatic(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueIsstatic(), "IsStatic", "Isstatic", "isstatic");
-    }
-    protected void registerInlineIsstatic(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueIsstatic(), "IsStatic", "Isstatic", "isstatic");
-    }
+    protected void regIsstatic(ConditionKey k, Object v) { regQ(k, v, getCValueIsstatic(), "IsStatic"); }
     abstract protected ConditionValue getCValueIsstatic();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param iscollection The value of iscollection as equal.
      */
     public void setIscollection_Equal(java.lang.Integer iscollection) {
@@ -611,7 +588,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param iscollection The value of iscollection as notEqual.
      */
     public void setIscollection_NotEqual(java.lang.Integer iscollection) {
@@ -619,7 +596,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param iscollection The value of iscollection as greaterThan.
      */
     public void setIscollection_GreaterThan(java.lang.Integer iscollection) {
@@ -627,7 +604,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param iscollection The value of iscollection as lessThan.
      */
     public void setIscollection_LessThan(java.lang.Integer iscollection) {
@@ -635,7 +612,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param iscollection The value of iscollection as greaterEqual.
      */
     public void setIscollection_GreaterEqual(java.lang.Integer iscollection) {
@@ -643,7 +620,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param iscollection The value of iscollection as lessEqual.
      */
     public void setIscollection_LessEqual(java.lang.Integer iscollection) {
@@ -659,25 +636,20 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setIscollection_IsNull() { regIscollection(CK_ISN, DUMMY_OBJECT); }
+    public void setIscollection_IsNull() { regIscollection(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setIscollection_IsNotNull() { regIscollection(CK_ISNN, DUMMY_OBJECT); }
+    public void setIscollection_IsNotNull() { regIscollection(CK_ISNN, DOBJ); }
 
-    protected void regIscollection(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueIscollection(), "IsCollection", "Iscollection", "iscollection");
-    }
-    protected void registerInlineIscollection(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueIscollection(), "IsCollection", "Iscollection", "iscollection");
-    }
+    protected void regIscollection(ConditionKey k, Object v) { regQ(k, v, getCValueIscollection(), "IsCollection"); }
     abstract protected ConditionValue getCValueIscollection();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param isordered The value of isordered as equal.
      */
     public void setIsordered_Equal(java.lang.Integer isordered) {
@@ -685,7 +657,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param isordered The value of isordered as notEqual.
      */
     public void setIsordered_NotEqual(java.lang.Integer isordered) {
@@ -693,7 +665,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param isordered The value of isordered as greaterThan.
      */
     public void setIsordered_GreaterThan(java.lang.Integer isordered) {
@@ -701,7 +673,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param isordered The value of isordered as lessThan.
      */
     public void setIsordered_LessThan(java.lang.Integer isordered) {
@@ -709,7 +681,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param isordered The value of isordered as greaterEqual.
      */
     public void setIsordered_GreaterEqual(java.lang.Integer isordered) {
@@ -717,7 +689,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param isordered The value of isordered as lessEqual.
      */
     public void setIsordered_LessEqual(java.lang.Integer isordered) {
@@ -733,25 +705,20 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setIsordered_IsNull() { regIsordered(CK_ISN, DUMMY_OBJECT); }
+    public void setIsordered_IsNull() { regIsordered(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setIsordered_IsNotNull() { regIsordered(CK_ISNN, DUMMY_OBJECT); }
+    public void setIsordered_IsNotNull() { regIsordered(CK_ISNN, DOBJ); }
 
-    protected void regIsordered(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueIsordered(), "IsOrdered", "Isordered", "isordered");
-    }
-    protected void registerInlineIsordered(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueIsordered(), "IsOrdered", "Isordered", "isordered");
-    }
+    protected void regIsordered(ConditionKey k, Object v) { regQ(k, v, getCValueIsordered(), "IsOrdered"); }
     abstract protected ConditionValue getCValueIsordered();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param allowduplicates The value of allowduplicates as equal.
      */
     public void setAllowduplicates_Equal(java.lang.Integer allowduplicates) {
@@ -759,7 +726,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param allowduplicates The value of allowduplicates as notEqual.
      */
     public void setAllowduplicates_NotEqual(java.lang.Integer allowduplicates) {
@@ -767,7 +734,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param allowduplicates The value of allowduplicates as greaterThan.
      */
     public void setAllowduplicates_GreaterThan(java.lang.Integer allowduplicates) {
@@ -775,7 +742,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param allowduplicates The value of allowduplicates as lessThan.
      */
     public void setAllowduplicates_LessThan(java.lang.Integer allowduplicates) {
@@ -783,7 +750,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param allowduplicates The value of allowduplicates as greaterEqual.
      */
     public void setAllowduplicates_GreaterEqual(java.lang.Integer allowduplicates) {
@@ -791,7 +758,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param allowduplicates The value of allowduplicates as lessEqual.
      */
     public void setAllowduplicates_LessEqual(java.lang.Integer allowduplicates) {
@@ -807,25 +774,20 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setAllowduplicates_IsNull() { regAllowduplicates(CK_ISN, DUMMY_OBJECT); }
+    public void setAllowduplicates_IsNull() { regAllowduplicates(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setAllowduplicates_IsNotNull() { regAllowduplicates(CK_ISNN, DUMMY_OBJECT); }
+    public void setAllowduplicates_IsNotNull() { regAllowduplicates(CK_ISNN, DOBJ); }
 
-    protected void regAllowduplicates(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueAllowduplicates(), "AllowDuplicates", "Allowduplicates", "allowduplicates");
-    }
-    protected void registerInlineAllowduplicates(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueAllowduplicates(), "AllowDuplicates", "Allowduplicates", "allowduplicates");
-    }
+    protected void regAllowduplicates(ConditionKey k, Object v) { regQ(k, v, getCValueAllowduplicates(), "AllowDuplicates"); }
     abstract protected ConditionValue getCValueAllowduplicates();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param lowerbound The value of lowerbound as equal.
      */
     public void setLowerbound_Equal(String lowerbound) {
@@ -833,7 +795,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param lowerbound The value of lowerbound as notEqual.
      */
     public void setLowerbound_NotEqual(String lowerbound) {
@@ -841,7 +803,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param lowerbound The value of lowerbound as greaterThan.
      */
     public void setLowerbound_GreaterThan(String lowerbound) {
@@ -849,7 +811,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param lowerbound The value of lowerbound as lessThan.
      */
     public void setLowerbound_LessThan(String lowerbound) {
@@ -857,7 +819,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param lowerbound The value of lowerbound as greaterEqual.
      */
     public void setLowerbound_GreaterEqual(String lowerbound) {
@@ -865,7 +827,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param lowerbound The value of lowerbound as lessEqual.
      */
     public void setLowerbound_LessEqual(String lowerbound) {
@@ -873,20 +835,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param lowerbound The value of lowerbound as prefixSearch.
      */
     public void setLowerbound_PrefixSearch(String lowerbound) {
         regLowerbound(CK_PS, fRES(lowerbound));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param lowerbound The value of lowerbound as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setLowerbound_LikeSearch(String lowerbound, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(lowerbound), getCValueLowerbound(), "LowerBound", "Lowerbound", "lowerbound", likeSearchOption);
     }
 
     /**
@@ -898,34 +851,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param lowerbound The collection of lowerbound as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param lowerbound The value of lowerbound as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setLowerbound_InScope(String lowerbound, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(lowerbound), getCValueLowerbound(), "LowerBound", "Lowerbound", "lowerbound", inScopeOption);
+    public void setLowerbound_LikeSearch(String lowerbound, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(lowerbound), getCValueLowerbound(), "LowerBound", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param lowerbound The value of lowerbound as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setLowerbound_IsNull() { regLowerbound(CK_ISN, DUMMY_OBJECT); }
+    public void setLowerbound_NotLikeSearch(String lowerbound, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(lowerbound), getCValueLowerbound(), "LowerBound", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setLowerbound_IsNotNull() { regLowerbound(CK_ISNN, DUMMY_OBJECT); }
+    public void setLowerbound_IsNull() { regLowerbound(CK_ISN, DOBJ); }
 
-    protected void regLowerbound(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueLowerbound(), "LowerBound", "Lowerbound", "lowerbound");
-    }
-    protected void registerInlineLowerbound(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueLowerbound(), "LowerBound", "Lowerbound", "lowerbound");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setLowerbound_IsNotNull() { regLowerbound(CK_ISNN, DOBJ); }
+
+    protected void regLowerbound(ConditionKey k, Object v) { regQ(k, v, getCValueLowerbound(), "LowerBound"); }
     abstract protected ConditionValue getCValueLowerbound();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param upperbound The value of upperbound as equal.
      */
     public void setUpperbound_Equal(String upperbound) {
@@ -933,7 +890,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param upperbound The value of upperbound as notEqual.
      */
     public void setUpperbound_NotEqual(String upperbound) {
@@ -941,7 +898,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param upperbound The value of upperbound as greaterThan.
      */
     public void setUpperbound_GreaterThan(String upperbound) {
@@ -949,7 +906,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param upperbound The value of upperbound as lessThan.
      */
     public void setUpperbound_LessThan(String upperbound) {
@@ -957,7 +914,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param upperbound The value of upperbound as greaterEqual.
      */
     public void setUpperbound_GreaterEqual(String upperbound) {
@@ -965,7 +922,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param upperbound The value of upperbound as lessEqual.
      */
     public void setUpperbound_LessEqual(String upperbound) {
@@ -973,20 +930,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param upperbound The value of upperbound as prefixSearch.
      */
     public void setUpperbound_PrefixSearch(String upperbound) {
         regUpperbound(CK_PS, fRES(upperbound));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param upperbound The value of upperbound as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setUpperbound_LikeSearch(String upperbound, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(upperbound), getCValueUpperbound(), "UpperBound", "Upperbound", "upperbound", likeSearchOption);
     }
 
     /**
@@ -998,34 +946,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param upperbound The collection of upperbound as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param upperbound The value of upperbound as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setUpperbound_InScope(String upperbound, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(upperbound), getCValueUpperbound(), "UpperBound", "Upperbound", "upperbound", inScopeOption);
+    public void setUpperbound_LikeSearch(String upperbound, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(upperbound), getCValueUpperbound(), "UpperBound", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param upperbound The value of upperbound as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setUpperbound_IsNull() { regUpperbound(CK_ISN, DUMMY_OBJECT); }
+    public void setUpperbound_NotLikeSearch(String upperbound, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(upperbound), getCValueUpperbound(), "UpperBound", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setUpperbound_IsNotNull() { regUpperbound(CK_ISNN, DUMMY_OBJECT); }
+    public void setUpperbound_IsNull() { regUpperbound(CK_ISN, DOBJ); }
 
-    protected void regUpperbound(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueUpperbound(), "UpperBound", "Upperbound", "upperbound");
-    }
-    protected void registerInlineUpperbound(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueUpperbound(), "UpperBound", "Upperbound", "upperbound");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setUpperbound_IsNotNull() { regUpperbound(CK_ISNN, DOBJ); }
+
+    protected void regUpperbound(ConditionKey k, Object v) { regQ(k, v, getCValueUpperbound(), "UpperBound"); }
     abstract protected ConditionValue getCValueUpperbound();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param container The value of container as equal.
      */
     public void setContainer_Equal(String container) {
@@ -1033,7 +985,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param container The value of container as notEqual.
      */
     public void setContainer_NotEqual(String container) {
@@ -1041,7 +993,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param container The value of container as greaterThan.
      */
     public void setContainer_GreaterThan(String container) {
@@ -1049,7 +1001,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param container The value of container as lessThan.
      */
     public void setContainer_LessThan(String container) {
@@ -1057,7 +1009,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param container The value of container as greaterEqual.
      */
     public void setContainer_GreaterEqual(String container) {
@@ -1065,7 +1017,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param container The value of container as lessEqual.
      */
     public void setContainer_LessEqual(String container) {
@@ -1073,20 +1025,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param container The value of container as prefixSearch.
      */
     public void setContainer_PrefixSearch(String container) {
         regContainer(CK_PS, fRES(container));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param container The value of container as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setContainer_LikeSearch(String container, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(container), getCValueContainer(), "Container", "Container", "container", likeSearchOption);
     }
 
     /**
@@ -1098,34 +1041,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param container The collection of container as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param container The value of container as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setContainer_InScope(String container, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(container), getCValueContainer(), "Container", "Container", "container", inScopeOption);
+    public void setContainer_LikeSearch(String container, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(container), getCValueContainer(), "Container", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param container The value of container as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setContainer_IsNull() { regContainer(CK_ISN, DUMMY_OBJECT); }
+    public void setContainer_NotLikeSearch(String container, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(container), getCValueContainer(), "Container", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setContainer_IsNotNull() { regContainer(CK_ISNN, DUMMY_OBJECT); }
+    public void setContainer_IsNull() { regContainer(CK_ISN, DOBJ); }
 
-    protected void regContainer(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueContainer(), "Container", "Container", "container");
-    }
-    protected void registerInlineContainer(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueContainer(), "Container", "Container", "container");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setContainer_IsNotNull() { regContainer(CK_ISNN, DOBJ); }
+
+    protected void regContainer(ConditionKey k, Object v) { regQ(k, v, getCValueContainer(), "Container"); }
     abstract protected ConditionValue getCValueContainer();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param notes The value of notes as equal.
      */
     public void setNotes_Equal(String notes) {
@@ -1133,7 +1080,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as notEqual.
      */
     public void setNotes_NotEqual(String notes) {
@@ -1141,7 +1088,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterThan.
      */
     public void setNotes_GreaterThan(String notes) {
@@ -1149,7 +1096,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessThan.
      */
     public void setNotes_LessThan(String notes) {
@@ -1157,7 +1104,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterEqual.
      */
     public void setNotes_GreaterEqual(String notes) {
@@ -1165,7 +1112,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessEqual.
      */
     public void setNotes_LessEqual(String notes) {
@@ -1173,20 +1120,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as prefixSearch.
      */
     public void setNotes_PrefixSearch(String notes) {
         regNotes(CK_PS, fRES(notes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param notes The value of notes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNotes_LikeSearch(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", likeSearchOption);
     }
 
     /**
@@ -1198,34 +1136,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param notes The collection of notes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotes_InScope(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", inScopeOption);
+    public void setNotes_LikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotes_IsNull() { regNotes(CK_ISN, DUMMY_OBJECT); }
+    public void setNotes_NotLikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setNotes_IsNull() { regNotes(CK_ISN, DOBJ); }
 
-    protected void regNotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
-    protected void registerInlineNotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DOBJ); }
+
+    protected void regNotes(ConditionKey k, Object v) { regQ(k, v, getCValueNotes(), "Notes"); }
     abstract protected ConditionValue getCValueNotes();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(1)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(1)}
      * @param derived The value of derived as equal.
      */
     public void setDerived_Equal(String derived) {
@@ -1233,7 +1175,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param derived The value of derived as notEqual.
      */
     public void setDerived_NotEqual(String derived) {
@@ -1241,7 +1183,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param derived The value of derived as greaterThan.
      */
     public void setDerived_GreaterThan(String derived) {
@@ -1249,7 +1191,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param derived The value of derived as lessThan.
      */
     public void setDerived_LessThan(String derived) {
@@ -1257,7 +1199,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param derived The value of derived as greaterEqual.
      */
     public void setDerived_GreaterEqual(String derived) {
@@ -1265,7 +1207,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param derived The value of derived as lessEqual.
      */
     public void setDerived_LessEqual(String derived) {
@@ -1273,20 +1215,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param derived The value of derived as prefixSearch.
      */
     public void setDerived_PrefixSearch(String derived) {
         regDerived(CK_PS, fRES(derived));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param derived The value of derived as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setDerived_LikeSearch(String derived, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(derived), getCValueDerived(), "Derived", "Derived", "derived", likeSearchOption);
     }
 
     /**
@@ -1298,34 +1231,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param derived The collection of derived as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param derived The value of derived as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setDerived_InScope(String derived, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(derived), getCValueDerived(), "Derived", "Derived", "derived", inScopeOption);
+    public void setDerived_LikeSearch(String derived, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(derived), getCValueDerived(), "Derived", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param derived The value of derived as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setDerived_IsNull() { regDerived(CK_ISN, DUMMY_OBJECT); }
+    public void setDerived_NotLikeSearch(String derived, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(derived), getCValueDerived(), "Derived", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setDerived_IsNotNull() { regDerived(CK_ISNN, DUMMY_OBJECT); }
+    public void setDerived_IsNull() { regDerived(CK_ISN, DOBJ); }
 
-    protected void regDerived(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDerived(), "Derived", "Derived", "derived");
-    }
-    protected void registerInlineDerived(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDerived(), "Derived", "Derived", "derived");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setDerived_IsNotNull() { regDerived(CK_ISNN, DOBJ); }
+
+    protected void regDerived(ConditionKey k, Object v) { regQ(k, v, getCValueDerived(), "Derived"); }
     abstract protected ConditionValue getCValueDerived();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : NotNull : COUNTER}
      * @param id The value of id as equal.
      */
     public void setId_Equal(java.lang.Integer id) {
@@ -1333,7 +1270,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param id The value of id as notEqual.
      */
     public void setId_NotEqual(java.lang.Integer id) {
@@ -1341,7 +1278,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param id The value of id as greaterThan.
      */
     public void setId_GreaterThan(java.lang.Integer id) {
@@ -1349,7 +1286,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param id The value of id as lessThan.
      */
     public void setId_LessThan(java.lang.Integer id) {
@@ -1357,7 +1294,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param id The value of id as greaterEqual.
      */
     public void setId_GreaterEqual(java.lang.Integer id) {
@@ -1365,7 +1302,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param id The value of id as lessEqual.
      */
     public void setId_LessEqual(java.lang.Integer id) {
@@ -1380,16 +1317,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
         regId(CK_INS, cTL(idList));
     }
 
-    protected void regId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueId(), "ID", "Id", "id");
-    }
-    protected void registerInlineId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueId(), "ID", "Id", "id");
-    }
+    protected void regId(ConditionKey k, Object v) { regQ(k, v, getCValueId(), "ID"); }
     abstract protected ConditionValue getCValueId();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param pos The value of pos as equal.
      */
     public void setPos_Equal(java.lang.Integer pos) {
@@ -1397,7 +1329,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param pos The value of pos as notEqual.
      */
     public void setPos_NotEqual(java.lang.Integer pos) {
@@ -1405,7 +1337,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param pos The value of pos as greaterThan.
      */
     public void setPos_GreaterThan(java.lang.Integer pos) {
@@ -1413,7 +1345,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param pos The value of pos as lessThan.
      */
     public void setPos_LessThan(java.lang.Integer pos) {
@@ -1421,7 +1353,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param pos The value of pos as greaterEqual.
      */
     public void setPos_GreaterEqual(java.lang.Integer pos) {
@@ -1429,7 +1361,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param pos The value of pos as lessEqual.
      */
     public void setPos_LessEqual(java.lang.Integer pos) {
@@ -1445,25 +1377,20 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPos_IsNull() { regPos(CK_ISN, DUMMY_OBJECT); }
+    public void setPos_IsNull() { regPos(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setPos_IsNotNull() { regPos(CK_ISNN, DUMMY_OBJECT); }
+    public void setPos_IsNotNull() { regPos(CK_ISNN, DOBJ); }
 
-    protected void regPos(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePos(), "Pos", "Pos", "pos");
-    }
-    protected void registerInlinePos(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePos(), "Pos", "Pos", "pos");
-    }
+    protected void regPos(ConditionKey k, Object v) { regQ(k, v, getCValuePos(), "Pos"); }
     abstract protected ConditionValue getCValuePos();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param genoption The value of genoption as equal.
      */
     public void setGenoption_Equal(String genoption) {
@@ -1471,7 +1398,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param genoption The value of genoption as notEqual.
      */
     public void setGenoption_NotEqual(String genoption) {
@@ -1479,7 +1406,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param genoption The value of genoption as greaterThan.
      */
     public void setGenoption_GreaterThan(String genoption) {
@@ -1487,7 +1414,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param genoption The value of genoption as lessThan.
      */
     public void setGenoption_LessThan(String genoption) {
@@ -1495,7 +1422,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param genoption The value of genoption as greaterEqual.
      */
     public void setGenoption_GreaterEqual(String genoption) {
@@ -1503,7 +1430,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param genoption The value of genoption as lessEqual.
      */
     public void setGenoption_LessEqual(String genoption) {
@@ -1511,20 +1438,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param genoption The value of genoption as prefixSearch.
      */
     public void setGenoption_PrefixSearch(String genoption) {
         regGenoption(CK_PS, fRES(genoption));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param genoption The value of genoption as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setGenoption_LikeSearch(String genoption, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(genoption), getCValueGenoption(), "GenOption", "Genoption", "genoption", likeSearchOption);
     }
 
     /**
@@ -1536,34 +1454,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param genoption The collection of genoption as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param genoption The value of genoption as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setGenoption_InScope(String genoption, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(genoption), getCValueGenoption(), "GenOption", "Genoption", "genoption", inScopeOption);
+    public void setGenoption_LikeSearch(String genoption, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(genoption), getCValueGenoption(), "GenOption", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param genoption The value of genoption as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setGenoption_IsNull() { regGenoption(CK_ISN, DUMMY_OBJECT); }
+    public void setGenoption_NotLikeSearch(String genoption, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(genoption), getCValueGenoption(), "GenOption", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setGenoption_IsNotNull() { regGenoption(CK_ISNN, DUMMY_OBJECT); }
+    public void setGenoption_IsNull() { regGenoption(CK_ISN, DOBJ); }
 
-    protected void regGenoption(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueGenoption(), "GenOption", "Genoption", "genoption");
-    }
-    protected void registerInlineGenoption(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueGenoption(), "GenOption", "Genoption", "genoption");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setGenoption_IsNotNull() { regGenoption(CK_ISNN, DOBJ); }
+
+    protected void regGenoption(ConditionKey k, Object v) { regQ(k, v, getCValueGenoption(), "GenOption"); }
     abstract protected ConditionValue getCValueGenoption();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param length The value of length as equal.
      */
     public void setLength_Equal(java.lang.Integer length) {
@@ -1571,7 +1493,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param length The value of length as notEqual.
      */
     public void setLength_NotEqual(java.lang.Integer length) {
@@ -1579,7 +1501,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param length The value of length as greaterThan.
      */
     public void setLength_GreaterThan(java.lang.Integer length) {
@@ -1587,7 +1509,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param length The value of length as lessThan.
      */
     public void setLength_LessThan(java.lang.Integer length) {
@@ -1595,7 +1517,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param length The value of length as greaterEqual.
      */
     public void setLength_GreaterEqual(java.lang.Integer length) {
@@ -1603,7 +1525,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param length The value of length as lessEqual.
      */
     public void setLength_LessEqual(java.lang.Integer length) {
@@ -1619,25 +1541,20 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setLength_IsNull() { regLength(CK_ISN, DUMMY_OBJECT); }
+    public void setLength_IsNull() { regLength(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setLength_IsNotNull() { regLength(CK_ISNN, DUMMY_OBJECT); }
+    public void setLength_IsNotNull() { regLength(CK_ISNN, DOBJ); }
 
-    protected void regLength(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueLength(), "Length", "Length", "length");
-    }
-    protected void registerInlineLength(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueLength(), "Length", "Length", "length");
-    }
+    protected void regLength(ConditionKey k, Object v) { regQ(k, v, getCValueLength(), "Length"); }
     abstract protected ConditionValue getCValueLength();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param precision The value of precision as equal.
      */
     public void setPrecision_Equal(java.lang.Integer precision) {
@@ -1645,7 +1562,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param precision The value of precision as notEqual.
      */
     public void setPrecision_NotEqual(java.lang.Integer precision) {
@@ -1653,7 +1570,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param precision The value of precision as greaterThan.
      */
     public void setPrecision_GreaterThan(java.lang.Integer precision) {
@@ -1661,7 +1578,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param precision The value of precision as lessThan.
      */
     public void setPrecision_LessThan(java.lang.Integer precision) {
@@ -1669,7 +1586,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param precision The value of precision as greaterEqual.
      */
     public void setPrecision_GreaterEqual(java.lang.Integer precision) {
@@ -1677,7 +1594,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param precision The value of precision as lessEqual.
      */
     public void setPrecision_LessEqual(java.lang.Integer precision) {
@@ -1693,25 +1610,20 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPrecision_IsNull() { regPrecision(CK_ISN, DUMMY_OBJECT); }
+    public void setPrecision_IsNull() { regPrecision(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setPrecision_IsNotNull() { regPrecision(CK_ISNN, DUMMY_OBJECT); }
+    public void setPrecision_IsNotNull() { regPrecision(CK_ISNN, DOBJ); }
 
-    protected void regPrecision(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePrecision(), "Precision", "Precision", "precision");
-    }
-    protected void registerInlinePrecision(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePrecision(), "Precision", "Precision", "precision");
-    }
+    protected void regPrecision(ConditionKey k, Object v) { regQ(k, v, getCValuePrecision(), "Precision"); }
     abstract protected ConditionValue getCValuePrecision();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param scale The value of scale as equal.
      */
     public void setScale_Equal(java.lang.Integer scale) {
@@ -1719,7 +1631,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as notEqual.
      */
     public void setScale_NotEqual(java.lang.Integer scale) {
@@ -1727,7 +1639,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as greaterThan.
      */
     public void setScale_GreaterThan(java.lang.Integer scale) {
@@ -1735,7 +1647,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as lessThan.
      */
     public void setScale_LessThan(java.lang.Integer scale) {
@@ -1743,7 +1655,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as greaterEqual.
      */
     public void setScale_GreaterEqual(java.lang.Integer scale) {
@@ -1751,7 +1663,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param scale The value of scale as lessEqual.
      */
     public void setScale_LessEqual(java.lang.Integer scale) {
@@ -1767,25 +1679,20 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setScale_IsNull() { regScale(CK_ISN, DUMMY_OBJECT); }
+    public void setScale_IsNull() { regScale(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setScale_IsNotNull() { regScale(CK_ISNN, DUMMY_OBJECT); }
+    public void setScale_IsNotNull() { regScale(CK_ISNN, DOBJ); }
 
-    protected void regScale(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueScale(), "Scale", "Scale", "scale");
-    }
-    protected void registerInlineScale(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueScale(), "Scale", "Scale", "scale");
-    }
+    protected void regScale(ConditionKey k, Object v) { regQ(k, v, getCValueScale(), "Scale"); }
     abstract protected ConditionValue getCValueScale();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param style The value of style as equal.
      */
     public void setStyle_Equal(String style) {
@@ -1793,7 +1700,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param style The value of style as notEqual.
      */
     public void setStyle_NotEqual(String style) {
@@ -1801,7 +1708,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param style The value of style as greaterThan.
      */
     public void setStyle_GreaterThan(String style) {
@@ -1809,7 +1716,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param style The value of style as lessThan.
      */
     public void setStyle_LessThan(String style) {
@@ -1817,7 +1724,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param style The value of style as greaterEqual.
      */
     public void setStyle_GreaterEqual(String style) {
@@ -1825,7 +1732,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param style The value of style as lessEqual.
      */
     public void setStyle_LessEqual(String style) {
@@ -1833,20 +1740,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param style The value of style as prefixSearch.
      */
     public void setStyle_PrefixSearch(String style) {
         regStyle(CK_PS, fRES(style));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param style The value of style as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setStyle_LikeSearch(String style, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(style), getCValueStyle(), "Style", "Style", "style", likeSearchOption);
     }
 
     /**
@@ -1858,34 +1756,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param style The collection of style as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param style The value of style as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStyle_InScope(String style, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(style), getCValueStyle(), "Style", "Style", "style", inScopeOption);
+    public void setStyle_LikeSearch(String style, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(style), getCValueStyle(), "Style", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param style The value of style as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStyle_IsNull() { regStyle(CK_ISN, DUMMY_OBJECT); }
+    public void setStyle_NotLikeSearch(String style, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(style), getCValueStyle(), "Style", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setStyle_IsNotNull() { regStyle(CK_ISNN, DUMMY_OBJECT); }
+    public void setStyle_IsNull() { regStyle(CK_ISN, DOBJ); }
 
-    protected void regStyle(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueStyle(), "Style", "Style", "style");
-    }
-    protected void registerInlineStyle(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueStyle(), "Style", "Style", "style");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setStyle_IsNotNull() { regStyle(CK_ISNN, DOBJ); }
+
+    protected void regStyle(ConditionKey k, Object v) { regQ(k, v, getCValueStyle(), "Style"); }
     abstract protected ConditionValue getCValueStyle();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param classifier The value of classifier as equal.
      */
     public void setClassifier_Equal(String classifier) {
@@ -1893,7 +1795,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param classifier The value of classifier as notEqual.
      */
     public void setClassifier_NotEqual(String classifier) {
@@ -1901,7 +1803,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param classifier The value of classifier as greaterThan.
      */
     public void setClassifier_GreaterThan(String classifier) {
@@ -1909,7 +1811,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param classifier The value of classifier as lessThan.
      */
     public void setClassifier_LessThan(String classifier) {
@@ -1917,7 +1819,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param classifier The value of classifier as greaterEqual.
      */
     public void setClassifier_GreaterEqual(String classifier) {
@@ -1925,7 +1827,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param classifier The value of classifier as lessEqual.
      */
     public void setClassifier_LessEqual(String classifier) {
@@ -1933,20 +1835,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param classifier The value of classifier as prefixSearch.
      */
     public void setClassifier_PrefixSearch(String classifier) {
         regClassifier(CK_PS, fRES(classifier));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param classifier The value of classifier as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setClassifier_LikeSearch(String classifier, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(classifier), getCValueClassifier(), "Classifier", "Classifier", "classifier", likeSearchOption);
     }
 
     /**
@@ -1958,34 +1851,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param classifier The collection of classifier as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param classifier The value of classifier as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setClassifier_InScope(String classifier, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(classifier), getCValueClassifier(), "Classifier", "Classifier", "classifier", inScopeOption);
+    public void setClassifier_LikeSearch(String classifier, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(classifier), getCValueClassifier(), "Classifier", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param classifier The value of classifier as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setClassifier_IsNull() { regClassifier(CK_ISN, DUMMY_OBJECT); }
+    public void setClassifier_NotLikeSearch(String classifier, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(classifier), getCValueClassifier(), "Classifier", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setClassifier_IsNotNull() { regClassifier(CK_ISNN, DUMMY_OBJECT); }
+    public void setClassifier_IsNull() { regClassifier(CK_ISN, DOBJ); }
 
-    protected void regClassifier(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueClassifier(), "Classifier", "Classifier", "classifier");
-    }
-    protected void registerInlineClassifier(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueClassifier(), "Classifier", "Classifier", "classifier");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setClassifier_IsNotNull() { regClassifier(CK_ISNN, DOBJ); }
+
+    protected void regClassifier(ConditionKey k, Object v) { regQ(k, v, getCValueClassifier(), "Classifier"); }
     abstract protected ConditionValue getCValueClassifier();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param type The value of type as equal.
      */
     public void setType_Equal(String type) {
@@ -1993,7 +1890,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as notEqual.
      */
     public void setType_NotEqual(String type) {
@@ -2001,7 +1898,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterThan.
      */
     public void setType_GreaterThan(String type) {
@@ -2009,7 +1906,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessThan.
      */
     public void setType_LessThan(String type) {
@@ -2017,7 +1914,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterEqual.
      */
     public void setType_GreaterEqual(String type) {
@@ -2025,7 +1922,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessEqual.
      */
     public void setType_LessEqual(String type) {
@@ -2033,20 +1930,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as prefixSearch.
      */
     public void setType_PrefixSearch(String type) {
         regType(CK_PS, fRES(type));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param type The value of type as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setType_LikeSearch(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(type), getCValueType(), "Type", "Type", "type", likeSearchOption);
     }
 
     /**
@@ -2058,34 +1946,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param type The collection of type as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setType_InScope(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(type), getCValueType(), "Type", "Type", "type", inScopeOption);
+    public void setType_LikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(type), getCValueType(), "Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setType_IsNull() { regType(CK_ISN, DUMMY_OBJECT); }
+    public void setType_NotLikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(type), getCValueType(), "Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setType_IsNotNull() { regType(CK_ISNN, DUMMY_OBJECT); }
+    public void setType_IsNull() { regType(CK_ISN, DOBJ); }
 
-    protected void regType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
-    protected void registerInlineType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setType_IsNotNull() { regType(CK_ISNN, DOBJ); }
+
+    protected void regType(ConditionKey k, Object v) { regQ(k, v, getCValueType(), "Type"); }
     abstract protected ConditionValue getCValueType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param eaGuid The value of eaGuid as equal.
      */
     public void setEaGuid_Equal(String eaGuid) {
@@ -2093,7 +1985,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as notEqual.
      */
     public void setEaGuid_NotEqual(String eaGuid) {
@@ -2101,7 +1993,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as greaterThan.
      */
     public void setEaGuid_GreaterThan(String eaGuid) {
@@ -2109,7 +2001,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as lessThan.
      */
     public void setEaGuid_LessThan(String eaGuid) {
@@ -2117,7 +2009,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as greaterEqual.
      */
     public void setEaGuid_GreaterEqual(String eaGuid) {
@@ -2125,7 +2017,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as lessEqual.
      */
     public void setEaGuid_LessEqual(String eaGuid) {
@@ -2133,20 +2025,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param eaGuid The value of eaGuid as prefixSearch.
      */
     public void setEaGuid_PrefixSearch(String eaGuid) {
         regEaGuid(CK_PS, fRES(eaGuid));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param eaGuid The value of eaGuid as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setEaGuid_LikeSearch(String eaGuid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(eaGuid), getCValueEaGuid(), "ea_guid", "EaGuid", "eaGuid", likeSearchOption);
     }
 
     /**
@@ -2158,34 +2041,38 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param eaGuid The collection of eaGuid as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param eaGuid The value of eaGuid as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setEaGuid_InScope(String eaGuid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(eaGuid), getCValueEaGuid(), "ea_guid", "EaGuid", "eaGuid", inScopeOption);
+    public void setEaGuid_LikeSearch(String eaGuid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(eaGuid), getCValueEaGuid(), "ea_guid", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param eaGuid The value of eaGuid as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setEaGuid_IsNull() { regEaGuid(CK_ISN, DUMMY_OBJECT); }
+    public void setEaGuid_NotLikeSearch(String eaGuid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(eaGuid), getCValueEaGuid(), "ea_guid", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setEaGuid_IsNotNull() { regEaGuid(CK_ISNN, DUMMY_OBJECT); }
+    public void setEaGuid_IsNull() { regEaGuid(CK_ISN, DOBJ); }
 
-    protected void regEaGuid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueEaGuid(), "ea_guid", "EaGuid", "eaGuid");
-    }
-    protected void registerInlineEaGuid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueEaGuid(), "ea_guid", "EaGuid", "eaGuid");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setEaGuid_IsNotNull() { regEaGuid(CK_ISNN, DOBJ); }
+
+    protected void regEaGuid(ConditionKey k, Object v) { regQ(k, v, getCValueEaGuid(), "ea_guid"); }
     abstract protected ConditionValue getCValueEaGuid();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param styleex The value of styleex as equal.
      */
     public void setStyleex_Equal(String styleex) {
@@ -2193,7 +2080,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as notEqual.
      */
     public void setStyleex_NotEqual(String styleex) {
@@ -2201,7 +2088,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as greaterThan.
      */
     public void setStyleex_GreaterThan(String styleex) {
@@ -2209,7 +2096,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as lessThan.
      */
     public void setStyleex_LessThan(String styleex) {
@@ -2217,7 +2104,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as greaterEqual.
      */
     public void setStyleex_GreaterEqual(String styleex) {
@@ -2225,7 +2112,7 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as lessEqual.
      */
     public void setStyleex_LessEqual(String styleex) {
@@ -2233,20 +2120,11 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param styleex The value of styleex as prefixSearch.
      */
     public void setStyleex_PrefixSearch(String styleex) {
         regStyleex(CK_PS, fRES(styleex));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param styleex The value of styleex as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setStyleex_LikeSearch(String styleex, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(styleex), getCValueStyleex(), "StyleEx", "Styleex", "styleex", likeSearchOption);
     }
 
     /**
@@ -2258,33 +2136,41 @@ public abstract class AbstractBsTAttributeCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param styleex The collection of styleex as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param styleex The value of styleex as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStyleex_InScope(String styleex, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(styleex), getCValueStyleex(), "StyleEx", "Styleex", "styleex", inScopeOption);
+    public void setStyleex_LikeSearch(String styleex, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(styleex), getCValueStyleex(), "StyleEx", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param styleex The value of styleex as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStyleex_IsNull() { regStyleex(CK_ISN, DUMMY_OBJECT); }
+    public void setStyleex_NotLikeSearch(String styleex, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(styleex), getCValueStyleex(), "StyleEx", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setStyleex_IsNotNull() { regStyleex(CK_ISNN, DUMMY_OBJECT); }
+    public void setStyleex_IsNull() { regStyleex(CK_ISN, DOBJ); }
 
-    protected void regStyleex(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueStyleex(), "StyleEx", "Styleex", "styleex");
-    }
-    protected void registerInlineStyleex(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueStyleex(), "StyleEx", "Styleex", "styleex");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setStyleex_IsNotNull() { regStyleex(CK_ISNN, DOBJ); }
+
+    protected void regStyleex(ConditionKey k, Object v) { regQ(k, v, getCValueStyleex(), "StyleEx"); }
     abstract protected ConditionValue getCValueStyleex();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TAttributeCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TAttributeCQ.class.getName(); }
+    String xCB() { return TAttributeCB.class.getName(); }
+    String xCQ() { return TAttributeCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

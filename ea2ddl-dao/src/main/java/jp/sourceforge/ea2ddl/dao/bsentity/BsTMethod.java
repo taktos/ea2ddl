@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_method(TABLE).
+ * The entity of t_method that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTMethod implements Entity, java.io.Serializable {
+public abstract class BsTMethod implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_method. */
-    public static final String TABLE = "t_method";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : INTEGER} */
+    /** Object_ID: {UQ : INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Name'. {UQ : VARCHAR(255)} */
+    /** Name: {UQ : VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Scope'. {VARCHAR(50)} */
+    /** Scope: {VARCHAR(50)} */
     protected String _scope;
 
-    /** The attribute of the column 'Type'. {VARCHAR(50)} */
+    /** Type: {VARCHAR(50)} */
     protected String _type;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTMethod() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_method";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TMethod";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -209,8 +193,7 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -218,12 +201,8 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {UQ : VARCHAR(255)}
+     * Name: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -231,8 +210,7 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {UQ : VARCHAR(255)}
+     * Name: {UQ : VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -240,12 +218,8 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String scope_COLUMN = "Scope";
-
     /**
-     * Get the value of the column 'Scope'. <br />
-     * {VARCHAR(50)}
+     * Scope: {VARCHAR(50)} <br />
      * @return The value of the column 'Scope'. (Nullable)
      */
     public String getScope() {
@@ -253,8 +227,7 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Scope'. <br />
-     * {VARCHAR(50)}
+     * Scope: {VARCHAR(50)} <br />
      * @param scope The value of the column 'Scope'. (Nullable)
      */
     public void setScope(String scope) {
@@ -262,12 +235,8 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
         this._scope = scope;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(50)}
+     * Type: {VARCHAR(50)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -275,13 +244,11 @@ public abstract class BsTMethod implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(50)}
+     * Type: {VARCHAR(50)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
         _modifiedProperties.addPropertyName("type");
         this._type = type;
     }
-
 }

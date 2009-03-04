@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of usysQueries(TABLE).
+ * The entity of usysQueries that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsUsysqueries implements Entity, java.io.Serializable {
+public abstract class BsUsysqueries implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,23 +47,19 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is usysQueries. */
-    public static final String TABLE = "usysQueries";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'QueryName'. {VARCHAR(50)} */
+    /** QueryName: {VARCHAR(50)} */
     protected String _queryname;
 
-    /** The attribute of the column 'NewName'. {VARCHAR(50)} */
+    /** NewName: {VARCHAR(50)} */
     protected String _newname;
 
-    /** The attribute of the column 'FixCode'. {BIT : NotNull} */
+    /** FixCode: {NotNull : BIT} */
     protected Boolean _fixcode;
 
     // -----------------------------------------------------
@@ -73,19 +69,13 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsUsysqueries() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "usysQueries";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "usysqueries";
     }
 
@@ -111,7 +101,6 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -189,13 +178,8 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String queryname_COLUMN = "QueryName";
-
     /**
-     * Get the value of the column 'QueryName'. <br />
-     * {VARCHAR(50)}
+     * QueryName: {VARCHAR(50)} <br />
      * @return The value of the column 'QueryName'. (Nullable)
      */
     public String getQueryname() {
@@ -203,8 +187,7 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'QueryName'. <br />
-     * {VARCHAR(50)}
+     * QueryName: {VARCHAR(50)} <br />
      * @param queryname The value of the column 'QueryName'. (Nullable)
      */
     public void setQueryname(String queryname) {
@@ -212,12 +195,8 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
         this._queryname = queryname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String newname_COLUMN = "NewName";
-
     /**
-     * Get the value of the column 'NewName'. <br />
-     * {VARCHAR(50)}
+     * NewName: {VARCHAR(50)} <br />
      * @return The value of the column 'NewName'. (Nullable)
      */
     public String getNewname() {
@@ -225,8 +204,7 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NewName'. <br />
-     * {VARCHAR(50)}
+     * NewName: {VARCHAR(50)} <br />
      * @param newname The value of the column 'NewName'. (Nullable)
      */
     public void setNewname(String newname) {
@@ -234,12 +212,8 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
         this._newname = newname;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String fixcode_COLUMN = "FixCode";
-
     /**
-     * Get the value of the column 'FixCode'. <br />
-     * {BIT : NotNull}
+     * FixCode: {NotNull : BIT} <br />
      * @return The value of the column 'FixCode'. (Nullable)
      */
     public Boolean getFixcode() {
@@ -247,13 +221,11 @@ public abstract class BsUsysqueries implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'FixCode'. <br />
-     * {BIT : NotNull}
+     * FixCode: {NotNull : BIT} <br />
      * @param fixcode The value of the column 'FixCode'. (Nullable)
      */
     public void setFixcode(Boolean fixcode) {
         _modifiedProperties.addPropertyName("fixcode");
         this._fixcode = fixcode;
     }
-
 }

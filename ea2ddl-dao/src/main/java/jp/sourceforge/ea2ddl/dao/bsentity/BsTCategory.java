@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_category(TABLE).
+ * The entity of t_category that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTCategory implements Entity, java.io.Serializable {
+public abstract class BsTCategory implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_category. */
-    public static final String TABLE = "t_category";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'CategoryID'. {UQ : COUNTER : NotNull} */
+    /** CategoryID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _categoryid;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Type'. {VARCHAR(255)} */
+    /** Type: {VARCHAR(255)} */
     protected String _type;
 
-    /** The attribute of the column 'NOTES'. {LONGCHAR(2147483647)} */
+    /** NOTES: {LONGCHAR(2147483647)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTCategory() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_category";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TCategory";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String categoryid_COLUMN = "CategoryID";
-
     /**
-     * Get the value of the column 'CategoryID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * CategoryID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'CategoryID'. (Nullable)
      */
     public java.lang.Integer getCategoryid() {
@@ -209,8 +193,7 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'CategoryID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * CategoryID: {UQ : NotNull : COUNTER} <br />
      * @param categoryid The value of the column 'CategoryID'. (Nullable)
      */
     public void setCategoryid(java.lang.Integer categoryid) {
@@ -218,12 +201,8 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
         this._categoryid = categoryid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -231,8 +210,7 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -240,12 +218,8 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -253,8 +227,7 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -262,12 +235,8 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "NOTES";
-
     /**
-     * Get the value of the column 'NOTES'. <br />
-     * {LONGCHAR(2147483647)}
+     * NOTES: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'NOTES'. (Nullable)
      */
     public String getNotes() {
@@ -275,13 +244,11 @@ public abstract class BsTCategory implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NOTES'. <br />
-     * {LONGCHAR(2147483647)}
+     * NOTES: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'NOTES'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

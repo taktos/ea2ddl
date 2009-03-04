@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_objecteffort.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTObjecteffortCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : INTEGER}
      * @param objectId The value of objectId as equal.
      */
     public void setObjectId_Equal(java.lang.Integer objectId) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as notEqual.
      */
     public void setObjectId_NotEqual(java.lang.Integer objectId) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterThan.
      */
     public void setObjectId_GreaterThan(java.lang.Integer objectId) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessThan.
      */
     public void setObjectId_LessThan(java.lang.Integer objectId) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterEqual.
      */
     public void setObjectId_GreaterEqual(java.lang.Integer objectId) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessEqual.
      */
     public void setObjectId_LessEqual(java.lang.Integer objectId) {
@@ -95,25 +110,20 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNull() { regObjectId(CK_ISN, DUMMY_OBJECT); }
+    public void setObjectId_IsNull() { regObjectId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DUMMY_OBJECT); }
+    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DOBJ); }
 
-    protected void regObjectId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
-    protected void registerInlineObjectId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
+    protected void regObjectId(ConditionKey k, Object v) { regQ(k, v, getCValueObjectId(), "Object_ID"); }
     abstract protected ConditionValue getCValueObjectId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(255)}
      * @param effort The value of effort as equal.
      */
     public void setEffort_Equal(String effort) {
@@ -121,7 +131,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param effort The value of effort as notEqual.
      */
     public void setEffort_NotEqual(String effort) {
@@ -129,7 +139,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param effort The value of effort as greaterThan.
      */
     public void setEffort_GreaterThan(String effort) {
@@ -137,7 +147,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param effort The value of effort as lessThan.
      */
     public void setEffort_LessThan(String effort) {
@@ -145,7 +155,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param effort The value of effort as greaterEqual.
      */
     public void setEffort_GreaterEqual(String effort) {
@@ -153,7 +163,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param effort The value of effort as lessEqual.
      */
     public void setEffort_LessEqual(String effort) {
@@ -161,20 +171,11 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param effort The value of effort as prefixSearch.
      */
     public void setEffort_PrefixSearch(String effort) {
         regEffort(CK_PS, fRES(effort));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param effort The value of effort as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setEffort_LikeSearch(String effort, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(effort), getCValueEffort(), "Effort", "Effort", "effort", likeSearchOption);
     }
 
     /**
@@ -186,34 +187,38 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param effort The collection of effort as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param effort The value of effort as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setEffort_InScope(String effort, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(effort), getCValueEffort(), "Effort", "Effort", "effort", inScopeOption);
+    public void setEffort_LikeSearch(String effort, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(effort), getCValueEffort(), "Effort", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param effort The value of effort as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setEffort_IsNull() { regEffort(CK_ISN, DUMMY_OBJECT); }
+    public void setEffort_NotLikeSearch(String effort, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(effort), getCValueEffort(), "Effort", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setEffort_IsNotNull() { regEffort(CK_ISNN, DUMMY_OBJECT); }
+    public void setEffort_IsNull() { regEffort(CK_ISN, DOBJ); }
 
-    protected void regEffort(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueEffort(), "Effort", "Effort", "effort");
-    }
-    protected void registerInlineEffort(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueEffort(), "Effort", "Effort", "effort");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setEffort_IsNotNull() { regEffort(CK_ISNN, DOBJ); }
+
+    protected void regEffort(ConditionKey k, Object v) { regQ(k, v, getCValueEffort(), "Effort"); }
     abstract protected ConditionValue getCValueEffort();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(12)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(12)}
      * @param efforttype The value of efforttype as equal.
      */
     public void setEfforttype_Equal(String efforttype) {
@@ -221,7 +226,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param efforttype The value of efforttype as notEqual.
      */
     public void setEfforttype_NotEqual(String efforttype) {
@@ -229,7 +234,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param efforttype The value of efforttype as greaterThan.
      */
     public void setEfforttype_GreaterThan(String efforttype) {
@@ -237,7 +242,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param efforttype The value of efforttype as lessThan.
      */
     public void setEfforttype_LessThan(String efforttype) {
@@ -245,7 +250,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param efforttype The value of efforttype as greaterEqual.
      */
     public void setEfforttype_GreaterEqual(String efforttype) {
@@ -253,7 +258,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param efforttype The value of efforttype as lessEqual.
      */
     public void setEfforttype_LessEqual(String efforttype) {
@@ -261,20 +266,11 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param efforttype The value of efforttype as prefixSearch.
      */
     public void setEfforttype_PrefixSearch(String efforttype) {
         regEfforttype(CK_PS, fRES(efforttype));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param efforttype The value of efforttype as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setEfforttype_LikeSearch(String efforttype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(efforttype), getCValueEfforttype(), "EffortType", "Efforttype", "efforttype", likeSearchOption);
     }
 
     /**
@@ -286,34 +282,38 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param efforttype The collection of efforttype as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param efforttype The value of efforttype as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setEfforttype_InScope(String efforttype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(efforttype), getCValueEfforttype(), "EffortType", "Efforttype", "efforttype", inScopeOption);
+    public void setEfforttype_LikeSearch(String efforttype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(efforttype), getCValueEfforttype(), "EffortType", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param efforttype The value of efforttype as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setEfforttype_IsNull() { regEfforttype(CK_ISN, DUMMY_OBJECT); }
+    public void setEfforttype_NotLikeSearch(String efforttype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(efforttype), getCValueEfforttype(), "EffortType", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setEfforttype_IsNotNull() { regEfforttype(CK_ISNN, DUMMY_OBJECT); }
+    public void setEfforttype_IsNull() { regEfforttype(CK_ISN, DOBJ); }
 
-    protected void regEfforttype(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueEfforttype(), "EffortType", "Efforttype", "efforttype");
-    }
-    protected void registerInlineEfforttype(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueEfforttype(), "EffortType", "Efforttype", "efforttype");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setEfforttype_IsNotNull() { regEfforttype(CK_ISNN, DOBJ); }
+
+    protected void regEfforttype(ConditionKey k, Object v) { regQ(k, v, getCValueEfforttype(), "EffortType"); }
     abstract protected ConditionValue getCValueEfforttype();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {DOUBLE}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {DOUBLE}
      * @param evalue The value of evalue as equal.
      */
     public void setEvalue_Equal(java.math.BigDecimal evalue) {
@@ -321,7 +321,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as notEqual.
      */
     public void setEvalue_NotEqual(java.math.BigDecimal evalue) {
@@ -329,7 +329,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as greaterThan.
      */
     public void setEvalue_GreaterThan(java.math.BigDecimal evalue) {
@@ -337,7 +337,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as lessThan.
      */
     public void setEvalue_LessThan(java.math.BigDecimal evalue) {
@@ -345,7 +345,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as greaterEqual.
      */
     public void setEvalue_GreaterEqual(java.math.BigDecimal evalue) {
@@ -353,7 +353,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param evalue The value of evalue as lessEqual.
      */
     public void setEvalue_LessEqual(java.math.BigDecimal evalue) {
@@ -369,25 +369,20 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setEvalue_IsNull() { regEvalue(CK_ISN, DUMMY_OBJECT); }
+    public void setEvalue_IsNull() { regEvalue(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setEvalue_IsNotNull() { regEvalue(CK_ISNN, DUMMY_OBJECT); }
+    public void setEvalue_IsNotNull() { regEvalue(CK_ISNN, DOBJ); }
 
-    protected void regEvalue(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueEvalue(), "EValue", "Evalue", "evalue");
-    }
-    protected void registerInlineEvalue(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueEvalue(), "EValue", "Evalue", "evalue");
-    }
+    protected void regEvalue(ConditionKey k, Object v) { regQ(k, v, getCValueEvalue(), "EValue"); }
     abstract protected ConditionValue getCValueEvalue();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param notes The value of notes as equal.
      */
     public void setNotes_Equal(String notes) {
@@ -395,7 +390,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as notEqual.
      */
     public void setNotes_NotEqual(String notes) {
@@ -403,7 +398,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterThan.
      */
     public void setNotes_GreaterThan(String notes) {
@@ -411,7 +406,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessThan.
      */
     public void setNotes_LessThan(String notes) {
@@ -419,7 +414,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterEqual.
      */
     public void setNotes_GreaterEqual(String notes) {
@@ -427,7 +422,7 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessEqual.
      */
     public void setNotes_LessEqual(String notes) {
@@ -435,20 +430,11 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as prefixSearch.
      */
     public void setNotes_PrefixSearch(String notes) {
         regNotes(CK_PS, fRES(notes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param notes The value of notes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNotes_LikeSearch(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", likeSearchOption);
     }
 
     /**
@@ -460,33 +446,41 @@ public abstract class AbstractBsTObjecteffortCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param notes The collection of notes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotes_InScope(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", inScopeOption);
+    public void setNotes_LikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotes_IsNull() { regNotes(CK_ISN, DUMMY_OBJECT); }
+    public void setNotes_NotLikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setNotes_IsNull() { regNotes(CK_ISN, DOBJ); }
 
-    protected void regNotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
-    protected void registerInlineNotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DOBJ); }
+
+    protected void regNotes(ConditionKey k, Object v) { regQ(k, v, getCValueNotes(), "Notes"); }
     abstract protected ConditionValue getCValueNotes();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TObjecteffortCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TObjecteffortCQ.class.getName(); }
+    String xCB() { return TObjecteffortCB.class.getName(); }
+    String xCQ() { return TObjecteffortCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_xrefuser.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
      * @return On-clause query. (NotNull)
      */
     public TXrefuserCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TXrefuserCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _xrefid;
     }
     protected ConditionValue getCValueXrefid() { return getXrefid(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Xrefid_Asc() { regOBA("XrefID"); return this; }
     public BsTXrefuserCQ addOrderBy_Xrefid_Desc() { regOBD("XrefID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _toolid;
     }
     protected ConditionValue getCValueToolid() { return getToolid(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Toolid_Asc() { regOBA("ToolID"); return this; }
     public BsTXrefuserCQ addOrderBy_Toolid_Desc() { regOBD("ToolID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTXrefuserCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTXrefuserCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _visibility;
     }
     protected ConditionValue getCValueVisibility() { return getVisibility(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Visibility_Asc() { regOBA("Visibility"); return this; }
     public BsTXrefuserCQ addOrderBy_Visibility_Desc() { regOBD("Visibility"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _namespace;
     }
     protected ConditionValue getCValueNamespace() { return getNamespace(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Namespace_Asc() { regOBA("Namespace"); return this; }
     public BsTXrefuserCQ addOrderBy_Namespace_Desc() { regOBD("Namespace"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _requirement;
     }
     protected ConditionValue getCValueRequirement() { return getRequirement(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Requirement_Asc() { regOBA("Requirement"); return this; }
     public BsTXrefuserCQ addOrderBy_Requirement_Desc() { regOBD("Requirement"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _constraint;
     }
     protected ConditionValue getCValueConstraint() { return getConstraint(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Constraint_Asc() { regOBA("Constraint"); return this; }
     public BsTXrefuserCQ addOrderBy_Constraint_Desc() { regOBD("Constraint"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _behavior;
     }
     protected ConditionValue getCValueBehavior() { return getBehavior(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Behavior_Asc() { regOBA("Behavior"); return this; }
     public BsTXrefuserCQ addOrderBy_Behavior_Desc() { regOBD("Behavior"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _partition;
     }
     protected ConditionValue getCValuePartition() { return getPartition(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Partition_Asc() { regOBA("Partition"); return this; }
     public BsTXrefuserCQ addOrderBy_Partition_Desc() { regOBD("Partition"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTXrefuserCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _client;
     }
     protected ConditionValue getCValueClient() { return getClient(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Client_Asc() { regOBA("Client"); return this; }
     public BsTXrefuserCQ addOrderBy_Client_Desc() { regOBD("Client"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _supplier;
     }
     protected ConditionValue getCValueSupplier() { return getSupplier(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Supplier_Asc() { regOBA("Supplier"); return this; }
     public BsTXrefuserCQ addOrderBy_Supplier_Desc() { regOBD("Supplier"); return this; }
 
@@ -192,7 +192,7 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
         return _link;
     }
     protected ConditionValue getCValueLink() { return getLink(); }
-    
+
     public BsTXrefuserCQ addOrderBy_Link_Asc() { regOBA("Link"); return this; }
     public BsTXrefuserCQ addOrderBy_Link_Desc() { regOBD("Link"); return this; }
 
@@ -211,8 +211,11 @@ public class BsTXrefuserCQ extends AbstractBsTXrefuserCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TXrefuserCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TXrefuserCB.class.getName(); }
+    String xCQ() { return TXrefuserCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

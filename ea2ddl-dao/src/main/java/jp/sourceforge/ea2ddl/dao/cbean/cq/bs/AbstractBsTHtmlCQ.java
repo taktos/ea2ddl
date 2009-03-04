@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_html.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTHtmlCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param type The value of type as equal.
      */
     public void setType_Equal(String type) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as notEqual.
      */
     public void setType_NotEqual(String type) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterThan.
      */
     public void setType_GreaterThan(String type) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessThan.
      */
     public void setType_LessThan(String type) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterEqual.
      */
     public void setType_GreaterEqual(String type) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessEqual.
      */
     public void setType_LessEqual(String type) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as prefixSearch.
      */
     public void setType_PrefixSearch(String type) {
         regType(CK_PS, fRES(type));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param type The value of type as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setType_LikeSearch(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(type), getCValueType(), "Type", "Type", "type", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param type The collection of type as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setType_InScope(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(type), getCValueType(), "Type", "Type", "type", inScopeOption);
+    public void setType_LikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(type), getCValueType(), "Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setType_IsNull() { regType(CK_ISN, DUMMY_OBJECT); }
+    public void setType_NotLikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(type), getCValueType(), "Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setType_IsNotNull() { regType(CK_ISNN, DUMMY_OBJECT); }
+    public void setType_IsNull() { regType(CK_ISN, DOBJ); }
 
-    protected void regType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
-    protected void registerInlineType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setType_IsNotNull() { regType(CK_ISNN, DOBJ); }
+
+    protected void regType(ConditionKey k, Object v) { regQ(k, v, getCValueType(), "Type"); }
     abstract protected ConditionValue getCValueType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param template The value of template as equal.
      */
     public void setTemplate_Equal(String template) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param template The value of template as notEqual.
      */
     public void setTemplate_NotEqual(String template) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param template The value of template as greaterThan.
      */
     public void setTemplate_GreaterThan(String template) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param template The value of template as lessThan.
      */
     public void setTemplate_LessThan(String template) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param template The value of template as greaterEqual.
      */
     public void setTemplate_GreaterEqual(String template) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param template The value of template as lessEqual.
      */
     public void setTemplate_LessEqual(String template) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param template The value of template as prefixSearch.
      */
     public void setTemplate_PrefixSearch(String template) {
         regTemplate(CK_PS, fRES(template));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param template The value of template as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setTemplate_LikeSearch(String template, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(template), getCValueTemplate(), "Template", "Template", "template", likeSearchOption);
     }
 
     /**
@@ -212,33 +213,41 @@ public abstract class AbstractBsTHtmlCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param template The collection of template as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param template The value of template as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setTemplate_InScope(String template, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(template), getCValueTemplate(), "Template", "Template", "template", inScopeOption);
+    public void setTemplate_LikeSearch(String template, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(template), getCValueTemplate(), "Template", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param template The value of template as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setTemplate_IsNull() { regTemplate(CK_ISN, DUMMY_OBJECT); }
+    public void setTemplate_NotLikeSearch(String template, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(template), getCValueTemplate(), "Template", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setTemplate_IsNotNull() { regTemplate(CK_ISNN, DUMMY_OBJECT); }
+    public void setTemplate_IsNull() { regTemplate(CK_ISN, DOBJ); }
 
-    protected void regTemplate(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueTemplate(), "Template", "Template", "template");
-    }
-    protected void registerInlineTemplate(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueTemplate(), "Template", "Template", "template");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setTemplate_IsNotNull() { regTemplate(CK_ISNN, DOBJ); }
+
+    protected void regTemplate(ConditionKey k, Object v) { regQ(k, v, getCValueTemplate(), "Template"); }
     abstract protected ConditionValue getCValueTemplate();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return THtmlCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return THtmlCQ.class.getName(); }
+    String xCB() { return THtmlCB.class.getName(); }
+    String xCQ() { return THtmlCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

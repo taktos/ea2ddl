@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_ocf(TABLE).
+ * The entity of t_ocf that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTOcf implements Entity, java.io.Serializable {
+public abstract class BsTOcf implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,20 +47,16 @@ public abstract class BsTOcf implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_ocf. */
-    public static final String TABLE = "t_ocf";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'ObjectType'. {VARCHAR(50)} */
+    /** ObjectType: {VARCHAR(50)} */
     protected String _objecttype;
 
-    /** The attribute of the column 'ComplexityWeight'. {DOUBLE} */
+    /** ComplexityWeight: {DOUBLE} */
     protected java.math.BigDecimal _complexityweight;
 
     // -----------------------------------------------------
@@ -70,19 +66,13 @@ public abstract class BsTOcf implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTOcf() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_ocf";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TOcf";
     }
 
@@ -108,7 +98,6 @@ public abstract class BsTOcf implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -183,13 +172,8 @@ public abstract class BsTOcf implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String objecttype_COLUMN = "ObjectType";
-
     /**
-     * Get the value of the column 'ObjectType'. <br />
-     * {VARCHAR(50)}
+     * ObjectType: {VARCHAR(50)} <br />
      * @return The value of the column 'ObjectType'. (Nullable)
      */
     public String getObjecttype() {
@@ -197,8 +181,7 @@ public abstract class BsTOcf implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ObjectType'. <br />
-     * {VARCHAR(50)}
+     * ObjectType: {VARCHAR(50)} <br />
      * @param objecttype The value of the column 'ObjectType'. (Nullable)
      */
     public void setObjecttype(String objecttype) {
@@ -206,12 +189,8 @@ public abstract class BsTOcf implements Entity, java.io.Serializable {
         this._objecttype = objecttype;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String complexityweight_COLUMN = "ComplexityWeight";
-
     /**
-     * Get the value of the column 'ComplexityWeight'. <br />
-     * {DOUBLE}
+     * ComplexityWeight: {DOUBLE} <br />
      * @return The value of the column 'ComplexityWeight'. (Nullable)
      */
     public java.math.BigDecimal getComplexityweight() {
@@ -219,13 +198,11 @@ public abstract class BsTOcf implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ComplexityWeight'. <br />
-     * {DOUBLE}
+     * ComplexityWeight: {DOUBLE} <br />
      * @param complexityweight The value of the column 'ComplexityWeight'. (Nullable)
      */
     public void setComplexityweight(java.math.BigDecimal complexityweight) {
         _modifiedProperties.addPropertyName("complexityweight");
         this._complexityweight = complexityweight;
     }
-
 }

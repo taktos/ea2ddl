@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objectscenarios(TABLE).
+ * The entity of t_objectscenarios that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjectscenarios implements Entity, java.io.Serializable {
+public abstract class BsTObjectscenarios implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,35 +47,31 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objectscenarios. */
-    public static final String TABLE = "t_objectscenarios";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : INTEGER} */
+    /** Object_ID: {UQ : INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Scenario'. {UQ : VARCHAR(255)} */
+    /** Scenario: {UQ : VARCHAR(255)} */
     protected String _scenario;
 
-    /** The attribute of the column 'ScenarioType'. {VARCHAR(12)} */
+    /** ScenarioType: {VARCHAR(12)} */
     protected String _scenariotype;
 
-    /** The attribute of the column 'EValue'. {DOUBLE} */
+    /** EValue: {DOUBLE} */
     protected java.math.BigDecimal _evalue;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'XMLContent'. {LONGCHAR(2147483647)} */
+    /** XMLContent: {LONGCHAR(2147483647)} */
     protected String _xmlcontent;
 
-    /** The attribute of the column 'ea_guid'. {VARCHAR(40)} */
+    /** ea_guid: {VARCHAR(40)} */
     protected String _eaGuid;
 
     // -----------------------------------------------------
@@ -85,19 +81,13 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjectscenarios() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objectscenarios";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjectscenarios";
     }
 
@@ -123,7 +113,6 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -213,13 +202,8 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -227,8 +211,7 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -236,12 +219,8 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String scenario_COLUMN = "Scenario";
-
     /**
-     * Get the value of the column 'Scenario'. <br />
-     * {UQ : VARCHAR(255)}
+     * Scenario: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Scenario'. (Nullable)
      */
     public String getScenario() {
@@ -249,8 +228,7 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Scenario'. <br />
-     * {UQ : VARCHAR(255)}
+     * Scenario: {UQ : VARCHAR(255)} <br />
      * @param scenario The value of the column 'Scenario'. (Nullable)
      */
     public void setScenario(String scenario) {
@@ -258,12 +236,8 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
         this._scenario = scenario;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String scenariotype_COLUMN = "ScenarioType";
-
     /**
-     * Get the value of the column 'ScenarioType'. <br />
-     * {VARCHAR(12)}
+     * ScenarioType: {VARCHAR(12)} <br />
      * @return The value of the column 'ScenarioType'. (Nullable)
      */
     public String getScenariotype() {
@@ -271,8 +245,7 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'ScenarioType'. <br />
-     * {VARCHAR(12)}
+     * ScenarioType: {VARCHAR(12)} <br />
      * @param scenariotype The value of the column 'ScenarioType'. (Nullable)
      */
     public void setScenariotype(String scenariotype) {
@@ -280,12 +253,8 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
         this._scenariotype = scenariotype;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String evalue_COLUMN = "EValue";
-
     /**
-     * Get the value of the column 'EValue'. <br />
-     * {DOUBLE}
+     * EValue: {DOUBLE} <br />
      * @return The value of the column 'EValue'. (Nullable)
      */
     public java.math.BigDecimal getEvalue() {
@@ -293,8 +262,7 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'EValue'. <br />
-     * {DOUBLE}
+     * EValue: {DOUBLE} <br />
      * @param evalue The value of the column 'EValue'. (Nullable)
      */
     public void setEvalue(java.math.BigDecimal evalue) {
@@ -302,12 +270,8 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
         this._evalue = evalue;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -315,8 +279,7 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -324,12 +287,8 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String xmlcontent_COLUMN = "XMLContent";
-
     /**
-     * Get the value of the column 'XMLContent'. <br />
-     * {LONGCHAR(2147483647)}
+     * XMLContent: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'XMLContent'. (Nullable)
      */
     public String getXmlcontent() {
@@ -337,8 +296,7 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'XMLContent'. <br />
-     * {LONGCHAR(2147483647)}
+     * XMLContent: {LONGCHAR(2147483647)} <br />
      * @param xmlcontent The value of the column 'XMLContent'. (Nullable)
      */
     public void setXmlcontent(String xmlcontent) {
@@ -346,12 +304,8 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
         this._xmlcontent = xmlcontent;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {VARCHAR(40)}
+     * ea_guid: {VARCHAR(40)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -359,13 +313,11 @@ public abstract class BsTObjectscenarios implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {VARCHAR(40)}
+     * ea_guid: {VARCHAR(40)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
         _modifiedProperties.addPropertyName("eaGuid");
         this._eaGuid = eaGuid;
     }
-
 }

@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TConstrainttypesCQ;
 
 /**
- * The nest-select-setupper of t_constrainttypes.
+ * The nest select set-upper of t_constrainttypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TConstrainttypesNss {
 
     protected TConstrainttypesCQ _query;

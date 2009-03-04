@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_authors(TABLE).
+ * The entity of t_authors that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTAuthors implements Entity, java.io.Serializable {
+public abstract class BsTAuthors implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,23 +47,19 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_authors. */
-    public static final String TABLE = "t_authors";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'AuthorName'. {UQ : VARCHAR(255)} */
+    /** AuthorName: {UQ : VARCHAR(255)} */
     protected String _authorname;
 
-    /** The attribute of the column 'Roles'. {VARCHAR(255)} */
+    /** Roles: {VARCHAR(255)} */
     protected String _roles;
 
-    /** The attribute of the column 'Notes'. {VARCHAR(255)} */
+    /** Notes: {VARCHAR(255)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -73,19 +69,13 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTAuthors() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_authors";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TAuthors";
     }
 
@@ -111,7 +101,6 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -189,13 +178,8 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String authorname_COLUMN = "AuthorName";
-
     /**
-     * Get the value of the column 'AuthorName'. <br />
-     * {UQ : VARCHAR(255)}
+     * AuthorName: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'AuthorName'. (Nullable)
      */
     public String getAuthorname() {
@@ -203,8 +187,7 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'AuthorName'. <br />
-     * {UQ : VARCHAR(255)}
+     * AuthorName: {UQ : VARCHAR(255)} <br />
      * @param authorname The value of the column 'AuthorName'. (Nullable)
      */
     public void setAuthorname(String authorname) {
@@ -212,12 +195,8 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
         this._authorname = authorname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String roles_COLUMN = "Roles";
-
     /**
-     * Get the value of the column 'Roles'. <br />
-     * {VARCHAR(255)}
+     * Roles: {VARCHAR(255)} <br />
      * @return The value of the column 'Roles'. (Nullable)
      */
     public String getRoles() {
@@ -225,8 +204,7 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Roles'. <br />
-     * {VARCHAR(255)}
+     * Roles: {VARCHAR(255)} <br />
      * @param roles The value of the column 'Roles'. (Nullable)
      */
     public void setRoles(String roles) {
@@ -234,12 +212,8 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
         this._roles = roles;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -247,13 +221,11 @@ public abstract class BsTAuthors implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

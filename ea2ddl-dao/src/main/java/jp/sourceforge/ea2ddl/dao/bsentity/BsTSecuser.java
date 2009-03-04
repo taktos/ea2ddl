@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_secuser(TABLE).
+ * The entity of t_secuser that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTSecuser implements Entity, java.io.Serializable {
+public abstract class BsTSecuser implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_secuser. */
-    public static final String TABLE = "t_secuser";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'UserID'. {UQ : VARCHAR(40)} */
+    /** UserID: {UQ : VARCHAR(40)} */
     protected String _userid;
 
-    /** The attribute of the column 'UserLogin'. {VARCHAR(32)} */
+    /** UserLogin: {VARCHAR(32)} */
     protected String _userlogin;
 
-    /** The attribute of the column 'FirstName'. {VARCHAR(50)} */
+    /** FirstName: {VARCHAR(50)} */
     protected String _firstname;
 
-    /** The attribute of the column 'Surname'. {VARCHAR(50)} */
+    /** Surname: {VARCHAR(50)} */
     protected String _surname;
 
-    /** The attribute of the column 'Department'. {VARCHAR(50)} */
+    /** Department: {VARCHAR(50)} */
     protected String _department;
 
-    /** The attribute of the column 'Password'. {VARCHAR(12)} */
+    /** Password: {VARCHAR(12)} */
     protected String _password;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTSecuser() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_secuser";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TSecuser";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String userid_COLUMN = "UserID";
-
     /**
-     * Get the value of the column 'UserID'. <br />
-     * {UQ : VARCHAR(40)}
+     * UserID: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'UserID'. (Nullable)
      */
     public String getUserid() {
@@ -221,8 +205,7 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'UserID'. <br />
-     * {UQ : VARCHAR(40)}
+     * UserID: {UQ : VARCHAR(40)} <br />
      * @param userid The value of the column 'UserID'. (Nullable)
      */
     public void setUserid(String userid) {
@@ -230,12 +213,8 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
         this._userid = userid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(32)} */
-    public static final String userlogin_COLUMN = "UserLogin";
-
     /**
-     * Get the value of the column 'UserLogin'. <br />
-     * {VARCHAR(32)}
+     * UserLogin: {VARCHAR(32)} <br />
      * @return The value of the column 'UserLogin'. (Nullable)
      */
     public String getUserlogin() {
@@ -243,8 +222,7 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'UserLogin'. <br />
-     * {VARCHAR(32)}
+     * UserLogin: {VARCHAR(32)} <br />
      * @param userlogin The value of the column 'UserLogin'. (Nullable)
      */
     public void setUserlogin(String userlogin) {
@@ -252,12 +230,8 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
         this._userlogin = userlogin;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String firstname_COLUMN = "FirstName";
-
     /**
-     * Get the value of the column 'FirstName'. <br />
-     * {VARCHAR(50)}
+     * FirstName: {VARCHAR(50)} <br />
      * @return The value of the column 'FirstName'. (Nullable)
      */
     public String getFirstname() {
@@ -265,8 +239,7 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'FirstName'. <br />
-     * {VARCHAR(50)}
+     * FirstName: {VARCHAR(50)} <br />
      * @param firstname The value of the column 'FirstName'. (Nullable)
      */
     public void setFirstname(String firstname) {
@@ -274,12 +247,8 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
         this._firstname = firstname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String surname_COLUMN = "Surname";
-
     /**
-     * Get the value of the column 'Surname'. <br />
-     * {VARCHAR(50)}
+     * Surname: {VARCHAR(50)} <br />
      * @return The value of the column 'Surname'. (Nullable)
      */
     public String getSurname() {
@@ -287,8 +256,7 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Surname'. <br />
-     * {VARCHAR(50)}
+     * Surname: {VARCHAR(50)} <br />
      * @param surname The value of the column 'Surname'. (Nullable)
      */
     public void setSurname(String surname) {
@@ -296,12 +264,8 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
         this._surname = surname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String department_COLUMN = "Department";
-
     /**
-     * Get the value of the column 'Department'. <br />
-     * {VARCHAR(50)}
+     * Department: {VARCHAR(50)} <br />
      * @return The value of the column 'Department'. (Nullable)
      */
     public String getDepartment() {
@@ -309,8 +273,7 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Department'. <br />
-     * {VARCHAR(50)}
+     * Department: {VARCHAR(50)} <br />
      * @param department The value of the column 'Department'. (Nullable)
      */
     public void setDepartment(String department) {
@@ -318,12 +281,8 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
         this._department = department;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String password_COLUMN = "Password";
-
     /**
-     * Get the value of the column 'Password'. <br />
-     * {VARCHAR(12)}
+     * Password: {VARCHAR(12)} <br />
      * @return The value of the column 'Password'. (Nullable)
      */
     public String getPassword() {
@@ -331,13 +290,11 @@ public abstract class BsTSecuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Password'. <br />
-     * {VARCHAR(12)}
+     * Password: {VARCHAR(12)} <br />
      * @param password The value of the column 'Password'. (Nullable)
      */
     public void setPassword(String password) {
         _modifiedProperties.addPropertyName("password");
         this._password = password;
     }
-
 }

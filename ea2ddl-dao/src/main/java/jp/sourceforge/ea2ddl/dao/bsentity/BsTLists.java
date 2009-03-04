@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_lists(TABLE).
+ * The entity of t_lists that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTLists implements Entity, java.io.Serializable {
+public abstract class BsTLists implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,29 +47,25 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_lists. */
-    public static final String TABLE = "t_lists";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'ListID'. {UQ : VARCHAR(50)} */
+    /** ListID: {UQ : VARCHAR(50)} */
     protected String _listid;
 
-    /** The attribute of the column 'Category'. {VARCHAR(100)} */
+    /** Category: {VARCHAR(100)} */
     protected String _category;
 
-    /** The attribute of the column 'Name'. {VARCHAR(150)} */
+    /** Name: {VARCHAR(150)} */
     protected String _name;
 
-    /** The attribute of the column 'NVal'. {INTEGER} */
+    /** NVal: {INTEGER} */
     protected java.lang.Integer _nval;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -79,19 +75,13 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTLists() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_lists";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TLists";
     }
 
@@ -117,7 +107,6 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -201,13 +190,8 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String listid_COLUMN = "ListID";
-
     /**
-     * Get the value of the column 'ListID'. <br />
-     * {UQ : VARCHAR(50)}
+     * ListID: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'ListID'. (Nullable)
      */
     public String getListid() {
@@ -215,8 +199,7 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ListID'. <br />
-     * {UQ : VARCHAR(50)}
+     * ListID: {UQ : VARCHAR(50)} <br />
      * @param listid The value of the column 'ListID'. (Nullable)
      */
     public void setListid(String listid) {
@@ -224,12 +207,8 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
         this._listid = listid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String category_COLUMN = "Category";
-
     /**
-     * Get the value of the column 'Category'. <br />
-     * {VARCHAR(100)}
+     * Category: {VARCHAR(100)} <br />
      * @return The value of the column 'Category'. (Nullable)
      */
     public String getCategory() {
@@ -237,8 +216,7 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Category'. <br />
-     * {VARCHAR(100)}
+     * Category: {VARCHAR(100)} <br />
      * @param category The value of the column 'Category'. (Nullable)
      */
     public void setCategory(String category) {
@@ -246,12 +224,8 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
         this._category = category;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(150)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(150)}
+     * Name: {VARCHAR(150)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -259,8 +233,7 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(150)}
+     * Name: {VARCHAR(150)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -268,12 +241,8 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String nval_COLUMN = "NVal";
-
     /**
-     * Get the value of the column 'NVal'. <br />
-     * {INTEGER}
+     * NVal: {INTEGER} <br />
      * @return The value of the column 'NVal'. (Nullable)
      */
     public java.lang.Integer getNval() {
@@ -281,8 +250,7 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NVal'. <br />
-     * {INTEGER}
+     * NVal: {INTEGER} <br />
      * @param nval The value of the column 'NVal'. (Nullable)
      */
     public void setNval(java.lang.Integer nval) {
@@ -290,12 +258,8 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
         this._nval = nval;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -303,13 +267,11 @@ public abstract class BsTLists implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_complexitytypes(TABLE).
+ * The entity of t_complexitytypes that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTComplexitytypes implements Entity, java.io.Serializable {
+public abstract class BsTComplexitytypes implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,20 +47,16 @@ public abstract class BsTComplexitytypes implements Entity, java.io.Serializable
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_complexitytypes. */
-    public static final String TABLE = "t_complexitytypes";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Complexity'. {UQ : VARCHAR(50)} */
+    /** Complexity: {UQ : VARCHAR(50)} */
     protected String _complexity;
 
-    /** The attribute of the column 'NumericWeight'. {INTEGER} */
+    /** NumericWeight: {INTEGER} */
     protected java.lang.Integer _numericweight;
 
     // -----------------------------------------------------
@@ -70,19 +66,13 @@ public abstract class BsTComplexitytypes implements Entity, java.io.Serializable
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTComplexitytypes() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_complexitytypes";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TComplexitytypes";
     }
 
@@ -108,7 +98,6 @@ public abstract class BsTComplexitytypes implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -183,13 +172,8 @@ public abstract class BsTComplexitytypes implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String complexity_COLUMN = "Complexity";
-
     /**
-     * Get the value of the column 'Complexity'. <br />
-     * {UQ : VARCHAR(50)}
+     * Complexity: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'Complexity'. (Nullable)
      */
     public String getComplexity() {
@@ -197,8 +181,7 @@ public abstract class BsTComplexitytypes implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Complexity'. <br />
-     * {UQ : VARCHAR(50)}
+     * Complexity: {UQ : VARCHAR(50)} <br />
      * @param complexity The value of the column 'Complexity'. (Nullable)
      */
     public void setComplexity(String complexity) {
@@ -206,12 +189,8 @@ public abstract class BsTComplexitytypes implements Entity, java.io.Serializable
         this._complexity = complexity;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String numericweight_COLUMN = "NumericWeight";
-
     /**
-     * Get the value of the column 'NumericWeight'. <br />
-     * {INTEGER}
+     * NumericWeight: {INTEGER} <br />
      * @return The value of the column 'NumericWeight'. (Nullable)
      */
     public java.lang.Integer getNumericweight() {
@@ -219,13 +198,11 @@ public abstract class BsTComplexitytypes implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'NumericWeight'. <br />
-     * {INTEGER}
+     * NumericWeight: {INTEGER} <br />
      * @param numericweight The value of the column 'NumericWeight'. (Nullable)
      */
     public void setNumericweight(java.lang.Integer numericweight) {
         _modifiedProperties.addPropertyName("numericweight");
         this._numericweight = numericweight;
     }
-
 }

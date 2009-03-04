@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_image.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTImageCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : COUNTER}
      * @param imageid The value of imageid as equal.
      */
     public void setImageid_Equal(java.lang.Integer imageid) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as notEqual.
      */
     public void setImageid_NotEqual(java.lang.Integer imageid) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as greaterThan.
      */
     public void setImageid_GreaterThan(java.lang.Integer imageid) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as lessThan.
      */
     public void setImageid_LessThan(java.lang.Integer imageid) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as greaterEqual.
      */
     public void setImageid_GreaterEqual(java.lang.Integer imageid) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as lessEqual.
      */
     public void setImageid_LessEqual(java.lang.Integer imageid) {
@@ -94,16 +109,11 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
         regImageid(CK_INS, cTL(imageidList));
     }
 
-    protected void regImageid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueImageid(), "ImageID", "Imageid", "imageid");
-    }
-    protected void registerInlineImageid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueImageid(), "ImageID", "Imageid", "imageid");
-    }
+    protected void regImageid(ConditionKey k, Object v) { regQ(k, v, getCValueImageid(), "ImageID"); }
     abstract protected ConditionValue getCValueImageid();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param name The value of name as equal.
      */
     public void setName_Equal(String name) {
@@ -111,7 +121,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as notEqual.
      */
     public void setName_NotEqual(String name) {
@@ -119,7 +129,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterThan.
      */
     public void setName_GreaterThan(String name) {
@@ -127,7 +137,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessThan.
      */
     public void setName_LessThan(String name) {
@@ -135,7 +145,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterEqual.
      */
     public void setName_GreaterEqual(String name) {
@@ -143,7 +153,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessEqual.
      */
     public void setName_LessEqual(String name) {
@@ -151,20 +161,11 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as prefixSearch.
      */
     public void setName_PrefixSearch(String name) {
         regName(CK_PS, fRES(name));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param name The value of name as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setName_LikeSearch(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(name), getCValueName(), "Name", "Name", "name", likeSearchOption);
     }
 
     /**
@@ -176,34 +177,38 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param name The collection of name as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setName_InScope(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(name), getCValueName(), "Name", "Name", "name", inScopeOption);
+    public void setName_LikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(name), getCValueName(), "Name", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setName_IsNull() { regName(CK_ISN, DUMMY_OBJECT); }
+    public void setName_NotLikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(name), getCValueName(), "Name", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setName_IsNotNull() { regName(CK_ISNN, DUMMY_OBJECT); }
+    public void setName_IsNull() { regName(CK_ISN, DOBJ); }
 
-    protected void regName(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
-    protected void registerInlineName(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setName_IsNotNull() { regName(CK_ISNN, DOBJ); }
+
+    protected void regName(ConditionKey k, Object v) { regQ(k, v, getCValueName(), "Name"); }
     abstract protected ConditionValue getCValueName();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param type The value of type as equal.
      */
     public void setType_Equal(String type) {
@@ -211,7 +216,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as notEqual.
      */
     public void setType_NotEqual(String type) {
@@ -219,7 +224,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterThan.
      */
     public void setType_GreaterThan(String type) {
@@ -227,7 +232,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessThan.
      */
     public void setType_LessThan(String type) {
@@ -235,7 +240,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterEqual.
      */
     public void setType_GreaterEqual(String type) {
@@ -243,7 +248,7 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessEqual.
      */
     public void setType_LessEqual(String type) {
@@ -251,20 +256,11 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as prefixSearch.
      */
     public void setType_PrefixSearch(String type) {
         regType(CK_PS, fRES(type));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param type The value of type as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setType_LikeSearch(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(type), getCValueType(), "Type", "Type", "type", likeSearchOption);
     }
 
     /**
@@ -276,51 +272,54 @@ public abstract class AbstractBsTImageCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param type The collection of type as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setType_InScope(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(type), getCValueType(), "Type", "Type", "type", inScopeOption);
+    public void setType_LikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(type), getCValueType(), "Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setType_IsNull() { regType(CK_ISN, DUMMY_OBJECT); }
+    public void setType_NotLikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(type), getCValueType(), "Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setType_IsNotNull() { regType(CK_ISNN, DUMMY_OBJECT); }
+    public void setType_IsNull() { regType(CK_ISN, DOBJ); }
 
-    protected void regType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
-    protected void registerInlineType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setType_IsNotNull() { regType(CK_ISNN, DOBJ); }
+
+    protected void regType(ConditionKey k, Object v) { regQ(k, v, getCValueType(), "Type"); }
     abstract protected ConditionValue getCValueType();
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setImage_IsNull() { regImage(CK_ISN, DUMMY_OBJECT); }
+    public void setImage_IsNull() { regImage(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setImage_IsNotNull() { regImage(CK_ISNN, DUMMY_OBJECT); }
+    public void setImage_IsNotNull() { regImage(CK_ISNN, DOBJ); }
 
-    protected void regImage(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueImage(), "Image", "Image", "image");
-    }
-    protected void registerInlineImage(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueImage(), "Image", "Image", "image");
-    }
+    protected void regImage(ConditionKey k, Object v) { regQ(k, v, getCValueImage(), "Image"); }
     abstract protected ConditionValue getCValueImage();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TImageCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TImageCQ.class.getName(); }
+    String xCB() { return TImageCB.class.getName(); }
+    String xCQ() { return TImageCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

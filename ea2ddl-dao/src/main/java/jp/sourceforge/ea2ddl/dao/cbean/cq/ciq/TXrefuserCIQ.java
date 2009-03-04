@@ -1,10 +1,11 @@
 package jp.sourceforge.ea2ddl.dao.cbean.cq.ciq;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.ConditionOption;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.ConditionOption;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.bs.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -12,7 +13,6 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The condition-inline-query of t_xrefuser.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TXrefuserCIQ extends AbstractBsTXrefuserCQ {
 
     // ===================================================================================
@@ -39,15 +39,13 @@ public class TXrefuserCIQ extends AbstractBsTXrefuserCQ {
     }
 
     @Override
-    protected void setupConditionValueAndRegisterWhereClause(ConditionKey key, Object value, ConditionValue cvalue
-                                                             , String colName, String capPropName, String uncapPropName) {
-        registerInlineQuery(key, value, cvalue, colName, capPropName, uncapPropName);
+    protected void setupConditionValueAndRegisterWhereClause(ConditionKey k, Object v, ConditionValue cv, String col) {
+        regIQ(k, v, cv, col);
     }
 
     @Override
-    protected void setupConditionValueAndRegisterWhereClause(ConditionKey key, Object value, ConditionValue cvalue
-                                                             , String colName, String capPropName, String uncapPropName, ConditionOption option) {
-        registerInlineQuery(key, value, cvalue, colName, capPropName, uncapPropName, option);
+    protected void setupConditionValueAndRegisterWhereClause(ConditionKey k, Object v, ConditionValue cv, String col, ConditionOption op) {
+        regIQ(k, v, cv, col, op);
     }
 
     @Override
@@ -65,7 +63,7 @@ public class TXrefuserCIQ extends AbstractBsTXrefuserCQ {
 
     @Override
     protected void registerExistsSubQuery(ConditionQuery subQuery
-                                 , String columnName, String relatedColumnName, String propertyName) {
+            , String columnName, String relatedColumnName, String propertyName) {
         throw new UnsupportedOperationException("Sorry! ExistsSubQuery at inline view is unsupported. So please use InScopeSubQyery.");
     }
 
@@ -115,5 +113,10 @@ public class TXrefuserCIQ extends AbstractBsTXrefuserCQ {
         return _myCQ.getLink();
     }
 
-    protected String getConditionQueryClassNameInternally() { return TXrefuserCQ.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xiCB() { return TXrefuserCB.class.getName(); }
+    String xiCQ() { return TXrefuserCQ.class.getName(); }
 }

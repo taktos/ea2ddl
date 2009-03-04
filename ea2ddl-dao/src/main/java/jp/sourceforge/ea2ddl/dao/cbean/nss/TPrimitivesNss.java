@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TPrimitivesCQ;
 
 /**
- * The nest-select-setupper of t_primitives.
+ * The nest select set-upper of t_primitives.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TPrimitivesNss {
 
     protected TPrimitivesCQ _query;

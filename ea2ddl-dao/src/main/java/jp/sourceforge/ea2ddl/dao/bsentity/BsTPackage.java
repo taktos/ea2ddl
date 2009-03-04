@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_package(TABLE).
+ * The entity of t_package that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTPackage implements Entity, java.io.Serializable {
+public abstract class BsTPackage implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,80 +47,76 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_package. */
-    public static final String TABLE = "t_package";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Package_ID'. {UQ : COUNTER : NotNull} */
+    /** Package_ID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _packageId;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Parent_ID'. {INTEGER} */
+    /** Parent_ID: {INTEGER} */
     protected java.lang.Integer _parentId;
 
-    /** The attribute of the column 'CreatedDate'. {DATETIME} */
+    /** CreatedDate: {DATETIME} */
     protected java.sql.Timestamp _createddate;
 
-    /** The attribute of the column 'ModifiedDate'. {DATETIME} */
+    /** ModifiedDate: {DATETIME} */
     protected java.sql.Timestamp _modifieddate;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'ea_guid'. {UQ : VARCHAR(40)} */
+    /** ea_guid: {UQ : VARCHAR(40)} */
     protected String _eaGuid;
 
-    /** The attribute of the column 'XMLPath'. {VARCHAR(255)} */
+    /** XMLPath: {VARCHAR(255)} */
     protected String _xmlpath;
 
-    /** The attribute of the column 'IsControlled'. {BIT : NotNull} */
+    /** IsControlled: {NotNull : BIT} */
     protected Boolean _iscontrolled;
 
-    /** The attribute of the column 'LastLoadDate'. {DATETIME} */
+    /** LastLoadDate: {DATETIME} */
     protected java.sql.Timestamp _lastloaddate;
 
-    /** The attribute of the column 'LastSaveDate'. {DATETIME} */
+    /** LastSaveDate: {DATETIME} */
     protected java.sql.Timestamp _lastsavedate;
 
-    /** The attribute of the column 'Version'. {VARCHAR(50)} */
+    /** Version: {VARCHAR(50)} */
     protected String _version;
 
-    /** The attribute of the column 'PkgOwner'. {VARCHAR(255)} */
+    /** PkgOwner: {VARCHAR(255)} */
     protected String _pkgowner;
 
-    /** The attribute of the column 'UMLVersion'. {VARCHAR(50)} */
+    /** UMLVersion: {VARCHAR(50)} */
     protected String _umlversion;
 
-    /** The attribute of the column 'UseDTD'. {BIT : NotNull} */
+    /** UseDTD: {NotNull : BIT} */
     protected Boolean _usedtd;
 
-    /** The attribute of the column 'LogXML'. {BIT : NotNull} */
+    /** LogXML: {NotNull : BIT} */
     protected Boolean _logxml;
 
-    /** The attribute of the column 'CodePath'. {VARCHAR(255)} */
+    /** CodePath: {VARCHAR(255)} */
     protected String _codepath;
 
-    /** The attribute of the column 'Namespace'. {VARCHAR(50)} */
+    /** Namespace: {VARCHAR(50)} */
     protected String _namespace;
 
-    /** The attribute of the column 'TPos'. {INTEGER} */
+    /** TPos: {INTEGER} */
     protected java.lang.Integer _tpos;
 
-    /** The attribute of the column 'PackageFlags'. {VARCHAR(255)} */
+    /** PackageFlags: {VARCHAR(255)} */
     protected String _packageflags;
 
-    /** The attribute of the column 'BatchSave'. {INTEGER} */
+    /** BatchSave: {INTEGER} */
     protected java.lang.Integer _batchsave;
 
-    /** The attribute of the column 'BatchLoad'. {INTEGER} */
+    /** BatchLoad: {INTEGER} */
     protected java.lang.Integer _batchload;
 
     // -----------------------------------------------------
@@ -130,19 +126,13 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTPackage() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_package";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TPackage";
     }
 
@@ -168,7 +158,6 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -303,13 +292,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String packageId_COLUMN = "Package_ID";
-
     /**
-     * Get the value of the column 'Package_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * Package_ID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'Package_ID'. (Nullable)
      */
     public java.lang.Integer getPackageId() {
@@ -317,8 +301,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Package_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * Package_ID: {UQ : NotNull : COUNTER} <br />
      * @param packageId The value of the column 'Package_ID'. (Nullable)
      */
     public void setPackageId(java.lang.Integer packageId) {
@@ -326,12 +309,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._packageId = packageId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -339,8 +318,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -348,12 +326,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String parentId_COLUMN = "Parent_ID";
-
     /**
-     * Get the value of the column 'Parent_ID'. <br />
-     * {INTEGER}
+     * Parent_ID: {INTEGER} <br />
      * @return The value of the column 'Parent_ID'. (Nullable)
      */
     public java.lang.Integer getParentId() {
@@ -361,8 +335,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Parent_ID'. <br />
-     * {INTEGER}
+     * Parent_ID: {INTEGER} <br />
      * @param parentId The value of the column 'Parent_ID'. (Nullable)
      */
     public void setParentId(java.lang.Integer parentId) {
@@ -370,12 +343,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._parentId = parentId;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String createddate_COLUMN = "CreatedDate";
-
     /**
-     * Get the value of the column 'CreatedDate'. <br />
-     * {DATETIME}
+     * CreatedDate: {DATETIME} <br />
      * @return The value of the column 'CreatedDate'. (Nullable)
      */
     public java.sql.Timestamp getCreateddate() {
@@ -383,8 +352,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'CreatedDate'. <br />
-     * {DATETIME}
+     * CreatedDate: {DATETIME} <br />
      * @param createddate The value of the column 'CreatedDate'. (Nullable)
      */
     public void setCreateddate(java.sql.Timestamp createddate) {
@@ -392,12 +360,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._createddate = createddate;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String modifieddate_COLUMN = "ModifiedDate";
-
     /**
-     * Get the value of the column 'ModifiedDate'. <br />
-     * {DATETIME}
+     * ModifiedDate: {DATETIME} <br />
      * @return The value of the column 'ModifiedDate'. (Nullable)
      */
     public java.sql.Timestamp getModifieddate() {
@@ -405,8 +369,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ModifiedDate'. <br />
-     * {DATETIME}
+     * ModifiedDate: {DATETIME} <br />
      * @param modifieddate The value of the column 'ModifiedDate'. (Nullable)
      */
     public void setModifieddate(java.sql.Timestamp modifieddate) {
@@ -414,12 +377,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._modifieddate = modifieddate;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -427,8 +386,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -436,12 +394,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {UQ : VARCHAR(40)}
+     * ea_guid: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -449,8 +403,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {UQ : VARCHAR(40)}
+     * ea_guid: {UQ : VARCHAR(40)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
@@ -458,12 +411,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._eaGuid = eaGuid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String xmlpath_COLUMN = "XMLPath";
-
     /**
-     * Get the value of the column 'XMLPath'. <br />
-     * {VARCHAR(255)}
+     * XMLPath: {VARCHAR(255)} <br />
      * @return The value of the column 'XMLPath'. (Nullable)
      */
     public String getXmlpath() {
@@ -471,8 +420,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'XMLPath'. <br />
-     * {VARCHAR(255)}
+     * XMLPath: {VARCHAR(255)} <br />
      * @param xmlpath The value of the column 'XMLPath'. (Nullable)
      */
     public void setXmlpath(String xmlpath) {
@@ -480,12 +428,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._xmlpath = xmlpath;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String iscontrolled_COLUMN = "IsControlled";
-
     /**
-     * Get the value of the column 'IsControlled'. <br />
-     * {BIT : NotNull}
+     * IsControlled: {NotNull : BIT} <br />
      * @return The value of the column 'IsControlled'. (Nullable)
      */
     public Boolean getIscontrolled() {
@@ -493,8 +437,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsControlled'. <br />
-     * {BIT : NotNull}
+     * IsControlled: {NotNull : BIT} <br />
      * @param iscontrolled The value of the column 'IsControlled'. (Nullable)
      */
     public void setIscontrolled(Boolean iscontrolled) {
@@ -502,12 +445,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._iscontrolled = iscontrolled;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String lastloaddate_COLUMN = "LastLoadDate";
-
     /**
-     * Get the value of the column 'LastLoadDate'. <br />
-     * {DATETIME}
+     * LastLoadDate: {DATETIME} <br />
      * @return The value of the column 'LastLoadDate'. (Nullable)
      */
     public java.sql.Timestamp getLastloaddate() {
@@ -515,8 +454,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'LastLoadDate'. <br />
-     * {DATETIME}
+     * LastLoadDate: {DATETIME} <br />
      * @param lastloaddate The value of the column 'LastLoadDate'. (Nullable)
      */
     public void setLastloaddate(java.sql.Timestamp lastloaddate) {
@@ -524,12 +462,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._lastloaddate = lastloaddate;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String lastsavedate_COLUMN = "LastSaveDate";
-
     /**
-     * Get the value of the column 'LastSaveDate'. <br />
-     * {DATETIME}
+     * LastSaveDate: {DATETIME} <br />
      * @return The value of the column 'LastSaveDate'. (Nullable)
      */
     public java.sql.Timestamp getLastsavedate() {
@@ -537,8 +471,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'LastSaveDate'. <br />
-     * {DATETIME}
+     * LastSaveDate: {DATETIME} <br />
      * @param lastsavedate The value of the column 'LastSaveDate'. (Nullable)
      */
     public void setLastsavedate(java.sql.Timestamp lastsavedate) {
@@ -546,12 +479,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._lastsavedate = lastsavedate;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String version_COLUMN = "Version";
-
     /**
-     * Get the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @return The value of the column 'Version'. (Nullable)
      */
     public String getVersion() {
@@ -559,8 +488,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @param version The value of the column 'Version'. (Nullable)
      */
     public void setVersion(String version) {
@@ -568,12 +496,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._version = version;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pkgowner_COLUMN = "PkgOwner";
-
     /**
-     * Get the value of the column 'PkgOwner'. <br />
-     * {VARCHAR(255)}
+     * PkgOwner: {VARCHAR(255)} <br />
      * @return The value of the column 'PkgOwner'. (Nullable)
      */
     public String getPkgowner() {
@@ -581,8 +505,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PkgOwner'. <br />
-     * {VARCHAR(255)}
+     * PkgOwner: {VARCHAR(255)} <br />
      * @param pkgowner The value of the column 'PkgOwner'. (Nullable)
      */
     public void setPkgowner(String pkgowner) {
@@ -590,12 +513,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._pkgowner = pkgowner;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String umlversion_COLUMN = "UMLVersion";
-
     /**
-     * Get the value of the column 'UMLVersion'. <br />
-     * {VARCHAR(50)}
+     * UMLVersion: {VARCHAR(50)} <br />
      * @return The value of the column 'UMLVersion'. (Nullable)
      */
     public String getUmlversion() {
@@ -603,8 +522,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'UMLVersion'. <br />
-     * {VARCHAR(50)}
+     * UMLVersion: {VARCHAR(50)} <br />
      * @param umlversion The value of the column 'UMLVersion'. (Nullable)
      */
     public void setUmlversion(String umlversion) {
@@ -612,12 +530,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._umlversion = umlversion;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String usedtd_COLUMN = "UseDTD";
-
     /**
-     * Get the value of the column 'UseDTD'. <br />
-     * {BIT : NotNull}
+     * UseDTD: {NotNull : BIT} <br />
      * @return The value of the column 'UseDTD'. (Nullable)
      */
     public Boolean getUsedtd() {
@@ -625,8 +539,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'UseDTD'. <br />
-     * {BIT : NotNull}
+     * UseDTD: {NotNull : BIT} <br />
      * @param usedtd The value of the column 'UseDTD'. (Nullable)
      */
     public void setUsedtd(Boolean usedtd) {
@@ -634,12 +547,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._usedtd = usedtd;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String logxml_COLUMN = "LogXML";
-
     /**
-     * Get the value of the column 'LogXML'. <br />
-     * {BIT : NotNull}
+     * LogXML: {NotNull : BIT} <br />
      * @return The value of the column 'LogXML'. (Nullable)
      */
     public Boolean getLogxml() {
@@ -647,8 +556,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'LogXML'. <br />
-     * {BIT : NotNull}
+     * LogXML: {NotNull : BIT} <br />
      * @param logxml The value of the column 'LogXML'. (Nullable)
      */
     public void setLogxml(Boolean logxml) {
@@ -656,12 +564,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._logxml = logxml;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String codepath_COLUMN = "CodePath";
-
     /**
-     * Get the value of the column 'CodePath'. <br />
-     * {VARCHAR(255)}
+     * CodePath: {VARCHAR(255)} <br />
      * @return The value of the column 'CodePath'. (Nullable)
      */
     public String getCodepath() {
@@ -669,8 +573,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'CodePath'. <br />
-     * {VARCHAR(255)}
+     * CodePath: {VARCHAR(255)} <br />
      * @param codepath The value of the column 'CodePath'. (Nullable)
      */
     public void setCodepath(String codepath) {
@@ -678,12 +581,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._codepath = codepath;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String namespace_COLUMN = "Namespace";
-
     /**
-     * Get the value of the column 'Namespace'. <br />
-     * {VARCHAR(50)}
+     * Namespace: {VARCHAR(50)} <br />
      * @return The value of the column 'Namespace'. (Nullable)
      */
     public String getNamespace() {
@@ -691,8 +590,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Namespace'. <br />
-     * {VARCHAR(50)}
+     * Namespace: {VARCHAR(50)} <br />
      * @param namespace The value of the column 'Namespace'. (Nullable)
      */
     public void setNamespace(String namespace) {
@@ -700,12 +598,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._namespace = namespace;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String tpos_COLUMN = "TPos";
-
     /**
-     * Get the value of the column 'TPos'. <br />
-     * {INTEGER}
+     * TPos: {INTEGER} <br />
      * @return The value of the column 'TPos'. (Nullable)
      */
     public java.lang.Integer getTpos() {
@@ -713,8 +607,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TPos'. <br />
-     * {INTEGER}
+     * TPos: {INTEGER} <br />
      * @param tpos The value of the column 'TPos'. (Nullable)
      */
     public void setTpos(java.lang.Integer tpos) {
@@ -722,12 +615,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._tpos = tpos;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String packageflags_COLUMN = "PackageFlags";
-
     /**
-     * Get the value of the column 'PackageFlags'. <br />
-     * {VARCHAR(255)}
+     * PackageFlags: {VARCHAR(255)} <br />
      * @return The value of the column 'PackageFlags'. (Nullable)
      */
     public String getPackageflags() {
@@ -735,8 +624,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PackageFlags'. <br />
-     * {VARCHAR(255)}
+     * PackageFlags: {VARCHAR(255)} <br />
      * @param packageflags The value of the column 'PackageFlags'. (Nullable)
      */
     public void setPackageflags(String packageflags) {
@@ -744,12 +632,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._packageflags = packageflags;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String batchsave_COLUMN = "BatchSave";
-
     /**
-     * Get the value of the column 'BatchSave'. <br />
-     * {INTEGER}
+     * BatchSave: {INTEGER} <br />
      * @return The value of the column 'BatchSave'. (Nullable)
      */
     public java.lang.Integer getBatchsave() {
@@ -757,8 +641,7 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'BatchSave'. <br />
-     * {INTEGER}
+     * BatchSave: {INTEGER} <br />
      * @param batchsave The value of the column 'BatchSave'. (Nullable)
      */
     public void setBatchsave(java.lang.Integer batchsave) {
@@ -766,12 +649,8 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
         this._batchsave = batchsave;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String batchload_COLUMN = "BatchLoad";
-
     /**
-     * Get the value of the column 'BatchLoad'. <br />
-     * {INTEGER}
+     * BatchLoad: {INTEGER} <br />
      * @return The value of the column 'BatchLoad'. (Nullable)
      */
     public java.lang.Integer getBatchload() {
@@ -779,13 +658,11 @@ public abstract class BsTPackage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'BatchLoad'. <br />
-     * {INTEGER}
+     * BatchLoad: {INTEGER} <br />
      * @param batchload The value of the column 'BatchLoad'. (Nullable)
      */
     public void setBatchload(java.lang.Integer batchload) {
         _modifiedProperties.addPropertyName("batchload");
         this._batchload = batchload;
     }
-
 }

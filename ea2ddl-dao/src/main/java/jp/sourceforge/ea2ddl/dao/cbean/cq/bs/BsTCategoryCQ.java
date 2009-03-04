@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_category.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTCategoryCQ extends AbstractBsTCategoryCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTCategoryCQ extends AbstractBsTCategoryCQ {
      * @return On-clause query. (NotNull)
      */
     public TCategoryCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TCategoryCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTCategoryCQ extends AbstractBsTCategoryCQ {
         return _categoryid;
     }
     protected ConditionValue getCValueCategoryid() { return getCategoryid(); }
-          
+
     public BsTCategoryCQ addOrderBy_Categoryid_Asc() { regOBA("CategoryID"); return this; }
     public BsTCategoryCQ addOrderBy_Categoryid_Desc() { regOBD("CategoryID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTCategoryCQ extends AbstractBsTCategoryCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTCategoryCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTCategoryCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTCategoryCQ extends AbstractBsTCategoryCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTCategoryCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTCategoryCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTCategoryCQ extends AbstractBsTCategoryCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTCategoryCQ addOrderBy_Notes_Asc() { regOBA("NOTES"); return this; }
     public BsTCategoryCQ addOrderBy_Notes_Desc() { regOBD("NOTES"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTCategoryCQ extends AbstractBsTCategoryCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TCategoryCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TCategoryCB.class.getName(); }
+    String xCQ() { return TCategoryCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

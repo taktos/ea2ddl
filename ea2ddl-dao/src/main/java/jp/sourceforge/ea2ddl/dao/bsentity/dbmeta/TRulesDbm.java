@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TRules;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_rules. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TRulesDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TRulesDbm _instance = new TRulesDbm();
     private TRulesDbm() {}
     public static TRulesDbm getInstance() { return _instance; }
@@ -29,15 +32,15 @@ public class TRulesDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnRuleid = cci("RuleID", "ruleid", String.class, false, 50, 0);
-    protected ColumnInfo _columnRulename = cci("RuleName", "rulename", String.class, false, 255, 0);
-    protected ColumnInfo _columnRuletype = cci("RuleType", "ruletype", String.class, false, 255, 0);
-    protected ColumnInfo _columnRuleactive = cci("RuleActive", "ruleactive", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnErrormsg = cci("ErrorMsg", "errormsg", String.class, false, 255, 0);
-    protected ColumnInfo _columnFlags = cci("Flags", "flags", String.class, false, 255, 0);
-    protected ColumnInfo _columnRuleocl = cci("RuleOCL", "ruleocl", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnRulexml = cci("RuleXML", "rulexml", String.class, false, 2147483647, 0);
+    protected ColumnInfo _columnRuleid = cci("RuleID", null, "ruleid", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnRulename = cci("RuleName", null, "rulename", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnRuletype = cci("RuleType", null, "ruletype", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnRuleactive = cci("RuleActive", null, "ruleactive", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnErrormsg = cci("ErrorMsg", null, "errormsg", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnFlags = cci("Flags", null, "flags", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnRuleocl = cci("RuleOCL", null, "ruleocl", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnNotes = cci("Notes", null, "notes", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnRulexml = cci("RuleXML", null, "rulexml", String.class, false, false, 2147483647, 0);
 
     public ColumnInfo columnRuleid() { return _columnRuleid; }
     public ColumnInfo columnRulename() { return _columnRulename; }
@@ -48,23 +51,35 @@ public class TRulesDbm extends AbstractDBMeta {
     public ColumnInfo columnRuleocl() { return _columnRuleocl; }
     public ColumnInfo columnNotes() { return _columnNotes; }
     public ColumnInfo columnRulexml() { return _columnRulexml; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -86,65 +101,29 @@ public class TRulesDbm extends AbstractDBMeta {
     public TRules newMyEntity() { return new TRules(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TRules)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TRules)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TRules)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TRules)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -158,7 +137,7 @@ public class TRulesDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TRules>> _epsMap = newHashMap();
+    protected Map<String, Eps<TRules>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsRuleid(), columnRuleid());
         setupEps(_epsMap, new EpsRulename(), columnRulename());
@@ -170,40 +149,27 @@ public class TRulesDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsNotes(), columnNotes());
         setupEps(_epsMap, new EpsRulexml(), columnRulexml());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TRules)entity, value);
-    }
-    
-    public static class EpsRuleid implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setRuleid((String)v); }
-    }
-    public static class EpsRulename implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setRulename((String)v); }
-    }
-    public static class EpsRuletype implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setRuletype((String)v); }
-    }
-    public static class EpsRuleactive implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setRuleactive((java.lang.Integer)v); }
-    }
-    public static class EpsErrormsg implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setErrormsg((String)v); }
-    }
-    public static class EpsFlags implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setFlags((String)v); }
-    }
-    public static class EpsRuleocl implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setRuleocl((String)v); }
-    }
-    public static class EpsNotes implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setNotes((String)v); }
-    }
-    public static class EpsRulexml implements Eps<TRules> {
-        public void setup(TRules e, Object v) { e.setRulexml((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TRules)entity, value); }
+
+    public static class EpsRuleid implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setRuleid((String)v); } }
+    public static class EpsRulename implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setRulename((String)v); } }
+    public static class EpsRuletype implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setRuletype((String)v); } }
+    public static class EpsRuleactive implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setRuleactive((java.lang.Integer)v); } }
+    public static class EpsErrormsg implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setErrormsg((String)v); } }
+    public static class EpsFlags implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setFlags((String)v); } }
+    public static class EpsRuleocl implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setRuleocl((String)v); } }
+    public static class EpsNotes implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setNotes((String)v); } }
+    public static class EpsRulexml implements Eps<TRules>
+    { public void setup(TRules e, Object v) { e.setRulexml((String)v); } }
 }

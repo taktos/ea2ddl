@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_attribute.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
      * @return On-clause query. (NotNull)
      */
     public TAttributeCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TAttributeCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     protected Map<String, TObjectCQ> _objectId_InScopeSubQuery_TObjectMap;
     public Map<String, TObjectCQ> getObjectId_InScopeSubQuery_TObject() { return _objectId_InScopeSubQuery_TObjectMap; }
     public String keepObjectId_InScopeSubQuery_TObject(TObjectCQ subQuery) {
@@ -80,7 +80,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTAttributeCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTAttributeCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -90,7 +90,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _scope;
     }
     protected ConditionValue getCValueScope() { return getScope(); }
-    
+
     public BsTAttributeCQ addOrderBy_Scope_Asc() { regOBA("Scope"); return this; }
     public BsTAttributeCQ addOrderBy_Scope_Desc() { regOBD("Scope"); return this; }
 
@@ -100,7 +100,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _stereotype;
     }
     protected ConditionValue getCValueStereotype() { return getStereotype(); }
-    
+
     public BsTAttributeCQ addOrderBy_Stereotype_Asc() { regOBA("Stereotype"); return this; }
     public BsTAttributeCQ addOrderBy_Stereotype_Desc() { regOBD("Stereotype"); return this; }
 
@@ -110,7 +110,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _containment;
     }
     protected ConditionValue getCValueContainment() { return getContainment(); }
-    
+
     public BsTAttributeCQ addOrderBy_Containment_Asc() { regOBA("Containment"); return this; }
     public BsTAttributeCQ addOrderBy_Containment_Desc() { regOBD("Containment"); return this; }
 
@@ -120,7 +120,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _isstatic;
     }
     protected ConditionValue getCValueIsstatic() { return getIsstatic(); }
-          
+
     public BsTAttributeCQ addOrderBy_Isstatic_Asc() { regOBA("IsStatic"); return this; }
     public BsTAttributeCQ addOrderBy_Isstatic_Desc() { regOBD("IsStatic"); return this; }
 
@@ -130,7 +130,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _iscollection;
     }
     protected ConditionValue getCValueIscollection() { return getIscollection(); }
-          
+
     public BsTAttributeCQ addOrderBy_Iscollection_Asc() { regOBA("IsCollection"); return this; }
     public BsTAttributeCQ addOrderBy_Iscollection_Desc() { regOBD("IsCollection"); return this; }
 
@@ -140,7 +140,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _isordered;
     }
     protected ConditionValue getCValueIsordered() { return getIsordered(); }
-          
+
     public BsTAttributeCQ addOrderBy_Isordered_Asc() { regOBA("IsOrdered"); return this; }
     public BsTAttributeCQ addOrderBy_Isordered_Desc() { regOBD("IsOrdered"); return this; }
 
@@ -150,7 +150,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _allowduplicates;
     }
     protected ConditionValue getCValueAllowduplicates() { return getAllowduplicates(); }
-          
+
     public BsTAttributeCQ addOrderBy_Allowduplicates_Asc() { regOBA("AllowDuplicates"); return this; }
     public BsTAttributeCQ addOrderBy_Allowduplicates_Desc() { regOBD("AllowDuplicates"); return this; }
 
@@ -160,7 +160,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _lowerbound;
     }
     protected ConditionValue getCValueLowerbound() { return getLowerbound(); }
-    
+
     public BsTAttributeCQ addOrderBy_Lowerbound_Asc() { regOBA("LowerBound"); return this; }
     public BsTAttributeCQ addOrderBy_Lowerbound_Desc() { regOBD("LowerBound"); return this; }
 
@@ -170,7 +170,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _upperbound;
     }
     protected ConditionValue getCValueUpperbound() { return getUpperbound(); }
-    
+
     public BsTAttributeCQ addOrderBy_Upperbound_Asc() { regOBA("UpperBound"); return this; }
     public BsTAttributeCQ addOrderBy_Upperbound_Desc() { regOBD("UpperBound"); return this; }
 
@@ -180,7 +180,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _container;
     }
     protected ConditionValue getCValueContainer() { return getContainer(); }
-    
+
     public BsTAttributeCQ addOrderBy_Container_Asc() { regOBA("Container"); return this; }
     public BsTAttributeCQ addOrderBy_Container_Desc() { regOBD("Container"); return this; }
 
@@ -190,7 +190,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTAttributeCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTAttributeCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -200,7 +200,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _derived;
     }
     protected ConditionValue getCValueDerived() { return getDerived(); }
-    
+
     public BsTAttributeCQ addOrderBy_Derived_Asc() { regOBA("Derived"); return this; }
     public BsTAttributeCQ addOrderBy_Derived_Desc() { regOBD("Derived"); return this; }
 
@@ -210,7 +210,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _id;
     }
     protected ConditionValue getCValueId() { return getId(); }
-          
+
     public BsTAttributeCQ addOrderBy_Id_Asc() { regOBA("ID"); return this; }
     public BsTAttributeCQ addOrderBy_Id_Desc() { regOBD("ID"); return this; }
 
@@ -220,7 +220,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _pos;
     }
     protected ConditionValue getCValuePos() { return getPos(); }
-          
+
     public BsTAttributeCQ addOrderBy_Pos_Asc() { regOBA("Pos"); return this; }
     public BsTAttributeCQ addOrderBy_Pos_Desc() { regOBD("Pos"); return this; }
 
@@ -230,7 +230,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _genoption;
     }
     protected ConditionValue getCValueGenoption() { return getGenoption(); }
-    
+
     public BsTAttributeCQ addOrderBy_Genoption_Asc() { regOBA("GenOption"); return this; }
     public BsTAttributeCQ addOrderBy_Genoption_Desc() { regOBD("GenOption"); return this; }
 
@@ -240,7 +240,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _length;
     }
     protected ConditionValue getCValueLength() { return getLength(); }
-          
+
     public BsTAttributeCQ addOrderBy_Length_Asc() { regOBA("Length"); return this; }
     public BsTAttributeCQ addOrderBy_Length_Desc() { regOBD("Length"); return this; }
 
@@ -250,7 +250,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _precision;
     }
     protected ConditionValue getCValuePrecision() { return getPrecision(); }
-          
+
     public BsTAttributeCQ addOrderBy_Precision_Asc() { regOBA("Precision"); return this; }
     public BsTAttributeCQ addOrderBy_Precision_Desc() { regOBD("Precision"); return this; }
 
@@ -260,7 +260,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _scale;
     }
     protected ConditionValue getCValueScale() { return getScale(); }
-          
+
     public BsTAttributeCQ addOrderBy_Scale_Asc() { regOBA("Scale"); return this; }
     public BsTAttributeCQ addOrderBy_Scale_Desc() { regOBD("Scale"); return this; }
 
@@ -270,7 +270,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _style;
     }
     protected ConditionValue getCValueStyle() { return getStyle(); }
-    
+
     public BsTAttributeCQ addOrderBy_Style_Asc() { regOBA("Style"); return this; }
     public BsTAttributeCQ addOrderBy_Style_Desc() { regOBD("Style"); return this; }
 
@@ -280,7 +280,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _classifier;
     }
     protected ConditionValue getCValueClassifier() { return getClassifier(); }
-    
+
     public BsTAttributeCQ addOrderBy_Classifier_Asc() { regOBA("Classifier"); return this; }
     public BsTAttributeCQ addOrderBy_Classifier_Desc() { regOBD("Classifier"); return this; }
 
@@ -290,7 +290,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTAttributeCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTAttributeCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -300,7 +300,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _eaGuid;
     }
     protected ConditionValue getCValueEaGuid() { return getEaGuid(); }
-    
+
     public BsTAttributeCQ addOrderBy_EaGuid_Asc() { regOBA("ea_guid"); return this; }
     public BsTAttributeCQ addOrderBy_EaGuid_Desc() { regOBD("ea_guid"); return this; }
 
@@ -310,7 +310,7 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
         return _styleex;
     }
     protected ConditionValue getCValueStyleex() { return getStyleex(); }
-    
+
     public BsTAttributeCQ addOrderBy_Styleex_Asc() { regOBA("StyleEx"); return this; }
     public BsTAttributeCQ addOrderBy_Styleex_Desc() { regOBD("StyleEx"); return this; }
 
@@ -334,34 +334,38 @@ public class BsTAttributeCQ extends AbstractBsTAttributeCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-    
     public TObjectCQ queryTObject() {
         return getConditionQueryTObject();
     }
     protected TObjectCQ _conditionQueryTObject;
     public TObjectCQ getConditionQueryTObject() {
         if (_conditionQueryTObject == null) {
-            _conditionQueryTObject = createQueryTObject();
-            setupOuterJoin_TObject();
+            _conditionQueryTObject = xcreateQueryTObject();
+            xsetupOuterJoinTObject();
         }
         return _conditionQueryTObject;
     }
-    protected void setupOuterJoin_TObject() {
-        Map<String, String> joinOnMap = newLinkedHashMap();
-        joinOnMap.put(getRealColumnName("Object_ID"), getConditionQueryTObject().getRealColumnName("Object_ID"));
-        registerOuterJoin(getConditionQueryTObject(), joinOnMap);
-    }
-    protected TObjectCQ createQueryTObject() {
+    protected TObjectCQ xcreateQueryTObject() {
         String nrp = resolveNextRelationPath("t_attribute", "tObject");
         String jan = resolveJoinAliasName(nrp, getNextNestLevel());
         TObjectCQ cq = new TObjectCQ(this, getSqlClause(), jan, getNextNestLevel());
         cq.xsetForeignPropertyName("tObject"); cq.xsetRelationPath(nrp); return cq;
     }
+    protected void xsetupOuterJoinTObject() {
+        TObjectCQ cq = getConditionQueryTObject();
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("Object_ID"), cq.getRealColumnName("Object_ID"));
+        registerOuterJoin(cq, joinOnMap);
+    }
     public boolean hasConditionQueryTObject() {
         return _conditionQueryTObject != null;
     }
 
-
-    protected String getConditionQueryClassNameInternally() { return TAttributeCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TAttributeCB.class.getName(); }
+    String xCQ() { return TAttributeCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

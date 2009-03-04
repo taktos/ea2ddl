@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_connectortypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTConnectortypesCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(50)}
      * @param connectorType The value of connectorType as equal.
      */
     public void setConnectorType_Equal(String connectorType) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param connectorType The value of connectorType as notEqual.
      */
     public void setConnectorType_NotEqual(String connectorType) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param connectorType The value of connectorType as greaterThan.
      */
     public void setConnectorType_GreaterThan(String connectorType) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param connectorType The value of connectorType as lessThan.
      */
     public void setConnectorType_LessThan(String connectorType) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param connectorType The value of connectorType as greaterEqual.
      */
     public void setConnectorType_GreaterEqual(String connectorType) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param connectorType The value of connectorType as lessEqual.
      */
     public void setConnectorType_LessEqual(String connectorType) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param connectorType The value of connectorType as prefixSearch.
      */
     public void setConnectorType_PrefixSearch(String connectorType) {
         regConnectorType(CK_PS, fRES(connectorType));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param connectorType The value of connectorType as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setConnectorType_LikeSearch(String connectorType, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(connectorType), getCValueConnectorType(), "Connector_Type", "ConnectorType", "connectorType", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param connectorType The collection of connectorType as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param connectorType The value of connectorType as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setConnectorType_InScope(String connectorType, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(connectorType), getCValueConnectorType(), "Connector_Type", "ConnectorType", "connectorType", inScopeOption);
+    public void setConnectorType_LikeSearch(String connectorType, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(connectorType), getCValueConnectorType(), "Connector_Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param connectorType The value of connectorType as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setConnectorType_IsNull() { regConnectorType(CK_ISN, DUMMY_OBJECT); }
+    public void setConnectorType_NotLikeSearch(String connectorType, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(connectorType), getCValueConnectorType(), "Connector_Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setConnectorType_IsNotNull() { regConnectorType(CK_ISNN, DUMMY_OBJECT); }
+    public void setConnectorType_IsNull() { regConnectorType(CK_ISN, DOBJ); }
 
-    protected void regConnectorType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueConnectorType(), "Connector_Type", "ConnectorType", "connectorType");
-    }
-    protected void registerInlineConnectorType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueConnectorType(), "Connector_Type", "ConnectorType", "connectorType");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setConnectorType_IsNotNull() { regConnectorType(CK_ISNN, DOBJ); }
+
+    protected void regConnectorType(ConditionKey k, Object v) { regQ(k, v, getCValueConnectorType(), "Connector_Type"); }
     abstract protected ConditionValue getCValueConnectorType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param description The value of description as equal.
      */
     public void setDescription_Equal(String description) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as notEqual.
      */
     public void setDescription_NotEqual(String description) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as greaterThan.
      */
     public void setDescription_GreaterThan(String description) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as lessThan.
      */
     public void setDescription_LessThan(String description) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as greaterEqual.
      */
     public void setDescription_GreaterEqual(String description) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as lessEqual.
      */
     public void setDescription_LessEqual(String description) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as prefixSearch.
      */
     public void setDescription_PrefixSearch(String description) {
         regDescription(CK_PS, fRES(description));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param description The value of description as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setDescription_LikeSearch(String description, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(description), getCValueDescription(), "Description", "Description", "description", likeSearchOption);
     }
 
     /**
@@ -212,33 +213,41 @@ public abstract class AbstractBsTConnectortypesCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param description The collection of description as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param description The value of description as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setDescription_InScope(String description, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(description), getCValueDescription(), "Description", "Description", "description", inScopeOption);
+    public void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(description), getCValueDescription(), "Description", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param description The value of description as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setDescription_IsNull() { regDescription(CK_ISN, DUMMY_OBJECT); }
+    public void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(description), getCValueDescription(), "Description", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setDescription_IsNotNull() { regDescription(CK_ISNN, DUMMY_OBJECT); }
+    public void setDescription_IsNull() { regDescription(CK_ISN, DOBJ); }
 
-    protected void regDescription(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDescription(), "Description", "Description", "description");
-    }
-    protected void registerInlineDescription(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDescription(), "Description", "Description", "description");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setDescription_IsNotNull() { regDescription(CK_ISNN, DOBJ); }
+
+    protected void regDescription(ConditionKey k, Object v) { regQ(k, v, getCValueDescription(), "Description"); }
     abstract protected ConditionValue getCValueDescription();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TConnectortypesCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TConnectortypesCQ.class.getName(); }
+    String xCB() { return TConnectortypesCB.class.getName(); }
+    String xCQ() { return TConnectortypesCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

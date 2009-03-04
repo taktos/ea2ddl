@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_testplans(TABLE).
+ * The entity of t_testplans that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTTestplans implements Entity, java.io.Serializable {
+public abstract class BsTTestplans implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_testplans. */
-    public static final String TABLE = "t_testplans";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'PlanID'. {UQ : VARCHAR(50)} */
+    /** PlanID: {UQ : VARCHAR(50)} */
     protected String _planid;
 
-    /** The attribute of the column 'Category'. {VARCHAR(100)} */
+    /** Category: {VARCHAR(100)} */
     protected String _category;
 
-    /** The attribute of the column 'Name'. {VARCHAR(150)} */
+    /** Name: {VARCHAR(150)} */
     protected String _name;
 
-    /** The attribute of the column 'Author'. {VARCHAR(255)} */
+    /** Author: {VARCHAR(255)} */
     protected String _author;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'TestPlan'. {LONGCHAR(2147483647)} */
+    /** TestPlan: {LONGCHAR(2147483647)} */
     protected String _testplan;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTTestplans() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_testplans";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TTestplans";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String planid_COLUMN = "PlanID";
-
     /**
-     * Get the value of the column 'PlanID'. <br />
-     * {UQ : VARCHAR(50)}
+     * PlanID: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'PlanID'. (Nullable)
      */
     public String getPlanid() {
@@ -221,8 +205,7 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PlanID'. <br />
-     * {UQ : VARCHAR(50)}
+     * PlanID: {UQ : VARCHAR(50)} <br />
      * @param planid The value of the column 'PlanID'. (Nullable)
      */
     public void setPlanid(String planid) {
@@ -230,12 +213,8 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
         this._planid = planid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String category_COLUMN = "Category";
-
     /**
-     * Get the value of the column 'Category'. <br />
-     * {VARCHAR(100)}
+     * Category: {VARCHAR(100)} <br />
      * @return The value of the column 'Category'. (Nullable)
      */
     public String getCategory() {
@@ -243,8 +222,7 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Category'. <br />
-     * {VARCHAR(100)}
+     * Category: {VARCHAR(100)} <br />
      * @param category The value of the column 'Category'. (Nullable)
      */
     public void setCategory(String category) {
@@ -252,12 +230,8 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
         this._category = category;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(150)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(150)}
+     * Name: {VARCHAR(150)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -265,8 +239,7 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(150)}
+     * Name: {VARCHAR(150)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -274,12 +247,8 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String author_COLUMN = "Author";
-
     /**
-     * Get the value of the column 'Author'. <br />
-     * {VARCHAR(255)}
+     * Author: {VARCHAR(255)} <br />
      * @return The value of the column 'Author'. (Nullable)
      */
     public String getAuthor() {
@@ -287,8 +256,7 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Author'. <br />
-     * {VARCHAR(255)}
+     * Author: {VARCHAR(255)} <br />
      * @param author The value of the column 'Author'. (Nullable)
      */
     public void setAuthor(String author) {
@@ -296,12 +264,8 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
         this._author = author;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -309,8 +273,7 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -318,12 +281,8 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String testplan_COLUMN = "TestPlan";
-
     /**
-     * Get the value of the column 'TestPlan'. <br />
-     * {LONGCHAR(2147483647)}
+     * TestPlan: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'TestPlan'. (Nullable)
      */
     public String getTestplan() {
@@ -331,13 +290,11 @@ public abstract class BsTTestplans implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TestPlan'. <br />
-     * {LONGCHAR(2147483647)}
+     * TestPlan: {LONGCHAR(2147483647)} <br />
      * @param testplan The value of the column 'TestPlan'. (Nullable)
      */
     public void setTestplan(String testplan) {
         _modifiedProperties.addPropertyName("testplan");
         this._testplan = testplan;
     }
-
 }

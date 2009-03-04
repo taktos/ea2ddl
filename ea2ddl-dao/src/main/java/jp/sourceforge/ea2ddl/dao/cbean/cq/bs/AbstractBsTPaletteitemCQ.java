@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_paletteitem.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTPaletteitemCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param paletteid The value of paletteid as equal.
      */
     public void setPaletteid_Equal(java.lang.Integer paletteid) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param paletteid The value of paletteid as notEqual.
      */
     public void setPaletteid_NotEqual(java.lang.Integer paletteid) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param paletteid The value of paletteid as greaterThan.
      */
     public void setPaletteid_GreaterThan(java.lang.Integer paletteid) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param paletteid The value of paletteid as lessThan.
      */
     public void setPaletteid_LessThan(java.lang.Integer paletteid) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param paletteid The value of paletteid as greaterEqual.
      */
     public void setPaletteid_GreaterEqual(java.lang.Integer paletteid) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param paletteid The value of paletteid as lessEqual.
      */
     public void setPaletteid_LessEqual(java.lang.Integer paletteid) {
@@ -95,25 +110,20 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPaletteid_IsNull() { regPaletteid(CK_ISN, DUMMY_OBJECT); }
+    public void setPaletteid_IsNull() { regPaletteid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setPaletteid_IsNotNull() { regPaletteid(CK_ISNN, DUMMY_OBJECT); }
+    public void setPaletteid_IsNotNull() { regPaletteid(CK_ISNN, DOBJ); }
 
-    protected void regPaletteid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePaletteid(), "PaletteID", "Paletteid", "paletteid");
-    }
-    protected void registerInlinePaletteid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePaletteid(), "PaletteID", "Paletteid", "paletteid");
-    }
+    protected void regPaletteid(ConditionKey k, Object v) { regQ(k, v, getCValuePaletteid(), "PaletteID"); }
     abstract protected ConditionValue getCValuePaletteid();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param itemid The value of itemid as equal.
      */
     public void setItemid_Equal(java.lang.Integer itemid) {
@@ -121,7 +131,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param itemid The value of itemid as notEqual.
      */
     public void setItemid_NotEqual(java.lang.Integer itemid) {
@@ -129,7 +139,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param itemid The value of itemid as greaterThan.
      */
     public void setItemid_GreaterThan(java.lang.Integer itemid) {
@@ -137,7 +147,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param itemid The value of itemid as lessThan.
      */
     public void setItemid_LessThan(java.lang.Integer itemid) {
@@ -145,7 +155,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param itemid The value of itemid as greaterEqual.
      */
     public void setItemid_GreaterEqual(java.lang.Integer itemid) {
@@ -153,7 +163,7 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param itemid The value of itemid as lessEqual.
      */
     public void setItemid_LessEqual(java.lang.Integer itemid) {
@@ -169,24 +179,23 @@ public abstract class AbstractBsTPaletteitemCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setItemid_IsNull() { regItemid(CK_ISN, DUMMY_OBJECT); }
+    public void setItemid_IsNull() { regItemid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setItemid_IsNotNull() { regItemid(CK_ISNN, DUMMY_OBJECT); }
+    public void setItemid_IsNotNull() { regItemid(CK_ISNN, DOBJ); }
 
-    protected void regItemid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueItemid(), "ItemID", "Itemid", "itemid");
-    }
-    protected void registerInlineItemid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueItemid(), "ItemID", "Itemid", "itemid");
-    }
+    protected void regItemid(ConditionKey k, Object v) { regQ(k, v, getCValueItemid(), "ItemID"); }
     abstract protected ConditionValue getCValueItemid();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TPaletteitemCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TPaletteitemCQ.class.getName(); }
+    String xCB() { return TPaletteitemCB.class.getName(); }
+    String xCQ() { return TPaletteitemCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

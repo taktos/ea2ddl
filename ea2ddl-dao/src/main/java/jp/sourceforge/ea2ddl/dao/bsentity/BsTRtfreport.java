@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_rtfreport(TABLE).
+ * The entity of t_rtfreport that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTRtfreport implements Entity, java.io.Serializable {
+public abstract class BsTRtfreport implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,89 +47,85 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_rtfreport. */
-    public static final String TABLE = "t_rtfreport";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'TemplateID'. {UQ : VARCHAR(200)} */
+    /** TemplateID: {UQ : VARCHAR(200)} */
     protected String _templateid;
 
-    /** The attribute of the column 'RootPackage'. {INTEGER} */
+    /** RootPackage: {INTEGER} */
     protected java.lang.Integer _rootpackage;
 
-    /** The attribute of the column 'Filename'. {VARCHAR(255)} */
+    /** Filename: {VARCHAR(255)} */
     protected String _filename;
 
-    /** The attribute of the column 'Details'. {BIT : NotNull} */
+    /** Details: {NotNull : BIT} */
     protected Boolean _details;
 
-    /** The attribute of the column 'ProcessChildren'. {BIT : NotNull} */
+    /** ProcessChildren: {NotNull : BIT} */
     protected Boolean _processchildren;
 
-    /** The attribute of the column 'ShowDiagrams'. {BIT : NotNull} */
+    /** ShowDiagrams: {NotNull : BIT} */
     protected Boolean _showdiagrams;
 
-    /** The attribute of the column 'Heading'. {VARCHAR(255)} */
+    /** Heading: {VARCHAR(255)} */
     protected String _heading;
 
-    /** The attribute of the column 'Requirements'. {BIT : NotNull} */
+    /** Requirements: {NotNull : BIT} */
     protected Boolean _requirements;
 
-    /** The attribute of the column 'Associations'. {BIT : NotNull} */
+    /** Associations: {NotNull : BIT} */
     protected Boolean _associations;
 
-    /** The attribute of the column 'Scenarios'. {BIT : NotNull} */
+    /** Scenarios: {NotNull : BIT} */
     protected Boolean _scenarios;
 
-    /** The attribute of the column 'ChildDiagrams'. {BIT : NotNull} */
+    /** ChildDiagrams: {NotNull : BIT} */
     protected Boolean _childdiagrams;
 
-    /** The attribute of the column 'Attributes'. {BIT : NotNull} */
+    /** Attributes: {NotNull : BIT} */
     protected Boolean _attributes;
 
-    /** The attribute of the column 'Methods'. {BIT : NotNull} */
+    /** Methods: {NotNull : BIT} */
     protected Boolean _methods;
 
-    /** The attribute of the column 'ImageType'. {INTEGER} */
+    /** ImageType: {INTEGER} */
     protected java.lang.Integer _imagetype;
 
-    /** The attribute of the column 'Paging'. {BIT : NotNull} */
+    /** Paging: {NotNull : BIT} */
     protected Boolean _paging;
 
-    /** The attribute of the column 'Intro'. {LONGCHAR(2147483647)} */
+    /** Intro: {LONGCHAR(2147483647)} */
     protected String _intro;
 
-    /** The attribute of the column 'Resources'. {BIT : NotNull} */
+    /** Resources: {NotNull : BIT} */
     protected Boolean _resources;
 
-    /** The attribute of the column 'Constraints'. {BIT : NotNull} */
+    /** Constraints: {NotNull : BIT} */
     protected Boolean _constraints;
 
-    /** The attribute of the column 'Tagged'. {BIT : NotNull} */
+    /** Tagged: {NotNull : BIT} */
     protected Boolean _tagged;
 
-    /** The attribute of the column 'ShowTag'. {BIT : NotNull} */
+    /** ShowTag: {NotNull : BIT} */
     protected Boolean _showtag;
 
-    /** The attribute of the column 'ShowAlias'. {BIT : NotNull} */
+    /** ShowAlias: {NotNull : BIT} */
     protected Boolean _showalias;
 
-    /** The attribute of the column 'PDATA1'. {VARCHAR(255)} */
+    /** PDATA1: {VARCHAR(255)} */
     protected String _pdata1;
 
-    /** The attribute of the column 'PDATA2'. {VARCHAR(255)} */
+    /** PDATA2: {VARCHAR(255)} */
     protected String _pdata2;
 
-    /** The attribute of the column 'PDATA3'. {VARCHAR(255)} */
+    /** PDATA3: {VARCHAR(255)} */
     protected String _pdata3;
 
-    /** The attribute of the column 'PDATA4'. {LONGCHAR(2147483647)} */
+    /** PDATA4: {LONGCHAR(2147483647)} */
     protected String _pdata4;
 
     // -----------------------------------------------------
@@ -139,19 +135,13 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTRtfreport() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_rtfreport";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TRtfreport";
     }
 
@@ -177,7 +167,6 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -321,13 +310,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(200)} */
-    public static final String templateid_COLUMN = "TemplateID";
-
     /**
-     * Get the value of the column 'TemplateID'. <br />
-     * {UQ : VARCHAR(200)}
+     * TemplateID: {UQ : VARCHAR(200)} <br />
      * @return The value of the column 'TemplateID'. (Nullable)
      */
     public String getTemplateid() {
@@ -335,8 +319,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TemplateID'. <br />
-     * {UQ : VARCHAR(200)}
+     * TemplateID: {UQ : VARCHAR(200)} <br />
      * @param templateid The value of the column 'TemplateID'. (Nullable)
      */
     public void setTemplateid(String templateid) {
@@ -344,12 +327,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._templateid = templateid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String rootpackage_COLUMN = "RootPackage";
-
     /**
-     * Get the value of the column 'RootPackage'. <br />
-     * {INTEGER}
+     * RootPackage: {INTEGER} <br />
      * @return The value of the column 'RootPackage'. (Nullable)
      */
     public java.lang.Integer getRootpackage() {
@@ -357,8 +336,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RootPackage'. <br />
-     * {INTEGER}
+     * RootPackage: {INTEGER} <br />
      * @param rootpackage The value of the column 'RootPackage'. (Nullable)
      */
     public void setRootpackage(java.lang.Integer rootpackage) {
@@ -366,12 +344,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._rootpackage = rootpackage;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String filename_COLUMN = "Filename";
-
     /**
-     * Get the value of the column 'Filename'. <br />
-     * {VARCHAR(255)}
+     * Filename: {VARCHAR(255)} <br />
      * @return The value of the column 'Filename'. (Nullable)
      */
     public String getFilename() {
@@ -379,8 +353,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Filename'. <br />
-     * {VARCHAR(255)}
+     * Filename: {VARCHAR(255)} <br />
      * @param filename The value of the column 'Filename'. (Nullable)
      */
     public void setFilename(String filename) {
@@ -388,12 +361,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._filename = filename;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String details_COLUMN = "Details";
-
     /**
-     * Get the value of the column 'Details'. <br />
-     * {BIT : NotNull}
+     * Details: {NotNull : BIT} <br />
      * @return The value of the column 'Details'. (Nullable)
      */
     public Boolean getDetails() {
@@ -401,8 +370,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Details'. <br />
-     * {BIT : NotNull}
+     * Details: {NotNull : BIT} <br />
      * @param details The value of the column 'Details'. (Nullable)
      */
     public void setDetails(Boolean details) {
@@ -410,12 +378,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._details = details;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String processchildren_COLUMN = "ProcessChildren";
-
     /**
-     * Get the value of the column 'ProcessChildren'. <br />
-     * {BIT : NotNull}
+     * ProcessChildren: {NotNull : BIT} <br />
      * @return The value of the column 'ProcessChildren'. (Nullable)
      */
     public Boolean getProcesschildren() {
@@ -423,8 +387,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ProcessChildren'. <br />
-     * {BIT : NotNull}
+     * ProcessChildren: {NotNull : BIT} <br />
      * @param processchildren The value of the column 'ProcessChildren'. (Nullable)
      */
     public void setProcesschildren(Boolean processchildren) {
@@ -432,12 +395,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._processchildren = processchildren;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String showdiagrams_COLUMN = "ShowDiagrams";
-
     /**
-     * Get the value of the column 'ShowDiagrams'. <br />
-     * {BIT : NotNull}
+     * ShowDiagrams: {NotNull : BIT} <br />
      * @return The value of the column 'ShowDiagrams'. (Nullable)
      */
     public Boolean getShowdiagrams() {
@@ -445,8 +404,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ShowDiagrams'. <br />
-     * {BIT : NotNull}
+     * ShowDiagrams: {NotNull : BIT} <br />
      * @param showdiagrams The value of the column 'ShowDiagrams'. (Nullable)
      */
     public void setShowdiagrams(Boolean showdiagrams) {
@@ -454,12 +412,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._showdiagrams = showdiagrams;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String heading_COLUMN = "Heading";
-
     /**
-     * Get the value of the column 'Heading'. <br />
-     * {VARCHAR(255)}
+     * Heading: {VARCHAR(255)} <br />
      * @return The value of the column 'Heading'. (Nullable)
      */
     public String getHeading() {
@@ -467,8 +421,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Heading'. <br />
-     * {VARCHAR(255)}
+     * Heading: {VARCHAR(255)} <br />
      * @param heading The value of the column 'Heading'. (Nullable)
      */
     public void setHeading(String heading) {
@@ -476,12 +429,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._heading = heading;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String requirements_COLUMN = "Requirements";
-
     /**
-     * Get the value of the column 'Requirements'. <br />
-     * {BIT : NotNull}
+     * Requirements: {NotNull : BIT} <br />
      * @return The value of the column 'Requirements'. (Nullable)
      */
     public Boolean getRequirements() {
@@ -489,8 +438,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Requirements'. <br />
-     * {BIT : NotNull}
+     * Requirements: {NotNull : BIT} <br />
      * @param requirements The value of the column 'Requirements'. (Nullable)
      */
     public void setRequirements(Boolean requirements) {
@@ -498,12 +446,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._requirements = requirements;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String associations_COLUMN = "Associations";
-
     /**
-     * Get the value of the column 'Associations'. <br />
-     * {BIT : NotNull}
+     * Associations: {NotNull : BIT} <br />
      * @return The value of the column 'Associations'. (Nullable)
      */
     public Boolean getAssociations() {
@@ -511,8 +455,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Associations'. <br />
-     * {BIT : NotNull}
+     * Associations: {NotNull : BIT} <br />
      * @param associations The value of the column 'Associations'. (Nullable)
      */
     public void setAssociations(Boolean associations) {
@@ -520,12 +463,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._associations = associations;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String scenarios_COLUMN = "Scenarios";
-
     /**
-     * Get the value of the column 'Scenarios'. <br />
-     * {BIT : NotNull}
+     * Scenarios: {NotNull : BIT} <br />
      * @return The value of the column 'Scenarios'. (Nullable)
      */
     public Boolean getScenarios() {
@@ -533,8 +472,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Scenarios'. <br />
-     * {BIT : NotNull}
+     * Scenarios: {NotNull : BIT} <br />
      * @param scenarios The value of the column 'Scenarios'. (Nullable)
      */
     public void setScenarios(Boolean scenarios) {
@@ -542,12 +480,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._scenarios = scenarios;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String childdiagrams_COLUMN = "ChildDiagrams";
-
     /**
-     * Get the value of the column 'ChildDiagrams'. <br />
-     * {BIT : NotNull}
+     * ChildDiagrams: {NotNull : BIT} <br />
      * @return The value of the column 'ChildDiagrams'. (Nullable)
      */
     public Boolean getChilddiagrams() {
@@ -555,8 +489,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ChildDiagrams'. <br />
-     * {BIT : NotNull}
+     * ChildDiagrams: {NotNull : BIT} <br />
      * @param childdiagrams The value of the column 'ChildDiagrams'. (Nullable)
      */
     public void setChilddiagrams(Boolean childdiagrams) {
@@ -564,12 +497,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._childdiagrams = childdiagrams;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String attributes_COLUMN = "Attributes";
-
     /**
-     * Get the value of the column 'Attributes'. <br />
-     * {BIT : NotNull}
+     * Attributes: {NotNull : BIT} <br />
      * @return The value of the column 'Attributes'. (Nullable)
      */
     public Boolean getAttributes() {
@@ -577,8 +506,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Attributes'. <br />
-     * {BIT : NotNull}
+     * Attributes: {NotNull : BIT} <br />
      * @param attributes The value of the column 'Attributes'. (Nullable)
      */
     public void setAttributes(Boolean attributes) {
@@ -586,12 +514,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._attributes = attributes;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String methods_COLUMN = "Methods";
-
     /**
-     * Get the value of the column 'Methods'. <br />
-     * {BIT : NotNull}
+     * Methods: {NotNull : BIT} <br />
      * @return The value of the column 'Methods'. (Nullable)
      */
     public Boolean getMethods() {
@@ -599,8 +523,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Methods'. <br />
-     * {BIT : NotNull}
+     * Methods: {NotNull : BIT} <br />
      * @param methods The value of the column 'Methods'. (Nullable)
      */
     public void setMethods(Boolean methods) {
@@ -608,12 +531,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._methods = methods;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String imagetype_COLUMN = "ImageType";
-
     /**
-     * Get the value of the column 'ImageType'. <br />
-     * {INTEGER}
+     * ImageType: {INTEGER} <br />
      * @return The value of the column 'ImageType'. (Nullable)
      */
     public java.lang.Integer getImagetype() {
@@ -621,8 +540,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ImageType'. <br />
-     * {INTEGER}
+     * ImageType: {INTEGER} <br />
      * @param imagetype The value of the column 'ImageType'. (Nullable)
      */
     public void setImagetype(java.lang.Integer imagetype) {
@@ -630,12 +548,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._imagetype = imagetype;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String paging_COLUMN = "Paging";
-
     /**
-     * Get the value of the column 'Paging'. <br />
-     * {BIT : NotNull}
+     * Paging: {NotNull : BIT} <br />
      * @return The value of the column 'Paging'. (Nullable)
      */
     public Boolean getPaging() {
@@ -643,8 +557,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Paging'. <br />
-     * {BIT : NotNull}
+     * Paging: {NotNull : BIT} <br />
      * @param paging The value of the column 'Paging'. (Nullable)
      */
     public void setPaging(Boolean paging) {
@@ -652,12 +565,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._paging = paging;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String intro_COLUMN = "Intro";
-
     /**
-     * Get the value of the column 'Intro'. <br />
-     * {LONGCHAR(2147483647)}
+     * Intro: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Intro'. (Nullable)
      */
     public String getIntro() {
@@ -665,8 +574,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Intro'. <br />
-     * {LONGCHAR(2147483647)}
+     * Intro: {LONGCHAR(2147483647)} <br />
      * @param intro The value of the column 'Intro'. (Nullable)
      */
     public void setIntro(String intro) {
@@ -674,12 +582,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._intro = intro;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String resources_COLUMN = "Resources";
-
     /**
-     * Get the value of the column 'Resources'. <br />
-     * {BIT : NotNull}
+     * Resources: {NotNull : BIT} <br />
      * @return The value of the column 'Resources'. (Nullable)
      */
     public Boolean getResources() {
@@ -687,8 +591,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Resources'. <br />
-     * {BIT : NotNull}
+     * Resources: {NotNull : BIT} <br />
      * @param resources The value of the column 'Resources'. (Nullable)
      */
     public void setResources(Boolean resources) {
@@ -696,12 +599,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._resources = resources;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String constraints_COLUMN = "Constraints";
-
     /**
-     * Get the value of the column 'Constraints'. <br />
-     * {BIT : NotNull}
+     * Constraints: {NotNull : BIT} <br />
      * @return The value of the column 'Constraints'. (Nullable)
      */
     public Boolean getConstraints() {
@@ -709,8 +608,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Constraints'. <br />
-     * {BIT : NotNull}
+     * Constraints: {NotNull : BIT} <br />
      * @param constraints The value of the column 'Constraints'. (Nullable)
      */
     public void setConstraints(Boolean constraints) {
@@ -718,12 +616,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._constraints = constraints;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String tagged_COLUMN = "Tagged";
-
     /**
-     * Get the value of the column 'Tagged'. <br />
-     * {BIT : NotNull}
+     * Tagged: {NotNull : BIT} <br />
      * @return The value of the column 'Tagged'. (Nullable)
      */
     public Boolean getTagged() {
@@ -731,8 +625,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Tagged'. <br />
-     * {BIT : NotNull}
+     * Tagged: {NotNull : BIT} <br />
      * @param tagged The value of the column 'Tagged'. (Nullable)
      */
     public void setTagged(Boolean tagged) {
@@ -740,12 +633,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._tagged = tagged;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String showtag_COLUMN = "ShowTag";
-
     /**
-     * Get the value of the column 'ShowTag'. <br />
-     * {BIT : NotNull}
+     * ShowTag: {NotNull : BIT} <br />
      * @return The value of the column 'ShowTag'. (Nullable)
      */
     public Boolean getShowtag() {
@@ -753,8 +642,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ShowTag'. <br />
-     * {BIT : NotNull}
+     * ShowTag: {NotNull : BIT} <br />
      * @param showtag The value of the column 'ShowTag'. (Nullable)
      */
     public void setShowtag(Boolean showtag) {
@@ -762,12 +650,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._showtag = showtag;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String showalias_COLUMN = "ShowAlias";
-
     /**
-     * Get the value of the column 'ShowAlias'. <br />
-     * {BIT : NotNull}
+     * ShowAlias: {NotNull : BIT} <br />
      * @return The value of the column 'ShowAlias'. (Nullable)
      */
     public Boolean getShowalias() {
@@ -775,8 +659,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ShowAlias'. <br />
-     * {BIT : NotNull}
+     * ShowAlias: {NotNull : BIT} <br />
      * @param showalias The value of the column 'ShowAlias'. (Nullable)
      */
     public void setShowalias(Boolean showalias) {
@@ -784,12 +667,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._showalias = showalias;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata1_COLUMN = "PDATA1";
-
     /**
-     * Get the value of the column 'PDATA1'. <br />
-     * {VARCHAR(255)}
+     * PDATA1: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA1'. (Nullable)
      */
     public String getPdata1() {
@@ -797,8 +676,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA1'. <br />
-     * {VARCHAR(255)}
+     * PDATA1: {VARCHAR(255)} <br />
      * @param pdata1 The value of the column 'PDATA1'. (Nullable)
      */
     public void setPdata1(String pdata1) {
@@ -806,12 +684,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._pdata1 = pdata1;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata2_COLUMN = "PDATA2";
-
     /**
-     * Get the value of the column 'PDATA2'. <br />
-     * {VARCHAR(255)}
+     * PDATA2: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA2'. (Nullable)
      */
     public String getPdata2() {
@@ -819,8 +693,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA2'. <br />
-     * {VARCHAR(255)}
+     * PDATA2: {VARCHAR(255)} <br />
      * @param pdata2 The value of the column 'PDATA2'. (Nullable)
      */
     public void setPdata2(String pdata2) {
@@ -828,12 +701,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._pdata2 = pdata2;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata3_COLUMN = "PDATA3";
-
     /**
-     * Get the value of the column 'PDATA3'. <br />
-     * {VARCHAR(255)}
+     * PDATA3: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA3'. (Nullable)
      */
     public String getPdata3() {
@@ -841,8 +710,7 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA3'. <br />
-     * {VARCHAR(255)}
+     * PDATA3: {VARCHAR(255)} <br />
      * @param pdata3 The value of the column 'PDATA3'. (Nullable)
      */
     public void setPdata3(String pdata3) {
@@ -850,12 +718,8 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
         this._pdata3 = pdata3;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String pdata4_COLUMN = "PDATA4";
-
     /**
-     * Get the value of the column 'PDATA4'. <br />
-     * {LONGCHAR(2147483647)}
+     * PDATA4: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'PDATA4'. (Nullable)
      */
     public String getPdata4() {
@@ -863,13 +727,11 @@ public abstract class BsTRtfreport implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA4'. <br />
-     * {LONGCHAR(2147483647)}
+     * PDATA4: {LONGCHAR(2147483647)} <br />
      * @param pdata4 The value of the column 'PDATA4'. (Nullable)
      */
     public void setPdata4(String pdata4) {
         _modifiedProperties.addPropertyName("pdata4");
         this._pdata4 = pdata4;
     }
-
 }

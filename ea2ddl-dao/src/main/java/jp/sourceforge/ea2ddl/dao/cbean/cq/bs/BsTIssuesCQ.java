@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_issues.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
      * @return On-clause query. (NotNull)
      */
     public TIssuesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TIssuesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _issue;
     }
     protected ConditionValue getCValueIssue() { return getIssue(); }
-    
+
     public BsTIssuesCQ addOrderBy_Issue_Asc() { regOBA("Issue"); return this; }
     public BsTIssuesCQ addOrderBy_Issue_Desc() { regOBD("Issue"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _issuedate;
     }
     protected ConditionValue getCValueIssuedate() { return getIssuedate(); }
-    
+
     public BsTIssuesCQ addOrderBy_Issuedate_Asc() { regOBA("IssueDate"); return this; }
     public BsTIssuesCQ addOrderBy_Issuedate_Desc() { regOBD("IssueDate"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _owner;
     }
     protected ConditionValue getCValueOwner() { return getOwner(); }
-    
+
     public BsTIssuesCQ addOrderBy_Owner_Asc() { regOBA("Owner"); return this; }
     public BsTIssuesCQ addOrderBy_Owner_Desc() { regOBD("Owner"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _status;
     }
     protected ConditionValue getCValueStatus() { return getStatus(); }
-    
+
     public BsTIssuesCQ addOrderBy_Status_Asc() { regOBA("Status"); return this; }
     public BsTIssuesCQ addOrderBy_Status_Desc() { regOBD("Status"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTIssuesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTIssuesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _resolver;
     }
     protected ConditionValue getCValueResolver() { return getResolver(); }
-    
+
     public BsTIssuesCQ addOrderBy_Resolver_Asc() { regOBA("Resolver"); return this; }
     public BsTIssuesCQ addOrderBy_Resolver_Desc() { regOBD("Resolver"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _dateresolved;
     }
     protected ConditionValue getCValueDateresolved() { return getDateresolved(); }
-    
+
     public BsTIssuesCQ addOrderBy_Dateresolved_Asc() { regOBA("DateResolved"); return this; }
     public BsTIssuesCQ addOrderBy_Dateresolved_Desc() { regOBD("DateResolved"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _resolution;
     }
     protected ConditionValue getCValueResolution() { return getResolution(); }
-    
+
     public BsTIssuesCQ addOrderBy_Resolution_Asc() { regOBA("Resolution"); return this; }
     public BsTIssuesCQ addOrderBy_Resolution_Desc() { regOBD("Resolution"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _issueid;
     }
     protected ConditionValue getCValueIssueid() { return getIssueid(); }
-          
+
     public BsTIssuesCQ addOrderBy_Issueid_Asc() { regOBA("IssueID"); return this; }
     public BsTIssuesCQ addOrderBy_Issueid_Desc() { regOBD("IssueID"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _category;
     }
     protected ConditionValue getCValueCategory() { return getCategory(); }
-    
+
     public BsTIssuesCQ addOrderBy_Category_Asc() { regOBA("Category"); return this; }
     public BsTIssuesCQ addOrderBy_Category_Desc() { regOBD("Category"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _priority;
     }
     protected ConditionValue getCValuePriority() { return getPriority(); }
-    
+
     public BsTIssuesCQ addOrderBy_Priority_Asc() { regOBA("Priority"); return this; }
     public BsTIssuesCQ addOrderBy_Priority_Desc() { regOBD("Priority"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _severity;
     }
     protected ConditionValue getCValueSeverity() { return getSeverity(); }
-    
+
     public BsTIssuesCQ addOrderBy_Severity_Asc() { regOBA("Severity"); return this; }
     public BsTIssuesCQ addOrderBy_Severity_Desc() { regOBD("Severity"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
         return _issuetype;
     }
     protected ConditionValue getCValueIssuetype() { return getIssuetype(); }
-    
+
     public BsTIssuesCQ addOrderBy_Issuetype_Asc() { regOBA("IssueType"); return this; }
     public BsTIssuesCQ addOrderBy_Issuetype_Desc() { regOBD("IssueType"); return this; }
 
@@ -201,8 +201,11 @@ public class BsTIssuesCQ extends AbstractBsTIssuesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TIssuesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TIssuesCB.class.getName(); }
+    String xCQ() { return TIssuesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

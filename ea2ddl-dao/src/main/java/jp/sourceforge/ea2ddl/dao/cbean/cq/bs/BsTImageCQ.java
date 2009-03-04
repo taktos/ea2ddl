@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_image.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTImageCQ extends AbstractBsTImageCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTImageCQ extends AbstractBsTImageCQ {
      * @return On-clause query. (NotNull)
      */
     public TImageCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TImageCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTImageCQ extends AbstractBsTImageCQ {
         return _imageid;
     }
     protected ConditionValue getCValueImageid() { return getImageid(); }
-          
+
     public BsTImageCQ addOrderBy_Imageid_Asc() { regOBA("ImageID"); return this; }
     public BsTImageCQ addOrderBy_Imageid_Desc() { regOBD("ImageID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTImageCQ extends AbstractBsTImageCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTImageCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTImageCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTImageCQ extends AbstractBsTImageCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTImageCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTImageCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTImageCQ extends AbstractBsTImageCQ {
         return _image;
     }
     protected ConditionValue getCValueImage() { return getImage(); }
-    
+
     public BsTImageCQ addOrderBy_Image_Asc() { regOBA("Image"); return this; }
     public BsTImageCQ addOrderBy_Image_Desc() { regOBD("Image"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTImageCQ extends AbstractBsTImageCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TImageCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TImageCB.class.getName(); }
+    String xCQ() { return TImageCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

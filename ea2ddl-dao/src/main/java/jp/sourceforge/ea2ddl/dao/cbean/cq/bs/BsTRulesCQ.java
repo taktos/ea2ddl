@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_rules.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTRulesCQ extends AbstractBsTRulesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
      * @return On-clause query. (NotNull)
      */
     public TRulesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TRulesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _ruleid;
     }
     protected ConditionValue getCValueRuleid() { return getRuleid(); }
-    
+
     public BsTRulesCQ addOrderBy_Ruleid_Asc() { regOBA("RuleID"); return this; }
     public BsTRulesCQ addOrderBy_Ruleid_Desc() { regOBD("RuleID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _rulename;
     }
     protected ConditionValue getCValueRulename() { return getRulename(); }
-    
+
     public BsTRulesCQ addOrderBy_Rulename_Asc() { regOBA("RuleName"); return this; }
     public BsTRulesCQ addOrderBy_Rulename_Desc() { regOBD("RuleName"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _ruletype;
     }
     protected ConditionValue getCValueRuletype() { return getRuletype(); }
-    
+
     public BsTRulesCQ addOrderBy_Ruletype_Asc() { regOBA("RuleType"); return this; }
     public BsTRulesCQ addOrderBy_Ruletype_Desc() { regOBD("RuleType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _ruleactive;
     }
     protected ConditionValue getCValueRuleactive() { return getRuleactive(); }
-          
+
     public BsTRulesCQ addOrderBy_Ruleactive_Asc() { regOBA("RuleActive"); return this; }
     public BsTRulesCQ addOrderBy_Ruleactive_Desc() { regOBD("RuleActive"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _errormsg;
     }
     protected ConditionValue getCValueErrormsg() { return getErrormsg(); }
-    
+
     public BsTRulesCQ addOrderBy_Errormsg_Asc() { regOBA("ErrorMsg"); return this; }
     public BsTRulesCQ addOrderBy_Errormsg_Desc() { regOBD("ErrorMsg"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _flags;
     }
     protected ConditionValue getCValueFlags() { return getFlags(); }
-    
+
     public BsTRulesCQ addOrderBy_Flags_Asc() { regOBA("Flags"); return this; }
     public BsTRulesCQ addOrderBy_Flags_Desc() { regOBD("Flags"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _ruleocl;
     }
     protected ConditionValue getCValueRuleocl() { return getRuleocl(); }
-    
+
     public BsTRulesCQ addOrderBy_Ruleocl_Asc() { regOBA("RuleOCL"); return this; }
     public BsTRulesCQ addOrderBy_Ruleocl_Desc() { regOBD("RuleOCL"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTRulesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTRulesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
         return _rulexml;
     }
     protected ConditionValue getCValueRulexml() { return getRulexml(); }
-    
+
     public BsTRulesCQ addOrderBy_Rulexml_Asc() { regOBA("RuleXML"); return this; }
     public BsTRulesCQ addOrderBy_Rulexml_Desc() { regOBD("RuleXML"); return this; }
 
@@ -161,8 +161,11 @@ public class BsTRulesCQ extends AbstractBsTRulesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TRulesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TRulesCB.class.getName(); }
+    String xCQ() { return TRulesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

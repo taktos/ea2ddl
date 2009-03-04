@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_secusergroup.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTSecusergroupCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(40)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(40)}
      * @param userid The value of userid as equal.
      */
     public void setUserid_Equal(String userid) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as notEqual.
      */
     public void setUserid_NotEqual(String userid) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as greaterThan.
      */
     public void setUserid_GreaterThan(String userid) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as lessThan.
      */
     public void setUserid_LessThan(String userid) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as greaterEqual.
      */
     public void setUserid_GreaterEqual(String userid) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as lessEqual.
      */
     public void setUserid_LessEqual(String userid) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param userid The value of userid as prefixSearch.
      */
     public void setUserid_PrefixSearch(String userid) {
         regUserid(CK_PS, fRES(userid));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param userid The value of userid as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setUserid_LikeSearch(String userid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(userid), getCValueUserid(), "UserID", "Userid", "userid", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param userid The collection of userid as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param userid The value of userid as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setUserid_InScope(String userid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(userid), getCValueUserid(), "UserID", "Userid", "userid", inScopeOption);
+    public void setUserid_LikeSearch(String userid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(userid), getCValueUserid(), "UserID", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param userid The value of userid as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setUserid_IsNull() { regUserid(CK_ISN, DUMMY_OBJECT); }
+    public void setUserid_NotLikeSearch(String userid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(userid), getCValueUserid(), "UserID", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setUserid_IsNotNull() { regUserid(CK_ISNN, DUMMY_OBJECT); }
+    public void setUserid_IsNull() { regUserid(CK_ISN, DOBJ); }
 
-    protected void regUserid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueUserid(), "UserID", "Userid", "userid");
-    }
-    protected void registerInlineUserid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueUserid(), "UserID", "Userid", "userid");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setUserid_IsNotNull() { regUserid(CK_ISNN, DOBJ); }
+
+    protected void regUserid(ConditionKey k, Object v) { regQ(k, v, getCValueUserid(), "UserID"); }
     abstract protected ConditionValue getCValueUserid();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(40)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(40)}
      * @param groupid The value of groupid as equal.
      */
     public void setGroupid_Equal(String groupid) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param groupid The value of groupid as notEqual.
      */
     public void setGroupid_NotEqual(String groupid) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param groupid The value of groupid as greaterThan.
      */
     public void setGroupid_GreaterThan(String groupid) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param groupid The value of groupid as lessThan.
      */
     public void setGroupid_LessThan(String groupid) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param groupid The value of groupid as greaterEqual.
      */
     public void setGroupid_GreaterEqual(String groupid) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param groupid The value of groupid as lessEqual.
      */
     public void setGroupid_LessEqual(String groupid) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param groupid The value of groupid as prefixSearch.
      */
     public void setGroupid_PrefixSearch(String groupid) {
         regGroupid(CK_PS, fRES(groupid));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param groupid The value of groupid as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setGroupid_LikeSearch(String groupid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(groupid), getCValueGroupid(), "GroupID", "Groupid", "groupid", likeSearchOption);
     }
 
     /**
@@ -212,33 +213,41 @@ public abstract class AbstractBsTSecusergroupCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param groupid The collection of groupid as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param groupid The value of groupid as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setGroupid_InScope(String groupid, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(groupid), getCValueGroupid(), "GroupID", "Groupid", "groupid", inScopeOption);
+    public void setGroupid_LikeSearch(String groupid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(groupid), getCValueGroupid(), "GroupID", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param groupid The value of groupid as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setGroupid_IsNull() { regGroupid(CK_ISN, DUMMY_OBJECT); }
+    public void setGroupid_NotLikeSearch(String groupid, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(groupid), getCValueGroupid(), "GroupID", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setGroupid_IsNotNull() { regGroupid(CK_ISNN, DUMMY_OBJECT); }
+    public void setGroupid_IsNull() { regGroupid(CK_ISN, DOBJ); }
 
-    protected void regGroupid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueGroupid(), "GroupID", "Groupid", "groupid");
-    }
-    protected void registerInlineGroupid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueGroupid(), "GroupID", "Groupid", "groupid");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setGroupid_IsNotNull() { regGroupid(CK_ISNN, DOBJ); }
+
+    protected void regGroupid(ConditionKey k, Object v) { regQ(k, v, getCValueGroupid(), "GroupID"); }
     abstract protected ConditionValue getCValueGroupid();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TSecusergroupCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TSecusergroupCQ.class.getName(); }
+    String xCB() { return TSecusergroupCB.class.getName(); }
+    String xCQ() { return TSecusergroupCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

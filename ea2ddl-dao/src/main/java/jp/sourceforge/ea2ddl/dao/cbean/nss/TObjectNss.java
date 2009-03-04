@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TObjectCQ;
 
 /**
- * The nest-select-setupper of t_object.
+ * The nest select set-upper of t_object.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TObjectNss {
 
     protected TObjectCQ _query;

@@ -1,13 +1,12 @@
 package jp.sourceforge.ea2ddl.dao.cbean.nss;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionQuery;
+import org.seasar.dbflute.cbean.ConditionQuery;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TOperationparamsCQ;
 
 /**
- * The nest-select-setupper of t_operationparams.
+ * The nest select set-upper of t_operationparams.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TOperationparamsNss {
 
     protected TOperationparamsCQ _query;

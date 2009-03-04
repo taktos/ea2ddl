@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TRtfreport;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_rtfreport. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TRtfreportDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TRtfreportDbm _instance = new TRtfreportDbm();
     private TRtfreportDbm() {}
     public static TRtfreportDbm getInstance() { return _instance; }
@@ -29,31 +32,31 @@ public class TRtfreportDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnTemplateid = cci("TemplateID", "templateid", String.class, false, 200, 0);
-    protected ColumnInfo _columnRootpackage = cci("RootPackage", "rootpackage", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnFilename = cci("Filename", "filename", String.class, false, 255, 0);
-    protected ColumnInfo _columnDetails = cci("Details", "details", Boolean.class, false, null, null);
-    protected ColumnInfo _columnProcesschildren = cci("ProcessChildren", "processchildren", Boolean.class, false, null, null);
-    protected ColumnInfo _columnShowdiagrams = cci("ShowDiagrams", "showdiagrams", Boolean.class, false, null, null);
-    protected ColumnInfo _columnHeading = cci("Heading", "heading", String.class, false, 255, 0);
-    protected ColumnInfo _columnRequirements = cci("Requirements", "requirements", Boolean.class, false, null, null);
-    protected ColumnInfo _columnAssociations = cci("Associations", "associations", Boolean.class, false, null, null);
-    protected ColumnInfo _columnScenarios = cci("Scenarios", "scenarios", Boolean.class, false, null, null);
-    protected ColumnInfo _columnChilddiagrams = cci("ChildDiagrams", "childdiagrams", Boolean.class, false, null, null);
-    protected ColumnInfo _columnAttributes = cci("Attributes", "attributes", Boolean.class, false, null, null);
-    protected ColumnInfo _columnMethods = cci("Methods", "methods", Boolean.class, false, null, null);
-    protected ColumnInfo _columnImagetype = cci("ImageType", "imagetype", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnPaging = cci("Paging", "paging", Boolean.class, false, null, null);
-    protected ColumnInfo _columnIntro = cci("Intro", "intro", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnResources = cci("Resources", "resources", Boolean.class, false, null, null);
-    protected ColumnInfo _columnConstraints = cci("Constraints", "constraints", Boolean.class, false, null, null);
-    protected ColumnInfo _columnTagged = cci("Tagged", "tagged", Boolean.class, false, null, null);
-    protected ColumnInfo _columnShowtag = cci("ShowTag", "showtag", Boolean.class, false, null, null);
-    protected ColumnInfo _columnShowalias = cci("ShowAlias", "showalias", Boolean.class, false, null, null);
-    protected ColumnInfo _columnPdata1 = cci("PDATA1", "pdata1", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata2 = cci("PDATA2", "pdata2", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata3 = cci("PDATA3", "pdata3", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata4 = cci("PDATA4", "pdata4", String.class, false, 2147483647, 0);
+    protected ColumnInfo _columnTemplateid = cci("TemplateID", null, "templateid", String.class, false, false, 200, 0);
+    protected ColumnInfo _columnRootpackage = cci("RootPackage", null, "rootpackage", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnFilename = cci("Filename", null, "filename", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnDetails = cci("Details", null, "details", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnProcesschildren = cci("ProcessChildren", null, "processchildren", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnShowdiagrams = cci("ShowDiagrams", null, "showdiagrams", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnHeading = cci("Heading", null, "heading", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnRequirements = cci("Requirements", null, "requirements", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnAssociations = cci("Associations", null, "associations", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnScenarios = cci("Scenarios", null, "scenarios", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnChilddiagrams = cci("ChildDiagrams", null, "childdiagrams", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnAttributes = cci("Attributes", null, "attributes", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnMethods = cci("Methods", null, "methods", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnImagetype = cci("ImageType", null, "imagetype", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnPaging = cci("Paging", null, "paging", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnIntro = cci("Intro", null, "intro", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnResources = cci("Resources", null, "resources", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnConstraints = cci("Constraints", null, "constraints", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnTagged = cci("Tagged", null, "tagged", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnShowtag = cci("ShowTag", null, "showtag", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnShowalias = cci("ShowAlias", null, "showalias", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnPdata1 = cci("PDATA1", null, "pdata1", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata2 = cci("PDATA2", null, "pdata2", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata3 = cci("PDATA3", null, "pdata3", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata4 = cci("PDATA4", null, "pdata4", String.class, false, false, 2147483647, 0);
 
     public ColumnInfo columnTemplateid() { return _columnTemplateid; }
     public ColumnInfo columnRootpackage() { return _columnRootpackage; }
@@ -80,23 +83,35 @@ public class TRtfreportDbm extends AbstractDBMeta {
     public ColumnInfo columnPdata2() { return _columnPdata2; }
     public ColumnInfo columnPdata3() { return _columnPdata3; }
     public ColumnInfo columnPdata4() { return _columnPdata4; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -118,65 +133,29 @@ public class TRtfreportDbm extends AbstractDBMeta {
     public TRtfreport newMyEntity() { return new TRtfreport(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TRtfreport)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TRtfreport)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TRtfreport)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TRtfreport)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -190,7 +169,7 @@ public class TRtfreportDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TRtfreport>> _epsMap = newHashMap();
+    protected Map<String, Eps<TRtfreport>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsTemplateid(), columnTemplateid());
         setupEps(_epsMap, new EpsRootpackage(), columnRootpackage());
@@ -218,88 +197,59 @@ public class TRtfreportDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsPdata3(), columnPdata3());
         setupEps(_epsMap, new EpsPdata4(), columnPdata4());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TRtfreport)entity, value);
-    }
-    
-    public static class EpsTemplateid implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setTemplateid((String)v); }
-    }
-    public static class EpsRootpackage implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setRootpackage((java.lang.Integer)v); }
-    }
-    public static class EpsFilename implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setFilename((String)v); }
-    }
-    public static class EpsDetails implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setDetails((Boolean)v); }
-    }
-    public static class EpsProcesschildren implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setProcesschildren((Boolean)v); }
-    }
-    public static class EpsShowdiagrams implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setShowdiagrams((Boolean)v); }
-    }
-    public static class EpsHeading implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setHeading((String)v); }
-    }
-    public static class EpsRequirements implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setRequirements((Boolean)v); }
-    }
-    public static class EpsAssociations implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setAssociations((Boolean)v); }
-    }
-    public static class EpsScenarios implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setScenarios((Boolean)v); }
-    }
-    public static class EpsChilddiagrams implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setChilddiagrams((Boolean)v); }
-    }
-    public static class EpsAttributes implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setAttributes((Boolean)v); }
-    }
-    public static class EpsMethods implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setMethods((Boolean)v); }
-    }
-    public static class EpsImagetype implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setImagetype((java.lang.Integer)v); }
-    }
-    public static class EpsPaging implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setPaging((Boolean)v); }
-    }
-    public static class EpsIntro implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setIntro((String)v); }
-    }
-    public static class EpsResources implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setResources((Boolean)v); }
-    }
-    public static class EpsConstraints implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setConstraints((Boolean)v); }
-    }
-    public static class EpsTagged implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setTagged((Boolean)v); }
-    }
-    public static class EpsShowtag implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setShowtag((Boolean)v); }
-    }
-    public static class EpsShowalias implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setShowalias((Boolean)v); }
-    }
-    public static class EpsPdata1 implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setPdata1((String)v); }
-    }
-    public static class EpsPdata2 implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setPdata2((String)v); }
-    }
-    public static class EpsPdata3 implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setPdata3((String)v); }
-    }
-    public static class EpsPdata4 implements Eps<TRtfreport> {
-        public void setup(TRtfreport e, Object v) { e.setPdata4((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TRtfreport)entity, value); }
+
+    public static class EpsTemplateid implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setTemplateid((String)v); } }
+    public static class EpsRootpackage implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setRootpackage((java.lang.Integer)v); } }
+    public static class EpsFilename implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setFilename((String)v); } }
+    public static class EpsDetails implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setDetails((Boolean)v); } }
+    public static class EpsProcesschildren implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setProcesschildren((Boolean)v); } }
+    public static class EpsShowdiagrams implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setShowdiagrams((Boolean)v); } }
+    public static class EpsHeading implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setHeading((String)v); } }
+    public static class EpsRequirements implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setRequirements((Boolean)v); } }
+    public static class EpsAssociations implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setAssociations((Boolean)v); } }
+    public static class EpsScenarios implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setScenarios((Boolean)v); } }
+    public static class EpsChilddiagrams implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setChilddiagrams((Boolean)v); } }
+    public static class EpsAttributes implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setAttributes((Boolean)v); } }
+    public static class EpsMethods implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setMethods((Boolean)v); } }
+    public static class EpsImagetype implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setImagetype((java.lang.Integer)v); } }
+    public static class EpsPaging implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setPaging((Boolean)v); } }
+    public static class EpsIntro implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setIntro((String)v); } }
+    public static class EpsResources implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setResources((Boolean)v); } }
+    public static class EpsConstraints implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setConstraints((Boolean)v); } }
+    public static class EpsTagged implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setTagged((Boolean)v); } }
+    public static class EpsShowtag implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setShowtag((Boolean)v); } }
+    public static class EpsShowalias implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setShowalias((Boolean)v); } }
+    public static class EpsPdata1 implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setPdata1((String)v); } }
+    public static class EpsPdata2 implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setPdata2((String)v); } }
+    public static class EpsPdata3 implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setPdata3((String)v); } }
+    public static class EpsPdata4 implements Eps<TRtfreport>
+    { public void setup(TRtfreport e, Object v) { e.setPdata4((String)v); } }
 }

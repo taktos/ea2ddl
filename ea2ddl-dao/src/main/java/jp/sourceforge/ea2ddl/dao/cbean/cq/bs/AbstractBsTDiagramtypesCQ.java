@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_diagramtypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTDiagramtypesCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(50)}
      * @param diagramType The value of diagramType as equal.
      */
     public void setDiagramType_Equal(String diagramType) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as notEqual.
      */
     public void setDiagramType_NotEqual(String diagramType) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as greaterThan.
      */
     public void setDiagramType_GreaterThan(String diagramType) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as lessThan.
      */
     public void setDiagramType_LessThan(String diagramType) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as greaterEqual.
      */
     public void setDiagramType_GreaterEqual(String diagramType) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as lessEqual.
      */
     public void setDiagramType_LessEqual(String diagramType) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param diagramType The value of diagramType as prefixSearch.
      */
     public void setDiagramType_PrefixSearch(String diagramType) {
         regDiagramType(CK_PS, fRES(diagramType));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param diagramType The value of diagramType as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setDiagramType_LikeSearch(String diagramType, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(diagramType), getCValueDiagramType(), "Diagram_Type", "DiagramType", "diagramType", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param diagramType The collection of diagramType as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param diagramType The value of diagramType as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setDiagramType_InScope(String diagramType, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(diagramType), getCValueDiagramType(), "Diagram_Type", "DiagramType", "diagramType", inScopeOption);
+    public void setDiagramType_LikeSearch(String diagramType, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(diagramType), getCValueDiagramType(), "Diagram_Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param diagramType The value of diagramType as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setDiagramType_IsNull() { regDiagramType(CK_ISN, DUMMY_OBJECT); }
+    public void setDiagramType_NotLikeSearch(String diagramType, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(diagramType), getCValueDiagramType(), "Diagram_Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setDiagramType_IsNotNull() { regDiagramType(CK_ISNN, DUMMY_OBJECT); }
+    public void setDiagramType_IsNull() { regDiagramType(CK_ISN, DOBJ); }
 
-    protected void regDiagramType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDiagramType(), "Diagram_Type", "DiagramType", "diagramType");
-    }
-    protected void registerInlineDiagramType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDiagramType(), "Diagram_Type", "DiagramType", "diagramType");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setDiagramType_IsNotNull() { regDiagramType(CK_ISNN, DOBJ); }
+
+    protected void regDiagramType(ConditionKey k, Object v) { regQ(k, v, getCValueDiagramType(), "Diagram_Type"); }
     abstract protected ConditionValue getCValueDiagramType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param name The value of name as equal.
      */
     public void setName_Equal(String name) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as notEqual.
      */
     public void setName_NotEqual(String name) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterThan.
      */
     public void setName_GreaterThan(String name) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessThan.
      */
     public void setName_LessThan(String name) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterEqual.
      */
     public void setName_GreaterEqual(String name) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessEqual.
      */
     public void setName_LessEqual(String name) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as prefixSearch.
      */
     public void setName_PrefixSearch(String name) {
         regName(CK_PS, fRES(name));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param name The value of name as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setName_LikeSearch(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(name), getCValueName(), "Name", "Name", "name", likeSearchOption);
     }
 
     /**
@@ -212,34 +213,38 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param name The collection of name as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setName_InScope(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(name), getCValueName(), "Name", "Name", "name", inScopeOption);
+    public void setName_LikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(name), getCValueName(), "Name", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setName_IsNull() { regName(CK_ISN, DUMMY_OBJECT); }
+    public void setName_NotLikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(name), getCValueName(), "Name", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setName_IsNotNull() { regName(CK_ISNN, DUMMY_OBJECT); }
+    public void setName_IsNull() { regName(CK_ISN, DOBJ); }
 
-    protected void regName(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
-    protected void registerInlineName(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setName_IsNotNull() { regName(CK_ISNN, DOBJ); }
+
+    protected void regName(ConditionKey k, Object v) { regQ(k, v, getCValueName(), "Name"); }
     abstract protected ConditionValue getCValueName();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param packageId The value of packageId as equal.
      */
     public void setPackageId_Equal(java.lang.Integer packageId) {
@@ -247,7 +252,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as notEqual.
      */
     public void setPackageId_NotEqual(java.lang.Integer packageId) {
@@ -255,7 +260,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as greaterThan.
      */
     public void setPackageId_GreaterThan(java.lang.Integer packageId) {
@@ -263,7 +268,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as lessThan.
      */
     public void setPackageId_LessThan(java.lang.Integer packageId) {
@@ -271,7 +276,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as greaterEqual.
      */
     public void setPackageId_GreaterEqual(java.lang.Integer packageId) {
@@ -279,7 +284,7 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param packageId The value of packageId as lessEqual.
      */
     public void setPackageId_LessEqual(java.lang.Integer packageId) {
@@ -295,24 +300,23 @@ public abstract class AbstractBsTDiagramtypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPackageId_IsNull() { regPackageId(CK_ISN, DUMMY_OBJECT); }
+    public void setPackageId_IsNull() { regPackageId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setPackageId_IsNotNull() { regPackageId(CK_ISNN, DUMMY_OBJECT); }
+    public void setPackageId_IsNotNull() { regPackageId(CK_ISNN, DOBJ); }
 
-    protected void regPackageId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePackageId(), "Package_ID", "PackageId", "packageId");
-    }
-    protected void registerInlinePackageId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePackageId(), "Package_ID", "PackageId", "packageId");
-    }
+    protected void regPackageId(ConditionKey k, Object v) { regQ(k, v, getCValuePackageId(), "Package_ID"); }
     abstract protected ConditionValue getCValuePackageId();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TDiagramtypesCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TDiagramtypesCQ.class.getName(); }
+    String xCB() { return TDiagramtypesCB.class.getName(); }
+    String xCQ() { return TDiagramtypesCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

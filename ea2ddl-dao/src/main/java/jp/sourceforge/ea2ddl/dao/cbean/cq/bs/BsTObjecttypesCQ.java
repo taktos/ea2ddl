@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objecttypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjecttypesCQ extends AbstractBsTObjecttypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjecttypesCQ extends AbstractBsTObjecttypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjecttypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjecttypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjecttypesCQ extends AbstractBsTObjecttypesCQ {
         return _objectType;
     }
     protected ConditionValue getCValueObjectType() { return getObjectType(); }
-    
+
     public BsTObjecttypesCQ addOrderBy_ObjectType_Asc() { regOBA("Object_Type"); return this; }
     public BsTObjecttypesCQ addOrderBy_ObjectType_Desc() { regOBD("Object_Type"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjecttypesCQ extends AbstractBsTObjecttypesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTObjecttypesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTObjecttypesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjecttypesCQ extends AbstractBsTObjecttypesCQ {
         return _designobject;
     }
     protected ConditionValue getCValueDesignobject() { return getDesignobject(); }
-    
+
     public BsTObjecttypesCQ addOrderBy_Designobject_Asc() { regOBA("DesignObject"); return this; }
     public BsTObjecttypesCQ addOrderBy_Designobject_Desc() { regOBD("DesignObject"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjecttypesCQ extends AbstractBsTObjecttypesCQ {
         return _imageid;
     }
     protected ConditionValue getCValueImageid() { return getImageid(); }
-          
+
     public BsTObjecttypesCQ addOrderBy_Imageid_Asc() { regOBA("ImageID"); return this; }
     public BsTObjecttypesCQ addOrderBy_Imageid_Desc() { regOBD("ImageID"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTObjecttypesCQ extends AbstractBsTObjecttypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjecttypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjecttypesCB.class.getName(); }
+    String xCQ() { return TObjecttypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_xrefuser(TABLE).
+ * The entity of t_xrefuser that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTXrefuser implements Entity, java.io.Serializable {
+public abstract class BsTXrefuser implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,56 +47,52 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_xrefuser. */
-    public static final String TABLE = "t_xrefuser";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'XrefID'. {UQ : VARCHAR(255)} */
+    /** XrefID: {UQ : VARCHAR(255)} */
     protected String _xrefid;
 
-    /** The attribute of the column 'ToolID'. {VARCHAR(50)} */
+    /** ToolID: {VARCHAR(50)} */
     protected String _toolid;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Type'. {VARCHAR(255)} */
+    /** Type: {VARCHAR(255)} */
     protected String _type;
 
-    /** The attribute of the column 'Visibility'. {VARCHAR(255)} */
+    /** Visibility: {VARCHAR(255)} */
     protected String _visibility;
 
-    /** The attribute of the column 'Namespace'. {VARCHAR(255)} */
+    /** Namespace: {VARCHAR(255)} */
     protected String _namespace;
 
-    /** The attribute of the column 'Requirement'. {VARCHAR(255)} */
+    /** Requirement: {VARCHAR(255)} */
     protected String _requirement;
 
-    /** The attribute of the column 'Constraint'. {VARCHAR(255)} */
+    /** Constraint: {VARCHAR(255)} */
     protected String _constraint;
 
-    /** The attribute of the column 'Behavior'. {VARCHAR(255)} */
+    /** Behavior: {VARCHAR(255)} */
     protected String _behavior;
 
-    /** The attribute of the column 'Partition'. {VARCHAR(255)} */
+    /** Partition: {VARCHAR(255)} */
     protected String _partition;
 
-    /** The attribute of the column 'Description'. {LONGCHAR(2147483647)} */
+    /** Description: {LONGCHAR(2147483647)} */
     protected String _description;
 
-    /** The attribute of the column 'Client'. {VARCHAR(255)} */
+    /** Client: {VARCHAR(255)} */
     protected String _client;
 
-    /** The attribute of the column 'Supplier'. {VARCHAR(255)} */
+    /** Supplier: {VARCHAR(255)} */
     protected String _supplier;
 
-    /** The attribute of the column 'Link'. {VARCHAR(255)} */
+    /** Link: {VARCHAR(255)} */
     protected String _link;
 
     // -----------------------------------------------------
@@ -106,19 +102,13 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTXrefuser() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_xrefuser";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TXrefuser";
     }
 
@@ -144,7 +134,6 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -255,13 +244,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String xrefid_COLUMN = "XrefID";
-
     /**
-     * Get the value of the column 'XrefID'. <br />
-     * {UQ : VARCHAR(255)}
+     * XrefID: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'XrefID'. (Nullable)
      */
     public String getXrefid() {
@@ -269,8 +253,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'XrefID'. <br />
-     * {UQ : VARCHAR(255)}
+     * XrefID: {UQ : VARCHAR(255)} <br />
      * @param xrefid The value of the column 'XrefID'. (Nullable)
      */
     public void setXrefid(String xrefid) {
@@ -278,12 +261,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._xrefid = xrefid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String toolid_COLUMN = "ToolID";
-
     /**
-     * Get the value of the column 'ToolID'. <br />
-     * {VARCHAR(50)}
+     * ToolID: {VARCHAR(50)} <br />
      * @return The value of the column 'ToolID'. (Nullable)
      */
     public String getToolid() {
@@ -291,8 +270,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ToolID'. <br />
-     * {VARCHAR(50)}
+     * ToolID: {VARCHAR(50)} <br />
      * @param toolid The value of the column 'ToolID'. (Nullable)
      */
     public void setToolid(String toolid) {
@@ -300,12 +278,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._toolid = toolid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -313,8 +287,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -322,12 +295,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -335,8 +304,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -344,12 +312,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String visibility_COLUMN = "Visibility";
-
     /**
-     * Get the value of the column 'Visibility'. <br />
-     * {VARCHAR(255)}
+     * Visibility: {VARCHAR(255)} <br />
      * @return The value of the column 'Visibility'. (Nullable)
      */
     public String getVisibility() {
@@ -357,8 +321,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Visibility'. <br />
-     * {VARCHAR(255)}
+     * Visibility: {VARCHAR(255)} <br />
      * @param visibility The value of the column 'Visibility'. (Nullable)
      */
     public void setVisibility(String visibility) {
@@ -366,12 +329,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._visibility = visibility;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String namespace_COLUMN = "Namespace";
-
     /**
-     * Get the value of the column 'Namespace'. <br />
-     * {VARCHAR(255)}
+     * Namespace: {VARCHAR(255)} <br />
      * @return The value of the column 'Namespace'. (Nullable)
      */
     public String getNamespace() {
@@ -379,8 +338,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Namespace'. <br />
-     * {VARCHAR(255)}
+     * Namespace: {VARCHAR(255)} <br />
      * @param namespace The value of the column 'Namespace'. (Nullable)
      */
     public void setNamespace(String namespace) {
@@ -388,12 +346,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._namespace = namespace;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String requirement_COLUMN = "Requirement";
-
     /**
-     * Get the value of the column 'Requirement'. <br />
-     * {VARCHAR(255)}
+     * Requirement: {VARCHAR(255)} <br />
      * @return The value of the column 'Requirement'. (Nullable)
      */
     public String getRequirement() {
@@ -401,8 +355,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Requirement'. <br />
-     * {VARCHAR(255)}
+     * Requirement: {VARCHAR(255)} <br />
      * @param requirement The value of the column 'Requirement'. (Nullable)
      */
     public void setRequirement(String requirement) {
@@ -410,12 +363,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._requirement = requirement;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String constraint_COLUMN = "Constraint";
-
     /**
-     * Get the value of the column 'Constraint'. <br />
-     * {VARCHAR(255)}
+     * Constraint: {VARCHAR(255)} <br />
      * @return The value of the column 'Constraint'. (Nullable)
      */
     public String getConstraint() {
@@ -423,8 +372,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Constraint'. <br />
-     * {VARCHAR(255)}
+     * Constraint: {VARCHAR(255)} <br />
      * @param constraint The value of the column 'Constraint'. (Nullable)
      */
     public void setConstraint(String constraint) {
@@ -432,12 +380,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._constraint = constraint;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String behavior_COLUMN = "Behavior";
-
     /**
-     * Get the value of the column 'Behavior'. <br />
-     * {VARCHAR(255)}
+     * Behavior: {VARCHAR(255)} <br />
      * @return The value of the column 'Behavior'. (Nullable)
      */
     public String getBehavior() {
@@ -445,8 +389,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Behavior'. <br />
-     * {VARCHAR(255)}
+     * Behavior: {VARCHAR(255)} <br />
      * @param behavior The value of the column 'Behavior'. (Nullable)
      */
     public void setBehavior(String behavior) {
@@ -454,12 +397,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._behavior = behavior;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String partition_COLUMN = "Partition";
-
     /**
-     * Get the value of the column 'Partition'. <br />
-     * {VARCHAR(255)}
+     * Partition: {VARCHAR(255)} <br />
      * @return The value of the column 'Partition'. (Nullable)
      */
     public String getPartition() {
@@ -467,8 +406,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Partition'. <br />
-     * {VARCHAR(255)}
+     * Partition: {VARCHAR(255)} <br />
      * @param partition The value of the column 'Partition'. (Nullable)
      */
     public void setPartition(String partition) {
@@ -476,12 +414,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._partition = partition;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {LONGCHAR(2147483647)}
+     * Description: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -489,8 +423,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {LONGCHAR(2147483647)}
+     * Description: {LONGCHAR(2147483647)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
@@ -498,12 +431,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._description = description;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String client_COLUMN = "Client";
-
     /**
-     * Get the value of the column 'Client'. <br />
-     * {VARCHAR(255)}
+     * Client: {VARCHAR(255)} <br />
      * @return The value of the column 'Client'. (Nullable)
      */
     public String getClient() {
@@ -511,8 +440,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Client'. <br />
-     * {VARCHAR(255)}
+     * Client: {VARCHAR(255)} <br />
      * @param client The value of the column 'Client'. (Nullable)
      */
     public void setClient(String client) {
@@ -520,12 +448,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._client = client;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String supplier_COLUMN = "Supplier";
-
     /**
-     * Get the value of the column 'Supplier'. <br />
-     * {VARCHAR(255)}
+     * Supplier: {VARCHAR(255)} <br />
      * @return The value of the column 'Supplier'. (Nullable)
      */
     public String getSupplier() {
@@ -533,8 +457,7 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Supplier'. <br />
-     * {VARCHAR(255)}
+     * Supplier: {VARCHAR(255)} <br />
      * @param supplier The value of the column 'Supplier'. (Nullable)
      */
     public void setSupplier(String supplier) {
@@ -542,12 +465,8 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
         this._supplier = supplier;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String link_COLUMN = "Link";
-
     /**
-     * Get the value of the column 'Link'. <br />
-     * {VARCHAR(255)}
+     * Link: {VARCHAR(255)} <br />
      * @return The value of the column 'Link'. (Nullable)
      */
     public String getLink() {
@@ -555,13 +474,11 @@ public abstract class BsTXrefuser implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Link'. <br />
-     * {VARCHAR(255)}
+     * Link: {VARCHAR(255)} <br />
      * @param link The value of the column 'Link'. (Nullable)
      */
     public void setLink(String link) {
         _modifiedProperties.addPropertyName("link");
         this._link = link;
     }
-
 }

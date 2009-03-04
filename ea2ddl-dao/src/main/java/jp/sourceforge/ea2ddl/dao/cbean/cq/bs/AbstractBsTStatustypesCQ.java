@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_statustypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTStatustypesCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param status The value of status as equal.
      */
     public void setStatus_Equal(String status) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param status The value of status as notEqual.
      */
     public void setStatus_NotEqual(String status) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param status The value of status as greaterThan.
      */
     public void setStatus_GreaterThan(String status) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param status The value of status as lessThan.
      */
     public void setStatus_LessThan(String status) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param status The value of status as greaterEqual.
      */
     public void setStatus_GreaterEqual(String status) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param status The value of status as lessEqual.
      */
     public void setStatus_LessEqual(String status) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param status The value of status as prefixSearch.
      */
     public void setStatus_PrefixSearch(String status) {
         regStatus(CK_PS, fRES(status));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param status The value of status as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setStatus_LikeSearch(String status, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(status), getCValueStatus(), "Status", "Status", "status", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param status The collection of status as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param status The value of status as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStatus_InScope(String status, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(status), getCValueStatus(), "Status", "Status", "status", inScopeOption);
+    public void setStatus_LikeSearch(String status, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(status), getCValueStatus(), "Status", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param status The value of status as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStatus_IsNull() { regStatus(CK_ISN, DUMMY_OBJECT); }
+    public void setStatus_NotLikeSearch(String status, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(status), getCValueStatus(), "Status", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setStatus_IsNotNull() { regStatus(CK_ISNN, DUMMY_OBJECT); }
+    public void setStatus_IsNull() { regStatus(CK_ISN, DOBJ); }
 
-    protected void regStatus(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueStatus(), "Status", "Status", "status");
-    }
-    protected void registerInlineStatus(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueStatus(), "Status", "Status", "status");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setStatus_IsNotNull() { regStatus(CK_ISNN, DOBJ); }
+
+    protected void regStatus(ConditionKey k, Object v) { regQ(k, v, getCValueStatus(), "Status"); }
     abstract protected ConditionValue getCValueStatus();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param description The value of description as equal.
      */
     public void setDescription_Equal(String description) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as notEqual.
      */
     public void setDescription_NotEqual(String description) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as greaterThan.
      */
     public void setDescription_GreaterThan(String description) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as lessThan.
      */
     public void setDescription_LessThan(String description) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as greaterEqual.
      */
     public void setDescription_GreaterEqual(String description) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as lessEqual.
      */
     public void setDescription_LessEqual(String description) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as prefixSearch.
      */
     public void setDescription_PrefixSearch(String description) {
         regDescription(CK_PS, fRES(description));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param description The value of description as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setDescription_LikeSearch(String description, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(description), getCValueDescription(), "Description", "Description", "description", likeSearchOption);
     }
 
     /**
@@ -212,33 +213,41 @@ public abstract class AbstractBsTStatustypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param description The collection of description as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param description The value of description as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setDescription_InScope(String description, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(description), getCValueDescription(), "Description", "Description", "description", inScopeOption);
+    public void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(description), getCValueDescription(), "Description", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param description The value of description as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setDescription_IsNull() { regDescription(CK_ISN, DUMMY_OBJECT); }
+    public void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(description), getCValueDescription(), "Description", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setDescription_IsNotNull() { regDescription(CK_ISNN, DUMMY_OBJECT); }
+    public void setDescription_IsNull() { regDescription(CK_ISN, DOBJ); }
 
-    protected void regDescription(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDescription(), "Description", "Description", "description");
-    }
-    protected void registerInlineDescription(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDescription(), "Description", "Description", "description");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setDescription_IsNotNull() { regDescription(CK_ISNN, DOBJ); }
+
+    protected void regDescription(ConditionKey k, Object v) { regQ(k, v, getCValueDescription(), "Description"); }
     abstract protected ConditionValue getCValueDescription();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TStatustypesCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TStatustypesCQ.class.getName(); }
+    String xCB() { return TStatustypesCB.class.getName(); }
+    String xCQ() { return TStatustypesCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

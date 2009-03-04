@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objecttests(TABLE).
+ * The entity of t_objecttests that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjecttests implements Entity, java.io.Serializable {
+public abstract class BsTObjecttests implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,50 +47,46 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objecttests. */
-    public static final String TABLE = "t_objecttests";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : INTEGER} */
+    /** Object_ID: {UQ : INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Test'. {UQ : VARCHAR(255)} */
+    /** Test: {UQ : VARCHAR(255)} */
     protected String _test;
 
-    /** The attribute of the column 'TestClass'. {UQ : INTEGER} */
+    /** TestClass: {UQ : INTEGER} */
     protected java.lang.Integer _testclass;
 
-    /** The attribute of the column 'TestType'. {VARCHAR(50)} */
+    /** TestType: {VARCHAR(50)} */
     protected String _testtype;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'InputData'. {LONGCHAR(2147483647)} */
+    /** InputData: {LONGCHAR(2147483647)} */
     protected String _inputdata;
 
-    /** The attribute of the column 'AcceptanceCriteria'. {LONGCHAR(2147483647)} */
+    /** AcceptanceCriteria: {LONGCHAR(2147483647)} */
     protected String _acceptancecriteria;
 
-    /** The attribute of the column 'Status'. {VARCHAR(32)} */
+    /** Status: {VARCHAR(32)} */
     protected String _status;
 
-    /** The attribute of the column 'DateRun'. {DATETIME} */
+    /** DateRun: {DATETIME} */
     protected java.sql.Timestamp _daterun;
 
-    /** The attribute of the column 'Results'. {LONGCHAR(2147483647)} */
+    /** Results: {LONGCHAR(2147483647)} */
     protected String _results;
 
-    /** The attribute of the column 'RunBy'. {VARCHAR(255)} */
+    /** RunBy: {VARCHAR(255)} */
     protected String _runby;
 
-    /** The attribute of the column 'CheckBy'. {VARCHAR(255)} */
+    /** CheckBy: {VARCHAR(255)} */
     protected String _checkby;
 
     // -----------------------------------------------------
@@ -100,19 +96,13 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjecttests() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objecttests";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjecttests";
     }
 
@@ -138,7 +128,6 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -243,13 +232,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -257,8 +241,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -266,12 +249,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String test_COLUMN = "Test";
-
     /**
-     * Get the value of the column 'Test'. <br />
-     * {UQ : VARCHAR(255)}
+     * Test: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Test'. (Nullable)
      */
     public String getTest() {
@@ -279,8 +258,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Test'. <br />
-     * {UQ : VARCHAR(255)}
+     * Test: {UQ : VARCHAR(255)} <br />
      * @param test The value of the column 'Test'. (Nullable)
      */
     public void setTest(String test) {
@@ -288,12 +266,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._test = test;
     }
 
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String testclass_COLUMN = "TestClass";
-
     /**
-     * Get the value of the column 'TestClass'. <br />
-     * {UQ : INTEGER}
+     * TestClass: {UQ : INTEGER} <br />
      * @return The value of the column 'TestClass'. (Nullable)
      */
     public java.lang.Integer getTestclass() {
@@ -301,8 +275,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TestClass'. <br />
-     * {UQ : INTEGER}
+     * TestClass: {UQ : INTEGER} <br />
      * @param testclass The value of the column 'TestClass'. (Nullable)
      */
     public void setTestclass(java.lang.Integer testclass) {
@@ -310,12 +283,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._testclass = testclass;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String testtype_COLUMN = "TestType";
-
     /**
-     * Get the value of the column 'TestType'. <br />
-     * {VARCHAR(50)}
+     * TestType: {VARCHAR(50)} <br />
      * @return The value of the column 'TestType'. (Nullable)
      */
     public String getTesttype() {
@@ -323,8 +292,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TestType'. <br />
-     * {VARCHAR(50)}
+     * TestType: {VARCHAR(50)} <br />
      * @param testtype The value of the column 'TestType'. (Nullable)
      */
     public void setTesttype(String testtype) {
@@ -332,12 +300,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._testtype = testtype;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -345,8 +309,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -354,12 +317,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String inputdata_COLUMN = "InputData";
-
     /**
-     * Get the value of the column 'InputData'. <br />
-     * {LONGCHAR(2147483647)}
+     * InputData: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'InputData'. (Nullable)
      */
     public String getInputdata() {
@@ -367,8 +326,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'InputData'. <br />
-     * {LONGCHAR(2147483647)}
+     * InputData: {LONGCHAR(2147483647)} <br />
      * @param inputdata The value of the column 'InputData'. (Nullable)
      */
     public void setInputdata(String inputdata) {
@@ -376,12 +334,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._inputdata = inputdata;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String acceptancecriteria_COLUMN = "AcceptanceCriteria";
-
     /**
-     * Get the value of the column 'AcceptanceCriteria'. <br />
-     * {LONGCHAR(2147483647)}
+     * AcceptanceCriteria: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'AcceptanceCriteria'. (Nullable)
      */
     public String getAcceptancecriteria() {
@@ -389,8 +343,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'AcceptanceCriteria'. <br />
-     * {LONGCHAR(2147483647)}
+     * AcceptanceCriteria: {LONGCHAR(2147483647)} <br />
      * @param acceptancecriteria The value of the column 'AcceptanceCriteria'. (Nullable)
      */
     public void setAcceptancecriteria(String acceptancecriteria) {
@@ -398,12 +351,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._acceptancecriteria = acceptancecriteria;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(32)} */
-    public static final String status_COLUMN = "Status";
-
     /**
-     * Get the value of the column 'Status'. <br />
-     * {VARCHAR(32)}
+     * Status: {VARCHAR(32)} <br />
      * @return The value of the column 'Status'. (Nullable)
      */
     public String getStatus() {
@@ -411,8 +360,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Status'. <br />
-     * {VARCHAR(32)}
+     * Status: {VARCHAR(32)} <br />
      * @param status The value of the column 'Status'. (Nullable)
      */
     public void setStatus(String status) {
@@ -420,12 +368,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._status = status;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String daterun_COLUMN = "DateRun";
-
     /**
-     * Get the value of the column 'DateRun'. <br />
-     * {DATETIME}
+     * DateRun: {DATETIME} <br />
      * @return The value of the column 'DateRun'. (Nullable)
      */
     public java.sql.Timestamp getDaterun() {
@@ -433,8 +377,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DateRun'. <br />
-     * {DATETIME}
+     * DateRun: {DATETIME} <br />
      * @param daterun The value of the column 'DateRun'. (Nullable)
      */
     public void setDaterun(java.sql.Timestamp daterun) {
@@ -442,12 +385,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._daterun = daterun;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String results_COLUMN = "Results";
-
     /**
-     * Get the value of the column 'Results'. <br />
-     * {LONGCHAR(2147483647)}
+     * Results: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Results'. (Nullable)
      */
     public String getResults() {
@@ -455,8 +394,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Results'. <br />
-     * {LONGCHAR(2147483647)}
+     * Results: {LONGCHAR(2147483647)} <br />
      * @param results The value of the column 'Results'. (Nullable)
      */
     public void setResults(String results) {
@@ -464,12 +402,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._results = results;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String runby_COLUMN = "RunBy";
-
     /**
-     * Get the value of the column 'RunBy'. <br />
-     * {VARCHAR(255)}
+     * RunBy: {VARCHAR(255)} <br />
      * @return The value of the column 'RunBy'. (Nullable)
      */
     public String getRunby() {
@@ -477,8 +411,7 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RunBy'. <br />
-     * {VARCHAR(255)}
+     * RunBy: {VARCHAR(255)} <br />
      * @param runby The value of the column 'RunBy'. (Nullable)
      */
     public void setRunby(String runby) {
@@ -486,12 +419,8 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
         this._runby = runby;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String checkby_COLUMN = "CheckBy";
-
     /**
-     * Get the value of the column 'CheckBy'. <br />
-     * {VARCHAR(255)}
+     * CheckBy: {VARCHAR(255)} <br />
      * @return The value of the column 'CheckBy'. (Nullable)
      */
     public String getCheckby() {
@@ -499,13 +428,11 @@ public abstract class BsTObjecttests implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'CheckBy'. <br />
-     * {VARCHAR(255)}
+     * CheckBy: {VARCHAR(255)} <br />
      * @param checkby The value of the column 'CheckBy'. (Nullable)
      */
     public void setCheckby(String checkby) {
         _modifiedProperties.addPropertyName("checkby");
         this._checkby = checkby;
     }
-
 }

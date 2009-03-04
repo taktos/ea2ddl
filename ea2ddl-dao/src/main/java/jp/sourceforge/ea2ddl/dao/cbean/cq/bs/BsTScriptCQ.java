@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_script.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTScriptCQ extends AbstractBsTScriptCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTScriptCQ extends AbstractBsTScriptCQ {
      * @return On-clause query. (NotNull)
      */
     public TScriptCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TScriptCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTScriptCQ extends AbstractBsTScriptCQ {
         return _scriptid;
     }
     protected ConditionValue getCValueScriptid() { return getScriptid(); }
-          
+
     public BsTScriptCQ addOrderBy_Scriptid_Asc() { regOBA("ScriptID"); return this; }
     public BsTScriptCQ addOrderBy_Scriptid_Desc() { regOBD("ScriptID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTScriptCQ extends AbstractBsTScriptCQ {
         return _scriptcategory;
     }
     protected ConditionValue getCValueScriptcategory() { return getScriptcategory(); }
-    
+
     public BsTScriptCQ addOrderBy_Scriptcategory_Asc() { regOBA("ScriptCategory"); return this; }
     public BsTScriptCQ addOrderBy_Scriptcategory_Desc() { regOBD("ScriptCategory"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTScriptCQ extends AbstractBsTScriptCQ {
         return _scriptname;
     }
     protected ConditionValue getCValueScriptname() { return getScriptname(); }
-    
+
     public BsTScriptCQ addOrderBy_Scriptname_Asc() { regOBA("ScriptName"); return this; }
     public BsTScriptCQ addOrderBy_Scriptname_Desc() { regOBD("ScriptName"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTScriptCQ extends AbstractBsTScriptCQ {
         return _scriptauthor;
     }
     protected ConditionValue getCValueScriptauthor() { return getScriptauthor(); }
-    
+
     public BsTScriptCQ addOrderBy_Scriptauthor_Asc() { regOBA("ScriptAuthor"); return this; }
     public BsTScriptCQ addOrderBy_Scriptauthor_Desc() { regOBD("ScriptAuthor"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTScriptCQ extends AbstractBsTScriptCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTScriptCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTScriptCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTScriptCQ extends AbstractBsTScriptCQ {
         return _script;
     }
     protected ConditionValue getCValueScript() { return getScript(); }
-    
+
     public BsTScriptCQ addOrderBy_Script_Asc() { regOBA("Script"); return this; }
     public BsTScriptCQ addOrderBy_Script_Desc() { regOBD("Script"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTScriptCQ extends AbstractBsTScriptCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TScriptCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TScriptCB.class.getName(); }
+    String xCQ() { return TScriptCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

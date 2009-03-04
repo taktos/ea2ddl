@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_secuser.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
      * @return On-clause query. (NotNull)
      */
     public TSecuserCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TSecuserCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
         return _userid;
     }
     protected ConditionValue getCValueUserid() { return getUserid(); }
-    
+
     public BsTSecuserCQ addOrderBy_Userid_Asc() { regOBA("UserID"); return this; }
     public BsTSecuserCQ addOrderBy_Userid_Desc() { regOBD("UserID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
         return _userlogin;
     }
     protected ConditionValue getCValueUserlogin() { return getUserlogin(); }
-    
+
     public BsTSecuserCQ addOrderBy_Userlogin_Asc() { regOBA("UserLogin"); return this; }
     public BsTSecuserCQ addOrderBy_Userlogin_Desc() { regOBD("UserLogin"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
         return _firstname;
     }
     protected ConditionValue getCValueFirstname() { return getFirstname(); }
-    
+
     public BsTSecuserCQ addOrderBy_Firstname_Asc() { regOBA("FirstName"); return this; }
     public BsTSecuserCQ addOrderBy_Firstname_Desc() { regOBD("FirstName"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
         return _surname;
     }
     protected ConditionValue getCValueSurname() { return getSurname(); }
-    
+
     public BsTSecuserCQ addOrderBy_Surname_Asc() { regOBA("Surname"); return this; }
     public BsTSecuserCQ addOrderBy_Surname_Desc() { regOBD("Surname"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
         return _department;
     }
     protected ConditionValue getCValueDepartment() { return getDepartment(); }
-    
+
     public BsTSecuserCQ addOrderBy_Department_Asc() { regOBA("Department"); return this; }
     public BsTSecuserCQ addOrderBy_Department_Desc() { regOBD("Department"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
         return _password;
     }
     protected ConditionValue getCValuePassword() { return getPassword(); }
-    
+
     public BsTSecuserCQ addOrderBy_Password_Asc() { regOBA("Password"); return this; }
     public BsTSecuserCQ addOrderBy_Password_Desc() { regOBD("Password"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTSecuserCQ extends AbstractBsTSecuserCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TSecuserCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TSecuserCB.class.getName(); }
+    String xCQ() { return TSecuserCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

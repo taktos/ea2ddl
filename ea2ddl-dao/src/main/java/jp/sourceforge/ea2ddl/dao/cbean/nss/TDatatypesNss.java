@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TDatatypesCQ;
 
 /**
- * The nest-select-setupper of t_datatypes.
+ * The nest select set-upper of t_datatypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TDatatypesNss {
 
     protected TDatatypesCQ _query;

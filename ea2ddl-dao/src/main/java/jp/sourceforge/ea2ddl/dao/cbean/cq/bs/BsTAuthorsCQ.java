@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_authors.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTAuthorsCQ extends AbstractBsTAuthorsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTAuthorsCQ extends AbstractBsTAuthorsCQ {
      * @return On-clause query. (NotNull)
      */
     public TAuthorsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TAuthorsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTAuthorsCQ extends AbstractBsTAuthorsCQ {
         return _authorname;
     }
     protected ConditionValue getCValueAuthorname() { return getAuthorname(); }
-    
+
     public BsTAuthorsCQ addOrderBy_Authorname_Asc() { regOBA("AuthorName"); return this; }
     public BsTAuthorsCQ addOrderBy_Authorname_Desc() { regOBD("AuthorName"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTAuthorsCQ extends AbstractBsTAuthorsCQ {
         return _roles;
     }
     protected ConditionValue getCValueRoles() { return getRoles(); }
-    
+
     public BsTAuthorsCQ addOrderBy_Roles_Asc() { regOBA("Roles"); return this; }
     public BsTAuthorsCQ addOrderBy_Roles_Desc() { regOBD("Roles"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTAuthorsCQ extends AbstractBsTAuthorsCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTAuthorsCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTAuthorsCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -101,8 +101,11 @@ public class BsTAuthorsCQ extends AbstractBsTAuthorsCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TAuthorsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TAuthorsCB.class.getName(); }
+    String xCQ() { return TAuthorsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

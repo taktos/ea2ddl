@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_primitives.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTPrimitivesCQ extends AbstractBsTPrimitivesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTPrimitivesCQ extends AbstractBsTPrimitivesCQ {
      * @return On-clause query. (NotNull)
      */
     public TPrimitivesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TPrimitivesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTPrimitivesCQ extends AbstractBsTPrimitivesCQ {
         return _datatype;
     }
     protected ConditionValue getCValueDatatype() { return getDatatype(); }
-    
+
     public BsTPrimitivesCQ addOrderBy_Datatype_Asc() { regOBA("Datatype"); return this; }
     public BsTPrimitivesCQ addOrderBy_Datatype_Desc() { regOBD("Datatype"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTPrimitivesCQ extends AbstractBsTPrimitivesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTPrimitivesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTPrimitivesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -91,8 +91,11 @@ public class BsTPrimitivesCQ extends AbstractBsTPrimitivesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TPrimitivesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TPrimitivesCB.class.getName(); }
+    String xCQ() { return TPrimitivesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

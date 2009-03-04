@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_mainttypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTMainttypesCQ extends AbstractBsTMainttypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTMainttypesCQ extends AbstractBsTMainttypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TMainttypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TMainttypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTMainttypesCQ extends AbstractBsTMainttypesCQ {
         return _mainttype;
     }
     protected ConditionValue getCValueMainttype() { return getMainttype(); }
-    
+
     public BsTMainttypesCQ addOrderBy_Mainttype_Asc() { regOBA("MaintType"); return this; }
     public BsTMainttypesCQ addOrderBy_Mainttype_Desc() { regOBD("MaintType"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTMainttypesCQ extends AbstractBsTMainttypesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTMainttypesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTMainttypesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTMainttypesCQ extends AbstractBsTMainttypesCQ {
         return _numericweight;
     }
     protected ConditionValue getCValueNumericweight() { return getNumericweight(); }
-          
+
     public BsTMainttypesCQ addOrderBy_Numericweight_Asc() { regOBA("NumericWeight"); return this; }
     public BsTMainttypesCQ addOrderBy_Numericweight_Desc() { regOBD("NumericWeight"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTMainttypesCQ extends AbstractBsTMainttypesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTMainttypesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTMainttypesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTMainttypesCQ extends AbstractBsTMainttypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TMainttypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TMainttypesCB.class.getName(); }
+    String xCQ() { return TMainttypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

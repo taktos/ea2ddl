@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objectresource(TABLE).
+ * The entity of t_objectresource that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjectresource implements Entity, java.io.Serializable {
+public abstract class BsTObjectresource implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,47 +47,43 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objectresource. */
-    public static final String TABLE = "t_objectresource";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : INTEGER} */
+    /** Object_ID: {UQ : INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Resource'. {UQ : VARCHAR(255)} */
+    /** Resource: {UQ : VARCHAR(255)} */
     protected String _resource;
 
-    /** The attribute of the column 'Role'. {UQ : VARCHAR(255)} */
+    /** Role: {UQ : VARCHAR(255)} */
     protected String _role;
 
-    /** The attribute of the column 'Time'. {DOUBLE} */
+    /** Time: {DOUBLE} */
     protected java.math.BigDecimal _time;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'PercentComplete'. {SMALLINT} */
+    /** PercentComplete: {SMALLINT} */
     protected java.lang.Integer _percentcomplete;
 
-    /** The attribute of the column 'DateStart'. {DATETIME} */
+    /** DateStart: {DATETIME} */
     protected java.sql.Timestamp _datestart;
 
-    /** The attribute of the column 'DateEnd'. {DATETIME} */
+    /** DateEnd: {DATETIME} */
     protected java.sql.Timestamp _dateend;
 
-    /** The attribute of the column 'History'. {LONGCHAR(2147483647)} */
+    /** History: {LONGCHAR(2147483647)} */
     protected String _history;
 
-    /** The attribute of the column 'ExpectedHours'. {INTEGER} */
+    /** ExpectedHours: {INTEGER} */
     protected java.lang.Integer _expectedhours;
 
-    /** The attribute of the column 'ActualHours'. {INTEGER} */
+    /** ActualHours: {INTEGER} */
     protected java.lang.Integer _actualhours;
 
     // -----------------------------------------------------
@@ -97,19 +93,13 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjectresource() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objectresource";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjectresource";
     }
 
@@ -135,7 +125,6 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -237,13 +226,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -251,8 +235,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -260,12 +243,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String resource_COLUMN = "Resource";
-
     /**
-     * Get the value of the column 'Resource'. <br />
-     * {UQ : VARCHAR(255)}
+     * Resource: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Resource'. (Nullable)
      */
     public String getResource() {
@@ -273,8 +252,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Resource'. <br />
-     * {UQ : VARCHAR(255)}
+     * Resource: {UQ : VARCHAR(255)} <br />
      * @param resource The value of the column 'Resource'. (Nullable)
      */
     public void setResource(String resource) {
@@ -282,12 +260,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._resource = resource;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String role_COLUMN = "Role";
-
     /**
-     * Get the value of the column 'Role'. <br />
-     * {UQ : VARCHAR(255)}
+     * Role: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Role'. (Nullable)
      */
     public String getRole() {
@@ -295,8 +269,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Role'. <br />
-     * {UQ : VARCHAR(255)}
+     * Role: {UQ : VARCHAR(255)} <br />
      * @param role The value of the column 'Role'. (Nullable)
      */
     public void setRole(String role) {
@@ -304,12 +277,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._role = role;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String time_COLUMN = "Time";
-
     /**
-     * Get the value of the column 'Time'. <br />
-     * {DOUBLE}
+     * Time: {DOUBLE} <br />
      * @return The value of the column 'Time'. (Nullable)
      */
     public java.math.BigDecimal getTime() {
@@ -317,8 +286,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Time'. <br />
-     * {DOUBLE}
+     * Time: {DOUBLE} <br />
      * @param time The value of the column 'Time'. (Nullable)
      */
     public void setTime(java.math.BigDecimal time) {
@@ -326,12 +294,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._time = time;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -339,8 +303,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -348,12 +311,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {SMALLINT} */
-    public static final String percentcomplete_COLUMN = "PercentComplete";
-
     /**
-     * Get the value of the column 'PercentComplete'. <br />
-     * {SMALLINT}
+     * PercentComplete: {SMALLINT} <br />
      * @return The value of the column 'PercentComplete'. (Nullable)
      */
     public java.lang.Integer getPercentcomplete() {
@@ -361,8 +320,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'PercentComplete'. <br />
-     * {SMALLINT}
+     * PercentComplete: {SMALLINT} <br />
      * @param percentcomplete The value of the column 'PercentComplete'. (Nullable)
      */
     public void setPercentcomplete(java.lang.Integer percentcomplete) {
@@ -370,12 +328,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._percentcomplete = percentcomplete;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String datestart_COLUMN = "DateStart";
-
     /**
-     * Get the value of the column 'DateStart'. <br />
-     * {DATETIME}
+     * DateStart: {DATETIME} <br />
      * @return The value of the column 'DateStart'. (Nullable)
      */
     public java.sql.Timestamp getDatestart() {
@@ -383,8 +337,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'DateStart'. <br />
-     * {DATETIME}
+     * DateStart: {DATETIME} <br />
      * @param datestart The value of the column 'DateStart'. (Nullable)
      */
     public void setDatestart(java.sql.Timestamp datestart) {
@@ -392,12 +345,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._datestart = datestart;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String dateend_COLUMN = "DateEnd";
-
     /**
-     * Get the value of the column 'DateEnd'. <br />
-     * {DATETIME}
+     * DateEnd: {DATETIME} <br />
      * @return The value of the column 'DateEnd'. (Nullable)
      */
     public java.sql.Timestamp getDateend() {
@@ -405,8 +354,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'DateEnd'. <br />
-     * {DATETIME}
+     * DateEnd: {DATETIME} <br />
      * @param dateend The value of the column 'DateEnd'. (Nullable)
      */
     public void setDateend(java.sql.Timestamp dateend) {
@@ -414,12 +362,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._dateend = dateend;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String history_COLUMN = "History";
-
     /**
-     * Get the value of the column 'History'. <br />
-     * {LONGCHAR(2147483647)}
+     * History: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'History'. (Nullable)
      */
     public String getHistory() {
@@ -427,8 +371,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'History'. <br />
-     * {LONGCHAR(2147483647)}
+     * History: {LONGCHAR(2147483647)} <br />
      * @param history The value of the column 'History'. (Nullable)
      */
     public void setHistory(String history) {
@@ -436,12 +379,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._history = history;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String expectedhours_COLUMN = "ExpectedHours";
-
     /**
-     * Get the value of the column 'ExpectedHours'. <br />
-     * {INTEGER}
+     * ExpectedHours: {INTEGER} <br />
      * @return The value of the column 'ExpectedHours'. (Nullable)
      */
     public java.lang.Integer getExpectedhours() {
@@ -449,8 +388,7 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ExpectedHours'. <br />
-     * {INTEGER}
+     * ExpectedHours: {INTEGER} <br />
      * @param expectedhours The value of the column 'ExpectedHours'. (Nullable)
      */
     public void setExpectedhours(java.lang.Integer expectedhours) {
@@ -458,12 +396,8 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
         this._expectedhours = expectedhours;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String actualhours_COLUMN = "ActualHours";
-
     /**
-     * Get the value of the column 'ActualHours'. <br />
-     * {INTEGER}
+     * ActualHours: {INTEGER} <br />
      * @return The value of the column 'ActualHours'. (Nullable)
      */
     public java.lang.Integer getActualhours() {
@@ -471,13 +405,11 @@ public abstract class BsTObjectresource implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ActualHours'. <br />
-     * {INTEGER}
+     * ActualHours: {INTEGER} <br />
      * @param actualhours The value of the column 'ActualHours'. (Nullable)
      */
     public void setActualhours(java.lang.Integer actualhours) {
         _modifiedProperties.addPropertyName("actualhours");
         this._actualhours = actualhours;
     }
-
 }

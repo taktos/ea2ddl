@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_tasks(TABLE).
+ * The entity of t_tasks that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTTasks implements Entity, java.io.Serializable {
+public abstract class BsTTasks implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,59 +47,55 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_tasks. */
-    public static final String TABLE = "t_tasks";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'TaskID'. {UQ : COUNTER : NotNull} */
+    /** TaskID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _taskid;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'TaskType'. {VARCHAR(255)} */
+    /** TaskType: {VARCHAR(255)} */
     protected String _tasktype;
 
-    /** The attribute of the column 'NOTES'. {LONGCHAR(2147483647)} */
+    /** NOTES: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Priority'. {VARCHAR(255)} */
+    /** Priority: {VARCHAR(255)} */
     protected String _priority;
 
-    /** The attribute of the column 'Status'. {VARCHAR(255)} */
+    /** Status: {VARCHAR(255)} */
     protected String _status;
 
-    /** The attribute of the column 'Owner'. {VARCHAR(255)} */
+    /** Owner: {VARCHAR(255)} */
     protected String _owner;
 
-    /** The attribute of the column 'StartDate'. {DATETIME} */
+    /** StartDate: {DATETIME} */
     protected java.sql.Timestamp _startdate;
 
-    /** The attribute of the column 'EndDate'. {DATETIME} */
+    /** EndDate: {DATETIME} */
     protected java.sql.Timestamp _enddate;
 
-    /** The attribute of the column 'Phase'. {VARCHAR(50)} */
+    /** Phase: {VARCHAR(50)} */
     protected String _phase;
 
-    /** The attribute of the column 'History'. {LONGCHAR(2147483647)} */
+    /** History: {LONGCHAR(2147483647)} */
     protected String _history;
 
-    /** The attribute of the column 'Percent'. {INTEGER} */
+    /** Percent: {INTEGER} */
     protected java.lang.Integer _percent;
 
-    /** The attribute of the column 'TotalTime'. {INTEGER} */
+    /** TotalTime: {INTEGER} */
     protected java.lang.Integer _totaltime;
 
-    /** The attribute of the column 'ActualTime'. {INTEGER} */
+    /** ActualTime: {INTEGER} */
     protected java.lang.Integer _actualtime;
 
-    /** The attribute of the column 'AssignedTo'. {VARCHAR(100)} */
+    /** AssignedTo: {VARCHAR(100)} */
     protected String _assignedto;
 
     // -----------------------------------------------------
@@ -109,19 +105,13 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTTasks() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_tasks";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TTasks";
     }
 
@@ -147,7 +137,6 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -261,13 +250,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String taskid_COLUMN = "TaskID";
-
     /**
-     * Get the value of the column 'TaskID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * TaskID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'TaskID'. (Nullable)
      */
     public java.lang.Integer getTaskid() {
@@ -275,8 +259,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TaskID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * TaskID: {UQ : NotNull : COUNTER} <br />
      * @param taskid The value of the column 'TaskID'. (Nullable)
      */
     public void setTaskid(java.lang.Integer taskid) {
@@ -284,12 +267,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._taskid = taskid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -297,8 +276,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -306,12 +284,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String tasktype_COLUMN = "TaskType";
-
     /**
-     * Get the value of the column 'TaskType'. <br />
-     * {VARCHAR(255)}
+     * TaskType: {VARCHAR(255)} <br />
      * @return The value of the column 'TaskType'. (Nullable)
      */
     public String getTasktype() {
@@ -319,8 +293,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TaskType'. <br />
-     * {VARCHAR(255)}
+     * TaskType: {VARCHAR(255)} <br />
      * @param tasktype The value of the column 'TaskType'. (Nullable)
      */
     public void setTasktype(String tasktype) {
@@ -328,12 +301,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._tasktype = tasktype;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "NOTES";
-
     /**
-     * Get the value of the column 'NOTES'. <br />
-     * {LONGCHAR(2147483647)}
+     * NOTES: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'NOTES'. (Nullable)
      */
     public String getNotes() {
@@ -341,8 +310,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NOTES'. <br />
-     * {LONGCHAR(2147483647)}
+     * NOTES: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'NOTES'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -350,12 +318,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String priority_COLUMN = "Priority";
-
     /**
-     * Get the value of the column 'Priority'. <br />
-     * {VARCHAR(255)}
+     * Priority: {VARCHAR(255)} <br />
      * @return The value of the column 'Priority'. (Nullable)
      */
     public String getPriority() {
@@ -363,8 +327,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Priority'. <br />
-     * {VARCHAR(255)}
+     * Priority: {VARCHAR(255)} <br />
      * @param priority The value of the column 'Priority'. (Nullable)
      */
     public void setPriority(String priority) {
@@ -372,12 +335,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._priority = priority;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String status_COLUMN = "Status";
-
     /**
-     * Get the value of the column 'Status'. <br />
-     * {VARCHAR(255)}
+     * Status: {VARCHAR(255)} <br />
      * @return The value of the column 'Status'. (Nullable)
      */
     public String getStatus() {
@@ -385,8 +344,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Status'. <br />
-     * {VARCHAR(255)}
+     * Status: {VARCHAR(255)} <br />
      * @param status The value of the column 'Status'. (Nullable)
      */
     public void setStatus(String status) {
@@ -394,12 +352,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._status = status;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String owner_COLUMN = "Owner";
-
     /**
-     * Get the value of the column 'Owner'. <br />
-     * {VARCHAR(255)}
+     * Owner: {VARCHAR(255)} <br />
      * @return The value of the column 'Owner'. (Nullable)
      */
     public String getOwner() {
@@ -407,8 +361,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Owner'. <br />
-     * {VARCHAR(255)}
+     * Owner: {VARCHAR(255)} <br />
      * @param owner The value of the column 'Owner'. (Nullable)
      */
     public void setOwner(String owner) {
@@ -416,12 +369,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._owner = owner;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String startdate_COLUMN = "StartDate";
-
     /**
-     * Get the value of the column 'StartDate'. <br />
-     * {DATETIME}
+     * StartDate: {DATETIME} <br />
      * @return The value of the column 'StartDate'. (Nullable)
      */
     public java.sql.Timestamp getStartdate() {
@@ -429,8 +378,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StartDate'. <br />
-     * {DATETIME}
+     * StartDate: {DATETIME} <br />
      * @param startdate The value of the column 'StartDate'. (Nullable)
      */
     public void setStartdate(java.sql.Timestamp startdate) {
@@ -438,12 +386,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._startdate = startdate;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String enddate_COLUMN = "EndDate";
-
     /**
-     * Get the value of the column 'EndDate'. <br />
-     * {DATETIME}
+     * EndDate: {DATETIME} <br />
      * @return The value of the column 'EndDate'. (Nullable)
      */
     public java.sql.Timestamp getEnddate() {
@@ -451,8 +395,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'EndDate'. <br />
-     * {DATETIME}
+     * EndDate: {DATETIME} <br />
      * @param enddate The value of the column 'EndDate'. (Nullable)
      */
     public void setEnddate(java.sql.Timestamp enddate) {
@@ -460,12 +403,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._enddate = enddate;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String phase_COLUMN = "Phase";
-
     /**
-     * Get the value of the column 'Phase'. <br />
-     * {VARCHAR(50)}
+     * Phase: {VARCHAR(50)} <br />
      * @return The value of the column 'Phase'. (Nullable)
      */
     public String getPhase() {
@@ -473,8 +412,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Phase'. <br />
-     * {VARCHAR(50)}
+     * Phase: {VARCHAR(50)} <br />
      * @param phase The value of the column 'Phase'. (Nullable)
      */
     public void setPhase(String phase) {
@@ -482,12 +420,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._phase = phase;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String history_COLUMN = "History";
-
     /**
-     * Get the value of the column 'History'. <br />
-     * {LONGCHAR(2147483647)}
+     * History: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'History'. (Nullable)
      */
     public String getHistory() {
@@ -495,8 +429,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'History'. <br />
-     * {LONGCHAR(2147483647)}
+     * History: {LONGCHAR(2147483647)} <br />
      * @param history The value of the column 'History'. (Nullable)
      */
     public void setHistory(String history) {
@@ -504,12 +437,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._history = history;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String percent_COLUMN = "Percent";
-
     /**
-     * Get the value of the column 'Percent'. <br />
-     * {INTEGER}
+     * Percent: {INTEGER} <br />
      * @return The value of the column 'Percent'. (Nullable)
      */
     public java.lang.Integer getPercent() {
@@ -517,8 +446,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Percent'. <br />
-     * {INTEGER}
+     * Percent: {INTEGER} <br />
      * @param percent The value of the column 'Percent'. (Nullable)
      */
     public void setPercent(java.lang.Integer percent) {
@@ -526,12 +454,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._percent = percent;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String totaltime_COLUMN = "TotalTime";
-
     /**
-     * Get the value of the column 'TotalTime'. <br />
-     * {INTEGER}
+     * TotalTime: {INTEGER} <br />
      * @return The value of the column 'TotalTime'. (Nullable)
      */
     public java.lang.Integer getTotaltime() {
@@ -539,8 +463,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TotalTime'. <br />
-     * {INTEGER}
+     * TotalTime: {INTEGER} <br />
      * @param totaltime The value of the column 'TotalTime'. (Nullable)
      */
     public void setTotaltime(java.lang.Integer totaltime) {
@@ -548,12 +471,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._totaltime = totaltime;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String actualtime_COLUMN = "ActualTime";
-
     /**
-     * Get the value of the column 'ActualTime'. <br />
-     * {INTEGER}
+     * ActualTime: {INTEGER} <br />
      * @return The value of the column 'ActualTime'. (Nullable)
      */
     public java.lang.Integer getActualtime() {
@@ -561,8 +480,7 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ActualTime'. <br />
-     * {INTEGER}
+     * ActualTime: {INTEGER} <br />
      * @param actualtime The value of the column 'ActualTime'. (Nullable)
      */
     public void setActualtime(java.lang.Integer actualtime) {
@@ -570,12 +488,8 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
         this._actualtime = actualtime;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String assignedto_COLUMN = "AssignedTo";
-
     /**
-     * Get the value of the column 'AssignedTo'. <br />
-     * {VARCHAR(100)}
+     * AssignedTo: {VARCHAR(100)} <br />
      * @return The value of the column 'AssignedTo'. (Nullable)
      */
     public String getAssignedto() {
@@ -583,13 +497,11 @@ public abstract class BsTTasks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'AssignedTo'. <br />
-     * {VARCHAR(100)}
+     * AssignedTo: {VARCHAR(100)} <br />
      * @param assignedto The value of the column 'AssignedTo'. (Nullable)
      */
     public void setAssignedto(String assignedto) {
         _modifiedProperties.addPropertyName("assignedto");
         this._assignedto = assignedto;
     }
-
 }

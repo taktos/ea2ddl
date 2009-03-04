@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_trxtypes(TABLE).
+ * The entity of t_trxtypes that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
+public abstract class BsTTrxtypes implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_trxtypes. */
-    public static final String TABLE = "t_trxtypes";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Description'. {VARCHAR(50)} */
+    /** Description: {VARCHAR(50)} */
     protected String _description;
 
-    /** The attribute of the column 'NumericWeight'. {DOUBLE} */
+    /** NumericWeight: {DOUBLE} */
     protected java.math.BigDecimal _numericweight;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'TRX'. {VARCHAR(255)} */
+    /** TRX: {VARCHAR(255)} */
     protected String _trx;
 
-    /** The attribute of the column 'TRX_ID'. {UQ : COUNTER : NotNull} */
+    /** TRX_ID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _trxId;
 
-    /** The attribute of the column 'Style'. {LONGCHAR(2147483647)} */
+    /** Style: {LONGCHAR(2147483647)} */
     protected String _style;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTTrxtypes() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_trxtypes";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TTrxtypes";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(50)}
+     * Description: {VARCHAR(50)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -221,8 +205,7 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(50)}
+     * Description: {VARCHAR(50)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
@@ -230,12 +213,8 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
         this._description = description;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String numericweight_COLUMN = "NumericWeight";
-
     /**
-     * Get the value of the column 'NumericWeight'. <br />
-     * {DOUBLE}
+     * NumericWeight: {DOUBLE} <br />
      * @return The value of the column 'NumericWeight'. (Nullable)
      */
     public java.math.BigDecimal getNumericweight() {
@@ -243,8 +222,7 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NumericWeight'. <br />
-     * {DOUBLE}
+     * NumericWeight: {DOUBLE} <br />
      * @param numericweight The value of the column 'NumericWeight'. (Nullable)
      */
     public void setNumericweight(java.math.BigDecimal numericweight) {
@@ -252,12 +230,8 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
         this._numericweight = numericweight;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -265,8 +239,7 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -274,12 +247,8 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String trx_COLUMN = "TRX";
-
     /**
-     * Get the value of the column 'TRX'. <br />
-     * {VARCHAR(255)}
+     * TRX: {VARCHAR(255)} <br />
      * @return The value of the column 'TRX'. (Nullable)
      */
     public String getTrx() {
@@ -287,8 +256,7 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TRX'. <br />
-     * {VARCHAR(255)}
+     * TRX: {VARCHAR(255)} <br />
      * @param trx The value of the column 'TRX'. (Nullable)
      */
     public void setTrx(String trx) {
@@ -296,12 +264,8 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
         this._trx = trx;
     }
 
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String trxId_COLUMN = "TRX_ID";
-
     /**
-     * Get the value of the column 'TRX_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * TRX_ID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'TRX_ID'. (Nullable)
      */
     public java.lang.Integer getTrxId() {
@@ -309,8 +273,7 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TRX_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * TRX_ID: {UQ : NotNull : COUNTER} <br />
      * @param trxId The value of the column 'TRX_ID'. (Nullable)
      */
     public void setTrxId(java.lang.Integer trxId) {
@@ -318,12 +281,8 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
         this._trxId = trxId;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {LONGCHAR(2147483647)}
+     * Style: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -331,13 +290,11 @@ public abstract class BsTTrxtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {LONGCHAR(2147483647)}
+     * Style: {LONGCHAR(2147483647)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
         _modifiedProperties.addPropertyName("style");
         this._style = style;
     }
-
 }

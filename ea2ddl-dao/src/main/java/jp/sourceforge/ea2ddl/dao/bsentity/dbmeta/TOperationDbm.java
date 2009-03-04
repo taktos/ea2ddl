@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TOperation;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_operation. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TOperationDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TOperationDbm _instance = new TOperationDbm();
     private TOperationDbm() {}
     public static TOperationDbm getInstance() { return _instance; }
@@ -29,29 +32,29 @@ public class TOperationDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnOperationid = cci("OperationID", "operationid", java.lang.Integer.class, true, null, null);
-    protected ColumnInfo _columnObjectId = cci("Object_ID", "objectId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnName = cci("Name", "name", String.class, false, 255, 0);
-    protected ColumnInfo _columnScope = cci("Scope", "scope", String.class, false, 50, 0);
-    protected ColumnInfo _columnType = cci("Type", "type", String.class, false, 255, 0);
-    protected ColumnInfo _columnReturnarray = cci("ReturnArray", "returnarray", String.class, false, 1, 0);
-    protected ColumnInfo _columnStereotype = cci("Stereotype", "stereotype", String.class, false, 50, 0);
-    protected ColumnInfo _columnIsstatic = cci("IsStatic", "isstatic", String.class, false, 1, 0);
-    protected ColumnInfo _columnConcurrency = cci("Concurrency", "concurrency", String.class, false, 50, 0);
-    protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnBehaviour = cci("Behaviour", "behaviour", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnGenoption = cci("GenOption", "genoption", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnPos = cci("Pos", "pos", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnStyle = cci("Style", "style", String.class, false, 255, 0);
-    protected ColumnInfo _columnPure = cci("Pure", "pure", Boolean.class, false, null, null);
-    protected ColumnInfo _columnClassifier = cci("Classifier", "classifier", String.class, false, 50, 0);
-    protected ColumnInfo _columnCode = cci("Code", "code", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnIsroot = cci("IsRoot", "isroot", Boolean.class, false, null, null);
-    protected ColumnInfo _columnIsleaf = cci("IsLeaf", "isleaf", Boolean.class, false, null, null);
-    protected ColumnInfo _columnIsquery = cci("IsQuery", "isquery", Boolean.class, false, null, null);
-    protected ColumnInfo _columnStateflags = cci("StateFlags", "stateflags", String.class, false, 255, 0);
-    protected ColumnInfo _columnEaGuid = cci("ea_guid", "eaGuid", String.class, false, 50, 0);
-    protected ColumnInfo _columnStyleex = cci("StyleEx", "styleex", String.class, false, 2147483647, 0);
+    protected ColumnInfo _columnOperationid = cci("OperationID", null, "operationid", java.lang.Integer.class, true, false, null, null);
+    protected ColumnInfo _columnObjectId = cci("Object_ID", null, "objectId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnName = cci("Name", null, "name", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnScope = cci("Scope", null, "scope", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnType = cci("Type", null, "type", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnReturnarray = cci("ReturnArray", null, "returnarray", String.class, false, false, 1, 0);
+    protected ColumnInfo _columnStereotype = cci("Stereotype", null, "stereotype", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnIsstatic = cci("IsStatic", null, "isstatic", String.class, false, false, 1, 0);
+    protected ColumnInfo _columnConcurrency = cci("Concurrency", null, "concurrency", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnNotes = cci("Notes", null, "notes", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnBehaviour = cci("Behaviour", null, "behaviour", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnGenoption = cci("GenOption", null, "genoption", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnPos = cci("Pos", null, "pos", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnStyle = cci("Style", null, "style", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPure = cci("Pure", null, "pure", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnClassifier = cci("Classifier", null, "classifier", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnCode = cci("Code", null, "code", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnIsroot = cci("IsRoot", null, "isroot", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnIsleaf = cci("IsLeaf", null, "isleaf", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnIsquery = cci("IsQuery", null, "isquery", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnStateflags = cci("StateFlags", null, "stateflags", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnEaGuid = cci("ea_guid", null, "eaGuid", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnStyleex = cci("StyleEx", null, "styleex", String.class, false, false, 2147483647, 0);
 
     public ColumnInfo columnOperationid() { return _columnOperationid; }
     public ColumnInfo columnObjectId() { return _columnObjectId; }
@@ -76,23 +79,41 @@ public class TOperationDbm extends AbstractDBMeta {
     public ColumnInfo columnStateflags() { return _columnStateflags; }
     public ColumnInfo columnEaGuid() { return _columnEaGuid; }
     public ColumnInfo columnStyleex() { return _columnStyleex; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() { return cpui(columnOperationid()); }
+    public boolean hasPrimaryKey() { return true; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+    public ForeignInfo foreignTObject() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TObjectDbm.getInstance().columnObjectId());
+        return cfi("TObject", this, TObjectDbm.getInstance(), map, 0, false);
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+    public ReferrerInfo referrerTOperationparamsList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnOperationid(), TOperationparamsDbm.getInstance().columnOperationid());
+        return cri("TOperationparamsList", this, TOperationparamsDbm.getInstance(), map, false);
     }
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -114,71 +135,29 @@ public class TOperationDbm extends AbstractDBMeta {
     public TOperation newMyEntity() { return new TOperation(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() { return createPrimaryUniqueInfo(columnOperationid()); }
-    public boolean hasPrimaryKey() { return true; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-    public ForeignInfo foreignTObject() {
-		Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TObjectDbm.getInstance().columnObjectId());
-	    return cfi("TObject", this, TObjectDbm.getInstance(), map, 0, false);
-    }
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-    public ReferrerInfo referrerTOperationparamsList() {
-        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnOperationid(), TOperationparamsDbm.getInstance().columnOperationid());
-	    return cri("TOperationparamsList", this, TOperationparamsDbm.getInstance(), map, false);
-    }
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TOperation)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TOperation)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TOperation)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TOperation)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -192,7 +171,7 @@ public class TOperationDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TOperation>> _epsMap = newHashMap();
+    protected Map<String, Eps<TOperation>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsOperationid(), columnOperationid());
         setupEps(_epsMap, new EpsObjectId(), columnObjectId());
@@ -218,82 +197,55 @@ public class TOperationDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsEaGuid(), columnEaGuid());
         setupEps(_epsMap, new EpsStyleex(), columnStyleex());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TOperation)entity, value);
-    }
-    
-    public static class EpsOperationid implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setOperationid((java.lang.Integer)v); }
-    }
-    public static class EpsObjectId implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setObjectId((java.lang.Integer)v); }
-    }
-    public static class EpsName implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setName((String)v); }
-    }
-    public static class EpsScope implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setScope((String)v); }
-    }
-    public static class EpsType implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setType((String)v); }
-    }
-    public static class EpsReturnarray implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setReturnarray((String)v); }
-    }
-    public static class EpsStereotype implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setStereotype((String)v); }
-    }
-    public static class EpsIsstatic implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setIsstatic((String)v); }
-    }
-    public static class EpsConcurrency implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setConcurrency((String)v); }
-    }
-    public static class EpsNotes implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setNotes((String)v); }
-    }
-    public static class EpsBehaviour implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setBehaviour((String)v); }
-    }
-    public static class EpsGenoption implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setGenoption((String)v); }
-    }
-    public static class EpsPos implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setPos((java.lang.Integer)v); }
-    }
-    public static class EpsStyle implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setStyle((String)v); }
-    }
-    public static class EpsPure implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setPure((Boolean)v); }
-    }
-    public static class EpsClassifier implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setClassifier((String)v); }
-    }
-    public static class EpsCode implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setCode((String)v); }
-    }
-    public static class EpsIsroot implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setIsroot((Boolean)v); }
-    }
-    public static class EpsIsleaf implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setIsleaf((Boolean)v); }
-    }
-    public static class EpsIsquery implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setIsquery((Boolean)v); }
-    }
-    public static class EpsStateflags implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setStateflags((String)v); }
-    }
-    public static class EpsEaGuid implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setEaGuid((String)v); }
-    }
-    public static class EpsStyleex implements Eps<TOperation> {
-        public void setup(TOperation e, Object v) { e.setStyleex((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TOperation)entity, value); }
+
+    public static class EpsOperationid implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setOperationid((java.lang.Integer)v); } }
+    public static class EpsObjectId implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setObjectId((java.lang.Integer)v); } }
+    public static class EpsName implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setName((String)v); } }
+    public static class EpsScope implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setScope((String)v); } }
+    public static class EpsType implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setType((String)v); } }
+    public static class EpsReturnarray implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setReturnarray((String)v); } }
+    public static class EpsStereotype implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setStereotype((String)v); } }
+    public static class EpsIsstatic implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setIsstatic((String)v); } }
+    public static class EpsConcurrency implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setConcurrency((String)v); } }
+    public static class EpsNotes implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setNotes((String)v); } }
+    public static class EpsBehaviour implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setBehaviour((String)v); } }
+    public static class EpsGenoption implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setGenoption((String)v); } }
+    public static class EpsPos implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setPos((java.lang.Integer)v); } }
+    public static class EpsStyle implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setStyle((String)v); } }
+    public static class EpsPure implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setPure((Boolean)v); } }
+    public static class EpsClassifier implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setClassifier((String)v); } }
+    public static class EpsCode implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setCode((String)v); } }
+    public static class EpsIsroot implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setIsroot((Boolean)v); } }
+    public static class EpsIsleaf implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setIsleaf((Boolean)v); } }
+    public static class EpsIsquery implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setIsquery((Boolean)v); } }
+    public static class EpsStateflags implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setStateflags((String)v); } }
+    public static class EpsEaGuid implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setEaGuid((String)v); } }
+    public static class EpsStyleex implements Eps<TOperation>
+    { public void setup(TOperation e, Object v) { e.setStyleex((String)v); } }
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_rules(TABLE).
+ * The entity of t_rules that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTRules implements Entity, java.io.Serializable {
+public abstract class BsTRules implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,41 +47,37 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_rules. */
-    public static final String TABLE = "t_rules";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'RuleID'. {UQ : VARCHAR(50)} */
+    /** RuleID: {UQ : VARCHAR(50)} */
     protected String _ruleid;
 
-    /** The attribute of the column 'RuleName'. {VARCHAR(255)} */
+    /** RuleName: {VARCHAR(255)} */
     protected String _rulename;
 
-    /** The attribute of the column 'RuleType'. {VARCHAR(255)} */
+    /** RuleType: {VARCHAR(255)} */
     protected String _ruletype;
 
-    /** The attribute of the column 'RuleActive'. {INTEGER} */
+    /** RuleActive: {INTEGER} */
     protected java.lang.Integer _ruleactive;
 
-    /** The attribute of the column 'ErrorMsg'. {VARCHAR(255)} */
+    /** ErrorMsg: {VARCHAR(255)} */
     protected String _errormsg;
 
-    /** The attribute of the column 'Flags'. {VARCHAR(255)} */
+    /** Flags: {VARCHAR(255)} */
     protected String _flags;
 
-    /** The attribute of the column 'RuleOCL'. {LONGCHAR(2147483647)} */
+    /** RuleOCL: {LONGCHAR(2147483647)} */
     protected String _ruleocl;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'RuleXML'. {LONGCHAR(2147483647)} */
+    /** RuleXML: {LONGCHAR(2147483647)} */
     protected String _rulexml;
 
     // -----------------------------------------------------
@@ -91,19 +87,13 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTRules() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_rules";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TRules";
     }
 
@@ -129,7 +119,6 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -225,13 +214,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String ruleid_COLUMN = "RuleID";
-
     /**
-     * Get the value of the column 'RuleID'. <br />
-     * {UQ : VARCHAR(50)}
+     * RuleID: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'RuleID'. (Nullable)
      */
     public String getRuleid() {
@@ -239,8 +223,7 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RuleID'. <br />
-     * {UQ : VARCHAR(50)}
+     * RuleID: {UQ : VARCHAR(50)} <br />
      * @param ruleid The value of the column 'RuleID'. (Nullable)
      */
     public void setRuleid(String ruleid) {
@@ -248,12 +231,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
         this._ruleid = ruleid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String rulename_COLUMN = "RuleName";
-
     /**
-     * Get the value of the column 'RuleName'. <br />
-     * {VARCHAR(255)}
+     * RuleName: {VARCHAR(255)} <br />
      * @return The value of the column 'RuleName'. (Nullable)
      */
     public String getRulename() {
@@ -261,8 +240,7 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RuleName'. <br />
-     * {VARCHAR(255)}
+     * RuleName: {VARCHAR(255)} <br />
      * @param rulename The value of the column 'RuleName'. (Nullable)
      */
     public void setRulename(String rulename) {
@@ -270,12 +248,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
         this._rulename = rulename;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String ruletype_COLUMN = "RuleType";
-
     /**
-     * Get the value of the column 'RuleType'. <br />
-     * {VARCHAR(255)}
+     * RuleType: {VARCHAR(255)} <br />
      * @return The value of the column 'RuleType'. (Nullable)
      */
     public String getRuletype() {
@@ -283,8 +257,7 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RuleType'. <br />
-     * {VARCHAR(255)}
+     * RuleType: {VARCHAR(255)} <br />
      * @param ruletype The value of the column 'RuleType'. (Nullable)
      */
     public void setRuletype(String ruletype) {
@@ -292,12 +265,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
         this._ruletype = ruletype;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String ruleactive_COLUMN = "RuleActive";
-
     /**
-     * Get the value of the column 'RuleActive'. <br />
-     * {INTEGER}
+     * RuleActive: {INTEGER} <br />
      * @return The value of the column 'RuleActive'. (Nullable)
      */
     public java.lang.Integer getRuleactive() {
@@ -305,8 +274,7 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RuleActive'. <br />
-     * {INTEGER}
+     * RuleActive: {INTEGER} <br />
      * @param ruleactive The value of the column 'RuleActive'. (Nullable)
      */
     public void setRuleactive(java.lang.Integer ruleactive) {
@@ -314,12 +282,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
         this._ruleactive = ruleactive;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String errormsg_COLUMN = "ErrorMsg";
-
     /**
-     * Get the value of the column 'ErrorMsg'. <br />
-     * {VARCHAR(255)}
+     * ErrorMsg: {VARCHAR(255)} <br />
      * @return The value of the column 'ErrorMsg'. (Nullable)
      */
     public String getErrormsg() {
@@ -327,8 +291,7 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ErrorMsg'. <br />
-     * {VARCHAR(255)}
+     * ErrorMsg: {VARCHAR(255)} <br />
      * @param errormsg The value of the column 'ErrorMsg'. (Nullable)
      */
     public void setErrormsg(String errormsg) {
@@ -336,12 +299,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
         this._errormsg = errormsg;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String flags_COLUMN = "Flags";
-
     /**
-     * Get the value of the column 'Flags'. <br />
-     * {VARCHAR(255)}
+     * Flags: {VARCHAR(255)} <br />
      * @return The value of the column 'Flags'. (Nullable)
      */
     public String getFlags() {
@@ -349,8 +308,7 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Flags'. <br />
-     * {VARCHAR(255)}
+     * Flags: {VARCHAR(255)} <br />
      * @param flags The value of the column 'Flags'. (Nullable)
      */
     public void setFlags(String flags) {
@@ -358,12 +316,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
         this._flags = flags;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String ruleocl_COLUMN = "RuleOCL";
-
     /**
-     * Get the value of the column 'RuleOCL'. <br />
-     * {LONGCHAR(2147483647)}
+     * RuleOCL: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'RuleOCL'. (Nullable)
      */
     public String getRuleocl() {
@@ -371,8 +325,7 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RuleOCL'. <br />
-     * {LONGCHAR(2147483647)}
+     * RuleOCL: {LONGCHAR(2147483647)} <br />
      * @param ruleocl The value of the column 'RuleOCL'. (Nullable)
      */
     public void setRuleocl(String ruleocl) {
@@ -380,12 +333,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
         this._ruleocl = ruleocl;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -393,8 +342,7 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -402,12 +350,8 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String rulexml_COLUMN = "RuleXML";
-
     /**
-     * Get the value of the column 'RuleXML'. <br />
-     * {LONGCHAR(2147483647)}
+     * RuleXML: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'RuleXML'. (Nullable)
      */
     public String getRulexml() {
@@ -415,13 +359,11 @@ public abstract class BsTRules implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RuleXML'. <br />
-     * {LONGCHAR(2147483647)}
+     * RuleXML: {LONGCHAR(2147483647)} <br />
      * @param rulexml The value of the column 'RuleXML'. (Nullable)
      */
     public void setRulexml(String rulexml) {
         _modifiedProperties.addPropertyName("rulexml");
         this._rulexml = rulexml;
     }
-
 }

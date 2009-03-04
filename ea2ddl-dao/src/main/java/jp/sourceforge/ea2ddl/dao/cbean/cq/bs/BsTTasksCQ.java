@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_tasks.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTTasksCQ extends AbstractBsTTasksCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
      * @return On-clause query. (NotNull)
      */
     public TTasksCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TTasksCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _taskid;
     }
     protected ConditionValue getCValueTaskid() { return getTaskid(); }
-          
+
     public BsTTasksCQ addOrderBy_Taskid_Asc() { regOBA("TaskID"); return this; }
     public BsTTasksCQ addOrderBy_Taskid_Desc() { regOBD("TaskID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTTasksCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTTasksCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _tasktype;
     }
     protected ConditionValue getCValueTasktype() { return getTasktype(); }
-    
+
     public BsTTasksCQ addOrderBy_Tasktype_Asc() { regOBA("TaskType"); return this; }
     public BsTTasksCQ addOrderBy_Tasktype_Desc() { regOBD("TaskType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTTasksCQ addOrderBy_Notes_Asc() { regOBA("NOTES"); return this; }
     public BsTTasksCQ addOrderBy_Notes_Desc() { regOBD("NOTES"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _priority;
     }
     protected ConditionValue getCValuePriority() { return getPriority(); }
-    
+
     public BsTTasksCQ addOrderBy_Priority_Asc() { regOBA("Priority"); return this; }
     public BsTTasksCQ addOrderBy_Priority_Desc() { regOBD("Priority"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _status;
     }
     protected ConditionValue getCValueStatus() { return getStatus(); }
-    
+
     public BsTTasksCQ addOrderBy_Status_Asc() { regOBA("Status"); return this; }
     public BsTTasksCQ addOrderBy_Status_Desc() { regOBD("Status"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _owner;
     }
     protected ConditionValue getCValueOwner() { return getOwner(); }
-    
+
     public BsTTasksCQ addOrderBy_Owner_Asc() { regOBA("Owner"); return this; }
     public BsTTasksCQ addOrderBy_Owner_Desc() { regOBD("Owner"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _startdate;
     }
     protected ConditionValue getCValueStartdate() { return getStartdate(); }
-    
+
     public BsTTasksCQ addOrderBy_Startdate_Asc() { regOBA("StartDate"); return this; }
     public BsTTasksCQ addOrderBy_Startdate_Desc() { regOBD("StartDate"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _enddate;
     }
     protected ConditionValue getCValueEnddate() { return getEnddate(); }
-    
+
     public BsTTasksCQ addOrderBy_Enddate_Asc() { regOBA("EndDate"); return this; }
     public BsTTasksCQ addOrderBy_Enddate_Desc() { regOBD("EndDate"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _phase;
     }
     protected ConditionValue getCValuePhase() { return getPhase(); }
-    
+
     public BsTTasksCQ addOrderBy_Phase_Asc() { regOBA("Phase"); return this; }
     public BsTTasksCQ addOrderBy_Phase_Desc() { regOBD("Phase"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _history;
     }
     protected ConditionValue getCValueHistory() { return getHistory(); }
-    
+
     public BsTTasksCQ addOrderBy_History_Asc() { regOBA("History"); return this; }
     public BsTTasksCQ addOrderBy_History_Desc() { regOBD("History"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _percent;
     }
     protected ConditionValue getCValuePercent() { return getPercent(); }
-          
+
     public BsTTasksCQ addOrderBy_Percent_Asc() { regOBA("Percent"); return this; }
     public BsTTasksCQ addOrderBy_Percent_Desc() { regOBD("Percent"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _totaltime;
     }
     protected ConditionValue getCValueTotaltime() { return getTotaltime(); }
-          
+
     public BsTTasksCQ addOrderBy_Totaltime_Asc() { regOBA("TotalTime"); return this; }
     public BsTTasksCQ addOrderBy_Totaltime_Desc() { regOBD("TotalTime"); return this; }
 
@@ -192,7 +192,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _actualtime;
     }
     protected ConditionValue getCValueActualtime() { return getActualtime(); }
-          
+
     public BsTTasksCQ addOrderBy_Actualtime_Asc() { regOBA("ActualTime"); return this; }
     public BsTTasksCQ addOrderBy_Actualtime_Desc() { regOBD("ActualTime"); return this; }
 
@@ -202,7 +202,7 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
         return _assignedto;
     }
     protected ConditionValue getCValueAssignedto() { return getAssignedto(); }
-    
+
     public BsTTasksCQ addOrderBy_Assignedto_Asc() { regOBA("AssignedTo"); return this; }
     public BsTTasksCQ addOrderBy_Assignedto_Desc() { regOBD("AssignedTo"); return this; }
 
@@ -221,8 +221,11 @@ public class BsTTasksCQ extends AbstractBsTTasksCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TTasksCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TTasksCB.class.getName(); }
+    String xCQ() { return TTasksCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

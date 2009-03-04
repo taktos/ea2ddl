@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_connectorconstraint(TABLE).
+ * The entity of t_connectorconstraint that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTConnectorconstraint implements Entity, java.io.Serializable {
+public abstract class BsTConnectorconstraint implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_connectorconstraint. */
-    public static final String TABLE = "t_connectorconstraint";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'ConnectorID'. {UQ : INTEGER} */
+    /** ConnectorID: {UQ : INTEGER} */
     protected java.lang.Integer _connectorid;
 
-    /** The attribute of the column 'Constraint'. {UQ : VARCHAR(255)} */
+    /** Constraint: {UQ : VARCHAR(255)} */
     protected String _constraint;
 
-    /** The attribute of the column 'ConstraintType'. {VARCHAR(50)} */
+    /** ConstraintType: {VARCHAR(50)} */
     protected String _constrainttype;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTConnectorconstraint() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_connectorconstraint";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TConnectorconstraint";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String connectorid_COLUMN = "ConnectorID";
-
     /**
-     * Get the value of the column 'ConnectorID'. <br />
-     * {UQ : INTEGER}
+     * ConnectorID: {UQ : INTEGER} <br />
      * @return The value of the column 'ConnectorID'. (Nullable)
      */
     public java.lang.Integer getConnectorid() {
@@ -209,8 +193,7 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
     }
 
     /**
-     * Set the value of the column 'ConnectorID'. <br />
-     * {UQ : INTEGER}
+     * ConnectorID: {UQ : INTEGER} <br />
      * @param connectorid The value of the column 'ConnectorID'. (Nullable)
      */
     public void setConnectorid(java.lang.Integer connectorid) {
@@ -218,12 +201,8 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
         this._connectorid = connectorid;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String constraint_COLUMN = "Constraint";
-
     /**
-     * Get the value of the column 'Constraint'. <br />
-     * {UQ : VARCHAR(255)}
+     * Constraint: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Constraint'. (Nullable)
      */
     public String getConstraint() {
@@ -231,8 +210,7 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
     }
 
     /**
-     * Set the value of the column 'Constraint'. <br />
-     * {UQ : VARCHAR(255)}
+     * Constraint: {UQ : VARCHAR(255)} <br />
      * @param constraint The value of the column 'Constraint'. (Nullable)
      */
     public void setConstraint(String constraint) {
@@ -240,12 +218,8 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
         this._constraint = constraint;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String constrainttype_COLUMN = "ConstraintType";
-
     /**
-     * Get the value of the column 'ConstraintType'. <br />
-     * {VARCHAR(50)}
+     * ConstraintType: {VARCHAR(50)} <br />
      * @return The value of the column 'ConstraintType'. (Nullable)
      */
     public String getConstrainttype() {
@@ -253,8 +227,7 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
     }
 
     /**
-     * Set the value of the column 'ConstraintType'. <br />
-     * {VARCHAR(50)}
+     * ConstraintType: {VARCHAR(50)} <br />
      * @param constrainttype The value of the column 'ConstraintType'. (Nullable)
      */
     public void setConstrainttype(String constrainttype) {
@@ -262,12 +235,8 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
         this._constrainttype = constrainttype;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -275,13 +244,11 @@ public abstract class BsTConnectorconstraint implements Entity, java.io.Serializ
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

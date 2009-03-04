@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_diagramobjects.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
      * @return On-clause query. (NotNull)
      */
     public TDiagramobjectsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TDiagramobjectsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _diagramId;
     }
     protected ConditionValue getCValueDiagramId() { return getDiagramId(); }
-          
+
     public BsTDiagramobjectsCQ addOrderBy_DiagramId_Asc() { regOBA("Diagram_ID"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_DiagramId_Desc() { regOBD("Diagram_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTDiagramobjectsCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _recttop;
     }
     protected ConditionValue getCValueRecttop() { return getRecttop(); }
-          
+
     public BsTDiagramobjectsCQ addOrderBy_Recttop_Asc() { regOBA("RectTop"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_Recttop_Desc() { regOBD("RectTop"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _rectleft;
     }
     protected ConditionValue getCValueRectleft() { return getRectleft(); }
-          
+
     public BsTDiagramobjectsCQ addOrderBy_Rectleft_Asc() { regOBA("RectLeft"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_Rectleft_Desc() { regOBD("RectLeft"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _rectright;
     }
     protected ConditionValue getCValueRectright() { return getRectright(); }
-          
+
     public BsTDiagramobjectsCQ addOrderBy_Rectright_Asc() { regOBA("RectRight"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_Rectright_Desc() { regOBD("RectRight"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _rectbottom;
     }
     protected ConditionValue getCValueRectbottom() { return getRectbottom(); }
-          
+
     public BsTDiagramobjectsCQ addOrderBy_Rectbottom_Asc() { regOBA("RectBottom"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_Rectbottom_Desc() { regOBD("RectBottom"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _sequence;
     }
     protected ConditionValue getCValueSequence() { return getSequence(); }
-          
+
     public BsTDiagramobjectsCQ addOrderBy_Sequence_Asc() { regOBA("Sequence"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_Sequence_Desc() { regOBD("Sequence"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _objectstyle;
     }
     protected ConditionValue getCValueObjectstyle() { return getObjectstyle(); }
-    
+
     public BsTDiagramobjectsCQ addOrderBy_Objectstyle_Asc() { regOBA("ObjectStyle"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_Objectstyle_Desc() { regOBD("ObjectStyle"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
         return _instanceId;
     }
     protected ConditionValue getCValueInstanceId() { return getInstanceId(); }
-          
+
     public BsTDiagramobjectsCQ addOrderBy_InstanceId_Asc() { regOBA("Instance_ID"); return this; }
     public BsTDiagramobjectsCQ addOrderBy_InstanceId_Desc() { regOBD("Instance_ID"); return this; }
 
@@ -161,8 +161,11 @@ public class BsTDiagramobjectsCQ extends AbstractBsTDiagramobjectsCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TDiagramobjectsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TDiagramobjectsCB.class.getName(); }
+    String xCQ() { return TDiagramobjectsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

@@ -4,11 +4,10 @@ package jp.sourceforge.ea2ddl.dao.exentity;
  * The entity of t_secpermission.
  * <p>
  * You can implement your original methods here.
- * This class is NOT overrided when re-generating.
+ * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TSecpermission extends jp.sourceforge.ea2ddl.dao.bsentity.BsTSecpermission {
 
     /** Serial version UID. (Default) */

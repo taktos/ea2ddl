@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_objecttypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTObjecttypesCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(50)}
      * @param objectType The value of objectType as equal.
      */
     public void setObjectType_Equal(String objectType) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectType The value of objectType as notEqual.
      */
     public void setObjectType_NotEqual(String objectType) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectType The value of objectType as greaterThan.
      */
     public void setObjectType_GreaterThan(String objectType) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectType The value of objectType as lessThan.
      */
     public void setObjectType_LessThan(String objectType) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectType The value of objectType as greaterEqual.
      */
     public void setObjectType_GreaterEqual(String objectType) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectType The value of objectType as lessEqual.
      */
     public void setObjectType_LessEqual(String objectType) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectType The value of objectType as prefixSearch.
      */
     public void setObjectType_PrefixSearch(String objectType) {
         regObjectType(CK_PS, fRES(objectType));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param objectType The value of objectType as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setObjectType_LikeSearch(String objectType, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(objectType), getCValueObjectType(), "Object_Type", "ObjectType", "objectType", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param objectType The collection of objectType as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param objectType The value of objectType as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setObjectType_InScope(String objectType, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(objectType), getCValueObjectType(), "Object_Type", "ObjectType", "objectType", inScopeOption);
+    public void setObjectType_LikeSearch(String objectType, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(objectType), getCValueObjectType(), "Object_Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param objectType The value of objectType as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setObjectType_IsNull() { regObjectType(CK_ISN, DUMMY_OBJECT); }
+    public void setObjectType_NotLikeSearch(String objectType, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(objectType), getCValueObjectType(), "Object_Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setObjectType_IsNotNull() { regObjectType(CK_ISNN, DUMMY_OBJECT); }
+    public void setObjectType_IsNull() { regObjectType(CK_ISN, DOBJ); }
 
-    protected void regObjectType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueObjectType(), "Object_Type", "ObjectType", "objectType");
-    }
-    protected void registerInlineObjectType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueObjectType(), "Object_Type", "ObjectType", "objectType");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setObjectType_IsNotNull() { regObjectType(CK_ISNN, DOBJ); }
+
+    protected void regObjectType(ConditionKey k, Object v) { regQ(k, v, getCValueObjectType(), "Object_Type"); }
     abstract protected ConditionValue getCValueObjectType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param description The value of description as equal.
      */
     public void setDescription_Equal(String description) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as notEqual.
      */
     public void setDescription_NotEqual(String description) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as greaterThan.
      */
     public void setDescription_GreaterThan(String description) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as lessThan.
      */
     public void setDescription_LessThan(String description) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as greaterEqual.
      */
     public void setDescription_GreaterEqual(String description) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as lessEqual.
      */
     public void setDescription_LessEqual(String description) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param description The value of description as prefixSearch.
      */
     public void setDescription_PrefixSearch(String description) {
         regDescription(CK_PS, fRES(description));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param description The value of description as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setDescription_LikeSearch(String description, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(description), getCValueDescription(), "Description", "Description", "description", likeSearchOption);
     }
 
     /**
@@ -212,50 +213,49 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param description The collection of description as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param description The value of description as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setDescription_InScope(String description, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(description), getCValueDescription(), "Description", "Description", "description", inScopeOption);
+    public void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(description), getCValueDescription(), "Description", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param description The value of description as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setDescription_IsNull() { regDescription(CK_ISN, DUMMY_OBJECT); }
+    public void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(description), getCValueDescription(), "Description", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setDescription_IsNotNull() { regDescription(CK_ISNN, DUMMY_OBJECT); }
+    public void setDescription_IsNull() { regDescription(CK_ISN, DOBJ); }
 
-    protected void regDescription(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDescription(), "Description", "Description", "description");
-    }
-    protected void registerInlineDescription(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDescription(), "Description", "Description", "description");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setDescription_IsNotNull() { regDescription(CK_ISNN, DOBJ); }
+
+    protected void regDescription(ConditionKey k, Object v) { regQ(k, v, getCValueDescription(), "Description"); }
     abstract protected ConditionValue getCValueDescription();
 
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {BIT : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : BIT}
      * @param designobject The value of designobject as equal.
      */
     public void setDesignobject_Equal(Boolean designobject) {
         regDesignobject(CK_EQ, designobject);
     }
 
-    protected void regDesignobject(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDesignobject(), "DesignObject", "Designobject", "designobject");
-    }
-    protected void registerInlineDesignobject(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDesignobject(), "DesignObject", "Designobject", "designobject");
-    }
+    protected void regDesignobject(ConditionKey k, Object v) { regQ(k, v, getCValueDesignobject(), "DesignObject"); }
     abstract protected ConditionValue getCValueDesignobject();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {SMALLINT}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {SMALLINT}
      * @param imageid The value of imageid as equal.
      */
     public void setImageid_Equal(java.lang.Integer imageid) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as notEqual.
      */
     public void setImageid_NotEqual(java.lang.Integer imageid) {
@@ -271,7 +271,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as greaterThan.
      */
     public void setImageid_GreaterThan(java.lang.Integer imageid) {
@@ -279,7 +279,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as lessThan.
      */
     public void setImageid_LessThan(java.lang.Integer imageid) {
@@ -287,7 +287,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as greaterEqual.
      */
     public void setImageid_GreaterEqual(java.lang.Integer imageid) {
@@ -295,7 +295,7 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param imageid The value of imageid as lessEqual.
      */
     public void setImageid_LessEqual(java.lang.Integer imageid) {
@@ -311,24 +311,23 @@ public abstract class AbstractBsTObjecttypesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setImageid_IsNull() { regImageid(CK_ISN, DUMMY_OBJECT); }
+    public void setImageid_IsNull() { regImageid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setImageid_IsNotNull() { regImageid(CK_ISNN, DUMMY_OBJECT); }
+    public void setImageid_IsNotNull() { regImageid(CK_ISNN, DOBJ); }
 
-    protected void regImageid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueImageid(), "ImageID", "Imageid", "imageid");
-    }
-    protected void registerInlineImageid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueImageid(), "ImageID", "Imageid", "imageid");
-    }
+    protected void regImageid(ConditionKey k, Object v) { regQ(k, v, getCValueImageid(), "ImageID"); }
     abstract protected ConditionValue getCValueImageid();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TObjecttypesCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TObjecttypesCQ.class.getName(); }
+    String xCB() { return TObjecttypesCB.class.getName(); }
+    String xCQ() { return TObjecttypesCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

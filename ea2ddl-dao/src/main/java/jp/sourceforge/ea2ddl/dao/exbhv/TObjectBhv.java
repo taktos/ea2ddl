@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
-import jp.sourceforge.ea2ddl.dao.exdao.pmbean.SelectTablesInPackagePmb;
+import jp.sourceforge.ea2ddl.dao.exbhv.pmbean.SelectTablesInPackagePmb;
 import jp.sourceforge.ea2ddl.dao.exentity.TObject;
 import jp.sourceforge.ea2ddl.dao.exentity.TPackage;
 

@@ -1,26 +1,25 @@
 package jp.sourceforge.ea2ddl.dao.bsbhv;
 
-
 import java.util.List;
 
+import org.seasar.dbflute.*;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.EntityRowHandler;
+import org.seasar.dbflute.cbean.ListResultBean;
+import org.seasar.dbflute.cbean.PagingBean;
+import org.seasar.dbflute.cbean.PagingHandler;
+import org.seasar.dbflute.cbean.PagingInvoker;
+import org.seasar.dbflute.cbean.PagingResultBean;
+import org.seasar.dbflute.cbean.ResultBeanBuilder;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import org.seasar.dbflute.jdbc.StatementConfig;
 import jp.sourceforge.ea2ddl.dao.allcommon.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ValueLabelSetupper;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.exdao.*;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 import jp.sourceforge.ea2ddl.dao.bsentity.dbmeta.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 
-
 /**
- * The behavior of t_umlpattern.
+ * The behavior of t_umlpattern that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -51,18 +50,13 @@ import jp.sourceforge.ea2ddl.dao.cbean.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsTUmlpatternBhv extends jp.sourceforge.ea2ddl.dao.allcommon.bhv.AbstractBehaviorReadable {
+public abstract class BsTUmlpatternBhv extends org.seasar.dbflute.bhv.AbstractBehaviorReadable {
 
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
     /*df:BehaviorQueryPathBegin*/
     /*df:BehaviorQueryPathEnd*/
-
-    // ===================================================================================
-    //                                                                           Attribute
-    //                                                                           =========
-    protected TUmlpatternDao _dao;
 
     // ===================================================================================
     //                                                                          Table name
@@ -73,18 +67,11 @@ public abstract class BsTUmlpatternBhv extends jp.sourceforge.ea2ddl.dao.allcomm
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /** @return The meta data of the database. (NotNull) */
+    /** @return The instance of DBMeta. (NotNull) */
     public DBMeta getDBMeta() { return TUmlpatternDbm.getInstance(); }
 
-    /** @return The meta data of the database as my table type. (NotNull) */
+    /** @return The instance of DBMeta as my table type. (NotNull) */
     public TUmlpatternDbm getMyDBMeta() { return TUmlpatternDbm.getInstance(); }
-
-    // ===================================================================================
-    //                                                                        Dao Accessor
-    //                                                                        ============
-    public TUmlpatternDao getMyDao() { return _dao; }
-    public void setMyDao(TUmlpatternDao dao) { assertObjectNotNull("dao", dao); _dao = dao; }
-    public DaoReadable getDaoReadable() { return getMyDao(); }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -95,16 +82,46 @@ public abstract class BsTUmlpatternBhv extends jp.sourceforge.ea2ddl.dao.allcomm
     public TUmlpatternCB newMyConditionBean() { return new TUmlpatternCB(); }
 
     // ===================================================================================
+    //                                                                       Current DBDef
+    //                                                                       =============
+    @Override
+    protected DBDef getCurrentDBDef() {
+        return DBCurrent.getInstance().currentDBDef();
+    }
+
+    // ===================================================================================
+    //                                                             Default StatementConfig
+    //                                                             =======================
+    @Override
+    protected StatementConfig getDefaultStatementConfig() {
+        return DBFluteConfig.getInstance().getDefaultStatementConfig();
+    }
+    
+    // ===================================================================================
     //                                                                        Count Select
     //                                                                        ============
     /**
-     * Select the count of the condition-bean. {IgnorePagingCondition}
+     * Select the count by the condition-bean. {IgnorePagingCondition}
      * @param cb The condition-bean of TUmlpattern. (NotNull)
      * @return The selected count.
      */
     public int selectCount(TUmlpatternCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return delegateSelectCount(cb);
+    }
+    
+    // ===================================================================================
+    //                                                                       Cursor Select
+    //                                                                       =============
+    /**
+     * Select the cursor by the condition-bean. <br />
+     * Attention: It has a mapping cost from result set to entity.
+     * @param cb The condition-bean of TUmlpattern. (NotNull)
+     * @param entityRowHandler The handler of entity row of TUmlpattern. (NotNull)
+     */
+    public void selectCursor(TUmlpatternCB cb, EntityRowHandler<TUmlpattern> entityRowHandler) {
+        assertCBNotNull(cb); assertObjectNotNull("entityRowHandler<TUmlpattern>", entityRowHandler);
+        delegateSelectCursor(cb, entityRowHandler);
     }
 
     // ===================================================================================
@@ -114,7 +131,7 @@ public abstract class BsTUmlpatternBhv extends jp.sourceforge.ea2ddl.dao.allcomm
      * Select the entity by the condition-bean.
      * @param cb The condition-bean of TUmlpattern. (NotNull)
      * @return The selected entity. (Nullalble)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TUmlpattern selectEntity(final TUmlpatternCB cb) {
         return helpSelectEntityInternally(cb, new InternalSelectEntityCallback<TUmlpattern, TUmlpatternCB>() {
@@ -125,8 +142,8 @@ public abstract class BsTUmlpatternBhv extends jp.sourceforge.ea2ddl.dao.allcomm
      * Select the entity by the condition-bean with deleted check.
      * @param cb The condition-bean of TUmlpattern. (NotNull)
      * @return The selected entity. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TUmlpattern selectEntityWithDeletedCheck(final TUmlpatternCB cb) {
         return helpSelectEntityWithDeletedCheckInternally(cb, new InternalSelectEntityWithDeletedCheckCallback<TUmlpattern, TUmlpatternCB>() {
@@ -143,7 +160,7 @@ public abstract class BsTUmlpatternBhv extends jp.sourceforge.ea2ddl.dao.allcomm
      * @return The result bean of selected list. (NotNull)
      */
     public ListResultBean<TUmlpattern> selectList(TUmlpatternCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return new ResultBeanBuilder<TUmlpattern>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
     }
 
@@ -156,7 +173,7 @@ public abstract class BsTUmlpatternBhv extends jp.sourceforge.ea2ddl.dao.allcomm
      * @return The result bean of selected page. (NotNull)
      */
     public PagingResultBean<TUmlpattern> selectPage(final TUmlpatternCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         final PagingInvoker<TUmlpattern> invoker = new PagingInvoker<TUmlpattern>(getTableDbName());
         final PagingHandler<TUmlpattern> handler = new PagingHandler<TUmlpattern>() {
             public PagingBean getPagingBean() { return cb; }
@@ -167,32 +184,46 @@ public abstract class BsTUmlpatternBhv extends jp.sourceforge.ea2ddl.dao.allcomm
     }
 
     // ===================================================================================
-    //                                                                      Various Select
-    //                                                                      ==============
+    //                                                                       Scalar Select
+    //                                                                       =============
     /**
-     * Select the list of value-label.
-     * @param cb The condition-bean of TUmlpattern. (NotNull)
-     * @param valueLabelSetupper The setupper of value-label. (NotNull)
-     * @return The list of value-label. (NotNull)
+     * Select the scalar value derived by a function. <br />
+     * Call a function method after this method called like as follows:
+     * <pre>
+     * tUmlpatternBhv.scalarSelect(Date.class).max(new ScalarQuery(TUmlpatternCB cb) {
+     *     cb.specify().columnXxxDatetime(); // the required specification of target column
+     *     cb.query().setXxxName_PrefixSearch("S"); // query as you like it
+     * });
+     * </pre>
+     * @param <RESULT> The type of result.
+     * @param resultType The type of result. (NotNull)
+     * @return The scalar value derived by a function. (Nullable)
      */
-    public List<java.util.Map<String, Object>> selectValueLabelList(TUmlpatternCB cb, ValueLabelSetupper<TUmlpattern> valueLabelSetupper) {
-        return createValueLabelList(selectList(cb), valueLabelSetupper);
+    public <RESULT> SLFunction<TUmlpatternCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+        TUmlpatternCB cb = newMyConditionBean();
+        cb.xsetupForScalarSelect();
+        cb.getSqlClause().disableSelectIndex(); // for when you use union
+        return new SLFunction<TUmlpatternCB, RESULT>(cb, resultType);
     }
-
-
-
     // ===================================================================================
-    //                                                                     Pullout Foreign
-    //                                                                     ===============
-  
+    //                                                                    Pull out Foreign
+    //                                                                    ================
+    
     // ===================================================================================
     //                                                                     Delegate Method
     //                                                                     ===============
+    // [Behavior Command]
     // -----------------------------------------------------
     //                                                Select
     //                                                ------
-    protected int delegateSelectCount(TUmlpatternCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectCount(cb); }
-    protected List<TUmlpattern> delegateSelectList(TUmlpatternCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectList(cb); }
+    protected int delegateSelectCount(TUmlpatternCB cb) { return invoke(createSelectCountCBCommand(cb)); }
+    protected void delegateSelectCursor(TUmlpatternCB cb, EntityRowHandler<TUmlpattern> entityRowHandler)
+    { invoke(createSelectCursorCBCommand(cb, entityRowHandler, TUmlpattern.class)); }
+    protected int doCallReadCount(ConditionBean cb) { return delegateSelectCount((TUmlpatternCB)cb); }
+    protected List<TUmlpattern> delegateSelectList(TUmlpatternCB cb)
+    { return invoke(createSelectListCBCommand(cb, TUmlpattern.class)); }
+    @SuppressWarnings("unchecked")
+    protected List<Entity> doCallReadList(ConditionBean cb) { return (List)delegateSelectList((TUmlpatternCB)cb); }
 
     // ===================================================================================
     //                                                                Optimistic Lock Info

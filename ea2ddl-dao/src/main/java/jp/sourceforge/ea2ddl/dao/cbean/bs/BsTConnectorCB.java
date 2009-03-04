@@ -2,11 +2,16 @@ package jp.sourceforge.ea2ddl.dao.cbean.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.AbstractConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.SubQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.UnionQuery;
+import org.seasar.dbflute.cbean.AbstractConditionBean;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.ConditionQuery;
+import org.seasar.dbflute.cbean.SubQuery;
+import org.seasar.dbflute.cbean.UnionQuery;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBFluteConfig;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.allcommon.ImplementedSqlClauseCreator;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 import jp.sourceforge.ea2ddl.dao.cbean.nss.*;
@@ -15,13 +20,29 @@ import jp.sourceforge.ea2ddl.dao.cbean.nss.*;
  * The base condition-bean of t_connector.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTConnectorCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    private final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
     protected TConnectorCQ _conditionQuery;
+
+    // ===================================================================================
+    //                                                                           SqlClause
+    //                                                                           =========
+    @Override
+    protected SqlClause createSqlClause() {
+        return new ImplementedSqlClauseCreator().createSqlClause(this);
+    }
+    
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
+    }
 
     // ===================================================================================
     //                                                                          Table Name
@@ -77,7 +98,11 @@ public class BsTConnectorCB extends AbstractConditionBean {
         return _conditionQuery;
     }
 
-    public ConditionQuery getConditionQueryAsInterface() {
+    /**
+     * {@inheritDoc}
+     * @return The conditionQuery of the local table as interface. (NotNull)
+     */
+    public ConditionQuery localCQ() {
         return getConditionQuery();
     }
 
@@ -115,22 +140,6 @@ public class BsTConnectorCB extends AbstractConditionBean {
         final TConnectorCB cb = new TConnectorCB(); cb.xsetupForUnion(); unionQuery.query(cb);
         final TConnectorCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
-    
-    /**
-     * @param unionQuery The query of 'union'. (NotNull)
-     * @deprecated Sorry! Please use union(UnionQuery<TConnectorCB> unionQuery).
-     */
-    public void union(TConnectorCQ unionQuery) {
-        query().xsetUnionQuery(unionQuery);
-    }
-
-    /**
-     * @param unionQuery The query of 'union'. (NotNull)
-     * @deprecated Sorry! Please use unionAll(UnionQuery<TConnectorCB> unionQuery).
-     */
-    public void unionAll(TConnectorCQ unionQuery) {
-        query().xsetUnionAllQuery(unionQuery);
-    }
 
     public boolean hasUnionQueryOrUnionAllQuery() {
         return query().hasUnionQueryOrUnionAllQuery();
@@ -139,7 +148,6 @@ public class BsTConnectorCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                        Setup Select
     //                                                                        ============
-
     protected TOperationNss _nssTOperationBySourcerole;
     public TOperationNss getNssTOperationBySourcerole() {
         if (_nssTOperationBySourcerole == null) { _nssTOperationBySourcerole = new TOperationNss(null); }
@@ -147,10 +155,10 @@ public class BsTConnectorCB extends AbstractConditionBean {
     }
     public TOperationNss setupSelect_TOperationBySourcerole() {
         doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryTOperationBySourcerole(); } });
-        if (_nssTOperationBySourcerole == null || !_nssTOperationBySourcerole.hasConditionQuery()) { _nssTOperationBySourcerole = new TOperationNss(query().queryTOperationBySourcerole()); }
+        if (_nssTOperationBySourcerole == null || !_nssTOperationBySourcerole.hasConditionQuery())
+        { _nssTOperationBySourcerole = new TOperationNss(query().queryTOperationBySourcerole()); }
         return _nssTOperationBySourcerole;
     }
-
     protected TOperationNss _nssTOperationByDestrole;
     public TOperationNss getNssTOperationByDestrole() {
         if (_nssTOperationByDestrole == null) { _nssTOperationByDestrole = new TOperationNss(null); }
@@ -158,10 +166,10 @@ public class BsTConnectorCB extends AbstractConditionBean {
     }
     public TOperationNss setupSelect_TOperationByDestrole() {
         doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryTOperationByDestrole(); } });
-        if (_nssTOperationByDestrole == null || !_nssTOperationByDestrole.hasConditionQuery()) { _nssTOperationByDestrole = new TOperationNss(query().queryTOperationByDestrole()); }
+        if (_nssTOperationByDestrole == null || !_nssTOperationByDestrole.hasConditionQuery())
+        { _nssTOperationByDestrole = new TOperationNss(query().queryTOperationByDestrole()); }
         return _nssTOperationByDestrole;
     }
-
     protected TObjectNss _nssTObjectByStartObjectId;
     public TObjectNss getNssTObjectByStartObjectId() {
         if (_nssTObjectByStartObjectId == null) { _nssTObjectByStartObjectId = new TObjectNss(null); }
@@ -169,10 +177,10 @@ public class BsTConnectorCB extends AbstractConditionBean {
     }
     public TObjectNss setupSelect_TObjectByStartObjectId() {
         doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryTObjectByStartObjectId(); } });
-        if (_nssTObjectByStartObjectId == null || !_nssTObjectByStartObjectId.hasConditionQuery()) { _nssTObjectByStartObjectId = new TObjectNss(query().queryTObjectByStartObjectId()); }
+        if (_nssTObjectByStartObjectId == null || !_nssTObjectByStartObjectId.hasConditionQuery())
+        { _nssTObjectByStartObjectId = new TObjectNss(query().queryTObjectByStartObjectId()); }
         return _nssTObjectByStartObjectId;
     }
-
     protected TObjectNss _nssTObjectByEndObjectId;
     public TObjectNss getNssTObjectByEndObjectId() {
         if (_nssTObjectByEndObjectId == null) { _nssTObjectByEndObjectId = new TObjectNss(null); }
@@ -180,7 +188,8 @@ public class BsTConnectorCB extends AbstractConditionBean {
     }
     public TObjectNss setupSelect_TObjectByEndObjectId() {
         doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryTObjectByEndObjectId(); } });
-        if (_nssTObjectByEndObjectId == null || !_nssTObjectByEndObjectId.hasConditionQuery()) { _nssTObjectByEndObjectId = new TObjectNss(query().queryTObjectByEndObjectId()); }
+        if (_nssTObjectByEndObjectId == null || !_nssTObjectByEndObjectId.hasConditionQuery())
+        { _nssTObjectByEndObjectId = new TObjectNss(query().queryTObjectByEndObjectId()); }
         return _nssTObjectByEndObjectId;
     }
 
@@ -191,15 +200,20 @@ public class BsTConnectorCB extends AbstractConditionBean {
     protected Specification _specification;
     public Specification specify() {
         if (_specification == null) { _specification = new Specification(this, new SpQyCall<TConnectorCQ>() {
-            public boolean has() { return true; } public TConnectorCQ qy() { return query(); } }, _forDeriveReferrer); } return _specification;
+            public boolean has() { return true; } public TConnectorCQ qy() { return query(); } }, _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, getDBMetaProvider()); }
+        return _specification;
     }
+
     public static class Specification extends AbstractSpecification<TConnectorCQ> {
         protected SpQyCall<TConnectorCQ> _myQyCall;
         protected TOperationCB.Specification _tOperationBySourcerole;
         protected TOperationCB.Specification _tOperationByDestrole;
         protected TObjectCB.Specification _tObjectByStartObjectId;
         protected TObjectCB.Specification _tObjectByEndObjectId;
-        public Specification(ConditionBean baseCB, SpQyCall<TConnectorCQ> qyCall, boolean forDeriveReferrer) { super(baseCB, qyCall, forDeriveReferrer); _myQyCall = qyCall; }
+        public Specification(ConditionBean baseCB, SpQyCall<TConnectorCQ> qyCall
+                           , boolean forDeriveReferrer, boolean forScalarSelect, boolean forScalarSubQuery
+                           , DBMetaProvider dbmetaProvider)
+        { super(baseCB, qyCall, forDeriveReferrer, forScalarSelect, forScalarSubQuery, dbmetaProvider); _myQyCall = qyCall; }
         public void columnConnectorId() { doColumn("Connector_ID"); }
         public void columnName() { doColumn("Name"); }
         public void columnDirection() { doColumn("Direction"); }
@@ -300,7 +314,8 @@ public class BsTConnectorCB extends AbstractConditionBean {
             if (_tOperationBySourcerole == null) {
                 _tOperationBySourcerole = new TOperationCB.Specification(_baseCB, new SpQyCall<TOperationCQ>() {
                     public boolean has() { return _myQyCall.has() && _myQyCall.qy().hasConditionQueryTOperationBySourcerole(); }
-                    public TOperationCQ qy() { return _myQyCall.qy().queryTOperationBySourcerole(); } }, _forDeriveReferrer);
+                    public TOperationCQ qy() { return _myQyCall.qy().queryTOperationBySourcerole(); } }
+                    , _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, _dbmetaProvider);
             }
             return _tOperationBySourcerole;
         }
@@ -309,7 +324,8 @@ public class BsTConnectorCB extends AbstractConditionBean {
             if (_tOperationByDestrole == null) {
                 _tOperationByDestrole = new TOperationCB.Specification(_baseCB, new SpQyCall<TOperationCQ>() {
                     public boolean has() { return _myQyCall.has() && _myQyCall.qy().hasConditionQueryTOperationByDestrole(); }
-                    public TOperationCQ qy() { return _myQyCall.qy().queryTOperationByDestrole(); } }, _forDeriveReferrer);
+                    public TOperationCQ qy() { return _myQyCall.qy().queryTOperationByDestrole(); } }
+                    , _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, _dbmetaProvider);
             }
             return _tOperationByDestrole;
         }
@@ -318,7 +334,8 @@ public class BsTConnectorCB extends AbstractConditionBean {
             if (_tObjectByStartObjectId == null) {
                 _tObjectByStartObjectId = new TObjectCB.Specification(_baseCB, new SpQyCall<TObjectCQ>() {
                     public boolean has() { return _myQyCall.has() && _myQyCall.qy().hasConditionQueryTObjectByStartObjectId(); }
-                    public TObjectCQ qy() { return _myQyCall.qy().queryTObjectByStartObjectId(); } }, _forDeriveReferrer);
+                    public TObjectCQ qy() { return _myQyCall.qy().queryTObjectByStartObjectId(); } }
+                    , _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, _dbmetaProvider);
             }
             return _tObjectByStartObjectId;
         }
@@ -327,12 +344,24 @@ public class BsTConnectorCB extends AbstractConditionBean {
             if (_tObjectByEndObjectId == null) {
                 _tObjectByEndObjectId = new TObjectCB.Specification(_baseCB, new SpQyCall<TObjectCQ>() {
                     public boolean has() { return _myQyCall.has() && _myQyCall.qy().hasConditionQueryTObjectByEndObjectId(); }
-                    public TObjectCQ qy() { return _myQyCall.qy().queryTObjectByEndObjectId(); } }, _forDeriveReferrer);
+                    public TObjectCQ qy() { return _myQyCall.qy().queryTObjectByEndObjectId(); } }
+                    , _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, _dbmetaProvider);
             }
             return _tObjectByEndObjectId;
         }
     }
 
+    // ===================================================================================
+    //                                                                         Display SQL
+    //                                                                         ===========
+    @Override
+    protected String getLogDateFormat() { return DBFluteConfig.getInstance().getLogDateFormat(); }
+    @Override
+    protected String getLogTimestampFormat() { return DBFluteConfig.getInstance().getLogTimestampFormat(); }
+
+    // ===================================================================================
+    //                                                                            Internal
+    //                                                                            ========
     // Very Internal (for Suppressing Warn about 'Not Use Import')
     protected String getConditionBeanClassNameInternally() { return TConnectorCB.class.getName(); }
     protected String getConditionQueryClassNameInternally() { return TConnectorCQ.class.getName(); }

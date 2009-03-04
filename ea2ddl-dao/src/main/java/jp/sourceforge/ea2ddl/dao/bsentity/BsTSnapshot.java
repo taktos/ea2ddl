@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_snapshot(TABLE).
+ * The entity of t_snapshot that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTSnapshot implements Entity, java.io.Serializable {
+public abstract class BsTSnapshot implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,47 +47,43 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_snapshot. */
-    public static final String TABLE = "t_snapshot";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'SnapshotID'. {UQ : VARCHAR(40)} */
+    /** SnapshotID: {UQ : VARCHAR(40)} */
     protected String _snapshotid;
 
-    /** The attribute of the column 'SeriesID'. {VARCHAR(40)} */
+    /** SeriesID: {VARCHAR(40)} */
     protected String _seriesid;
 
-    /** The attribute of the column 'Position'. {INTEGER} */
+    /** Position: {INTEGER} */
     protected java.lang.Integer _position;
 
-    /** The attribute of the column 'SnapshotName'. {VARCHAR(100)} */
+    /** SnapshotName: {VARCHAR(100)} */
     protected String _snapshotname;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Style'. {VARCHAR(255)} */
+    /** Style: {VARCHAR(255)} */
     protected String _style;
 
-    /** The attribute of the column 'ElementID'. {VARCHAR(40)} */
+    /** ElementID: {VARCHAR(40)} */
     protected String _elementid;
 
-    /** The attribute of the column 'ElementType'. {VARCHAR(50)} */
+    /** ElementType: {VARCHAR(50)} */
     protected String _elementtype;
 
-    /** The attribute of the column 'StrContent'. {LONGCHAR(2147483647)} */
+    /** StrContent: {LONGCHAR(2147483647)} */
     protected String _strcontent;
 
-    /** The attribute of the column 'BinContent1'. {LONGBINARY} */
+    /** BinContent1: {LONGBINARY} */
     protected byte[] _bincontent1;
 
-    /** The attribute of the column 'BinContent2'. {LONGBINARY} */
+    /** BinContent2: {LONGBINARY} */
     protected byte[] _bincontent2;
 
     // -----------------------------------------------------
@@ -97,19 +93,13 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTSnapshot() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_snapshot";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TSnapshot";
     }
 
@@ -135,7 +125,6 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -237,13 +226,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String snapshotid_COLUMN = "SnapshotID";
-
     /**
-     * Get the value of the column 'SnapshotID'. <br />
-     * {UQ : VARCHAR(40)}
+     * SnapshotID: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'SnapshotID'. (Nullable)
      */
     public String getSnapshotid() {
@@ -251,8 +235,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SnapshotID'. <br />
-     * {UQ : VARCHAR(40)}
+     * SnapshotID: {UQ : VARCHAR(40)} <br />
      * @param snapshotid The value of the column 'SnapshotID'. (Nullable)
      */
     public void setSnapshotid(String snapshotid) {
@@ -260,12 +243,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._snapshotid = snapshotid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String seriesid_COLUMN = "SeriesID";
-
     /**
-     * Get the value of the column 'SeriesID'. <br />
-     * {VARCHAR(40)}
+     * SeriesID: {VARCHAR(40)} <br />
      * @return The value of the column 'SeriesID'. (Nullable)
      */
     public String getSeriesid() {
@@ -273,8 +252,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SeriesID'. <br />
-     * {VARCHAR(40)}
+     * SeriesID: {VARCHAR(40)} <br />
      * @param seriesid The value of the column 'SeriesID'. (Nullable)
      */
     public void setSeriesid(String seriesid) {
@@ -282,12 +260,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._seriesid = seriesid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String position_COLUMN = "Position";
-
     /**
-     * Get the value of the column 'Position'. <br />
-     * {INTEGER}
+     * Position: {INTEGER} <br />
      * @return The value of the column 'Position'. (Nullable)
      */
     public java.lang.Integer getPosition() {
@@ -295,8 +269,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Position'. <br />
-     * {INTEGER}
+     * Position: {INTEGER} <br />
      * @param position The value of the column 'Position'. (Nullable)
      */
     public void setPosition(java.lang.Integer position) {
@@ -304,12 +277,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._position = position;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String snapshotname_COLUMN = "SnapshotName";
-
     /**
-     * Get the value of the column 'SnapshotName'. <br />
-     * {VARCHAR(100)}
+     * SnapshotName: {VARCHAR(100)} <br />
      * @return The value of the column 'SnapshotName'. (Nullable)
      */
     public String getSnapshotname() {
@@ -317,8 +286,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SnapshotName'. <br />
-     * {VARCHAR(100)}
+     * SnapshotName: {VARCHAR(100)} <br />
      * @param snapshotname The value of the column 'SnapshotName'. (Nullable)
      */
     public void setSnapshotname(String snapshotname) {
@@ -326,12 +294,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._snapshotname = snapshotname;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -339,8 +303,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -348,12 +311,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -361,8 +320,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
@@ -370,12 +328,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._style = style;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String elementid_COLUMN = "ElementID";
-
     /**
-     * Get the value of the column 'ElementID'. <br />
-     * {VARCHAR(40)}
+     * ElementID: {VARCHAR(40)} <br />
      * @return The value of the column 'ElementID'. (Nullable)
      */
     public String getElementid() {
@@ -383,8 +337,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementID'. <br />
-     * {VARCHAR(40)}
+     * ElementID: {VARCHAR(40)} <br />
      * @param elementid The value of the column 'ElementID'. (Nullable)
      */
     public void setElementid(String elementid) {
@@ -392,12 +345,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._elementid = elementid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String elementtype_COLUMN = "ElementType";
-
     /**
-     * Get the value of the column 'ElementType'. <br />
-     * {VARCHAR(50)}
+     * ElementType: {VARCHAR(50)} <br />
      * @return The value of the column 'ElementType'. (Nullable)
      */
     public String getElementtype() {
@@ -405,8 +354,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementType'. <br />
-     * {VARCHAR(50)}
+     * ElementType: {VARCHAR(50)} <br />
      * @param elementtype The value of the column 'ElementType'. (Nullable)
      */
     public void setElementtype(String elementtype) {
@@ -414,12 +362,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._elementtype = elementtype;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String strcontent_COLUMN = "StrContent";
-
     /**
-     * Get the value of the column 'StrContent'. <br />
-     * {LONGCHAR(2147483647)}
+     * StrContent: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'StrContent'. (Nullable)
      */
     public String getStrcontent() {
@@ -427,8 +371,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StrContent'. <br />
-     * {LONGCHAR(2147483647)}
+     * StrContent: {LONGCHAR(2147483647)} <br />
      * @param strcontent The value of the column 'StrContent'. (Nullable)
      */
     public void setStrcontent(String strcontent) {
@@ -436,12 +379,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._strcontent = strcontent;
     }
 
-    /** The column annotation for S2Dao. {LONGBINARY} */
-    public static final String bincontent1_COLUMN = "BinContent1";
-
     /**
-     * Get the value of the column 'BinContent1'. <br />
-     * {LONGBINARY}
+     * BinContent1: {LONGBINARY} <br />
      * @return The value of the column 'BinContent1'. (Nullable)
      */
     public byte[] getBincontent1() {
@@ -449,8 +388,7 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'BinContent1'. <br />
-     * {LONGBINARY}
+     * BinContent1: {LONGBINARY} <br />
      * @param bincontent1 The value of the column 'BinContent1'. (Nullable)
      */
     public void setBincontent1(byte[] bincontent1) {
@@ -458,12 +396,8 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
         this._bincontent1 = bincontent1;
     }
 
-    /** The column annotation for S2Dao. {LONGBINARY} */
-    public static final String bincontent2_COLUMN = "BinContent2";
-
     /**
-     * Get the value of the column 'BinContent2'. <br />
-     * {LONGBINARY}
+     * BinContent2: {LONGBINARY} <br />
      * @return The value of the column 'BinContent2'. (Nullable)
      */
     public byte[] getBincontent2() {
@@ -471,13 +405,11 @@ public abstract class BsTSnapshot implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'BinContent2'. <br />
-     * {LONGBINARY}
+     * BinContent2: {LONGBINARY} <br />
      * @param bincontent2 The value of the column 'BinContent2'. (Nullable)
      */
     public void setBincontent2(byte[] bincontent2) {
         _modifiedProperties.addPropertyName("bincontent2");
         this._bincontent2 = bincontent2;
     }
-
 }

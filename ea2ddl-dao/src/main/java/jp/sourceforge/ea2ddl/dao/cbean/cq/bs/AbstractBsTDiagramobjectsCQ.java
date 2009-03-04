@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_diagramobjects.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTDiagramobjectsCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param diagramId The value of diagramId as equal.
      */
     public void setDiagramId_Equal(java.lang.Integer diagramId) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as notEqual.
      */
     public void setDiagramId_NotEqual(java.lang.Integer diagramId) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as greaterThan.
      */
     public void setDiagramId_GreaterThan(java.lang.Integer diagramId) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as lessThan.
      */
     public void setDiagramId_LessThan(java.lang.Integer diagramId) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as greaterEqual.
      */
     public void setDiagramId_GreaterEqual(java.lang.Integer diagramId) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param diagramId The value of diagramId as lessEqual.
      */
     public void setDiagramId_LessEqual(java.lang.Integer diagramId) {
@@ -95,25 +110,20 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setDiagramId_IsNull() { regDiagramId(CK_ISN, DUMMY_OBJECT); }
+    public void setDiagramId_IsNull() { regDiagramId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setDiagramId_IsNotNull() { regDiagramId(CK_ISNN, DUMMY_OBJECT); }
+    public void setDiagramId_IsNotNull() { regDiagramId(CK_ISNN, DOBJ); }
 
-    protected void regDiagramId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDiagramId(), "Diagram_ID", "DiagramId", "diagramId");
-    }
-    protected void registerInlineDiagramId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDiagramId(), "Diagram_ID", "DiagramId", "diagramId");
-    }
+    protected void regDiagramId(ConditionKey k, Object v) { regQ(k, v, getCValueDiagramId(), "Diagram_ID"); }
     abstract protected ConditionValue getCValueDiagramId();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param objectId The value of objectId as equal.
      */
     public void setObjectId_Equal(java.lang.Integer objectId) {
@@ -121,7 +131,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as notEqual.
      */
     public void setObjectId_NotEqual(java.lang.Integer objectId) {
@@ -129,7 +139,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterThan.
      */
     public void setObjectId_GreaterThan(java.lang.Integer objectId) {
@@ -137,7 +147,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessThan.
      */
     public void setObjectId_LessThan(java.lang.Integer objectId) {
@@ -145,7 +155,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterEqual.
      */
     public void setObjectId_GreaterEqual(java.lang.Integer objectId) {
@@ -153,7 +163,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessEqual.
      */
     public void setObjectId_LessEqual(java.lang.Integer objectId) {
@@ -169,25 +179,20 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNull() { regObjectId(CK_ISN, DUMMY_OBJECT); }
+    public void setObjectId_IsNull() { regObjectId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DUMMY_OBJECT); }
+    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DOBJ); }
 
-    protected void regObjectId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
-    protected void registerInlineObjectId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
+    protected void regObjectId(ConditionKey k, Object v) { regQ(k, v, getCValueObjectId(), "Object_ID"); }
     abstract protected ConditionValue getCValueObjectId();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param recttop The value of recttop as equal.
      */
     public void setRecttop_Equal(java.lang.Integer recttop) {
@@ -195,7 +200,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param recttop The value of recttop as notEqual.
      */
     public void setRecttop_NotEqual(java.lang.Integer recttop) {
@@ -203,7 +208,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param recttop The value of recttop as greaterThan.
      */
     public void setRecttop_GreaterThan(java.lang.Integer recttop) {
@@ -211,7 +216,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param recttop The value of recttop as lessThan.
      */
     public void setRecttop_LessThan(java.lang.Integer recttop) {
@@ -219,7 +224,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param recttop The value of recttop as greaterEqual.
      */
     public void setRecttop_GreaterEqual(java.lang.Integer recttop) {
@@ -227,7 +232,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param recttop The value of recttop as lessEqual.
      */
     public void setRecttop_LessEqual(java.lang.Integer recttop) {
@@ -243,25 +248,20 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRecttop_IsNull() { regRecttop(CK_ISN, DUMMY_OBJECT); }
+    public void setRecttop_IsNull() { regRecttop(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setRecttop_IsNotNull() { regRecttop(CK_ISNN, DUMMY_OBJECT); }
+    public void setRecttop_IsNotNull() { regRecttop(CK_ISNN, DOBJ); }
 
-    protected void regRecttop(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRecttop(), "RectTop", "Recttop", "recttop");
-    }
-    protected void registerInlineRecttop(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRecttop(), "RectTop", "Recttop", "recttop");
-    }
+    protected void regRecttop(ConditionKey k, Object v) { regQ(k, v, getCValueRecttop(), "RectTop"); }
     abstract protected ConditionValue getCValueRecttop();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param rectleft The value of rectleft as equal.
      */
     public void setRectleft_Equal(java.lang.Integer rectleft) {
@@ -269,7 +269,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param rectleft The value of rectleft as notEqual.
      */
     public void setRectleft_NotEqual(java.lang.Integer rectleft) {
@@ -277,7 +277,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param rectleft The value of rectleft as greaterThan.
      */
     public void setRectleft_GreaterThan(java.lang.Integer rectleft) {
@@ -285,7 +285,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param rectleft The value of rectleft as lessThan.
      */
     public void setRectleft_LessThan(java.lang.Integer rectleft) {
@@ -293,7 +293,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param rectleft The value of rectleft as greaterEqual.
      */
     public void setRectleft_GreaterEqual(java.lang.Integer rectleft) {
@@ -301,7 +301,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param rectleft The value of rectleft as lessEqual.
      */
     public void setRectleft_LessEqual(java.lang.Integer rectleft) {
@@ -317,25 +317,20 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRectleft_IsNull() { regRectleft(CK_ISN, DUMMY_OBJECT); }
+    public void setRectleft_IsNull() { regRectleft(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setRectleft_IsNotNull() { regRectleft(CK_ISNN, DUMMY_OBJECT); }
+    public void setRectleft_IsNotNull() { regRectleft(CK_ISNN, DOBJ); }
 
-    protected void regRectleft(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRectleft(), "RectLeft", "Rectleft", "rectleft");
-    }
-    protected void registerInlineRectleft(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRectleft(), "RectLeft", "Rectleft", "rectleft");
-    }
+    protected void regRectleft(ConditionKey k, Object v) { regQ(k, v, getCValueRectleft(), "RectLeft"); }
     abstract protected ConditionValue getCValueRectleft();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param rectright The value of rectright as equal.
      */
     public void setRectright_Equal(java.lang.Integer rectright) {
@@ -343,7 +338,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param rectright The value of rectright as notEqual.
      */
     public void setRectright_NotEqual(java.lang.Integer rectright) {
@@ -351,7 +346,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param rectright The value of rectright as greaterThan.
      */
     public void setRectright_GreaterThan(java.lang.Integer rectright) {
@@ -359,7 +354,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param rectright The value of rectright as lessThan.
      */
     public void setRectright_LessThan(java.lang.Integer rectright) {
@@ -367,7 +362,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param rectright The value of rectright as greaterEqual.
      */
     public void setRectright_GreaterEqual(java.lang.Integer rectright) {
@@ -375,7 +370,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param rectright The value of rectright as lessEqual.
      */
     public void setRectright_LessEqual(java.lang.Integer rectright) {
@@ -391,25 +386,20 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRectright_IsNull() { regRectright(CK_ISN, DUMMY_OBJECT); }
+    public void setRectright_IsNull() { regRectright(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setRectright_IsNotNull() { regRectright(CK_ISNN, DUMMY_OBJECT); }
+    public void setRectright_IsNotNull() { regRectright(CK_ISNN, DOBJ); }
 
-    protected void regRectright(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRectright(), "RectRight", "Rectright", "rectright");
-    }
-    protected void registerInlineRectright(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRectright(), "RectRight", "Rectright", "rectright");
-    }
+    protected void regRectright(ConditionKey k, Object v) { regQ(k, v, getCValueRectright(), "RectRight"); }
     abstract protected ConditionValue getCValueRectright();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param rectbottom The value of rectbottom as equal.
      */
     public void setRectbottom_Equal(java.lang.Integer rectbottom) {
@@ -417,7 +407,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param rectbottom The value of rectbottom as notEqual.
      */
     public void setRectbottom_NotEqual(java.lang.Integer rectbottom) {
@@ -425,7 +415,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param rectbottom The value of rectbottom as greaterThan.
      */
     public void setRectbottom_GreaterThan(java.lang.Integer rectbottom) {
@@ -433,7 +423,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param rectbottom The value of rectbottom as lessThan.
      */
     public void setRectbottom_LessThan(java.lang.Integer rectbottom) {
@@ -441,7 +431,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param rectbottom The value of rectbottom as greaterEqual.
      */
     public void setRectbottom_GreaterEqual(java.lang.Integer rectbottom) {
@@ -449,7 +439,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param rectbottom The value of rectbottom as lessEqual.
      */
     public void setRectbottom_LessEqual(java.lang.Integer rectbottom) {
@@ -465,25 +455,20 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRectbottom_IsNull() { regRectbottom(CK_ISN, DUMMY_OBJECT); }
+    public void setRectbottom_IsNull() { regRectbottom(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setRectbottom_IsNotNull() { regRectbottom(CK_ISNN, DUMMY_OBJECT); }
+    public void setRectbottom_IsNotNull() { regRectbottom(CK_ISNN, DOBJ); }
 
-    protected void regRectbottom(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRectbottom(), "RectBottom", "Rectbottom", "rectbottom");
-    }
-    protected void registerInlineRectbottom(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRectbottom(), "RectBottom", "Rectbottom", "rectbottom");
-    }
+    protected void regRectbottom(ConditionKey k, Object v) { regQ(k, v, getCValueRectbottom(), "RectBottom"); }
     abstract protected ConditionValue getCValueRectbottom();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param sequence The value of sequence as equal.
      */
     public void setSequence_Equal(java.lang.Integer sequence) {
@@ -491,7 +476,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param sequence The value of sequence as notEqual.
      */
     public void setSequence_NotEqual(java.lang.Integer sequence) {
@@ -499,7 +484,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param sequence The value of sequence as greaterThan.
      */
     public void setSequence_GreaterThan(java.lang.Integer sequence) {
@@ -507,7 +492,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param sequence The value of sequence as lessThan.
      */
     public void setSequence_LessThan(java.lang.Integer sequence) {
@@ -515,7 +500,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param sequence The value of sequence as greaterEqual.
      */
     public void setSequence_GreaterEqual(java.lang.Integer sequence) {
@@ -523,7 +508,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param sequence The value of sequence as lessEqual.
      */
     public void setSequence_LessEqual(java.lang.Integer sequence) {
@@ -539,25 +524,20 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setSequence_IsNull() { regSequence(CK_ISN, DUMMY_OBJECT); }
+    public void setSequence_IsNull() { regSequence(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setSequence_IsNotNull() { regSequence(CK_ISNN, DUMMY_OBJECT); }
+    public void setSequence_IsNotNull() { regSequence(CK_ISNN, DOBJ); }
 
-    protected void regSequence(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueSequence(), "Sequence", "Sequence", "sequence");
-    }
-    protected void registerInlineSequence(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueSequence(), "Sequence", "Sequence", "sequence");
-    }
+    protected void regSequence(ConditionKey k, Object v) { regQ(k, v, getCValueSequence(), "Sequence"); }
     abstract protected ConditionValue getCValueSequence();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param objectstyle The value of objectstyle as equal.
      */
     public void setObjectstyle_Equal(String objectstyle) {
@@ -565,7 +545,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectstyle The value of objectstyle as notEqual.
      */
     public void setObjectstyle_NotEqual(String objectstyle) {
@@ -573,7 +553,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectstyle The value of objectstyle as greaterThan.
      */
     public void setObjectstyle_GreaterThan(String objectstyle) {
@@ -581,7 +561,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectstyle The value of objectstyle as lessThan.
      */
     public void setObjectstyle_LessThan(String objectstyle) {
@@ -589,7 +569,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectstyle The value of objectstyle as greaterEqual.
      */
     public void setObjectstyle_GreaterEqual(String objectstyle) {
@@ -597,7 +577,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectstyle The value of objectstyle as lessEqual.
      */
     public void setObjectstyle_LessEqual(String objectstyle) {
@@ -605,20 +585,11 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param objectstyle The value of objectstyle as prefixSearch.
      */
     public void setObjectstyle_PrefixSearch(String objectstyle) {
         regObjectstyle(CK_PS, fRES(objectstyle));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param objectstyle The value of objectstyle as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setObjectstyle_LikeSearch(String objectstyle, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(objectstyle), getCValueObjectstyle(), "ObjectStyle", "Objectstyle", "objectstyle", likeSearchOption);
     }
 
     /**
@@ -630,34 +601,38 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param objectstyle The collection of objectstyle as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param objectstyle The value of objectstyle as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setObjectstyle_InScope(String objectstyle, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(objectstyle), getCValueObjectstyle(), "ObjectStyle", "Objectstyle", "objectstyle", inScopeOption);
+    public void setObjectstyle_LikeSearch(String objectstyle, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(objectstyle), getCValueObjectstyle(), "ObjectStyle", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param objectstyle The value of objectstyle as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setObjectstyle_IsNull() { regObjectstyle(CK_ISN, DUMMY_OBJECT); }
+    public void setObjectstyle_NotLikeSearch(String objectstyle, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(objectstyle), getCValueObjectstyle(), "ObjectStyle", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setObjectstyle_IsNotNull() { regObjectstyle(CK_ISNN, DUMMY_OBJECT); }
+    public void setObjectstyle_IsNull() { regObjectstyle(CK_ISN, DOBJ); }
 
-    protected void regObjectstyle(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueObjectstyle(), "ObjectStyle", "Objectstyle", "objectstyle");
-    }
-    protected void registerInlineObjectstyle(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueObjectstyle(), "ObjectStyle", "Objectstyle", "objectstyle");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setObjectstyle_IsNotNull() { regObjectstyle(CK_ISNN, DOBJ); }
+
+    protected void regObjectstyle(ConditionKey k, Object v) { regQ(k, v, getCValueObjectstyle(), "ObjectStyle"); }
     abstract protected ConditionValue getCValueObjectstyle();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : NotNull : COUNTER}
      * @param instanceId The value of instanceId as equal.
      */
     public void setInstanceId_Equal(java.lang.Integer instanceId) {
@@ -665,7 +640,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param instanceId The value of instanceId as notEqual.
      */
     public void setInstanceId_NotEqual(java.lang.Integer instanceId) {
@@ -673,7 +648,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param instanceId The value of instanceId as greaterThan.
      */
     public void setInstanceId_GreaterThan(java.lang.Integer instanceId) {
@@ -681,7 +656,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param instanceId The value of instanceId as lessThan.
      */
     public void setInstanceId_LessThan(java.lang.Integer instanceId) {
@@ -689,7 +664,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param instanceId The value of instanceId as greaterEqual.
      */
     public void setInstanceId_GreaterEqual(java.lang.Integer instanceId) {
@@ -697,7 +672,7 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param instanceId The value of instanceId as lessEqual.
      */
     public void setInstanceId_LessEqual(java.lang.Integer instanceId) {
@@ -712,15 +687,14 @@ public abstract class AbstractBsTDiagramobjectsCQ extends AbstractConditionQuery
         regInstanceId(CK_INS, cTL(instanceIdList));
     }
 
-    protected void regInstanceId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueInstanceId(), "Instance_ID", "InstanceId", "instanceId");
-    }
-    protected void registerInlineInstanceId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueInstanceId(), "Instance_ID", "InstanceId", "instanceId");
-    }
+    protected void regInstanceId(ConditionKey k, Object v) { regQ(k, v, getCValueInstanceId(), "Instance_ID"); }
     abstract protected ConditionValue getCValueInstanceId();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TDiagramobjectsCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TDiagramobjectsCQ.class.getName(); }
+    String xCB() { return TDiagramobjectsCB.class.getName(); }
+    String xCQ() { return TDiagramobjectsCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

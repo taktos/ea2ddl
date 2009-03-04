@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_datatypes(TABLE).
+ * The entity of t_datatypes that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTDatatypes implements Entity, java.io.Serializable {
+public abstract class BsTDatatypes implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,68 +47,64 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_datatypes. */
-    public static final String TABLE = "t_datatypes";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Type'. {VARCHAR(50)} */
+    /** Type: {VARCHAR(50)} */
     protected String _type;
 
-    /** The attribute of the column 'ProductName'. {VARCHAR(50)} */
+    /** ProductName: {VARCHAR(50)} */
     protected String _productname;
 
-    /** The attribute of the column 'DataType'. {VARCHAR(50)} */
+    /** DataType: {VARCHAR(50)} */
     protected String _datatype;
 
-    /** The attribute of the column 'Size'. {INTEGER} */
+    /** Size: {INTEGER} */
     protected java.lang.Integer _size;
 
-    /** The attribute of the column 'MaxLen'. {INTEGER} */
+    /** MaxLen: {INTEGER} */
     protected java.lang.Integer _maxlen;
 
-    /** The attribute of the column 'MaxPrec'. {INTEGER} */
+    /** MaxPrec: {INTEGER} */
     protected java.lang.Integer _maxprec;
 
-    /** The attribute of the column 'MaxScale'. {INTEGER} */
+    /** MaxScale: {INTEGER} */
     protected java.lang.Integer _maxscale;
 
-    /** The attribute of the column 'DefaultLen'. {INTEGER} */
+    /** DefaultLen: {INTEGER} */
     protected java.lang.Integer _defaultlen;
 
-    /** The attribute of the column 'DefaultPrec'. {INTEGER} */
+    /** DefaultPrec: {INTEGER} */
     protected java.lang.Integer _defaultprec;
 
-    /** The attribute of the column 'DefaultScale'. {INTEGER} */
+    /** DefaultScale: {INTEGER} */
     protected java.lang.Integer _defaultscale;
 
-    /** The attribute of the column 'User'. {INTEGER} */
+    /** User: {INTEGER} */
     protected java.lang.Integer _user;
 
-    /** The attribute of the column 'PDATA1'. {VARCHAR(255)} */
+    /** PDATA1: {VARCHAR(255)} */
     protected String _pdata1;
 
-    /** The attribute of the column 'PDATA2'. {VARCHAR(255)} */
+    /** PDATA2: {VARCHAR(255)} */
     protected String _pdata2;
 
-    /** The attribute of the column 'PDATA3'. {VARCHAR(255)} */
+    /** PDATA3: {VARCHAR(255)} */
     protected String _pdata3;
 
-    /** The attribute of the column 'PDATA4'. {VARCHAR(255)} */
+    /** PDATA4: {VARCHAR(255)} */
     protected String _pdata4;
 
-    /** The attribute of the column 'HasLength'. {VARCHAR(50)} */
+    /** HasLength: {VARCHAR(50)} */
     protected String _haslength;
 
-    /** The attribute of the column 'GenericType'. {VARCHAR(255)} */
+    /** GenericType: {VARCHAR(255)} */
     protected String _generictype;
 
-    /** The attribute of the column 'DatatypeID'. {UQ : COUNTER : NotNull} */
+    /** DatatypeID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _datatypeid;
 
     // -----------------------------------------------------
@@ -118,19 +114,13 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTDatatypes() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_datatypes";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TDatatypes";
     }
 
@@ -156,7 +146,6 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -279,13 +268,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(50)}
+     * Type: {VARCHAR(50)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -293,8 +277,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(50)}
+     * Type: {VARCHAR(50)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -302,12 +285,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String productname_COLUMN = "ProductName";
-
     /**
-     * Get the value of the column 'ProductName'. <br />
-     * {VARCHAR(50)}
+     * ProductName: {VARCHAR(50)} <br />
      * @return The value of the column 'ProductName'. (Nullable)
      */
     public String getProductname() {
@@ -315,8 +294,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ProductName'. <br />
-     * {VARCHAR(50)}
+     * ProductName: {VARCHAR(50)} <br />
      * @param productname The value of the column 'ProductName'. (Nullable)
      */
     public void setProductname(String productname) {
@@ -324,12 +302,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._productname = productname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String datatype_COLUMN = "DataType";
-
     /**
-     * Get the value of the column 'DataType'. <br />
-     * {VARCHAR(50)}
+     * DataType: {VARCHAR(50)} <br />
      * @return The value of the column 'DataType'. (Nullable)
      */
     public String getDatatype() {
@@ -337,8 +311,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DataType'. <br />
-     * {VARCHAR(50)}
+     * DataType: {VARCHAR(50)} <br />
      * @param datatype The value of the column 'DataType'. (Nullable)
      */
     public void setDatatype(String datatype) {
@@ -346,12 +319,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._datatype = datatype;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String size_COLUMN = "Size";
-
     /**
-     * Get the value of the column 'Size'. <br />
-     * {INTEGER}
+     * Size: {INTEGER} <br />
      * @return The value of the column 'Size'. (Nullable)
      */
     public java.lang.Integer getSize() {
@@ -359,8 +328,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Size'. <br />
-     * {INTEGER}
+     * Size: {INTEGER} <br />
      * @param size The value of the column 'Size'. (Nullable)
      */
     public void setSize(java.lang.Integer size) {
@@ -368,12 +336,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._size = size;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String maxlen_COLUMN = "MaxLen";
-
     /**
-     * Get the value of the column 'MaxLen'. <br />
-     * {INTEGER}
+     * MaxLen: {INTEGER} <br />
      * @return The value of the column 'MaxLen'. (Nullable)
      */
     public java.lang.Integer getMaxlen() {
@@ -381,8 +345,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'MaxLen'. <br />
-     * {INTEGER}
+     * MaxLen: {INTEGER} <br />
      * @param maxlen The value of the column 'MaxLen'. (Nullable)
      */
     public void setMaxlen(java.lang.Integer maxlen) {
@@ -390,12 +353,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._maxlen = maxlen;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String maxprec_COLUMN = "MaxPrec";
-
     /**
-     * Get the value of the column 'MaxPrec'. <br />
-     * {INTEGER}
+     * MaxPrec: {INTEGER} <br />
      * @return The value of the column 'MaxPrec'. (Nullable)
      */
     public java.lang.Integer getMaxprec() {
@@ -403,8 +362,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'MaxPrec'. <br />
-     * {INTEGER}
+     * MaxPrec: {INTEGER} <br />
      * @param maxprec The value of the column 'MaxPrec'. (Nullable)
      */
     public void setMaxprec(java.lang.Integer maxprec) {
@@ -412,12 +370,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._maxprec = maxprec;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String maxscale_COLUMN = "MaxScale";
-
     /**
-     * Get the value of the column 'MaxScale'. <br />
-     * {INTEGER}
+     * MaxScale: {INTEGER} <br />
      * @return The value of the column 'MaxScale'. (Nullable)
      */
     public java.lang.Integer getMaxscale() {
@@ -425,8 +379,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'MaxScale'. <br />
-     * {INTEGER}
+     * MaxScale: {INTEGER} <br />
      * @param maxscale The value of the column 'MaxScale'. (Nullable)
      */
     public void setMaxscale(java.lang.Integer maxscale) {
@@ -434,12 +387,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._maxscale = maxscale;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String defaultlen_COLUMN = "DefaultLen";
-
     /**
-     * Get the value of the column 'DefaultLen'. <br />
-     * {INTEGER}
+     * DefaultLen: {INTEGER} <br />
      * @return The value of the column 'DefaultLen'. (Nullable)
      */
     public java.lang.Integer getDefaultlen() {
@@ -447,8 +396,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DefaultLen'. <br />
-     * {INTEGER}
+     * DefaultLen: {INTEGER} <br />
      * @param defaultlen The value of the column 'DefaultLen'. (Nullable)
      */
     public void setDefaultlen(java.lang.Integer defaultlen) {
@@ -456,12 +404,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._defaultlen = defaultlen;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String defaultprec_COLUMN = "DefaultPrec";
-
     /**
-     * Get the value of the column 'DefaultPrec'. <br />
-     * {INTEGER}
+     * DefaultPrec: {INTEGER} <br />
      * @return The value of the column 'DefaultPrec'. (Nullable)
      */
     public java.lang.Integer getDefaultprec() {
@@ -469,8 +413,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DefaultPrec'. <br />
-     * {INTEGER}
+     * DefaultPrec: {INTEGER} <br />
      * @param defaultprec The value of the column 'DefaultPrec'. (Nullable)
      */
     public void setDefaultprec(java.lang.Integer defaultprec) {
@@ -478,12 +421,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._defaultprec = defaultprec;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String defaultscale_COLUMN = "DefaultScale";
-
     /**
-     * Get the value of the column 'DefaultScale'. <br />
-     * {INTEGER}
+     * DefaultScale: {INTEGER} <br />
      * @return The value of the column 'DefaultScale'. (Nullable)
      */
     public java.lang.Integer getDefaultscale() {
@@ -491,8 +430,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DefaultScale'. <br />
-     * {INTEGER}
+     * DefaultScale: {INTEGER} <br />
      * @param defaultscale The value of the column 'DefaultScale'. (Nullable)
      */
     public void setDefaultscale(java.lang.Integer defaultscale) {
@@ -500,12 +438,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._defaultscale = defaultscale;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String user_COLUMN = "User";
-
     /**
-     * Get the value of the column 'User'. <br />
-     * {INTEGER}
+     * User: {INTEGER} <br />
      * @return The value of the column 'User'. (Nullable)
      */
     public java.lang.Integer getUser() {
@@ -513,8 +447,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'User'. <br />
-     * {INTEGER}
+     * User: {INTEGER} <br />
      * @param user The value of the column 'User'. (Nullable)
      */
     public void setUser(java.lang.Integer user) {
@@ -522,12 +455,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._user = user;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata1_COLUMN = "PDATA1";
-
     /**
-     * Get the value of the column 'PDATA1'. <br />
-     * {VARCHAR(255)}
+     * PDATA1: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA1'. (Nullable)
      */
     public String getPdata1() {
@@ -535,8 +464,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA1'. <br />
-     * {VARCHAR(255)}
+     * PDATA1: {VARCHAR(255)} <br />
      * @param pdata1 The value of the column 'PDATA1'. (Nullable)
      */
     public void setPdata1(String pdata1) {
@@ -544,12 +472,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._pdata1 = pdata1;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata2_COLUMN = "PDATA2";
-
     /**
-     * Get the value of the column 'PDATA2'. <br />
-     * {VARCHAR(255)}
+     * PDATA2: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA2'. (Nullable)
      */
     public String getPdata2() {
@@ -557,8 +481,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA2'. <br />
-     * {VARCHAR(255)}
+     * PDATA2: {VARCHAR(255)} <br />
      * @param pdata2 The value of the column 'PDATA2'. (Nullable)
      */
     public void setPdata2(String pdata2) {
@@ -566,12 +489,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._pdata2 = pdata2;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata3_COLUMN = "PDATA3";
-
     /**
-     * Get the value of the column 'PDATA3'. <br />
-     * {VARCHAR(255)}
+     * PDATA3: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA3'. (Nullable)
      */
     public String getPdata3() {
@@ -579,8 +498,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA3'. <br />
-     * {VARCHAR(255)}
+     * PDATA3: {VARCHAR(255)} <br />
      * @param pdata3 The value of the column 'PDATA3'. (Nullable)
      */
     public void setPdata3(String pdata3) {
@@ -588,12 +506,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._pdata3 = pdata3;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata4_COLUMN = "PDATA4";
-
     /**
-     * Get the value of the column 'PDATA4'. <br />
-     * {VARCHAR(255)}
+     * PDATA4: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA4'. (Nullable)
      */
     public String getPdata4() {
@@ -601,8 +515,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA4'. <br />
-     * {VARCHAR(255)}
+     * PDATA4: {VARCHAR(255)} <br />
      * @param pdata4 The value of the column 'PDATA4'. (Nullable)
      */
     public void setPdata4(String pdata4) {
@@ -610,12 +523,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._pdata4 = pdata4;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String haslength_COLUMN = "HasLength";
-
     /**
-     * Get the value of the column 'HasLength'. <br />
-     * {VARCHAR(50)}
+     * HasLength: {VARCHAR(50)} <br />
      * @return The value of the column 'HasLength'. (Nullable)
      */
     public String getHaslength() {
@@ -623,8 +532,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'HasLength'. <br />
-     * {VARCHAR(50)}
+     * HasLength: {VARCHAR(50)} <br />
      * @param haslength The value of the column 'HasLength'. (Nullable)
      */
     public void setHaslength(String haslength) {
@@ -632,12 +540,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._haslength = haslength;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String generictype_COLUMN = "GenericType";
-
     /**
-     * Get the value of the column 'GenericType'. <br />
-     * {VARCHAR(255)}
+     * GenericType: {VARCHAR(255)} <br />
      * @return The value of the column 'GenericType'. (Nullable)
      */
     public String getGenerictype() {
@@ -645,8 +549,7 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GenericType'. <br />
-     * {VARCHAR(255)}
+     * GenericType: {VARCHAR(255)} <br />
      * @param generictype The value of the column 'GenericType'. (Nullable)
      */
     public void setGenerictype(String generictype) {
@@ -654,12 +557,8 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
         this._generictype = generictype;
     }
 
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String datatypeid_COLUMN = "DatatypeID";
-
     /**
-     * Get the value of the column 'DatatypeID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * DatatypeID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'DatatypeID'. (Nullable)
      */
     public java.lang.Integer getDatatypeid() {
@@ -667,13 +566,11 @@ public abstract class BsTDatatypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DatatypeID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * DatatypeID: {UQ : NotNull : COUNTER} <br />
      * @param datatypeid The value of the column 'DatatypeID'. (Nullable)
      */
     public void setDatatypeid(java.lang.Integer datatypeid) {
         _modifiedProperties.addPropertyName("datatypeid");
         this._datatypeid = datatypeid;
     }
-
 }

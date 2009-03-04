@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TAttributetagCQ;
 
 /**
- * The nest-select-setupper of t_attributetag.
+ * The nest select set-upper of t_attributetag.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TAttributetagNss {
 
     protected TAttributetagCQ _query;

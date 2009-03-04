@@ -2,11 +2,16 @@ package jp.sourceforge.ea2ddl.dao.cbean.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.AbstractConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.SubQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.UnionQuery;
+import org.seasar.dbflute.cbean.AbstractConditionBean;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.ConditionQuery;
+import org.seasar.dbflute.cbean.SubQuery;
+import org.seasar.dbflute.cbean.UnionQuery;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBFluteConfig;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.allcommon.ImplementedSqlClauseCreator;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -14,13 +19,29 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The base condition-bean of t_object.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    private final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
     protected TObjectCQ _conditionQuery;
+
+    // ===================================================================================
+    //                                                                           SqlClause
+    //                                                                           =========
+    @Override
+    protected SqlClause createSqlClause() {
+        return new ImplementedSqlClauseCreator().createSqlClause(this);
+    }
+    
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
+    }
 
     // ===================================================================================
     //                                                                          Table Name
@@ -76,7 +97,11 @@ public class BsTObjectCB extends AbstractConditionBean {
         return _conditionQuery;
     }
 
-    public ConditionQuery getConditionQueryAsInterface() {
+    /**
+     * {@inheritDoc}
+     * @return The conditionQuery of the local table as interface. (NotNull)
+     */
+    public ConditionQuery localCQ() {
         return getConditionQuery();
     }
 
@@ -114,22 +139,6 @@ public class BsTObjectCB extends AbstractConditionBean {
         final TObjectCB cb = new TObjectCB(); cb.xsetupForUnion(); unionQuery.query(cb);
         final TObjectCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
-    
-    /**
-     * @param unionQuery The query of 'union'. (NotNull)
-     * @deprecated Sorry! Please use union(UnionQuery<TObjectCB> unionQuery).
-     */
-    public void union(TObjectCQ unionQuery) {
-        query().xsetUnionQuery(unionQuery);
-    }
-
-    /**
-     * @param unionQuery The query of 'union'. (NotNull)
-     * @deprecated Sorry! Please use unionAll(UnionQuery<TObjectCB> unionQuery).
-     */
-    public void unionAll(TObjectCQ unionQuery) {
-        query().xsetUnionAllQuery(unionQuery);
-    }
 
     public boolean hasUnionQueryOrUnionAllQuery() {
         return query().hasUnionQueryOrUnionAllQuery();
@@ -146,11 +155,16 @@ public class BsTObjectCB extends AbstractConditionBean {
     protected Specification _specification;
     public Specification specify() {
         if (_specification == null) { _specification = new Specification(this, new SpQyCall<TObjectCQ>() {
-            public boolean has() { return true; } public TObjectCQ qy() { return query(); } }, _forDeriveReferrer); } return _specification;
+            public boolean has() { return true; } public TObjectCQ qy() { return query(); } }, _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, getDBMetaProvider()); }
+        return _specification;
     }
+
     public static class Specification extends AbstractSpecification<TObjectCQ> {
         protected SpQyCall<TObjectCQ> _myQyCall;
-        public Specification(ConditionBean baseCB, SpQyCall<TObjectCQ> qyCall, boolean forDeriveReferrer) { super(baseCB, qyCall, forDeriveReferrer); _myQyCall = qyCall; }
+        public Specification(ConditionBean baseCB, SpQyCall<TObjectCQ> qyCall
+                           , boolean forDeriveReferrer, boolean forScalarSelect, boolean forScalarSubQuery
+                           , DBMetaProvider dbmetaProvider)
+        { super(baseCB, qyCall, forDeriveReferrer, forScalarSelect, forScalarSubQuery, dbmetaProvider); _myQyCall = qyCall; }
         public void columnObjectId() { doColumn("Object_ID"); }
         public void columnObjectType() { doColumn("Object_Type"); }
         public void columnDiagramId() { doColumn("Diagram_ID"); }
@@ -214,30 +228,41 @@ public class BsTObjectCB extends AbstractConditionBean {
         public RAFunction<TObjectpropertiesCB, TObjectCQ> derivedTObjectpropertiesList() {
             return new RAFunction<TObjectpropertiesCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TObjectpropertiesCB, TObjectCQ>() {
                 public void setup(String function, SubQuery<TObjectpropertiesCB> subQuery, TObjectCQ cq, String aliasName) {
-                    cq.xderiveTObjectpropertiesList(function, subQuery, aliasName); } });
+                    cq.xsderiveTObjectpropertiesList(function, subQuery, aliasName); } }, _dbmetaProvider);
         }
         public RAFunction<TAttributeCB, TObjectCQ> derivedTAttributeList() {
             return new RAFunction<TAttributeCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TAttributeCB, TObjectCQ>() {
                 public void setup(String function, SubQuery<TAttributeCB> subQuery, TObjectCQ cq, String aliasName) {
-                    cq.xderiveTAttributeList(function, subQuery, aliasName); } });
+                    cq.xsderiveTAttributeList(function, subQuery, aliasName); } }, _dbmetaProvider);
         }
         public RAFunction<TOperationCB, TObjectCQ> derivedTOperationList() {
             return new RAFunction<TOperationCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TOperationCB, TObjectCQ>() {
                 public void setup(String function, SubQuery<TOperationCB> subQuery, TObjectCQ cq, String aliasName) {
-                    cq.xderiveTOperationList(function, subQuery, aliasName); } });
+                    cq.xsderiveTOperationList(function, subQuery, aliasName); } }, _dbmetaProvider);
         }
         public RAFunction<TConnectorCB, TObjectCQ> derivedTConnectorByStartObjectIdList() {
             return new RAFunction<TConnectorCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TConnectorCB, TObjectCQ>() {
                 public void setup(String function, SubQuery<TConnectorCB> subQuery, TObjectCQ cq, String aliasName) {
-                    cq.xderiveTConnectorByStartObjectIdList(function, subQuery, aliasName); } });
+                    cq.xsderiveTConnectorByStartObjectIdList(function, subQuery, aliasName); } }, _dbmetaProvider);
         }
         public RAFunction<TConnectorCB, TObjectCQ> derivedTConnectorByEndObjectIdList() {
             return new RAFunction<TConnectorCB, TObjectCQ>(_baseCB, _myQyCall.qy(), new RAQSetupper<TConnectorCB, TObjectCQ>() {
                 public void setup(String function, SubQuery<TConnectorCB> subQuery, TObjectCQ cq, String aliasName) {
-                    cq.xderiveTConnectorByEndObjectIdList(function, subQuery, aliasName); } });
+                    cq.xsderiveTConnectorByEndObjectIdList(function, subQuery, aliasName); } }, _dbmetaProvider);
         }
     }
 
+    // ===================================================================================
+    //                                                                         Display SQL
+    //                                                                         ===========
+    @Override
+    protected String getLogDateFormat() { return DBFluteConfig.getInstance().getLogDateFormat(); }
+    @Override
+    protected String getLogTimestampFormat() { return DBFluteConfig.getInstance().getLogTimestampFormat(); }
+
+    // ===================================================================================
+    //                                                                            Internal
+    //                                                                            ========
     // Very Internal (for Suppressing Warn about 'Not Use Import')
     protected String getConditionBeanClassNameInternally() { return TObjectCB.class.getName(); }
     protected String getConditionQueryClassNameInternally() { return TObjectCQ.class.getName(); }

@@ -1,29 +1,28 @@
 package jp.sourceforge.ea2ddl.dao.bsbhv;
 
-
 import java.util.List;
 
+import org.seasar.dbflute.*;
+import org.seasar.dbflute.bhv.ConditionBeanSetupper;
+import org.seasar.dbflute.bhv.LoadReferrerOption;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.EntityRowHandler;
+import org.seasar.dbflute.cbean.ListResultBean;
+import org.seasar.dbflute.cbean.PagingBean;
+import org.seasar.dbflute.cbean.PagingHandler;
+import org.seasar.dbflute.cbean.PagingInvoker;
+import org.seasar.dbflute.cbean.PagingResultBean;
+import org.seasar.dbflute.cbean.ResultBeanBuilder;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import org.seasar.dbflute.jdbc.StatementConfig;
 import jp.sourceforge.ea2ddl.dao.allcommon.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.bhv.load.LoadReferrerOption;
-import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ConditionBeanSetupper;
-import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ValueLabelSetupper;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
 import jp.sourceforge.ea2ddl.dao.exbhv.*;
-import jp.sourceforge.ea2ddl.dao.exdao.*;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 import jp.sourceforge.ea2ddl.dao.bsentity.dbmeta.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 
-
 /**
- * The behavior of t_object.
+ * The behavior of t_object that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     Object_ID
@@ -54,7 +53,7 @@ import jp.sourceforge.ea2ddl.dao.cbean.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.bhv.AbstractBehaviorWritable {
+public abstract class BsTObjectBhv extends org.seasar.dbflute.bhv.AbstractBehaviorWritable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -65,11 +64,6 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     /*df:BehaviorQueryPathEnd*/
 
     // ===================================================================================
-    //                                                                           Attribute
-    //                                                                           =========
-    protected TObjectDao _dao;
-
-    // ===================================================================================
     //                                                                          Table name
     //                                                                          ==========
     /** @return The name on database of table. (NotNull) */
@@ -78,19 +72,11 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /** @return The meta data of the database. (NotNull) */
+    /** @return The instance of DBMeta. (NotNull) */
     public DBMeta getDBMeta() { return TObjectDbm.getInstance(); }
 
-    /** @return The meta data of the database as my table type. (NotNull) */
+    /** @return The instance of DBMeta as my table type. (NotNull) */
     public TObjectDbm getMyDBMeta() { return TObjectDbm.getInstance(); }
-
-    // ===================================================================================
-    //                                                                        Dao Accessor
-    //                                                                        ============
-    public TObjectDao getMyDao() { return _dao; }
-    public void setMyDao(TObjectDao dao) { assertObjectNotNull("dao", dao); _dao = dao; }
-    public DaoReadable getDaoReadable() { return getMyDao(); }
-    public DaoWritable getDaoWritable() { return getMyDao(); }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -101,16 +87,46 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     public TObjectCB newMyConditionBean() { return new TObjectCB(); }
 
     // ===================================================================================
+    //                                                                       Current DBDef
+    //                                                                       =============
+    @Override
+    protected DBDef getCurrentDBDef() {
+        return DBCurrent.getInstance().currentDBDef();
+    }
+
+    // ===================================================================================
+    //                                                             Default StatementConfig
+    //                                                             =======================
+    @Override
+    protected StatementConfig getDefaultStatementConfig() {
+        return DBFluteConfig.getInstance().getDefaultStatementConfig();
+    }
+    
+    // ===================================================================================
     //                                                                        Count Select
     //                                                                        ============
     /**
-     * Select the count of the condition-bean. {IgnorePagingCondition}
+     * Select the count by the condition-bean. {IgnorePagingCondition}
      * @param cb The condition-bean of TObject. (NotNull)
      * @return The selected count.
      */
     public int selectCount(TObjectCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return delegateSelectCount(cb);
+    }
+    
+    // ===================================================================================
+    //                                                                       Cursor Select
+    //                                                                       =============
+    /**
+     * Select the cursor by the condition-bean. <br />
+     * Attention: It has a mapping cost from result set to entity.
+     * @param cb The condition-bean of TObject. (NotNull)
+     * @param entityRowHandler The handler of entity row of TObject. (NotNull)
+     */
+    public void selectCursor(TObjectCB cb, EntityRowHandler<TObject> entityRowHandler) {
+        assertCBNotNull(cb); assertObjectNotNull("entityRowHandler<TObject>", entityRowHandler);
+        delegateSelectCursor(cb, entityRowHandler);
     }
 
     // ===================================================================================
@@ -120,7 +136,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * Select the entity by the condition-bean.
      * @param cb The condition-bean of TObject. (NotNull)
      * @return The selected entity. (Nullalble)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TObject selectEntity(final TObjectCB cb) {
         return helpSelectEntityInternally(cb, new InternalSelectEntityCallback<TObject, TObjectCB>() {
@@ -131,8 +147,8 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * Select the entity by the condition-bean with deleted check.
      * @param cb The condition-bean of TObject. (NotNull)
      * @return The selected entity. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TObject selectEntityWithDeletedCheck(final TObjectCB cb) {
         return helpSelectEntityWithDeletedCheckInternally(cb, new InternalSelectEntityWithDeletedCheckCallback<TObject, TObjectCB>() {
@@ -143,8 +159,8 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * Select the entity with deleted check. {by primary-key value}
      * @param primaryKey The keys of primary.
      * @return The selected entity. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TObject selectByPKValueWithDeletedCheck(java.lang.Integer objectId) {
         TObject entity = new TObject();
@@ -163,7 +179,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @return The result bean of selected list. (NotNull)
      */
     public ListResultBean<TObject> selectList(TObjectCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return new ResultBeanBuilder<TObject>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
     }
 
@@ -176,7 +192,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @return The result bean of selected page. (NotNull)
      */
     public PagingResultBean<TObject> selectPage(final TObjectCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         final PagingInvoker<TObject> invoker = new PagingInvoker<TObject>(getTableDbName());
         final PagingHandler<TObject> handler = new PagingHandler<TObject>() {
             public PagingBean getPagingBean() { return cb; }
@@ -187,22 +203,40 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     }
 
     // ===================================================================================
-    //                                                                      Various Select
-    //                                                                      ==============
+    //                                                                       Scalar Select
+    //                                                                       =============
     /**
-     * Select the list of value-label.
-     * @param cb The condition-bean of TObject. (NotNull)
-     * @param valueLabelSetupper The setupper of value-label. (NotNull)
-     * @return The list of value-label. (NotNull)
+     * Select the scalar value derived by a function. <br />
+     * Call a function method after this method called like as follows:
+     * <pre>
+     * tObjectBhv.scalarSelect(Date.class).max(new ScalarQuery(TObjectCB cb) {
+     *     cb.specify().columnXxxDatetime(); // the required specification of target column
+     *     cb.query().setXxxName_PrefixSearch("S"); // query as you like it
+     * });
+     * </pre>
+     * @param <RESULT> The type of result.
+     * @param resultType The type of result. (NotNull)
+     * @return The scalar value derived by a function. (Nullable)
      */
-    public List<java.util.Map<String, Object>> selectValueLabelList(TObjectCB cb, ValueLabelSetupper<TObject> valueLabelSetupper) {
-        return createValueLabelList(selectList(cb), valueLabelSetupper);
+    public <RESULT> SLFunction<TObjectCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+        TObjectCB cb = newMyConditionBean();
+        cb.xsetupForScalarSelect();
+        cb.getSqlClause().disableSelectIndex(); // for when you use union
+        return new SLFunction<TObjectCB, RESULT>(cb, resultType);
     }
-
 
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
+     */
+    public void loadTObjectpropertiesList(TObject tObject, ConditionBeanSetupper<TObjectpropertiesCB> conditionBeanSetupper) {
+        xassLRArg(tObject, conditionBeanSetupper);
+        loadTObjectpropertiesList(xnewLRLs(tObject), conditionBeanSetupper);
+    }
     /**
      * Load referrer of TObjectpropertiesList with the setupper for condition-bean of referrer. <br />
      * About internal policy, the value of primary key(and others too) is treated as case-insensitive. <br />
@@ -215,10 +249,17 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
      */
     public void loadTObjectpropertiesList(List<TObject> tObjectList, ConditionBeanSetupper<TObjectpropertiesCB> conditionBeanSetupper) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("conditionBeanSetupper<TObjectpropertiesCB>", conditionBeanSetupper);
-        if (tObjectList.isEmpty()) { return; }
+        xassLRArg(tObjectList, conditionBeanSetupper);
         loadTObjectpropertiesList(tObjectList, new LoadReferrerOption<TObjectpropertiesCB, TObjectproperties>(conditionBeanSetupper));
+    }
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param loadReferrerOption The option of load-referrer. (NotNull)
+     */
+    public void loadTObjectpropertiesList(TObject tObject, LoadReferrerOption<TObjectpropertiesCB, TObjectproperties> loadReferrerOption) {
+        xassLRArg(tObject, loadReferrerOption);
+        loadTObjectpropertiesList(xnewLRLs(tObject), loadReferrerOption);
     }
     /**
      * {Refer to overload method that has an argument of condition-bean setupper.}
@@ -226,8 +267,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      */
     public void loadTObjectpropertiesList(List<TObject> tObjectList, LoadReferrerOption<TObjectpropertiesCB, TObjectproperties> loadReferrerOption) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("loadReferrerOption<TObjectproperties, TObjectpropertiesCB>", loadReferrerOption);
+        xassLRArg(tObjectList, loadReferrerOption);
         if (tObjectList.isEmpty()) { return; }
         final TObjectpropertiesBhv referrerBhv = xgetBSFLR().select(TObjectpropertiesBhv.class);
         helpLoadReferrerInternally(tObjectList, loadReferrerOption, new InternalLoadReferrerCallback<TObject, java.lang.Integer, TObjectpropertiesCB, TObjectproperties>() {
@@ -241,6 +281,16 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
             public void callbackReferrer_setForeignEntity(TObjectproperties referrerEntity, TObject baseEntity) { referrerEntity.setTObject(baseEntity); }
         } );
     }
+
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
+     */
+    public void loadTAttributeList(TObject tObject, ConditionBeanSetupper<TAttributeCB> conditionBeanSetupper) {
+        xassLRArg(tObject, conditionBeanSetupper);
+        loadTAttributeList(xnewLRLs(tObject), conditionBeanSetupper);
+    }
     /**
      * Load referrer of TAttributeList with the setupper for condition-bean of referrer. <br />
      * About internal policy, the value of primary key(and others too) is treated as case-insensitive. <br />
@@ -253,10 +303,17 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
      */
     public void loadTAttributeList(List<TObject> tObjectList, ConditionBeanSetupper<TAttributeCB> conditionBeanSetupper) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("conditionBeanSetupper<TAttributeCB>", conditionBeanSetupper);
-        if (tObjectList.isEmpty()) { return; }
+        xassLRArg(tObjectList, conditionBeanSetupper);
         loadTAttributeList(tObjectList, new LoadReferrerOption<TAttributeCB, TAttribute>(conditionBeanSetupper));
+    }
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param loadReferrerOption The option of load-referrer. (NotNull)
+     */
+    public void loadTAttributeList(TObject tObject, LoadReferrerOption<TAttributeCB, TAttribute> loadReferrerOption) {
+        xassLRArg(tObject, loadReferrerOption);
+        loadTAttributeList(xnewLRLs(tObject), loadReferrerOption);
     }
     /**
      * {Refer to overload method that has an argument of condition-bean setupper.}
@@ -264,8 +321,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      */
     public void loadTAttributeList(List<TObject> tObjectList, LoadReferrerOption<TAttributeCB, TAttribute> loadReferrerOption) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("loadReferrerOption<TAttribute, TAttributeCB>", loadReferrerOption);
+        xassLRArg(tObjectList, loadReferrerOption);
         if (tObjectList.isEmpty()) { return; }
         final TAttributeBhv referrerBhv = xgetBSFLR().select(TAttributeBhv.class);
         helpLoadReferrerInternally(tObjectList, loadReferrerOption, new InternalLoadReferrerCallback<TObject, java.lang.Integer, TAttributeCB, TAttribute>() {
@@ -279,6 +335,16 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
             public void callbackReferrer_setForeignEntity(TAttribute referrerEntity, TObject baseEntity) { referrerEntity.setTObject(baseEntity); }
         } );
     }
+
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
+     */
+    public void loadTOperationList(TObject tObject, ConditionBeanSetupper<TOperationCB> conditionBeanSetupper) {
+        xassLRArg(tObject, conditionBeanSetupper);
+        loadTOperationList(xnewLRLs(tObject), conditionBeanSetupper);
+    }
     /**
      * Load referrer of TOperationList with the setupper for condition-bean of referrer. <br />
      * About internal policy, the value of primary key(and others too) is treated as case-insensitive. <br />
@@ -291,10 +357,17 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
      */
     public void loadTOperationList(List<TObject> tObjectList, ConditionBeanSetupper<TOperationCB> conditionBeanSetupper) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("conditionBeanSetupper<TOperationCB>", conditionBeanSetupper);
-        if (tObjectList.isEmpty()) { return; }
+        xassLRArg(tObjectList, conditionBeanSetupper);
         loadTOperationList(tObjectList, new LoadReferrerOption<TOperationCB, TOperation>(conditionBeanSetupper));
+    }
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param loadReferrerOption The option of load-referrer. (NotNull)
+     */
+    public void loadTOperationList(TObject tObject, LoadReferrerOption<TOperationCB, TOperation> loadReferrerOption) {
+        xassLRArg(tObject, loadReferrerOption);
+        loadTOperationList(xnewLRLs(tObject), loadReferrerOption);
     }
     /**
      * {Refer to overload method that has an argument of condition-bean setupper.}
@@ -302,8 +375,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      */
     public void loadTOperationList(List<TObject> tObjectList, LoadReferrerOption<TOperationCB, TOperation> loadReferrerOption) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("loadReferrerOption<TOperation, TOperationCB>", loadReferrerOption);
+        xassLRArg(tObjectList, loadReferrerOption);
         if (tObjectList.isEmpty()) { return; }
         final TOperationBhv referrerBhv = xgetBSFLR().select(TOperationBhv.class);
         helpLoadReferrerInternally(tObjectList, loadReferrerOption, new InternalLoadReferrerCallback<TObject, java.lang.Integer, TOperationCB, TOperation>() {
@@ -317,6 +389,16 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
             public void callbackReferrer_setForeignEntity(TOperation referrerEntity, TObject baseEntity) { referrerEntity.setTObject(baseEntity); }
         } );
     }
+
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
+     */
+    public void loadTConnectorByStartObjectIdList(TObject tObject, ConditionBeanSetupper<TConnectorCB> conditionBeanSetupper) {
+        xassLRArg(tObject, conditionBeanSetupper);
+        loadTConnectorByStartObjectIdList(xnewLRLs(tObject), conditionBeanSetupper);
+    }
     /**
      * Load referrer of TConnectorByStartObjectIdList with the setupper for condition-bean of referrer. <br />
      * About internal policy, the value of primary key(and others too) is treated as case-insensitive. <br />
@@ -329,10 +411,17 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
      */
     public void loadTConnectorByStartObjectIdList(List<TObject> tObjectList, ConditionBeanSetupper<TConnectorCB> conditionBeanSetupper) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("conditionBeanSetupper<TConnectorCB>", conditionBeanSetupper);
-        if (tObjectList.isEmpty()) { return; }
+        xassLRArg(tObjectList, conditionBeanSetupper);
         loadTConnectorByStartObjectIdList(tObjectList, new LoadReferrerOption<TConnectorCB, TConnector>(conditionBeanSetupper));
+    }
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param loadReferrerOption The option of load-referrer. (NotNull)
+     */
+    public void loadTConnectorByStartObjectIdList(TObject tObject, LoadReferrerOption<TConnectorCB, TConnector> loadReferrerOption) {
+        xassLRArg(tObject, loadReferrerOption);
+        loadTConnectorByStartObjectIdList(xnewLRLs(tObject), loadReferrerOption);
     }
     /**
      * {Refer to overload method that has an argument of condition-bean setupper.}
@@ -340,8 +429,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      */
     public void loadTConnectorByStartObjectIdList(List<TObject> tObjectList, LoadReferrerOption<TConnectorCB, TConnector> loadReferrerOption) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("loadReferrerOption<TConnector, TConnectorCB>", loadReferrerOption);
+        xassLRArg(tObjectList, loadReferrerOption);
         if (tObjectList.isEmpty()) { return; }
         final TConnectorBhv referrerBhv = xgetBSFLR().select(TConnectorBhv.class);
         helpLoadReferrerInternally(tObjectList, loadReferrerOption, new InternalLoadReferrerCallback<TObject, java.lang.Integer, TConnectorCB, TConnector>() {
@@ -355,6 +443,16 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
             public void callbackReferrer_setForeignEntity(TConnector referrerEntity, TObject baseEntity) { referrerEntity.setTObjectByStartObjectId(baseEntity); }
         } );
     }
+
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
+     */
+    public void loadTConnectorByEndObjectIdList(TObject tObject, ConditionBeanSetupper<TConnectorCB> conditionBeanSetupper) {
+        xassLRArg(tObject, conditionBeanSetupper);
+        loadTConnectorByEndObjectIdList(xnewLRLs(tObject), conditionBeanSetupper);
+    }
     /**
      * Load referrer of TConnectorByEndObjectIdList with the setupper for condition-bean of referrer. <br />
      * About internal policy, the value of primary key(and others too) is treated as case-insensitive. <br />
@@ -367,10 +465,17 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param conditionBeanSetupper The instance of referrer condition-bean setupper for registering referrer condition. (NotNull)
      */
     public void loadTConnectorByEndObjectIdList(List<TObject> tObjectList, ConditionBeanSetupper<TConnectorCB> conditionBeanSetupper) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("conditionBeanSetupper<TConnectorCB>", conditionBeanSetupper);
-        if (tObjectList.isEmpty()) { return; }
+        xassLRArg(tObjectList, conditionBeanSetupper);
         loadTConnectorByEndObjectIdList(tObjectList, new LoadReferrerOption<TConnectorCB, TConnector>(conditionBeanSetupper));
+    }
+    /**
+     * {Refer to overload method that has an argument of the list of entity.}
+     * @param tObject The entity of TObject. (NotNull)
+     * @param loadReferrerOption The option of load-referrer. (NotNull)
+     */
+    public void loadTConnectorByEndObjectIdList(TObject tObject, LoadReferrerOption<TConnectorCB, TConnector> loadReferrerOption) {
+        xassLRArg(tObject, loadReferrerOption);
+        loadTConnectorByEndObjectIdList(xnewLRLs(tObject), loadReferrerOption);
     }
     /**
      * {Refer to overload method that has an argument of condition-bean setupper.}
@@ -378,8 +483,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      */
     public void loadTConnectorByEndObjectIdList(List<TObject> tObjectList, LoadReferrerOption<TConnectorCB, TConnector> loadReferrerOption) {
-        assertObjectNotNull("tObjectList<TObject>", tObjectList);
-        assertObjectNotNull("loadReferrerOption<TConnector, TConnectorCB>", loadReferrerOption);
+        xassLRArg(tObjectList, loadReferrerOption);
         if (tObjectList.isEmpty()) { return; }
         final TConnectorBhv referrerBhv = xgetBSFLR().select(TConnectorBhv.class);
         helpLoadReferrerInternally(tObjectList, loadReferrerOption, new InternalLoadReferrerCallback<TObject, java.lang.Integer, TConnectorCB, TConnector>() {
@@ -395,16 +499,16 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     }
 
     // ===================================================================================
-    //                                                                     Pullout Foreign
-    //                                                                     ===============
-          
+    //                                                                    Pull out Foreign
+    //                                                                    ================
+
     // ===================================================================================
     //                                                                       Entity Update
     //                                                                       =============
     /**
      * Insert the entity.
      * @param tObject The entity of insert target. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
+     * @exception org.seasar.dbflute.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
      */
     public void insert(TObject tObject) {
         assertEntityNotNull(tObject);
@@ -419,9 +523,9 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     /**
      * Update the entity modified-only. {UpdateCountZeroException, ConcurrencyControl}
      * @param tObject The entity of update target. (NotNull) {PrimaryKeyRequired, ConcurrencyColumnRequired}
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
      */
     public void update(final TObject tObject) {
         helpUpdateInternally(tObject, new InternalUpdateCallback<TObject>() {
@@ -441,9 +545,9 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     /**
      * Insert or update the entity modified-only. {ConcurrencyControl(when update)}
      * @param tObject The entity of insert or update target. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
      */
     public void insertOrUpdate(final TObject tObject) {
         helpInsertOrUpdateInternally(tObject, new InternalInsertOrUpdateCallback<TObject, TObjectCB>() {
@@ -467,8 +571,8 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
     /**
      * Delete the entity. {UpdateCountZeroException, ConcurrencyControl}
      * @param tObject The entity of delete target. (NotNull) {PrimaryKeyRequired, ConcurrencyColumnRequired}
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(TObject tObject) {
         helpDeleteInternally(tObject, new InternalDeleteCallback<TObject>() {
@@ -498,7 +602,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * This method use 'Batch Update' of java.sql.PreparedStatement.
      * @param tObjectList The list of the entity. (NotNull)
      * @return The array of updated count.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
      */
     public int[] batchUpdate(List<TObject> tObjectList) {
         assertObjectNotNull("tObjectList", tObjectList);
@@ -510,7 +614,7 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * This method use 'Batch Update' of java.sql.PreparedStatement.
      * @param tObjectList The list of the entity. (NotNull)
      * @return The array of deleted count.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
      */
     public int[] batchDelete(List<TObject> tObjectList) {
         assertObjectNotNull("tObjectList", tObjectList);
@@ -527,10 +631,10 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @return The updated count.
      */
     public int queryUpdate(TObject tObject, TObjectCB cb) {
-        assertObjectNotNull("tObject", tObject); assertConditionBeanNotNull(cb);
+        assertObjectNotNull("tObject", tObject); assertCBNotNull(cb);
         setupCommonColumnOfUpdateIfNeeds(tObject);
         filterEntityOfUpdate(tObject); assertEntityOfUpdate(tObject);
-        return getMyDao().updateByQuery(cb, tObject);
+        return invoke(createQueryUpdateEntityCBCommand(tObject, cb));
     }
 
     /**
@@ -539,39 +643,51 @@ public abstract class BsTObjectBhv extends jp.sourceforge.ea2ddl.dao.allcommon.b
      * @return The deleted count.
      */
     public int queryDelete(TObjectCB cb) {
-        assertConditionBeanNotNull(cb);
-        return getMyDao().deleteByQuery(cb);
+        assertCBNotNull(cb);
+        return invoke(createQueryDeleteCBCommand(cb));
     }
-
-    // ===================================================================================
-    //                                                                      Various Update
-    //                                                                      ==============
-
+    
     // ===================================================================================
     //                                                                     Delegate Method
     //                                                                     ===============
+    // [Behavior Command]
     // -----------------------------------------------------
     //                                                Select
     //                                                ------
-    protected int delegateSelectCount(TObjectCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectCount(cb); }
-    protected List<TObject> delegateSelectList(TObjectCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectList(cb); }
+    protected int delegateSelectCount(TObjectCB cb) { return invoke(createSelectCountCBCommand(cb)); }
+    protected void delegateSelectCursor(TObjectCB cb, EntityRowHandler<TObject> entityRowHandler)
+    { invoke(createSelectCursorCBCommand(cb, entityRowHandler, TObject.class)); }
+    protected int doCallReadCount(ConditionBean cb) { return delegateSelectCount((TObjectCB)cb); }
+    protected List<TObject> delegateSelectList(TObjectCB cb)
+    { return invoke(createSelectListCBCommand(cb, TObject.class)); }
+    @SuppressWarnings("unchecked")
+    protected List<Entity> doCallReadList(ConditionBean cb) { return (List)delegateSelectList((TObjectCB)cb); }
 
     // -----------------------------------------------------
     //                                                Update
     //                                                ------
-    protected int delegateInsert(TObject e) { if (!processBeforeInsert(e)) { return 1; } return getMyDao().insert(e); }
-    protected int delegateUpdate(TObject e) { if (!processBeforeUpdate(e)) { return 1; } return getMyDao().updateModifiedOnly(e); }
-    protected int delegateDelete(TObject e) { if (!processBeforeDelete(e)) { return 1; } return getMyDao().delete(e); }
+    protected int delegateInsert(TObject e)
+    { if (!processBeforeInsert(e)) { return 1; } return invoke(createInsertEntityCommand(e)); }
+    protected int doCallCreate(Entity entity) {return delegateInsert(downcast(entity)); }
+    protected int delegateUpdate(TObject e)
+    { if (!processBeforeUpdate(e)) { return 1; } return invoke(createUpdateEntityCommand(e)); }
+    protected int doCallModify(Entity entity) { return delegateUpdate(downcast(entity)); }
+    protected int delegateDelete(TObject e)
+    { if (!processBeforeDelete(e)) { return 1; } return invoke(createDeleteEntityCommand(e)); }
+    protected int doCallRemove(Entity entity) { return delegateDelete(downcast(entity)); }
 
-    protected int[] delegateInsertList(List<TObject> ls) {
-        assertObjectNotNull("tObjectList", ls); return getMyDao().insertList(helpFilterBeforeInsertInternally(ls));
-    }
-    protected int[] delegateUpdateList(List<TObject> ls) {
-        assertObjectNotNull("tObjectList", ls); return getMyDao().updateList(helpFilterBeforeUpdateInternally(ls));
-    }
-    protected int[] delegateDeleteList(List<TObject> ls) {
-        assertObjectNotNull("tObjectList", ls); return getMyDao().deleteList(helpFilterBeforeDeleteInternally(ls));
-    }
+    protected int[] delegateInsertList(List<TObject> ls)
+    { if (ls.isEmpty()) { return new int[]{}; } return invoke(createBatchInsertEntityCommand(helpFilterBeforeInsertInternally(ls))); }
+    @SuppressWarnings("unchecked")
+    protected int[] doCreateList(List<Entity> ls) { return delegateInsertList((List)ls); }
+    protected int[] delegateUpdateList(List<TObject> ls)
+    { if (ls.isEmpty()) { return new int[]{}; } return invoke(createBatchUpdateEntityCommand(helpFilterBeforeUpdateInternally(ls))); }
+    @SuppressWarnings("unchecked")
+    protected int[] doModifyList(List<Entity> ls) { return delegateUpdateList((List)ls); }
+    protected int[] delegateDeleteList(List<TObject> ls)
+    { if (ls.isEmpty()) { return new int[]{}; } return invoke(createBatchDeleteEntityCommand(helpFilterBeforeDeleteInternally(ls))); }
+    @SuppressWarnings("unchecked")
+    protected int[] doRemoveList(List<Entity> ls) { return delegateDeleteList((List)ls); }
 
     // ===================================================================================
     //                                                                Optimistic Lock Info

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_genopt(TABLE).
+ * The entity of t_genopt that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTGenopt implements Entity, java.io.Serializable {
+public abstract class BsTGenopt implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,20 +47,16 @@ public abstract class BsTGenopt implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_genopt. */
-    public static final String TABLE = "t_genopt";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'AppliesTo'. {VARCHAR(12)} */
+    /** AppliesTo: {VARCHAR(12)} */
     protected String _appliesto;
 
-    /** The attribute of the column 'Option'. {LONGCHAR(2147483647)} */
+    /** Option: {LONGCHAR(2147483647)} */
     protected String _option;
 
     // -----------------------------------------------------
@@ -70,19 +66,13 @@ public abstract class BsTGenopt implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTGenopt() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_genopt";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TGenopt";
     }
 
@@ -108,7 +98,6 @@ public abstract class BsTGenopt implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -183,13 +172,8 @@ public abstract class BsTGenopt implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String appliesto_COLUMN = "AppliesTo";
-
     /**
-     * Get the value of the column 'AppliesTo'. <br />
-     * {VARCHAR(12)}
+     * AppliesTo: {VARCHAR(12)} <br />
      * @return The value of the column 'AppliesTo'. (Nullable)
      */
     public String getAppliesto() {
@@ -197,8 +181,7 @@ public abstract class BsTGenopt implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'AppliesTo'. <br />
-     * {VARCHAR(12)}
+     * AppliesTo: {VARCHAR(12)} <br />
      * @param appliesto The value of the column 'AppliesTo'. (Nullable)
      */
     public void setAppliesto(String appliesto) {
@@ -206,12 +189,8 @@ public abstract class BsTGenopt implements Entity, java.io.Serializable {
         this._appliesto = appliesto;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String option_COLUMN = "Option";
-
     /**
-     * Get the value of the column 'Option'. <br />
-     * {LONGCHAR(2147483647)}
+     * Option: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Option'. (Nullable)
      */
     public String getOption() {
@@ -219,13 +198,11 @@ public abstract class BsTGenopt implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Option'. <br />
-     * {LONGCHAR(2147483647)}
+     * Option: {LONGCHAR(2147483647)} <br />
      * @param option The value of the column 'Option'. (Nullable)
      */
     public void setOption(String option) {
         _modifiedProperties.addPropertyName("option");
         this._option = option;
     }
-
 }

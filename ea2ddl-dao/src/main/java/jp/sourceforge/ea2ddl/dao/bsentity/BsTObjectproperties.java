@@ -1,14 +1,15 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
- * The entity of t_objectproperties(TABLE).
+ * The entity of t_objectproperties that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -39,8 +40,7 @@ import jp.sourceforge.ea2ddl.dao.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjectproperties implements Entity, java.io.Serializable {
+public abstract class BsTObjectproperties implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -48,32 +48,28 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objectproperties. */
-    public static final String TABLE = "t_objectproperties";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'PropertyID'. {UQ : COUNTER : NotNull} */
+    /** PropertyID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _propertyid;
 
-    /** The attribute of the column 'Object_ID'. {INTEGER : FK to t_object} */
+    /** Object_ID: {INTEGER : FK to t_object} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Property'. {VARCHAR(255)} */
+    /** Property: {VARCHAR(255)} */
     protected String _property;
 
-    /** The attribute of the column 'Value'. {VARCHAR(255)} */
+    /** Value: {VARCHAR(255)} */
     protected String _value;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'ea_guid'. {VARCHAR(40)} */
+    /** ea_guid: {VARCHAR(40)} */
     protected String _eaGuid;
 
     // -----------------------------------------------------
@@ -83,19 +79,13 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjectproperties() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objectproperties";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjectproperties";
     }
 
@@ -118,17 +108,11 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Foreign Property = [TObject]
-    // * * * * * * * * */
-    public static final int TObject_RELNO = 0;
-    public static final String TObject_RELKEYS = "Object_ID:Object_ID";
-
-    /** The entity of foreign property 'TObject'. */
+    /** t_object as 'TObject'. */
     protected TObject _parentTObject;
 
     /**
-     * Get the entity of foreign property 'TObject'. {without lazy-load}
+     * t_object as 'TObject'. {without lazy-load}
      * @return The entity of foreign property 'TObject'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
      */
     public TObject getTObject() {
@@ -136,7 +120,7 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the entity of foreign property 'TObject'.
+     * t_object as 'TObject'.
      * @param tObject The entity of foreign property 'TObject'. (Nullable)
      */
     public void setTObject(TObject tObject) {
@@ -146,7 +130,6 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -233,13 +216,8 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String propertyid_COLUMN = "PropertyID";
-
     /**
-     * Get the value of the column 'PropertyID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * PropertyID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'PropertyID'. (Nullable)
      */
     public java.lang.Integer getPropertyid() {
@@ -247,8 +225,7 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'PropertyID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * PropertyID: {UQ : NotNull : COUNTER} <br />
      * @param propertyid The value of the column 'PropertyID'. (Nullable)
      */
     public void setPropertyid(java.lang.Integer propertyid) {
@@ -256,12 +233,8 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
         this._propertyid = propertyid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER : FK to t_object} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {INTEGER : FK to t_object}
+     * Object_ID: {INTEGER : FK to t_object} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -269,8 +242,7 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {INTEGER : FK to t_object}
+     * Object_ID: {INTEGER : FK to t_object} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -278,12 +250,8 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String property_COLUMN = "Property";
-
     /**
-     * Get the value of the column 'Property'. <br />
-     * {VARCHAR(255)}
+     * Property: {VARCHAR(255)} <br />
      * @return The value of the column 'Property'. (Nullable)
      */
     public String getProperty() {
@@ -291,8 +259,7 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Property'. <br />
-     * {VARCHAR(255)}
+     * Property: {VARCHAR(255)} <br />
      * @param property The value of the column 'Property'. (Nullable)
      */
     public void setProperty(String property) {
@@ -300,12 +267,8 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
         this._property = property;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String value_COLUMN = "Value";
-
     /**
-     * Get the value of the column 'Value'. <br />
-     * {VARCHAR(255)}
+     * Value: {VARCHAR(255)} <br />
      * @return The value of the column 'Value'. (Nullable)
      */
     public String getValue() {
@@ -313,8 +276,7 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Value'. <br />
-     * {VARCHAR(255)}
+     * Value: {VARCHAR(255)} <br />
      * @param value The value of the column 'Value'. (Nullable)
      */
     public void setValue(String value) {
@@ -322,12 +284,8 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
         this._value = value;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -335,8 +293,7 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -344,12 +301,8 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {VARCHAR(40)}
+     * ea_guid: {VARCHAR(40)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -357,13 +310,11 @@ public abstract class BsTObjectproperties implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {VARCHAR(40)}
+     * ea_guid: {VARCHAR(40)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
         _modifiedProperties.addPropertyName("eaGuid");
         this._eaGuid = eaGuid;
     }
-
 }

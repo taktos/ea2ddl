@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objectmetrics(TABLE).
+ * The entity of t_objectmetrics that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
+public abstract class BsTObjectmetrics implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,29 +47,25 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objectmetrics. */
-    public static final String TABLE = "t_objectmetrics";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : INTEGER} */
+    /** Object_ID: {UQ : INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Metric'. {UQ : VARCHAR(255)} */
+    /** Metric: {UQ : VARCHAR(255)} */
     protected String _metric;
 
-    /** The attribute of the column 'MetricType'. {VARCHAR(12)} */
+    /** MetricType: {VARCHAR(12)} */
     protected String _metrictype;
 
-    /** The attribute of the column 'EValue'. {DOUBLE} */
+    /** EValue: {DOUBLE} */
     protected java.math.BigDecimal _evalue;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -79,19 +75,13 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjectmetrics() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objectmetrics";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjectmetrics";
     }
 
@@ -117,7 +107,6 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -201,13 +190,8 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -215,8 +199,7 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -224,12 +207,8 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String metric_COLUMN = "Metric";
-
     /**
-     * Get the value of the column 'Metric'. <br />
-     * {UQ : VARCHAR(255)}
+     * Metric: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Metric'. (Nullable)
      */
     public String getMetric() {
@@ -237,8 +216,7 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Metric'. <br />
-     * {UQ : VARCHAR(255)}
+     * Metric: {UQ : VARCHAR(255)} <br />
      * @param metric The value of the column 'Metric'. (Nullable)
      */
     public void setMetric(String metric) {
@@ -246,12 +224,8 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
         this._metric = metric;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String metrictype_COLUMN = "MetricType";
-
     /**
-     * Get the value of the column 'MetricType'. <br />
-     * {VARCHAR(12)}
+     * MetricType: {VARCHAR(12)} <br />
      * @return The value of the column 'MetricType'. (Nullable)
      */
     public String getMetrictype() {
@@ -259,8 +233,7 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'MetricType'. <br />
-     * {VARCHAR(12)}
+     * MetricType: {VARCHAR(12)} <br />
      * @param metrictype The value of the column 'MetricType'. (Nullable)
      */
     public void setMetrictype(String metrictype) {
@@ -268,12 +241,8 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
         this._metrictype = metrictype;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String evalue_COLUMN = "EValue";
-
     /**
-     * Get the value of the column 'EValue'. <br />
-     * {DOUBLE}
+     * EValue: {DOUBLE} <br />
      * @return The value of the column 'EValue'. (Nullable)
      */
     public java.math.BigDecimal getEvalue() {
@@ -281,8 +250,7 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'EValue'. <br />
-     * {DOUBLE}
+     * EValue: {DOUBLE} <br />
      * @param evalue The value of the column 'EValue'. (Nullable)
      */
     public void setEvalue(java.math.BigDecimal evalue) {
@@ -290,12 +258,8 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
         this._evalue = evalue;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -303,13 +267,11 @@ public abstract class BsTObjectmetrics implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

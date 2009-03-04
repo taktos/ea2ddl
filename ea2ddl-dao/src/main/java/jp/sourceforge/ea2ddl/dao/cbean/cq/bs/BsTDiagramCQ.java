@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_diagram.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
      * @return On-clause query. (NotNull)
      */
     public TDiagramCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TDiagramCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _diagramId;
     }
     protected ConditionValue getCValueDiagramId() { return getDiagramId(); }
-          
+
     public BsTDiagramCQ addOrderBy_DiagramId_Asc() { regOBA("Diagram_ID"); return this; }
     public BsTDiagramCQ addOrderBy_DiagramId_Desc() { regOBD("Diagram_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _packageId;
     }
     protected ConditionValue getCValuePackageId() { return getPackageId(); }
-          
+
     public BsTDiagramCQ addOrderBy_PackageId_Asc() { regOBA("Package_ID"); return this; }
     public BsTDiagramCQ addOrderBy_PackageId_Desc() { regOBD("Package_ID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _parentid;
     }
     protected ConditionValue getCValueParentid() { return getParentid(); }
-          
+
     public BsTDiagramCQ addOrderBy_Parentid_Asc() { regOBA("ParentID"); return this; }
     public BsTDiagramCQ addOrderBy_Parentid_Desc() { regOBD("ParentID"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _diagramType;
     }
     protected ConditionValue getCValueDiagramType() { return getDiagramType(); }
-    
+
     public BsTDiagramCQ addOrderBy_DiagramType_Asc() { regOBA("Diagram_Type"); return this; }
     public BsTDiagramCQ addOrderBy_DiagramType_Desc() { regOBD("Diagram_Type"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTDiagramCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTDiagramCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _version;
     }
     protected ConditionValue getCValueVersion() { return getVersion(); }
-    
+
     public BsTDiagramCQ addOrderBy_Version_Asc() { regOBA("Version"); return this; }
     public BsTDiagramCQ addOrderBy_Version_Desc() { regOBD("Version"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _author;
     }
     protected ConditionValue getCValueAuthor() { return getAuthor(); }
-    
+
     public BsTDiagramCQ addOrderBy_Author_Asc() { regOBA("Author"); return this; }
     public BsTDiagramCQ addOrderBy_Author_Desc() { regOBD("Author"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _showdetails;
     }
     protected ConditionValue getCValueShowdetails() { return getShowdetails(); }
-          
+
     public BsTDiagramCQ addOrderBy_Showdetails_Asc() { regOBA("ShowDetails"); return this; }
     public BsTDiagramCQ addOrderBy_Showdetails_Desc() { regOBD("ShowDetails"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTDiagramCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTDiagramCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _stereotype;
     }
     protected ConditionValue getCValueStereotype() { return getStereotype(); }
-    
+
     public BsTDiagramCQ addOrderBy_Stereotype_Asc() { regOBA("Stereotype"); return this; }
     public BsTDiagramCQ addOrderBy_Stereotype_Desc() { regOBD("Stereotype"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _attpub;
     }
     protected ConditionValue getCValueAttpub() { return getAttpub(); }
-    
+
     public BsTDiagramCQ addOrderBy_Attpub_Asc() { regOBA("AttPub"); return this; }
     public BsTDiagramCQ addOrderBy_Attpub_Desc() { regOBD("AttPub"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _attpri;
     }
     protected ConditionValue getCValueAttpri() { return getAttpri(); }
-    
+
     public BsTDiagramCQ addOrderBy_Attpri_Asc() { regOBA("AttPri"); return this; }
     public BsTDiagramCQ addOrderBy_Attpri_Desc() { regOBD("AttPri"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _attpro;
     }
     protected ConditionValue getCValueAttpro() { return getAttpro(); }
-    
+
     public BsTDiagramCQ addOrderBy_Attpro_Asc() { regOBA("AttPro"); return this; }
     public BsTDiagramCQ addOrderBy_Attpro_Desc() { regOBD("AttPro"); return this; }
 
@@ -192,7 +192,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _orientation;
     }
     protected ConditionValue getCValueOrientation() { return getOrientation(); }
-    
+
     public BsTDiagramCQ addOrderBy_Orientation_Asc() { regOBA("Orientation"); return this; }
     public BsTDiagramCQ addOrderBy_Orientation_Desc() { regOBD("Orientation"); return this; }
 
@@ -202,7 +202,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _cx;
     }
     protected ConditionValue getCValueCx() { return getCx(); }
-          
+
     public BsTDiagramCQ addOrderBy_Cx_Asc() { regOBA("cx"); return this; }
     public BsTDiagramCQ addOrderBy_Cx_Desc() { regOBD("cx"); return this; }
 
@@ -212,7 +212,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _cy;
     }
     protected ConditionValue getCValueCy() { return getCy(); }
-          
+
     public BsTDiagramCQ addOrderBy_Cy_Asc() { regOBA("cy"); return this; }
     public BsTDiagramCQ addOrderBy_Cy_Desc() { regOBD("cy"); return this; }
 
@@ -222,7 +222,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _scale;
     }
     protected ConditionValue getCValueScale() { return getScale(); }
-          
+
     public BsTDiagramCQ addOrderBy_Scale_Asc() { regOBA("Scale"); return this; }
     public BsTDiagramCQ addOrderBy_Scale_Desc() { regOBD("Scale"); return this; }
 
@@ -232,7 +232,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _createddate;
     }
     protected ConditionValue getCValueCreateddate() { return getCreateddate(); }
-    
+
     public BsTDiagramCQ addOrderBy_Createddate_Asc() { regOBA("CreatedDate"); return this; }
     public BsTDiagramCQ addOrderBy_Createddate_Desc() { regOBD("CreatedDate"); return this; }
 
@@ -242,7 +242,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _modifieddate;
     }
     protected ConditionValue getCValueModifieddate() { return getModifieddate(); }
-    
+
     public BsTDiagramCQ addOrderBy_Modifieddate_Asc() { regOBA("ModifiedDate"); return this; }
     public BsTDiagramCQ addOrderBy_Modifieddate_Desc() { regOBD("ModifiedDate"); return this; }
 
@@ -252,7 +252,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _htmlpath;
     }
     protected ConditionValue getCValueHtmlpath() { return getHtmlpath(); }
-    
+
     public BsTDiagramCQ addOrderBy_Htmlpath_Asc() { regOBA("HTMLPath"); return this; }
     public BsTDiagramCQ addOrderBy_Htmlpath_Desc() { regOBD("HTMLPath"); return this; }
 
@@ -262,7 +262,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _showforeign;
     }
     protected ConditionValue getCValueShowforeign() { return getShowforeign(); }
-    
+
     public BsTDiagramCQ addOrderBy_Showforeign_Asc() { regOBA("ShowForeign"); return this; }
     public BsTDiagramCQ addOrderBy_Showforeign_Desc() { regOBD("ShowForeign"); return this; }
 
@@ -272,7 +272,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _showborder;
     }
     protected ConditionValue getCValueShowborder() { return getShowborder(); }
-    
+
     public BsTDiagramCQ addOrderBy_Showborder_Asc() { regOBA("ShowBorder"); return this; }
     public BsTDiagramCQ addOrderBy_Showborder_Desc() { regOBD("ShowBorder"); return this; }
 
@@ -282,7 +282,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _showpackagecontents;
     }
     protected ConditionValue getCValueShowpackagecontents() { return getShowpackagecontents(); }
-    
+
     public BsTDiagramCQ addOrderBy_Showpackagecontents_Asc() { regOBA("ShowPackageContents"); return this; }
     public BsTDiagramCQ addOrderBy_Showpackagecontents_Desc() { regOBD("ShowPackageContents"); return this; }
 
@@ -292,7 +292,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _pdata;
     }
     protected ConditionValue getCValuePdata() { return getPdata(); }
-    
+
     public BsTDiagramCQ addOrderBy_Pdata_Asc() { regOBA("PDATA"); return this; }
     public BsTDiagramCQ addOrderBy_Pdata_Desc() { regOBD("PDATA"); return this; }
 
@@ -302,7 +302,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _locked;
     }
     protected ConditionValue getCValueLocked() { return getLocked(); }
-    
+
     public BsTDiagramCQ addOrderBy_Locked_Asc() { regOBA("Locked"); return this; }
     public BsTDiagramCQ addOrderBy_Locked_Desc() { regOBD("Locked"); return this; }
 
@@ -312,7 +312,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _eaGuid;
     }
     protected ConditionValue getCValueEaGuid() { return getEaGuid(); }
-    
+
     public BsTDiagramCQ addOrderBy_EaGuid_Asc() { regOBA("ea_guid"); return this; }
     public BsTDiagramCQ addOrderBy_EaGuid_Desc() { regOBD("ea_guid"); return this; }
 
@@ -322,7 +322,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _tpos;
     }
     protected ConditionValue getCValueTpos() { return getTpos(); }
-          
+
     public BsTDiagramCQ addOrderBy_Tpos_Asc() { regOBA("TPos"); return this; }
     public BsTDiagramCQ addOrderBy_Tpos_Desc() { regOBD("TPos"); return this; }
 
@@ -332,7 +332,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _swimlanes;
     }
     protected ConditionValue getCValueSwimlanes() { return getSwimlanes(); }
-    
+
     public BsTDiagramCQ addOrderBy_Swimlanes_Asc() { regOBA("Swimlanes"); return this; }
     public BsTDiagramCQ addOrderBy_Swimlanes_Desc() { regOBD("Swimlanes"); return this; }
 
@@ -342,7 +342,7 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
         return _styleex;
     }
     protected ConditionValue getCValueStyleex() { return getStyleex(); }
-    
+
     public BsTDiagramCQ addOrderBy_Styleex_Asc() { regOBA("StyleEx"); return this; }
     public BsTDiagramCQ addOrderBy_Styleex_Desc() { regOBD("StyleEx"); return this; }
 
@@ -361,8 +361,11 @@ public class BsTDiagramCQ extends AbstractBsTDiagramCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TDiagramCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TDiagramCB.class.getName(); }
+    String xCQ() { return TDiagramCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_issues(TABLE).
+ * The entity of t_issues that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTIssues implements Entity, java.io.Serializable {
+public abstract class BsTIssues implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,53 +47,49 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_issues. */
-    public static final String TABLE = "t_issues";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Issue'. {VARCHAR(255)} */
+    /** Issue: {VARCHAR(255)} */
     protected String _issue;
 
-    /** The attribute of the column 'IssueDate'. {DATETIME} */
+    /** IssueDate: {DATETIME} */
     protected java.sql.Timestamp _issuedate;
 
-    /** The attribute of the column 'Owner'. {VARCHAR(255)} */
+    /** Owner: {VARCHAR(255)} */
     protected String _owner;
 
-    /** The attribute of the column 'Status'. {VARCHAR(50)} */
+    /** Status: {VARCHAR(50)} */
     protected String _status;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Resolver'. {VARCHAR(255)} */
+    /** Resolver: {VARCHAR(255)} */
     protected String _resolver;
 
-    /** The attribute of the column 'DateResolved'. {DATETIME} */
+    /** DateResolved: {DATETIME} */
     protected java.sql.Timestamp _dateresolved;
 
-    /** The attribute of the column 'Resolution'. {LONGCHAR(2147483647)} */
+    /** Resolution: {LONGCHAR(2147483647)} */
     protected String _resolution;
 
-    /** The attribute of the column 'IssueID'. {UQ : COUNTER : NotNull} */
+    /** IssueID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _issueid;
 
-    /** The attribute of the column 'Category'. {VARCHAR(255)} */
+    /** Category: {VARCHAR(255)} */
     protected String _category;
 
-    /** The attribute of the column 'Priority'. {VARCHAR(50)} */
+    /** Priority: {VARCHAR(50)} */
     protected String _priority;
 
-    /** The attribute of the column 'Severity'. {VARCHAR(50)} */
+    /** Severity: {VARCHAR(50)} */
     protected String _severity;
 
-    /** The attribute of the column 'IssueType'. {VARCHAR(100)} */
+    /** IssueType: {VARCHAR(100)} */
     protected String _issuetype;
 
     // -----------------------------------------------------
@@ -103,19 +99,13 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTIssues() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_issues";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TIssues";
     }
 
@@ -141,7 +131,6 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -249,13 +238,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String issue_COLUMN = "Issue";
-
     /**
-     * Get the value of the column 'Issue'. <br />
-     * {VARCHAR(255)}
+     * Issue: {VARCHAR(255)} <br />
      * @return The value of the column 'Issue'. (Nullable)
      */
     public String getIssue() {
@@ -263,8 +247,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Issue'. <br />
-     * {VARCHAR(255)}
+     * Issue: {VARCHAR(255)} <br />
      * @param issue The value of the column 'Issue'. (Nullable)
      */
     public void setIssue(String issue) {
@@ -272,12 +255,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._issue = issue;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String issuedate_COLUMN = "IssueDate";
-
     /**
-     * Get the value of the column 'IssueDate'. <br />
-     * {DATETIME}
+     * IssueDate: {DATETIME} <br />
      * @return The value of the column 'IssueDate'. (Nullable)
      */
     public java.sql.Timestamp getIssuedate() {
@@ -285,8 +264,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IssueDate'. <br />
-     * {DATETIME}
+     * IssueDate: {DATETIME} <br />
      * @param issuedate The value of the column 'IssueDate'. (Nullable)
      */
     public void setIssuedate(java.sql.Timestamp issuedate) {
@@ -294,12 +272,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._issuedate = issuedate;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String owner_COLUMN = "Owner";
-
     /**
-     * Get the value of the column 'Owner'. <br />
-     * {VARCHAR(255)}
+     * Owner: {VARCHAR(255)} <br />
      * @return The value of the column 'Owner'. (Nullable)
      */
     public String getOwner() {
@@ -307,8 +281,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Owner'. <br />
-     * {VARCHAR(255)}
+     * Owner: {VARCHAR(255)} <br />
      * @param owner The value of the column 'Owner'. (Nullable)
      */
     public void setOwner(String owner) {
@@ -316,12 +289,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._owner = owner;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String status_COLUMN = "Status";
-
     /**
-     * Get the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @return The value of the column 'Status'. (Nullable)
      */
     public String getStatus() {
@@ -329,8 +298,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @param status The value of the column 'Status'. (Nullable)
      */
     public void setStatus(String status) {
@@ -338,12 +306,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._status = status;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -351,8 +315,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -360,12 +323,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String resolver_COLUMN = "Resolver";
-
     /**
-     * Get the value of the column 'Resolver'. <br />
-     * {VARCHAR(255)}
+     * Resolver: {VARCHAR(255)} <br />
      * @return The value of the column 'Resolver'. (Nullable)
      */
     public String getResolver() {
@@ -373,8 +332,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Resolver'. <br />
-     * {VARCHAR(255)}
+     * Resolver: {VARCHAR(255)} <br />
      * @param resolver The value of the column 'Resolver'. (Nullable)
      */
     public void setResolver(String resolver) {
@@ -382,12 +340,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._resolver = resolver;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String dateresolved_COLUMN = "DateResolved";
-
     /**
-     * Get the value of the column 'DateResolved'. <br />
-     * {DATETIME}
+     * DateResolved: {DATETIME} <br />
      * @return The value of the column 'DateResolved'. (Nullable)
      */
     public java.sql.Timestamp getDateresolved() {
@@ -395,8 +349,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DateResolved'. <br />
-     * {DATETIME}
+     * DateResolved: {DATETIME} <br />
      * @param dateresolved The value of the column 'DateResolved'. (Nullable)
      */
     public void setDateresolved(java.sql.Timestamp dateresolved) {
@@ -404,12 +357,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._dateresolved = dateresolved;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String resolution_COLUMN = "Resolution";
-
     /**
-     * Get the value of the column 'Resolution'. <br />
-     * {LONGCHAR(2147483647)}
+     * Resolution: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Resolution'. (Nullable)
      */
     public String getResolution() {
@@ -417,8 +366,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Resolution'. <br />
-     * {LONGCHAR(2147483647)}
+     * Resolution: {LONGCHAR(2147483647)} <br />
      * @param resolution The value of the column 'Resolution'. (Nullable)
      */
     public void setResolution(String resolution) {
@@ -426,12 +374,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._resolution = resolution;
     }
 
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String issueid_COLUMN = "IssueID";
-
     /**
-     * Get the value of the column 'IssueID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * IssueID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'IssueID'. (Nullable)
      */
     public java.lang.Integer getIssueid() {
@@ -439,8 +383,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IssueID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * IssueID: {UQ : NotNull : COUNTER} <br />
      * @param issueid The value of the column 'IssueID'. (Nullable)
      */
     public void setIssueid(java.lang.Integer issueid) {
@@ -448,12 +391,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._issueid = issueid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String category_COLUMN = "Category";
-
     /**
-     * Get the value of the column 'Category'. <br />
-     * {VARCHAR(255)}
+     * Category: {VARCHAR(255)} <br />
      * @return The value of the column 'Category'. (Nullable)
      */
     public String getCategory() {
@@ -461,8 +400,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Category'. <br />
-     * {VARCHAR(255)}
+     * Category: {VARCHAR(255)} <br />
      * @param category The value of the column 'Category'. (Nullable)
      */
     public void setCategory(String category) {
@@ -470,12 +408,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._category = category;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String priority_COLUMN = "Priority";
-
     /**
-     * Get the value of the column 'Priority'. <br />
-     * {VARCHAR(50)}
+     * Priority: {VARCHAR(50)} <br />
      * @return The value of the column 'Priority'. (Nullable)
      */
     public String getPriority() {
@@ -483,8 +417,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Priority'. <br />
-     * {VARCHAR(50)}
+     * Priority: {VARCHAR(50)} <br />
      * @param priority The value of the column 'Priority'. (Nullable)
      */
     public void setPriority(String priority) {
@@ -492,12 +425,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._priority = priority;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String severity_COLUMN = "Severity";
-
     /**
-     * Get the value of the column 'Severity'. <br />
-     * {VARCHAR(50)}
+     * Severity: {VARCHAR(50)} <br />
      * @return The value of the column 'Severity'. (Nullable)
      */
     public String getSeverity() {
@@ -505,8 +434,7 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Severity'. <br />
-     * {VARCHAR(50)}
+     * Severity: {VARCHAR(50)} <br />
      * @param severity The value of the column 'Severity'. (Nullable)
      */
     public void setSeverity(String severity) {
@@ -514,12 +442,8 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
         this._severity = severity;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String issuetype_COLUMN = "IssueType";
-
     /**
-     * Get the value of the column 'IssueType'. <br />
-     * {VARCHAR(100)}
+     * IssueType: {VARCHAR(100)} <br />
      * @return The value of the column 'IssueType'. (Nullable)
      */
     public String getIssuetype() {
@@ -527,13 +451,11 @@ public abstract class BsTIssues implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IssueType'. <br />
-     * {VARCHAR(100)}
+     * IssueType: {VARCHAR(100)} <br />
      * @param issuetype The value of the column 'IssueType'. (Nullable)
      */
     public void setIssuetype(String issuetype) {
         _modifiedProperties.addPropertyName("issuetype");
         this._issuetype = issuetype;
     }
-
 }

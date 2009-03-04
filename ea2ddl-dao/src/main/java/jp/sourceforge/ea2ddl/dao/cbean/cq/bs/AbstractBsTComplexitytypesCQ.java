@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_complexitytypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTComplexitytypesCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(50)}
      * @param complexity The value of complexity as equal.
      */
     public void setComplexity_Equal(String complexity) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param complexity The value of complexity as notEqual.
      */
     public void setComplexity_NotEqual(String complexity) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param complexity The value of complexity as greaterThan.
      */
     public void setComplexity_GreaterThan(String complexity) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param complexity The value of complexity as lessThan.
      */
     public void setComplexity_LessThan(String complexity) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param complexity The value of complexity as greaterEqual.
      */
     public void setComplexity_GreaterEqual(String complexity) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param complexity The value of complexity as lessEqual.
      */
     public void setComplexity_LessEqual(String complexity) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param complexity The value of complexity as prefixSearch.
      */
     public void setComplexity_PrefixSearch(String complexity) {
         regComplexity(CK_PS, fRES(complexity));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param complexity The value of complexity as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setComplexity_LikeSearch(String complexity, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(complexity), getCValueComplexity(), "Complexity", "Complexity", "complexity", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param complexity The collection of complexity as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param complexity The value of complexity as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setComplexity_InScope(String complexity, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(complexity), getCValueComplexity(), "Complexity", "Complexity", "complexity", inScopeOption);
+    public void setComplexity_LikeSearch(String complexity, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(complexity), getCValueComplexity(), "Complexity", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param complexity The value of complexity as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setComplexity_IsNull() { regComplexity(CK_ISN, DUMMY_OBJECT); }
+    public void setComplexity_NotLikeSearch(String complexity, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(complexity), getCValueComplexity(), "Complexity", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setComplexity_IsNotNull() { regComplexity(CK_ISNN, DUMMY_OBJECT); }
+    public void setComplexity_IsNull() { regComplexity(CK_ISN, DOBJ); }
 
-    protected void regComplexity(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueComplexity(), "Complexity", "Complexity", "complexity");
-    }
-    protected void registerInlineComplexity(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueComplexity(), "Complexity", "Complexity", "complexity");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setComplexity_IsNotNull() { regComplexity(CK_ISNN, DOBJ); }
+
+    protected void regComplexity(ConditionKey k, Object v) { regQ(k, v, getCValueComplexity(), "Complexity"); }
     abstract protected ConditionValue getCValueComplexity();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param numericweight The value of numericweight as equal.
      */
     public void setNumericweight_Equal(java.lang.Integer numericweight) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param numericweight The value of numericweight as notEqual.
      */
     public void setNumericweight_NotEqual(java.lang.Integer numericweight) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param numericweight The value of numericweight as greaterThan.
      */
     public void setNumericweight_GreaterThan(java.lang.Integer numericweight) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param numericweight The value of numericweight as lessThan.
      */
     public void setNumericweight_LessThan(java.lang.Integer numericweight) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param numericweight The value of numericweight as greaterEqual.
      */
     public void setNumericweight_GreaterEqual(java.lang.Integer numericweight) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param numericweight The value of numericweight as lessEqual.
      */
     public void setNumericweight_LessEqual(java.lang.Integer numericweight) {
@@ -195,24 +205,23 @@ public abstract class AbstractBsTComplexitytypesCQ extends AbstractConditionQuer
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNumericweight_IsNull() { regNumericweight(CK_ISN, DUMMY_OBJECT); }
+    public void setNumericweight_IsNull() { regNumericweight(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setNumericweight_IsNotNull() { regNumericweight(CK_ISNN, DUMMY_OBJECT); }
+    public void setNumericweight_IsNotNull() { regNumericweight(CK_ISNN, DOBJ); }
 
-    protected void regNumericweight(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNumericweight(), "NumericWeight", "Numericweight", "numericweight");
-    }
-    protected void registerInlineNumericweight(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNumericweight(), "NumericWeight", "Numericweight", "numericweight");
-    }
+    protected void regNumericweight(ConditionKey k, Object v) { regQ(k, v, getCValueNumericweight(), "NumericWeight"); }
     abstract protected ConditionValue getCValueNumericweight();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TComplexitytypesCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TComplexitytypesCQ.class.getName(); }
+    String xCB() { return TComplexitytypesCB.class.getName(); }
+    String xCQ() { return TComplexitytypesCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

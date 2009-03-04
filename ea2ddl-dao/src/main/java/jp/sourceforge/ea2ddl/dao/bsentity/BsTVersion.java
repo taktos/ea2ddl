@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_version(TABLE).
+ * The entity of t_version that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTVersion implements Entity, java.io.Serializable {
+public abstract class BsTVersion implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,44 +47,40 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_version. */
-    public static final String TABLE = "t_version";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'ElementID'. {UQ : VARCHAR(50)} */
+    /** ElementID: {UQ : VARCHAR(50)} */
     protected String _elementid;
 
-    /** The attribute of the column 'VersionID'. {UQ : VARCHAR(255)} */
+    /** VersionID: {UQ : VARCHAR(255)} */
     protected String _versionid;
 
-    /** The attribute of the column 'ElementType'. {VARCHAR(100)} */
+    /** ElementType: {VARCHAR(100)} */
     protected String _elementtype;
 
-    /** The attribute of the column 'Flags'. {VARCHAR(255)} */
+    /** Flags: {VARCHAR(255)} */
     protected String _flags;
 
-    /** The attribute of the column 'ExternalFile'. {VARCHAR(255)} */
+    /** ExternalFile: {VARCHAR(255)} */
     protected String _externalfile;
 
-    /** The attribute of the column 'Notes'. {VARCHAR(255)} */
+    /** Notes: {VARCHAR(255)} */
     protected String _notes;
 
-    /** The attribute of the column 'Owner'. {VARCHAR(255)} */
+    /** Owner: {VARCHAR(255)} */
     protected String _owner;
 
-    /** The attribute of the column 'VersionDate'. {DATETIME} */
+    /** VersionDate: {DATETIME} */
     protected java.sql.Timestamp _versiondate;
 
-    /** The attribute of the column 'Branch'. {VARCHAR(255)} */
+    /** Branch: {VARCHAR(255)} */
     protected String _branch;
 
-    /** The attribute of the column 'ElementXML'. {LONGCHAR(2147483647)} */
+    /** ElementXML: {LONGCHAR(2147483647)} */
     protected String _elementxml;
 
     // -----------------------------------------------------
@@ -94,19 +90,13 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTVersion() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_version";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TVersion";
     }
 
@@ -132,7 +122,6 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -231,13 +220,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String elementid_COLUMN = "ElementID";
-
     /**
-     * Get the value of the column 'ElementID'. <br />
-     * {UQ : VARCHAR(50)}
+     * ElementID: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'ElementID'. (Nullable)
      */
     public String getElementid() {
@@ -245,8 +229,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementID'. <br />
-     * {UQ : VARCHAR(50)}
+     * ElementID: {UQ : VARCHAR(50)} <br />
      * @param elementid The value of the column 'ElementID'. (Nullable)
      */
     public void setElementid(String elementid) {
@@ -254,12 +237,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._elementid = elementid;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String versionid_COLUMN = "VersionID";
-
     /**
-     * Get the value of the column 'VersionID'. <br />
-     * {UQ : VARCHAR(255)}
+     * VersionID: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'VersionID'. (Nullable)
      */
     public String getVersionid() {
@@ -267,8 +246,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'VersionID'. <br />
-     * {UQ : VARCHAR(255)}
+     * VersionID: {UQ : VARCHAR(255)} <br />
      * @param versionid The value of the column 'VersionID'. (Nullable)
      */
     public void setVersionid(String versionid) {
@@ -276,12 +254,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._versionid = versionid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String elementtype_COLUMN = "ElementType";
-
     /**
-     * Get the value of the column 'ElementType'. <br />
-     * {VARCHAR(100)}
+     * ElementType: {VARCHAR(100)} <br />
      * @return The value of the column 'ElementType'. (Nullable)
      */
     public String getElementtype() {
@@ -289,8 +263,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementType'. <br />
-     * {VARCHAR(100)}
+     * ElementType: {VARCHAR(100)} <br />
      * @param elementtype The value of the column 'ElementType'. (Nullable)
      */
     public void setElementtype(String elementtype) {
@@ -298,12 +271,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._elementtype = elementtype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String flags_COLUMN = "Flags";
-
     /**
-     * Get the value of the column 'Flags'. <br />
-     * {VARCHAR(255)}
+     * Flags: {VARCHAR(255)} <br />
      * @return The value of the column 'Flags'. (Nullable)
      */
     public String getFlags() {
@@ -311,8 +280,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Flags'. <br />
-     * {VARCHAR(255)}
+     * Flags: {VARCHAR(255)} <br />
      * @param flags The value of the column 'Flags'. (Nullable)
      */
     public void setFlags(String flags) {
@@ -320,12 +288,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._flags = flags;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String externalfile_COLUMN = "ExternalFile";
-
     /**
-     * Get the value of the column 'ExternalFile'. <br />
-     * {VARCHAR(255)}
+     * ExternalFile: {VARCHAR(255)} <br />
      * @return The value of the column 'ExternalFile'. (Nullable)
      */
     public String getExternalfile() {
@@ -333,8 +297,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ExternalFile'. <br />
-     * {VARCHAR(255)}
+     * ExternalFile: {VARCHAR(255)} <br />
      * @param externalfile The value of the column 'ExternalFile'. (Nullable)
      */
     public void setExternalfile(String externalfile) {
@@ -342,12 +305,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._externalfile = externalfile;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -355,8 +314,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -364,12 +322,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String owner_COLUMN = "Owner";
-
     /**
-     * Get the value of the column 'Owner'. <br />
-     * {VARCHAR(255)}
+     * Owner: {VARCHAR(255)} <br />
      * @return The value of the column 'Owner'. (Nullable)
      */
     public String getOwner() {
@@ -377,8 +331,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Owner'. <br />
-     * {VARCHAR(255)}
+     * Owner: {VARCHAR(255)} <br />
      * @param owner The value of the column 'Owner'. (Nullable)
      */
     public void setOwner(String owner) {
@@ -386,12 +339,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._owner = owner;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String versiondate_COLUMN = "VersionDate";
-
     /**
-     * Get the value of the column 'VersionDate'. <br />
-     * {DATETIME}
+     * VersionDate: {DATETIME} <br />
      * @return The value of the column 'VersionDate'. (Nullable)
      */
     public java.sql.Timestamp getVersiondate() {
@@ -399,8 +348,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'VersionDate'. <br />
-     * {DATETIME}
+     * VersionDate: {DATETIME} <br />
      * @param versiondate The value of the column 'VersionDate'. (Nullable)
      */
     public void setVersiondate(java.sql.Timestamp versiondate) {
@@ -408,12 +356,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._versiondate = versiondate;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String branch_COLUMN = "Branch";
-
     /**
-     * Get the value of the column 'Branch'. <br />
-     * {VARCHAR(255)}
+     * Branch: {VARCHAR(255)} <br />
      * @return The value of the column 'Branch'. (Nullable)
      */
     public String getBranch() {
@@ -421,8 +365,7 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Branch'. <br />
-     * {VARCHAR(255)}
+     * Branch: {VARCHAR(255)} <br />
      * @param branch The value of the column 'Branch'. (Nullable)
      */
     public void setBranch(String branch) {
@@ -430,12 +373,8 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
         this._branch = branch;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String elementxml_COLUMN = "ElementXML";
-
     /**
-     * Get the value of the column 'ElementXML'. <br />
-     * {LONGCHAR(2147483647)}
+     * ElementXML: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'ElementXML'. (Nullable)
      */
     public String getElementxml() {
@@ -443,13 +382,11 @@ public abstract class BsTVersion implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementXML'. <br />
-     * {LONGCHAR(2147483647)}
+     * ElementXML: {LONGCHAR(2147483647)} <br />
      * @param elementxml The value of the column 'ElementXML'. (Nullable)
      */
     public void setElementxml(String elementxml) {
         _modifiedProperties.addPropertyName("elementxml");
         this._elementxml = elementxml;
     }
-
 }

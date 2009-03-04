@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TResourcesCQ;
 
 /**
- * The nest-select-setupper of t_resources.
+ * The nest select set-upper of t_resources.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TResourcesNss {
 
     protected TResourcesCQ _query;

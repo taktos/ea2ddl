@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_datatypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TDatatypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TDatatypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTDatatypesCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _productname;
     }
     protected ConditionValue getCValueProductname() { return getProductname(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Productname_Asc() { regOBA("ProductName"); return this; }
     public BsTDatatypesCQ addOrderBy_Productname_Desc() { regOBD("ProductName"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _datatype;
     }
     protected ConditionValue getCValueDatatype() { return getDatatype(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Datatype_Asc() { regOBA("DataType"); return this; }
     public BsTDatatypesCQ addOrderBy_Datatype_Desc() { regOBD("DataType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _size;
     }
     protected ConditionValue getCValueSize() { return getSize(); }
-          
+
     public BsTDatatypesCQ addOrderBy_Size_Asc() { regOBA("Size"); return this; }
     public BsTDatatypesCQ addOrderBy_Size_Desc() { regOBD("Size"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _maxlen;
     }
     protected ConditionValue getCValueMaxlen() { return getMaxlen(); }
-          
+
     public BsTDatatypesCQ addOrderBy_Maxlen_Asc() { regOBA("MaxLen"); return this; }
     public BsTDatatypesCQ addOrderBy_Maxlen_Desc() { regOBD("MaxLen"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _maxprec;
     }
     protected ConditionValue getCValueMaxprec() { return getMaxprec(); }
-          
+
     public BsTDatatypesCQ addOrderBy_Maxprec_Asc() { regOBA("MaxPrec"); return this; }
     public BsTDatatypesCQ addOrderBy_Maxprec_Desc() { regOBD("MaxPrec"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _maxscale;
     }
     protected ConditionValue getCValueMaxscale() { return getMaxscale(); }
-          
+
     public BsTDatatypesCQ addOrderBy_Maxscale_Asc() { regOBA("MaxScale"); return this; }
     public BsTDatatypesCQ addOrderBy_Maxscale_Desc() { regOBD("MaxScale"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _defaultlen;
     }
     protected ConditionValue getCValueDefaultlen() { return getDefaultlen(); }
-          
+
     public BsTDatatypesCQ addOrderBy_Defaultlen_Asc() { regOBA("DefaultLen"); return this; }
     public BsTDatatypesCQ addOrderBy_Defaultlen_Desc() { regOBD("DefaultLen"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _defaultprec;
     }
     protected ConditionValue getCValueDefaultprec() { return getDefaultprec(); }
-          
+
     public BsTDatatypesCQ addOrderBy_Defaultprec_Asc() { regOBA("DefaultPrec"); return this; }
     public BsTDatatypesCQ addOrderBy_Defaultprec_Desc() { regOBD("DefaultPrec"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _defaultscale;
     }
     protected ConditionValue getCValueDefaultscale() { return getDefaultscale(); }
-          
+
     public BsTDatatypesCQ addOrderBy_Defaultscale_Asc() { regOBA("DefaultScale"); return this; }
     public BsTDatatypesCQ addOrderBy_Defaultscale_Desc() { regOBD("DefaultScale"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _user;
     }
     protected ConditionValue getCValueUser() { return getUser(); }
-          
+
     public BsTDatatypesCQ addOrderBy_User_Asc() { regOBA("User"); return this; }
     public BsTDatatypesCQ addOrderBy_User_Desc() { regOBD("User"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _pdata1;
     }
     protected ConditionValue getCValuePdata1() { return getPdata1(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Pdata1_Asc() { regOBA("PDATA1"); return this; }
     public BsTDatatypesCQ addOrderBy_Pdata1_Desc() { regOBD("PDATA1"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _pdata2;
     }
     protected ConditionValue getCValuePdata2() { return getPdata2(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Pdata2_Asc() { regOBA("PDATA2"); return this; }
     public BsTDatatypesCQ addOrderBy_Pdata2_Desc() { regOBD("PDATA2"); return this; }
 
@@ -192,7 +192,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _pdata3;
     }
     protected ConditionValue getCValuePdata3() { return getPdata3(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Pdata3_Asc() { regOBA("PDATA3"); return this; }
     public BsTDatatypesCQ addOrderBy_Pdata3_Desc() { regOBD("PDATA3"); return this; }
 
@@ -202,7 +202,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _pdata4;
     }
     protected ConditionValue getCValuePdata4() { return getPdata4(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Pdata4_Asc() { regOBA("PDATA4"); return this; }
     public BsTDatatypesCQ addOrderBy_Pdata4_Desc() { regOBD("PDATA4"); return this; }
 
@@ -212,7 +212,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _haslength;
     }
     protected ConditionValue getCValueHaslength() { return getHaslength(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Haslength_Asc() { regOBA("HasLength"); return this; }
     public BsTDatatypesCQ addOrderBy_Haslength_Desc() { regOBD("HasLength"); return this; }
 
@@ -222,7 +222,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _generictype;
     }
     protected ConditionValue getCValueGenerictype() { return getGenerictype(); }
-    
+
     public BsTDatatypesCQ addOrderBy_Generictype_Asc() { regOBA("GenericType"); return this; }
     public BsTDatatypesCQ addOrderBy_Generictype_Desc() { regOBD("GenericType"); return this; }
 
@@ -232,7 +232,7 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
         return _datatypeid;
     }
     protected ConditionValue getCValueDatatypeid() { return getDatatypeid(); }
-          
+
     public BsTDatatypesCQ addOrderBy_Datatypeid_Asc() { regOBA("DatatypeID"); return this; }
     public BsTDatatypesCQ addOrderBy_Datatypeid_Desc() { regOBD("DatatypeID"); return this; }
 
@@ -251,8 +251,11 @@ public class BsTDatatypesCQ extends AbstractBsTDatatypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TDatatypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TDatatypesCB.class.getName(); }
+    String xCQ() { return TDatatypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

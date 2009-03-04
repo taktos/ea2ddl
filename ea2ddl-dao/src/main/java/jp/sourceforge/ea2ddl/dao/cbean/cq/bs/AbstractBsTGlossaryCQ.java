@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_glossary.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTGlossaryCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(255)}
      * @param term The value of term as equal.
      */
     public void setTerm_Equal(String term) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param term The value of term as notEqual.
      */
     public void setTerm_NotEqual(String term) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param term The value of term as greaterThan.
      */
     public void setTerm_GreaterThan(String term) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param term The value of term as lessThan.
      */
     public void setTerm_LessThan(String term) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param term The value of term as greaterEqual.
      */
     public void setTerm_GreaterEqual(String term) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param term The value of term as lessEqual.
      */
     public void setTerm_LessEqual(String term) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param term The value of term as prefixSearch.
      */
     public void setTerm_PrefixSearch(String term) {
         regTerm(CK_PS, fRES(term));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param term The value of term as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setTerm_LikeSearch(String term, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(term), getCValueTerm(), "Term", "Term", "term", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param term The collection of term as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param term The value of term as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setTerm_InScope(String term, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(term), getCValueTerm(), "Term", "Term", "term", inScopeOption);
+    public void setTerm_LikeSearch(String term, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(term), getCValueTerm(), "Term", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param term The value of term as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setTerm_IsNull() { regTerm(CK_ISN, DUMMY_OBJECT); }
+    public void setTerm_NotLikeSearch(String term, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(term), getCValueTerm(), "Term", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setTerm_IsNotNull() { regTerm(CK_ISNN, DUMMY_OBJECT); }
+    public void setTerm_IsNull() { regTerm(CK_ISN, DOBJ); }
 
-    protected void regTerm(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueTerm(), "Term", "Term", "term");
-    }
-    protected void registerInlineTerm(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueTerm(), "Term", "Term", "term");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setTerm_IsNotNull() { regTerm(CK_ISNN, DOBJ); }
+
+    protected void regTerm(ConditionKey k, Object v) { regQ(k, v, getCValueTerm(), "Term"); }
     abstract protected ConditionValue getCValueTerm();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param type The value of type as equal.
      */
     public void setType_Equal(String type) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as notEqual.
      */
     public void setType_NotEqual(String type) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterThan.
      */
     public void setType_GreaterThan(String type) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessThan.
      */
     public void setType_LessThan(String type) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterEqual.
      */
     public void setType_GreaterEqual(String type) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessEqual.
      */
     public void setType_LessEqual(String type) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as prefixSearch.
      */
     public void setType_PrefixSearch(String type) {
         regType(CK_PS, fRES(type));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param type The value of type as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setType_LikeSearch(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(type), getCValueType(), "Type", "Type", "type", likeSearchOption);
     }
 
     /**
@@ -212,34 +213,38 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param type The collection of type as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setType_InScope(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(type), getCValueType(), "Type", "Type", "type", inScopeOption);
+    public void setType_LikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(type), getCValueType(), "Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setType_IsNull() { regType(CK_ISN, DUMMY_OBJECT); }
+    public void setType_NotLikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(type), getCValueType(), "Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setType_IsNotNull() { regType(CK_ISNN, DUMMY_OBJECT); }
+    public void setType_IsNull() { regType(CK_ISN, DOBJ); }
 
-    protected void regType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
-    protected void registerInlineType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setType_IsNotNull() { regType(CK_ISNN, DOBJ); }
+
+    protected void regType(ConditionKey k, Object v) { regQ(k, v, getCValueType(), "Type"); }
     abstract protected ConditionValue getCValueType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param meaning The value of meaning as equal.
      */
     public void setMeaning_Equal(String meaning) {
@@ -247,7 +252,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param meaning The value of meaning as notEqual.
      */
     public void setMeaning_NotEqual(String meaning) {
@@ -255,7 +260,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param meaning The value of meaning as greaterThan.
      */
     public void setMeaning_GreaterThan(String meaning) {
@@ -263,7 +268,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param meaning The value of meaning as lessThan.
      */
     public void setMeaning_LessThan(String meaning) {
@@ -271,7 +276,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param meaning The value of meaning as greaterEqual.
      */
     public void setMeaning_GreaterEqual(String meaning) {
@@ -279,7 +284,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param meaning The value of meaning as lessEqual.
      */
     public void setMeaning_LessEqual(String meaning) {
@@ -287,20 +292,11 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param meaning The value of meaning as prefixSearch.
      */
     public void setMeaning_PrefixSearch(String meaning) {
         regMeaning(CK_PS, fRES(meaning));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param meaning The value of meaning as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setMeaning_LikeSearch(String meaning, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(meaning), getCValueMeaning(), "Meaning", "Meaning", "meaning", likeSearchOption);
     }
 
     /**
@@ -312,34 +308,38 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param meaning The collection of meaning as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param meaning The value of meaning as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setMeaning_InScope(String meaning, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(meaning), getCValueMeaning(), "Meaning", "Meaning", "meaning", inScopeOption);
+    public void setMeaning_LikeSearch(String meaning, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(meaning), getCValueMeaning(), "Meaning", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param meaning The value of meaning as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setMeaning_IsNull() { regMeaning(CK_ISN, DUMMY_OBJECT); }
+    public void setMeaning_NotLikeSearch(String meaning, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(meaning), getCValueMeaning(), "Meaning", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setMeaning_IsNotNull() { regMeaning(CK_ISNN, DUMMY_OBJECT); }
+    public void setMeaning_IsNull() { regMeaning(CK_ISN, DOBJ); }
 
-    protected void regMeaning(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueMeaning(), "Meaning", "Meaning", "meaning");
-    }
-    protected void registerInlineMeaning(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueMeaning(), "Meaning", "Meaning", "meaning");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setMeaning_IsNotNull() { regMeaning(CK_ISNN, DOBJ); }
+
+    protected void regMeaning(ConditionKey k, Object v) { regQ(k, v, getCValueMeaning(), "Meaning"); }
     abstract protected ConditionValue getCValueMeaning();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {NotNull : COUNTER}
      * @param glossaryid The value of glossaryid as equal.
      */
     public void setGlossaryid_Equal(java.lang.Integer glossaryid) {
@@ -347,7 +347,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param glossaryid The value of glossaryid as notEqual.
      */
     public void setGlossaryid_NotEqual(java.lang.Integer glossaryid) {
@@ -355,7 +355,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param glossaryid The value of glossaryid as greaterThan.
      */
     public void setGlossaryid_GreaterThan(java.lang.Integer glossaryid) {
@@ -363,7 +363,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param glossaryid The value of glossaryid as lessThan.
      */
     public void setGlossaryid_LessThan(java.lang.Integer glossaryid) {
@@ -371,7 +371,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param glossaryid The value of glossaryid as greaterEqual.
      */
     public void setGlossaryid_GreaterEqual(java.lang.Integer glossaryid) {
@@ -379,7 +379,7 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param glossaryid The value of glossaryid as lessEqual.
      */
     public void setGlossaryid_LessEqual(java.lang.Integer glossaryid) {
@@ -394,15 +394,14 @@ public abstract class AbstractBsTGlossaryCQ extends AbstractConditionQuery {
         regGlossaryid(CK_INS, cTL(glossaryidList));
     }
 
-    protected void regGlossaryid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueGlossaryid(), "GlossaryID", "Glossaryid", "glossaryid");
-    }
-    protected void registerInlineGlossaryid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueGlossaryid(), "GlossaryID", "Glossaryid", "glossaryid");
-    }
+    protected void regGlossaryid(ConditionKey k, Object v) { regQ(k, v, getCValueGlossaryid(), "GlossaryID"); }
     abstract protected ConditionValue getCValueGlossaryid();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TGlossaryCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TGlossaryCQ.class.getName(); }
+    String xCB() { return TGlossaryCB.class.getName(); }
+    String xCQ() { return TGlossaryCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

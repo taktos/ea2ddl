@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TEcf;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_ecf. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TEcfDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TEcfDbm _instance = new TEcfDbm();
     private TEcfDbm() {}
     public static TEcfDbm getInstance() { return _instance; }
@@ -29,34 +32,46 @@ public class TEcfDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnEcfid = cci("ECFID", "ecfid", String.class, false, 12, 0);
-    protected ColumnInfo _columnDescription = cci("Description", "description", String.class, false, 50, 0);
-    protected ColumnInfo _columnWeight = cci("Weight", "weight", java.math.BigDecimal.class, false, null, null);
-    protected ColumnInfo _columnValue = cci("Value", "value", java.math.BigDecimal.class, false, null, null);
-    protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 255, 0);
+    protected ColumnInfo _columnEcfid = cci("ECFID", null, "ecfid", String.class, false, false, 12, 0);
+    protected ColumnInfo _columnDescription = cci("Description", null, "description", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnWeight = cci("Weight", null, "weight", java.math.BigDecimal.class, false, false, null, null);
+    protected ColumnInfo _columnValue = cci("Value", null, "value", java.math.BigDecimal.class, false, false, null, null);
+    protected ColumnInfo _columnNotes = cci("Notes", null, "notes", String.class, false, false, 255, 0);
 
     public ColumnInfo columnEcfid() { return _columnEcfid; }
     public ColumnInfo columnDescription() { return _columnDescription; }
     public ColumnInfo columnWeight() { return _columnWeight; }
     public ColumnInfo columnValue() { return _columnValue; }
     public ColumnInfo columnNotes() { return _columnNotes; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -78,65 +93,29 @@ public class TEcfDbm extends AbstractDBMeta {
     public TEcf newMyEntity() { return new TEcf(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TEcf)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TEcf)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TEcf)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TEcf)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -150,7 +129,7 @@ public class TEcfDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TEcf>> _epsMap = newHashMap();
+    protected Map<String, Eps<TEcf>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsEcfid(), columnEcfid());
         setupEps(_epsMap, new EpsDescription(), columnDescription());
@@ -158,28 +137,19 @@ public class TEcfDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsValue(), columnValue());
         setupEps(_epsMap, new EpsNotes(), columnNotes());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TEcf)entity, value);
-    }
-    
-    public static class EpsEcfid implements Eps<TEcf> {
-        public void setup(TEcf e, Object v) { e.setEcfid((String)v); }
-    }
-    public static class EpsDescription implements Eps<TEcf> {
-        public void setup(TEcf e, Object v) { e.setDescription((String)v); }
-    }
-    public static class EpsWeight implements Eps<TEcf> {
-        public void setup(TEcf e, Object v) { e.setWeight((java.math.BigDecimal)v); }
-    }
-    public static class EpsValue implements Eps<TEcf> {
-        public void setup(TEcf e, Object v) { e.setValue((java.math.BigDecimal)v); }
-    }
-    public static class EpsNotes implements Eps<TEcf> {
-        public void setup(TEcf e, Object v) { e.setNotes((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TEcf)entity, value); }
+
+    public static class EpsEcfid implements Eps<TEcf>
+    { public void setup(TEcf e, Object v) { e.setEcfid((String)v); } }
+    public static class EpsDescription implements Eps<TEcf>
+    { public void setup(TEcf e, Object v) { e.setDescription((String)v); } }
+    public static class EpsWeight implements Eps<TEcf>
+    { public void setup(TEcf e, Object v) { e.setWeight((java.math.BigDecimal)v); } }
+    public static class EpsValue implements Eps<TEcf>
+    { public void setup(TEcf e, Object v) { e.setValue((java.math.BigDecimal)v); } }
+    public static class EpsNotes implements Eps<TEcf>
+    { public void setup(TEcf e, Object v) { e.setNotes((String)v); } }
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_constrainttypes(TABLE).
+ * The entity of t_constrainttypes that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTConstrainttypes implements Entity, java.io.Serializable {
+public abstract class BsTConstrainttypes implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,23 +47,19 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_constrainttypes. */
-    public static final String TABLE = "t_constrainttypes";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Constraint'. {UQ : VARCHAR(16)} */
+    /** Constraint: {UQ : VARCHAR(16)} */
     protected String _constraint;
 
-    /** The attribute of the column 'Description'. {VARCHAR(50)} */
+    /** Description: {VARCHAR(50)} */
     protected String _description;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -73,19 +69,13 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTConstrainttypes() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_constrainttypes";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TConstrainttypes";
     }
 
@@ -111,7 +101,6 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -189,13 +178,8 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(16)} */
-    public static final String constraint_COLUMN = "Constraint";
-
     /**
-     * Get the value of the column 'Constraint'. <br />
-     * {UQ : VARCHAR(16)}
+     * Constraint: {UQ : VARCHAR(16)} <br />
      * @return The value of the column 'Constraint'. (Nullable)
      */
     public String getConstraint() {
@@ -203,8 +187,7 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Constraint'. <br />
-     * {UQ : VARCHAR(16)}
+     * Constraint: {UQ : VARCHAR(16)} <br />
      * @param constraint The value of the column 'Constraint'. (Nullable)
      */
     public void setConstraint(String constraint) {
@@ -212,12 +195,8 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
         this._constraint = constraint;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(50)}
+     * Description: {VARCHAR(50)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -225,8 +204,7 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(50)}
+     * Description: {VARCHAR(50)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
@@ -234,12 +212,8 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
         this._description = description;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -247,13 +221,11 @@ public abstract class BsTConstrainttypes implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

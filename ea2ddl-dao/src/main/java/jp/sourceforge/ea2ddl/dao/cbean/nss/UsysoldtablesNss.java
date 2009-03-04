@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.UsysoldtablesCQ;
 
 /**
- * The nest-select-setupper of usysOldTables.
+ * The nest select set-upper of usysOldTables.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class UsysoldtablesNss {
 
     protected UsysoldtablesCQ _query;

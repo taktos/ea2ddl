@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TDiagram;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_diagram. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TDiagramDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TDiagramDbm _instance = new TDiagramDbm();
     private TDiagramDbm() {}
     public static TDiagramDbm getInstance() { return _instance; }
@@ -29,35 +32,35 @@ public class TDiagramDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnDiagramId = cci("Diagram_ID", "diagramId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnPackageId = cci("Package_ID", "packageId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnParentid = cci("ParentID", "parentid", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnDiagramType = cci("Diagram_Type", "diagramType", String.class, false, 50, 0);
-    protected ColumnInfo _columnName = cci("Name", "name", String.class, false, 255, 0);
-    protected ColumnInfo _columnVersion = cci("Version", "version", String.class, false, 50, 0);
-    protected ColumnInfo _columnAuthor = cci("Author", "author", String.class, false, 255, 0);
-    protected ColumnInfo _columnShowdetails = cci("ShowDetails", "showdetails", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnStereotype = cci("Stereotype", "stereotype", String.class, false, 50, 0);
-    protected ColumnInfo _columnAttpub = cci("AttPub", "attpub", Boolean.class, false, null, null);
-    protected ColumnInfo _columnAttpri = cci("AttPri", "attpri", Boolean.class, false, null, null);
-    protected ColumnInfo _columnAttpro = cci("AttPro", "attpro", Boolean.class, false, null, null);
-    protected ColumnInfo _columnOrientation = cci("Orientation", "orientation", String.class, false, 1, 0);
-    protected ColumnInfo _columnCx = cci("cx", "cx", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnCy = cci("cy", "cy", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnScale = cci("Scale", "scale", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnCreateddate = cci("CreatedDate", "createddate", java.sql.Timestamp.class, false, null, null);
-    protected ColumnInfo _columnModifieddate = cci("ModifiedDate", "modifieddate", java.sql.Timestamp.class, false, null, null);
-    protected ColumnInfo _columnHtmlpath = cci("HTMLPath", "htmlpath", String.class, false, 255, 0);
-    protected ColumnInfo _columnShowforeign = cci("ShowForeign", "showforeign", Boolean.class, false, null, null);
-    protected ColumnInfo _columnShowborder = cci("ShowBorder", "showborder", Boolean.class, false, null, null);
-    protected ColumnInfo _columnShowpackagecontents = cci("ShowPackageContents", "showpackagecontents", Boolean.class, false, null, null);
-    protected ColumnInfo _columnPdata = cci("PDATA", "pdata", String.class, false, 255, 0);
-    protected ColumnInfo _columnLocked = cci("Locked", "locked", Boolean.class, false, null, null);
-    protected ColumnInfo _columnEaGuid = cci("ea_guid", "eaGuid", String.class, false, 40, 0);
-    protected ColumnInfo _columnTpos = cci("TPos", "tpos", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnSwimlanes = cci("Swimlanes", "swimlanes", String.class, false, 255, 0);
-    protected ColumnInfo _columnStyleex = cci("StyleEx", "styleex", String.class, false, 2147483647, 0);
+    protected ColumnInfo _columnDiagramId = cci("Diagram_ID", null, "diagramId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnPackageId = cci("Package_ID", null, "packageId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnParentid = cci("ParentID", null, "parentid", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnDiagramType = cci("Diagram_Type", null, "diagramType", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnName = cci("Name", null, "name", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnVersion = cci("Version", null, "version", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnAuthor = cci("Author", null, "author", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnShowdetails = cci("ShowDetails", null, "showdetails", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnNotes = cci("Notes", null, "notes", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnStereotype = cci("Stereotype", null, "stereotype", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnAttpub = cci("AttPub", null, "attpub", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnAttpri = cci("AttPri", null, "attpri", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnAttpro = cci("AttPro", null, "attpro", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnOrientation = cci("Orientation", null, "orientation", String.class, false, false, 1, 0);
+    protected ColumnInfo _columnCx = cci("cx", null, "cx", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnCy = cci("cy", null, "cy", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnScale = cci("Scale", null, "scale", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnCreateddate = cci("CreatedDate", null, "createddate", java.sql.Timestamp.class, false, false, null, null);
+    protected ColumnInfo _columnModifieddate = cci("ModifiedDate", null, "modifieddate", java.sql.Timestamp.class, false, false, null, null);
+    protected ColumnInfo _columnHtmlpath = cci("HTMLPath", null, "htmlpath", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnShowforeign = cci("ShowForeign", null, "showforeign", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnShowborder = cci("ShowBorder", null, "showborder", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnShowpackagecontents = cci("ShowPackageContents", null, "showpackagecontents", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnPdata = cci("PDATA", null, "pdata", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnLocked = cci("Locked", null, "locked", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnEaGuid = cci("ea_guid", null, "eaGuid", String.class, false, false, 40, 0);
+    protected ColumnInfo _columnTpos = cci("TPos", null, "tpos", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnSwimlanes = cci("Swimlanes", null, "swimlanes", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnStyleex = cci("StyleEx", null, "styleex", String.class, false, false, 2147483647, 0);
 
     public ColumnInfo columnDiagramId() { return _columnDiagramId; }
     public ColumnInfo columnPackageId() { return _columnPackageId; }
@@ -88,23 +91,35 @@ public class TDiagramDbm extends AbstractDBMeta {
     public ColumnInfo columnTpos() { return _columnTpos; }
     public ColumnInfo columnSwimlanes() { return _columnSwimlanes; }
     public ColumnInfo columnStyleex() { return _columnStyleex; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -126,65 +141,29 @@ public class TDiagramDbm extends AbstractDBMeta {
     public TDiagram newMyEntity() { return new TDiagram(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TDiagram)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TDiagram)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TDiagram)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TDiagram)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -198,7 +177,7 @@ public class TDiagramDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TDiagram>> _epsMap = newHashMap();
+    protected Map<String, Eps<TDiagram>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsDiagramId(), columnDiagramId());
         setupEps(_epsMap, new EpsPackageId(), columnPackageId());
@@ -230,100 +209,67 @@ public class TDiagramDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsSwimlanes(), columnSwimlanes());
         setupEps(_epsMap, new EpsStyleex(), columnStyleex());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TDiagram)entity, value);
-    }
-    
-    public static class EpsDiagramId implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setDiagramId((java.lang.Integer)v); }
-    }
-    public static class EpsPackageId implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setPackageId((java.lang.Integer)v); }
-    }
-    public static class EpsParentid implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setParentid((java.lang.Integer)v); }
-    }
-    public static class EpsDiagramType implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setDiagramType((String)v); }
-    }
-    public static class EpsName implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setName((String)v); }
-    }
-    public static class EpsVersion implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setVersion((String)v); }
-    }
-    public static class EpsAuthor implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setAuthor((String)v); }
-    }
-    public static class EpsShowdetails implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setShowdetails((java.lang.Integer)v); }
-    }
-    public static class EpsNotes implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setNotes((String)v); }
-    }
-    public static class EpsStereotype implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setStereotype((String)v); }
-    }
-    public static class EpsAttpub implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setAttpub((Boolean)v); }
-    }
-    public static class EpsAttpri implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setAttpri((Boolean)v); }
-    }
-    public static class EpsAttpro implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setAttpro((Boolean)v); }
-    }
-    public static class EpsOrientation implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setOrientation((String)v); }
-    }
-    public static class EpsCx implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setCx((java.lang.Integer)v); }
-    }
-    public static class EpsCy implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setCy((java.lang.Integer)v); }
-    }
-    public static class EpsScale implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setScale((java.lang.Integer)v); }
-    }
-    public static class EpsCreateddate implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setCreateddate((java.sql.Timestamp)v); }
-    }
-    public static class EpsModifieddate implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setModifieddate((java.sql.Timestamp)v); }
-    }
-    public static class EpsHtmlpath implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setHtmlpath((String)v); }
-    }
-    public static class EpsShowforeign implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setShowforeign((Boolean)v); }
-    }
-    public static class EpsShowborder implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setShowborder((Boolean)v); }
-    }
-    public static class EpsShowpackagecontents implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setShowpackagecontents((Boolean)v); }
-    }
-    public static class EpsPdata implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setPdata((String)v); }
-    }
-    public static class EpsLocked implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setLocked((Boolean)v); }
-    }
-    public static class EpsEaGuid implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setEaGuid((String)v); }
-    }
-    public static class EpsTpos implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setTpos((java.lang.Integer)v); }
-    }
-    public static class EpsSwimlanes implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setSwimlanes((String)v); }
-    }
-    public static class EpsStyleex implements Eps<TDiagram> {
-        public void setup(TDiagram e, Object v) { e.setStyleex((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TDiagram)entity, value); }
+
+    public static class EpsDiagramId implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setDiagramId((java.lang.Integer)v); } }
+    public static class EpsPackageId implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setPackageId((java.lang.Integer)v); } }
+    public static class EpsParentid implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setParentid((java.lang.Integer)v); } }
+    public static class EpsDiagramType implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setDiagramType((String)v); } }
+    public static class EpsName implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setName((String)v); } }
+    public static class EpsVersion implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setVersion((String)v); } }
+    public static class EpsAuthor implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setAuthor((String)v); } }
+    public static class EpsShowdetails implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setShowdetails((java.lang.Integer)v); } }
+    public static class EpsNotes implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setNotes((String)v); } }
+    public static class EpsStereotype implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setStereotype((String)v); } }
+    public static class EpsAttpub implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setAttpub((Boolean)v); } }
+    public static class EpsAttpri implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setAttpri((Boolean)v); } }
+    public static class EpsAttpro implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setAttpro((Boolean)v); } }
+    public static class EpsOrientation implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setOrientation((String)v); } }
+    public static class EpsCx implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setCx((java.lang.Integer)v); } }
+    public static class EpsCy implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setCy((java.lang.Integer)v); } }
+    public static class EpsScale implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setScale((java.lang.Integer)v); } }
+    public static class EpsCreateddate implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setCreateddate((java.sql.Timestamp)v); } }
+    public static class EpsModifieddate implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setModifieddate((java.sql.Timestamp)v); } }
+    public static class EpsHtmlpath implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setHtmlpath((String)v); } }
+    public static class EpsShowforeign implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setShowforeign((Boolean)v); } }
+    public static class EpsShowborder implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setShowborder((Boolean)v); } }
+    public static class EpsShowpackagecontents implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setShowpackagecontents((Boolean)v); } }
+    public static class EpsPdata implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setPdata((String)v); } }
+    public static class EpsLocked implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setLocked((Boolean)v); } }
+    public static class EpsEaGuid implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setEaGuid((String)v); } }
+    public static class EpsTpos implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setTpos((java.lang.Integer)v); } }
+    public static class EpsSwimlanes implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setSwimlanes((String)v); } }
+    public static class EpsStyleex implements Eps<TDiagram>
+    { public void setup(TDiagram e, Object v) { e.setStyleex((String)v); } }
 }

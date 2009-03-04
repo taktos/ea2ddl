@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_taggedvalue.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTTaggedvalueCQ extends AbstractBsTTaggedvalueCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTTaggedvalueCQ extends AbstractBsTTaggedvalueCQ {
      * @return On-clause query. (NotNull)
      */
     public TTaggedvalueCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TTaggedvalueCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTTaggedvalueCQ extends AbstractBsTTaggedvalueCQ {
         return _propertyid;
     }
     protected ConditionValue getCValuePropertyid() { return getPropertyid(); }
-    
+
     public BsTTaggedvalueCQ addOrderBy_Propertyid_Asc() { regOBA("PropertyID"); return this; }
     public BsTTaggedvalueCQ addOrderBy_Propertyid_Desc() { regOBD("PropertyID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTTaggedvalueCQ extends AbstractBsTTaggedvalueCQ {
         return _elementid;
     }
     protected ConditionValue getCValueElementid() { return getElementid(); }
-    
+
     public BsTTaggedvalueCQ addOrderBy_Elementid_Asc() { regOBA("ElementID"); return this; }
     public BsTTaggedvalueCQ addOrderBy_Elementid_Desc() { regOBD("ElementID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTTaggedvalueCQ extends AbstractBsTTaggedvalueCQ {
         return _baseclass;
     }
     protected ConditionValue getCValueBaseclass() { return getBaseclass(); }
-    
+
     public BsTTaggedvalueCQ addOrderBy_Baseclass_Asc() { regOBA("BaseClass"); return this; }
     public BsTTaggedvalueCQ addOrderBy_Baseclass_Desc() { regOBD("BaseClass"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTTaggedvalueCQ extends AbstractBsTTaggedvalueCQ {
         return _tagvalue;
     }
     protected ConditionValue getCValueTagvalue() { return getTagvalue(); }
-    
+
     public BsTTaggedvalueCQ addOrderBy_Tagvalue_Asc() { regOBA("TagValue"); return this; }
     public BsTTaggedvalueCQ addOrderBy_Tagvalue_Desc() { regOBD("TagValue"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTTaggedvalueCQ extends AbstractBsTTaggedvalueCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTTaggedvalueCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTTaggedvalueCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -121,8 +121,11 @@ public class BsTTaggedvalueCQ extends AbstractBsTTaggedvalueCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TTaggedvalueCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TTaggedvalueCB.class.getName(); }
+    String xCQ() { return TTaggedvalueCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

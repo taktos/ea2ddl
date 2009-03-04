@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objectrisks.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectrisksCQ extends AbstractBsTObjectrisksCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjectrisksCQ extends AbstractBsTObjectrisksCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjectrisksCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjectrisksCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjectrisksCQ extends AbstractBsTObjectrisksCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTObjectrisksCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjectrisksCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjectrisksCQ extends AbstractBsTObjectrisksCQ {
         return _risk;
     }
     protected ConditionValue getCValueRisk() { return getRisk(); }
-    
+
     public BsTObjectrisksCQ addOrderBy_Risk_Asc() { regOBA("Risk"); return this; }
     public BsTObjectrisksCQ addOrderBy_Risk_Desc() { regOBD("Risk"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjectrisksCQ extends AbstractBsTObjectrisksCQ {
         return _risktype;
     }
     protected ConditionValue getCValueRisktype() { return getRisktype(); }
-    
+
     public BsTObjectrisksCQ addOrderBy_Risktype_Asc() { regOBA("RiskType"); return this; }
     public BsTObjectrisksCQ addOrderBy_Risktype_Desc() { regOBD("RiskType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjectrisksCQ extends AbstractBsTObjectrisksCQ {
         return _evalue;
     }
     protected ConditionValue getCValueEvalue() { return getEvalue(); }
-          
+
     public BsTObjectrisksCQ addOrderBy_Evalue_Asc() { regOBA("EValue"); return this; }
     public BsTObjectrisksCQ addOrderBy_Evalue_Desc() { regOBD("EValue"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTObjectrisksCQ extends AbstractBsTObjectrisksCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTObjectrisksCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTObjectrisksCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -121,8 +121,11 @@ public class BsTObjectrisksCQ extends AbstractBsTObjectrisksCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjectrisksCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjectrisksCB.class.getName(); }
+    String xCQ() { return TObjectrisksCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

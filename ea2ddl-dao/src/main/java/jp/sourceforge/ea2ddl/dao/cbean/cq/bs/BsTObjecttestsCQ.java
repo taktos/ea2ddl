@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objecttests.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjecttestsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjecttestsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTObjecttestsCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjecttestsCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _test;
     }
     protected ConditionValue getCValueTest() { return getTest(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Test_Asc() { regOBA("Test"); return this; }
     public BsTObjecttestsCQ addOrderBy_Test_Desc() { regOBD("Test"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _testclass;
     }
     protected ConditionValue getCValueTestclass() { return getTestclass(); }
-          
+
     public BsTObjecttestsCQ addOrderBy_Testclass_Asc() { regOBA("TestClass"); return this; }
     public BsTObjecttestsCQ addOrderBy_Testclass_Desc() { regOBD("TestClass"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _testtype;
     }
     protected ConditionValue getCValueTesttype() { return getTesttype(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Testtype_Asc() { regOBA("TestType"); return this; }
     public BsTObjecttestsCQ addOrderBy_Testtype_Desc() { regOBD("TestType"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTObjecttestsCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _inputdata;
     }
     protected ConditionValue getCValueInputdata() { return getInputdata(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Inputdata_Asc() { regOBA("InputData"); return this; }
     public BsTObjecttestsCQ addOrderBy_Inputdata_Desc() { regOBD("InputData"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _acceptancecriteria;
     }
     protected ConditionValue getCValueAcceptancecriteria() { return getAcceptancecriteria(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Acceptancecriteria_Asc() { regOBA("AcceptanceCriteria"); return this; }
     public BsTObjecttestsCQ addOrderBy_Acceptancecriteria_Desc() { regOBD("AcceptanceCriteria"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _status;
     }
     protected ConditionValue getCValueStatus() { return getStatus(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Status_Asc() { regOBA("Status"); return this; }
     public BsTObjecttestsCQ addOrderBy_Status_Desc() { regOBD("Status"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _daterun;
     }
     protected ConditionValue getCValueDaterun() { return getDaterun(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Daterun_Asc() { regOBA("DateRun"); return this; }
     public BsTObjecttestsCQ addOrderBy_Daterun_Desc() { regOBD("DateRun"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _results;
     }
     protected ConditionValue getCValueResults() { return getResults(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Results_Asc() { regOBA("Results"); return this; }
     public BsTObjecttestsCQ addOrderBy_Results_Desc() { regOBD("Results"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _runby;
     }
     protected ConditionValue getCValueRunby() { return getRunby(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Runby_Asc() { regOBA("RunBy"); return this; }
     public BsTObjecttestsCQ addOrderBy_Runby_Desc() { regOBD("RunBy"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
         return _checkby;
     }
     protected ConditionValue getCValueCheckby() { return getCheckby(); }
-    
+
     public BsTObjecttestsCQ addOrderBy_Checkby_Asc() { regOBA("CheckBy"); return this; }
     public BsTObjecttestsCQ addOrderBy_Checkby_Desc() { regOBD("CheckBy"); return this; }
 
@@ -191,8 +191,11 @@ public class BsTObjecttestsCQ extends AbstractBsTObjecttestsCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjecttestsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjecttestsCB.class.getName(); }
+    String xCQ() { return TObjecttestsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

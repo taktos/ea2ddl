@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_testplans.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
      * @return On-clause query. (NotNull)
      */
     public TTestplansCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TTestplansCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
         return _planid;
     }
     protected ConditionValue getCValuePlanid() { return getPlanid(); }
-    
+
     public BsTTestplansCQ addOrderBy_Planid_Asc() { regOBA("PlanID"); return this; }
     public BsTTestplansCQ addOrderBy_Planid_Desc() { regOBD("PlanID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
         return _category;
     }
     protected ConditionValue getCValueCategory() { return getCategory(); }
-    
+
     public BsTTestplansCQ addOrderBy_Category_Asc() { regOBA("Category"); return this; }
     public BsTTestplansCQ addOrderBy_Category_Desc() { regOBD("Category"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTTestplansCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTTestplansCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
         return _author;
     }
     protected ConditionValue getCValueAuthor() { return getAuthor(); }
-    
+
     public BsTTestplansCQ addOrderBy_Author_Asc() { regOBA("Author"); return this; }
     public BsTTestplansCQ addOrderBy_Author_Desc() { regOBD("Author"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTTestplansCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTTestplansCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
         return _testplan;
     }
     protected ConditionValue getCValueTestplan() { return getTestplan(); }
-    
+
     public BsTTestplansCQ addOrderBy_Testplan_Asc() { regOBA("TestPlan"); return this; }
     public BsTTestplansCQ addOrderBy_Testplan_Desc() { regOBD("TestPlan"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTTestplansCQ extends AbstractBsTTestplansCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TTestplansCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TTestplansCB.class.getName(); }
+    String xCQ() { return TTestplansCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

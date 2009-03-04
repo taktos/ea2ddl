@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_diagramlinks.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
      * @return On-clause query. (NotNull)
      */
     public TDiagramlinksCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TDiagramlinksCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
         return _diagramid;
     }
     protected ConditionValue getCValueDiagramid() { return getDiagramid(); }
-          
+
     public BsTDiagramlinksCQ addOrderBy_Diagramid_Asc() { regOBA("DiagramID"); return this; }
     public BsTDiagramlinksCQ addOrderBy_Diagramid_Desc() { regOBD("DiagramID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
         return _connectorid;
     }
     protected ConditionValue getCValueConnectorid() { return getConnectorid(); }
-          
+
     public BsTDiagramlinksCQ addOrderBy_Connectorid_Asc() { regOBA("ConnectorID"); return this; }
     public BsTDiagramlinksCQ addOrderBy_Connectorid_Desc() { regOBD("ConnectorID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
         return _geometry;
     }
     protected ConditionValue getCValueGeometry() { return getGeometry(); }
-    
+
     public BsTDiagramlinksCQ addOrderBy_Geometry_Asc() { regOBA("Geometry"); return this; }
     public BsTDiagramlinksCQ addOrderBy_Geometry_Desc() { regOBD("Geometry"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
         return _style;
     }
     protected ConditionValue getCValueStyle() { return getStyle(); }
-    
+
     public BsTDiagramlinksCQ addOrderBy_Style_Asc() { regOBA("Style"); return this; }
     public BsTDiagramlinksCQ addOrderBy_Style_Desc() { regOBD("Style"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
         return _hidden;
     }
     protected ConditionValue getCValueHidden() { return getHidden(); }
-    
+
     public BsTDiagramlinksCQ addOrderBy_Hidden_Asc() { regOBA("Hidden"); return this; }
     public BsTDiagramlinksCQ addOrderBy_Hidden_Desc() { regOBD("Hidden"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
         return _path;
     }
     protected ConditionValue getCValuePath() { return getPath(); }
-    
+
     public BsTDiagramlinksCQ addOrderBy_Path_Asc() { regOBA("Path"); return this; }
     public BsTDiagramlinksCQ addOrderBy_Path_Desc() { regOBD("Path"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
         return _instanceId;
     }
     protected ConditionValue getCValueInstanceId() { return getInstanceId(); }
-          
+
     public BsTDiagramlinksCQ addOrderBy_InstanceId_Asc() { regOBA("Instance_ID"); return this; }
     public BsTDiagramlinksCQ addOrderBy_InstanceId_Desc() { regOBD("Instance_ID"); return this; }
 
@@ -141,8 +141,11 @@ public class BsTDiagramlinksCQ extends AbstractBsTDiagramlinksCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TDiagramlinksCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TDiagramlinksCB.class.getName(); }
+    String xCQ() { return TDiagramlinksCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

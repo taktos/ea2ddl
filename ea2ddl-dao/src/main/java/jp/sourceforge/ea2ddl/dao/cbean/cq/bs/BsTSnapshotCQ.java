@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_snapshot.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
      * @return On-clause query. (NotNull)
      */
     public TSnapshotCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TSnapshotCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _snapshotid;
     }
     protected ConditionValue getCValueSnapshotid() { return getSnapshotid(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Snapshotid_Asc() { regOBA("SnapshotID"); return this; }
     public BsTSnapshotCQ addOrderBy_Snapshotid_Desc() { regOBD("SnapshotID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _seriesid;
     }
     protected ConditionValue getCValueSeriesid() { return getSeriesid(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Seriesid_Asc() { regOBA("SeriesID"); return this; }
     public BsTSnapshotCQ addOrderBy_Seriesid_Desc() { regOBD("SeriesID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _position;
     }
     protected ConditionValue getCValuePosition() { return getPosition(); }
-          
+
     public BsTSnapshotCQ addOrderBy_Position_Asc() { regOBA("Position"); return this; }
     public BsTSnapshotCQ addOrderBy_Position_Desc() { regOBD("Position"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _snapshotname;
     }
     protected ConditionValue getCValueSnapshotname() { return getSnapshotname(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Snapshotname_Asc() { regOBA("SnapshotName"); return this; }
     public BsTSnapshotCQ addOrderBy_Snapshotname_Desc() { regOBD("SnapshotName"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTSnapshotCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _style;
     }
     protected ConditionValue getCValueStyle() { return getStyle(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Style_Asc() { regOBA("Style"); return this; }
     public BsTSnapshotCQ addOrderBy_Style_Desc() { regOBD("Style"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _elementid;
     }
     protected ConditionValue getCValueElementid() { return getElementid(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Elementid_Asc() { regOBA("ElementID"); return this; }
     public BsTSnapshotCQ addOrderBy_Elementid_Desc() { regOBD("ElementID"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _elementtype;
     }
     protected ConditionValue getCValueElementtype() { return getElementtype(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Elementtype_Asc() { regOBA("ElementType"); return this; }
     public BsTSnapshotCQ addOrderBy_Elementtype_Desc() { regOBD("ElementType"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _strcontent;
     }
     protected ConditionValue getCValueStrcontent() { return getStrcontent(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Strcontent_Asc() { regOBA("StrContent"); return this; }
     public BsTSnapshotCQ addOrderBy_Strcontent_Desc() { regOBD("StrContent"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _bincontent1;
     }
     protected ConditionValue getCValueBincontent1() { return getBincontent1(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Bincontent1_Asc() { regOBA("BinContent1"); return this; }
     public BsTSnapshotCQ addOrderBy_Bincontent1_Desc() { regOBD("BinContent1"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
         return _bincontent2;
     }
     protected ConditionValue getCValueBincontent2() { return getBincontent2(); }
-    
+
     public BsTSnapshotCQ addOrderBy_Bincontent2_Asc() { regOBA("BinContent2"); return this; }
     public BsTSnapshotCQ addOrderBy_Bincontent2_Desc() { regOBD("BinContent2"); return this; }
 
@@ -181,8 +181,11 @@ public class BsTSnapshotCQ extends AbstractBsTSnapshotCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TSnapshotCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TSnapshotCB.class.getName(); }
+    String xCQ() { return TSnapshotCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

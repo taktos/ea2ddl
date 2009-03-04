@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_document(TABLE).
+ * The entity of t_document that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTDocument implements Entity, java.io.Serializable {
+public abstract class BsTDocument implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,56 +47,52 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_document. */
-    public static final String TABLE = "t_document";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'DocID'. {UQ : VARCHAR(40)} */
+    /** DocID: {UQ : VARCHAR(40)} */
     protected String _docid;
 
-    /** The attribute of the column 'DocName'. {VARCHAR(100)} */
+    /** DocName: {VARCHAR(100)} */
     protected String _docname;
 
-    /** The attribute of the column 'Notes'. {VARCHAR(255)} */
+    /** Notes: {VARCHAR(255)} */
     protected String _notes;
 
-    /** The attribute of the column 'Style'. {VARCHAR(255)} */
+    /** Style: {VARCHAR(255)} */
     protected String _style;
 
-    /** The attribute of the column 'ElementID'. {VARCHAR(40)} */
+    /** ElementID: {VARCHAR(40)} */
     protected String _elementid;
 
-    /** The attribute of the column 'ElementType'. {VARCHAR(50)} */
+    /** ElementType: {VARCHAR(50)} */
     protected String _elementtype;
 
-    /** The attribute of the column 'StrContent'. {LONGCHAR(2147483647)} */
+    /** StrContent: {LONGCHAR(2147483647)} */
     protected String _strcontent;
 
-    /** The attribute of the column 'BinContent'. {LONGBINARY} */
+    /** BinContent: {LONGBINARY} */
     protected byte[] _bincontent;
 
-    /** The attribute of the column 'DocType'. {VARCHAR(100)} */
+    /** DocType: {VARCHAR(100)} */
     protected String _doctype;
 
-    /** The attribute of the column 'Author'. {VARCHAR(255)} */
+    /** Author: {VARCHAR(255)} */
     protected String _author;
 
-    /** The attribute of the column 'Version'. {VARCHAR(50)} */
+    /** Version: {VARCHAR(50)} */
     protected String _version;
 
-    /** The attribute of the column 'IsActive'. {INTEGER} */
+    /** IsActive: {INTEGER} */
     protected java.lang.Integer _isactive;
 
-    /** The attribute of the column 'Sequence'. {INTEGER} */
+    /** Sequence: {INTEGER} */
     protected java.lang.Integer _sequence;
 
-    /** The attribute of the column 'DocDate'. {DATETIME} */
+    /** DocDate: {DATETIME} */
     protected java.sql.Timestamp _docdate;
 
     // -----------------------------------------------------
@@ -106,19 +102,13 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTDocument() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_document";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TDocument";
     }
 
@@ -144,7 +134,6 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -255,13 +244,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String docid_COLUMN = "DocID";
-
     /**
-     * Get the value of the column 'DocID'. <br />
-     * {UQ : VARCHAR(40)}
+     * DocID: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'DocID'. (Nullable)
      */
     public String getDocid() {
@@ -269,8 +253,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DocID'. <br />
-     * {UQ : VARCHAR(40)}
+     * DocID: {UQ : VARCHAR(40)} <br />
      * @param docid The value of the column 'DocID'. (Nullable)
      */
     public void setDocid(String docid) {
@@ -278,12 +261,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._docid = docid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String docname_COLUMN = "DocName";
-
     /**
-     * Get the value of the column 'DocName'. <br />
-     * {VARCHAR(100)}
+     * DocName: {VARCHAR(100)} <br />
      * @return The value of the column 'DocName'. (Nullable)
      */
     public String getDocname() {
@@ -291,8 +270,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DocName'. <br />
-     * {VARCHAR(100)}
+     * DocName: {VARCHAR(100)} <br />
      * @param docname The value of the column 'DocName'. (Nullable)
      */
     public void setDocname(String docname) {
@@ -300,12 +278,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._docname = docname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -313,8 +287,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -322,12 +295,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -335,8 +304,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
@@ -344,12 +312,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._style = style;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String elementid_COLUMN = "ElementID";
-
     /**
-     * Get the value of the column 'ElementID'. <br />
-     * {VARCHAR(40)}
+     * ElementID: {VARCHAR(40)} <br />
      * @return The value of the column 'ElementID'. (Nullable)
      */
     public String getElementid() {
@@ -357,8 +321,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementID'. <br />
-     * {VARCHAR(40)}
+     * ElementID: {VARCHAR(40)} <br />
      * @param elementid The value of the column 'ElementID'. (Nullable)
      */
     public void setElementid(String elementid) {
@@ -366,12 +329,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._elementid = elementid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String elementtype_COLUMN = "ElementType";
-
     /**
-     * Get the value of the column 'ElementType'. <br />
-     * {VARCHAR(50)}
+     * ElementType: {VARCHAR(50)} <br />
      * @return The value of the column 'ElementType'. (Nullable)
      */
     public String getElementtype() {
@@ -379,8 +338,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementType'. <br />
-     * {VARCHAR(50)}
+     * ElementType: {VARCHAR(50)} <br />
      * @param elementtype The value of the column 'ElementType'. (Nullable)
      */
     public void setElementtype(String elementtype) {
@@ -388,12 +346,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._elementtype = elementtype;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String strcontent_COLUMN = "StrContent";
-
     /**
-     * Get the value of the column 'StrContent'. <br />
-     * {LONGCHAR(2147483647)}
+     * StrContent: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'StrContent'. (Nullable)
      */
     public String getStrcontent() {
@@ -401,8 +355,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StrContent'. <br />
-     * {LONGCHAR(2147483647)}
+     * StrContent: {LONGCHAR(2147483647)} <br />
      * @param strcontent The value of the column 'StrContent'. (Nullable)
      */
     public void setStrcontent(String strcontent) {
@@ -410,12 +363,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._strcontent = strcontent;
     }
 
-    /** The column annotation for S2Dao. {LONGBINARY} */
-    public static final String bincontent_COLUMN = "BinContent";
-
     /**
-     * Get the value of the column 'BinContent'. <br />
-     * {LONGBINARY}
+     * BinContent: {LONGBINARY} <br />
      * @return The value of the column 'BinContent'. (Nullable)
      */
     public byte[] getBincontent() {
@@ -423,8 +372,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'BinContent'. <br />
-     * {LONGBINARY}
+     * BinContent: {LONGBINARY} <br />
      * @param bincontent The value of the column 'BinContent'. (Nullable)
      */
     public void setBincontent(byte[] bincontent) {
@@ -432,12 +380,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._bincontent = bincontent;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String doctype_COLUMN = "DocType";
-
     /**
-     * Get the value of the column 'DocType'. <br />
-     * {VARCHAR(100)}
+     * DocType: {VARCHAR(100)} <br />
      * @return The value of the column 'DocType'. (Nullable)
      */
     public String getDoctype() {
@@ -445,8 +389,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DocType'. <br />
-     * {VARCHAR(100)}
+     * DocType: {VARCHAR(100)} <br />
      * @param doctype The value of the column 'DocType'. (Nullable)
      */
     public void setDoctype(String doctype) {
@@ -454,12 +397,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._doctype = doctype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String author_COLUMN = "Author";
-
     /**
-     * Get the value of the column 'Author'. <br />
-     * {VARCHAR(255)}
+     * Author: {VARCHAR(255)} <br />
      * @return The value of the column 'Author'. (Nullable)
      */
     public String getAuthor() {
@@ -467,8 +406,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Author'. <br />
-     * {VARCHAR(255)}
+     * Author: {VARCHAR(255)} <br />
      * @param author The value of the column 'Author'. (Nullable)
      */
     public void setAuthor(String author) {
@@ -476,12 +414,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._author = author;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String version_COLUMN = "Version";
-
     /**
-     * Get the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @return The value of the column 'Version'. (Nullable)
      */
     public String getVersion() {
@@ -489,8 +423,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @param version The value of the column 'Version'. (Nullable)
      */
     public void setVersion(String version) {
@@ -498,12 +431,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._version = version;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String isactive_COLUMN = "IsActive";
-
     /**
-     * Get the value of the column 'IsActive'. <br />
-     * {INTEGER}
+     * IsActive: {INTEGER} <br />
      * @return The value of the column 'IsActive'. (Nullable)
      */
     public java.lang.Integer getIsactive() {
@@ -511,8 +440,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsActive'. <br />
-     * {INTEGER}
+     * IsActive: {INTEGER} <br />
      * @param isactive The value of the column 'IsActive'. (Nullable)
      */
     public void setIsactive(java.lang.Integer isactive) {
@@ -520,12 +448,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._isactive = isactive;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String sequence_COLUMN = "Sequence";
-
     /**
-     * Get the value of the column 'Sequence'. <br />
-     * {INTEGER}
+     * Sequence: {INTEGER} <br />
      * @return The value of the column 'Sequence'. (Nullable)
      */
     public java.lang.Integer getSequence() {
@@ -533,8 +457,7 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Sequence'. <br />
-     * {INTEGER}
+     * Sequence: {INTEGER} <br />
      * @param sequence The value of the column 'Sequence'. (Nullable)
      */
     public void setSequence(java.lang.Integer sequence) {
@@ -542,12 +465,8 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
         this._sequence = sequence;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String docdate_COLUMN = "DocDate";
-
     /**
-     * Get the value of the column 'DocDate'. <br />
-     * {DATETIME}
+     * DocDate: {DATETIME} <br />
      * @return The value of the column 'DocDate'. (Nullable)
      */
     public java.sql.Timestamp getDocdate() {
@@ -555,13 +474,11 @@ public abstract class BsTDocument implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DocDate'. <br />
-     * {DATETIME}
+     * DocDate: {DATETIME} <br />
      * @param docdate The value of the column 'DocDate'. (Nullable)
      */
     public void setDocdate(java.sql.Timestamp docdate) {
         _modifiedProperties.addPropertyName("docdate");
         this._docdate = docdate;
     }
-
 }

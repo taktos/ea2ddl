@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_html.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTHtmlCQ extends AbstractBsTHtmlCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTHtmlCQ extends AbstractBsTHtmlCQ {
      * @return On-clause query. (NotNull)
      */
     public THtmlCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         THtmlCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTHtmlCQ extends AbstractBsTHtmlCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTHtmlCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTHtmlCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTHtmlCQ extends AbstractBsTHtmlCQ {
         return _template;
     }
     protected ConditionValue getCValueTemplate() { return getTemplate(); }
-    
+
     public BsTHtmlCQ addOrderBy_Template_Asc() { regOBA("Template"); return this; }
     public BsTHtmlCQ addOrderBy_Template_Desc() { regOBD("Template"); return this; }
 
@@ -91,8 +91,11 @@ public class BsTHtmlCQ extends AbstractBsTHtmlCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return THtmlCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return THtmlCB.class.getName(); }
+    String xCQ() { return THtmlCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

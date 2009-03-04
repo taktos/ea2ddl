@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TXrefsystemCQ;
 
 /**
- * The nest-select-setupper of t_xrefsystem.
+ * The nest select set-upper of t_xrefsystem.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TXrefsystemNss {
 
     protected TXrefsystemCQ _query;

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_attributetag(TABLE).
+ * The entity of t_attributetag that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTAttributetag implements Entity, java.io.Serializable {
+public abstract class BsTAttributetag implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_attributetag. */
-    public static final String TABLE = "t_attributetag";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'PropertyID'. {UQ : COUNTER : NotNull} */
+    /** PropertyID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _propertyid;
 
-    /** The attribute of the column 'ElementID'. {INTEGER} */
+    /** ElementID: {INTEGER} */
     protected java.lang.Integer _elementid;
 
-    /** The attribute of the column 'Property'. {VARCHAR(255)} */
+    /** Property: {VARCHAR(255)} */
     protected String _property;
 
-    /** The attribute of the column 'VALUE'. {VARCHAR(255)} */
+    /** VALUE: {VARCHAR(255)} */
     protected String _value;
 
-    /** The attribute of the column 'NOTES'. {LONGCHAR(2147483647)} */
+    /** NOTES: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'ea_guid'. {VARCHAR(40)} */
+    /** ea_guid: {VARCHAR(40)} */
     protected String _eaGuid;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTAttributetag() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_attributetag";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TAttributetag";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String propertyid_COLUMN = "PropertyID";
-
     /**
-     * Get the value of the column 'PropertyID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * PropertyID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'PropertyID'. (Nullable)
      */
     public java.lang.Integer getPropertyid() {
@@ -221,8 +205,7 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PropertyID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * PropertyID: {UQ : NotNull : COUNTER} <br />
      * @param propertyid The value of the column 'PropertyID'. (Nullable)
      */
     public void setPropertyid(java.lang.Integer propertyid) {
@@ -230,12 +213,8 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
         this._propertyid = propertyid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String elementid_COLUMN = "ElementID";
-
     /**
-     * Get the value of the column 'ElementID'. <br />
-     * {INTEGER}
+     * ElementID: {INTEGER} <br />
      * @return The value of the column 'ElementID'. (Nullable)
      */
     public java.lang.Integer getElementid() {
@@ -243,8 +222,7 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ElementID'. <br />
-     * {INTEGER}
+     * ElementID: {INTEGER} <br />
      * @param elementid The value of the column 'ElementID'. (Nullable)
      */
     public void setElementid(java.lang.Integer elementid) {
@@ -252,12 +230,8 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
         this._elementid = elementid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String property_COLUMN = "Property";
-
     /**
-     * Get the value of the column 'Property'. <br />
-     * {VARCHAR(255)}
+     * Property: {VARCHAR(255)} <br />
      * @return The value of the column 'Property'. (Nullable)
      */
     public String getProperty() {
@@ -265,8 +239,7 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Property'. <br />
-     * {VARCHAR(255)}
+     * Property: {VARCHAR(255)} <br />
      * @param property The value of the column 'Property'. (Nullable)
      */
     public void setProperty(String property) {
@@ -274,12 +247,8 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
         this._property = property;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String value_COLUMN = "VALUE";
-
     /**
-     * Get the value of the column 'VALUE'. <br />
-     * {VARCHAR(255)}
+     * VALUE: {VARCHAR(255)} <br />
      * @return The value of the column 'VALUE'. (Nullable)
      */
     public String getValue() {
@@ -287,8 +256,7 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'VALUE'. <br />
-     * {VARCHAR(255)}
+     * VALUE: {VARCHAR(255)} <br />
      * @param value The value of the column 'VALUE'. (Nullable)
      */
     public void setValue(String value) {
@@ -296,12 +264,8 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
         this._value = value;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "NOTES";
-
     /**
-     * Get the value of the column 'NOTES'. <br />
-     * {LONGCHAR(2147483647)}
+     * NOTES: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'NOTES'. (Nullable)
      */
     public String getNotes() {
@@ -309,8 +273,7 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NOTES'. <br />
-     * {LONGCHAR(2147483647)}
+     * NOTES: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'NOTES'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -318,12 +281,8 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {VARCHAR(40)}
+     * ea_guid: {VARCHAR(40)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -331,13 +290,11 @@ public abstract class BsTAttributetag implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {VARCHAR(40)}
+     * ea_guid: {VARCHAR(40)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
         _modifiedProperties.addPropertyName("eaGuid");
         this._eaGuid = eaGuid;
     }
-
 }

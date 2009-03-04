@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objectfiles.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjectfilesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjectfilesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTObjectfilesCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjectfilesCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
         return _filename;
     }
     protected ConditionValue getCValueFilename() { return getFilename(); }
-    
+
     public BsTObjectfilesCQ addOrderBy_Filename_Asc() { regOBA("FileName"); return this; }
     public BsTObjectfilesCQ addOrderBy_Filename_Desc() { regOBD("FileName"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTObjectfilesCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTObjectfilesCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
         return _note;
     }
     protected ConditionValue getCValueNote() { return getNote(); }
-    
+
     public BsTObjectfilesCQ addOrderBy_Note_Asc() { regOBA("Note"); return this; }
     public BsTObjectfilesCQ addOrderBy_Note_Desc() { regOBD("Note"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
         return _filesize;
     }
     protected ConditionValue getCValueFilesize() { return getFilesize(); }
-    
+
     public BsTObjectfilesCQ addOrderBy_Filesize_Asc() { regOBA("FileSize"); return this; }
     public BsTObjectfilesCQ addOrderBy_Filesize_Desc() { regOBD("FileSize"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
         return _filedate;
     }
     protected ConditionValue getCValueFiledate() { return getFiledate(); }
-    
+
     public BsTObjectfilesCQ addOrderBy_Filedate_Asc() { regOBA("FileDate"); return this; }
     public BsTObjectfilesCQ addOrderBy_Filedate_Desc() { regOBD("FileDate"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTObjectfilesCQ extends AbstractBsTObjectfilesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjectfilesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjectfilesCB.class.getName(); }
+    String xCQ() { return TObjectfilesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

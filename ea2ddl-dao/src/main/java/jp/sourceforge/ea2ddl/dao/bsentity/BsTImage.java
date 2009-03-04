@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_image(TABLE).
+ * The entity of t_image that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTImage implements Entity, java.io.Serializable {
+public abstract class BsTImage implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_image. */
-    public static final String TABLE = "t_image";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'ImageID'. {COUNTER : NotNull} */
+    /** ImageID: {NotNull : COUNTER} */
     protected java.lang.Integer _imageid;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Type'. {VARCHAR(255)} */
+    /** Type: {VARCHAR(255)} */
     protected String _type;
 
-    /** The attribute of the column 'Image'. {LONGBINARY} */
+    /** Image: {LONGBINARY} */
     protected byte[] _image;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTImage() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_image";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TImage";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {COUNTER : NotNull} */
-    public static final String imageid_COLUMN = "ImageID";
-
     /**
-     * Get the value of the column 'ImageID'. <br />
-     * {COUNTER : NotNull}
+     * ImageID: {NotNull : COUNTER} <br />
      * @return The value of the column 'ImageID'. (Nullable)
      */
     public java.lang.Integer getImageid() {
@@ -209,8 +193,7 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ImageID'. <br />
-     * {COUNTER : NotNull}
+     * ImageID: {NotNull : COUNTER} <br />
      * @param imageid The value of the column 'ImageID'. (Nullable)
      */
     public void setImageid(java.lang.Integer imageid) {
@@ -218,12 +201,8 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
         this._imageid = imageid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -231,8 +210,7 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -240,12 +218,8 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -253,8 +227,7 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -262,12 +235,8 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {LONGBINARY} */
-    public static final String image_COLUMN = "Image";
-
     /**
-     * Get the value of the column 'Image'. <br />
-     * {LONGBINARY}
+     * Image: {LONGBINARY} <br />
      * @return The value of the column 'Image'. (Nullable)
      */
     public byte[] getImage() {
@@ -275,13 +244,11 @@ public abstract class BsTImage implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Image'. <br />
-     * {LONGBINARY}
+     * Image: {LONGBINARY} <br />
      * @param image The value of the column 'Image'. (Nullable)
      */
     public void setImage(byte[] image) {
         _modifiedProperties.addPropertyName("image");
         this._image = image;
     }
-
 }

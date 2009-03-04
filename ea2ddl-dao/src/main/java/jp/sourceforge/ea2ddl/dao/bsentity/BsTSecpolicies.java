@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_secpolicies(TABLE).
+ * The entity of t_secpolicies that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTSecpolicies implements Entity, java.io.Serializable {
+public abstract class BsTSecpolicies implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,20 +47,16 @@ public abstract class BsTSecpolicies implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_secpolicies. */
-    public static final String TABLE = "t_secpolicies";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Property'. {UQ : VARCHAR(100)} */
+    /** Property: {UQ : VARCHAR(100)} */
     protected String _property;
 
-    /** The attribute of the column 'Value'. {VARCHAR(255)} */
+    /** Value: {VARCHAR(255)} */
     protected String _value;
 
     // -----------------------------------------------------
@@ -70,19 +66,13 @@ public abstract class BsTSecpolicies implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTSecpolicies() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_secpolicies";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TSecpolicies";
     }
 
@@ -108,7 +98,6 @@ public abstract class BsTSecpolicies implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -183,13 +172,8 @@ public abstract class BsTSecpolicies implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(100)} */
-    public static final String property_COLUMN = "Property";
-
     /**
-     * Get the value of the column 'Property'. <br />
-     * {UQ : VARCHAR(100)}
+     * Property: {UQ : VARCHAR(100)} <br />
      * @return The value of the column 'Property'. (Nullable)
      */
     public String getProperty() {
@@ -197,8 +181,7 @@ public abstract class BsTSecpolicies implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Property'. <br />
-     * {UQ : VARCHAR(100)}
+     * Property: {UQ : VARCHAR(100)} <br />
      * @param property The value of the column 'Property'. (Nullable)
      */
     public void setProperty(String property) {
@@ -206,12 +189,8 @@ public abstract class BsTSecpolicies implements Entity, java.io.Serializable {
         this._property = property;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String value_COLUMN = "Value";
-
     /**
-     * Get the value of the column 'Value'. <br />
-     * {VARCHAR(255)}
+     * Value: {VARCHAR(255)} <br />
      * @return The value of the column 'Value'. (Nullable)
      */
     public String getValue() {
@@ -219,13 +198,11 @@ public abstract class BsTSecpolicies implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Value'. <br />
-     * {VARCHAR(255)}
+     * Value: {VARCHAR(255)} <br />
      * @param value The value of the column 'Value'. (Nullable)
      */
     public void setValue(String value) {
         _modifiedProperties.addPropertyName("value");
         this._value = value;
     }
-
 }

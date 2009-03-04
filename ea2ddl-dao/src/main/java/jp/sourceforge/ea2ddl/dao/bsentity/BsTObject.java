@@ -1,14 +1,15 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
- * The entity of t_object(TABLE).
+ * The entity of t_object that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     Object_ID
@@ -39,8 +40,7 @@ import jp.sourceforge.ea2ddl.dao.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObject implements Entity, java.io.Serializable {
+public abstract class BsTObject implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -48,182 +48,178 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_object. */
-    public static final String TABLE = "t_object";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {PK : UQ : COUNTER : NotNull} */
+    /** Object_ID: {PK : UQ : NotNull : COUNTER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Object_Type'. {VARCHAR(255)} */
+    /** Object_Type: {VARCHAR(255)} */
     protected String _objectType;
 
-    /** The attribute of the column 'Diagram_ID'. {INTEGER} */
+    /** Diagram_ID: {INTEGER} */
     protected java.lang.Integer _diagramId;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Alias'. {VARCHAR(255)} */
+    /** Alias: {VARCHAR(255)} */
     protected String _alias;
 
-    /** The attribute of the column 'Author'. {VARCHAR(255)} */
+    /** Author: {VARCHAR(255)} */
     protected String _author;
 
-    /** The attribute of the column 'Version'. {VARCHAR(50)} */
+    /** Version: {VARCHAR(50)} */
     protected String _version;
 
-    /** The attribute of the column 'Note'. {LONGCHAR(2147483647)} */
+    /** Note: {LONGCHAR(2147483647)} */
     protected String _note;
 
-    /** The attribute of the column 'Package_ID'. {INTEGER} */
+    /** Package_ID: {INTEGER} */
     protected java.lang.Integer _packageId;
 
-    /** The attribute of the column 'Stereotype'. {VARCHAR(255)} */
+    /** Stereotype: {VARCHAR(255)} */
     protected String _stereotype;
 
-    /** The attribute of the column 'NType'. {INTEGER} */
+    /** NType: {INTEGER} */
     protected java.lang.Integer _ntype;
 
-    /** The attribute of the column 'Complexity'. {VARCHAR(50)} */
+    /** Complexity: {VARCHAR(50)} */
     protected String _complexity;
 
-    /** The attribute of the column 'Effort'. {INTEGER} */
+    /** Effort: {INTEGER} */
     protected java.lang.Integer _effort;
 
-    /** The attribute of the column 'Style'. {VARCHAR(255)} */
+    /** Style: {VARCHAR(255)} */
     protected String _style;
 
-    /** The attribute of the column 'Backcolor'. {INTEGER} */
+    /** Backcolor: {INTEGER} */
     protected java.lang.Integer _backcolor;
 
-    /** The attribute of the column 'BorderStyle'. {INTEGER} */
+    /** BorderStyle: {INTEGER} */
     protected java.lang.Integer _borderstyle;
 
-    /** The attribute of the column 'BorderWidth'. {INTEGER} */
+    /** BorderWidth: {INTEGER} */
     protected java.lang.Integer _borderwidth;
 
-    /** The attribute of the column 'Fontcolor'. {INTEGER} */
+    /** Fontcolor: {INTEGER} */
     protected java.lang.Integer _fontcolor;
 
-    /** The attribute of the column 'Bordercolor'. {INTEGER} */
+    /** Bordercolor: {INTEGER} */
     protected java.lang.Integer _bordercolor;
 
-    /** The attribute of the column 'CreatedDate'. {DATETIME} */
+    /** CreatedDate: {DATETIME} */
     protected java.sql.Timestamp _createddate;
 
-    /** The attribute of the column 'ModifiedDate'. {DATETIME} */
+    /** ModifiedDate: {DATETIME} */
     protected java.sql.Timestamp _modifieddate;
 
-    /** The attribute of the column 'Status'. {VARCHAR(50)} */
+    /** Status: {VARCHAR(50)} */
     protected String _status;
 
-    /** The attribute of the column 'Tagged'. {INTEGER} */
+    /** Tagged: {INTEGER} */
     protected java.lang.Integer _tagged;
 
-    /** The attribute of the column 'PDATA1'. {VARCHAR(255)} */
+    /** PDATA1: {VARCHAR(255)} */
     protected String _pdata1;
 
-    /** The attribute of the column 'PDATA2'. {VARCHAR(255)} */
+    /** PDATA2: {VARCHAR(255)} */
     protected String _pdata2;
 
-    /** The attribute of the column 'PDATA3'. {VARCHAR(255)} */
+    /** PDATA3: {VARCHAR(255)} */
     protected String _pdata3;
 
-    /** The attribute of the column 'PDATA4'. {VARCHAR(255)} */
+    /** PDATA4: {VARCHAR(255)} */
     protected String _pdata4;
 
-    /** The attribute of the column 'PDATA5'. {VARCHAR(255)} */
+    /** PDATA5: {VARCHAR(255)} */
     protected String _pdata5;
 
-    /** The attribute of the column 'Concurrency'. {VARCHAR(50)} */
+    /** Concurrency: {VARCHAR(50)} */
     protected String _concurrency;
 
-    /** The attribute of the column 'Visibility'. {VARCHAR(50)} */
+    /** Visibility: {VARCHAR(50)} */
     protected String _visibility;
 
-    /** The attribute of the column 'Persistence'. {VARCHAR(50)} */
+    /** Persistence: {VARCHAR(50)} */
     protected String _persistence;
 
-    /** The attribute of the column 'Cardinality'. {VARCHAR(50)} */
+    /** Cardinality: {VARCHAR(50)} */
     protected String _cardinality;
 
-    /** The attribute of the column 'GenType'. {VARCHAR(50)} */
+    /** GenType: {VARCHAR(50)} */
     protected String _gentype;
 
-    /** The attribute of the column 'GenFile'. {VARCHAR(255)} */
+    /** GenFile: {VARCHAR(255)} */
     protected String _genfile;
 
-    /** The attribute of the column 'Header1'. {LONGCHAR(2147483647)} */
+    /** Header1: {LONGCHAR(2147483647)} */
     protected String _header1;
 
-    /** The attribute of the column 'Header2'. {LONGCHAR(2147483647)} */
+    /** Header2: {LONGCHAR(2147483647)} */
     protected String _header2;
 
-    /** The attribute of the column 'Phase'. {VARCHAR(50)} */
+    /** Phase: {VARCHAR(50)} */
     protected String _phase;
 
-    /** The attribute of the column 'Scope'. {VARCHAR(25)} */
+    /** Scope: {VARCHAR(25)} */
     protected String _scope;
 
-    /** The attribute of the column 'GenOption'. {LONGCHAR(2147483647)} */
+    /** GenOption: {LONGCHAR(2147483647)} */
     protected String _genoption;
 
-    /** The attribute of the column 'GenLinks'. {LONGCHAR(2147483647)} */
+    /** GenLinks: {LONGCHAR(2147483647)} */
     protected String _genlinks;
 
-    /** The attribute of the column 'Classifier'. {INTEGER} */
+    /** Classifier: {INTEGER} */
     protected java.lang.Integer _classifier;
 
-    /** The attribute of the column 'ea_guid'. {UQ : VARCHAR(40)} */
+    /** ea_guid: {UQ : VARCHAR(40)} */
     protected String _eaGuid;
 
-    /** The attribute of the column 'ParentID'. {INTEGER} */
+    /** ParentID: {INTEGER} */
     protected java.lang.Integer _parentid;
 
-    /** The attribute of the column 'RunState'. {LONGCHAR(2147483647)} */
+    /** RunState: {LONGCHAR(2147483647)} */
     protected String _runstate;
 
-    /** The attribute of the column 'Classifier_guid'. {VARCHAR(40)} */
+    /** Classifier_guid: {VARCHAR(40)} */
     protected String _classifierGuid;
 
-    /** The attribute of the column 'TPos'. {INTEGER} */
+    /** TPos: {INTEGER} */
     protected java.lang.Integer _tpos;
 
-    /** The attribute of the column 'IsRoot'. {BIT : NotNull} */
+    /** IsRoot: {NotNull : BIT} */
     protected Boolean _isroot;
 
-    /** The attribute of the column 'IsLeaf'. {BIT : NotNull} */
+    /** IsLeaf: {NotNull : BIT} */
     protected Boolean _isleaf;
 
-    /** The attribute of the column 'IsSpec'. {BIT : NotNull} */
+    /** IsSpec: {NotNull : BIT} */
     protected Boolean _isspec;
 
-    /** The attribute of the column 'IsActive'. {BIT : NotNull} */
+    /** IsActive: {NotNull : BIT} */
     protected Boolean _isactive;
 
-    /** The attribute of the column 'StateFlags'. {VARCHAR(255)} */
+    /** StateFlags: {VARCHAR(255)} */
     protected String _stateflags;
 
-    /** The attribute of the column 'PackageFlags'. {VARCHAR(255)} */
+    /** PackageFlags: {VARCHAR(255)} */
     protected String _packageflags;
 
-    /** The attribute of the column 'Multiplicity'. {VARCHAR(50)} */
+    /** Multiplicity: {VARCHAR(50)} */
     protected String _multiplicity;
 
-    /** The attribute of the column 'StyleEx'. {LONGCHAR(2147483647)} */
+    /** StyleEx: {LONGCHAR(2147483647)} */
     protected String _styleex;
 
-    /** The attribute of the column 'ActionFlags'. {VARCHAR(255)} */
+    /** ActionFlags: {VARCHAR(255)} */
     protected String _actionflags;
 
-    /** The attribute of the column 'EventFlags'. {VARCHAR(255)} */
+    /** EventFlags: {VARCHAR(255)} */
     protected String _eventflags;
 
     // -----------------------------------------------------
@@ -233,19 +229,13 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObject() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_object";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObject";
     }
 
@@ -271,15 +261,11 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Referrer Property = [TObjectpropertiesList]
-    // * * * * * * * * */
-
-    /** The entity list of referrer property 'TObjectpropertiesList'. */
+    /** t_objectproperties as 'TObjectpropertiesList'. */
     protected List<TObjectproperties> _childrenTObjectpropertiesList;
 
     /**
-     * Get the entity list of referrer property 'TObjectpropertiesList'. {without lazy-load} <br />
+     * t_objectproperties as 'TObjectpropertiesList'. {without lazy-load} <br />
      * @return The entity list of referrer property 'TObjectpropertiesList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<TObjectproperties> getTObjectpropertiesList() {
@@ -288,22 +274,18 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity list of referrer property 'TObjectpropertiesList'.
+     * t_objectproperties as 'TObjectpropertiesList'.
      * @param tObjectpropertiesList The entity list of referrer property 'TObjectpropertiesList'. (Nullable)
      */
     public void setTObjectpropertiesList(List<TObjectproperties> tObjectpropertiesList) {
         _childrenTObjectpropertiesList = tObjectpropertiesList;
     }
 
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Referrer Property = [TAttributeList]
-    // * * * * * * * * */
-
-    /** The entity list of referrer property 'TAttributeList'. */
+    /** t_attribute as 'TAttributeList'. */
     protected List<TAttribute> _childrenTAttributeList;
 
     /**
-     * Get the entity list of referrer property 'TAttributeList'. {without lazy-load} <br />
+     * t_attribute as 'TAttributeList'. {without lazy-load} <br />
      * @return The entity list of referrer property 'TAttributeList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<TAttribute> getTAttributeList() {
@@ -312,22 +294,18 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity list of referrer property 'TAttributeList'.
+     * t_attribute as 'TAttributeList'.
      * @param tAttributeList The entity list of referrer property 'TAttributeList'. (Nullable)
      */
     public void setTAttributeList(List<TAttribute> tAttributeList) {
         _childrenTAttributeList = tAttributeList;
     }
 
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Referrer Property = [TOperationList]
-    // * * * * * * * * */
-
-    /** The entity list of referrer property 'TOperationList'. */
+    /** t_operation as 'TOperationList'. */
     protected List<TOperation> _childrenTOperationList;
 
     /**
-     * Get the entity list of referrer property 'TOperationList'. {without lazy-load} <br />
+     * t_operation as 'TOperationList'. {without lazy-load} <br />
      * @return The entity list of referrer property 'TOperationList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<TOperation> getTOperationList() {
@@ -336,22 +314,18 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity list of referrer property 'TOperationList'.
+     * t_operation as 'TOperationList'.
      * @param tOperationList The entity list of referrer property 'TOperationList'. (Nullable)
      */
     public void setTOperationList(List<TOperation> tOperationList) {
         _childrenTOperationList = tOperationList;
     }
 
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Referrer Property = [TConnectorByStartObjectIdList]
-    // * * * * * * * * */
-
-    /** The entity list of referrer property 'TConnectorByStartObjectIdList'. */
+    /** t_connector as 'TConnectorByStartObjectIdList'. */
     protected List<TConnector> _childrenTConnectorByStartObjectIdList;
 
     /**
-     * Get the entity list of referrer property 'TConnectorByStartObjectIdList'. {without lazy-load} <br />
+     * t_connector as 'TConnectorByStartObjectIdList'. {without lazy-load} <br />
      * @return The entity list of referrer property 'TConnectorByStartObjectIdList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<TConnector> getTConnectorByStartObjectIdList() {
@@ -360,22 +334,18 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity list of referrer property 'TConnectorByStartObjectIdList'.
+     * t_connector as 'TConnectorByStartObjectIdList'.
      * @param tConnectorByStartObjectIdList The entity list of referrer property 'TConnectorByStartObjectIdList'. (Nullable)
      */
     public void setTConnectorByStartObjectIdList(List<TConnector> tConnectorByStartObjectIdList) {
         _childrenTConnectorByStartObjectIdList = tConnectorByStartObjectIdList;
     }
 
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Referrer Property = [TConnectorByEndObjectIdList]
-    // * * * * * * * * */
-
-    /** The entity list of referrer property 'TConnectorByEndObjectIdList'. */
+    /** t_connector as 'TConnectorByEndObjectIdList'. */
     protected List<TConnector> _childrenTConnectorByEndObjectIdList;
 
     /**
-     * Get the entity list of referrer property 'TConnectorByEndObjectIdList'. {without lazy-load} <br />
+     * t_connector as 'TConnectorByEndObjectIdList'. {without lazy-load} <br />
      * @return The entity list of referrer property 'TConnectorByEndObjectIdList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<TConnector> getTConnectorByEndObjectIdList() {
@@ -384,13 +354,12 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity list of referrer property 'TConnectorByEndObjectIdList'.
+     * t_connector as 'TConnectorByEndObjectIdList'.
      * @param tConnectorByEndObjectIdList The entity list of referrer property 'TConnectorByEndObjectIdList'. (Nullable)
      */
     public void setTConnectorByEndObjectIdList(List<TConnector> tConnectorByEndObjectIdList) {
         _childrenTConnectorByEndObjectIdList = tConnectorByEndObjectIdList;
     }
-
 
     // ===================================================================================
     //                                                                       Determination
@@ -519,13 +488,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {PK : UQ : COUNTER : NotNull} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {PK : UQ : COUNTER : NotNull}
+     * Object_ID: {PK : UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -533,8 +497,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {PK : UQ : COUNTER : NotNull}
+     * Object_ID: {PK : UQ : NotNull : COUNTER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -542,12 +505,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String objectType_COLUMN = "Object_Type";
-
     /**
-     * Get the value of the column 'Object_Type'. <br />
-     * {VARCHAR(255)}
+     * Object_Type: {VARCHAR(255)} <br />
      * @return The value of the column 'Object_Type'. (Nullable)
      */
     public String getObjectType() {
@@ -555,8 +514,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Object_Type'. <br />
-     * {VARCHAR(255)}
+     * Object_Type: {VARCHAR(255)} <br />
      * @param objectType The value of the column 'Object_Type'. (Nullable)
      */
     public void setObjectType(String objectType) {
@@ -564,12 +522,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._objectType = objectType;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String diagramId_COLUMN = "Diagram_ID";
-
     /**
-     * Get the value of the column 'Diagram_ID'. <br />
-     * {INTEGER}
+     * Diagram_ID: {INTEGER} <br />
      * @return The value of the column 'Diagram_ID'. (Nullable)
      */
     public java.lang.Integer getDiagramId() {
@@ -577,8 +531,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Diagram_ID'. <br />
-     * {INTEGER}
+     * Diagram_ID: {INTEGER} <br />
      * @param diagramId The value of the column 'Diagram_ID'. (Nullable)
      */
     public void setDiagramId(java.lang.Integer diagramId) {
@@ -586,12 +539,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._diagramId = diagramId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -599,8 +548,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -608,12 +556,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String alias_COLUMN = "Alias";
-
     /**
-     * Get the value of the column 'Alias'. <br />
-     * {VARCHAR(255)}
+     * Alias: {VARCHAR(255)} <br />
      * @return The value of the column 'Alias'. (Nullable)
      */
     public String getAlias() {
@@ -621,8 +565,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Alias'. <br />
-     * {VARCHAR(255)}
+     * Alias: {VARCHAR(255)} <br />
      * @param alias The value of the column 'Alias'. (Nullable)
      */
     public void setAlias(String alias) {
@@ -630,12 +573,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._alias = alias;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String author_COLUMN = "Author";
-
     /**
-     * Get the value of the column 'Author'. <br />
-     * {VARCHAR(255)}
+     * Author: {VARCHAR(255)} <br />
      * @return The value of the column 'Author'. (Nullable)
      */
     public String getAuthor() {
@@ -643,8 +582,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Author'. <br />
-     * {VARCHAR(255)}
+     * Author: {VARCHAR(255)} <br />
      * @param author The value of the column 'Author'. (Nullable)
      */
     public void setAuthor(String author) {
@@ -652,12 +590,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._author = author;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String version_COLUMN = "Version";
-
     /**
-     * Get the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @return The value of the column 'Version'. (Nullable)
      */
     public String getVersion() {
@@ -665,8 +599,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @param version The value of the column 'Version'. (Nullable)
      */
     public void setVersion(String version) {
@@ -674,12 +607,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._version = version;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String note_COLUMN = "Note";
-
     /**
-     * Get the value of the column 'Note'. <br />
-     * {LONGCHAR(2147483647)}
+     * Note: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Note'. (Nullable)
      */
     public String getNote() {
@@ -687,8 +616,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Note'. <br />
-     * {LONGCHAR(2147483647)}
+     * Note: {LONGCHAR(2147483647)} <br />
      * @param note The value of the column 'Note'. (Nullable)
      */
     public void setNote(String note) {
@@ -696,12 +624,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._note = note;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String packageId_COLUMN = "Package_ID";
-
     /**
-     * Get the value of the column 'Package_ID'. <br />
-     * {INTEGER}
+     * Package_ID: {INTEGER} <br />
      * @return The value of the column 'Package_ID'. (Nullable)
      */
     public java.lang.Integer getPackageId() {
@@ -709,8 +633,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Package_ID'. <br />
-     * {INTEGER}
+     * Package_ID: {INTEGER} <br />
      * @param packageId The value of the column 'Package_ID'. (Nullable)
      */
     public void setPackageId(java.lang.Integer packageId) {
@@ -718,12 +641,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._packageId = packageId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String stereotype_COLUMN = "Stereotype";
-
     /**
-     * Get the value of the column 'Stereotype'. <br />
-     * {VARCHAR(255)}
+     * Stereotype: {VARCHAR(255)} <br />
      * @return The value of the column 'Stereotype'. (Nullable)
      */
     public String getStereotype() {
@@ -731,8 +650,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Stereotype'. <br />
-     * {VARCHAR(255)}
+     * Stereotype: {VARCHAR(255)} <br />
      * @param stereotype The value of the column 'Stereotype'. (Nullable)
      */
     public void setStereotype(String stereotype) {
@@ -740,12 +658,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._stereotype = stereotype;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String ntype_COLUMN = "NType";
-
     /**
-     * Get the value of the column 'NType'. <br />
-     * {INTEGER}
+     * NType: {INTEGER} <br />
      * @return The value of the column 'NType'. (Nullable)
      */
     public java.lang.Integer getNtype() {
@@ -753,8 +667,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NType'. <br />
-     * {INTEGER}
+     * NType: {INTEGER} <br />
      * @param ntype The value of the column 'NType'. (Nullable)
      */
     public void setNtype(java.lang.Integer ntype) {
@@ -762,12 +675,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._ntype = ntype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String complexity_COLUMN = "Complexity";
-
     /**
-     * Get the value of the column 'Complexity'. <br />
-     * {VARCHAR(50)}
+     * Complexity: {VARCHAR(50)} <br />
      * @return The value of the column 'Complexity'. (Nullable)
      */
     public String getComplexity() {
@@ -775,8 +684,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Complexity'. <br />
-     * {VARCHAR(50)}
+     * Complexity: {VARCHAR(50)} <br />
      * @param complexity The value of the column 'Complexity'. (Nullable)
      */
     public void setComplexity(String complexity) {
@@ -784,12 +692,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._complexity = complexity;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String effort_COLUMN = "Effort";
-
     /**
-     * Get the value of the column 'Effort'. <br />
-     * {INTEGER}
+     * Effort: {INTEGER} <br />
      * @return The value of the column 'Effort'. (Nullable)
      */
     public java.lang.Integer getEffort() {
@@ -797,8 +701,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Effort'. <br />
-     * {INTEGER}
+     * Effort: {INTEGER} <br />
      * @param effort The value of the column 'Effort'. (Nullable)
      */
     public void setEffort(java.lang.Integer effort) {
@@ -806,12 +709,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._effort = effort;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -819,8 +718,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
@@ -828,12 +726,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._style = style;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String backcolor_COLUMN = "Backcolor";
-
     /**
-     * Get the value of the column 'Backcolor'. <br />
-     * {INTEGER}
+     * Backcolor: {INTEGER} <br />
      * @return The value of the column 'Backcolor'. (Nullable)
      */
     public java.lang.Integer getBackcolor() {
@@ -841,8 +735,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Backcolor'. <br />
-     * {INTEGER}
+     * Backcolor: {INTEGER} <br />
      * @param backcolor The value of the column 'Backcolor'. (Nullable)
      */
     public void setBackcolor(java.lang.Integer backcolor) {
@@ -850,12 +743,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._backcolor = backcolor;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String borderstyle_COLUMN = "BorderStyle";
-
     /**
-     * Get the value of the column 'BorderStyle'. <br />
-     * {INTEGER}
+     * BorderStyle: {INTEGER} <br />
      * @return The value of the column 'BorderStyle'. (Nullable)
      */
     public java.lang.Integer getBorderstyle() {
@@ -863,8 +752,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'BorderStyle'. <br />
-     * {INTEGER}
+     * BorderStyle: {INTEGER} <br />
      * @param borderstyle The value of the column 'BorderStyle'. (Nullable)
      */
     public void setBorderstyle(java.lang.Integer borderstyle) {
@@ -872,12 +760,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._borderstyle = borderstyle;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String borderwidth_COLUMN = "BorderWidth";
-
     /**
-     * Get the value of the column 'BorderWidth'. <br />
-     * {INTEGER}
+     * BorderWidth: {INTEGER} <br />
      * @return The value of the column 'BorderWidth'. (Nullable)
      */
     public java.lang.Integer getBorderwidth() {
@@ -885,8 +769,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'BorderWidth'. <br />
-     * {INTEGER}
+     * BorderWidth: {INTEGER} <br />
      * @param borderwidth The value of the column 'BorderWidth'. (Nullable)
      */
     public void setBorderwidth(java.lang.Integer borderwidth) {
@@ -894,12 +777,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._borderwidth = borderwidth;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String fontcolor_COLUMN = "Fontcolor";
-
     /**
-     * Get the value of the column 'Fontcolor'. <br />
-     * {INTEGER}
+     * Fontcolor: {INTEGER} <br />
      * @return The value of the column 'Fontcolor'. (Nullable)
      */
     public java.lang.Integer getFontcolor() {
@@ -907,8 +786,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Fontcolor'. <br />
-     * {INTEGER}
+     * Fontcolor: {INTEGER} <br />
      * @param fontcolor The value of the column 'Fontcolor'. (Nullable)
      */
     public void setFontcolor(java.lang.Integer fontcolor) {
@@ -916,12 +794,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._fontcolor = fontcolor;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String bordercolor_COLUMN = "Bordercolor";
-
     /**
-     * Get the value of the column 'Bordercolor'. <br />
-     * {INTEGER}
+     * Bordercolor: {INTEGER} <br />
      * @return The value of the column 'Bordercolor'. (Nullable)
      */
     public java.lang.Integer getBordercolor() {
@@ -929,8 +803,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Bordercolor'. <br />
-     * {INTEGER}
+     * Bordercolor: {INTEGER} <br />
      * @param bordercolor The value of the column 'Bordercolor'. (Nullable)
      */
     public void setBordercolor(java.lang.Integer bordercolor) {
@@ -938,12 +811,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._bordercolor = bordercolor;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String createddate_COLUMN = "CreatedDate";
-
     /**
-     * Get the value of the column 'CreatedDate'. <br />
-     * {DATETIME}
+     * CreatedDate: {DATETIME} <br />
      * @return The value of the column 'CreatedDate'. (Nullable)
      */
     public java.sql.Timestamp getCreateddate() {
@@ -951,8 +820,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'CreatedDate'. <br />
-     * {DATETIME}
+     * CreatedDate: {DATETIME} <br />
      * @param createddate The value of the column 'CreatedDate'. (Nullable)
      */
     public void setCreateddate(java.sql.Timestamp createddate) {
@@ -960,12 +828,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._createddate = createddate;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String modifieddate_COLUMN = "ModifiedDate";
-
     /**
-     * Get the value of the column 'ModifiedDate'. <br />
-     * {DATETIME}
+     * ModifiedDate: {DATETIME} <br />
      * @return The value of the column 'ModifiedDate'. (Nullable)
      */
     public java.sql.Timestamp getModifieddate() {
@@ -973,8 +837,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ModifiedDate'. <br />
-     * {DATETIME}
+     * ModifiedDate: {DATETIME} <br />
      * @param modifieddate The value of the column 'ModifiedDate'. (Nullable)
      */
     public void setModifieddate(java.sql.Timestamp modifieddate) {
@@ -982,12 +845,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._modifieddate = modifieddate;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String status_COLUMN = "Status";
-
     /**
-     * Get the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @return The value of the column 'Status'. (Nullable)
      */
     public String getStatus() {
@@ -995,8 +854,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @param status The value of the column 'Status'. (Nullable)
      */
     public void setStatus(String status) {
@@ -1004,12 +862,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._status = status;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String tagged_COLUMN = "Tagged";
-
     /**
-     * Get the value of the column 'Tagged'. <br />
-     * {INTEGER}
+     * Tagged: {INTEGER} <br />
      * @return The value of the column 'Tagged'. (Nullable)
      */
     public java.lang.Integer getTagged() {
@@ -1017,8 +871,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Tagged'. <br />
-     * {INTEGER}
+     * Tagged: {INTEGER} <br />
      * @param tagged The value of the column 'Tagged'. (Nullable)
      */
     public void setTagged(java.lang.Integer tagged) {
@@ -1026,12 +879,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._tagged = tagged;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata1_COLUMN = "PDATA1";
-
     /**
-     * Get the value of the column 'PDATA1'. <br />
-     * {VARCHAR(255)}
+     * PDATA1: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA1'. (Nullable)
      */
     public String getPdata1() {
@@ -1039,8 +888,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA1'. <br />
-     * {VARCHAR(255)}
+     * PDATA1: {VARCHAR(255)} <br />
      * @param pdata1 The value of the column 'PDATA1'. (Nullable)
      */
     public void setPdata1(String pdata1) {
@@ -1048,12 +896,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._pdata1 = pdata1;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata2_COLUMN = "PDATA2";
-
     /**
-     * Get the value of the column 'PDATA2'. <br />
-     * {VARCHAR(255)}
+     * PDATA2: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA2'. (Nullable)
      */
     public String getPdata2() {
@@ -1061,8 +905,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA2'. <br />
-     * {VARCHAR(255)}
+     * PDATA2: {VARCHAR(255)} <br />
      * @param pdata2 The value of the column 'PDATA2'. (Nullable)
      */
     public void setPdata2(String pdata2) {
@@ -1070,12 +913,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._pdata2 = pdata2;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata3_COLUMN = "PDATA3";
-
     /**
-     * Get the value of the column 'PDATA3'. <br />
-     * {VARCHAR(255)}
+     * PDATA3: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA3'. (Nullable)
      */
     public String getPdata3() {
@@ -1083,8 +922,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA3'. <br />
-     * {VARCHAR(255)}
+     * PDATA3: {VARCHAR(255)} <br />
      * @param pdata3 The value of the column 'PDATA3'. (Nullable)
      */
     public void setPdata3(String pdata3) {
@@ -1092,12 +930,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._pdata3 = pdata3;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata4_COLUMN = "PDATA4";
-
     /**
-     * Get the value of the column 'PDATA4'. <br />
-     * {VARCHAR(255)}
+     * PDATA4: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA4'. (Nullable)
      */
     public String getPdata4() {
@@ -1105,8 +939,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA4'. <br />
-     * {VARCHAR(255)}
+     * PDATA4: {VARCHAR(255)} <br />
      * @param pdata4 The value of the column 'PDATA4'. (Nullable)
      */
     public void setPdata4(String pdata4) {
@@ -1114,12 +947,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._pdata4 = pdata4;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata5_COLUMN = "PDATA5";
-
     /**
-     * Get the value of the column 'PDATA5'. <br />
-     * {VARCHAR(255)}
+     * PDATA5: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA5'. (Nullable)
      */
     public String getPdata5() {
@@ -1127,8 +956,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA5'. <br />
-     * {VARCHAR(255)}
+     * PDATA5: {VARCHAR(255)} <br />
      * @param pdata5 The value of the column 'PDATA5'. (Nullable)
      */
     public void setPdata5(String pdata5) {
@@ -1136,12 +964,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._pdata5 = pdata5;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String concurrency_COLUMN = "Concurrency";
-
     /**
-     * Get the value of the column 'Concurrency'. <br />
-     * {VARCHAR(50)}
+     * Concurrency: {VARCHAR(50)} <br />
      * @return The value of the column 'Concurrency'. (Nullable)
      */
     public String getConcurrency() {
@@ -1149,8 +973,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Concurrency'. <br />
-     * {VARCHAR(50)}
+     * Concurrency: {VARCHAR(50)} <br />
      * @param concurrency The value of the column 'Concurrency'. (Nullable)
      */
     public void setConcurrency(String concurrency) {
@@ -1158,12 +981,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._concurrency = concurrency;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String visibility_COLUMN = "Visibility";
-
     /**
-     * Get the value of the column 'Visibility'. <br />
-     * {VARCHAR(50)}
+     * Visibility: {VARCHAR(50)} <br />
      * @return The value of the column 'Visibility'. (Nullable)
      */
     public String getVisibility() {
@@ -1171,8 +990,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Visibility'. <br />
-     * {VARCHAR(50)}
+     * Visibility: {VARCHAR(50)} <br />
      * @param visibility The value of the column 'Visibility'. (Nullable)
      */
     public void setVisibility(String visibility) {
@@ -1180,12 +998,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._visibility = visibility;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String persistence_COLUMN = "Persistence";
-
     /**
-     * Get the value of the column 'Persistence'. <br />
-     * {VARCHAR(50)}
+     * Persistence: {VARCHAR(50)} <br />
      * @return The value of the column 'Persistence'. (Nullable)
      */
     public String getPersistence() {
@@ -1193,8 +1007,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Persistence'. <br />
-     * {VARCHAR(50)}
+     * Persistence: {VARCHAR(50)} <br />
      * @param persistence The value of the column 'Persistence'. (Nullable)
      */
     public void setPersistence(String persistence) {
@@ -1202,12 +1015,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._persistence = persistence;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String cardinality_COLUMN = "Cardinality";
-
     /**
-     * Get the value of the column 'Cardinality'. <br />
-     * {VARCHAR(50)}
+     * Cardinality: {VARCHAR(50)} <br />
      * @return The value of the column 'Cardinality'. (Nullable)
      */
     public String getCardinality() {
@@ -1215,8 +1024,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Cardinality'. <br />
-     * {VARCHAR(50)}
+     * Cardinality: {VARCHAR(50)} <br />
      * @param cardinality The value of the column 'Cardinality'. (Nullable)
      */
     public void setCardinality(String cardinality) {
@@ -1224,12 +1032,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._cardinality = cardinality;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String gentype_COLUMN = "GenType";
-
     /**
-     * Get the value of the column 'GenType'. <br />
-     * {VARCHAR(50)}
+     * GenType: {VARCHAR(50)} <br />
      * @return The value of the column 'GenType'. (Nullable)
      */
     public String getGentype() {
@@ -1237,8 +1041,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GenType'. <br />
-     * {VARCHAR(50)}
+     * GenType: {VARCHAR(50)} <br />
      * @param gentype The value of the column 'GenType'. (Nullable)
      */
     public void setGentype(String gentype) {
@@ -1246,12 +1049,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._gentype = gentype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String genfile_COLUMN = "GenFile";
-
     /**
-     * Get the value of the column 'GenFile'. <br />
-     * {VARCHAR(255)}
+     * GenFile: {VARCHAR(255)} <br />
      * @return The value of the column 'GenFile'. (Nullable)
      */
     public String getGenfile() {
@@ -1259,8 +1058,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GenFile'. <br />
-     * {VARCHAR(255)}
+     * GenFile: {VARCHAR(255)} <br />
      * @param genfile The value of the column 'GenFile'. (Nullable)
      */
     public void setGenfile(String genfile) {
@@ -1268,12 +1066,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._genfile = genfile;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String header1_COLUMN = "Header1";
-
     /**
-     * Get the value of the column 'Header1'. <br />
-     * {LONGCHAR(2147483647)}
+     * Header1: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Header1'. (Nullable)
      */
     public String getHeader1() {
@@ -1281,8 +1075,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Header1'. <br />
-     * {LONGCHAR(2147483647)}
+     * Header1: {LONGCHAR(2147483647)} <br />
      * @param header1 The value of the column 'Header1'. (Nullable)
      */
     public void setHeader1(String header1) {
@@ -1290,12 +1083,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._header1 = header1;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String header2_COLUMN = "Header2";
-
     /**
-     * Get the value of the column 'Header2'. <br />
-     * {LONGCHAR(2147483647)}
+     * Header2: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Header2'. (Nullable)
      */
     public String getHeader2() {
@@ -1303,8 +1092,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Header2'. <br />
-     * {LONGCHAR(2147483647)}
+     * Header2: {LONGCHAR(2147483647)} <br />
      * @param header2 The value of the column 'Header2'. (Nullable)
      */
     public void setHeader2(String header2) {
@@ -1312,12 +1100,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._header2 = header2;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String phase_COLUMN = "Phase";
-
     /**
-     * Get the value of the column 'Phase'. <br />
-     * {VARCHAR(50)}
+     * Phase: {VARCHAR(50)} <br />
      * @return The value of the column 'Phase'. (Nullable)
      */
     public String getPhase() {
@@ -1325,8 +1109,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Phase'. <br />
-     * {VARCHAR(50)}
+     * Phase: {VARCHAR(50)} <br />
      * @param phase The value of the column 'Phase'. (Nullable)
      */
     public void setPhase(String phase) {
@@ -1334,12 +1117,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._phase = phase;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(25)} */
-    public static final String scope_COLUMN = "Scope";
-
     /**
-     * Get the value of the column 'Scope'. <br />
-     * {VARCHAR(25)}
+     * Scope: {VARCHAR(25)} <br />
      * @return The value of the column 'Scope'. (Nullable)
      */
     public String getScope() {
@@ -1347,8 +1126,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Scope'. <br />
-     * {VARCHAR(25)}
+     * Scope: {VARCHAR(25)} <br />
      * @param scope The value of the column 'Scope'. (Nullable)
      */
     public void setScope(String scope) {
@@ -1356,12 +1134,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._scope = scope;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String genoption_COLUMN = "GenOption";
-
     /**
-     * Get the value of the column 'GenOption'. <br />
-     * {LONGCHAR(2147483647)}
+     * GenOption: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'GenOption'. (Nullable)
      */
     public String getGenoption() {
@@ -1369,8 +1143,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GenOption'. <br />
-     * {LONGCHAR(2147483647)}
+     * GenOption: {LONGCHAR(2147483647)} <br />
      * @param genoption The value of the column 'GenOption'. (Nullable)
      */
     public void setGenoption(String genoption) {
@@ -1378,12 +1151,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._genoption = genoption;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String genlinks_COLUMN = "GenLinks";
-
     /**
-     * Get the value of the column 'GenLinks'. <br />
-     * {LONGCHAR(2147483647)}
+     * GenLinks: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'GenLinks'. (Nullable)
      */
     public String getGenlinks() {
@@ -1391,8 +1160,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GenLinks'. <br />
-     * {LONGCHAR(2147483647)}
+     * GenLinks: {LONGCHAR(2147483647)} <br />
      * @param genlinks The value of the column 'GenLinks'. (Nullable)
      */
     public void setGenlinks(String genlinks) {
@@ -1400,12 +1168,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._genlinks = genlinks;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String classifier_COLUMN = "Classifier";
-
     /**
-     * Get the value of the column 'Classifier'. <br />
-     * {INTEGER}
+     * Classifier: {INTEGER} <br />
      * @return The value of the column 'Classifier'. (Nullable)
      */
     public java.lang.Integer getClassifier() {
@@ -1413,8 +1177,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Classifier'. <br />
-     * {INTEGER}
+     * Classifier: {INTEGER} <br />
      * @param classifier The value of the column 'Classifier'. (Nullable)
      */
     public void setClassifier(java.lang.Integer classifier) {
@@ -1422,12 +1185,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._classifier = classifier;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {UQ : VARCHAR(40)}
+     * ea_guid: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -1435,8 +1194,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {UQ : VARCHAR(40)}
+     * ea_guid: {UQ : VARCHAR(40)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
@@ -1444,12 +1202,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._eaGuid = eaGuid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String parentid_COLUMN = "ParentID";
-
     /**
-     * Get the value of the column 'ParentID'. <br />
-     * {INTEGER}
+     * ParentID: {INTEGER} <br />
      * @return The value of the column 'ParentID'. (Nullable)
      */
     public java.lang.Integer getParentid() {
@@ -1457,8 +1211,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ParentID'. <br />
-     * {INTEGER}
+     * ParentID: {INTEGER} <br />
      * @param parentid The value of the column 'ParentID'. (Nullable)
      */
     public void setParentid(java.lang.Integer parentid) {
@@ -1466,12 +1219,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._parentid = parentid;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String runstate_COLUMN = "RunState";
-
     /**
-     * Get the value of the column 'RunState'. <br />
-     * {LONGCHAR(2147483647)}
+     * RunState: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'RunState'. (Nullable)
      */
     public String getRunstate() {
@@ -1479,8 +1228,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RunState'. <br />
-     * {LONGCHAR(2147483647)}
+     * RunState: {LONGCHAR(2147483647)} <br />
      * @param runstate The value of the column 'RunState'. (Nullable)
      */
     public void setRunstate(String runstate) {
@@ -1488,12 +1236,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._runstate = runstate;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(40)} */
-    public static final String classifierGuid_COLUMN = "Classifier_guid";
-
     /**
-     * Get the value of the column 'Classifier_guid'. <br />
-     * {VARCHAR(40)}
+     * Classifier_guid: {VARCHAR(40)} <br />
      * @return The value of the column 'Classifier_guid'. (Nullable)
      */
     public String getClassifierGuid() {
@@ -1501,8 +1245,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Classifier_guid'. <br />
-     * {VARCHAR(40)}
+     * Classifier_guid: {VARCHAR(40)} <br />
      * @param classifierGuid The value of the column 'Classifier_guid'. (Nullable)
      */
     public void setClassifierGuid(String classifierGuid) {
@@ -1510,12 +1253,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._classifierGuid = classifierGuid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String tpos_COLUMN = "TPos";
-
     /**
-     * Get the value of the column 'TPos'. <br />
-     * {INTEGER}
+     * TPos: {INTEGER} <br />
      * @return The value of the column 'TPos'. (Nullable)
      */
     public java.lang.Integer getTpos() {
@@ -1523,8 +1262,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TPos'. <br />
-     * {INTEGER}
+     * TPos: {INTEGER} <br />
      * @param tpos The value of the column 'TPos'. (Nullable)
      */
     public void setTpos(java.lang.Integer tpos) {
@@ -1532,12 +1270,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._tpos = tpos;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String isroot_COLUMN = "IsRoot";
-
     /**
-     * Get the value of the column 'IsRoot'. <br />
-     * {BIT : NotNull}
+     * IsRoot: {NotNull : BIT} <br />
      * @return The value of the column 'IsRoot'. (Nullable)
      */
     public Boolean getIsroot() {
@@ -1545,8 +1279,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsRoot'. <br />
-     * {BIT : NotNull}
+     * IsRoot: {NotNull : BIT} <br />
      * @param isroot The value of the column 'IsRoot'. (Nullable)
      */
     public void setIsroot(Boolean isroot) {
@@ -1554,12 +1287,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._isroot = isroot;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String isleaf_COLUMN = "IsLeaf";
-
     /**
-     * Get the value of the column 'IsLeaf'. <br />
-     * {BIT : NotNull}
+     * IsLeaf: {NotNull : BIT} <br />
      * @return The value of the column 'IsLeaf'. (Nullable)
      */
     public Boolean getIsleaf() {
@@ -1567,8 +1296,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsLeaf'. <br />
-     * {BIT : NotNull}
+     * IsLeaf: {NotNull : BIT} <br />
      * @param isleaf The value of the column 'IsLeaf'. (Nullable)
      */
     public void setIsleaf(Boolean isleaf) {
@@ -1576,12 +1304,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._isleaf = isleaf;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String isspec_COLUMN = "IsSpec";
-
     /**
-     * Get the value of the column 'IsSpec'. <br />
-     * {BIT : NotNull}
+     * IsSpec: {NotNull : BIT} <br />
      * @return The value of the column 'IsSpec'. (Nullable)
      */
     public Boolean getIsspec() {
@@ -1589,8 +1313,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsSpec'. <br />
-     * {BIT : NotNull}
+     * IsSpec: {NotNull : BIT} <br />
      * @param isspec The value of the column 'IsSpec'. (Nullable)
      */
     public void setIsspec(Boolean isspec) {
@@ -1598,12 +1321,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._isspec = isspec;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String isactive_COLUMN = "IsActive";
-
     /**
-     * Get the value of the column 'IsActive'. <br />
-     * {BIT : NotNull}
+     * IsActive: {NotNull : BIT} <br />
      * @return The value of the column 'IsActive'. (Nullable)
      */
     public Boolean getIsactive() {
@@ -1611,8 +1330,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsActive'. <br />
-     * {BIT : NotNull}
+     * IsActive: {NotNull : BIT} <br />
      * @param isactive The value of the column 'IsActive'. (Nullable)
      */
     public void setIsactive(Boolean isactive) {
@@ -1620,12 +1338,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._isactive = isactive;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String stateflags_COLUMN = "StateFlags";
-
     /**
-     * Get the value of the column 'StateFlags'. <br />
-     * {VARCHAR(255)}
+     * StateFlags: {VARCHAR(255)} <br />
      * @return The value of the column 'StateFlags'. (Nullable)
      */
     public String getStateflags() {
@@ -1633,8 +1347,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StateFlags'. <br />
-     * {VARCHAR(255)}
+     * StateFlags: {VARCHAR(255)} <br />
      * @param stateflags The value of the column 'StateFlags'. (Nullable)
      */
     public void setStateflags(String stateflags) {
@@ -1642,12 +1355,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._stateflags = stateflags;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String packageflags_COLUMN = "PackageFlags";
-
     /**
-     * Get the value of the column 'PackageFlags'. <br />
-     * {VARCHAR(255)}
+     * PackageFlags: {VARCHAR(255)} <br />
      * @return The value of the column 'PackageFlags'. (Nullable)
      */
     public String getPackageflags() {
@@ -1655,8 +1364,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PackageFlags'. <br />
-     * {VARCHAR(255)}
+     * PackageFlags: {VARCHAR(255)} <br />
      * @param packageflags The value of the column 'PackageFlags'. (Nullable)
      */
     public void setPackageflags(String packageflags) {
@@ -1664,12 +1372,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._packageflags = packageflags;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String multiplicity_COLUMN = "Multiplicity";
-
     /**
-     * Get the value of the column 'Multiplicity'. <br />
-     * {VARCHAR(50)}
+     * Multiplicity: {VARCHAR(50)} <br />
      * @return The value of the column 'Multiplicity'. (Nullable)
      */
     public String getMultiplicity() {
@@ -1677,8 +1381,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Multiplicity'. <br />
-     * {VARCHAR(50)}
+     * Multiplicity: {VARCHAR(50)} <br />
      * @param multiplicity The value of the column 'Multiplicity'. (Nullable)
      */
     public void setMultiplicity(String multiplicity) {
@@ -1686,12 +1389,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._multiplicity = multiplicity;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String styleex_COLUMN = "StyleEx";
-
     /**
-     * Get the value of the column 'StyleEx'. <br />
-     * {LONGCHAR(2147483647)}
+     * StyleEx: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'StyleEx'. (Nullable)
      */
     public String getStyleex() {
@@ -1699,8 +1398,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StyleEx'. <br />
-     * {LONGCHAR(2147483647)}
+     * StyleEx: {LONGCHAR(2147483647)} <br />
      * @param styleex The value of the column 'StyleEx'. (Nullable)
      */
     public void setStyleex(String styleex) {
@@ -1708,12 +1406,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._styleex = styleex;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String actionflags_COLUMN = "ActionFlags";
-
     /**
-     * Get the value of the column 'ActionFlags'. <br />
-     * {VARCHAR(255)}
+     * ActionFlags: {VARCHAR(255)} <br />
      * @return The value of the column 'ActionFlags'. (Nullable)
      */
     public String getActionflags() {
@@ -1721,8 +1415,7 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ActionFlags'. <br />
-     * {VARCHAR(255)}
+     * ActionFlags: {VARCHAR(255)} <br />
      * @param actionflags The value of the column 'ActionFlags'. (Nullable)
      */
     public void setActionflags(String actionflags) {
@@ -1730,12 +1423,8 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
         this._actionflags = actionflags;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String eventflags_COLUMN = "EventFlags";
-
     /**
-     * Get the value of the column 'EventFlags'. <br />
-     * {VARCHAR(255)}
+     * EventFlags: {VARCHAR(255)} <br />
      * @return The value of the column 'EventFlags'. (Nullable)
      */
     public String getEventflags() {
@@ -1743,13 +1432,11 @@ public abstract class BsTObject implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'EventFlags'. <br />
-     * {VARCHAR(255)}
+     * EventFlags: {VARCHAR(255)} <br />
      * @param eventflags The value of the column 'EventFlags'. (Nullable)
      */
     public void setEventflags(String eventflags) {
         _modifiedProperties.addPropertyName("eventflags");
         this._eventflags = eventflags;
     }
-
 }

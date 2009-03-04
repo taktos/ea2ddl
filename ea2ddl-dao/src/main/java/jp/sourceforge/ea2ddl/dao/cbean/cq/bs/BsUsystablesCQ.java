@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of usysTables.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsUsystablesCQ extends AbstractBsUsystablesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsUsystablesCQ extends AbstractBsUsystablesCQ {
      * @return On-clause query. (NotNull)
      */
     public UsystablesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         UsystablesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsUsystablesCQ extends AbstractBsUsystablesCQ {
         return _tablename;
     }
     protected ConditionValue getCValueTablename() { return getTablename(); }
-    
+
     public BsUsystablesCQ addOrderBy_Tablename_Asc() { regOBA("TableName"); return this; }
     public BsUsystablesCQ addOrderBy_Tablename_Desc() { regOBD("TableName"); return this; }
 
@@ -72,7 +72,7 @@ public class BsUsystablesCQ extends AbstractBsUsystablesCQ {
         return _relorder;
     }
     protected ConditionValue getCValueRelorder() { return getRelorder(); }
-          
+
     public BsUsystablesCQ addOrderBy_Relorder_Asc() { regOBA("RelOrder"); return this; }
     public BsUsystablesCQ addOrderBy_Relorder_Desc() { regOBD("RelOrder"); return this; }
 
@@ -82,7 +82,7 @@ public class BsUsystablesCQ extends AbstractBsUsystablesCQ {
         return _displayname;
     }
     protected ConditionValue getCValueDisplayname() { return getDisplayname(); }
-    
+
     public BsUsystablesCQ addOrderBy_Displayname_Asc() { regOBA("DisplayName"); return this; }
     public BsUsystablesCQ addOrderBy_Displayname_Desc() { regOBD("DisplayName"); return this; }
 
@@ -92,7 +92,7 @@ public class BsUsystablesCQ extends AbstractBsUsystablesCQ {
         return _fromver;
     }
     protected ConditionValue getCValueFromver() { return getFromver(); }
-    
+
     public BsUsystablesCQ addOrderBy_Fromver_Asc() { regOBA("FromVer"); return this; }
     public BsUsystablesCQ addOrderBy_Fromver_Desc() { regOBD("FromVer"); return this; }
 
@@ -102,7 +102,7 @@ public class BsUsystablesCQ extends AbstractBsUsystablesCQ {
         return _tover;
     }
     protected ConditionValue getCValueTover() { return getTover(); }
-    
+
     public BsUsystablesCQ addOrderBy_Tover_Asc() { regOBA("ToVer"); return this; }
     public BsUsystablesCQ addOrderBy_Tover_Desc() { regOBD("ToVer"); return this; }
 
@@ -121,8 +121,11 @@ public class BsUsystablesCQ extends AbstractBsUsystablesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return UsystablesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return UsystablesCB.class.getName(); }
+    String xCQ() { return UsystablesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

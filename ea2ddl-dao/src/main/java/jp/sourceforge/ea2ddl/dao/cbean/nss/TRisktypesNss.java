@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TRisktypesCQ;
 
 /**
- * The nest-select-setupper of t_risktypes.
+ * The nest select set-upper of t_risktypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TRisktypesNss {
 
     protected TRisktypesCQ _query;

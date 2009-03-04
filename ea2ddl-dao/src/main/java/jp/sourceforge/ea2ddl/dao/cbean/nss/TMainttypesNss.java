@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TMainttypesCQ;
 
 /**
- * The nest-select-setupper of t_mainttypes.
+ * The nest select set-upper of t_mainttypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TMainttypesNss {
 
     protected TMainttypesCQ _query;

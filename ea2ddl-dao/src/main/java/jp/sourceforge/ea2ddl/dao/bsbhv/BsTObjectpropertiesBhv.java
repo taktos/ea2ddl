@@ -1,26 +1,25 @@
 package jp.sourceforge.ea2ddl.dao.bsbhv;
 
-
 import java.util.List;
 
+import org.seasar.dbflute.*;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.EntityRowHandler;
+import org.seasar.dbflute.cbean.ListResultBean;
+import org.seasar.dbflute.cbean.PagingBean;
+import org.seasar.dbflute.cbean.PagingHandler;
+import org.seasar.dbflute.cbean.PagingInvoker;
+import org.seasar.dbflute.cbean.PagingResultBean;
+import org.seasar.dbflute.cbean.ResultBeanBuilder;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import org.seasar.dbflute.jdbc.StatementConfig;
 import jp.sourceforge.ea2ddl.dao.allcommon.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ValueLabelSetupper;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.exdao.*;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 import jp.sourceforge.ea2ddl.dao.bsentity.dbmeta.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 
-
 /**
- * The behavior of t_objectproperties.
+ * The behavior of t_objectproperties that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -51,18 +50,13 @@ import jp.sourceforge.ea2ddl.dao.cbean.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.allcommon.bhv.AbstractBehaviorReadable {
+public abstract class BsTObjectpropertiesBhv extends org.seasar.dbflute.bhv.AbstractBehaviorReadable {
 
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
     /*df:BehaviorQueryPathBegin*/
     /*df:BehaviorQueryPathEnd*/
-
-    // ===================================================================================
-    //                                                                           Attribute
-    //                                                                           =========
-    protected TObjectpropertiesDao _dao;
 
     // ===================================================================================
     //                                                                          Table name
@@ -73,18 +67,11 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /** @return The meta data of the database. (NotNull) */
+    /** @return The instance of DBMeta. (NotNull) */
     public DBMeta getDBMeta() { return TObjectpropertiesDbm.getInstance(); }
 
-    /** @return The meta data of the database as my table type. (NotNull) */
+    /** @return The instance of DBMeta as my table type. (NotNull) */
     public TObjectpropertiesDbm getMyDBMeta() { return TObjectpropertiesDbm.getInstance(); }
-
-    // ===================================================================================
-    //                                                                        Dao Accessor
-    //                                                                        ============
-    public TObjectpropertiesDao getMyDao() { return _dao; }
-    public void setMyDao(TObjectpropertiesDao dao) { assertObjectNotNull("dao", dao); _dao = dao; }
-    public DaoReadable getDaoReadable() { return getMyDao(); }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -95,16 +82,46 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
     public TObjectpropertiesCB newMyConditionBean() { return new TObjectpropertiesCB(); }
 
     // ===================================================================================
+    //                                                                       Current DBDef
+    //                                                                       =============
+    @Override
+    protected DBDef getCurrentDBDef() {
+        return DBCurrent.getInstance().currentDBDef();
+    }
+
+    // ===================================================================================
+    //                                                             Default StatementConfig
+    //                                                             =======================
+    @Override
+    protected StatementConfig getDefaultStatementConfig() {
+        return DBFluteConfig.getInstance().getDefaultStatementConfig();
+    }
+    
+    // ===================================================================================
     //                                                                        Count Select
     //                                                                        ============
     /**
-     * Select the count of the condition-bean. {IgnorePagingCondition}
+     * Select the count by the condition-bean. {IgnorePagingCondition}
      * @param cb The condition-bean of TObjectproperties. (NotNull)
      * @return The selected count.
      */
     public int selectCount(TObjectpropertiesCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return delegateSelectCount(cb);
+    }
+    
+    // ===================================================================================
+    //                                                                       Cursor Select
+    //                                                                       =============
+    /**
+     * Select the cursor by the condition-bean. <br />
+     * Attention: It has a mapping cost from result set to entity.
+     * @param cb The condition-bean of TObjectproperties. (NotNull)
+     * @param entityRowHandler The handler of entity row of TObjectproperties. (NotNull)
+     */
+    public void selectCursor(TObjectpropertiesCB cb, EntityRowHandler<TObjectproperties> entityRowHandler) {
+        assertCBNotNull(cb); assertObjectNotNull("entityRowHandler<TObjectproperties>", entityRowHandler);
+        delegateSelectCursor(cb, entityRowHandler);
     }
 
     // ===================================================================================
@@ -114,7 +131,7 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
      * Select the entity by the condition-bean.
      * @param cb The condition-bean of TObjectproperties. (NotNull)
      * @return The selected entity. (Nullalble)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TObjectproperties selectEntity(final TObjectpropertiesCB cb) {
         return helpSelectEntityInternally(cb, new InternalSelectEntityCallback<TObjectproperties, TObjectpropertiesCB>() {
@@ -125,8 +142,8 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
      * Select the entity by the condition-bean with deleted check.
      * @param cb The condition-bean of TObjectproperties. (NotNull)
      * @return The selected entity. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TObjectproperties selectEntityWithDeletedCheck(final TObjectpropertiesCB cb) {
         return helpSelectEntityWithDeletedCheckInternally(cb, new InternalSelectEntityWithDeletedCheckCallback<TObjectproperties, TObjectpropertiesCB>() {
@@ -143,7 +160,7 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
      * @return The result bean of selected list. (NotNull)
      */
     public ListResultBean<TObjectproperties> selectList(TObjectpropertiesCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return new ResultBeanBuilder<TObjectproperties>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
     }
 
@@ -156,7 +173,7 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
      * @return The result bean of selected page. (NotNull)
      */
     public PagingResultBean<TObjectproperties> selectPage(final TObjectpropertiesCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         final PagingInvoker<TObjectproperties> invoker = new PagingInvoker<TObjectproperties>(getTableDbName());
         final PagingHandler<TObjectproperties> handler = new PagingHandler<TObjectproperties>() {
             public PagingBean getPagingBean() { return cb; }
@@ -167,23 +184,30 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
     }
 
     // ===================================================================================
-    //                                                                      Various Select
-    //                                                                      ==============
+    //                                                                       Scalar Select
+    //                                                                       =============
     /**
-     * Select the list of value-label.
-     * @param cb The condition-bean of TObjectproperties. (NotNull)
-     * @param valueLabelSetupper The setupper of value-label. (NotNull)
-     * @return The list of value-label. (NotNull)
+     * Select the scalar value derived by a function. <br />
+     * Call a function method after this method called like as follows:
+     * <pre>
+     * tObjectpropertiesBhv.scalarSelect(Date.class).max(new ScalarQuery(TObjectpropertiesCB cb) {
+     *     cb.specify().columnXxxDatetime(); // the required specification of target column
+     *     cb.query().setXxxName_PrefixSearch("S"); // query as you like it
+     * });
+     * </pre>
+     * @param <RESULT> The type of result.
+     * @param resultType The type of result. (NotNull)
+     * @return The scalar value derived by a function. (Nullable)
      */
-    public List<java.util.Map<String, Object>> selectValueLabelList(TObjectpropertiesCB cb, ValueLabelSetupper<TObjectproperties> valueLabelSetupper) {
-        return createValueLabelList(selectList(cb), valueLabelSetupper);
+    public <RESULT> SLFunction<TObjectpropertiesCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+        TObjectpropertiesCB cb = newMyConditionBean();
+        cb.xsetupForScalarSelect();
+        cb.getSqlClause().disableSelectIndex(); // for when you use union
+        return new SLFunction<TObjectpropertiesCB, RESULT>(cb, resultType);
     }
-
-
-
     // ===================================================================================
-    //                                                                     Pullout Foreign
-    //                                                                     ===============
+    //                                                                    Pull out Foreign
+    //                                                                    ================
     /**
      * Pull out the list of foreign table 'TObject'.
      * @param tObjectpropertiesList The list of tObjectproperties. (NotNull)
@@ -193,15 +217,22 @@ public abstract class BsTObjectpropertiesBhv extends jp.sourceforge.ea2ddl.dao.a
         return helpPulloutInternally(tObjectpropertiesList, new InternalPulloutCallback<TObjectproperties, TObject>() {
             public TObject callbackGetForeignEntity(TObjectproperties entity) { return entity.getTObject(); } });
     }
-  
+    
     // ===================================================================================
     //                                                                     Delegate Method
     //                                                                     ===============
+    // [Behavior Command]
     // -----------------------------------------------------
     //                                                Select
     //                                                ------
-    protected int delegateSelectCount(TObjectpropertiesCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectCount(cb); }
-    protected List<TObjectproperties> delegateSelectList(TObjectpropertiesCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectList(cb); }
+    protected int delegateSelectCount(TObjectpropertiesCB cb) { return invoke(createSelectCountCBCommand(cb)); }
+    protected void delegateSelectCursor(TObjectpropertiesCB cb, EntityRowHandler<TObjectproperties> entityRowHandler)
+    { invoke(createSelectCursorCBCommand(cb, entityRowHandler, TObjectproperties.class)); }
+    protected int doCallReadCount(ConditionBean cb) { return delegateSelectCount((TObjectpropertiesCB)cb); }
+    protected List<TObjectproperties> delegateSelectList(TObjectpropertiesCB cb)
+    { return invoke(createSelectListCBCommand(cb, TObjectproperties.class)); }
+    @SuppressWarnings("unchecked")
+    protected List<Entity> doCallReadList(ConditionBean cb) { return (List)delegateSelectList((TObjectpropertiesCB)cb); }
 
     // ===================================================================================
     //                                                                Optimistic Lock Info

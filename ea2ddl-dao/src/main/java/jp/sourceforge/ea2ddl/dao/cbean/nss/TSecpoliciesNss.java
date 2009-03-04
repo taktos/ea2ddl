@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TSecpoliciesCQ;
 
 /**
- * The nest-select-setupper of t_secpolicies.
+ * The nest select set-upper of t_secpolicies.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TSecpoliciesNss {
 
     protected TSecpoliciesCQ _query;

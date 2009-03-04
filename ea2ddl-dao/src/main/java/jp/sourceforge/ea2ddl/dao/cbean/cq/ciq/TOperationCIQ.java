@@ -1,10 +1,11 @@
 package jp.sourceforge.ea2ddl.dao.cbean.cq.ciq;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.ConditionOption;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.ConditionOption;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.bs.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -12,7 +13,6 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The condition-inline-query of t_operation.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TOperationCIQ extends AbstractBsTOperationCQ {
 
     // ===================================================================================
@@ -39,15 +39,13 @@ public class TOperationCIQ extends AbstractBsTOperationCQ {
     }
 
     @Override
-    protected void setupConditionValueAndRegisterWhereClause(ConditionKey key, Object value, ConditionValue cvalue
-                                                             , String colName, String capPropName, String uncapPropName) {
-        registerInlineQuery(key, value, cvalue, colName, capPropName, uncapPropName);
+    protected void setupConditionValueAndRegisterWhereClause(ConditionKey k, Object v, ConditionValue cv, String col) {
+        regIQ(k, v, cv, col);
     }
 
     @Override
-    protected void setupConditionValueAndRegisterWhereClause(ConditionKey key, Object value, ConditionValue cvalue
-                                                             , String colName, String capPropName, String uncapPropName, ConditionOption option) {
-        registerInlineQuery(key, value, cvalue, colName, capPropName, uncapPropName, option);
+    protected void setupConditionValueAndRegisterWhereClause(ConditionKey k, Object v, ConditionValue cv, String col, ConditionOption op) {
+        regIQ(k, v, cv, col, op);
     }
 
     @Override
@@ -65,7 +63,7 @@ public class TOperationCIQ extends AbstractBsTOperationCQ {
 
     @Override
     protected void registerExistsSubQuery(ConditionQuery subQuery
-                                 , String columnName, String relatedColumnName, String propertyName) {
+            , String columnName, String relatedColumnName, String propertyName) {
         throw new UnsupportedOperationException("Sorry! ExistsSubQuery at inline view is unsupported. So please use InScopeSubQyery.");
     }
 
@@ -87,8 +85,14 @@ public class TOperationCIQ extends AbstractBsTOperationCQ {
     public String keepOperationid_NotExistsSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
         throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
     }
-    public String keepOperationid_DeriveSubQuery_TOperationparamsList(TOperationparamsCQ subQuery) {
-        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    public String keepOperationid_SpecifyDerivedReferrer_TOperationparamsList(TOperationparamsCQ subQuery) {
+        throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepOperationid_QueryDerivedReferrer_TOperationparamsList(TOperationparamsCQ subQuery) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepOperationid_QueryDerivedReferrer_TOperationparamsListParameter(Object parameterValue) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
     }
     protected ConditionValue getCValueObjectId() {
         return _myCQ.getObjectId();
@@ -120,11 +124,23 @@ public class TOperationCIQ extends AbstractBsTOperationCQ {
     public String keepName_NotExistsSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
         throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
     }
-    public String keepName_DeriveSubQuery_TConnectorBySourceroleList(TConnectorCQ subQuery) {
-        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    public String keepName_SpecifyDerivedReferrer_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
     }
-    public String keepName_DeriveSubQuery_TConnectorByDestroleList(TConnectorCQ subQuery) {
-        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    public String keepName_SpecifyDerivedReferrer_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepName_QueryDerivedReferrer_TConnectorBySourceroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepName_QueryDerivedReferrer_TConnectorBySourceroleListParameter(Object parameterValue) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepName_QueryDerivedReferrer_TConnectorByDestroleList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepName_QueryDerivedReferrer_TConnectorByDestroleListParameter(Object parameterValue) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
     }
     protected ConditionValue getCValueScope() {
         return _myCQ.getScope();
@@ -187,5 +203,24 @@ public class TOperationCIQ extends AbstractBsTOperationCQ {
         return _myCQ.getStyleex();
     }
 
-    protected String getConditionQueryClassNameInternally() { return TOperationCQ.class.getName(); }
+    // ===================================================================================
+    //                                                                     Scalar SubQuery
+    //                                                                     ===============
+    public String keepScalarSubQuery(TOperationCQ subQuery) {
+        throw new UnsupportedOperationException("ScalarSubQuery at inline() is unsupported! Sorry!");
+    }
+
+    // ===================================================================================
+    //                                                             MySelf InScope SubQuery
+    //                                                             =======================
+    public String keepMyselfInScopeSubQuery(TOperationCQ subQuery) {
+        throw new UnsupportedOperationException("MyselfInScopeSubQuery at inline() is unsupported! Sorry!");
+    }
+
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xiCB() { return TOperationCB.class.getName(); }
+    String xiCQ() { return TOperationCQ.class.getName(); }
 }

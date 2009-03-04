@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objectproperties.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjectpropertiesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjectpropertiesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
         return _propertyid;
     }
     protected ConditionValue getCValuePropertyid() { return getPropertyid(); }
-          
+
     public BsTObjectpropertiesCQ addOrderBy_Propertyid_Asc() { regOBA("PropertyID"); return this; }
     public BsTObjectpropertiesCQ addOrderBy_Propertyid_Desc() { regOBD("PropertyID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     protected Map<String, TObjectCQ> _objectId_InScopeSubQuery_TObjectMap;
     public Map<String, TObjectCQ> getObjectId_InScopeSubQuery_TObject() { return _objectId_InScopeSubQuery_TObjectMap; }
     public String keepObjectId_InScopeSubQuery_TObject(TObjectCQ subQuery) {
@@ -90,7 +90,7 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
         return _property;
     }
     protected ConditionValue getCValueProperty() { return getProperty(); }
-    
+
     public BsTObjectpropertiesCQ addOrderBy_Property_Asc() { regOBA("Property"); return this; }
     public BsTObjectpropertiesCQ addOrderBy_Property_Desc() { regOBD("Property"); return this; }
 
@@ -100,7 +100,7 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
         return _value;
     }
     protected ConditionValue getCValueValue() { return getValue(); }
-    
+
     public BsTObjectpropertiesCQ addOrderBy_Value_Asc() { regOBA("Value"); return this; }
     public BsTObjectpropertiesCQ addOrderBy_Value_Desc() { regOBD("Value"); return this; }
 
@@ -110,7 +110,7 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTObjectpropertiesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTObjectpropertiesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -120,7 +120,7 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
         return _eaGuid;
     }
     protected ConditionValue getCValueEaGuid() { return getEaGuid(); }
-    
+
     public BsTObjectpropertiesCQ addOrderBy_EaGuid_Asc() { regOBA("ea_guid"); return this; }
     public BsTObjectpropertiesCQ addOrderBy_EaGuid_Desc() { regOBD("ea_guid"); return this; }
 
@@ -144,34 +144,38 @@ public class BsTObjectpropertiesCQ extends AbstractBsTObjectpropertiesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-    
     public TObjectCQ queryTObject() {
         return getConditionQueryTObject();
     }
     protected TObjectCQ _conditionQueryTObject;
     public TObjectCQ getConditionQueryTObject() {
         if (_conditionQueryTObject == null) {
-            _conditionQueryTObject = createQueryTObject();
-            setupOuterJoin_TObject();
+            _conditionQueryTObject = xcreateQueryTObject();
+            xsetupOuterJoinTObject();
         }
         return _conditionQueryTObject;
     }
-    protected void setupOuterJoin_TObject() {
-        Map<String, String> joinOnMap = newLinkedHashMap();
-        joinOnMap.put(getRealColumnName("Object_ID"), getConditionQueryTObject().getRealColumnName("Object_ID"));
-        registerOuterJoin(getConditionQueryTObject(), joinOnMap);
-    }
-    protected TObjectCQ createQueryTObject() {
+    protected TObjectCQ xcreateQueryTObject() {
         String nrp = resolveNextRelationPath("t_objectproperties", "tObject");
         String jan = resolveJoinAliasName(nrp, getNextNestLevel());
         TObjectCQ cq = new TObjectCQ(this, getSqlClause(), jan, getNextNestLevel());
         cq.xsetForeignPropertyName("tObject"); cq.xsetRelationPath(nrp); return cq;
     }
+    protected void xsetupOuterJoinTObject() {
+        TObjectCQ cq = getConditionQueryTObject();
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("Object_ID"), cq.getRealColumnName("Object_ID"));
+        registerOuterJoin(cq, joinOnMap);
+    }
     public boolean hasConditionQueryTObject() {
         return _conditionQueryTObject != null;
     }
 
-
-    protected String getConditionQueryClassNameInternally() { return TObjectpropertiesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjectpropertiesCB.class.getName(); }
+    String xCQ() { return TObjectpropertiesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

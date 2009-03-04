@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_constants.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTConstantsCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(50)}
      * @param constantname The value of constantname as equal.
      */
     public void setConstantname_Equal(String constantname) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantname The value of constantname as notEqual.
      */
     public void setConstantname_NotEqual(String constantname) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantname The value of constantname as greaterThan.
      */
     public void setConstantname_GreaterThan(String constantname) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantname The value of constantname as lessThan.
      */
     public void setConstantname_LessThan(String constantname) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantname The value of constantname as greaterEqual.
      */
     public void setConstantname_GreaterEqual(String constantname) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantname The value of constantname as lessEqual.
      */
     public void setConstantname_LessEqual(String constantname) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantname The value of constantname as prefixSearch.
      */
     public void setConstantname_PrefixSearch(String constantname) {
         regConstantname(CK_PS, fRES(constantname));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param constantname The value of constantname as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setConstantname_LikeSearch(String constantname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(constantname), getCValueConstantname(), "ConstantName", "Constantname", "constantname", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param constantname The collection of constantname as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param constantname The value of constantname as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setConstantname_InScope(String constantname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(constantname), getCValueConstantname(), "ConstantName", "Constantname", "constantname", inScopeOption);
+    public void setConstantname_LikeSearch(String constantname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(constantname), getCValueConstantname(), "ConstantName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param constantname The value of constantname as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setConstantname_IsNull() { regConstantname(CK_ISN, DUMMY_OBJECT); }
+    public void setConstantname_NotLikeSearch(String constantname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(constantname), getCValueConstantname(), "ConstantName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setConstantname_IsNotNull() { regConstantname(CK_ISNN, DUMMY_OBJECT); }
+    public void setConstantname_IsNull() { regConstantname(CK_ISN, DOBJ); }
 
-    protected void regConstantname(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueConstantname(), "ConstantName", "Constantname", "constantname");
-    }
-    protected void registerInlineConstantname(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueConstantname(), "ConstantName", "Constantname", "constantname");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setConstantname_IsNotNull() { regConstantname(CK_ISNN, DOBJ); }
+
+    protected void regConstantname(ConditionKey k, Object v) { regQ(k, v, getCValueConstantname(), "ConstantName"); }
     abstract protected ConditionValue getCValueConstantname();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param constantvalue The value of constantvalue as equal.
      */
     public void setConstantvalue_Equal(String constantvalue) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantvalue The value of constantvalue as notEqual.
      */
     public void setConstantvalue_NotEqual(String constantvalue) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantvalue The value of constantvalue as greaterThan.
      */
     public void setConstantvalue_GreaterThan(String constantvalue) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantvalue The value of constantvalue as lessThan.
      */
     public void setConstantvalue_LessThan(String constantvalue) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantvalue The value of constantvalue as greaterEqual.
      */
     public void setConstantvalue_GreaterEqual(String constantvalue) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantvalue The value of constantvalue as lessEqual.
      */
     public void setConstantvalue_LessEqual(String constantvalue) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constantvalue The value of constantvalue as prefixSearch.
      */
     public void setConstantvalue_PrefixSearch(String constantvalue) {
         regConstantvalue(CK_PS, fRES(constantvalue));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param constantvalue The value of constantvalue as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setConstantvalue_LikeSearch(String constantvalue, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(constantvalue), getCValueConstantvalue(), "ConstantValue", "Constantvalue", "constantvalue", likeSearchOption);
     }
 
     /**
@@ -212,33 +213,41 @@ public abstract class AbstractBsTConstantsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param constantvalue The collection of constantvalue as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param constantvalue The value of constantvalue as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setConstantvalue_InScope(String constantvalue, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(constantvalue), getCValueConstantvalue(), "ConstantValue", "Constantvalue", "constantvalue", inScopeOption);
+    public void setConstantvalue_LikeSearch(String constantvalue, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(constantvalue), getCValueConstantvalue(), "ConstantValue", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param constantvalue The value of constantvalue as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setConstantvalue_IsNull() { regConstantvalue(CK_ISN, DUMMY_OBJECT); }
+    public void setConstantvalue_NotLikeSearch(String constantvalue, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(constantvalue), getCValueConstantvalue(), "ConstantValue", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setConstantvalue_IsNotNull() { regConstantvalue(CK_ISNN, DUMMY_OBJECT); }
+    public void setConstantvalue_IsNull() { regConstantvalue(CK_ISN, DOBJ); }
 
-    protected void regConstantvalue(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueConstantvalue(), "ConstantValue", "Constantvalue", "constantvalue");
-    }
-    protected void registerInlineConstantvalue(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueConstantvalue(), "ConstantValue", "Constantvalue", "constantvalue");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setConstantvalue_IsNotNull() { regConstantvalue(CK_ISNN, DOBJ); }
+
+    protected void regConstantvalue(ConditionKey k, Object v) { regQ(k, v, getCValueConstantvalue(), "ConstantValue"); }
     abstract protected ConditionValue getCValueConstantvalue();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TConstantsCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TConstantsCQ.class.getName(); }
+    String xCB() { return TConstantsCB.class.getName(); }
+    String xCQ() { return TConstantsCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

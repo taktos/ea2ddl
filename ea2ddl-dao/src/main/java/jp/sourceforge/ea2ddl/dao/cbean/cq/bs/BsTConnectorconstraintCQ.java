@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_connectorconstraint.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTConnectorconstraintCQ extends AbstractBsTConnectorconstraintCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTConnectorconstraintCQ extends AbstractBsTConnectorconstraintCQ {
      * @return On-clause query. (NotNull)
      */
     public TConnectorconstraintCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TConnectorconstraintCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTConnectorconstraintCQ extends AbstractBsTConnectorconstraintCQ {
         return _connectorid;
     }
     protected ConditionValue getCValueConnectorid() { return getConnectorid(); }
-          
+
     public BsTConnectorconstraintCQ addOrderBy_Connectorid_Asc() { regOBA("ConnectorID"); return this; }
     public BsTConnectorconstraintCQ addOrderBy_Connectorid_Desc() { regOBD("ConnectorID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTConnectorconstraintCQ extends AbstractBsTConnectorconstraintCQ {
         return _constraint;
     }
     protected ConditionValue getCValueConstraint() { return getConstraint(); }
-    
+
     public BsTConnectorconstraintCQ addOrderBy_Constraint_Asc() { regOBA("Constraint"); return this; }
     public BsTConnectorconstraintCQ addOrderBy_Constraint_Desc() { regOBD("Constraint"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTConnectorconstraintCQ extends AbstractBsTConnectorconstraintCQ {
         return _constrainttype;
     }
     protected ConditionValue getCValueConstrainttype() { return getConstrainttype(); }
-    
+
     public BsTConnectorconstraintCQ addOrderBy_Constrainttype_Asc() { regOBA("ConstraintType"); return this; }
     public BsTConnectorconstraintCQ addOrderBy_Constrainttype_Desc() { regOBD("ConstraintType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTConnectorconstraintCQ extends AbstractBsTConnectorconstraintCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTConnectorconstraintCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTConnectorconstraintCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTConnectorconstraintCQ extends AbstractBsTConnectorconstraintCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TConnectorconstraintCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TConnectorconstraintCB.class.getName(); }
+    String xCQ() { return TConnectorconstraintCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

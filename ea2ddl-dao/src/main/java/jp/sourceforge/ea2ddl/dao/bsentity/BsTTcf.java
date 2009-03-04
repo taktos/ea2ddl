@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_tcf(TABLE).
+ * The entity of t_tcf that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTTcf implements Entity, java.io.Serializable {
+public abstract class BsTTcf implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,29 +47,25 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_tcf. */
-    public static final String TABLE = "t_tcf";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'TCFID'. {UQ : VARCHAR(12)} */
+    /** TCFID: {UQ : VARCHAR(12)} */
     protected String _tcfid;
 
-    /** The attribute of the column 'Description'. {VARCHAR(50)} */
+    /** Description: {VARCHAR(50)} */
     protected String _description;
 
-    /** The attribute of the column 'Weight'. {DOUBLE} */
+    /** Weight: {DOUBLE} */
     protected java.math.BigDecimal _weight;
 
-    /** The attribute of the column 'Value'. {DOUBLE} */
+    /** Value: {DOUBLE} */
     protected java.math.BigDecimal _value;
 
-    /** The attribute of the column 'Notes'. {VARCHAR(255)} */
+    /** Notes: {VARCHAR(255)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -79,19 +75,13 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTTcf() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_tcf";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TTcf";
     }
 
@@ -117,7 +107,6 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -201,13 +190,8 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(12)} */
-    public static final String tcfid_COLUMN = "TCFID";
-
     /**
-     * Get the value of the column 'TCFID'. <br />
-     * {UQ : VARCHAR(12)}
+     * TCFID: {UQ : VARCHAR(12)} <br />
      * @return The value of the column 'TCFID'. (Nullable)
      */
     public String getTcfid() {
@@ -215,8 +199,7 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TCFID'. <br />
-     * {UQ : VARCHAR(12)}
+     * TCFID: {UQ : VARCHAR(12)} <br />
      * @param tcfid The value of the column 'TCFID'. (Nullable)
      */
     public void setTcfid(String tcfid) {
@@ -224,12 +207,8 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
         this._tcfid = tcfid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(50)}
+     * Description: {VARCHAR(50)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -237,8 +216,7 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(50)}
+     * Description: {VARCHAR(50)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
@@ -246,12 +224,8 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
         this._description = description;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String weight_COLUMN = "Weight";
-
     /**
-     * Get the value of the column 'Weight'. <br />
-     * {DOUBLE}
+     * Weight: {DOUBLE} <br />
      * @return The value of the column 'Weight'. (Nullable)
      */
     public java.math.BigDecimal getWeight() {
@@ -259,8 +233,7 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Weight'. <br />
-     * {DOUBLE}
+     * Weight: {DOUBLE} <br />
      * @param weight The value of the column 'Weight'. (Nullable)
      */
     public void setWeight(java.math.BigDecimal weight) {
@@ -268,12 +241,8 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
         this._weight = weight;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String value_COLUMN = "Value";
-
     /**
-     * Get the value of the column 'Value'. <br />
-     * {DOUBLE}
+     * Value: {DOUBLE} <br />
      * @return The value of the column 'Value'. (Nullable)
      */
     public java.math.BigDecimal getValue() {
@@ -281,8 +250,7 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Value'. <br />
-     * {DOUBLE}
+     * Value: {DOUBLE} <br />
      * @param value The value of the column 'Value'. (Nullable)
      */
     public void setValue(java.math.BigDecimal value) {
@@ -290,12 +258,8 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
         this._value = value;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -303,13 +267,11 @@ public abstract class BsTTcf implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

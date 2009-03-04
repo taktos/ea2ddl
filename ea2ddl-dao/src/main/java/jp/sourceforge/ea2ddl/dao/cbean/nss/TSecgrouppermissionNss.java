@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TSecgrouppermissionCQ;
 
 /**
- * The nest-select-setupper of t_secgrouppermission.
+ * The nest select set-upper of t_secgrouppermission.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TSecgrouppermissionNss {
 
     protected TSecgrouppermissionCQ _query;

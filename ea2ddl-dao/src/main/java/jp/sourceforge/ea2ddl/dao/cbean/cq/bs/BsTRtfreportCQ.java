@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_rtfreport.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
      * @return On-clause query. (NotNull)
      */
     public TRtfreportCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TRtfreportCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _templateid;
     }
     protected ConditionValue getCValueTemplateid() { return getTemplateid(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Templateid_Asc() { regOBA("TemplateID"); return this; }
     public BsTRtfreportCQ addOrderBy_Templateid_Desc() { regOBD("TemplateID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _rootpackage;
     }
     protected ConditionValue getCValueRootpackage() { return getRootpackage(); }
-          
+
     public BsTRtfreportCQ addOrderBy_Rootpackage_Asc() { regOBA("RootPackage"); return this; }
     public BsTRtfreportCQ addOrderBy_Rootpackage_Desc() { regOBD("RootPackage"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _filename;
     }
     protected ConditionValue getCValueFilename() { return getFilename(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Filename_Asc() { regOBA("Filename"); return this; }
     public BsTRtfreportCQ addOrderBy_Filename_Desc() { regOBD("Filename"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _details;
     }
     protected ConditionValue getCValueDetails() { return getDetails(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Details_Asc() { regOBA("Details"); return this; }
     public BsTRtfreportCQ addOrderBy_Details_Desc() { regOBD("Details"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _processchildren;
     }
     protected ConditionValue getCValueProcesschildren() { return getProcesschildren(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Processchildren_Asc() { regOBA("ProcessChildren"); return this; }
     public BsTRtfreportCQ addOrderBy_Processchildren_Desc() { regOBD("ProcessChildren"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _showdiagrams;
     }
     protected ConditionValue getCValueShowdiagrams() { return getShowdiagrams(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Showdiagrams_Asc() { regOBA("ShowDiagrams"); return this; }
     public BsTRtfreportCQ addOrderBy_Showdiagrams_Desc() { regOBD("ShowDiagrams"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _heading;
     }
     protected ConditionValue getCValueHeading() { return getHeading(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Heading_Asc() { regOBA("Heading"); return this; }
     public BsTRtfreportCQ addOrderBy_Heading_Desc() { regOBD("Heading"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _requirements;
     }
     protected ConditionValue getCValueRequirements() { return getRequirements(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Requirements_Asc() { regOBA("Requirements"); return this; }
     public BsTRtfreportCQ addOrderBy_Requirements_Desc() { regOBD("Requirements"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _associations;
     }
     protected ConditionValue getCValueAssociations() { return getAssociations(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Associations_Asc() { regOBA("Associations"); return this; }
     public BsTRtfreportCQ addOrderBy_Associations_Desc() { regOBD("Associations"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _scenarios;
     }
     protected ConditionValue getCValueScenarios() { return getScenarios(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Scenarios_Asc() { regOBA("Scenarios"); return this; }
     public BsTRtfreportCQ addOrderBy_Scenarios_Desc() { regOBD("Scenarios"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _childdiagrams;
     }
     protected ConditionValue getCValueChilddiagrams() { return getChilddiagrams(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Childdiagrams_Asc() { regOBA("ChildDiagrams"); return this; }
     public BsTRtfreportCQ addOrderBy_Childdiagrams_Desc() { regOBD("ChildDiagrams"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _attributes;
     }
     protected ConditionValue getCValueAttributes() { return getAttributes(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Attributes_Asc() { regOBA("Attributes"); return this; }
     public BsTRtfreportCQ addOrderBy_Attributes_Desc() { regOBD("Attributes"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _methods;
     }
     protected ConditionValue getCValueMethods() { return getMethods(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Methods_Asc() { regOBA("Methods"); return this; }
     public BsTRtfreportCQ addOrderBy_Methods_Desc() { regOBD("Methods"); return this; }
 
@@ -192,7 +192,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _imagetype;
     }
     protected ConditionValue getCValueImagetype() { return getImagetype(); }
-          
+
     public BsTRtfreportCQ addOrderBy_Imagetype_Asc() { regOBA("ImageType"); return this; }
     public BsTRtfreportCQ addOrderBy_Imagetype_Desc() { regOBD("ImageType"); return this; }
 
@@ -202,7 +202,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _paging;
     }
     protected ConditionValue getCValuePaging() { return getPaging(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Paging_Asc() { regOBA("Paging"); return this; }
     public BsTRtfreportCQ addOrderBy_Paging_Desc() { regOBD("Paging"); return this; }
 
@@ -212,7 +212,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _intro;
     }
     protected ConditionValue getCValueIntro() { return getIntro(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Intro_Asc() { regOBA("Intro"); return this; }
     public BsTRtfreportCQ addOrderBy_Intro_Desc() { regOBD("Intro"); return this; }
 
@@ -222,7 +222,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _resources;
     }
     protected ConditionValue getCValueResources() { return getResources(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Resources_Asc() { regOBA("Resources"); return this; }
     public BsTRtfreportCQ addOrderBy_Resources_Desc() { regOBD("Resources"); return this; }
 
@@ -232,7 +232,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _constraints;
     }
     protected ConditionValue getCValueConstraints() { return getConstraints(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Constraints_Asc() { regOBA("Constraints"); return this; }
     public BsTRtfreportCQ addOrderBy_Constraints_Desc() { regOBD("Constraints"); return this; }
 
@@ -242,7 +242,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _tagged;
     }
     protected ConditionValue getCValueTagged() { return getTagged(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Tagged_Asc() { regOBA("Tagged"); return this; }
     public BsTRtfreportCQ addOrderBy_Tagged_Desc() { regOBD("Tagged"); return this; }
 
@@ -252,7 +252,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _showtag;
     }
     protected ConditionValue getCValueShowtag() { return getShowtag(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Showtag_Asc() { regOBA("ShowTag"); return this; }
     public BsTRtfreportCQ addOrderBy_Showtag_Desc() { regOBD("ShowTag"); return this; }
 
@@ -262,7 +262,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _showalias;
     }
     protected ConditionValue getCValueShowalias() { return getShowalias(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Showalias_Asc() { regOBA("ShowAlias"); return this; }
     public BsTRtfreportCQ addOrderBy_Showalias_Desc() { regOBD("ShowAlias"); return this; }
 
@@ -272,7 +272,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _pdata1;
     }
     protected ConditionValue getCValuePdata1() { return getPdata1(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Pdata1_Asc() { regOBA("PDATA1"); return this; }
     public BsTRtfreportCQ addOrderBy_Pdata1_Desc() { regOBD("PDATA1"); return this; }
 
@@ -282,7 +282,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _pdata2;
     }
     protected ConditionValue getCValuePdata2() { return getPdata2(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Pdata2_Asc() { regOBA("PDATA2"); return this; }
     public BsTRtfreportCQ addOrderBy_Pdata2_Desc() { regOBD("PDATA2"); return this; }
 
@@ -292,7 +292,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _pdata3;
     }
     protected ConditionValue getCValuePdata3() { return getPdata3(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Pdata3_Asc() { regOBA("PDATA3"); return this; }
     public BsTRtfreportCQ addOrderBy_Pdata3_Desc() { regOBD("PDATA3"); return this; }
 
@@ -302,7 +302,7 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
         return _pdata4;
     }
     protected ConditionValue getCValuePdata4() { return getPdata4(); }
-    
+
     public BsTRtfreportCQ addOrderBy_Pdata4_Asc() { regOBA("PDATA4"); return this; }
     public BsTRtfreportCQ addOrderBy_Pdata4_Desc() { regOBD("PDATA4"); return this; }
 
@@ -321,8 +321,11 @@ public class BsTRtfreportCQ extends AbstractBsTRtfreportCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TRtfreportCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TRtfreportCB.class.getName(); }
+    String xCQ() { return TRtfreportCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

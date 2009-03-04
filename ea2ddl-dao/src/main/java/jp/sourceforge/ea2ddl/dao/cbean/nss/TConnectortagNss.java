@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TConnectortagCQ;
 
 /**
- * The nest-select-setupper of t_connectortag.
+ * The nest select set-upper of t_connectortag.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TConnectortagNss {
 
     protected TConnectortagCQ _query;

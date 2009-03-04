@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TPaletteitemCQ;
 
 /**
- * The nest-select-setupper of t_paletteitem.
+ * The nest select set-upper of t_paletteitem.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TPaletteitemNss {
 
     protected TPaletteitemCQ _query;

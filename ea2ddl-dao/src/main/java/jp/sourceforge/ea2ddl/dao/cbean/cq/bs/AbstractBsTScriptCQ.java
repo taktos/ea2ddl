@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_script.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTScriptCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : COUNTER : NotNull}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : NotNull : COUNTER}
      * @param scriptid The value of scriptid as equal.
      */
     public void setScriptid_Equal(java.lang.Integer scriptid) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param scriptid The value of scriptid as notEqual.
      */
     public void setScriptid_NotEqual(java.lang.Integer scriptid) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param scriptid The value of scriptid as greaterThan.
      */
     public void setScriptid_GreaterThan(java.lang.Integer scriptid) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param scriptid The value of scriptid as lessThan.
      */
     public void setScriptid_LessThan(java.lang.Integer scriptid) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param scriptid The value of scriptid as greaterEqual.
      */
     public void setScriptid_GreaterEqual(java.lang.Integer scriptid) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param scriptid The value of scriptid as lessEqual.
      */
     public void setScriptid_LessEqual(java.lang.Integer scriptid) {
@@ -94,16 +109,11 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
         regScriptid(CK_INS, cTL(scriptidList));
     }
 
-    protected void regScriptid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueScriptid(), "ScriptID", "Scriptid", "scriptid");
-    }
-    protected void registerInlineScriptid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueScriptid(), "ScriptID", "Scriptid", "scriptid");
-    }
+    protected void regScriptid(ConditionKey k, Object v) { regQ(k, v, getCValueScriptid(), "ScriptID"); }
     abstract protected ConditionValue getCValueScriptid();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(100)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(100)}
      * @param scriptcategory The value of scriptcategory as equal.
      */
     public void setScriptcategory_Equal(String scriptcategory) {
@@ -111,7 +121,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptcategory The value of scriptcategory as notEqual.
      */
     public void setScriptcategory_NotEqual(String scriptcategory) {
@@ -119,7 +129,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptcategory The value of scriptcategory as greaterThan.
      */
     public void setScriptcategory_GreaterThan(String scriptcategory) {
@@ -127,7 +137,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptcategory The value of scriptcategory as lessThan.
      */
     public void setScriptcategory_LessThan(String scriptcategory) {
@@ -135,7 +145,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptcategory The value of scriptcategory as greaterEqual.
      */
     public void setScriptcategory_GreaterEqual(String scriptcategory) {
@@ -143,7 +153,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptcategory The value of scriptcategory as lessEqual.
      */
     public void setScriptcategory_LessEqual(String scriptcategory) {
@@ -151,20 +161,11 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptcategory The value of scriptcategory as prefixSearch.
      */
     public void setScriptcategory_PrefixSearch(String scriptcategory) {
         regScriptcategory(CK_PS, fRES(scriptcategory));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param scriptcategory The value of scriptcategory as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setScriptcategory_LikeSearch(String scriptcategory, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(scriptcategory), getCValueScriptcategory(), "ScriptCategory", "Scriptcategory", "scriptcategory", likeSearchOption);
     }
 
     /**
@@ -176,34 +177,38 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param scriptcategory The collection of scriptcategory as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param scriptcategory The value of scriptcategory as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setScriptcategory_InScope(String scriptcategory, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(scriptcategory), getCValueScriptcategory(), "ScriptCategory", "Scriptcategory", "scriptcategory", inScopeOption);
+    public void setScriptcategory_LikeSearch(String scriptcategory, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(scriptcategory), getCValueScriptcategory(), "ScriptCategory", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param scriptcategory The value of scriptcategory as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setScriptcategory_IsNull() { regScriptcategory(CK_ISN, DUMMY_OBJECT); }
+    public void setScriptcategory_NotLikeSearch(String scriptcategory, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(scriptcategory), getCValueScriptcategory(), "ScriptCategory", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setScriptcategory_IsNotNull() { regScriptcategory(CK_ISNN, DUMMY_OBJECT); }
+    public void setScriptcategory_IsNull() { regScriptcategory(CK_ISN, DOBJ); }
 
-    protected void regScriptcategory(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueScriptcategory(), "ScriptCategory", "Scriptcategory", "scriptcategory");
-    }
-    protected void registerInlineScriptcategory(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueScriptcategory(), "ScriptCategory", "Scriptcategory", "scriptcategory");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setScriptcategory_IsNotNull() { regScriptcategory(CK_ISNN, DOBJ); }
+
+    protected void regScriptcategory(ConditionKey k, Object v) { regQ(k, v, getCValueScriptcategory(), "ScriptCategory"); }
     abstract protected ConditionValue getCValueScriptcategory();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(150)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(150)}
      * @param scriptname The value of scriptname as equal.
      */
     public void setScriptname_Equal(String scriptname) {
@@ -211,7 +216,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptname The value of scriptname as notEqual.
      */
     public void setScriptname_NotEqual(String scriptname) {
@@ -219,7 +224,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptname The value of scriptname as greaterThan.
      */
     public void setScriptname_GreaterThan(String scriptname) {
@@ -227,7 +232,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptname The value of scriptname as lessThan.
      */
     public void setScriptname_LessThan(String scriptname) {
@@ -235,7 +240,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptname The value of scriptname as greaterEqual.
      */
     public void setScriptname_GreaterEqual(String scriptname) {
@@ -243,7 +248,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptname The value of scriptname as lessEqual.
      */
     public void setScriptname_LessEqual(String scriptname) {
@@ -251,20 +256,11 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptname The value of scriptname as prefixSearch.
      */
     public void setScriptname_PrefixSearch(String scriptname) {
         regScriptname(CK_PS, fRES(scriptname));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param scriptname The value of scriptname as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setScriptname_LikeSearch(String scriptname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(scriptname), getCValueScriptname(), "ScriptName", "Scriptname", "scriptname", likeSearchOption);
     }
 
     /**
@@ -276,34 +272,38 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param scriptname The collection of scriptname as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param scriptname The value of scriptname as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setScriptname_InScope(String scriptname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(scriptname), getCValueScriptname(), "ScriptName", "Scriptname", "scriptname", inScopeOption);
+    public void setScriptname_LikeSearch(String scriptname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(scriptname), getCValueScriptname(), "ScriptName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param scriptname The value of scriptname as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setScriptname_IsNull() { regScriptname(CK_ISN, DUMMY_OBJECT); }
+    public void setScriptname_NotLikeSearch(String scriptname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(scriptname), getCValueScriptname(), "ScriptName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setScriptname_IsNotNull() { regScriptname(CK_ISNN, DUMMY_OBJECT); }
+    public void setScriptname_IsNull() { regScriptname(CK_ISN, DOBJ); }
 
-    protected void regScriptname(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueScriptname(), "ScriptName", "Scriptname", "scriptname");
-    }
-    protected void registerInlineScriptname(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueScriptname(), "ScriptName", "Scriptname", "scriptname");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setScriptname_IsNotNull() { regScriptname(CK_ISNN, DOBJ); }
+
+    protected void regScriptname(ConditionKey k, Object v) { regQ(k, v, getCValueScriptname(), "ScriptName"); }
     abstract protected ConditionValue getCValueScriptname();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param scriptauthor The value of scriptauthor as equal.
      */
     public void setScriptauthor_Equal(String scriptauthor) {
@@ -311,7 +311,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptauthor The value of scriptauthor as notEqual.
      */
     public void setScriptauthor_NotEqual(String scriptauthor) {
@@ -319,7 +319,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptauthor The value of scriptauthor as greaterThan.
      */
     public void setScriptauthor_GreaterThan(String scriptauthor) {
@@ -327,7 +327,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptauthor The value of scriptauthor as lessThan.
      */
     public void setScriptauthor_LessThan(String scriptauthor) {
@@ -335,7 +335,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptauthor The value of scriptauthor as greaterEqual.
      */
     public void setScriptauthor_GreaterEqual(String scriptauthor) {
@@ -343,7 +343,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptauthor The value of scriptauthor as lessEqual.
      */
     public void setScriptauthor_LessEqual(String scriptauthor) {
@@ -351,20 +351,11 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param scriptauthor The value of scriptauthor as prefixSearch.
      */
     public void setScriptauthor_PrefixSearch(String scriptauthor) {
         regScriptauthor(CK_PS, fRES(scriptauthor));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param scriptauthor The value of scriptauthor as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setScriptauthor_LikeSearch(String scriptauthor, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(scriptauthor), getCValueScriptauthor(), "ScriptAuthor", "Scriptauthor", "scriptauthor", likeSearchOption);
     }
 
     /**
@@ -376,34 +367,38 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param scriptauthor The collection of scriptauthor as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param scriptauthor The value of scriptauthor as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setScriptauthor_InScope(String scriptauthor, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(scriptauthor), getCValueScriptauthor(), "ScriptAuthor", "Scriptauthor", "scriptauthor", inScopeOption);
+    public void setScriptauthor_LikeSearch(String scriptauthor, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(scriptauthor), getCValueScriptauthor(), "ScriptAuthor", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param scriptauthor The value of scriptauthor as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setScriptauthor_IsNull() { regScriptauthor(CK_ISN, DUMMY_OBJECT); }
+    public void setScriptauthor_NotLikeSearch(String scriptauthor, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(scriptauthor), getCValueScriptauthor(), "ScriptAuthor", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setScriptauthor_IsNotNull() { regScriptauthor(CK_ISNN, DUMMY_OBJECT); }
+    public void setScriptauthor_IsNull() { regScriptauthor(CK_ISN, DOBJ); }
 
-    protected void regScriptauthor(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueScriptauthor(), "ScriptAuthor", "Scriptauthor", "scriptauthor");
-    }
-    protected void registerInlineScriptauthor(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueScriptauthor(), "ScriptAuthor", "Scriptauthor", "scriptauthor");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setScriptauthor_IsNotNull() { regScriptauthor(CK_ISNN, DOBJ); }
+
+    protected void regScriptauthor(ConditionKey k, Object v) { regQ(k, v, getCValueScriptauthor(), "ScriptAuthor"); }
     abstract protected ConditionValue getCValueScriptauthor();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param notes The value of notes as equal.
      */
     public void setNotes_Equal(String notes) {
@@ -411,7 +406,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as notEqual.
      */
     public void setNotes_NotEqual(String notes) {
@@ -419,7 +414,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterThan.
      */
     public void setNotes_GreaterThan(String notes) {
@@ -427,7 +422,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessThan.
      */
     public void setNotes_LessThan(String notes) {
@@ -435,7 +430,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterEqual.
      */
     public void setNotes_GreaterEqual(String notes) {
@@ -443,7 +438,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessEqual.
      */
     public void setNotes_LessEqual(String notes) {
@@ -451,20 +446,11 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as prefixSearch.
      */
     public void setNotes_PrefixSearch(String notes) {
         regNotes(CK_PS, fRES(notes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param notes The value of notes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNotes_LikeSearch(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", likeSearchOption);
     }
 
     /**
@@ -476,34 +462,38 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param notes The collection of notes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotes_InScope(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", inScopeOption);
+    public void setNotes_LikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotes_IsNull() { regNotes(CK_ISN, DUMMY_OBJECT); }
+    public void setNotes_NotLikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setNotes_IsNull() { regNotes(CK_ISN, DOBJ); }
 
-    protected void regNotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
-    protected void registerInlineNotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DOBJ); }
+
+    protected void regNotes(ConditionKey k, Object v) { regQ(k, v, getCValueNotes(), "Notes"); }
     abstract protected ConditionValue getCValueNotes();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param script The value of script as equal.
      */
     public void setScript_Equal(String script) {
@@ -511,7 +501,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param script The value of script as notEqual.
      */
     public void setScript_NotEqual(String script) {
@@ -519,7 +509,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param script The value of script as greaterThan.
      */
     public void setScript_GreaterThan(String script) {
@@ -527,7 +517,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param script The value of script as lessThan.
      */
     public void setScript_LessThan(String script) {
@@ -535,7 +525,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param script The value of script as greaterEqual.
      */
     public void setScript_GreaterEqual(String script) {
@@ -543,7 +533,7 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param script The value of script as lessEqual.
      */
     public void setScript_LessEqual(String script) {
@@ -551,20 +541,11 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param script The value of script as prefixSearch.
      */
     public void setScript_PrefixSearch(String script) {
         regScript(CK_PS, fRES(script));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param script The value of script as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setScript_LikeSearch(String script, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(script), getCValueScript(), "Script", "Script", "script", likeSearchOption);
     }
 
     /**
@@ -576,33 +557,41 @@ public abstract class AbstractBsTScriptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param script The collection of script as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param script The value of script as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setScript_InScope(String script, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(script), getCValueScript(), "Script", "Script", "script", inScopeOption);
+    public void setScript_LikeSearch(String script, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(script), getCValueScript(), "Script", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param script The value of script as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setScript_IsNull() { regScript(CK_ISN, DUMMY_OBJECT); }
+    public void setScript_NotLikeSearch(String script, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(script), getCValueScript(), "Script", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setScript_IsNotNull() { regScript(CK_ISNN, DUMMY_OBJECT); }
+    public void setScript_IsNull() { regScript(CK_ISN, DOBJ); }
 
-    protected void regScript(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueScript(), "Script", "Script", "script");
-    }
-    protected void registerInlineScript(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueScript(), "Script", "Script", "script");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setScript_IsNotNull() { regScript(CK_ISNN, DOBJ); }
+
+    protected void regScript(ConditionKey k, Object v) { regQ(k, v, getCValueScript(), "Script"); }
     abstract protected ConditionValue getCValueScript();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TScriptCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TScriptCQ.class.getName(); }
+    String xCB() { return TScriptCB.class.getName(); }
+    String xCQ() { return TScriptCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

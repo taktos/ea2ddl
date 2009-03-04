@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_cardinality.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTCardinalityCQ extends AbstractBsTCardinalityCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTCardinalityCQ extends AbstractBsTCardinalityCQ {
      * @return On-clause query. (NotNull)
      */
     public TCardinalityCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TCardinalityCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTCardinalityCQ extends AbstractBsTCardinalityCQ {
         return _cardinality;
     }
     protected ConditionValue getCValueCardinality() { return getCardinality(); }
-    
+
     public BsTCardinalityCQ addOrderBy_Cardinality_Asc() { regOBA("Cardinality"); return this; }
     public BsTCardinalityCQ addOrderBy_Cardinality_Desc() { regOBD("Cardinality"); return this; }
 
@@ -81,8 +81,11 @@ public class BsTCardinalityCQ extends AbstractBsTCardinalityCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TCardinalityCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TCardinalityCB.class.getName(); }
+    String xCQ() { return TCardinalityCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

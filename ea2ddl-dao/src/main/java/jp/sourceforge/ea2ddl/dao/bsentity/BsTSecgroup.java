@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_secgroup(TABLE).
+ * The entity of t_secgroup that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTSecgroup implements Entity, java.io.Serializable {
+public abstract class BsTSecgroup implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,23 +47,19 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_secgroup. */
-    public static final String TABLE = "t_secgroup";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'GroupID'. {UQ : VARCHAR(40)} */
+    /** GroupID: {UQ : VARCHAR(40)} */
     protected String _groupid;
 
-    /** The attribute of the column 'GroupName'. {VARCHAR(32)} */
+    /** GroupName: {VARCHAR(32)} */
     protected String _groupname;
 
-    /** The attribute of the column 'Description'. {VARCHAR(100)} */
+    /** Description: {VARCHAR(100)} */
     protected String _description;
 
     // -----------------------------------------------------
@@ -73,19 +69,13 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTSecgroup() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_secgroup";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TSecgroup";
     }
 
@@ -111,7 +101,6 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -189,13 +178,8 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String groupid_COLUMN = "GroupID";
-
     /**
-     * Get the value of the column 'GroupID'. <br />
-     * {UQ : VARCHAR(40)}
+     * GroupID: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'GroupID'. (Nullable)
      */
     public String getGroupid() {
@@ -203,8 +187,7 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GroupID'. <br />
-     * {UQ : VARCHAR(40)}
+     * GroupID: {UQ : VARCHAR(40)} <br />
      * @param groupid The value of the column 'GroupID'. (Nullable)
      */
     public void setGroupid(String groupid) {
@@ -212,12 +195,8 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
         this._groupid = groupid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(32)} */
-    public static final String groupname_COLUMN = "GroupName";
-
     /**
-     * Get the value of the column 'GroupName'. <br />
-     * {VARCHAR(32)}
+     * GroupName: {VARCHAR(32)} <br />
      * @return The value of the column 'GroupName'. (Nullable)
      */
     public String getGroupname() {
@@ -225,8 +204,7 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'GroupName'. <br />
-     * {VARCHAR(32)}
+     * GroupName: {VARCHAR(32)} <br />
      * @param groupname The value of the column 'GroupName'. (Nullable)
      */
     public void setGroupname(String groupname) {
@@ -234,12 +212,8 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
         this._groupname = groupname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(100)}
+     * Description: {VARCHAR(100)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -247,13 +221,11 @@ public abstract class BsTSecgroup implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(100)}
+     * Description: {VARCHAR(100)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
         _modifiedProperties.addPropertyName("description");
         this._description = description;
     }
-
 }

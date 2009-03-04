@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_constants.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTConstantsCQ extends AbstractBsTConstantsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTConstantsCQ extends AbstractBsTConstantsCQ {
      * @return On-clause query. (NotNull)
      */
     public TConstantsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TConstantsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTConstantsCQ extends AbstractBsTConstantsCQ {
         return _constantname;
     }
     protected ConditionValue getCValueConstantname() { return getConstantname(); }
-    
+
     public BsTConstantsCQ addOrderBy_Constantname_Asc() { regOBA("ConstantName"); return this; }
     public BsTConstantsCQ addOrderBy_Constantname_Desc() { regOBD("ConstantName"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTConstantsCQ extends AbstractBsTConstantsCQ {
         return _constantvalue;
     }
     protected ConditionValue getCValueConstantvalue() { return getConstantvalue(); }
-    
+
     public BsTConstantsCQ addOrderBy_Constantvalue_Asc() { regOBA("ConstantValue"); return this; }
     public BsTConstantsCQ addOrderBy_Constantvalue_Desc() { regOBD("ConstantValue"); return this; }
 
@@ -91,8 +91,11 @@ public class BsTConstantsCQ extends AbstractBsTConstantsCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TConstantsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TConstantsCB.class.getName(); }
+    String xCQ() { return TConstantsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

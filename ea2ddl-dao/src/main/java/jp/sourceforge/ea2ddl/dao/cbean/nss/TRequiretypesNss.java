@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TRequiretypesCQ;
 
 /**
- * The nest-select-setupper of t_requiretypes.
+ * The nest select set-upper of t_requiretypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TRequiretypesNss {
 
     protected TRequiretypesCQ _query;

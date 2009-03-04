@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_primitives(TABLE).
+ * The entity of t_primitives that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTPrimitives implements Entity, java.io.Serializable {
+public abstract class BsTPrimitives implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,20 +47,16 @@ public abstract class BsTPrimitives implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_primitives. */
-    public static final String TABLE = "t_primitives";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Datatype'. {UQ : VARCHAR(50)} */
+    /** Datatype: {UQ : VARCHAR(50)} */
     protected String _datatype;
 
-    /** The attribute of the column 'Description'. {VARCHAR(50)} */
+    /** Description: {VARCHAR(50)} */
     protected String _description;
 
     // -----------------------------------------------------
@@ -70,19 +66,13 @@ public abstract class BsTPrimitives implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTPrimitives() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_primitives";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TPrimitives";
     }
 
@@ -108,7 +98,6 @@ public abstract class BsTPrimitives implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -183,13 +172,8 @@ public abstract class BsTPrimitives implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String datatype_COLUMN = "Datatype";
-
     /**
-     * Get the value of the column 'Datatype'. <br />
-     * {UQ : VARCHAR(50)}
+     * Datatype: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'Datatype'. (Nullable)
      */
     public String getDatatype() {
@@ -197,8 +181,7 @@ public abstract class BsTPrimitives implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Datatype'. <br />
-     * {UQ : VARCHAR(50)}
+     * Datatype: {UQ : VARCHAR(50)} <br />
      * @param datatype The value of the column 'Datatype'. (Nullable)
      */
     public void setDatatype(String datatype) {
@@ -206,12 +189,8 @@ public abstract class BsTPrimitives implements Entity, java.io.Serializable {
         this._datatype = datatype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(50)}
+     * Description: {VARCHAR(50)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -219,13 +198,11 @@ public abstract class BsTPrimitives implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(50)}
+     * Description: {VARCHAR(50)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
         _modifiedProperties.addPropertyName("description");
         this._description = description;
     }
-
 }

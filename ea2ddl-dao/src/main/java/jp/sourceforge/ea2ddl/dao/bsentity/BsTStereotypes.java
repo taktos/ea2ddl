@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_stereotypes(TABLE).
+ * The entity of t_stereotypes that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTStereotypes implements Entity, java.io.Serializable {
+public abstract class BsTStereotypes implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,41 +47,37 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_stereotypes. */
-    public static final String TABLE = "t_stereotypes";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Stereotype'. {UQ : VARCHAR(255)} */
+    /** Stereotype: {UQ : VARCHAR(255)} */
     protected String _stereotype;
 
-    /** The attribute of the column 'AppliesTo'. {UQ : VARCHAR(255)} */
+    /** AppliesTo: {UQ : VARCHAR(255)} */
     protected String _appliesto;
 
-    /** The attribute of the column 'Description'. {VARCHAR(255)} */
+    /** Description: {VARCHAR(255)} */
     protected String _description;
 
-    /** The attribute of the column 'MFEnabled'. {BIT : NotNull} */
+    /** MFEnabled: {NotNull : BIT} */
     protected Boolean _mfenabled;
 
-    /** The attribute of the column 'MFPath'. {VARCHAR(255)} */
+    /** MFPath: {VARCHAR(255)} */
     protected String _mfpath;
 
-    /** The attribute of the column 'Metafile'. {LONGBINARY} */
+    /** Metafile: {LONGBINARY} */
     protected byte[] _metafile;
 
-    /** The attribute of the column 'Style'. {LONGCHAR(2147483647)} */
+    /** Style: {LONGCHAR(2147483647)} */
     protected String _style;
 
-    /** The attribute of the column 'ea_guid'. {VARCHAR(50)} */
+    /** ea_guid: {VARCHAR(50)} */
     protected String _eaGuid;
 
-    /** The attribute of the column 'VisualType'. {VARCHAR(100)} */
+    /** VisualType: {VARCHAR(100)} */
     protected String _visualtype;
 
     // -----------------------------------------------------
@@ -91,19 +87,13 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTStereotypes() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_stereotypes";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TStereotypes";
     }
 
@@ -129,7 +119,6 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -225,13 +214,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String stereotype_COLUMN = "Stereotype";
-
     /**
-     * Get the value of the column 'Stereotype'. <br />
-     * {UQ : VARCHAR(255)}
+     * Stereotype: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Stereotype'. (Nullable)
      */
     public String getStereotype() {
@@ -239,8 +223,7 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Stereotype'. <br />
-     * {UQ : VARCHAR(255)}
+     * Stereotype: {UQ : VARCHAR(255)} <br />
      * @param stereotype The value of the column 'Stereotype'. (Nullable)
      */
     public void setStereotype(String stereotype) {
@@ -248,12 +231,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
         this._stereotype = stereotype;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String appliesto_COLUMN = "AppliesTo";
-
     /**
-     * Get the value of the column 'AppliesTo'. <br />
-     * {UQ : VARCHAR(255)}
+     * AppliesTo: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'AppliesTo'. (Nullable)
      */
     public String getAppliesto() {
@@ -261,8 +240,7 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'AppliesTo'. <br />
-     * {UQ : VARCHAR(255)}
+     * AppliesTo: {UQ : VARCHAR(255)} <br />
      * @param appliesto The value of the column 'AppliesTo'. (Nullable)
      */
     public void setAppliesto(String appliesto) {
@@ -270,12 +248,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
         this._appliesto = appliesto;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(255)}
+     * Description: {VARCHAR(255)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -283,8 +257,7 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(255)}
+     * Description: {VARCHAR(255)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
@@ -292,12 +265,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
         this._description = description;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String mfenabled_COLUMN = "MFEnabled";
-
     /**
-     * Get the value of the column 'MFEnabled'. <br />
-     * {BIT : NotNull}
+     * MFEnabled: {NotNull : BIT} <br />
      * @return The value of the column 'MFEnabled'. (Nullable)
      */
     public Boolean getMfenabled() {
@@ -305,8 +274,7 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'MFEnabled'. <br />
-     * {BIT : NotNull}
+     * MFEnabled: {NotNull : BIT} <br />
      * @param mfenabled The value of the column 'MFEnabled'. (Nullable)
      */
     public void setMfenabled(Boolean mfenabled) {
@@ -314,12 +282,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
         this._mfenabled = mfenabled;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String mfpath_COLUMN = "MFPath";
-
     /**
-     * Get the value of the column 'MFPath'. <br />
-     * {VARCHAR(255)}
+     * MFPath: {VARCHAR(255)} <br />
      * @return The value of the column 'MFPath'. (Nullable)
      */
     public String getMfpath() {
@@ -327,8 +291,7 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'MFPath'. <br />
-     * {VARCHAR(255)}
+     * MFPath: {VARCHAR(255)} <br />
      * @param mfpath The value of the column 'MFPath'. (Nullable)
      */
     public void setMfpath(String mfpath) {
@@ -336,12 +299,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
         this._mfpath = mfpath;
     }
 
-    /** The column annotation for S2Dao. {LONGBINARY} */
-    public static final String metafile_COLUMN = "Metafile";
-
     /**
-     * Get the value of the column 'Metafile'. <br />
-     * {LONGBINARY}
+     * Metafile: {LONGBINARY} <br />
      * @return The value of the column 'Metafile'. (Nullable)
      */
     public byte[] getMetafile() {
@@ -349,8 +308,7 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Metafile'. <br />
-     * {LONGBINARY}
+     * Metafile: {LONGBINARY} <br />
      * @param metafile The value of the column 'Metafile'. (Nullable)
      */
     public void setMetafile(byte[] metafile) {
@@ -358,12 +316,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
         this._metafile = metafile;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {LONGCHAR(2147483647)}
+     * Style: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -371,8 +325,7 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {LONGCHAR(2147483647)}
+     * Style: {LONGCHAR(2147483647)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
@@ -380,12 +333,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
         this._style = style;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {VARCHAR(50)}
+     * ea_guid: {VARCHAR(50)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -393,8 +342,7 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {VARCHAR(50)}
+     * ea_guid: {VARCHAR(50)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
@@ -402,12 +350,8 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
         this._eaGuid = eaGuid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String visualtype_COLUMN = "VisualType";
-
     /**
-     * Get the value of the column 'VisualType'. <br />
-     * {VARCHAR(100)}
+     * VisualType: {VARCHAR(100)} <br />
      * @return The value of the column 'VisualType'. (Nullable)
      */
     public String getVisualtype() {
@@ -415,13 +359,11 @@ public abstract class BsTStereotypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'VisualType'. <br />
-     * {VARCHAR(100)}
+     * VisualType: {VARCHAR(100)} <br />
      * @param visualtype The value of the column 'VisualType'. (Nullable)
      */
     public void setVisualtype(String visualtype) {
         _modifiedProperties.addPropertyName("visualtype");
         this._visualtype = visualtype;
     }
-
 }

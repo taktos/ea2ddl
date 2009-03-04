@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_secpermission.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTSecpermissionCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : INTEGER}
      * @param permissionid The value of permissionid as equal.
      */
     public void setPermissionid_Equal(java.lang.Integer permissionid) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as notEqual.
      */
     public void setPermissionid_NotEqual(java.lang.Integer permissionid) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as greaterThan.
      */
     public void setPermissionid_GreaterThan(java.lang.Integer permissionid) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as lessThan.
      */
     public void setPermissionid_LessThan(java.lang.Integer permissionid) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as greaterEqual.
      */
     public void setPermissionid_GreaterEqual(java.lang.Integer permissionid) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param permissionid The value of permissionid as lessEqual.
      */
     public void setPermissionid_LessEqual(java.lang.Integer permissionid) {
@@ -95,25 +110,20 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPermissionid_IsNull() { regPermissionid(CK_ISN, DUMMY_OBJECT); }
+    public void setPermissionid_IsNull() { regPermissionid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setPermissionid_IsNotNull() { regPermissionid(CK_ISNN, DUMMY_OBJECT); }
+    public void setPermissionid_IsNotNull() { regPermissionid(CK_ISNN, DOBJ); }
 
-    protected void regPermissionid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePermissionid(), "PermissionID", "Permissionid", "permissionid");
-    }
-    protected void registerInlinePermissionid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePermissionid(), "PermissionID", "Permissionid", "permissionid");
-    }
+    protected void regPermissionid(ConditionKey k, Object v) { regQ(k, v, getCValuePermissionid(), "PermissionID"); }
     abstract protected ConditionValue getCValuePermissionid();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param permissionname The value of permissionname as equal.
      */
     public void setPermissionname_Equal(String permissionname) {
@@ -121,7 +131,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param permissionname The value of permissionname as notEqual.
      */
     public void setPermissionname_NotEqual(String permissionname) {
@@ -129,7 +139,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param permissionname The value of permissionname as greaterThan.
      */
     public void setPermissionname_GreaterThan(String permissionname) {
@@ -137,7 +147,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param permissionname The value of permissionname as lessThan.
      */
     public void setPermissionname_LessThan(String permissionname) {
@@ -145,7 +155,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param permissionname The value of permissionname as greaterEqual.
      */
     public void setPermissionname_GreaterEqual(String permissionname) {
@@ -153,7 +163,7 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param permissionname The value of permissionname as lessEqual.
      */
     public void setPermissionname_LessEqual(String permissionname) {
@@ -161,20 +171,11 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param permissionname The value of permissionname as prefixSearch.
      */
     public void setPermissionname_PrefixSearch(String permissionname) {
         regPermissionname(CK_PS, fRES(permissionname));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param permissionname The value of permissionname as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPermissionname_LikeSearch(String permissionname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(permissionname), getCValuePermissionname(), "PermissionName", "Permissionname", "permissionname", likeSearchOption);
     }
 
     /**
@@ -186,33 +187,41 @@ public abstract class AbstractBsTSecpermissionCQ extends AbstractConditionQuery 
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param permissionname The collection of permissionname as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param permissionname The value of permissionname as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPermissionname_InScope(String permissionname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(permissionname), getCValuePermissionname(), "PermissionName", "Permissionname", "permissionname", inScopeOption);
+    public void setPermissionname_LikeSearch(String permissionname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(permissionname), getCValuePermissionname(), "PermissionName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param permissionname The value of permissionname as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPermissionname_IsNull() { regPermissionname(CK_ISN, DUMMY_OBJECT); }
+    public void setPermissionname_NotLikeSearch(String permissionname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(permissionname), getCValuePermissionname(), "PermissionName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPermissionname_IsNotNull() { regPermissionname(CK_ISNN, DUMMY_OBJECT); }
+    public void setPermissionname_IsNull() { regPermissionname(CK_ISN, DOBJ); }
 
-    protected void regPermissionname(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePermissionname(), "PermissionName", "Permissionname", "permissionname");
-    }
-    protected void registerInlinePermissionname(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePermissionname(), "PermissionName", "Permissionname", "permissionname");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPermissionname_IsNotNull() { regPermissionname(CK_ISNN, DOBJ); }
+
+    protected void regPermissionname(ConditionKey k, Object v) { regQ(k, v, getCValuePermissionname(), "PermissionName"); }
     abstract protected ConditionValue getCValuePermissionname();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TSecpermissionCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TSecpermissionCQ.class.getName(); }
+    String xCB() { return TSecpermissionCB.class.getName(); }
+    String xCQ() { return TSecpermissionCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

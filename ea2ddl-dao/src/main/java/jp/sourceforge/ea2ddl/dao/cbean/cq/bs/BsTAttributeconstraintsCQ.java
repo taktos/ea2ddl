@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_attributeconstraints.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ
      * @return On-clause query. (NotNull)
      */
     public TAttributeconstraintsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TAttributeconstraintsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTAttributeconstraintsCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTAttributeconstraintsCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ
         return _constraint;
     }
     protected ConditionValue getCValueConstraint() { return getConstraint(); }
-    
+
     public BsTAttributeconstraintsCQ addOrderBy_Constraint_Asc() { regOBA("Constraint"); return this; }
     public BsTAttributeconstraintsCQ addOrderBy_Constraint_Desc() { regOBD("Constraint"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ
         return _attname;
     }
     protected ConditionValue getCValueAttname() { return getAttname(); }
-    
+
     public BsTAttributeconstraintsCQ addOrderBy_Attname_Asc() { regOBA("AttName"); return this; }
     public BsTAttributeconstraintsCQ addOrderBy_Attname_Desc() { regOBD("AttName"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTAttributeconstraintsCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTAttributeconstraintsCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTAttributeconstraintsCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTAttributeconstraintsCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ
         return _id;
     }
     protected ConditionValue getCValueId() { return getId(); }
-          
+
     public BsTAttributeconstraintsCQ addOrderBy_Id_Asc() { regOBA("ID"); return this; }
     public BsTAttributeconstraintsCQ addOrderBy_Id_Desc() { regOBD("ID"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTAttributeconstraintsCQ extends AbstractBsTAttributeconstraintsCQ
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TAttributeconstraintsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TAttributeconstraintsCB.class.getName(); }
+    String xCQ() { return TAttributeconstraintsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

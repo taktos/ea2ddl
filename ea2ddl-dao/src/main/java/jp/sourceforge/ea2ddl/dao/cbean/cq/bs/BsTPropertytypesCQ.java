@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_propertytypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTPropertytypesCQ extends AbstractBsTPropertytypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTPropertytypesCQ extends AbstractBsTPropertytypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TPropertytypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TPropertytypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTPropertytypesCQ extends AbstractBsTPropertytypesCQ {
         return _property;
     }
     protected ConditionValue getCValueProperty() { return getProperty(); }
-    
+
     public BsTPropertytypesCQ addOrderBy_Property_Asc() { regOBA("Property"); return this; }
     public BsTPropertytypesCQ addOrderBy_Property_Desc() { regOBD("Property"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTPropertytypesCQ extends AbstractBsTPropertytypesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTPropertytypesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTPropertytypesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTPropertytypesCQ extends AbstractBsTPropertytypesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTPropertytypesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTPropertytypesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -101,8 +101,11 @@ public class BsTPropertytypesCQ extends AbstractBsTPropertytypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TPropertytypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TPropertytypesCB.class.getName(); }
+    String xCQ() { return TPropertytypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

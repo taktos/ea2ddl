@@ -1,9 +1,10 @@
 package jp.sourceforge.ea2ddl.dao.exbhv;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
 import jp.sourceforge.ea2ddl.dao.cbean.TObjectpropertiesCB;
 import jp.sourceforge.ea2ddl.dao.exentity.TObject;
 import jp.sourceforge.ea2ddl.dao.exentity.TObjectproperties;
+
+import org.seasar.dbflute.cbean.ListResultBean;
 
 /**
  * The behavior of t_objectproperties.

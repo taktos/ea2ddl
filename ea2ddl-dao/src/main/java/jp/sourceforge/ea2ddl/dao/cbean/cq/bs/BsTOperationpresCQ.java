@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_operationpres.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTOperationpresCQ extends AbstractBsTOperationpresCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTOperationpresCQ extends AbstractBsTOperationpresCQ {
      * @return On-clause query. (NotNull)
      */
     public TOperationpresCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TOperationpresCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTOperationpresCQ extends AbstractBsTOperationpresCQ {
         return _operationid;
     }
     protected ConditionValue getCValueOperationid() { return getOperationid(); }
-          
+
     public BsTOperationpresCQ addOrderBy_Operationid_Asc() { regOBA("OperationID"); return this; }
     public BsTOperationpresCQ addOrderBy_Operationid_Desc() { regOBD("OperationID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTOperationpresCQ extends AbstractBsTOperationpresCQ {
         return _precondition;
     }
     protected ConditionValue getCValuePrecondition() { return getPrecondition(); }
-    
+
     public BsTOperationpresCQ addOrderBy_Precondition_Asc() { regOBA("PreCondition"); return this; }
     public BsTOperationpresCQ addOrderBy_Precondition_Desc() { regOBD("PreCondition"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTOperationpresCQ extends AbstractBsTOperationpresCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTOperationpresCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTOperationpresCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTOperationpresCQ extends AbstractBsTOperationpresCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTOperationpresCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTOperationpresCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTOperationpresCQ extends AbstractBsTOperationpresCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TOperationpresCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TOperationpresCB.class.getName(); }
+    String xCQ() { return TOperationpresCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

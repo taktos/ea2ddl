@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_genopt.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTGenoptCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(12)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(12)}
      * @param appliesto The value of appliesto as equal.
      */
     public void setAppliesto_Equal(String appliesto) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param appliesto The value of appliesto as notEqual.
      */
     public void setAppliesto_NotEqual(String appliesto) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param appliesto The value of appliesto as greaterThan.
      */
     public void setAppliesto_GreaterThan(String appliesto) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param appliesto The value of appliesto as lessThan.
      */
     public void setAppliesto_LessThan(String appliesto) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param appliesto The value of appliesto as greaterEqual.
      */
     public void setAppliesto_GreaterEqual(String appliesto) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param appliesto The value of appliesto as lessEqual.
      */
     public void setAppliesto_LessEqual(String appliesto) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param appliesto The value of appliesto as prefixSearch.
      */
     public void setAppliesto_PrefixSearch(String appliesto) {
         regAppliesto(CK_PS, fRES(appliesto));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param appliesto The value of appliesto as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setAppliesto_LikeSearch(String appliesto, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(appliesto), getCValueAppliesto(), "AppliesTo", "Appliesto", "appliesto", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param appliesto The collection of appliesto as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param appliesto The value of appliesto as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setAppliesto_InScope(String appliesto, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(appliesto), getCValueAppliesto(), "AppliesTo", "Appliesto", "appliesto", inScopeOption);
+    public void setAppliesto_LikeSearch(String appliesto, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(appliesto), getCValueAppliesto(), "AppliesTo", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param appliesto The value of appliesto as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setAppliesto_IsNull() { regAppliesto(CK_ISN, DUMMY_OBJECT); }
+    public void setAppliesto_NotLikeSearch(String appliesto, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(appliesto), getCValueAppliesto(), "AppliesTo", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setAppliesto_IsNotNull() { regAppliesto(CK_ISNN, DUMMY_OBJECT); }
+    public void setAppliesto_IsNull() { regAppliesto(CK_ISN, DOBJ); }
 
-    protected void regAppliesto(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueAppliesto(), "AppliesTo", "Appliesto", "appliesto");
-    }
-    protected void registerInlineAppliesto(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueAppliesto(), "AppliesTo", "Appliesto", "appliesto");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setAppliesto_IsNotNull() { regAppliesto(CK_ISNN, DOBJ); }
+
+    protected void regAppliesto(ConditionKey k, Object v) { regQ(k, v, getCValueAppliesto(), "AppliesTo"); }
     abstract protected ConditionValue getCValueAppliesto();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param option The value of option as equal.
      */
     public void setOption_Equal(String option) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param option The value of option as notEqual.
      */
     public void setOption_NotEqual(String option) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param option The value of option as greaterThan.
      */
     public void setOption_GreaterThan(String option) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param option The value of option as lessThan.
      */
     public void setOption_LessThan(String option) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param option The value of option as greaterEqual.
      */
     public void setOption_GreaterEqual(String option) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param option The value of option as lessEqual.
      */
     public void setOption_LessEqual(String option) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param option The value of option as prefixSearch.
      */
     public void setOption_PrefixSearch(String option) {
         regOption(CK_PS, fRES(option));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param option The value of option as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setOption_LikeSearch(String option, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(option), getCValueOption(), "Option", "Option", "option", likeSearchOption);
     }
 
     /**
@@ -212,33 +213,41 @@ public abstract class AbstractBsTGenoptCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param option The collection of option as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param option The value of option as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setOption_InScope(String option, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(option), getCValueOption(), "Option", "Option", "option", inScopeOption);
+    public void setOption_LikeSearch(String option, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(option), getCValueOption(), "Option", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param option The value of option as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setOption_IsNull() { regOption(CK_ISN, DUMMY_OBJECT); }
+    public void setOption_NotLikeSearch(String option, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(option), getCValueOption(), "Option", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setOption_IsNotNull() { regOption(CK_ISNN, DUMMY_OBJECT); }
+    public void setOption_IsNull() { regOption(CK_ISN, DOBJ); }
 
-    protected void regOption(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueOption(), "Option", "Option", "option");
-    }
-    protected void registerInlineOption(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueOption(), "Option", "Option", "option");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setOption_IsNotNull() { regOption(CK_ISNN, DOBJ); }
+
+    protected void regOption(ConditionKey k, Object v) { regQ(k, v, getCValueOption(), "Option"); }
     abstract protected ConditionValue getCValueOption();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TGenoptCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TGenoptCQ.class.getName(); }
+    String xCB() { return TGenoptCB.class.getName(); }
+    String xCQ() { return TGenoptCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

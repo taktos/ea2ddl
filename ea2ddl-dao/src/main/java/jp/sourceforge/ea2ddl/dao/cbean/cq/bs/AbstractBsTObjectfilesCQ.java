@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_objectfiles.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTObjectfilesCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : INTEGER}
      * @param objectId The value of objectId as equal.
      */
     public void setObjectId_Equal(java.lang.Integer objectId) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as notEqual.
      */
     public void setObjectId_NotEqual(java.lang.Integer objectId) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterThan.
      */
     public void setObjectId_GreaterThan(java.lang.Integer objectId) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessThan.
      */
     public void setObjectId_LessThan(java.lang.Integer objectId) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as greaterEqual.
      */
     public void setObjectId_GreaterEqual(java.lang.Integer objectId) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param objectId The value of objectId as lessEqual.
      */
     public void setObjectId_LessEqual(java.lang.Integer objectId) {
@@ -95,25 +110,20 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNull() { regObjectId(CK_ISN, DUMMY_OBJECT); }
+    public void setObjectId_IsNull() { regObjectId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DUMMY_OBJECT); }
+    public void setObjectId_IsNotNull() { regObjectId(CK_ISNN, DOBJ); }
 
-    protected void regObjectId(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
-    protected void registerInlineObjectId(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueObjectId(), "Object_ID", "ObjectId", "objectId");
-    }
+    protected void regObjectId(ConditionKey k, Object v) { regQ(k, v, getCValueObjectId(), "Object_ID"); }
     abstract protected ConditionValue getCValueObjectId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(255)}
      * @param filename The value of filename as equal.
      */
     public void setFilename_Equal(String filename) {
@@ -121,7 +131,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filename The value of filename as notEqual.
      */
     public void setFilename_NotEqual(String filename) {
@@ -129,7 +139,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filename The value of filename as greaterThan.
      */
     public void setFilename_GreaterThan(String filename) {
@@ -137,7 +147,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filename The value of filename as lessThan.
      */
     public void setFilename_LessThan(String filename) {
@@ -145,7 +155,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filename The value of filename as greaterEqual.
      */
     public void setFilename_GreaterEqual(String filename) {
@@ -153,7 +163,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filename The value of filename as lessEqual.
      */
     public void setFilename_LessEqual(String filename) {
@@ -161,20 +171,11 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filename The value of filename as prefixSearch.
      */
     public void setFilename_PrefixSearch(String filename) {
         regFilename(CK_PS, fRES(filename));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param filename The value of filename as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setFilename_LikeSearch(String filename, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(filename), getCValueFilename(), "FileName", "Filename", "filename", likeSearchOption);
     }
 
     /**
@@ -186,34 +187,38 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param filename The collection of filename as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param filename The value of filename as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setFilename_InScope(String filename, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(filename), getCValueFilename(), "FileName", "Filename", "filename", inScopeOption);
+    public void setFilename_LikeSearch(String filename, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(filename), getCValueFilename(), "FileName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param filename The value of filename as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setFilename_IsNull() { regFilename(CK_ISN, DUMMY_OBJECT); }
+    public void setFilename_NotLikeSearch(String filename, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(filename), getCValueFilename(), "FileName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setFilename_IsNotNull() { regFilename(CK_ISNN, DUMMY_OBJECT); }
+    public void setFilename_IsNull() { regFilename(CK_ISN, DOBJ); }
 
-    protected void regFilename(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueFilename(), "FileName", "Filename", "filename");
-    }
-    protected void registerInlineFilename(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueFilename(), "FileName", "Filename", "filename");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setFilename_IsNotNull() { regFilename(CK_ISNN, DOBJ); }
+
+    protected void regFilename(ConditionKey k, Object v) { regQ(k, v, getCValueFilename(), "FileName"); }
     abstract protected ConditionValue getCValueFilename();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param type The value of type as equal.
      */
     public void setType_Equal(String type) {
@@ -221,7 +226,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as notEqual.
      */
     public void setType_NotEqual(String type) {
@@ -229,7 +234,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterThan.
      */
     public void setType_GreaterThan(String type) {
@@ -237,7 +242,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessThan.
      */
     public void setType_LessThan(String type) {
@@ -245,7 +250,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as greaterEqual.
      */
     public void setType_GreaterEqual(String type) {
@@ -253,7 +258,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as lessEqual.
      */
     public void setType_LessEqual(String type) {
@@ -261,20 +266,11 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param type The value of type as prefixSearch.
      */
     public void setType_PrefixSearch(String type) {
         regType(CK_PS, fRES(type));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param type The value of type as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setType_LikeSearch(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(type), getCValueType(), "Type", "Type", "type", likeSearchOption);
     }
 
     /**
@@ -286,34 +282,38 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param type The collection of type as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setType_InScope(String type, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(type), getCValueType(), "Type", "Type", "type", inScopeOption);
+    public void setType_LikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(type), getCValueType(), "Type", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param type The value of type as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setType_IsNull() { regType(CK_ISN, DUMMY_OBJECT); }
+    public void setType_NotLikeSearch(String type, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(type), getCValueType(), "Type", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setType_IsNotNull() { regType(CK_ISNN, DUMMY_OBJECT); }
+    public void setType_IsNull() { regType(CK_ISN, DOBJ); }
 
-    protected void regType(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
-    protected void registerInlineType(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueType(), "Type", "Type", "type");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setType_IsNotNull() { regType(CK_ISNN, DOBJ); }
+
+    protected void regType(ConditionKey k, Object v) { regQ(k, v, getCValueType(), "Type"); }
     abstract protected ConditionValue getCValueType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param note The value of note as equal.
      */
     public void setNote_Equal(String note) {
@@ -321,7 +321,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param note The value of note as notEqual.
      */
     public void setNote_NotEqual(String note) {
@@ -329,7 +329,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param note The value of note as greaterThan.
      */
     public void setNote_GreaterThan(String note) {
@@ -337,7 +337,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param note The value of note as lessThan.
      */
     public void setNote_LessThan(String note) {
@@ -345,7 +345,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param note The value of note as greaterEqual.
      */
     public void setNote_GreaterEqual(String note) {
@@ -353,7 +353,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param note The value of note as lessEqual.
      */
     public void setNote_LessEqual(String note) {
@@ -361,20 +361,11 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param note The value of note as prefixSearch.
      */
     public void setNote_PrefixSearch(String note) {
         regNote(CK_PS, fRES(note));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param note The value of note as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNote_LikeSearch(String note, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(note), getCValueNote(), "Note", "Note", "note", likeSearchOption);
     }
 
     /**
@@ -386,34 +377,38 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param note The collection of note as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param note The value of note as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNote_InScope(String note, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(note), getCValueNote(), "Note", "Note", "note", inScopeOption);
+    public void setNote_LikeSearch(String note, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(note), getCValueNote(), "Note", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param note The value of note as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNote_IsNull() { regNote(CK_ISN, DUMMY_OBJECT); }
+    public void setNote_NotLikeSearch(String note, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(note), getCValueNote(), "Note", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNote_IsNotNull() { regNote(CK_ISNN, DUMMY_OBJECT); }
+    public void setNote_IsNull() { regNote(CK_ISN, DOBJ); }
 
-    protected void regNote(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNote(), "Note", "Note", "note");
-    }
-    protected void registerInlineNote(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNote(), "Note", "Note", "note");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNote_IsNotNull() { regNote(CK_ISNN, DOBJ); }
+
+    protected void regNote(ConditionKey k, Object v) { regQ(k, v, getCValueNote(), "Note"); }
     abstract protected ConditionValue getCValueNote();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param filesize The value of filesize as equal.
      */
     public void setFilesize_Equal(String filesize) {
@@ -421,7 +416,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filesize The value of filesize as notEqual.
      */
     public void setFilesize_NotEqual(String filesize) {
@@ -429,7 +424,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filesize The value of filesize as greaterThan.
      */
     public void setFilesize_GreaterThan(String filesize) {
@@ -437,7 +432,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filesize The value of filesize as lessThan.
      */
     public void setFilesize_LessThan(String filesize) {
@@ -445,7 +440,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filesize The value of filesize as greaterEqual.
      */
     public void setFilesize_GreaterEqual(String filesize) {
@@ -453,7 +448,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filesize The value of filesize as lessEqual.
      */
     public void setFilesize_LessEqual(String filesize) {
@@ -461,20 +456,11 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filesize The value of filesize as prefixSearch.
      */
     public void setFilesize_PrefixSearch(String filesize) {
         regFilesize(CK_PS, fRES(filesize));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param filesize The value of filesize as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setFilesize_LikeSearch(String filesize, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(filesize), getCValueFilesize(), "FileSize", "Filesize", "filesize", likeSearchOption);
     }
 
     /**
@@ -486,34 +472,38 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param filesize The collection of filesize as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param filesize The value of filesize as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setFilesize_InScope(String filesize, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(filesize), getCValueFilesize(), "FileSize", "Filesize", "filesize", inScopeOption);
+    public void setFilesize_LikeSearch(String filesize, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(filesize), getCValueFilesize(), "FileSize", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param filesize The value of filesize as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setFilesize_IsNull() { regFilesize(CK_ISN, DUMMY_OBJECT); }
+    public void setFilesize_NotLikeSearch(String filesize, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(filesize), getCValueFilesize(), "FileSize", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setFilesize_IsNotNull() { regFilesize(CK_ISNN, DUMMY_OBJECT); }
+    public void setFilesize_IsNull() { regFilesize(CK_ISN, DOBJ); }
 
-    protected void regFilesize(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueFilesize(), "FileSize", "Filesize", "filesize");
-    }
-    protected void registerInlineFilesize(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueFilesize(), "FileSize", "Filesize", "filesize");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setFilesize_IsNotNull() { regFilesize(CK_ISNN, DOBJ); }
+
+    protected void regFilesize(ConditionKey k, Object v) { regQ(k, v, getCValueFilesize(), "FileSize"); }
     abstract protected ConditionValue getCValueFilesize();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param filedate The value of filedate as equal.
      */
     public void setFiledate_Equal(String filedate) {
@@ -521,7 +511,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filedate The value of filedate as notEqual.
      */
     public void setFiledate_NotEqual(String filedate) {
@@ -529,7 +519,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filedate The value of filedate as greaterThan.
      */
     public void setFiledate_GreaterThan(String filedate) {
@@ -537,7 +527,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filedate The value of filedate as lessThan.
      */
     public void setFiledate_LessThan(String filedate) {
@@ -545,7 +535,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filedate The value of filedate as greaterEqual.
      */
     public void setFiledate_GreaterEqual(String filedate) {
@@ -553,7 +543,7 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filedate The value of filedate as lessEqual.
      */
     public void setFiledate_LessEqual(String filedate) {
@@ -561,20 +551,11 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param filedate The value of filedate as prefixSearch.
      */
     public void setFiledate_PrefixSearch(String filedate) {
         regFiledate(CK_PS, fRES(filedate));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param filedate The value of filedate as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setFiledate_LikeSearch(String filedate, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(filedate), getCValueFiledate(), "FileDate", "Filedate", "filedate", likeSearchOption);
     }
 
     /**
@@ -586,33 +567,41 @@ public abstract class AbstractBsTObjectfilesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param filedate The collection of filedate as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param filedate The value of filedate as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setFiledate_InScope(String filedate, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(filedate), getCValueFiledate(), "FileDate", "Filedate", "filedate", inScopeOption);
+    public void setFiledate_LikeSearch(String filedate, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(filedate), getCValueFiledate(), "FileDate", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param filedate The value of filedate as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setFiledate_IsNull() { regFiledate(CK_ISN, DUMMY_OBJECT); }
+    public void setFiledate_NotLikeSearch(String filedate, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(filedate), getCValueFiledate(), "FileDate", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setFiledate_IsNotNull() { regFiledate(CK_ISNN, DUMMY_OBJECT); }
+    public void setFiledate_IsNull() { regFiledate(CK_ISN, DOBJ); }
 
-    protected void regFiledate(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueFiledate(), "FileDate", "Filedate", "filedate");
-    }
-    protected void registerInlineFiledate(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueFiledate(), "FileDate", "Filedate", "filedate");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setFiledate_IsNotNull() { regFiledate(CK_ISNN, DOBJ); }
+
+    protected void regFiledate(ConditionKey k, Object v) { regQ(k, v, getCValueFiledate(), "FileDate"); }
     abstract protected ConditionValue getCValueFiledate();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TObjectfilesCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TObjectfilesCQ.class.getName(); }
+    String xCB() { return TObjectfilesCB.class.getName(); }
+    String xCQ() { return TObjectfilesCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

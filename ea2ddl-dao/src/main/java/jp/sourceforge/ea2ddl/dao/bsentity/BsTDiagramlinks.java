@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_diagramlinks(TABLE).
+ * The entity of t_diagramlinks that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
+public abstract class BsTDiagramlinks implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,35 +47,31 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_diagramlinks. */
-    public static final String TABLE = "t_diagramlinks";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'DiagramID'. {INTEGER} */
+    /** DiagramID: {INTEGER} */
     protected java.lang.Integer _diagramid;
 
-    /** The attribute of the column 'ConnectorID'. {INTEGER} */
+    /** ConnectorID: {INTEGER} */
     protected java.lang.Integer _connectorid;
 
-    /** The attribute of the column 'Geometry'. {LONGCHAR(2147483647)} */
+    /** Geometry: {LONGCHAR(2147483647)} */
     protected String _geometry;
 
-    /** The attribute of the column 'Style'. {VARCHAR(255)} */
+    /** Style: {VARCHAR(255)} */
     protected String _style;
 
-    /** The attribute of the column 'Hidden'. {BIT : NotNull} */
+    /** Hidden: {NotNull : BIT} */
     protected Boolean _hidden;
 
-    /** The attribute of the column 'Path'. {VARCHAR(255)} */
+    /** Path: {VARCHAR(255)} */
     protected String _path;
 
-    /** The attribute of the column 'Instance_ID'. {UQ : COUNTER : NotNull} */
+    /** Instance_ID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _instanceId;
 
     // -----------------------------------------------------
@@ -85,19 +81,13 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTDiagramlinks() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_diagramlinks";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TDiagramlinks";
     }
 
@@ -123,7 +113,6 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -213,13 +202,8 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String diagramid_COLUMN = "DiagramID";
-
     /**
-     * Get the value of the column 'DiagramID'. <br />
-     * {INTEGER}
+     * DiagramID: {INTEGER} <br />
      * @return The value of the column 'DiagramID'. (Nullable)
      */
     public java.lang.Integer getDiagramid() {
@@ -227,8 +211,7 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DiagramID'. <br />
-     * {INTEGER}
+     * DiagramID: {INTEGER} <br />
      * @param diagramid The value of the column 'DiagramID'. (Nullable)
      */
     public void setDiagramid(java.lang.Integer diagramid) {
@@ -236,12 +219,8 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
         this._diagramid = diagramid;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String connectorid_COLUMN = "ConnectorID";
-
     /**
-     * Get the value of the column 'ConnectorID'. <br />
-     * {INTEGER}
+     * ConnectorID: {INTEGER} <br />
      * @return The value of the column 'ConnectorID'. (Nullable)
      */
     public java.lang.Integer getConnectorid() {
@@ -249,8 +228,7 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ConnectorID'. <br />
-     * {INTEGER}
+     * ConnectorID: {INTEGER} <br />
      * @param connectorid The value of the column 'ConnectorID'. (Nullable)
      */
     public void setConnectorid(java.lang.Integer connectorid) {
@@ -258,12 +236,8 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
         this._connectorid = connectorid;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String geometry_COLUMN = "Geometry";
-
     /**
-     * Get the value of the column 'Geometry'. <br />
-     * {LONGCHAR(2147483647)}
+     * Geometry: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Geometry'. (Nullable)
      */
     public String getGeometry() {
@@ -271,8 +245,7 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Geometry'. <br />
-     * {LONGCHAR(2147483647)}
+     * Geometry: {LONGCHAR(2147483647)} <br />
      * @param geometry The value of the column 'Geometry'. (Nullable)
      */
     public void setGeometry(String geometry) {
@@ -280,12 +253,8 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
         this._geometry = geometry;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -293,8 +262,7 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
@@ -302,12 +270,8 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
         this._style = style;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String hidden_COLUMN = "Hidden";
-
     /**
-     * Get the value of the column 'Hidden'. <br />
-     * {BIT : NotNull}
+     * Hidden: {NotNull : BIT} <br />
      * @return The value of the column 'Hidden'. (Nullable)
      */
     public Boolean getHidden() {
@@ -315,8 +279,7 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Hidden'. <br />
-     * {BIT : NotNull}
+     * Hidden: {NotNull : BIT} <br />
      * @param hidden The value of the column 'Hidden'. (Nullable)
      */
     public void setHidden(Boolean hidden) {
@@ -324,12 +287,8 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
         this._hidden = hidden;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String path_COLUMN = "Path";
-
     /**
-     * Get the value of the column 'Path'. <br />
-     * {VARCHAR(255)}
+     * Path: {VARCHAR(255)} <br />
      * @return The value of the column 'Path'. (Nullable)
      */
     public String getPath() {
@@ -337,8 +296,7 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Path'. <br />
-     * {VARCHAR(255)}
+     * Path: {VARCHAR(255)} <br />
      * @param path The value of the column 'Path'. (Nullable)
      */
     public void setPath(String path) {
@@ -346,12 +304,8 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
         this._path = path;
     }
 
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String instanceId_COLUMN = "Instance_ID";
-
     /**
-     * Get the value of the column 'Instance_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * Instance_ID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'Instance_ID'. (Nullable)
      */
     public java.lang.Integer getInstanceId() {
@@ -359,13 +313,11 @@ public abstract class BsTDiagramlinks implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Instance_ID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * Instance_ID: {UQ : NotNull : COUNTER} <br />
      * @param instanceId The value of the column 'Instance_ID'. (Nullable)
      */
     public void setInstanceId(java.lang.Integer instanceId) {
         _modifiedProperties.addPropertyName("instanceId");
         this._instanceId = instanceId;
     }
-
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_diagramtypes(TABLE).
+ * The entity of t_diagramtypes that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
+public abstract class BsTDiagramtypes implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,23 +47,19 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_diagramtypes. */
-    public static final String TABLE = "t_diagramtypes";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Diagram_Type'. {UQ : VARCHAR(50)} */
+    /** Diagram_Type: {UQ : VARCHAR(50)} */
     protected String _diagramType;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Package_ID'. {INTEGER} */
+    /** Package_ID: {INTEGER} */
     protected java.lang.Integer _packageId;
 
     // -----------------------------------------------------
@@ -73,19 +69,13 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTDiagramtypes() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_diagramtypes";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TDiagramtypes";
     }
 
@@ -111,7 +101,6 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -189,13 +178,8 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String diagramType_COLUMN = "Diagram_Type";
-
     /**
-     * Get the value of the column 'Diagram_Type'. <br />
-     * {UQ : VARCHAR(50)}
+     * Diagram_Type: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'Diagram_Type'. (Nullable)
      */
     public String getDiagramType() {
@@ -203,8 +187,7 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Diagram_Type'. <br />
-     * {UQ : VARCHAR(50)}
+     * Diagram_Type: {UQ : VARCHAR(50)} <br />
      * @param diagramType The value of the column 'Diagram_Type'. (Nullable)
      */
     public void setDiagramType(String diagramType) {
@@ -212,12 +195,8 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
         this._diagramType = diagramType;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -225,8 +204,7 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -234,12 +212,8 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String packageId_COLUMN = "Package_ID";
-
     /**
-     * Get the value of the column 'Package_ID'. <br />
-     * {INTEGER}
+     * Package_ID: {INTEGER} <br />
      * @return The value of the column 'Package_ID'. (Nullable)
      */
     public java.lang.Integer getPackageId() {
@@ -247,13 +221,11 @@ public abstract class BsTDiagramtypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Package_ID'. <br />
-     * {INTEGER}
+     * Package_ID: {INTEGER} <br />
      * @param packageId The value of the column 'Package_ID'. (Nullable)
      */
     public void setPackageId(java.lang.Integer packageId) {
         _modifiedProperties.addPropertyName("packageId");
         this._packageId = packageId;
     }
-
 }

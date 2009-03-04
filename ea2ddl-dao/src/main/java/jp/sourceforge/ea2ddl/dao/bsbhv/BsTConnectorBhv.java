@@ -1,26 +1,25 @@
 package jp.sourceforge.ea2ddl.dao.bsbhv;
 
-
 import java.util.List;
 
+import org.seasar.dbflute.*;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.EntityRowHandler;
+import org.seasar.dbflute.cbean.ListResultBean;
+import org.seasar.dbflute.cbean.PagingBean;
+import org.seasar.dbflute.cbean.PagingHandler;
+import org.seasar.dbflute.cbean.PagingInvoker;
+import org.seasar.dbflute.cbean.PagingResultBean;
+import org.seasar.dbflute.cbean.ResultBeanBuilder;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import org.seasar.dbflute.jdbc.StatementConfig;
 import jp.sourceforge.ea2ddl.dao.allcommon.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ValueLabelSetupper;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.exdao.*;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 import jp.sourceforge.ea2ddl.dao.bsentity.dbmeta.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 
-
 /**
- * The behavior of t_connector.
+ * The behavior of t_connector that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     Connector_ID
@@ -51,7 +50,7 @@ import jp.sourceforge.ea2ddl.dao.cbean.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommon.bhv.AbstractBehaviorWritable {
+public abstract class BsTConnectorBhv extends org.seasar.dbflute.bhv.AbstractBehaviorWritable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -59,11 +58,6 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     /*df:BehaviorQueryPathBegin*/
     public static final String PATH_selectForeignKeys = "selectForeignKeys";
     /*df:BehaviorQueryPathEnd*/
-
-    // ===================================================================================
-    //                                                                           Attribute
-    //                                                                           =========
-    protected TConnectorDao _dao;
 
     // ===================================================================================
     //                                                                          Table name
@@ -74,19 +68,11 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /** @return The meta data of the database. (NotNull) */
+    /** @return The instance of DBMeta. (NotNull) */
     public DBMeta getDBMeta() { return TConnectorDbm.getInstance(); }
 
-    /** @return The meta data of the database as my table type. (NotNull) */
+    /** @return The instance of DBMeta as my table type. (NotNull) */
     public TConnectorDbm getMyDBMeta() { return TConnectorDbm.getInstance(); }
-
-    // ===================================================================================
-    //                                                                        Dao Accessor
-    //                                                                        ============
-    public TConnectorDao getMyDao() { return _dao; }
-    public void setMyDao(TConnectorDao dao) { assertObjectNotNull("dao", dao); _dao = dao; }
-    public DaoReadable getDaoReadable() { return getMyDao(); }
-    public DaoWritable getDaoWritable() { return getMyDao(); }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -97,16 +83,46 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     public TConnectorCB newMyConditionBean() { return new TConnectorCB(); }
 
     // ===================================================================================
+    //                                                                       Current DBDef
+    //                                                                       =============
+    @Override
+    protected DBDef getCurrentDBDef() {
+        return DBCurrent.getInstance().currentDBDef();
+    }
+
+    // ===================================================================================
+    //                                                             Default StatementConfig
+    //                                                             =======================
+    @Override
+    protected StatementConfig getDefaultStatementConfig() {
+        return DBFluteConfig.getInstance().getDefaultStatementConfig();
+    }
+    
+    // ===================================================================================
     //                                                                        Count Select
     //                                                                        ============
     /**
-     * Select the count of the condition-bean. {IgnorePagingCondition}
+     * Select the count by the condition-bean. {IgnorePagingCondition}
      * @param cb The condition-bean of TConnector. (NotNull)
      * @return The selected count.
      */
     public int selectCount(TConnectorCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return delegateSelectCount(cb);
+    }
+    
+    // ===================================================================================
+    //                                                                       Cursor Select
+    //                                                                       =============
+    /**
+     * Select the cursor by the condition-bean. <br />
+     * Attention: It has a mapping cost from result set to entity.
+     * @param cb The condition-bean of TConnector. (NotNull)
+     * @param entityRowHandler The handler of entity row of TConnector. (NotNull)
+     */
+    public void selectCursor(TConnectorCB cb, EntityRowHandler<TConnector> entityRowHandler) {
+        assertCBNotNull(cb); assertObjectNotNull("entityRowHandler<TConnector>", entityRowHandler);
+        delegateSelectCursor(cb, entityRowHandler);
     }
 
     // ===================================================================================
@@ -116,7 +132,7 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * Select the entity by the condition-bean.
      * @param cb The condition-bean of TConnector. (NotNull)
      * @return The selected entity. (Nullalble)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TConnector selectEntity(final TConnectorCB cb) {
         return helpSelectEntityInternally(cb, new InternalSelectEntityCallback<TConnector, TConnectorCB>() {
@@ -127,8 +143,8 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * Select the entity by the condition-bean with deleted check.
      * @param cb The condition-bean of TConnector. (NotNull)
      * @return The selected entity. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TConnector selectEntityWithDeletedCheck(final TConnectorCB cb) {
         return helpSelectEntityWithDeletedCheckInternally(cb, new InternalSelectEntityWithDeletedCheckCallback<TConnector, TConnectorCB>() {
@@ -139,8 +155,8 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * Select the entity with deleted check. {by primary-key value}
      * @param primaryKey The keys of primary.
      * @return The selected entity. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TConnector selectByPKValueWithDeletedCheck(java.lang.Integer connectorId) {
         TConnector entity = new TConnector();
@@ -159,7 +175,7 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * @return The result bean of selected list. (NotNull)
      */
     public ListResultBean<TConnector> selectList(TConnectorCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return new ResultBeanBuilder<TConnector>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
     }
 
@@ -172,7 +188,7 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * @return The result bean of selected page. (NotNull)
      */
     public PagingResultBean<TConnector> selectPage(final TConnectorCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         final PagingInvoker<TConnector> invoker = new PagingInvoker<TConnector>(getTableDbName());
         final PagingHandler<TConnector> handler = new PagingHandler<TConnector>() {
             public PagingBean getPagingBean() { return cb; }
@@ -183,26 +199,34 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     }
 
     // ===================================================================================
-    //                                                                      Various Select
-    //                                                                      ==============
+    //                                                                       Scalar Select
+    //                                                                       =============
     /**
-     * Select the list of value-label.
-     * @param cb The condition-bean of TConnector. (NotNull)
-     * @param valueLabelSetupper The setupper of value-label. (NotNull)
-     * @return The list of value-label. (NotNull)
+     * Select the scalar value derived by a function. <br />
+     * Call a function method after this method called like as follows:
+     * <pre>
+     * tConnectorBhv.scalarSelect(Date.class).max(new ScalarQuery(TConnectorCB cb) {
+     *     cb.specify().columnXxxDatetime(); // the required specification of target column
+     *     cb.query().setXxxName_PrefixSearch("S"); // query as you like it
+     * });
+     * </pre>
+     * @param <RESULT> The type of result.
+     * @param resultType The type of result. (NotNull)
+     * @return The scalar value derived by a function. (Nullable)
      */
-    public List<java.util.Map<String, Object>> selectValueLabelList(TConnectorCB cb, ValueLabelSetupper<TConnector> valueLabelSetupper) {
-        return createValueLabelList(selectList(cb), valueLabelSetupper);
+    public <RESULT> SLFunction<TConnectorCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+        TConnectorCB cb = newMyConditionBean();
+        cb.xsetupForScalarSelect();
+        cb.getSqlClause().disableSelectIndex(); // for when you use union
+        return new SLFunction<TConnectorCB, RESULT>(cb, resultType);
     }
-
 
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-
     // ===================================================================================
-    //                                                                     Pullout Foreign
-    //                                                                     ===============
+    //                                                                    Pull out Foreign
+    //                                                                    ================
     /**
      * Pull out the list of foreign table 'TOperation'.
      * @param tConnectorList The list of tConnector. (NotNull)
@@ -246,7 +270,7 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     /**
      * Insert the entity.
      * @param tConnector The entity of insert target. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
+     * @exception org.seasar.dbflute.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
      */
     public void insert(TConnector tConnector) {
         assertEntityNotNull(tConnector);
@@ -261,9 +285,9 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     /**
      * Update the entity modified-only. {UpdateCountZeroException, ConcurrencyControl}
      * @param tConnector The entity of update target. (NotNull) {PrimaryKeyRequired, ConcurrencyColumnRequired}
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
      */
     public void update(final TConnector tConnector) {
         helpUpdateInternally(tConnector, new InternalUpdateCallback<TConnector>() {
@@ -283,9 +307,9 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     /**
      * Insert or update the entity modified-only. {ConcurrencyControl(when update)}
      * @param tConnector The entity of insert or update target. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyExistsException When the entity already exists. (Unique Constraint Violation)
      */
     public void insertOrUpdate(final TConnector tConnector) {
         helpInsertOrUpdateInternally(tConnector, new InternalInsertOrUpdateCallback<TConnector, TConnectorCB>() {
@@ -309,8 +333,8 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     /**
      * Delete the entity. {UpdateCountZeroException, ConcurrencyControl}
      * @param tConnector The entity of delete target. (NotNull) {PrimaryKeyRequired, ConcurrencyColumnRequired}
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(TConnector tConnector) {
         helpDeleteInternally(tConnector, new InternalDeleteCallback<TConnector>() {
@@ -340,7 +364,7 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * This method use 'Batch Update' of java.sql.PreparedStatement.
      * @param tConnectorList The list of the entity. (NotNull)
      * @return The array of updated count.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
      */
     public int[] batchUpdate(List<TConnector> tConnectorList) {
         assertObjectNotNull("tConnectorList", tConnectorList);
@@ -352,7 +376,7 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * This method use 'Batch Update' of java.sql.PreparedStatement.
      * @param tConnectorList The list of the entity. (NotNull)
      * @return The array of deleted count.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
      */
     public int[] batchDelete(List<TConnector> tConnectorList) {
         assertObjectNotNull("tConnectorList", tConnectorList);
@@ -369,10 +393,10 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * @return The updated count.
      */
     public int queryUpdate(TConnector tConnector, TConnectorCB cb) {
-        assertObjectNotNull("tConnector", tConnector); assertConditionBeanNotNull(cb);
+        assertObjectNotNull("tConnector", tConnector); assertCBNotNull(cb);
         setupCommonColumnOfUpdateIfNeeds(tConnector);
         filterEntityOfUpdate(tConnector); assertEntityOfUpdate(tConnector);
-        return getMyDao().updateByQuery(cb, tConnector);
+        return invoke(createQueryUpdateEntityCBCommand(tConnector, cb));
     }
 
     /**
@@ -381,39 +405,51 @@ public abstract class BsTConnectorBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * @return The deleted count.
      */
     public int queryDelete(TConnectorCB cb) {
-        assertConditionBeanNotNull(cb);
-        return getMyDao().deleteByQuery(cb);
+        assertCBNotNull(cb);
+        return invoke(createQueryDeleteCBCommand(cb));
     }
-
-    // ===================================================================================
-    //                                                                      Various Update
-    //                                                                      ==============
-
+    
     // ===================================================================================
     //                                                                     Delegate Method
     //                                                                     ===============
+    // [Behavior Command]
     // -----------------------------------------------------
     //                                                Select
     //                                                ------
-    protected int delegateSelectCount(TConnectorCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectCount(cb); }
-    protected List<TConnector> delegateSelectList(TConnectorCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectList(cb); }
+    protected int delegateSelectCount(TConnectorCB cb) { return invoke(createSelectCountCBCommand(cb)); }
+    protected void delegateSelectCursor(TConnectorCB cb, EntityRowHandler<TConnector> entityRowHandler)
+    { invoke(createSelectCursorCBCommand(cb, entityRowHandler, TConnector.class)); }
+    protected int doCallReadCount(ConditionBean cb) { return delegateSelectCount((TConnectorCB)cb); }
+    protected List<TConnector> delegateSelectList(TConnectorCB cb)
+    { return invoke(createSelectListCBCommand(cb, TConnector.class)); }
+    @SuppressWarnings("unchecked")
+    protected List<Entity> doCallReadList(ConditionBean cb) { return (List)delegateSelectList((TConnectorCB)cb); }
 
     // -----------------------------------------------------
     //                                                Update
     //                                                ------
-    protected int delegateInsert(TConnector e) { if (!processBeforeInsert(e)) { return 1; } return getMyDao().insert(e); }
-    protected int delegateUpdate(TConnector e) { if (!processBeforeUpdate(e)) { return 1; } return getMyDao().updateModifiedOnly(e); }
-    protected int delegateDelete(TConnector e) { if (!processBeforeDelete(e)) { return 1; } return getMyDao().delete(e); }
+    protected int delegateInsert(TConnector e)
+    { if (!processBeforeInsert(e)) { return 1; } return invoke(createInsertEntityCommand(e)); }
+    protected int doCallCreate(Entity entity) {return delegateInsert(downcast(entity)); }
+    protected int delegateUpdate(TConnector e)
+    { if (!processBeforeUpdate(e)) { return 1; } return invoke(createUpdateEntityCommand(e)); }
+    protected int doCallModify(Entity entity) { return delegateUpdate(downcast(entity)); }
+    protected int delegateDelete(TConnector e)
+    { if (!processBeforeDelete(e)) { return 1; } return invoke(createDeleteEntityCommand(e)); }
+    protected int doCallRemove(Entity entity) { return delegateDelete(downcast(entity)); }
 
-    protected int[] delegateInsertList(List<TConnector> ls) {
-        assertObjectNotNull("tConnectorList", ls); return getMyDao().insertList(helpFilterBeforeInsertInternally(ls));
-    }
-    protected int[] delegateUpdateList(List<TConnector> ls) {
-        assertObjectNotNull("tConnectorList", ls); return getMyDao().updateList(helpFilterBeforeUpdateInternally(ls));
-    }
-    protected int[] delegateDeleteList(List<TConnector> ls) {
-        assertObjectNotNull("tConnectorList", ls); return getMyDao().deleteList(helpFilterBeforeDeleteInternally(ls));
-    }
+    protected int[] delegateInsertList(List<TConnector> ls)
+    { if (ls.isEmpty()) { return new int[]{}; } return invoke(createBatchInsertEntityCommand(helpFilterBeforeInsertInternally(ls))); }
+    @SuppressWarnings("unchecked")
+    protected int[] doCreateList(List<Entity> ls) { return delegateInsertList((List)ls); }
+    protected int[] delegateUpdateList(List<TConnector> ls)
+    { if (ls.isEmpty()) { return new int[]{}; } return invoke(createBatchUpdateEntityCommand(helpFilterBeforeUpdateInternally(ls))); }
+    @SuppressWarnings("unchecked")
+    protected int[] doModifyList(List<Entity> ls) { return delegateUpdateList((List)ls); }
+    protected int[] delegateDeleteList(List<TConnector> ls)
+    { if (ls.isEmpty()) { return new int[]{}; } return invoke(createBatchDeleteEntityCommand(helpFilterBeforeDeleteInternally(ls))); }
+    @SuppressWarnings("unchecked")
+    protected int[] doRemoveList(List<Entity> ls) { return delegateDeleteList((List)ls); }
 
     // ===================================================================================
     //                                                                Optimistic Lock Info

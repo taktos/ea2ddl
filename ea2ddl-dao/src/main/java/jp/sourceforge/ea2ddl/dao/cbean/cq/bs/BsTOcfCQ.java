@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_ocf.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTOcfCQ extends AbstractBsTOcfCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTOcfCQ extends AbstractBsTOcfCQ {
      * @return On-clause query. (NotNull)
      */
     public TOcfCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TOcfCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTOcfCQ extends AbstractBsTOcfCQ {
         return _objecttype;
     }
     protected ConditionValue getCValueObjecttype() { return getObjecttype(); }
-    
+
     public BsTOcfCQ addOrderBy_Objecttype_Asc() { regOBA("ObjectType"); return this; }
     public BsTOcfCQ addOrderBy_Objecttype_Desc() { regOBD("ObjectType"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTOcfCQ extends AbstractBsTOcfCQ {
         return _complexityweight;
     }
     protected ConditionValue getCValueComplexityweight() { return getComplexityweight(); }
-          
+
     public BsTOcfCQ addOrderBy_Complexityweight_Asc() { regOBA("ComplexityWeight"); return this; }
     public BsTOcfCQ addOrderBy_Complexityweight_Desc() { regOBD("ComplexityWeight"); return this; }
 
@@ -91,8 +91,11 @@ public class BsTOcfCQ extends AbstractBsTOcfCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TOcfCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TOcfCB.class.getName(); }
+    String xCQ() { return TOcfCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

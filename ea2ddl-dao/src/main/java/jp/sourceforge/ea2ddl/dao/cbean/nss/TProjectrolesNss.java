@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TProjectrolesCQ;
 
 /**
- * The nest-select-setupper of t_projectroles.
+ * The nest select set-upper of t_projectroles.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TProjectrolesNss {
 
     protected TProjectrolesCQ _query;

@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of usysTables.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsUsystablesCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(50)}
      * @param tablename The value of tablename as equal.
      */
     public void setTablename_Equal(String tablename) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tablename The value of tablename as notEqual.
      */
     public void setTablename_NotEqual(String tablename) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tablename The value of tablename as greaterThan.
      */
     public void setTablename_GreaterThan(String tablename) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tablename The value of tablename as lessThan.
      */
     public void setTablename_LessThan(String tablename) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tablename The value of tablename as greaterEqual.
      */
     public void setTablename_GreaterEqual(String tablename) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tablename The value of tablename as lessEqual.
      */
     public void setTablename_LessEqual(String tablename) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tablename The value of tablename as prefixSearch.
      */
     public void setTablename_PrefixSearch(String tablename) {
         regTablename(CK_PS, fRES(tablename));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param tablename The value of tablename as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setTablename_LikeSearch(String tablename, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(tablename), getCValueTablename(), "TableName", "Tablename", "tablename", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param tablename The collection of tablename as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param tablename The value of tablename as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setTablename_InScope(String tablename, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(tablename), getCValueTablename(), "TableName", "Tablename", "tablename", inScopeOption);
+    public void setTablename_LikeSearch(String tablename, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(tablename), getCValueTablename(), "TableName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param tablename The value of tablename as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setTablename_IsNull() { regTablename(CK_ISN, DUMMY_OBJECT); }
+    public void setTablename_NotLikeSearch(String tablename, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(tablename), getCValueTablename(), "TableName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setTablename_IsNotNull() { regTablename(CK_ISNN, DUMMY_OBJECT); }
+    public void setTablename_IsNull() { regTablename(CK_ISN, DOBJ); }
 
-    protected void regTablename(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueTablename(), "TableName", "Tablename", "tablename");
-    }
-    protected void registerInlineTablename(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueTablename(), "TableName", "Tablename", "tablename");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setTablename_IsNotNull() { regTablename(CK_ISNN, DOBJ); }
+
+    protected void regTablename(ConditionKey k, Object v) { regQ(k, v, getCValueTablename(), "TableName"); }
     abstract protected ConditionValue getCValueTablename();
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {INTEGER}
      * @param relorder The value of relorder as equal.
      */
     public void setRelorder_Equal(java.lang.Integer relorder) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param relorder The value of relorder as notEqual.
      */
     public void setRelorder_NotEqual(java.lang.Integer relorder) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param relorder The value of relorder as greaterThan.
      */
     public void setRelorder_GreaterThan(java.lang.Integer relorder) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param relorder The value of relorder as lessThan.
      */
     public void setRelorder_LessThan(java.lang.Integer relorder) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param relorder The value of relorder as greaterEqual.
      */
     public void setRelorder_GreaterEqual(java.lang.Integer relorder) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param relorder The value of relorder as lessEqual.
      */
     public void setRelorder_LessEqual(java.lang.Integer relorder) {
@@ -195,25 +205,20 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRelorder_IsNull() { regRelorder(CK_ISN, DUMMY_OBJECT); }
+    public void setRelorder_IsNull() { regRelorder(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setRelorder_IsNotNull() { regRelorder(CK_ISNN, DUMMY_OBJECT); }
+    public void setRelorder_IsNotNull() { regRelorder(CK_ISNN, DOBJ); }
 
-    protected void regRelorder(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRelorder(), "RelOrder", "Relorder", "relorder");
-    }
-    protected void registerInlineRelorder(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRelorder(), "RelOrder", "Relorder", "relorder");
-    }
+    protected void regRelorder(ConditionKey k, Object v) { regQ(k, v, getCValueRelorder(), "RelOrder"); }
     abstract protected ConditionValue getCValueRelorder();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param displayname The value of displayname as equal.
      */
     public void setDisplayname_Equal(String displayname) {
@@ -221,7 +226,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param displayname The value of displayname as notEqual.
      */
     public void setDisplayname_NotEqual(String displayname) {
@@ -229,7 +234,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param displayname The value of displayname as greaterThan.
      */
     public void setDisplayname_GreaterThan(String displayname) {
@@ -237,7 +242,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param displayname The value of displayname as lessThan.
      */
     public void setDisplayname_LessThan(String displayname) {
@@ -245,7 +250,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param displayname The value of displayname as greaterEqual.
      */
     public void setDisplayname_GreaterEqual(String displayname) {
@@ -253,7 +258,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param displayname The value of displayname as lessEqual.
      */
     public void setDisplayname_LessEqual(String displayname) {
@@ -261,20 +266,11 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param displayname The value of displayname as prefixSearch.
      */
     public void setDisplayname_PrefixSearch(String displayname) {
         regDisplayname(CK_PS, fRES(displayname));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param displayname The value of displayname as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setDisplayname_LikeSearch(String displayname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(displayname), getCValueDisplayname(), "DisplayName", "Displayname", "displayname", likeSearchOption);
     }
 
     /**
@@ -286,34 +282,38 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param displayname The collection of displayname as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param displayname The value of displayname as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setDisplayname_InScope(String displayname, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(displayname), getCValueDisplayname(), "DisplayName", "Displayname", "displayname", inScopeOption);
+    public void setDisplayname_LikeSearch(String displayname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(displayname), getCValueDisplayname(), "DisplayName", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param displayname The value of displayname as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setDisplayname_IsNull() { regDisplayname(CK_ISN, DUMMY_OBJECT); }
+    public void setDisplayname_NotLikeSearch(String displayname, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(displayname), getCValueDisplayname(), "DisplayName", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setDisplayname_IsNotNull() { regDisplayname(CK_ISNN, DUMMY_OBJECT); }
+    public void setDisplayname_IsNull() { regDisplayname(CK_ISN, DOBJ); }
 
-    protected void regDisplayname(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueDisplayname(), "DisplayName", "Displayname", "displayname");
-    }
-    protected void registerInlineDisplayname(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueDisplayname(), "DisplayName", "Displayname", "displayname");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setDisplayname_IsNotNull() { regDisplayname(CK_ISNN, DOBJ); }
+
+    protected void regDisplayname(ConditionKey k, Object v) { regQ(k, v, getCValueDisplayname(), "DisplayName"); }
     abstract protected ConditionValue getCValueDisplayname();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param fromver The value of fromver as equal.
      */
     public void setFromver_Equal(String fromver) {
@@ -321,7 +321,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fromver The value of fromver as notEqual.
      */
     public void setFromver_NotEqual(String fromver) {
@@ -329,7 +329,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fromver The value of fromver as greaterThan.
      */
     public void setFromver_GreaterThan(String fromver) {
@@ -337,7 +337,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fromver The value of fromver as lessThan.
      */
     public void setFromver_LessThan(String fromver) {
@@ -345,7 +345,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fromver The value of fromver as greaterEqual.
      */
     public void setFromver_GreaterEqual(String fromver) {
@@ -353,7 +353,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fromver The value of fromver as lessEqual.
      */
     public void setFromver_LessEqual(String fromver) {
@@ -361,20 +361,11 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fromver The value of fromver as prefixSearch.
      */
     public void setFromver_PrefixSearch(String fromver) {
         regFromver(CK_PS, fRES(fromver));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param fromver The value of fromver as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setFromver_LikeSearch(String fromver, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(fromver), getCValueFromver(), "FromVer", "Fromver", "fromver", likeSearchOption);
     }
 
     /**
@@ -386,34 +377,38 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param fromver The collection of fromver as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param fromver The value of fromver as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setFromver_InScope(String fromver, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(fromver), getCValueFromver(), "FromVer", "Fromver", "fromver", inScopeOption);
+    public void setFromver_LikeSearch(String fromver, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(fromver), getCValueFromver(), "FromVer", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param fromver The value of fromver as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setFromver_IsNull() { regFromver(CK_ISN, DUMMY_OBJECT); }
+    public void setFromver_NotLikeSearch(String fromver, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(fromver), getCValueFromver(), "FromVer", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setFromver_IsNotNull() { regFromver(CK_ISNN, DUMMY_OBJECT); }
+    public void setFromver_IsNull() { regFromver(CK_ISN, DOBJ); }
 
-    protected void regFromver(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueFromver(), "FromVer", "Fromver", "fromver");
-    }
-    protected void registerInlineFromver(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueFromver(), "FromVer", "Fromver", "fromver");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setFromver_IsNotNull() { regFromver(CK_ISNN, DOBJ); }
+
+    protected void regFromver(ConditionKey k, Object v) { regQ(k, v, getCValueFromver(), "FromVer"); }
     abstract protected ConditionValue getCValueFromver();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param tover The value of tover as equal.
      */
     public void setTover_Equal(String tover) {
@@ -421,7 +416,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tover The value of tover as notEqual.
      */
     public void setTover_NotEqual(String tover) {
@@ -429,7 +424,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tover The value of tover as greaterThan.
      */
     public void setTover_GreaterThan(String tover) {
@@ -437,7 +432,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tover The value of tover as lessThan.
      */
     public void setTover_LessThan(String tover) {
@@ -445,7 +440,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tover The value of tover as greaterEqual.
      */
     public void setTover_GreaterEqual(String tover) {
@@ -453,7 +448,7 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tover The value of tover as lessEqual.
      */
     public void setTover_LessEqual(String tover) {
@@ -461,20 +456,11 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param tover The value of tover as prefixSearch.
      */
     public void setTover_PrefixSearch(String tover) {
         regTover(CK_PS, fRES(tover));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param tover The value of tover as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setTover_LikeSearch(String tover, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(tover), getCValueTover(), "ToVer", "Tover", "tover", likeSearchOption);
     }
 
     /**
@@ -486,33 +472,41 @@ public abstract class AbstractBsUsystablesCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param tover The collection of tover as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param tover The value of tover as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setTover_InScope(String tover, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(tover), getCValueTover(), "ToVer", "Tover", "tover", inScopeOption);
+    public void setTover_LikeSearch(String tover, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(tover), getCValueTover(), "ToVer", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param tover The value of tover as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setTover_IsNull() { regTover(CK_ISN, DUMMY_OBJECT); }
+    public void setTover_NotLikeSearch(String tover, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(tover), getCValueTover(), "ToVer", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setTover_IsNotNull() { regTover(CK_ISNN, DUMMY_OBJECT); }
+    public void setTover_IsNull() { regTover(CK_ISN, DOBJ); }
 
-    protected void regTover(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueTover(), "ToVer", "Tover", "tover");
-    }
-    protected void registerInlineTover(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueTover(), "ToVer", "Tover", "tover");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setTover_IsNotNull() { regTover(CK_ISNN, DOBJ); }
+
+    protected void regTover(ConditionKey k, Object v) { regQ(k, v, getCValueTover(), "ToVer"); }
     abstract protected ConditionValue getCValueTover();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return UsystablesCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return UsystablesCQ.class.getName(); }
+    String xCB() { return UsystablesCB.class.getName(); }
+    String xCQ() { return UsystablesCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

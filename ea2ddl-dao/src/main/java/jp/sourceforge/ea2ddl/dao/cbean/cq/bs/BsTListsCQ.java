@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_lists.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTListsCQ extends AbstractBsTListsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTListsCQ extends AbstractBsTListsCQ {
      * @return On-clause query. (NotNull)
      */
     public TListsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TListsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTListsCQ extends AbstractBsTListsCQ {
         return _listid;
     }
     protected ConditionValue getCValueListid() { return getListid(); }
-    
+
     public BsTListsCQ addOrderBy_Listid_Asc() { regOBA("ListID"); return this; }
     public BsTListsCQ addOrderBy_Listid_Desc() { regOBD("ListID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTListsCQ extends AbstractBsTListsCQ {
         return _category;
     }
     protected ConditionValue getCValueCategory() { return getCategory(); }
-    
+
     public BsTListsCQ addOrderBy_Category_Asc() { regOBA("Category"); return this; }
     public BsTListsCQ addOrderBy_Category_Desc() { regOBD("Category"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTListsCQ extends AbstractBsTListsCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTListsCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTListsCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTListsCQ extends AbstractBsTListsCQ {
         return _nval;
     }
     protected ConditionValue getCValueNval() { return getNval(); }
-          
+
     public BsTListsCQ addOrderBy_Nval_Asc() { regOBA("NVal"); return this; }
     public BsTListsCQ addOrderBy_Nval_Desc() { regOBD("NVal"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTListsCQ extends AbstractBsTListsCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTListsCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTListsCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -121,8 +121,11 @@ public class BsTListsCQ extends AbstractBsTListsCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TListsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TListsCB.class.getName(); }
+    String xCQ() { return TListsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

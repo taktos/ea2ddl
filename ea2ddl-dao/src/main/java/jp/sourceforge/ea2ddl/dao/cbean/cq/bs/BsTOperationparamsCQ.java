@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_operationparams.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
      * @return On-clause query. (NotNull)
      */
     public TOperationparamsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TOperationparamsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _operationid;
     }
     protected ConditionValue getCValueOperationid() { return getOperationid(); }
-          
+
     protected Map<String, TOperationCQ> _operationid_InScopeSubQuery_TOperationMap;
     public Map<String, TOperationCQ> getOperationid_InScopeSubQuery_TOperation() { return _operationid_InScopeSubQuery_TOperationMap; }
     public String keepOperationid_InScopeSubQuery_TOperation(TOperationCQ subQuery) {
@@ -80,7 +80,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTOperationparamsCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTOperationparamsCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -90,7 +90,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _type;
     }
     protected ConditionValue getCValueType() { return getType(); }
-    
+
     public BsTOperationparamsCQ addOrderBy_Type_Asc() { regOBA("Type"); return this; }
     public BsTOperationparamsCQ addOrderBy_Type_Desc() { regOBD("Type"); return this; }
 
@@ -100,7 +100,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTOperationparamsCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTOperationparamsCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -110,7 +110,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _pos;
     }
     protected ConditionValue getCValuePos() { return getPos(); }
-          
+
     public BsTOperationparamsCQ addOrderBy_Pos_Asc() { regOBA("Pos"); return this; }
     public BsTOperationparamsCQ addOrderBy_Pos_Desc() { regOBD("Pos"); return this; }
 
@@ -120,7 +120,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _style;
     }
     protected ConditionValue getCValueStyle() { return getStyle(); }
-    
+
     public BsTOperationparamsCQ addOrderBy_Style_Asc() { regOBA("Style"); return this; }
     public BsTOperationparamsCQ addOrderBy_Style_Desc() { regOBD("Style"); return this; }
 
@@ -130,7 +130,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _kind;
     }
     protected ConditionValue getCValueKind() { return getKind(); }
-    
+
     public BsTOperationparamsCQ addOrderBy_Kind_Asc() { regOBA("Kind"); return this; }
     public BsTOperationparamsCQ addOrderBy_Kind_Desc() { regOBD("Kind"); return this; }
 
@@ -140,7 +140,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _classifier;
     }
     protected ConditionValue getCValueClassifier() { return getClassifier(); }
-    
+
     public BsTOperationparamsCQ addOrderBy_Classifier_Asc() { regOBA("Classifier"); return this; }
     public BsTOperationparamsCQ addOrderBy_Classifier_Desc() { regOBD("Classifier"); return this; }
 
@@ -150,7 +150,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _eaGuid;
     }
     protected ConditionValue getCValueEaGuid() { return getEaGuid(); }
-    
+
     public BsTOperationparamsCQ addOrderBy_EaGuid_Asc() { regOBA("ea_guid"); return this; }
     public BsTOperationparamsCQ addOrderBy_EaGuid_Desc() { regOBD("ea_guid"); return this; }
 
@@ -160,7 +160,7 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
         return _styleex;
     }
     protected ConditionValue getCValueStyleex() { return getStyleex(); }
-    
+
     public BsTOperationparamsCQ addOrderBy_Styleex_Asc() { regOBA("StyleEx"); return this; }
     public BsTOperationparamsCQ addOrderBy_Styleex_Desc() { regOBD("StyleEx"); return this; }
 
@@ -184,34 +184,38 @@ public class BsTOperationparamsCQ extends AbstractBsTOperationparamsCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-    
     public TOperationCQ queryTOperation() {
         return getConditionQueryTOperation();
     }
     protected TOperationCQ _conditionQueryTOperation;
     public TOperationCQ getConditionQueryTOperation() {
         if (_conditionQueryTOperation == null) {
-            _conditionQueryTOperation = createQueryTOperation();
-            setupOuterJoin_TOperation();
+            _conditionQueryTOperation = xcreateQueryTOperation();
+            xsetupOuterJoinTOperation();
         }
         return _conditionQueryTOperation;
     }
-    protected void setupOuterJoin_TOperation() {
-        Map<String, String> joinOnMap = newLinkedHashMap();
-        joinOnMap.put(getRealColumnName("OperationID"), getConditionQueryTOperation().getRealColumnName("OperationID"));
-        registerOuterJoin(getConditionQueryTOperation(), joinOnMap);
-    }
-    protected TOperationCQ createQueryTOperation() {
+    protected TOperationCQ xcreateQueryTOperation() {
         String nrp = resolveNextRelationPath("t_operationparams", "tOperation");
         String jan = resolveJoinAliasName(nrp, getNextNestLevel());
         TOperationCQ cq = new TOperationCQ(this, getSqlClause(), jan, getNextNestLevel());
         cq.xsetForeignPropertyName("tOperation"); cq.xsetRelationPath(nrp); return cq;
     }
+    protected void xsetupOuterJoinTOperation() {
+        TOperationCQ cq = getConditionQueryTOperation();
+        Map<String, String> joinOnMap = newLinkedHashMap();
+        joinOnMap.put(getRealColumnName("OperationID"), cq.getRealColumnName("OperationID"));
+        registerOuterJoin(cq, joinOnMap);
+    }
     public boolean hasConditionQueryTOperation() {
         return _conditionQueryTOperation != null;
     }
 
-
-    protected String getConditionQueryClassNameInternally() { return TOperationparamsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TOperationparamsCB.class.getName(); }
+    String xCQ() { return TOperationparamsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objectconstraint(TABLE).
+ * The entity of t_objectconstraint that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjectconstraint implements Entity, java.io.Serializable {
+public abstract class BsTObjectconstraint implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objectconstraint. */
-    public static final String TABLE = "t_objectconstraint";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : INTEGER} */
+    /** Object_ID: {UQ : INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Constraint'. {UQ : VARCHAR(255)} */
+    /** Constraint: {UQ : VARCHAR(255)} */
     protected String _constraint;
 
-    /** The attribute of the column 'ConstraintType'. {UQ : VARCHAR(30)} */
+    /** ConstraintType: {UQ : VARCHAR(30)} */
     protected String _constrainttype;
 
-    /** The attribute of the column 'Weight'. {DOUBLE} */
+    /** Weight: {DOUBLE} */
     protected java.math.BigDecimal _weight;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Status'. {VARCHAR(50)} */
+    /** Status: {VARCHAR(50)} */
     protected String _status;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjectconstraint() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objectconstraint";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjectconstraint";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -221,8 +205,7 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -230,12 +213,8 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String constraint_COLUMN = "Constraint";
-
     /**
-     * Get the value of the column 'Constraint'. <br />
-     * {UQ : VARCHAR(255)}
+     * Constraint: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Constraint'. (Nullable)
      */
     public String getConstraint() {
@@ -243,8 +222,7 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Constraint'. <br />
-     * {UQ : VARCHAR(255)}
+     * Constraint: {UQ : VARCHAR(255)} <br />
      * @param constraint The value of the column 'Constraint'. (Nullable)
      */
     public void setConstraint(String constraint) {
@@ -252,12 +230,8 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
         this._constraint = constraint;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(30)} */
-    public static final String constrainttype_COLUMN = "ConstraintType";
-
     /**
-     * Get the value of the column 'ConstraintType'. <br />
-     * {UQ : VARCHAR(30)}
+     * ConstraintType: {UQ : VARCHAR(30)} <br />
      * @return The value of the column 'ConstraintType'. (Nullable)
      */
     public String getConstrainttype() {
@@ -265,8 +239,7 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'ConstraintType'. <br />
-     * {UQ : VARCHAR(30)}
+     * ConstraintType: {UQ : VARCHAR(30)} <br />
      * @param constrainttype The value of the column 'ConstraintType'. (Nullable)
      */
     public void setConstrainttype(String constrainttype) {
@@ -274,12 +247,8 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
         this._constrainttype = constrainttype;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String weight_COLUMN = "Weight";
-
     /**
-     * Get the value of the column 'Weight'. <br />
-     * {DOUBLE}
+     * Weight: {DOUBLE} <br />
      * @return The value of the column 'Weight'. (Nullable)
      */
     public java.math.BigDecimal getWeight() {
@@ -287,8 +256,7 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Weight'. <br />
-     * {DOUBLE}
+     * Weight: {DOUBLE} <br />
      * @param weight The value of the column 'Weight'. (Nullable)
      */
     public void setWeight(java.math.BigDecimal weight) {
@@ -296,12 +264,8 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
         this._weight = weight;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -309,8 +273,7 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -318,12 +281,8 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String status_COLUMN = "Status";
-
     /**
-     * Get the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @return The value of the column 'Status'. (Nullable)
      */
     public String getStatus() {
@@ -331,13 +290,11 @@ public abstract class BsTObjectconstraint implements Entity, java.io.Serializabl
     }
 
     /**
-     * Set the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @param status The value of the column 'Status'. (Nullable)
      */
     public void setStatus(String status) {
         _modifiedProperties.addPropertyName("status");
         this._status = status;
     }
-
 }

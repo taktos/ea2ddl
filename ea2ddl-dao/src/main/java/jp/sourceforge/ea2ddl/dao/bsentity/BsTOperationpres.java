@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_operationpres(TABLE).
+ * The entity of t_operationpres that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTOperationpres implements Entity, java.io.Serializable {
+public abstract class BsTOperationpres implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_operationpres. */
-    public static final String TABLE = "t_operationpres";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'OperationID'. {UQ : INTEGER} */
+    /** OperationID: {UQ : INTEGER} */
     protected java.lang.Integer _operationid;
 
-    /** The attribute of the column 'PreCondition'. {UQ : VARCHAR(255)} */
+    /** PreCondition: {UQ : VARCHAR(255)} */
     protected String _precondition;
 
-    /** The attribute of the column 'Type'. {VARCHAR(50)} */
+    /** Type: {VARCHAR(50)} */
     protected String _type;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTOperationpres() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_operationpres";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TOperationpres";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String operationid_COLUMN = "OperationID";
-
     /**
-     * Get the value of the column 'OperationID'. <br />
-     * {UQ : INTEGER}
+     * OperationID: {UQ : INTEGER} <br />
      * @return The value of the column 'OperationID'. (Nullable)
      */
     public java.lang.Integer getOperationid() {
@@ -209,8 +193,7 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'OperationID'. <br />
-     * {UQ : INTEGER}
+     * OperationID: {UQ : INTEGER} <br />
      * @param operationid The value of the column 'OperationID'. (Nullable)
      */
     public void setOperationid(java.lang.Integer operationid) {
@@ -218,12 +201,8 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
         this._operationid = operationid;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String precondition_COLUMN = "PreCondition";
-
     /**
-     * Get the value of the column 'PreCondition'. <br />
-     * {UQ : VARCHAR(255)}
+     * PreCondition: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'PreCondition'. (Nullable)
      */
     public String getPrecondition() {
@@ -231,8 +210,7 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PreCondition'. <br />
-     * {UQ : VARCHAR(255)}
+     * PreCondition: {UQ : VARCHAR(255)} <br />
      * @param precondition The value of the column 'PreCondition'. (Nullable)
      */
     public void setPrecondition(String precondition) {
@@ -240,12 +218,8 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
         this._precondition = precondition;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(50)}
+     * Type: {VARCHAR(50)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -253,8 +227,7 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(50)}
+     * Type: {VARCHAR(50)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -262,12 +235,8 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -275,13 +244,11 @@ public abstract class BsTOperationpres implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

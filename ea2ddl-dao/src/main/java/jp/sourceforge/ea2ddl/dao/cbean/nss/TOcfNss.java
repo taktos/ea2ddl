@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TOcfCQ;
 
 /**
- * The nest-select-setupper of t_ocf.
+ * The nest select set-upper of t_ocf.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TOcfNss {
 
     protected TOcfCQ _query;

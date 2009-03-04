@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_package.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTPackageCQ extends AbstractBsTPackageCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
      * @return On-clause query. (NotNull)
      */
     public TPackageCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TPackageCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _packageId;
     }
     protected ConditionValue getCValuePackageId() { return getPackageId(); }
-          
+
     public BsTPackageCQ addOrderBy_PackageId_Asc() { regOBA("Package_ID"); return this; }
     public BsTPackageCQ addOrderBy_PackageId_Desc() { regOBD("Package_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _name;
     }
     protected ConditionValue getCValueName() { return getName(); }
-    
+
     public BsTPackageCQ addOrderBy_Name_Asc() { regOBA("Name"); return this; }
     public BsTPackageCQ addOrderBy_Name_Desc() { regOBD("Name"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _parentId;
     }
     protected ConditionValue getCValueParentId() { return getParentId(); }
-          
+
     public BsTPackageCQ addOrderBy_ParentId_Asc() { regOBA("Parent_ID"); return this; }
     public BsTPackageCQ addOrderBy_ParentId_Desc() { regOBD("Parent_ID"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _createddate;
     }
     protected ConditionValue getCValueCreateddate() { return getCreateddate(); }
-    
+
     public BsTPackageCQ addOrderBy_Createddate_Asc() { regOBA("CreatedDate"); return this; }
     public BsTPackageCQ addOrderBy_Createddate_Desc() { regOBD("CreatedDate"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _modifieddate;
     }
     protected ConditionValue getCValueModifieddate() { return getModifieddate(); }
-    
+
     public BsTPackageCQ addOrderBy_Modifieddate_Asc() { regOBA("ModifiedDate"); return this; }
     public BsTPackageCQ addOrderBy_Modifieddate_Desc() { regOBD("ModifiedDate"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTPackageCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTPackageCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _eaGuid;
     }
     protected ConditionValue getCValueEaGuid() { return getEaGuid(); }
-    
+
     public BsTPackageCQ addOrderBy_EaGuid_Asc() { regOBA("ea_guid"); return this; }
     public BsTPackageCQ addOrderBy_EaGuid_Desc() { regOBD("ea_guid"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _xmlpath;
     }
     protected ConditionValue getCValueXmlpath() { return getXmlpath(); }
-    
+
     public BsTPackageCQ addOrderBy_Xmlpath_Asc() { regOBA("XMLPath"); return this; }
     public BsTPackageCQ addOrderBy_Xmlpath_Desc() { regOBD("XMLPath"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _iscontrolled;
     }
     protected ConditionValue getCValueIscontrolled() { return getIscontrolled(); }
-    
+
     public BsTPackageCQ addOrderBy_Iscontrolled_Asc() { regOBA("IsControlled"); return this; }
     public BsTPackageCQ addOrderBy_Iscontrolled_Desc() { regOBD("IsControlled"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _lastloaddate;
     }
     protected ConditionValue getCValueLastloaddate() { return getLastloaddate(); }
-    
+
     public BsTPackageCQ addOrderBy_Lastloaddate_Asc() { regOBA("LastLoadDate"); return this; }
     public BsTPackageCQ addOrderBy_Lastloaddate_Desc() { regOBD("LastLoadDate"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _lastsavedate;
     }
     protected ConditionValue getCValueLastsavedate() { return getLastsavedate(); }
-    
+
     public BsTPackageCQ addOrderBy_Lastsavedate_Asc() { regOBA("LastSaveDate"); return this; }
     public BsTPackageCQ addOrderBy_Lastsavedate_Desc() { regOBD("LastSaveDate"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _version;
     }
     protected ConditionValue getCValueVersion() { return getVersion(); }
-    
+
     public BsTPackageCQ addOrderBy_Version_Asc() { regOBA("Version"); return this; }
     public BsTPackageCQ addOrderBy_Version_Desc() { regOBD("Version"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _pkgowner;
     }
     protected ConditionValue getCValuePkgowner() { return getPkgowner(); }
-    
+
     public BsTPackageCQ addOrderBy_Pkgowner_Asc() { regOBA("PkgOwner"); return this; }
     public BsTPackageCQ addOrderBy_Pkgowner_Desc() { regOBD("PkgOwner"); return this; }
 
@@ -192,7 +192,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _umlversion;
     }
     protected ConditionValue getCValueUmlversion() { return getUmlversion(); }
-    
+
     public BsTPackageCQ addOrderBy_Umlversion_Asc() { regOBA("UMLVersion"); return this; }
     public BsTPackageCQ addOrderBy_Umlversion_Desc() { regOBD("UMLVersion"); return this; }
 
@@ -202,7 +202,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _usedtd;
     }
     protected ConditionValue getCValueUsedtd() { return getUsedtd(); }
-    
+
     public BsTPackageCQ addOrderBy_Usedtd_Asc() { regOBA("UseDTD"); return this; }
     public BsTPackageCQ addOrderBy_Usedtd_Desc() { regOBD("UseDTD"); return this; }
 
@@ -212,7 +212,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _logxml;
     }
     protected ConditionValue getCValueLogxml() { return getLogxml(); }
-    
+
     public BsTPackageCQ addOrderBy_Logxml_Asc() { regOBA("LogXML"); return this; }
     public BsTPackageCQ addOrderBy_Logxml_Desc() { regOBD("LogXML"); return this; }
 
@@ -222,7 +222,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _codepath;
     }
     protected ConditionValue getCValueCodepath() { return getCodepath(); }
-    
+
     public BsTPackageCQ addOrderBy_Codepath_Asc() { regOBA("CodePath"); return this; }
     public BsTPackageCQ addOrderBy_Codepath_Desc() { regOBD("CodePath"); return this; }
 
@@ -232,7 +232,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _namespace;
     }
     protected ConditionValue getCValueNamespace() { return getNamespace(); }
-    
+
     public BsTPackageCQ addOrderBy_Namespace_Asc() { regOBA("Namespace"); return this; }
     public BsTPackageCQ addOrderBy_Namespace_Desc() { regOBD("Namespace"); return this; }
 
@@ -242,7 +242,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _tpos;
     }
     protected ConditionValue getCValueTpos() { return getTpos(); }
-          
+
     public BsTPackageCQ addOrderBy_Tpos_Asc() { regOBA("TPos"); return this; }
     public BsTPackageCQ addOrderBy_Tpos_Desc() { regOBD("TPos"); return this; }
 
@@ -252,7 +252,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _packageflags;
     }
     protected ConditionValue getCValuePackageflags() { return getPackageflags(); }
-    
+
     public BsTPackageCQ addOrderBy_Packageflags_Asc() { regOBA("PackageFlags"); return this; }
     public BsTPackageCQ addOrderBy_Packageflags_Desc() { regOBD("PackageFlags"); return this; }
 
@@ -262,7 +262,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _batchsave;
     }
     protected ConditionValue getCValueBatchsave() { return getBatchsave(); }
-          
+
     public BsTPackageCQ addOrderBy_Batchsave_Asc() { regOBA("BatchSave"); return this; }
     public BsTPackageCQ addOrderBy_Batchsave_Desc() { regOBD("BatchSave"); return this; }
 
@@ -272,7 +272,7 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
         return _batchload;
     }
     protected ConditionValue getCValueBatchload() { return getBatchload(); }
-          
+
     public BsTPackageCQ addOrderBy_Batchload_Asc() { regOBA("BatchLoad"); return this; }
     public BsTPackageCQ addOrderBy_Batchload_Desc() { regOBD("BatchLoad"); return this; }
 
@@ -291,8 +291,11 @@ public class BsTPackageCQ extends AbstractBsTPackageCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TPackageCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TPackageCB.class.getName(); }
+    String xCQ() { return TPackageCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

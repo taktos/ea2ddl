@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_script(TABLE).
+ * The entity of t_script that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTScript implements Entity, java.io.Serializable {
+public abstract class BsTScript implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_script. */
-    public static final String TABLE = "t_script";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'ScriptID'. {UQ : COUNTER : NotNull} */
+    /** ScriptID: {UQ : NotNull : COUNTER} */
     protected java.lang.Integer _scriptid;
 
-    /** The attribute of the column 'ScriptCategory'. {VARCHAR(100)} */
+    /** ScriptCategory: {VARCHAR(100)} */
     protected String _scriptcategory;
 
-    /** The attribute of the column 'ScriptName'. {VARCHAR(150)} */
+    /** ScriptName: {VARCHAR(150)} */
     protected String _scriptname;
 
-    /** The attribute of the column 'ScriptAuthor'. {VARCHAR(255)} */
+    /** ScriptAuthor: {VARCHAR(255)} */
     protected String _scriptauthor;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Script'. {LONGCHAR(2147483647)} */
+    /** Script: {LONGCHAR(2147483647)} */
     protected String _script;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTScript() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_script";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TScript";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : COUNTER : NotNull} */
-    public static final String scriptid_COLUMN = "ScriptID";
-
     /**
-     * Get the value of the column 'ScriptID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * ScriptID: {UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'ScriptID'. (Nullable)
      */
     public java.lang.Integer getScriptid() {
@@ -221,8 +205,7 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ScriptID'. <br />
-     * {UQ : COUNTER : NotNull}
+     * ScriptID: {UQ : NotNull : COUNTER} <br />
      * @param scriptid The value of the column 'ScriptID'. (Nullable)
      */
     public void setScriptid(java.lang.Integer scriptid) {
@@ -230,12 +213,8 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
         this._scriptid = scriptid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(100)} */
-    public static final String scriptcategory_COLUMN = "ScriptCategory";
-
     /**
-     * Get the value of the column 'ScriptCategory'. <br />
-     * {VARCHAR(100)}
+     * ScriptCategory: {VARCHAR(100)} <br />
      * @return The value of the column 'ScriptCategory'. (Nullable)
      */
     public String getScriptcategory() {
@@ -243,8 +222,7 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ScriptCategory'. <br />
-     * {VARCHAR(100)}
+     * ScriptCategory: {VARCHAR(100)} <br />
      * @param scriptcategory The value of the column 'ScriptCategory'. (Nullable)
      */
     public void setScriptcategory(String scriptcategory) {
@@ -252,12 +230,8 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
         this._scriptcategory = scriptcategory;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(150)} */
-    public static final String scriptname_COLUMN = "ScriptName";
-
     /**
-     * Get the value of the column 'ScriptName'. <br />
-     * {VARCHAR(150)}
+     * ScriptName: {VARCHAR(150)} <br />
      * @return The value of the column 'ScriptName'. (Nullable)
      */
     public String getScriptname() {
@@ -265,8 +239,7 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ScriptName'. <br />
-     * {VARCHAR(150)}
+     * ScriptName: {VARCHAR(150)} <br />
      * @param scriptname The value of the column 'ScriptName'. (Nullable)
      */
     public void setScriptname(String scriptname) {
@@ -274,12 +247,8 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
         this._scriptname = scriptname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String scriptauthor_COLUMN = "ScriptAuthor";
-
     /**
-     * Get the value of the column 'ScriptAuthor'. <br />
-     * {VARCHAR(255)}
+     * ScriptAuthor: {VARCHAR(255)} <br />
      * @return The value of the column 'ScriptAuthor'. (Nullable)
      */
     public String getScriptauthor() {
@@ -287,8 +256,7 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ScriptAuthor'. <br />
-     * {VARCHAR(255)}
+     * ScriptAuthor: {VARCHAR(255)} <br />
      * @param scriptauthor The value of the column 'ScriptAuthor'. (Nullable)
      */
     public void setScriptauthor(String scriptauthor) {
@@ -296,12 +264,8 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
         this._scriptauthor = scriptauthor;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -309,8 +273,7 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -318,12 +281,8 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String script_COLUMN = "Script";
-
     /**
-     * Get the value of the column 'Script'. <br />
-     * {LONGCHAR(2147483647)}
+     * Script: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Script'. (Nullable)
      */
     public String getScript() {
@@ -331,13 +290,11 @@ public abstract class BsTScript implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Script'. <br />
-     * {LONGCHAR(2147483647)}
+     * Script: {LONGCHAR(2147483647)} <br />
      * @param script The value of the column 'Script'. (Nullable)
      */
     public void setScript(String script) {
         _modifiedProperties.addPropertyName("script");
         this._script = script;
     }
-
 }

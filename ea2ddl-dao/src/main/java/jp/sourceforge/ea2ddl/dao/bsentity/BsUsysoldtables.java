@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of usysOldTables(TABLE).
+ * The entity of usysOldTables that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
+public abstract class BsUsysoldtables implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is usysOldTables. */
-    public static final String TABLE = "usysOldTables";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'TableName'. {VARCHAR(50)} */
+    /** TableName: {VARCHAR(50)} */
     protected String _tablename;
 
-    /** The attribute of the column 'NewName'. {VARCHAR(50)} */
+    /** NewName: {VARCHAR(50)} */
     protected String _newname;
 
-    /** The attribute of the column 'RelOrder'. {INTEGER} */
+    /** RelOrder: {INTEGER} */
     protected java.lang.Integer _relorder;
 
-    /** The attribute of the column 'FixCode'. {BIT : NotNull} */
+    /** FixCode: {NotNull : BIT} */
     protected Boolean _fixcode;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsUsysoldtables() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "usysOldTables";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "usysoldtables";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String tablename_COLUMN = "TableName";
-
     /**
-     * Get the value of the column 'TableName'. <br />
-     * {VARCHAR(50)}
+     * TableName: {VARCHAR(50)} <br />
      * @return The value of the column 'TableName'. (Nullable)
      */
     public String getTablename() {
@@ -209,8 +193,7 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TableName'. <br />
-     * {VARCHAR(50)}
+     * TableName: {VARCHAR(50)} <br />
      * @param tablename The value of the column 'TableName'. (Nullable)
      */
     public void setTablename(String tablename) {
@@ -218,12 +201,8 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
         this._tablename = tablename;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String newname_COLUMN = "NewName";
-
     /**
-     * Get the value of the column 'NewName'. <br />
-     * {VARCHAR(50)}
+     * NewName: {VARCHAR(50)} <br />
      * @return The value of the column 'NewName'. (Nullable)
      */
     public String getNewname() {
@@ -231,8 +210,7 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NewName'. <br />
-     * {VARCHAR(50)}
+     * NewName: {VARCHAR(50)} <br />
      * @param newname The value of the column 'NewName'. (Nullable)
      */
     public void setNewname(String newname) {
@@ -240,12 +218,8 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
         this._newname = newname;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String relorder_COLUMN = "RelOrder";
-
     /**
-     * Get the value of the column 'RelOrder'. <br />
-     * {INTEGER}
+     * RelOrder: {INTEGER} <br />
      * @return The value of the column 'RelOrder'. (Nullable)
      */
     public java.lang.Integer getRelorder() {
@@ -253,8 +227,7 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RelOrder'. <br />
-     * {INTEGER}
+     * RelOrder: {INTEGER} <br />
      * @param relorder The value of the column 'RelOrder'. (Nullable)
      */
     public void setRelorder(java.lang.Integer relorder) {
@@ -262,12 +235,8 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
         this._relorder = relorder;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String fixcode_COLUMN = "FixCode";
-
     /**
-     * Get the value of the column 'FixCode'. <br />
-     * {BIT : NotNull}
+     * FixCode: {NotNull : BIT} <br />
      * @return The value of the column 'FixCode'. (Nullable)
      */
     public Boolean getFixcode() {
@@ -275,13 +244,11 @@ public abstract class BsUsysoldtables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'FixCode'. <br />
-     * {BIT : NotNull}
+     * FixCode: {NotNull : BIT} <br />
      * @param fixcode The value of the column 'FixCode'. (Nullable)
      */
     public void setFixcode(Boolean fixcode) {
         _modifiedProperties.addPropertyName("fixcode");
         this._fixcode = fixcode;
     }
-
 }

@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TDiagramobjects;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_diagramobjects. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TDiagramobjectsDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TDiagramobjectsDbm _instance = new TDiagramobjectsDbm();
     private TDiagramobjectsDbm() {}
     public static TDiagramobjectsDbm getInstance() { return _instance; }
@@ -29,15 +32,15 @@ public class TDiagramobjectsDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnDiagramId = cci("Diagram_ID", "diagramId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnObjectId = cci("Object_ID", "objectId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnRecttop = cci("RectTop", "recttop", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnRectleft = cci("RectLeft", "rectleft", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnRectright = cci("RectRight", "rectright", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnRectbottom = cci("RectBottom", "rectbottom", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnSequence = cci("Sequence", "sequence", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnObjectstyle = cci("ObjectStyle", "objectstyle", String.class, false, 255, 0);
-    protected ColumnInfo _columnInstanceId = cci("Instance_ID", "instanceId", java.lang.Integer.class, false, null, null);
+    protected ColumnInfo _columnDiagramId = cci("Diagram_ID", null, "diagramId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnObjectId = cci("Object_ID", null, "objectId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnRecttop = cci("RectTop", null, "recttop", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnRectleft = cci("RectLeft", null, "rectleft", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnRectright = cci("RectRight", null, "rectright", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnRectbottom = cci("RectBottom", null, "rectbottom", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnSequence = cci("Sequence", null, "sequence", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnObjectstyle = cci("ObjectStyle", null, "objectstyle", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnInstanceId = cci("Instance_ID", null, "instanceId", java.lang.Integer.class, false, false, null, null);
 
     public ColumnInfo columnDiagramId() { return _columnDiagramId; }
     public ColumnInfo columnObjectId() { return _columnObjectId; }
@@ -48,23 +51,35 @@ public class TDiagramobjectsDbm extends AbstractDBMeta {
     public ColumnInfo columnSequence() { return _columnSequence; }
     public ColumnInfo columnObjectstyle() { return _columnObjectstyle; }
     public ColumnInfo columnInstanceId() { return _columnInstanceId; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -86,65 +101,29 @@ public class TDiagramobjectsDbm extends AbstractDBMeta {
     public TDiagramobjects newMyEntity() { return new TDiagramobjects(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TDiagramobjects)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TDiagramobjects)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TDiagramobjects)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TDiagramobjects)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -158,7 +137,7 @@ public class TDiagramobjectsDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TDiagramobjects>> _epsMap = newHashMap();
+    protected Map<String, Eps<TDiagramobjects>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsDiagramId(), columnDiagramId());
         setupEps(_epsMap, new EpsObjectId(), columnObjectId());
@@ -170,40 +149,27 @@ public class TDiagramobjectsDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsObjectstyle(), columnObjectstyle());
         setupEps(_epsMap, new EpsInstanceId(), columnInstanceId());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TDiagramobjects)entity, value);
-    }
-    
-    public static class EpsDiagramId implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setDiagramId((java.lang.Integer)v); }
-    }
-    public static class EpsObjectId implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setObjectId((java.lang.Integer)v); }
-    }
-    public static class EpsRecttop implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setRecttop((java.lang.Integer)v); }
-    }
-    public static class EpsRectleft implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setRectleft((java.lang.Integer)v); }
-    }
-    public static class EpsRectright implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setRectright((java.lang.Integer)v); }
-    }
-    public static class EpsRectbottom implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setRectbottom((java.lang.Integer)v); }
-    }
-    public static class EpsSequence implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setSequence((java.lang.Integer)v); }
-    }
-    public static class EpsObjectstyle implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setObjectstyle((String)v); }
-    }
-    public static class EpsInstanceId implements Eps<TDiagramobjects> {
-        public void setup(TDiagramobjects e, Object v) { e.setInstanceId((java.lang.Integer)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TDiagramobjects)entity, value); }
+
+    public static class EpsDiagramId implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setDiagramId((java.lang.Integer)v); } }
+    public static class EpsObjectId implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setObjectId((java.lang.Integer)v); } }
+    public static class EpsRecttop implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setRecttop((java.lang.Integer)v); } }
+    public static class EpsRectleft implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setRectleft((java.lang.Integer)v); } }
+    public static class EpsRectright implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setRectright((java.lang.Integer)v); } }
+    public static class EpsRectbottom implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setRectbottom((java.lang.Integer)v); } }
+    public static class EpsSequence implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setSequence((java.lang.Integer)v); } }
+    public static class EpsObjectstyle implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setObjectstyle((String)v); } }
+    public static class EpsInstanceId implements Eps<TDiagramobjects>
+    { public void setup(TDiagramobjects e, Object v) { e.setInstanceId((java.lang.Integer)v); } }
 }

@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_genopt.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTGenoptCQ extends AbstractBsTGenoptCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTGenoptCQ extends AbstractBsTGenoptCQ {
      * @return On-clause query. (NotNull)
      */
     public TGenoptCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TGenoptCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTGenoptCQ extends AbstractBsTGenoptCQ {
         return _appliesto;
     }
     protected ConditionValue getCValueAppliesto() { return getAppliesto(); }
-    
+
     public BsTGenoptCQ addOrderBy_Appliesto_Asc() { regOBA("AppliesTo"); return this; }
     public BsTGenoptCQ addOrderBy_Appliesto_Desc() { regOBD("AppliesTo"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTGenoptCQ extends AbstractBsTGenoptCQ {
         return _option;
     }
     protected ConditionValue getCValueOption() { return getOption(); }
-    
+
     public BsTGenoptCQ addOrderBy_Option_Asc() { regOBA("Option"); return this; }
     public BsTGenoptCQ addOrderBy_Option_Desc() { regOBD("Option"); return this; }
 
@@ -91,8 +91,11 @@ public class BsTGenoptCQ extends AbstractBsTGenoptCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TGenoptCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TGenoptCB.class.getName(); }
+    String xCQ() { return TGenoptCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

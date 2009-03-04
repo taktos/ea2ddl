@@ -1,6 +1,11 @@
 package jp.sourceforge.ea2ddl.dao.allcommon;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.jdbc.StatementConfig;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.seasar.dbflute.QLog;
+import org.seasar.dbflute.XLog;
+import org.seasar.dbflute.jdbc.DataSourceHandler;
+import org.seasar.dbflute.jdbc.StatementConfig;
 
 /**
  * @author DBFlute(AutoGenerator)
@@ -11,24 +16,31 @@ public class DBFluteConfig {
     //                                                                          Definition
     //                                                                          ==========
     /** Log instance. */
-    private static final org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(DBFluteConfig.class);
-	
+    private static final Log _log = LogFactory.getLog(DBFluteConfig.class);
+
     /** Singleton instance. */
     private static final DBFluteConfig _instance = new DBFluteConfig();
+
+    /** The default package of outside SQL. */
+    private static final String DEFAULT_OUTSIDE_SQL_PACKAGE = null;
+
+    /** The default value of whether it uses SQL Log Registry. The default value is false. */
+    private static final boolean DEFAULT_USE_SQL_LOG_REGISTRY = false;
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
 	protected StatementConfig _defaultStatementConfig;
-	protected boolean _conditionBeanFormatSql = true;// This is for compatibility!
 	protected boolean _queryLogLevelInfo;
 	protected boolean _executeStatusLogLevelInfo;
-	protected UniqueConstraintDeterminator _uniqueConstraintDeterminator;
-	protected boolean _sqlExceptionOldStyleHandling = false;// This is for compatibility!
 	protected String _logDateFormat;
 	protected String _logTimestampFormat;
-    protected String _outsideSqlPackage;
+    protected DataSourceHandler _dataSourceHandler;
+    protected String _outsideSqlPackage = DEFAULT_OUTSIDE_SQL_PACKAGE;
+	protected boolean _useSqlLogRegistry = DEFAULT_USE_SQL_LOG_REGISTRY;
+	protected boolean _disableSelectIndex;
 	protected boolean _internalDebug;
+
 	protected boolean _locked = true;
 	
     // ===================================================================================
@@ -44,7 +56,7 @@ public class DBFluteConfig {
     //                                                                           Singleton
     //                                                                           =========
     /**
-     * Get instance.
+     * Get singleton instance.
      * @return Singleton instance. (NotNull)
      */
     public static DBFluteConfig getInstance() {
@@ -67,92 +79,29 @@ public class DBFluteConfig {
     }
 	
     // ===================================================================================
-    //                                                            ConditionBean Format Sql
-    //                                                            ========================
-	public boolean isConditionBeanFormatSql() {
-	    return _conditionBeanFormatSql;
-	}
-
-    /**
-     * @param conditionBeanFormatSql The value of the config.
-     * @deprecated This is for compatibility!
-     */
-	public void setConditionBeanFormatSql(boolean conditionBeanFormatSql) {
-	    assertNotLocked();
-		if (_log.isInfoEnabled()) {
-		    _log.info("...Setting conditionBeanFormatSql: " + conditionBeanFormatSql);
-		}
-	    _conditionBeanFormatSql = conditionBeanFormatSql;
-	}
-	
-    // ===================================================================================
     //                                                                Query Log Level Info
     //                                                                ====================
-	public boolean isQueryLogLevelInfo() {
-	    return _queryLogLevelInfo;
-	}
-	
 	public void setQueryLogLevelInfo(boolean queryLogLevelInfo) {
 	    assertNotLocked();
 		if (_log.isInfoEnabled()) {
 		    _log.info("...Setting queryLogLevelInfo: " + queryLogLevelInfo);
 		}
-	    _queryLogLevelInfo = queryLogLevelInfo;
+		QLog.unlock();
+		QLog.setQueryLogLevelInfo(queryLogLevelInfo);
+		QLog.lock();
 	}
 	
     // ===================================================================================
     //                                                       Execute Status Log Level Info
     //                                                       =============================
-	public boolean isExecuteStatusLogLevelInfo() {
-	    return _executeStatusLogLevelInfo;
-	}
-	
 	public void setExecuteStatusLogLevelInfo(boolean executeStatusLogLevelInfo) {
 	    assertNotLocked();
 		if (_log.isInfoEnabled()) {
 		    _log.info("...Setting executeStatusLogLevelInfo: " + executeStatusLogLevelInfo);
 		}
-	    _executeStatusLogLevelInfo = executeStatusLogLevelInfo;
-	}
-
-    // [DBFlute-0.7.7]
-    // ===================================================================================
-    //                                                                   Unique Constraint
-    //                                                                   =================
-	public UniqueConstraintDeterminator getUniqueConstraintDeterminator() {
-	    return _uniqueConstraintDeterminator;
-	}
-
-	public void setUniqueConstraintDeterminator(UniqueConstraintDeterminator uniqueConstraintDeterminator) {
-	    assertNotLocked();
-		if (_log.isInfoEnabled()) {
-		    _log.info("...Setting uniqueConstraintDeterminator: " + uniqueConstraintDeterminator);
-		}
-	    _uniqueConstraintDeterminator = uniqueConstraintDeterminator;
-	}
-
-    public static interface UniqueConstraintDeterminator {
-        public boolean isUniqueConstraintException(Throwable t);
-    }
-
-    // [DBFlute-0.7.7]
-    // ===================================================================================
-    //                                                             SQL Exception Old Style
-    //                                                             =======================
-	public boolean isSqlExceptionOldStyleHandling() {
-	    return _sqlExceptionOldStyleHandling;
-	}
-
-    /**
-     * @param sqlExceptionOldStyleHandling The value of the config.
-     * @deprecated This is for compatibility!
-     */
-	public void setSqlExceptionOldStyleHandling(boolean sqlExceptionOldStyleHandling) {
-	    assertNotLocked();
-		if (_log.isInfoEnabled()) {
-		    _log.info("...Setting sqlExceptionOldStyleHandling: " + sqlExceptionOldStyleHandling);
-		}
-	    _sqlExceptionOldStyleHandling = sqlExceptionOldStyleHandling;
+		XLog.unlock();
+        XLog.setExecuteStatusLogLevelInfo(executeStatusLogLevelInfo);
+		XLog.lock();
 	}
 
     // ===================================================================================
@@ -181,14 +130,42 @@ public class DBFluteConfig {
 		}
 	    _logTimestampFormat = logTimestampFormat;
 	}
-	
+
+    // [DBFlute-0.9.0]
+    // ===================================================================================
+    //                                                                  DataSource Handler
+    //                                                                  ==================
+    /**
+     * @return The handler of data source. (Nullable)
+     */
+	public DataSourceHandler getDataSourceHandler() {
+	    return _dataSourceHandler;
+	}
+
+    /**
+     * @param dataSourceHandler The handler of data source. (Nullable)
+     */
+	public void setDataSourceHandler(DataSourceHandler dataSourceHandler) {
+	    assertNotLocked();
+		if (_log.isInfoEnabled()) {
+		    _log.info("...Setting dataSourceHandler: " + dataSourceHandler);
+		}
+	    _dataSourceHandler = dataSourceHandler;
+	}
+
     // ===================================================================================
     //                                                                  OutsideSql Package
     //                                                                  ==================
+    /**
+     * @return The package of outside SQL. (Nullable)
+     */
 	public String getOutsideSqlPackage() {
 	    return _outsideSqlPackage;
 	}
-	
+
+    /**
+     * @param outsideSqlPackage The package of outside SQL. (Nullable)
+     */
 	public void setOutsideSqlPackage(String outsideSqlPackage) {
 	    assertNotLocked();
 		if (_log.isInfoEnabled()) {
@@ -196,7 +173,39 @@ public class DBFluteConfig {
 		}
 	    _outsideSqlPackage = outsideSqlPackage;
 	}
-    
+
+    // [DBFlute-0.8.2]
+    // ===================================================================================
+    //                                                                    SQL Log Registry
+    //                                                                    ================
+	public boolean isUseSqlLogRegistry() {
+	    return _useSqlLogRegistry;
+	}
+	
+	public void setUseSqlLogRegistry(boolean useSqlLogRegistry) {
+	    assertNotLocked();
+		if (_log.isInfoEnabled()) {
+		    _log.info("...Setting useSqlLogRegistry: " + useSqlLogRegistry);
+		}
+	    _useSqlLogRegistry = useSqlLogRegistry;
+	}
+
+    // [DBFlute-0.9.0]
+    // ===================================================================================
+    //                                                                        Select Index
+    //                                                                        ============
+	public boolean isDisableSelectIndex() {
+	    return _disableSelectIndex;
+	}
+
+	public void setDisableSelectIndex(boolean disableSelectIndex) {
+	    assertNotLocked();
+		if (_log.isInfoEnabled()) {
+		    _log.info("...Setting disableSelectIndex: " + disableSelectIndex);
+		}
+	    _disableSelectIndex = disableSelectIndex;
+	}
+
     // ===================================================================================
     //                                                                      Internal Debug
     //                                                                      ==============
@@ -213,22 +222,22 @@ public class DBFluteConfig {
 	}
 	
     // ===================================================================================
-    //                                                                         Config Lock
-    //                                                                         ===========
+    //                                                                  Configuration Lock
+    //                                                                  ==================
 	public boolean isLocked() {
 	    return _locked;
 	}
 	
 	public void lock() {
 		if (_log.isInfoEnabled()) {
-		    _log.info("...Locking the config of dbflute!");
+		    _log.info("...Locking the configuration of DBFlute!");
 		}
 	    _locked = true;
 	}
 	
 	public void unlock() {
 		if (_log.isInfoEnabled()) {
-		    _log.info("...Unlocking the config of dbflute!");
+		    _log.info("...Unlocking the configuration of DBFlute!");
 		}
 	    _locked = false;
 	}
@@ -237,20 +246,23 @@ public class DBFluteConfig {
 	    if (!isLocked()) {
 		    return;
 		}
-		String msg = "The config of dbflute is locked! Don't access at this timing!";
+		String msg = "The configuration of DBFlute is locked! Don't access at this timing!";
 		throw new IllegalStateException(msg);
 	}
 	
     // ===================================================================================
-    //                                                                        Config Clear
-    //                                                                        ============
-	public void clear() {
+    //                                                                 Configuration Clear
+    //                                                                 ===================
+	public void clear() { // the only properties that update OK while executing
 	    _defaultStatementConfig = null;
-	    _conditionBeanFormatSql = true;
 	    _queryLogLevelInfo = false;
 	    _executeStatusLogLevelInfo = false;
 	    _logDateFormat = null;
 	    _logTimestampFormat = null;
+	    _dataSourceHandler = null;
+	    _outsideSqlPackage = DEFAULT_OUTSIDE_SQL_PACKAGE;
+	    _useSqlLogRegistry = DEFAULT_USE_SQL_LOG_REGISTRY;
+	    _disableSelectIndex = false;
 		_internalDebug = false;
 	}
 }

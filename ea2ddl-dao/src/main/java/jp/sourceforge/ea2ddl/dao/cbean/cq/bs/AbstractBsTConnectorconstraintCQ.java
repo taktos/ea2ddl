@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_connectorconstraint.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTConnectorconstraintCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTConnectorconstraintCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     //                                                                               =====
     
     /**
-     * Equal(=). And NullIgnored, OnceRegistered. {UQ : INTEGER}
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. {UQ : INTEGER}
      * @param connectorid The value of connectorid as equal.
      */
     public void setConnectorid_Equal(java.lang.Integer connectorid) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * NotEqual(!=). And NullIgnored, OnceRegistered.
+     * NotEqual(!=). And NullIgnored, OnlyOnceRegistered.
      * @param connectorid The value of connectorid as notEqual.
      */
     public void setConnectorid_NotEqual(java.lang.Integer connectorid) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered.
      * @param connectorid The value of connectorid as greaterThan.
      */
     public void setConnectorid_GreaterThan(java.lang.Integer connectorid) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered.
      * @param connectorid The value of connectorid as lessThan.
      */
     public void setConnectorid_LessThan(java.lang.Integer connectorid) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered.
      * @param connectorid The value of connectorid as greaterEqual.
      */
     public void setConnectorid_GreaterEqual(java.lang.Integer connectorid) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered.
      * @param connectorid The value of connectorid as lessEqual.
      */
     public void setConnectorid_LessEqual(java.lang.Integer connectorid) {
@@ -95,25 +110,20 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setConnectorid_IsNull() { regConnectorid(CK_ISN, DUMMY_OBJECT); }
+    public void setConnectorid_IsNull() { regConnectorid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNotNull(is not null). And OnlyOnceRegistered.
      */
-    public void setConnectorid_IsNotNull() { regConnectorid(CK_ISNN, DUMMY_OBJECT); }
+    public void setConnectorid_IsNotNull() { regConnectorid(CK_ISNN, DOBJ); }
 
-    protected void regConnectorid(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueConnectorid(), "ConnectorID", "Connectorid", "connectorid");
-    }
-    protected void registerInlineConnectorid(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueConnectorid(), "ConnectorID", "Connectorid", "connectorid");
-    }
+    protected void regConnectorid(ConditionKey k, Object v) { regQ(k, v, getCValueConnectorid(), "ConnectorID"); }
     abstract protected ConditionValue getCValueConnectorid();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(255)}
      * @param constraint The value of constraint as equal.
      */
     public void setConstraint_Equal(String constraint) {
@@ -121,7 +131,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constraint The value of constraint as notEqual.
      */
     public void setConstraint_NotEqual(String constraint) {
@@ -129,7 +139,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constraint The value of constraint as greaterThan.
      */
     public void setConstraint_GreaterThan(String constraint) {
@@ -137,7 +147,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constraint The value of constraint as lessThan.
      */
     public void setConstraint_LessThan(String constraint) {
@@ -145,7 +155,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constraint The value of constraint as greaterEqual.
      */
     public void setConstraint_GreaterEqual(String constraint) {
@@ -153,7 +163,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constraint The value of constraint as lessEqual.
      */
     public void setConstraint_LessEqual(String constraint) {
@@ -161,20 +171,11 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constraint The value of constraint as prefixSearch.
      */
     public void setConstraint_PrefixSearch(String constraint) {
         regConstraint(CK_PS, fRES(constraint));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param constraint The value of constraint as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setConstraint_LikeSearch(String constraint, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(constraint), getCValueConstraint(), "Constraint", "Constraint", "constraint", likeSearchOption);
     }
 
     /**
@@ -186,34 +187,38 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param constraint The collection of constraint as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param constraint The value of constraint as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setConstraint_InScope(String constraint, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(constraint), getCValueConstraint(), "Constraint", "Constraint", "constraint", inScopeOption);
+    public void setConstraint_LikeSearch(String constraint, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(constraint), getCValueConstraint(), "Constraint", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param constraint The value of constraint as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setConstraint_IsNull() { regConstraint(CK_ISN, DUMMY_OBJECT); }
+    public void setConstraint_NotLikeSearch(String constraint, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(constraint), getCValueConstraint(), "Constraint", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setConstraint_IsNotNull() { regConstraint(CK_ISNN, DUMMY_OBJECT); }
+    public void setConstraint_IsNull() { regConstraint(CK_ISN, DOBJ); }
 
-    protected void regConstraint(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueConstraint(), "Constraint", "Constraint", "constraint");
-    }
-    protected void registerInlineConstraint(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueConstraint(), "Constraint", "Constraint", "constraint");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setConstraint_IsNotNull() { regConstraint(CK_ISNN, DOBJ); }
+
+    protected void regConstraint(ConditionKey k, Object v) { regQ(k, v, getCValueConstraint(), "Constraint"); }
     abstract protected ConditionValue getCValueConstraint();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param constrainttype The value of constrainttype as equal.
      */
     public void setConstrainttype_Equal(String constrainttype) {
@@ -221,7 +226,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constrainttype The value of constrainttype as notEqual.
      */
     public void setConstrainttype_NotEqual(String constrainttype) {
@@ -229,7 +234,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constrainttype The value of constrainttype as greaterThan.
      */
     public void setConstrainttype_GreaterThan(String constrainttype) {
@@ -237,7 +242,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constrainttype The value of constrainttype as lessThan.
      */
     public void setConstrainttype_LessThan(String constrainttype) {
@@ -245,7 +250,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constrainttype The value of constrainttype as greaterEqual.
      */
     public void setConstrainttype_GreaterEqual(String constrainttype) {
@@ -253,7 +258,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constrainttype The value of constrainttype as lessEqual.
      */
     public void setConstrainttype_LessEqual(String constrainttype) {
@@ -261,20 +266,11 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param constrainttype The value of constrainttype as prefixSearch.
      */
     public void setConstrainttype_PrefixSearch(String constrainttype) {
         regConstrainttype(CK_PS, fRES(constrainttype));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param constrainttype The value of constrainttype as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setConstrainttype_LikeSearch(String constrainttype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(constrainttype), getCValueConstrainttype(), "ConstraintType", "Constrainttype", "constrainttype", likeSearchOption);
     }
 
     /**
@@ -286,34 +282,38 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param constrainttype The collection of constrainttype as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param constrainttype The value of constrainttype as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setConstrainttype_InScope(String constrainttype, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(constrainttype), getCValueConstrainttype(), "ConstraintType", "Constrainttype", "constrainttype", inScopeOption);
+    public void setConstrainttype_LikeSearch(String constrainttype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(constrainttype), getCValueConstrainttype(), "ConstraintType", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param constrainttype The value of constrainttype as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setConstrainttype_IsNull() { regConstrainttype(CK_ISN, DUMMY_OBJECT); }
+    public void setConstrainttype_NotLikeSearch(String constrainttype, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(constrainttype), getCValueConstrainttype(), "ConstraintType", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setConstrainttype_IsNotNull() { regConstrainttype(CK_ISNN, DUMMY_OBJECT); }
+    public void setConstrainttype_IsNull() { regConstrainttype(CK_ISN, DOBJ); }
 
-    protected void regConstrainttype(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueConstrainttype(), "ConstraintType", "Constrainttype", "constrainttype");
-    }
-    protected void registerInlineConstrainttype(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueConstrainttype(), "ConstraintType", "Constrainttype", "constrainttype");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setConstrainttype_IsNotNull() { regConstrainttype(CK_ISNN, DOBJ); }
+
+    protected void regConstrainttype(ConditionKey k, Object v) { regQ(k, v, getCValueConstrainttype(), "ConstraintType"); }
     abstract protected ConditionValue getCValueConstrainttype();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {LONGCHAR(2147483647)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {LONGCHAR(2147483647)}
      * @param notes The value of notes as equal.
      */
     public void setNotes_Equal(String notes) {
@@ -321,7 +321,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as notEqual.
      */
     public void setNotes_NotEqual(String notes) {
@@ -329,7 +329,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterThan.
      */
     public void setNotes_GreaterThan(String notes) {
@@ -337,7 +337,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessThan.
      */
     public void setNotes_LessThan(String notes) {
@@ -345,7 +345,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterEqual.
      */
     public void setNotes_GreaterEqual(String notes) {
@@ -353,7 +353,7 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessEqual.
      */
     public void setNotes_LessEqual(String notes) {
@@ -361,20 +361,11 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as prefixSearch.
      */
     public void setNotes_PrefixSearch(String notes) {
         regNotes(CK_PS, fRES(notes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param notes The value of notes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNotes_LikeSearch(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", likeSearchOption);
     }
 
     /**
@@ -386,33 +377,41 @@ public abstract class AbstractBsTConnectorconstraintCQ extends AbstractCondition
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param notes The collection of notes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotes_InScope(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", inScopeOption);
+    public void setNotes_LikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotes_IsNull() { regNotes(CK_ISN, DUMMY_OBJECT); }
+    public void setNotes_NotLikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setNotes_IsNull() { regNotes(CK_ISN, DOBJ); }
 
-    protected void regNotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
-    protected void registerInlineNotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DOBJ); }
+
+    protected void regNotes(ConditionKey k, Object v) { regQ(k, v, getCValueNotes(), "Notes"); }
     abstract protected ConditionValue getCValueNotes();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TConnectorconstraintCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TConnectorconstraintCQ.class.getName(); }
+    String xCB() { return TConnectorconstraintCB.class.getName(); }
+    String xCQ() { return TConnectorconstraintCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

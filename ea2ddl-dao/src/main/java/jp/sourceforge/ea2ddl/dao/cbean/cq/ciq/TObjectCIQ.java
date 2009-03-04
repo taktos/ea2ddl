@@ -1,10 +1,11 @@
 package jp.sourceforge.ea2ddl.dao.cbean.cq.ciq;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.ConditionOption;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.ConditionOption;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.bs.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -12,7 +13,6 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The condition-inline-query of t_object.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TObjectCIQ extends AbstractBsTObjectCQ {
 
     // ===================================================================================
@@ -39,15 +39,13 @@ public class TObjectCIQ extends AbstractBsTObjectCQ {
     }
 
     @Override
-    protected void setupConditionValueAndRegisterWhereClause(ConditionKey key, Object value, ConditionValue cvalue
-                                                             , String colName, String capPropName, String uncapPropName) {
-        registerInlineQuery(key, value, cvalue, colName, capPropName, uncapPropName);
+    protected void setupConditionValueAndRegisterWhereClause(ConditionKey k, Object v, ConditionValue cv, String col) {
+        regIQ(k, v, cv, col);
     }
 
     @Override
-    protected void setupConditionValueAndRegisterWhereClause(ConditionKey key, Object value, ConditionValue cvalue
-                                                             , String colName, String capPropName, String uncapPropName, ConditionOption option) {
-        registerInlineQuery(key, value, cvalue, colName, capPropName, uncapPropName, option);
+    protected void setupConditionValueAndRegisterWhereClause(ConditionKey k, Object v, ConditionValue cv, String col, ConditionOption op) {
+        regIQ(k, v, cv, col, op);
     }
 
     @Override
@@ -65,7 +63,7 @@ public class TObjectCIQ extends AbstractBsTObjectCQ {
 
     @Override
     protected void registerExistsSubQuery(ConditionQuery subQuery
-                                 , String columnName, String relatedColumnName, String propertyName) {
+            , String columnName, String relatedColumnName, String propertyName) {
         throw new UnsupportedOperationException("Sorry! ExistsSubQuery at inline view is unsupported. So please use InScopeSubQyery.");
     }
 
@@ -135,20 +133,50 @@ public class TObjectCIQ extends AbstractBsTObjectCQ {
     public String keepObjectId_NotExistsSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
         throw new UnsupportedOperationException("NotExistsSubQuery at inline() is unsupported! Sorry!");
     }
-    public String keepObjectId_DeriveSubQuery_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
-        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    public String keepObjectId_SpecifyDerivedReferrer_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
     }
-    public String keepObjectId_DeriveSubQuery_TAttributeList(TAttributeCQ subQuery) {
-        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    public String keepObjectId_SpecifyDerivedReferrer_TAttributeList(TAttributeCQ subQuery) {
+        throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
     }
-    public String keepObjectId_DeriveSubQuery_TOperationList(TOperationCQ subQuery) {
-        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    public String keepObjectId_SpecifyDerivedReferrer_TOperationList(TOperationCQ subQuery) {
+        throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
     }
-    public String keepObjectId_DeriveSubQuery_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
-        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    public String keepObjectId_SpecifyDerivedReferrer_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
     }
-    public String keepObjectId_DeriveSubQuery_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
-        throw new UnsupportedOperationException("DeriveSubQuery at inline() is unsupported! Sorry!");
+    public String keepObjectId_SpecifyDerivedReferrer_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TObjectpropertiesList(TObjectpropertiesCQ subQuery) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TObjectpropertiesListParameter(Object parameterValue) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TAttributeList(TAttributeCQ subQuery) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TAttributeListParameter(Object parameterValue) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TOperationList(TOperationCQ subQuery) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TOperationListParameter(Object parameterValue) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TConnectorByStartObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TConnectorByStartObjectIdListParameter(Object parameterValue) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TConnectorByEndObjectIdList(TConnectorCQ subQuery) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+    }
+    public String keepObjectId_QueryDerivedReferrer_TConnectorByEndObjectIdListParameter(Object parameterValue) {
+        throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
     }
     protected ConditionValue getCValueObjectType() {
         return _myCQ.getObjectType();
@@ -316,5 +344,24 @@ public class TObjectCIQ extends AbstractBsTObjectCQ {
         return _myCQ.getEventflags();
     }
 
-    protected String getConditionQueryClassNameInternally() { return TObjectCQ.class.getName(); }
+    // ===================================================================================
+    //                                                                     Scalar SubQuery
+    //                                                                     ===============
+    public String keepScalarSubQuery(TObjectCQ subQuery) {
+        throw new UnsupportedOperationException("ScalarSubQuery at inline() is unsupported! Sorry!");
+    }
+
+    // ===================================================================================
+    //                                                             MySelf InScope SubQuery
+    //                                                             =======================
+    public String keepMyselfInScopeSubQuery(TObjectCQ subQuery) {
+        throw new UnsupportedOperationException("MyselfInScopeSubQuery at inline() is unsupported! Sorry!");
+    }
+
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xiCB() { return TObjectCB.class.getName(); }
+    String xiCQ() { return TObjectCQ.class.getName(); }
 }

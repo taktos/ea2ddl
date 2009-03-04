@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_secpermission(TABLE).
+ * The entity of t_secpermission that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTSecpermission implements Entity, java.io.Serializable {
+public abstract class BsTSecpermission implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,20 +47,16 @@ public abstract class BsTSecpermission implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_secpermission. */
-    public static final String TABLE = "t_secpermission";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'PermissionID'. {UQ : INTEGER} */
+    /** PermissionID: {UQ : INTEGER} */
     protected java.lang.Integer _permissionid;
 
-    /** The attribute of the column 'PermissionName'. {VARCHAR(50)} */
+    /** PermissionName: {VARCHAR(50)} */
     protected String _permissionname;
 
     // -----------------------------------------------------
@@ -70,19 +66,13 @@ public abstract class BsTSecpermission implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTSecpermission() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_secpermission";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TSecpermission";
     }
 
@@ -108,7 +98,6 @@ public abstract class BsTSecpermission implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -183,13 +172,8 @@ public abstract class BsTSecpermission implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String permissionid_COLUMN = "PermissionID";
-
     /**
-     * Get the value of the column 'PermissionID'. <br />
-     * {UQ : INTEGER}
+     * PermissionID: {UQ : INTEGER} <br />
      * @return The value of the column 'PermissionID'. (Nullable)
      */
     public java.lang.Integer getPermissionid() {
@@ -197,8 +181,7 @@ public abstract class BsTSecpermission implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PermissionID'. <br />
-     * {UQ : INTEGER}
+     * PermissionID: {UQ : INTEGER} <br />
      * @param permissionid The value of the column 'PermissionID'. (Nullable)
      */
     public void setPermissionid(java.lang.Integer permissionid) {
@@ -206,12 +189,8 @@ public abstract class BsTSecpermission implements Entity, java.io.Serializable {
         this._permissionid = permissionid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String permissionname_COLUMN = "PermissionName";
-
     /**
-     * Get the value of the column 'PermissionName'. <br />
-     * {VARCHAR(50)}
+     * PermissionName: {VARCHAR(50)} <br />
      * @return The value of the column 'PermissionName'. (Nullable)
      */
     public String getPermissionname() {
@@ -219,13 +198,11 @@ public abstract class BsTSecpermission implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PermissionName'. <br />
-     * {VARCHAR(50)}
+     * PermissionName: {VARCHAR(50)} <br />
      * @param permissionname The value of the column 'PermissionName'. (Nullable)
      */
     public void setPermissionname(String permissionname) {
         _modifiedProperties.addPropertyName("permissionname");
         this._permissionname = permissionname;
     }
-
 }

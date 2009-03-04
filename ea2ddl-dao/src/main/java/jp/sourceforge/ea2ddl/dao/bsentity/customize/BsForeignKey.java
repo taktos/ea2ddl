@@ -1,12 +1,13 @@
 package jp.sourceforge.ea2ddl.dao.bsentity.customize;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
 
 /**
- * The entity of ForeignKey(null).
+ * The entity of ForeignKey that the type is null. <br />
  * <pre>
  * [primary-key]
  *     
@@ -37,8 +38,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsForeignKey implements Entity, java.io.Serializable {
+public abstract class BsForeignKey implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -46,26 +46,22 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is ForeignKey. */
-    public static final String TABLE = "ForeignKey";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Connector_ID'. {COUNTER(10,0)} */
+    /** Connector_ID: {COUNTER(10,0)} */
     protected java.lang.Integer _connectorId;
 
-    /** The attribute of the column 'Start_Object_ID'. {INTEGER(10,0)} */
+    /** Start_Object_ID: {INTEGER(10,0)} */
     protected java.lang.Integer _startObjectId;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255,0)} */
+    /** Name: {VARCHAR(255,0)} */
     protected String _name;
 
-    /** The attribute of the column 'End_Object_ID'. {INTEGER(10,0)} */
+    /** End_Object_ID: {INTEGER(10,0)} */
     protected java.lang.Integer _endObjectId;
 
     // -----------------------------------------------------
@@ -75,19 +71,13 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsForeignKey() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "ForeignKey";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "foreignKey";
     }
 
@@ -113,7 +103,6 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -194,13 +183,8 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {COUNTER(10,0)} */
-    public static final String connectorId_COLUMN = "Connector_ID";
-
     /**
-     * Get the value of the column 'Connector_ID'. <br />
-     * {COUNTER(10,0)}
+     * Connector_ID: {COUNTER(10,0)} <br />
      * @return The value of the column 'Connector_ID'. (Nullable)
      */
     public java.lang.Integer getConnectorId() {
@@ -208,8 +192,7 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Connector_ID'. <br />
-     * {COUNTER(10,0)}
+     * Connector_ID: {COUNTER(10,0)} <br />
      * @param connectorId The value of the column 'Connector_ID'. (Nullable)
      */
     public void setConnectorId(java.lang.Integer connectorId) {
@@ -217,12 +200,8 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
         this._connectorId = connectorId;
     }
 
-    /** The column annotation for S2Dao. {INTEGER(10,0)} */
-    public static final String startObjectId_COLUMN = "Start_Object_ID";
-
     /**
-     * Get the value of the column 'Start_Object_ID'. <br />
-     * {INTEGER(10,0)}
+     * Start_Object_ID: {INTEGER(10,0)} <br />
      * @return The value of the column 'Start_Object_ID'. (Nullable)
      */
     public java.lang.Integer getStartObjectId() {
@@ -230,8 +209,7 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Start_Object_ID'. <br />
-     * {INTEGER(10,0)}
+     * Start_Object_ID: {INTEGER(10,0)} <br />
      * @param startObjectId The value of the column 'Start_Object_ID'. (Nullable)
      */
     public void setStartObjectId(java.lang.Integer startObjectId) {
@@ -239,12 +217,8 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
         this._startObjectId = startObjectId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255,0)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255,0)}
+     * Name: {VARCHAR(255,0)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -252,8 +226,7 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255,0)}
+     * Name: {VARCHAR(255,0)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -261,12 +234,8 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {INTEGER(10,0)} */
-    public static final String endObjectId_COLUMN = "End_Object_ID";
-
     /**
-     * Get the value of the column 'End_Object_ID'. <br />
-     * {INTEGER(10,0)}
+     * End_Object_ID: {INTEGER(10,0)} <br />
      * @return The value of the column 'End_Object_ID'. (Nullable)
      */
     public java.lang.Integer getEndObjectId() {
@@ -274,13 +243,11 @@ public abstract class BsForeignKey implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'End_Object_ID'. <br />
-     * {INTEGER(10,0)}
+     * End_Object_ID: {INTEGER(10,0)} <br />
      * @param endObjectId The value of the column 'End_Object_ID'. (Nullable)
      */
     public void setEndObjectId(java.lang.Integer endObjectId) {
         _modifiedProperties.addPropertyName("endObjectId");
         this._endObjectId = endObjectId;
     }
-
 }

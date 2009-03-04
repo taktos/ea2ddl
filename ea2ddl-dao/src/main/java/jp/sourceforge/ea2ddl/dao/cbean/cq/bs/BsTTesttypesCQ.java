@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_testtypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTTesttypesCQ extends AbstractBsTTesttypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTTesttypesCQ extends AbstractBsTTesttypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TTesttypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TTesttypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTTesttypesCQ extends AbstractBsTTesttypesCQ {
         return _testtype;
     }
     protected ConditionValue getCValueTesttype() { return getTesttype(); }
-    
+
     public BsTTesttypesCQ addOrderBy_Testtype_Asc() { regOBA("TestType"); return this; }
     public BsTTesttypesCQ addOrderBy_Testtype_Desc() { regOBD("TestType"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTTesttypesCQ extends AbstractBsTTesttypesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTTesttypesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTTesttypesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTTesttypesCQ extends AbstractBsTTesttypesCQ {
         return _numericweight;
     }
     protected ConditionValue getCValueNumericweight() { return getNumericweight(); }
-          
+
     public BsTTesttypesCQ addOrderBy_Numericweight_Asc() { regOBA("NumericWeight"); return this; }
     public BsTTesttypesCQ addOrderBy_Numericweight_Desc() { regOBD("NumericWeight"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTTesttypesCQ extends AbstractBsTTesttypesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTTesttypesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTTesttypesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTTesttypesCQ extends AbstractBsTTesttypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TTesttypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TTesttypesCB.class.getName(); }
+    String xCQ() { return TTesttypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

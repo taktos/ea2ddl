@@ -1,14 +1,15 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
- * The entity of t_connector(TABLE).
+ * The entity of t_connector that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     Connector_ID
@@ -39,8 +40,7 @@ import jp.sourceforge.ea2ddl.dao.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTConnector implements Entity, java.io.Serializable {
+public abstract class BsTConnector implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -48,251 +48,247 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_connector. */
-    public static final String TABLE = "t_connector";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Connector_ID'. {PK : UQ : COUNTER : NotNull} */
+    /** Connector_ID: {PK : UQ : NotNull : COUNTER} */
     protected java.lang.Integer _connectorId;
 
-    /** The attribute of the column 'Name'. {VARCHAR(255)} */
+    /** Name: {VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Direction'. {VARCHAR(50)} */
+    /** Direction: {VARCHAR(50)} */
     protected String _direction;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Connector_Type'. {VARCHAR(50)} */
+    /** Connector_Type: {VARCHAR(50)} */
     protected String _connectorType;
 
-    /** The attribute of the column 'SubType'. {VARCHAR(50)} */
+    /** SubType: {VARCHAR(50)} */
     protected String _subtype;
 
-    /** The attribute of the column 'SourceCard'. {VARCHAR(50)} */
+    /** SourceCard: {VARCHAR(50)} */
     protected String _sourcecard;
 
-    /** The attribute of the column 'SourceAccess'. {VARCHAR(50)} */
+    /** SourceAccess: {VARCHAR(50)} */
     protected String _sourceaccess;
 
-    /** The attribute of the column 'SourceElement'. {VARCHAR(50)} */
+    /** SourceElement: {VARCHAR(50)} */
     protected String _sourceelement;
 
-    /** The attribute of the column 'DestCard'. {VARCHAR(50)} */
+    /** DestCard: {VARCHAR(50)} */
     protected String _destcard;
 
-    /** The attribute of the column 'DestAccess'. {VARCHAR(50)} */
+    /** DestAccess: {VARCHAR(50)} */
     protected String _destaccess;
 
-    /** The attribute of the column 'DestElement'. {VARCHAR(50)} */
+    /** DestElement: {VARCHAR(50)} */
     protected String _destelement;
 
-    /** The attribute of the column 'SourceRole'. {VARCHAR(255) : FK to t_operation} */
+    /** SourceRole: {VARCHAR(255) : FK to t_operation} */
     protected String _sourcerole;
 
-    /** The attribute of the column 'SourceRoleType'. {VARCHAR(50)} */
+    /** SourceRoleType: {VARCHAR(50)} */
     protected String _sourceroletype;
 
-    /** The attribute of the column 'SourceRoleNote'. {LONGCHAR(2147483647)} */
+    /** SourceRoleNote: {LONGCHAR(2147483647)} */
     protected String _sourcerolenote;
 
-    /** The attribute of the column 'SourceContainment'. {VARCHAR(50)} */
+    /** SourceContainment: {VARCHAR(50)} */
     protected String _sourcecontainment;
 
-    /** The attribute of the column 'SourceIsAggregate'. {INTEGER} */
+    /** SourceIsAggregate: {INTEGER} */
     protected java.lang.Integer _sourceisaggregate;
 
-    /** The attribute of the column 'SourceIsOrdered'. {INTEGER} */
+    /** SourceIsOrdered: {INTEGER} */
     protected java.lang.Integer _sourceisordered;
 
-    /** The attribute of the column 'SourceQualifier'. {VARCHAR(50)} */
+    /** SourceQualifier: {VARCHAR(50)} */
     protected String _sourcequalifier;
 
-    /** The attribute of the column 'DestRole'. {VARCHAR(255) : FK to t_operation} */
+    /** DestRole: {VARCHAR(255) : FK to t_operation} */
     protected String _destrole;
 
-    /** The attribute of the column 'DestRoleType'. {VARCHAR(50)} */
+    /** DestRoleType: {VARCHAR(50)} */
     protected String _destroletype;
 
-    /** The attribute of the column 'DestRoleNote'. {LONGCHAR(2147483647)} */
+    /** DestRoleNote: {LONGCHAR(2147483647)} */
     protected String _destrolenote;
 
-    /** The attribute of the column 'DestContainment'. {VARCHAR(50)} */
+    /** DestContainment: {VARCHAR(50)} */
     protected String _destcontainment;
 
-    /** The attribute of the column 'DestIsAggregate'. {INTEGER} */
+    /** DestIsAggregate: {INTEGER} */
     protected java.lang.Integer _destisaggregate;
 
-    /** The attribute of the column 'DestIsOrdered'. {INTEGER} */
+    /** DestIsOrdered: {INTEGER} */
     protected java.lang.Integer _destisordered;
 
-    /** The attribute of the column 'DestQualifier'. {VARCHAR(50)} */
+    /** DestQualifier: {VARCHAR(50)} */
     protected String _destqualifier;
 
-    /** The attribute of the column 'Start_Object_ID'. {INTEGER : FK to t_object} */
+    /** Start_Object_ID: {INTEGER : FK to t_object} */
     protected java.lang.Integer _startObjectId;
 
-    /** The attribute of the column 'End_Object_ID'. {INTEGER : FK to t_object} */
+    /** End_Object_ID: {INTEGER : FK to t_object} */
     protected java.lang.Integer _endObjectId;
 
-    /** The attribute of the column 'Top_Start_Label'. {VARCHAR(50)} */
+    /** Top_Start_Label: {VARCHAR(50)} */
     protected String _topStartLabel;
 
-    /** The attribute of the column 'Top_Mid_Label'. {VARCHAR(50)} */
+    /** Top_Mid_Label: {VARCHAR(50)} */
     protected String _topMidLabel;
 
-    /** The attribute of the column 'Top_End_Label'. {VARCHAR(50)} */
+    /** Top_End_Label: {VARCHAR(50)} */
     protected String _topEndLabel;
 
-    /** The attribute of the column 'Btm_Start_Label'. {VARCHAR(50)} */
+    /** Btm_Start_Label: {VARCHAR(50)} */
     protected String _btmStartLabel;
 
-    /** The attribute of the column 'Btm_Mid_Label'. {VARCHAR(50)} */
+    /** Btm_Mid_Label: {VARCHAR(50)} */
     protected String _btmMidLabel;
 
-    /** The attribute of the column 'Btm_End_Label'. {VARCHAR(50)} */
+    /** Btm_End_Label: {VARCHAR(50)} */
     protected String _btmEndLabel;
 
-    /** The attribute of the column 'Start_Edge'. {INTEGER} */
+    /** Start_Edge: {INTEGER} */
     protected java.lang.Integer _startEdge;
 
-    /** The attribute of the column 'End_Edge'. {INTEGER} */
+    /** End_Edge: {INTEGER} */
     protected java.lang.Integer _endEdge;
 
-    /** The attribute of the column 'PtStartX'. {INTEGER} */
+    /** PtStartX: {INTEGER} */
     protected java.lang.Integer _ptstartx;
 
-    /** The attribute of the column 'PtStartY'. {INTEGER} */
+    /** PtStartY: {INTEGER} */
     protected java.lang.Integer _ptstarty;
 
-    /** The attribute of the column 'PtEndX'. {INTEGER} */
+    /** PtEndX: {INTEGER} */
     protected java.lang.Integer _ptendx;
 
-    /** The attribute of the column 'PtEndY'. {INTEGER} */
+    /** PtEndY: {INTEGER} */
     protected java.lang.Integer _ptendy;
 
-    /** The attribute of the column 'SeqNo'. {INTEGER} */
+    /** SeqNo: {INTEGER} */
     protected java.lang.Integer _seqno;
 
-    /** The attribute of the column 'HeadStyle'. {INTEGER} */
+    /** HeadStyle: {INTEGER} */
     protected java.lang.Integer _headstyle;
 
-    /** The attribute of the column 'LineStyle'. {INTEGER} */
+    /** LineStyle: {INTEGER} */
     protected java.lang.Integer _linestyle;
 
-    /** The attribute of the column 'RouteStyle'. {INTEGER} */
+    /** RouteStyle: {INTEGER} */
     protected java.lang.Integer _routestyle;
 
-    /** The attribute of the column 'IsBold'. {INTEGER} */
+    /** IsBold: {INTEGER} */
     protected java.lang.Integer _isbold;
 
-    /** The attribute of the column 'LineColor'. {INTEGER} */
+    /** LineColor: {INTEGER} */
     protected java.lang.Integer _linecolor;
 
-    /** The attribute of the column 'Stereotype'. {VARCHAR(50)} */
+    /** Stereotype: {VARCHAR(50)} */
     protected String _stereotype;
 
-    /** The attribute of the column 'VirtualInheritance'. {VARCHAR(1)} */
+    /** VirtualInheritance: {VARCHAR(1)} */
     protected String _virtualinheritance;
 
-    /** The attribute of the column 'LinkAccess'. {VARCHAR(50)} */
+    /** LinkAccess: {VARCHAR(50)} */
     protected String _linkaccess;
 
-    /** The attribute of the column 'PDATA1'. {VARCHAR(255)} */
+    /** PDATA1: {VARCHAR(255)} */
     protected String _pdata1;
 
-    /** The attribute of the column 'PDATA2'. {VARCHAR(255)} */
+    /** PDATA2: {VARCHAR(255)} */
     protected String _pdata2;
 
-    /** The attribute of the column 'PDATA3'. {VARCHAR(255)} */
+    /** PDATA3: {VARCHAR(255)} */
     protected String _pdata3;
 
-    /** The attribute of the column 'PDATA4'. {VARCHAR(255)} */
+    /** PDATA4: {VARCHAR(255)} */
     protected String _pdata4;
 
-    /** The attribute of the column 'PDATA5'. {VARCHAR(255)} */
+    /** PDATA5: {VARCHAR(255)} */
     protected String _pdata5;
 
-    /** The attribute of the column 'DiagramID'. {INTEGER} */
+    /** DiagramID: {INTEGER} */
     protected java.lang.Integer _diagramid;
 
-    /** The attribute of the column 'ea_guid'. {UQ : VARCHAR(40)} */
+    /** ea_guid: {UQ : VARCHAR(40)} */
     protected String _eaGuid;
 
-    /** The attribute of the column 'SourceConstraint'. {VARCHAR(255)} */
+    /** SourceConstraint: {VARCHAR(255)} */
     protected String _sourceconstraint;
 
-    /** The attribute of the column 'DestConstraint'. {VARCHAR(255)} */
+    /** DestConstraint: {VARCHAR(255)} */
     protected String _destconstraint;
 
-    /** The attribute of the column 'SourceIsNavigable'. {BIT : NotNull} */
+    /** SourceIsNavigable: {NotNull : BIT} */
     protected Boolean _sourceisnavigable;
 
-    /** The attribute of the column 'DestIsNavigable'. {BIT : NotNull} */
+    /** DestIsNavigable: {NotNull : BIT} */
     protected Boolean _destisnavigable;
 
-    /** The attribute of the column 'IsRoot'. {BIT : NotNull} */
+    /** IsRoot: {NotNull : BIT} */
     protected Boolean _isroot;
 
-    /** The attribute of the column 'IsLeaf'. {BIT : NotNull} */
+    /** IsLeaf: {NotNull : BIT} */
     protected Boolean _isleaf;
 
-    /** The attribute of the column 'IsSpec'. {BIT : NotNull} */
+    /** IsSpec: {NotNull : BIT} */
     protected Boolean _isspec;
 
-    /** The attribute of the column 'SourceChangeable'. {VARCHAR(12)} */
+    /** SourceChangeable: {VARCHAR(12)} */
     protected String _sourcechangeable;
 
-    /** The attribute of the column 'DestChangeable'. {VARCHAR(12)} */
+    /** DestChangeable: {VARCHAR(12)} */
     protected String _destchangeable;
 
-    /** The attribute of the column 'SourceTS'. {VARCHAR(12)} */
+    /** SourceTS: {VARCHAR(12)} */
     protected String _sourcets;
 
-    /** The attribute of the column 'DestTS'. {VARCHAR(12)} */
+    /** DestTS: {VARCHAR(12)} */
     protected String _destts;
 
-    /** The attribute of the column 'StateFlags'. {VARCHAR(255)} */
+    /** StateFlags: {VARCHAR(255)} */
     protected String _stateflags;
 
-    /** The attribute of the column 'ActionFlags'. {VARCHAR(255)} */
+    /** ActionFlags: {VARCHAR(255)} */
     protected String _actionflags;
 
-    /** The attribute of the column 'IsSignal'. {BIT : NotNull} */
+    /** IsSignal: {NotNull : BIT} */
     protected Boolean _issignal;
 
-    /** The attribute of the column 'IsStimulus'. {BIT : NotNull} */
+    /** IsStimulus: {NotNull : BIT} */
     protected Boolean _isstimulus;
 
-    /** The attribute of the column 'DispatchAction'. {VARCHAR(255)} */
+    /** DispatchAction: {VARCHAR(255)} */
     protected String _dispatchaction;
 
-    /** The attribute of the column 'Target2'. {INTEGER} */
+    /** Target2: {INTEGER} */
     protected java.lang.Integer _target2;
 
-    /** The attribute of the column 'StyleEx'. {LONGCHAR(2147483647)} */
+    /** StyleEx: {LONGCHAR(2147483647)} */
     protected String _styleex;
 
-    /** The attribute of the column 'SourceStereotype'. {VARCHAR(255)} */
+    /** SourceStereotype: {VARCHAR(255)} */
     protected String _sourcestereotype;
 
-    /** The attribute of the column 'DestStereotype'. {VARCHAR(255)} */
+    /** DestStereotype: {VARCHAR(255)} */
     protected String _deststereotype;
 
-    /** The attribute of the column 'SourceStyle'. {LONGCHAR(2147483647)} */
+    /** SourceStyle: {LONGCHAR(2147483647)} */
     protected String _sourcestyle;
 
-    /** The attribute of the column 'DestStyle'. {LONGCHAR(2147483647)} */
+    /** DestStyle: {LONGCHAR(2147483647)} */
     protected String _deststyle;
 
-    /** The attribute of the column 'EventFlags'. {VARCHAR(255)} */
+    /** EventFlags: {VARCHAR(255)} */
     protected String _eventflags;
 
     // -----------------------------------------------------
@@ -302,19 +298,13 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTConnector() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_connector";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TConnector";
     }
 
@@ -337,17 +327,11 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Foreign Property = [TOperationBySourcerole]
-    // * * * * * * * * */
-    public static final int TOperationBySourcerole_RELNO = 0;
-    public static final String TOperationBySourcerole_RELKEYS = "SourceRole:Name";
-
-    /** The entity of foreign property 'TOperationBySourcerole'. */
+    /** t_operation as 'TOperationBySourcerole'. */
     protected TOperation _parentTOperationBySourcerole;
 
     /**
-     * Get the entity of foreign property 'TOperationBySourcerole'. {without lazy-load}
+     * t_operation as 'TOperationBySourcerole'. {without lazy-load}
      * @return The entity of foreign property 'TOperationBySourcerole'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
      */
     public TOperation getTOperationBySourcerole() {
@@ -355,24 +339,18 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity of foreign property 'TOperationBySourcerole'.
+     * t_operation as 'TOperationBySourcerole'.
      * @param tOperationBySourcerole The entity of foreign property 'TOperationBySourcerole'. (Nullable)
      */
     public void setTOperationBySourcerole(TOperation tOperationBySourcerole) {
         _parentTOperationBySourcerole = tOperationBySourcerole;
     }
 
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Foreign Property = [TOperationByDestrole]
-    // * * * * * * * * */
-    public static final int TOperationByDestrole_RELNO = 1;
-    public static final String TOperationByDestrole_RELKEYS = "DestRole:Name";
-
-    /** The entity of foreign property 'TOperationByDestrole'. */
+    /** t_operation as 'TOperationByDestrole'. */
     protected TOperation _parentTOperationByDestrole;
 
     /**
-     * Get the entity of foreign property 'TOperationByDestrole'. {without lazy-load}
+     * t_operation as 'TOperationByDestrole'. {without lazy-load}
      * @return The entity of foreign property 'TOperationByDestrole'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
      */
     public TOperation getTOperationByDestrole() {
@@ -380,24 +358,18 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity of foreign property 'TOperationByDestrole'.
+     * t_operation as 'TOperationByDestrole'.
      * @param tOperationByDestrole The entity of foreign property 'TOperationByDestrole'. (Nullable)
      */
     public void setTOperationByDestrole(TOperation tOperationByDestrole) {
         _parentTOperationByDestrole = tOperationByDestrole;
     }
 
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Foreign Property = [TObjectByStartObjectId]
-    // * * * * * * * * */
-    public static final int TObjectByStartObjectId_RELNO = 2;
-    public static final String TObjectByStartObjectId_RELKEYS = "Start_Object_ID:Object_ID";
-
-    /** The entity of foreign property 'TObjectByStartObjectId'. */
+    /** t_object as 'TObjectByStartObjectId'. */
     protected TObject _parentTObjectByStartObjectId;
 
     /**
-     * Get the entity of foreign property 'TObjectByStartObjectId'. {without lazy-load}
+     * t_object as 'TObjectByStartObjectId'. {without lazy-load}
      * @return The entity of foreign property 'TObjectByStartObjectId'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
      */
     public TObject getTObjectByStartObjectId() {
@@ -405,24 +377,18 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity of foreign property 'TObjectByStartObjectId'.
+     * t_object as 'TObjectByStartObjectId'.
      * @param tObjectByStartObjectId The entity of foreign property 'TObjectByStartObjectId'. (Nullable)
      */
     public void setTObjectByStartObjectId(TObject tObjectByStartObjectId) {
         _parentTObjectByStartObjectId = tObjectByStartObjectId;
     }
 
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Foreign Property = [TObjectByEndObjectId]
-    // * * * * * * * * */
-    public static final int TObjectByEndObjectId_RELNO = 3;
-    public static final String TObjectByEndObjectId_RELKEYS = "End_Object_ID:Object_ID";
-
-    /** The entity of foreign property 'TObjectByEndObjectId'. */
+    /** t_object as 'TObjectByEndObjectId'. */
     protected TObject _parentTObjectByEndObjectId;
 
     /**
-     * Get the entity of foreign property 'TObjectByEndObjectId'. {without lazy-load}
+     * t_object as 'TObjectByEndObjectId'. {without lazy-load}
      * @return The entity of foreign property 'TObjectByEndObjectId'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
      */
     public TObject getTObjectByEndObjectId() {
@@ -430,7 +396,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the entity of foreign property 'TObjectByEndObjectId'.
+     * t_object as 'TObjectByEndObjectId'.
      * @param tObjectByEndObjectId The entity of foreign property 'TObjectByEndObjectId'. (Nullable)
      */
     public void setTObjectByEndObjectId(TObject tObjectByEndObjectId) {
@@ -440,7 +406,6 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -591,13 +556,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {PK : UQ : COUNTER : NotNull} */
-    public static final String connectorId_COLUMN = "Connector_ID";
-
     /**
-     * Get the value of the column 'Connector_ID'. <br />
-     * {PK : UQ : COUNTER : NotNull}
+     * Connector_ID: {PK : UQ : NotNull : COUNTER} <br />
      * @return The value of the column 'Connector_ID'. (Nullable)
      */
     public java.lang.Integer getConnectorId() {
@@ -605,8 +565,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Connector_ID'. <br />
-     * {PK : UQ : COUNTER : NotNull}
+     * Connector_ID: {PK : UQ : NotNull : COUNTER} <br />
      * @param connectorId The value of the column 'Connector_ID'. (Nullable)
      */
     public void setConnectorId(java.lang.Integer connectorId) {
@@ -614,12 +573,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._connectorId = connectorId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -627,8 +582,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {VARCHAR(255)}
+     * Name: {VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -636,12 +590,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String direction_COLUMN = "Direction";
-
     /**
-     * Get the value of the column 'Direction'. <br />
-     * {VARCHAR(50)}
+     * Direction: {VARCHAR(50)} <br />
      * @return The value of the column 'Direction'. (Nullable)
      */
     public String getDirection() {
@@ -649,8 +599,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Direction'. <br />
-     * {VARCHAR(50)}
+     * Direction: {VARCHAR(50)} <br />
      * @param direction The value of the column 'Direction'. (Nullable)
      */
     public void setDirection(String direction) {
@@ -658,12 +607,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._direction = direction;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -671,8 +616,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -680,12 +624,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String connectorType_COLUMN = "Connector_Type";
-
     /**
-     * Get the value of the column 'Connector_Type'. <br />
-     * {VARCHAR(50)}
+     * Connector_Type: {VARCHAR(50)} <br />
      * @return The value of the column 'Connector_Type'. (Nullable)
      */
     public String getConnectorType() {
@@ -693,8 +633,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Connector_Type'. <br />
-     * {VARCHAR(50)}
+     * Connector_Type: {VARCHAR(50)} <br />
      * @param connectorType The value of the column 'Connector_Type'. (Nullable)
      */
     public void setConnectorType(String connectorType) {
@@ -702,12 +641,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._connectorType = connectorType;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String subtype_COLUMN = "SubType";
-
     /**
-     * Get the value of the column 'SubType'. <br />
-     * {VARCHAR(50)}
+     * SubType: {VARCHAR(50)} <br />
      * @return The value of the column 'SubType'. (Nullable)
      */
     public String getSubtype() {
@@ -715,8 +650,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SubType'. <br />
-     * {VARCHAR(50)}
+     * SubType: {VARCHAR(50)} <br />
      * @param subtype The value of the column 'SubType'. (Nullable)
      */
     public void setSubtype(String subtype) {
@@ -724,12 +658,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._subtype = subtype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String sourcecard_COLUMN = "SourceCard";
-
     /**
-     * Get the value of the column 'SourceCard'. <br />
-     * {VARCHAR(50)}
+     * SourceCard: {VARCHAR(50)} <br />
      * @return The value of the column 'SourceCard'. (Nullable)
      */
     public String getSourcecard() {
@@ -737,8 +667,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceCard'. <br />
-     * {VARCHAR(50)}
+     * SourceCard: {VARCHAR(50)} <br />
      * @param sourcecard The value of the column 'SourceCard'. (Nullable)
      */
     public void setSourcecard(String sourcecard) {
@@ -746,12 +675,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcecard = sourcecard;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String sourceaccess_COLUMN = "SourceAccess";
-
     /**
-     * Get the value of the column 'SourceAccess'. <br />
-     * {VARCHAR(50)}
+     * SourceAccess: {VARCHAR(50)} <br />
      * @return The value of the column 'SourceAccess'. (Nullable)
      */
     public String getSourceaccess() {
@@ -759,8 +684,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceAccess'. <br />
-     * {VARCHAR(50)}
+     * SourceAccess: {VARCHAR(50)} <br />
      * @param sourceaccess The value of the column 'SourceAccess'. (Nullable)
      */
     public void setSourceaccess(String sourceaccess) {
@@ -768,12 +692,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourceaccess = sourceaccess;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String sourceelement_COLUMN = "SourceElement";
-
     /**
-     * Get the value of the column 'SourceElement'. <br />
-     * {VARCHAR(50)}
+     * SourceElement: {VARCHAR(50)} <br />
      * @return The value of the column 'SourceElement'. (Nullable)
      */
     public String getSourceelement() {
@@ -781,8 +701,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceElement'. <br />
-     * {VARCHAR(50)}
+     * SourceElement: {VARCHAR(50)} <br />
      * @param sourceelement The value of the column 'SourceElement'. (Nullable)
      */
     public void setSourceelement(String sourceelement) {
@@ -790,12 +709,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourceelement = sourceelement;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String destcard_COLUMN = "DestCard";
-
     /**
-     * Get the value of the column 'DestCard'. <br />
-     * {VARCHAR(50)}
+     * DestCard: {VARCHAR(50)} <br />
      * @return The value of the column 'DestCard'. (Nullable)
      */
     public String getDestcard() {
@@ -803,8 +718,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestCard'. <br />
-     * {VARCHAR(50)}
+     * DestCard: {VARCHAR(50)} <br />
      * @param destcard The value of the column 'DestCard'. (Nullable)
      */
     public void setDestcard(String destcard) {
@@ -812,12 +726,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destcard = destcard;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String destaccess_COLUMN = "DestAccess";
-
     /**
-     * Get the value of the column 'DestAccess'. <br />
-     * {VARCHAR(50)}
+     * DestAccess: {VARCHAR(50)} <br />
      * @return The value of the column 'DestAccess'. (Nullable)
      */
     public String getDestaccess() {
@@ -825,8 +735,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestAccess'. <br />
-     * {VARCHAR(50)}
+     * DestAccess: {VARCHAR(50)} <br />
      * @param destaccess The value of the column 'DestAccess'. (Nullable)
      */
     public void setDestaccess(String destaccess) {
@@ -834,12 +743,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destaccess = destaccess;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String destelement_COLUMN = "DestElement";
-
     /**
-     * Get the value of the column 'DestElement'. <br />
-     * {VARCHAR(50)}
+     * DestElement: {VARCHAR(50)} <br />
      * @return The value of the column 'DestElement'. (Nullable)
      */
     public String getDestelement() {
@@ -847,8 +752,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestElement'. <br />
-     * {VARCHAR(50)}
+     * DestElement: {VARCHAR(50)} <br />
      * @param destelement The value of the column 'DestElement'. (Nullable)
      */
     public void setDestelement(String destelement) {
@@ -856,12 +760,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destelement = destelement;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255) : FK to t_operation} */
-    public static final String sourcerole_COLUMN = "SourceRole";
-
     /**
-     * Get the value of the column 'SourceRole'. <br />
-     * {VARCHAR(255) : FK to t_operation}
+     * SourceRole: {VARCHAR(255) : FK to t_operation} <br />
      * @return The value of the column 'SourceRole'. (Nullable)
      */
     public String getSourcerole() {
@@ -869,8 +769,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceRole'. <br />
-     * {VARCHAR(255) : FK to t_operation}
+     * SourceRole: {VARCHAR(255) : FK to t_operation} <br />
      * @param sourcerole The value of the column 'SourceRole'. (Nullable)
      */
     public void setSourcerole(String sourcerole) {
@@ -878,12 +777,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcerole = sourcerole;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String sourceroletype_COLUMN = "SourceRoleType";
-
     /**
-     * Get the value of the column 'SourceRoleType'. <br />
-     * {VARCHAR(50)}
+     * SourceRoleType: {VARCHAR(50)} <br />
      * @return The value of the column 'SourceRoleType'. (Nullable)
      */
     public String getSourceroletype() {
@@ -891,8 +786,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceRoleType'. <br />
-     * {VARCHAR(50)}
+     * SourceRoleType: {VARCHAR(50)} <br />
      * @param sourceroletype The value of the column 'SourceRoleType'. (Nullable)
      */
     public void setSourceroletype(String sourceroletype) {
@@ -900,12 +794,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourceroletype = sourceroletype;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String sourcerolenote_COLUMN = "SourceRoleNote";
-
     /**
-     * Get the value of the column 'SourceRoleNote'. <br />
-     * {LONGCHAR(2147483647)}
+     * SourceRoleNote: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'SourceRoleNote'. (Nullable)
      */
     public String getSourcerolenote() {
@@ -913,8 +803,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceRoleNote'. <br />
-     * {LONGCHAR(2147483647)}
+     * SourceRoleNote: {LONGCHAR(2147483647)} <br />
      * @param sourcerolenote The value of the column 'SourceRoleNote'. (Nullable)
      */
     public void setSourcerolenote(String sourcerolenote) {
@@ -922,12 +811,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcerolenote = sourcerolenote;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String sourcecontainment_COLUMN = "SourceContainment";
-
     /**
-     * Get the value of the column 'SourceContainment'. <br />
-     * {VARCHAR(50)}
+     * SourceContainment: {VARCHAR(50)} <br />
      * @return The value of the column 'SourceContainment'. (Nullable)
      */
     public String getSourcecontainment() {
@@ -935,8 +820,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceContainment'. <br />
-     * {VARCHAR(50)}
+     * SourceContainment: {VARCHAR(50)} <br />
      * @param sourcecontainment The value of the column 'SourceContainment'. (Nullable)
      */
     public void setSourcecontainment(String sourcecontainment) {
@@ -944,12 +828,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcecontainment = sourcecontainment;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String sourceisaggregate_COLUMN = "SourceIsAggregate";
-
     /**
-     * Get the value of the column 'SourceIsAggregate'. <br />
-     * {INTEGER}
+     * SourceIsAggregate: {INTEGER} <br />
      * @return The value of the column 'SourceIsAggregate'. (Nullable)
      */
     public java.lang.Integer getSourceisaggregate() {
@@ -957,8 +837,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceIsAggregate'. <br />
-     * {INTEGER}
+     * SourceIsAggregate: {INTEGER} <br />
      * @param sourceisaggregate The value of the column 'SourceIsAggregate'. (Nullable)
      */
     public void setSourceisaggregate(java.lang.Integer sourceisaggregate) {
@@ -966,12 +845,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourceisaggregate = sourceisaggregate;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String sourceisordered_COLUMN = "SourceIsOrdered";
-
     /**
-     * Get the value of the column 'SourceIsOrdered'. <br />
-     * {INTEGER}
+     * SourceIsOrdered: {INTEGER} <br />
      * @return The value of the column 'SourceIsOrdered'. (Nullable)
      */
     public java.lang.Integer getSourceisordered() {
@@ -979,8 +854,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceIsOrdered'. <br />
-     * {INTEGER}
+     * SourceIsOrdered: {INTEGER} <br />
      * @param sourceisordered The value of the column 'SourceIsOrdered'. (Nullable)
      */
     public void setSourceisordered(java.lang.Integer sourceisordered) {
@@ -988,12 +862,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourceisordered = sourceisordered;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String sourcequalifier_COLUMN = "SourceQualifier";
-
     /**
-     * Get the value of the column 'SourceQualifier'. <br />
-     * {VARCHAR(50)}
+     * SourceQualifier: {VARCHAR(50)} <br />
      * @return The value of the column 'SourceQualifier'. (Nullable)
      */
     public String getSourcequalifier() {
@@ -1001,8 +871,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceQualifier'. <br />
-     * {VARCHAR(50)}
+     * SourceQualifier: {VARCHAR(50)} <br />
      * @param sourcequalifier The value of the column 'SourceQualifier'. (Nullable)
      */
     public void setSourcequalifier(String sourcequalifier) {
@@ -1010,12 +879,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcequalifier = sourcequalifier;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255) : FK to t_operation} */
-    public static final String destrole_COLUMN = "DestRole";
-
     /**
-     * Get the value of the column 'DestRole'. <br />
-     * {VARCHAR(255) : FK to t_operation}
+     * DestRole: {VARCHAR(255) : FK to t_operation} <br />
      * @return The value of the column 'DestRole'. (Nullable)
      */
     public String getDestrole() {
@@ -1023,8 +888,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestRole'. <br />
-     * {VARCHAR(255) : FK to t_operation}
+     * DestRole: {VARCHAR(255) : FK to t_operation} <br />
      * @param destrole The value of the column 'DestRole'. (Nullable)
      */
     public void setDestrole(String destrole) {
@@ -1032,12 +896,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destrole = destrole;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String destroletype_COLUMN = "DestRoleType";
-
     /**
-     * Get the value of the column 'DestRoleType'. <br />
-     * {VARCHAR(50)}
+     * DestRoleType: {VARCHAR(50)} <br />
      * @return The value of the column 'DestRoleType'. (Nullable)
      */
     public String getDestroletype() {
@@ -1045,8 +905,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestRoleType'. <br />
-     * {VARCHAR(50)}
+     * DestRoleType: {VARCHAR(50)} <br />
      * @param destroletype The value of the column 'DestRoleType'. (Nullable)
      */
     public void setDestroletype(String destroletype) {
@@ -1054,12 +913,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destroletype = destroletype;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String destrolenote_COLUMN = "DestRoleNote";
-
     /**
-     * Get the value of the column 'DestRoleNote'. <br />
-     * {LONGCHAR(2147483647)}
+     * DestRoleNote: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'DestRoleNote'. (Nullable)
      */
     public String getDestrolenote() {
@@ -1067,8 +922,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestRoleNote'. <br />
-     * {LONGCHAR(2147483647)}
+     * DestRoleNote: {LONGCHAR(2147483647)} <br />
      * @param destrolenote The value of the column 'DestRoleNote'. (Nullable)
      */
     public void setDestrolenote(String destrolenote) {
@@ -1076,12 +930,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destrolenote = destrolenote;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String destcontainment_COLUMN = "DestContainment";
-
     /**
-     * Get the value of the column 'DestContainment'. <br />
-     * {VARCHAR(50)}
+     * DestContainment: {VARCHAR(50)} <br />
      * @return The value of the column 'DestContainment'. (Nullable)
      */
     public String getDestcontainment() {
@@ -1089,8 +939,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestContainment'. <br />
-     * {VARCHAR(50)}
+     * DestContainment: {VARCHAR(50)} <br />
      * @param destcontainment The value of the column 'DestContainment'. (Nullable)
      */
     public void setDestcontainment(String destcontainment) {
@@ -1098,12 +947,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destcontainment = destcontainment;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String destisaggregate_COLUMN = "DestIsAggregate";
-
     /**
-     * Get the value of the column 'DestIsAggregate'. <br />
-     * {INTEGER}
+     * DestIsAggregate: {INTEGER} <br />
      * @return The value of the column 'DestIsAggregate'. (Nullable)
      */
     public java.lang.Integer getDestisaggregate() {
@@ -1111,8 +956,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestIsAggregate'. <br />
-     * {INTEGER}
+     * DestIsAggregate: {INTEGER} <br />
      * @param destisaggregate The value of the column 'DestIsAggregate'. (Nullable)
      */
     public void setDestisaggregate(java.lang.Integer destisaggregate) {
@@ -1120,12 +964,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destisaggregate = destisaggregate;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String destisordered_COLUMN = "DestIsOrdered";
-
     /**
-     * Get the value of the column 'DestIsOrdered'. <br />
-     * {INTEGER}
+     * DestIsOrdered: {INTEGER} <br />
      * @return The value of the column 'DestIsOrdered'. (Nullable)
      */
     public java.lang.Integer getDestisordered() {
@@ -1133,8 +973,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestIsOrdered'. <br />
-     * {INTEGER}
+     * DestIsOrdered: {INTEGER} <br />
      * @param destisordered The value of the column 'DestIsOrdered'. (Nullable)
      */
     public void setDestisordered(java.lang.Integer destisordered) {
@@ -1142,12 +981,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destisordered = destisordered;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String destqualifier_COLUMN = "DestQualifier";
-
     /**
-     * Get the value of the column 'DestQualifier'. <br />
-     * {VARCHAR(50)}
+     * DestQualifier: {VARCHAR(50)} <br />
      * @return The value of the column 'DestQualifier'. (Nullable)
      */
     public String getDestqualifier() {
@@ -1155,8 +990,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestQualifier'. <br />
-     * {VARCHAR(50)}
+     * DestQualifier: {VARCHAR(50)} <br />
      * @param destqualifier The value of the column 'DestQualifier'. (Nullable)
      */
     public void setDestqualifier(String destqualifier) {
@@ -1164,12 +998,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destqualifier = destqualifier;
     }
 
-    /** The column annotation for S2Dao. {INTEGER : FK to t_object} */
-    public static final String startObjectId_COLUMN = "Start_Object_ID";
-
     /**
-     * Get the value of the column 'Start_Object_ID'. <br />
-     * {INTEGER : FK to t_object}
+     * Start_Object_ID: {INTEGER : FK to t_object} <br />
      * @return The value of the column 'Start_Object_ID'. (Nullable)
      */
     public java.lang.Integer getStartObjectId() {
@@ -1177,8 +1007,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Start_Object_ID'. <br />
-     * {INTEGER : FK to t_object}
+     * Start_Object_ID: {INTEGER : FK to t_object} <br />
      * @param startObjectId The value of the column 'Start_Object_ID'. (Nullable)
      */
     public void setStartObjectId(java.lang.Integer startObjectId) {
@@ -1186,12 +1015,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._startObjectId = startObjectId;
     }
 
-    /** The column annotation for S2Dao. {INTEGER : FK to t_object} */
-    public static final String endObjectId_COLUMN = "End_Object_ID";
-
     /**
-     * Get the value of the column 'End_Object_ID'. <br />
-     * {INTEGER : FK to t_object}
+     * End_Object_ID: {INTEGER : FK to t_object} <br />
      * @return The value of the column 'End_Object_ID'. (Nullable)
      */
     public java.lang.Integer getEndObjectId() {
@@ -1199,8 +1024,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'End_Object_ID'. <br />
-     * {INTEGER : FK to t_object}
+     * End_Object_ID: {INTEGER : FK to t_object} <br />
      * @param endObjectId The value of the column 'End_Object_ID'. (Nullable)
      */
     public void setEndObjectId(java.lang.Integer endObjectId) {
@@ -1208,12 +1032,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._endObjectId = endObjectId;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String topStartLabel_COLUMN = "Top_Start_Label";
-
     /**
-     * Get the value of the column 'Top_Start_Label'. <br />
-     * {VARCHAR(50)}
+     * Top_Start_Label: {VARCHAR(50)} <br />
      * @return The value of the column 'Top_Start_Label'. (Nullable)
      */
     public String getTopStartLabel() {
@@ -1221,8 +1041,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Top_Start_Label'. <br />
-     * {VARCHAR(50)}
+     * Top_Start_Label: {VARCHAR(50)} <br />
      * @param topStartLabel The value of the column 'Top_Start_Label'. (Nullable)
      */
     public void setTopStartLabel(String topStartLabel) {
@@ -1230,12 +1049,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._topStartLabel = topStartLabel;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String topMidLabel_COLUMN = "Top_Mid_Label";
-
     /**
-     * Get the value of the column 'Top_Mid_Label'. <br />
-     * {VARCHAR(50)}
+     * Top_Mid_Label: {VARCHAR(50)} <br />
      * @return The value of the column 'Top_Mid_Label'. (Nullable)
      */
     public String getTopMidLabel() {
@@ -1243,8 +1058,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Top_Mid_Label'. <br />
-     * {VARCHAR(50)}
+     * Top_Mid_Label: {VARCHAR(50)} <br />
      * @param topMidLabel The value of the column 'Top_Mid_Label'. (Nullable)
      */
     public void setTopMidLabel(String topMidLabel) {
@@ -1252,12 +1066,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._topMidLabel = topMidLabel;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String topEndLabel_COLUMN = "Top_End_Label";
-
     /**
-     * Get the value of the column 'Top_End_Label'. <br />
-     * {VARCHAR(50)}
+     * Top_End_Label: {VARCHAR(50)} <br />
      * @return The value of the column 'Top_End_Label'. (Nullable)
      */
     public String getTopEndLabel() {
@@ -1265,8 +1075,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Top_End_Label'. <br />
-     * {VARCHAR(50)}
+     * Top_End_Label: {VARCHAR(50)} <br />
      * @param topEndLabel The value of the column 'Top_End_Label'. (Nullable)
      */
     public void setTopEndLabel(String topEndLabel) {
@@ -1274,12 +1083,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._topEndLabel = topEndLabel;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String btmStartLabel_COLUMN = "Btm_Start_Label";
-
     /**
-     * Get the value of the column 'Btm_Start_Label'. <br />
-     * {VARCHAR(50)}
+     * Btm_Start_Label: {VARCHAR(50)} <br />
      * @return The value of the column 'Btm_Start_Label'. (Nullable)
      */
     public String getBtmStartLabel() {
@@ -1287,8 +1092,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Btm_Start_Label'. <br />
-     * {VARCHAR(50)}
+     * Btm_Start_Label: {VARCHAR(50)} <br />
      * @param btmStartLabel The value of the column 'Btm_Start_Label'. (Nullable)
      */
     public void setBtmStartLabel(String btmStartLabel) {
@@ -1296,12 +1100,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._btmStartLabel = btmStartLabel;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String btmMidLabel_COLUMN = "Btm_Mid_Label";
-
     /**
-     * Get the value of the column 'Btm_Mid_Label'. <br />
-     * {VARCHAR(50)}
+     * Btm_Mid_Label: {VARCHAR(50)} <br />
      * @return The value of the column 'Btm_Mid_Label'. (Nullable)
      */
     public String getBtmMidLabel() {
@@ -1309,8 +1109,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Btm_Mid_Label'. <br />
-     * {VARCHAR(50)}
+     * Btm_Mid_Label: {VARCHAR(50)} <br />
      * @param btmMidLabel The value of the column 'Btm_Mid_Label'. (Nullable)
      */
     public void setBtmMidLabel(String btmMidLabel) {
@@ -1318,12 +1117,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._btmMidLabel = btmMidLabel;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String btmEndLabel_COLUMN = "Btm_End_Label";
-
     /**
-     * Get the value of the column 'Btm_End_Label'. <br />
-     * {VARCHAR(50)}
+     * Btm_End_Label: {VARCHAR(50)} <br />
      * @return The value of the column 'Btm_End_Label'. (Nullable)
      */
     public String getBtmEndLabel() {
@@ -1331,8 +1126,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Btm_End_Label'. <br />
-     * {VARCHAR(50)}
+     * Btm_End_Label: {VARCHAR(50)} <br />
      * @param btmEndLabel The value of the column 'Btm_End_Label'. (Nullable)
      */
     public void setBtmEndLabel(String btmEndLabel) {
@@ -1340,12 +1134,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._btmEndLabel = btmEndLabel;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String startEdge_COLUMN = "Start_Edge";
-
     /**
-     * Get the value of the column 'Start_Edge'. <br />
-     * {INTEGER}
+     * Start_Edge: {INTEGER} <br />
      * @return The value of the column 'Start_Edge'. (Nullable)
      */
     public java.lang.Integer getStartEdge() {
@@ -1353,8 +1143,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Start_Edge'. <br />
-     * {INTEGER}
+     * Start_Edge: {INTEGER} <br />
      * @param startEdge The value of the column 'Start_Edge'. (Nullable)
      */
     public void setStartEdge(java.lang.Integer startEdge) {
@@ -1362,12 +1151,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._startEdge = startEdge;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String endEdge_COLUMN = "End_Edge";
-
     /**
-     * Get the value of the column 'End_Edge'. <br />
-     * {INTEGER}
+     * End_Edge: {INTEGER} <br />
      * @return The value of the column 'End_Edge'. (Nullable)
      */
     public java.lang.Integer getEndEdge() {
@@ -1375,8 +1160,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'End_Edge'. <br />
-     * {INTEGER}
+     * End_Edge: {INTEGER} <br />
      * @param endEdge The value of the column 'End_Edge'. (Nullable)
      */
     public void setEndEdge(java.lang.Integer endEdge) {
@@ -1384,12 +1168,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._endEdge = endEdge;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String ptstartx_COLUMN = "PtStartX";
-
     /**
-     * Get the value of the column 'PtStartX'. <br />
-     * {INTEGER}
+     * PtStartX: {INTEGER} <br />
      * @return The value of the column 'PtStartX'. (Nullable)
      */
     public java.lang.Integer getPtstartx() {
@@ -1397,8 +1177,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PtStartX'. <br />
-     * {INTEGER}
+     * PtStartX: {INTEGER} <br />
      * @param ptstartx The value of the column 'PtStartX'. (Nullable)
      */
     public void setPtstartx(java.lang.Integer ptstartx) {
@@ -1406,12 +1185,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._ptstartx = ptstartx;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String ptstarty_COLUMN = "PtStartY";
-
     /**
-     * Get the value of the column 'PtStartY'. <br />
-     * {INTEGER}
+     * PtStartY: {INTEGER} <br />
      * @return The value of the column 'PtStartY'. (Nullable)
      */
     public java.lang.Integer getPtstarty() {
@@ -1419,8 +1194,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PtStartY'. <br />
-     * {INTEGER}
+     * PtStartY: {INTEGER} <br />
      * @param ptstarty The value of the column 'PtStartY'. (Nullable)
      */
     public void setPtstarty(java.lang.Integer ptstarty) {
@@ -1428,12 +1202,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._ptstarty = ptstarty;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String ptendx_COLUMN = "PtEndX";
-
     /**
-     * Get the value of the column 'PtEndX'. <br />
-     * {INTEGER}
+     * PtEndX: {INTEGER} <br />
      * @return The value of the column 'PtEndX'. (Nullable)
      */
     public java.lang.Integer getPtendx() {
@@ -1441,8 +1211,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PtEndX'. <br />
-     * {INTEGER}
+     * PtEndX: {INTEGER} <br />
      * @param ptendx The value of the column 'PtEndX'. (Nullable)
      */
     public void setPtendx(java.lang.Integer ptendx) {
@@ -1450,12 +1219,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._ptendx = ptendx;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String ptendy_COLUMN = "PtEndY";
-
     /**
-     * Get the value of the column 'PtEndY'. <br />
-     * {INTEGER}
+     * PtEndY: {INTEGER} <br />
      * @return The value of the column 'PtEndY'. (Nullable)
      */
     public java.lang.Integer getPtendy() {
@@ -1463,8 +1228,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PtEndY'. <br />
-     * {INTEGER}
+     * PtEndY: {INTEGER} <br />
      * @param ptendy The value of the column 'PtEndY'. (Nullable)
      */
     public void setPtendy(java.lang.Integer ptendy) {
@@ -1472,12 +1236,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._ptendy = ptendy;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String seqno_COLUMN = "SeqNo";
-
     /**
-     * Get the value of the column 'SeqNo'. <br />
-     * {INTEGER}
+     * SeqNo: {INTEGER} <br />
      * @return The value of the column 'SeqNo'. (Nullable)
      */
     public java.lang.Integer getSeqno() {
@@ -1485,8 +1245,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SeqNo'. <br />
-     * {INTEGER}
+     * SeqNo: {INTEGER} <br />
      * @param seqno The value of the column 'SeqNo'. (Nullable)
      */
     public void setSeqno(java.lang.Integer seqno) {
@@ -1494,12 +1253,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._seqno = seqno;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String headstyle_COLUMN = "HeadStyle";
-
     /**
-     * Get the value of the column 'HeadStyle'. <br />
-     * {INTEGER}
+     * HeadStyle: {INTEGER} <br />
      * @return The value of the column 'HeadStyle'. (Nullable)
      */
     public java.lang.Integer getHeadstyle() {
@@ -1507,8 +1262,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'HeadStyle'. <br />
-     * {INTEGER}
+     * HeadStyle: {INTEGER} <br />
      * @param headstyle The value of the column 'HeadStyle'. (Nullable)
      */
     public void setHeadstyle(java.lang.Integer headstyle) {
@@ -1516,12 +1270,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._headstyle = headstyle;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String linestyle_COLUMN = "LineStyle";
-
     /**
-     * Get the value of the column 'LineStyle'. <br />
-     * {INTEGER}
+     * LineStyle: {INTEGER} <br />
      * @return The value of the column 'LineStyle'. (Nullable)
      */
     public java.lang.Integer getLinestyle() {
@@ -1529,8 +1279,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'LineStyle'. <br />
-     * {INTEGER}
+     * LineStyle: {INTEGER} <br />
      * @param linestyle The value of the column 'LineStyle'. (Nullable)
      */
     public void setLinestyle(java.lang.Integer linestyle) {
@@ -1538,12 +1287,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._linestyle = linestyle;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String routestyle_COLUMN = "RouteStyle";
-
     /**
-     * Get the value of the column 'RouteStyle'. <br />
-     * {INTEGER}
+     * RouteStyle: {INTEGER} <br />
      * @return The value of the column 'RouteStyle'. (Nullable)
      */
     public java.lang.Integer getRoutestyle() {
@@ -1551,8 +1296,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RouteStyle'. <br />
-     * {INTEGER}
+     * RouteStyle: {INTEGER} <br />
      * @param routestyle The value of the column 'RouteStyle'. (Nullable)
      */
     public void setRoutestyle(java.lang.Integer routestyle) {
@@ -1560,12 +1304,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._routestyle = routestyle;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String isbold_COLUMN = "IsBold";
-
     /**
-     * Get the value of the column 'IsBold'. <br />
-     * {INTEGER}
+     * IsBold: {INTEGER} <br />
      * @return The value of the column 'IsBold'. (Nullable)
      */
     public java.lang.Integer getIsbold() {
@@ -1573,8 +1313,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsBold'. <br />
-     * {INTEGER}
+     * IsBold: {INTEGER} <br />
      * @param isbold The value of the column 'IsBold'. (Nullable)
      */
     public void setIsbold(java.lang.Integer isbold) {
@@ -1582,12 +1321,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._isbold = isbold;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String linecolor_COLUMN = "LineColor";
-
     /**
-     * Get the value of the column 'LineColor'. <br />
-     * {INTEGER}
+     * LineColor: {INTEGER} <br />
      * @return The value of the column 'LineColor'. (Nullable)
      */
     public java.lang.Integer getLinecolor() {
@@ -1595,8 +1330,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'LineColor'. <br />
-     * {INTEGER}
+     * LineColor: {INTEGER} <br />
      * @param linecolor The value of the column 'LineColor'. (Nullable)
      */
     public void setLinecolor(java.lang.Integer linecolor) {
@@ -1604,12 +1338,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._linecolor = linecolor;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String stereotype_COLUMN = "Stereotype";
-
     /**
-     * Get the value of the column 'Stereotype'. <br />
-     * {VARCHAR(50)}
+     * Stereotype: {VARCHAR(50)} <br />
      * @return The value of the column 'Stereotype'. (Nullable)
      */
     public String getStereotype() {
@@ -1617,8 +1347,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Stereotype'. <br />
-     * {VARCHAR(50)}
+     * Stereotype: {VARCHAR(50)} <br />
      * @param stereotype The value of the column 'Stereotype'. (Nullable)
      */
     public void setStereotype(String stereotype) {
@@ -1626,12 +1355,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._stereotype = stereotype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(1)} */
-    public static final String virtualinheritance_COLUMN = "VirtualInheritance";
-
     /**
-     * Get the value of the column 'VirtualInheritance'. <br />
-     * {VARCHAR(1)}
+     * VirtualInheritance: {VARCHAR(1)} <br />
      * @return The value of the column 'VirtualInheritance'. (Nullable)
      */
     public String getVirtualinheritance() {
@@ -1639,8 +1364,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'VirtualInheritance'. <br />
-     * {VARCHAR(1)}
+     * VirtualInheritance: {VARCHAR(1)} <br />
      * @param virtualinheritance The value of the column 'VirtualInheritance'. (Nullable)
      */
     public void setVirtualinheritance(String virtualinheritance) {
@@ -1648,12 +1372,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._virtualinheritance = virtualinheritance;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String linkaccess_COLUMN = "LinkAccess";
-
     /**
-     * Get the value of the column 'LinkAccess'. <br />
-     * {VARCHAR(50)}
+     * LinkAccess: {VARCHAR(50)} <br />
      * @return The value of the column 'LinkAccess'. (Nullable)
      */
     public String getLinkaccess() {
@@ -1661,8 +1381,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'LinkAccess'. <br />
-     * {VARCHAR(50)}
+     * LinkAccess: {VARCHAR(50)} <br />
      * @param linkaccess The value of the column 'LinkAccess'. (Nullable)
      */
     public void setLinkaccess(String linkaccess) {
@@ -1670,12 +1389,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._linkaccess = linkaccess;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata1_COLUMN = "PDATA1";
-
     /**
-     * Get the value of the column 'PDATA1'. <br />
-     * {VARCHAR(255)}
+     * PDATA1: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA1'. (Nullable)
      */
     public String getPdata1() {
@@ -1683,8 +1398,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA1'. <br />
-     * {VARCHAR(255)}
+     * PDATA1: {VARCHAR(255)} <br />
      * @param pdata1 The value of the column 'PDATA1'. (Nullable)
      */
     public void setPdata1(String pdata1) {
@@ -1692,12 +1406,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._pdata1 = pdata1;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata2_COLUMN = "PDATA2";
-
     /**
-     * Get the value of the column 'PDATA2'. <br />
-     * {VARCHAR(255)}
+     * PDATA2: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA2'. (Nullable)
      */
     public String getPdata2() {
@@ -1705,8 +1415,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA2'. <br />
-     * {VARCHAR(255)}
+     * PDATA2: {VARCHAR(255)} <br />
      * @param pdata2 The value of the column 'PDATA2'. (Nullable)
      */
     public void setPdata2(String pdata2) {
@@ -1714,12 +1423,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._pdata2 = pdata2;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata3_COLUMN = "PDATA3";
-
     /**
-     * Get the value of the column 'PDATA3'. <br />
-     * {VARCHAR(255)}
+     * PDATA3: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA3'. (Nullable)
      */
     public String getPdata3() {
@@ -1727,8 +1432,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA3'. <br />
-     * {VARCHAR(255)}
+     * PDATA3: {VARCHAR(255)} <br />
      * @param pdata3 The value of the column 'PDATA3'. (Nullable)
      */
     public void setPdata3(String pdata3) {
@@ -1736,12 +1440,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._pdata3 = pdata3;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata4_COLUMN = "PDATA4";
-
     /**
-     * Get the value of the column 'PDATA4'. <br />
-     * {VARCHAR(255)}
+     * PDATA4: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA4'. (Nullable)
      */
     public String getPdata4() {
@@ -1749,8 +1449,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA4'. <br />
-     * {VARCHAR(255)}
+     * PDATA4: {VARCHAR(255)} <br />
      * @param pdata4 The value of the column 'PDATA4'. (Nullable)
      */
     public void setPdata4(String pdata4) {
@@ -1758,12 +1457,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._pdata4 = pdata4;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String pdata5_COLUMN = "PDATA5";
-
     /**
-     * Get the value of the column 'PDATA5'. <br />
-     * {VARCHAR(255)}
+     * PDATA5: {VARCHAR(255)} <br />
      * @return The value of the column 'PDATA5'. (Nullable)
      */
     public String getPdata5() {
@@ -1771,8 +1466,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'PDATA5'. <br />
-     * {VARCHAR(255)}
+     * PDATA5: {VARCHAR(255)} <br />
      * @param pdata5 The value of the column 'PDATA5'. (Nullable)
      */
     public void setPdata5(String pdata5) {
@@ -1780,12 +1474,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._pdata5 = pdata5;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String diagramid_COLUMN = "DiagramID";
-
     /**
-     * Get the value of the column 'DiagramID'. <br />
-     * {INTEGER}
+     * DiagramID: {INTEGER} <br />
      * @return The value of the column 'DiagramID'. (Nullable)
      */
     public java.lang.Integer getDiagramid() {
@@ -1793,8 +1483,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DiagramID'. <br />
-     * {INTEGER}
+     * DiagramID: {INTEGER} <br />
      * @param diagramid The value of the column 'DiagramID'. (Nullable)
      */
     public void setDiagramid(java.lang.Integer diagramid) {
@@ -1802,12 +1491,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._diagramid = diagramid;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(40)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {UQ : VARCHAR(40)}
+     * ea_guid: {UQ : VARCHAR(40)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -1815,8 +1500,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {UQ : VARCHAR(40)}
+     * ea_guid: {UQ : VARCHAR(40)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
@@ -1824,12 +1508,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._eaGuid = eaGuid;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String sourceconstraint_COLUMN = "SourceConstraint";
-
     /**
-     * Get the value of the column 'SourceConstraint'. <br />
-     * {VARCHAR(255)}
+     * SourceConstraint: {VARCHAR(255)} <br />
      * @return The value of the column 'SourceConstraint'. (Nullable)
      */
     public String getSourceconstraint() {
@@ -1837,8 +1517,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceConstraint'. <br />
-     * {VARCHAR(255)}
+     * SourceConstraint: {VARCHAR(255)} <br />
      * @param sourceconstraint The value of the column 'SourceConstraint'. (Nullable)
      */
     public void setSourceconstraint(String sourceconstraint) {
@@ -1846,12 +1525,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourceconstraint = sourceconstraint;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String destconstraint_COLUMN = "DestConstraint";
-
     /**
-     * Get the value of the column 'DestConstraint'. <br />
-     * {VARCHAR(255)}
+     * DestConstraint: {VARCHAR(255)} <br />
      * @return The value of the column 'DestConstraint'. (Nullable)
      */
     public String getDestconstraint() {
@@ -1859,8 +1534,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestConstraint'. <br />
-     * {VARCHAR(255)}
+     * DestConstraint: {VARCHAR(255)} <br />
      * @param destconstraint The value of the column 'DestConstraint'. (Nullable)
      */
     public void setDestconstraint(String destconstraint) {
@@ -1868,12 +1542,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destconstraint = destconstraint;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String sourceisnavigable_COLUMN = "SourceIsNavigable";
-
     /**
-     * Get the value of the column 'SourceIsNavigable'. <br />
-     * {BIT : NotNull}
+     * SourceIsNavigable: {NotNull : BIT} <br />
      * @return The value of the column 'SourceIsNavigable'. (Nullable)
      */
     public Boolean getSourceisnavigable() {
@@ -1881,8 +1551,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceIsNavigable'. <br />
-     * {BIT : NotNull}
+     * SourceIsNavigable: {NotNull : BIT} <br />
      * @param sourceisnavigable The value of the column 'SourceIsNavigable'. (Nullable)
      */
     public void setSourceisnavigable(Boolean sourceisnavigable) {
@@ -1890,12 +1559,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourceisnavigable = sourceisnavigable;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String destisnavigable_COLUMN = "DestIsNavigable";
-
     /**
-     * Get the value of the column 'DestIsNavigable'. <br />
-     * {BIT : NotNull}
+     * DestIsNavigable: {NotNull : BIT} <br />
      * @return The value of the column 'DestIsNavigable'. (Nullable)
      */
     public Boolean getDestisnavigable() {
@@ -1903,8 +1568,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestIsNavigable'. <br />
-     * {BIT : NotNull}
+     * DestIsNavigable: {NotNull : BIT} <br />
      * @param destisnavigable The value of the column 'DestIsNavigable'. (Nullable)
      */
     public void setDestisnavigable(Boolean destisnavigable) {
@@ -1912,12 +1576,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destisnavigable = destisnavigable;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String isroot_COLUMN = "IsRoot";
-
     /**
-     * Get the value of the column 'IsRoot'. <br />
-     * {BIT : NotNull}
+     * IsRoot: {NotNull : BIT} <br />
      * @return The value of the column 'IsRoot'. (Nullable)
      */
     public Boolean getIsroot() {
@@ -1925,8 +1585,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsRoot'. <br />
-     * {BIT : NotNull}
+     * IsRoot: {NotNull : BIT} <br />
      * @param isroot The value of the column 'IsRoot'. (Nullable)
      */
     public void setIsroot(Boolean isroot) {
@@ -1934,12 +1593,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._isroot = isroot;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String isleaf_COLUMN = "IsLeaf";
-
     /**
-     * Get the value of the column 'IsLeaf'. <br />
-     * {BIT : NotNull}
+     * IsLeaf: {NotNull : BIT} <br />
      * @return The value of the column 'IsLeaf'. (Nullable)
      */
     public Boolean getIsleaf() {
@@ -1947,8 +1602,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsLeaf'. <br />
-     * {BIT : NotNull}
+     * IsLeaf: {NotNull : BIT} <br />
      * @param isleaf The value of the column 'IsLeaf'. (Nullable)
      */
     public void setIsleaf(Boolean isleaf) {
@@ -1956,12 +1610,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._isleaf = isleaf;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String isspec_COLUMN = "IsSpec";
-
     /**
-     * Get the value of the column 'IsSpec'. <br />
-     * {BIT : NotNull}
+     * IsSpec: {NotNull : BIT} <br />
      * @return The value of the column 'IsSpec'. (Nullable)
      */
     public Boolean getIsspec() {
@@ -1969,8 +1619,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsSpec'. <br />
-     * {BIT : NotNull}
+     * IsSpec: {NotNull : BIT} <br />
      * @param isspec The value of the column 'IsSpec'. (Nullable)
      */
     public void setIsspec(Boolean isspec) {
@@ -1978,12 +1627,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._isspec = isspec;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String sourcechangeable_COLUMN = "SourceChangeable";
-
     /**
-     * Get the value of the column 'SourceChangeable'. <br />
-     * {VARCHAR(12)}
+     * SourceChangeable: {VARCHAR(12)} <br />
      * @return The value of the column 'SourceChangeable'. (Nullable)
      */
     public String getSourcechangeable() {
@@ -1991,8 +1636,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceChangeable'. <br />
-     * {VARCHAR(12)}
+     * SourceChangeable: {VARCHAR(12)} <br />
      * @param sourcechangeable The value of the column 'SourceChangeable'. (Nullable)
      */
     public void setSourcechangeable(String sourcechangeable) {
@@ -2000,12 +1644,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcechangeable = sourcechangeable;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String destchangeable_COLUMN = "DestChangeable";
-
     /**
-     * Get the value of the column 'DestChangeable'. <br />
-     * {VARCHAR(12)}
+     * DestChangeable: {VARCHAR(12)} <br />
      * @return The value of the column 'DestChangeable'. (Nullable)
      */
     public String getDestchangeable() {
@@ -2013,8 +1653,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestChangeable'. <br />
-     * {VARCHAR(12)}
+     * DestChangeable: {VARCHAR(12)} <br />
      * @param destchangeable The value of the column 'DestChangeable'. (Nullable)
      */
     public void setDestchangeable(String destchangeable) {
@@ -2022,12 +1661,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destchangeable = destchangeable;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String sourcets_COLUMN = "SourceTS";
-
     /**
-     * Get the value of the column 'SourceTS'. <br />
-     * {VARCHAR(12)}
+     * SourceTS: {VARCHAR(12)} <br />
      * @return The value of the column 'SourceTS'. (Nullable)
      */
     public String getSourcets() {
@@ -2035,8 +1670,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceTS'. <br />
-     * {VARCHAR(12)}
+     * SourceTS: {VARCHAR(12)} <br />
      * @param sourcets The value of the column 'SourceTS'. (Nullable)
      */
     public void setSourcets(String sourcets) {
@@ -2044,12 +1678,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcets = sourcets;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String destts_COLUMN = "DestTS";
-
     /**
-     * Get the value of the column 'DestTS'. <br />
-     * {VARCHAR(12)}
+     * DestTS: {VARCHAR(12)} <br />
      * @return The value of the column 'DestTS'. (Nullable)
      */
     public String getDestts() {
@@ -2057,8 +1687,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestTS'. <br />
-     * {VARCHAR(12)}
+     * DestTS: {VARCHAR(12)} <br />
      * @param destts The value of the column 'DestTS'. (Nullable)
      */
     public void setDestts(String destts) {
@@ -2066,12 +1695,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._destts = destts;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String stateflags_COLUMN = "StateFlags";
-
     /**
-     * Get the value of the column 'StateFlags'. <br />
-     * {VARCHAR(255)}
+     * StateFlags: {VARCHAR(255)} <br />
      * @return The value of the column 'StateFlags'. (Nullable)
      */
     public String getStateflags() {
@@ -2079,8 +1704,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StateFlags'. <br />
-     * {VARCHAR(255)}
+     * StateFlags: {VARCHAR(255)} <br />
      * @param stateflags The value of the column 'StateFlags'. (Nullable)
      */
     public void setStateflags(String stateflags) {
@@ -2088,12 +1712,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._stateflags = stateflags;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String actionflags_COLUMN = "ActionFlags";
-
     /**
-     * Get the value of the column 'ActionFlags'. <br />
-     * {VARCHAR(255)}
+     * ActionFlags: {VARCHAR(255)} <br />
      * @return The value of the column 'ActionFlags'. (Nullable)
      */
     public String getActionflags() {
@@ -2101,8 +1721,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ActionFlags'. <br />
-     * {VARCHAR(255)}
+     * ActionFlags: {VARCHAR(255)} <br />
      * @param actionflags The value of the column 'ActionFlags'. (Nullable)
      */
     public void setActionflags(String actionflags) {
@@ -2110,12 +1729,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._actionflags = actionflags;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String issignal_COLUMN = "IsSignal";
-
     /**
-     * Get the value of the column 'IsSignal'. <br />
-     * {BIT : NotNull}
+     * IsSignal: {NotNull : BIT} <br />
      * @return The value of the column 'IsSignal'. (Nullable)
      */
     public Boolean getIssignal() {
@@ -2123,8 +1738,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsSignal'. <br />
-     * {BIT : NotNull}
+     * IsSignal: {NotNull : BIT} <br />
      * @param issignal The value of the column 'IsSignal'. (Nullable)
      */
     public void setIssignal(Boolean issignal) {
@@ -2132,12 +1746,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._issignal = issignal;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String isstimulus_COLUMN = "IsStimulus";
-
     /**
-     * Get the value of the column 'IsStimulus'. <br />
-     * {BIT : NotNull}
+     * IsStimulus: {NotNull : BIT} <br />
      * @return The value of the column 'IsStimulus'. (Nullable)
      */
     public Boolean getIsstimulus() {
@@ -2145,8 +1755,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'IsStimulus'. <br />
-     * {BIT : NotNull}
+     * IsStimulus: {NotNull : BIT} <br />
      * @param isstimulus The value of the column 'IsStimulus'. (Nullable)
      */
     public void setIsstimulus(Boolean isstimulus) {
@@ -2154,12 +1763,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._isstimulus = isstimulus;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String dispatchaction_COLUMN = "DispatchAction";
-
     /**
-     * Get the value of the column 'DispatchAction'. <br />
-     * {VARCHAR(255)}
+     * DispatchAction: {VARCHAR(255)} <br />
      * @return The value of the column 'DispatchAction'. (Nullable)
      */
     public String getDispatchaction() {
@@ -2167,8 +1772,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DispatchAction'. <br />
-     * {VARCHAR(255)}
+     * DispatchAction: {VARCHAR(255)} <br />
      * @param dispatchaction The value of the column 'DispatchAction'. (Nullable)
      */
     public void setDispatchaction(String dispatchaction) {
@@ -2176,12 +1780,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._dispatchaction = dispatchaction;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String target2_COLUMN = "Target2";
-
     /**
-     * Get the value of the column 'Target2'. <br />
-     * {INTEGER}
+     * Target2: {INTEGER} <br />
      * @return The value of the column 'Target2'. (Nullable)
      */
     public java.lang.Integer getTarget2() {
@@ -2189,8 +1789,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Target2'. <br />
-     * {INTEGER}
+     * Target2: {INTEGER} <br />
      * @param target2 The value of the column 'Target2'. (Nullable)
      */
     public void setTarget2(java.lang.Integer target2) {
@@ -2198,12 +1797,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._target2 = target2;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String styleex_COLUMN = "StyleEx";
-
     /**
-     * Get the value of the column 'StyleEx'. <br />
-     * {LONGCHAR(2147483647)}
+     * StyleEx: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'StyleEx'. (Nullable)
      */
     public String getStyleex() {
@@ -2211,8 +1806,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'StyleEx'. <br />
-     * {LONGCHAR(2147483647)}
+     * StyleEx: {LONGCHAR(2147483647)} <br />
      * @param styleex The value of the column 'StyleEx'. (Nullable)
      */
     public void setStyleex(String styleex) {
@@ -2220,12 +1814,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._styleex = styleex;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String sourcestereotype_COLUMN = "SourceStereotype";
-
     /**
-     * Get the value of the column 'SourceStereotype'. <br />
-     * {VARCHAR(255)}
+     * SourceStereotype: {VARCHAR(255)} <br />
      * @return The value of the column 'SourceStereotype'. (Nullable)
      */
     public String getSourcestereotype() {
@@ -2233,8 +1823,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceStereotype'. <br />
-     * {VARCHAR(255)}
+     * SourceStereotype: {VARCHAR(255)} <br />
      * @param sourcestereotype The value of the column 'SourceStereotype'. (Nullable)
      */
     public void setSourcestereotype(String sourcestereotype) {
@@ -2242,12 +1831,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcestereotype = sourcestereotype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String deststereotype_COLUMN = "DestStereotype";
-
     /**
-     * Get the value of the column 'DestStereotype'. <br />
-     * {VARCHAR(255)}
+     * DestStereotype: {VARCHAR(255)} <br />
      * @return The value of the column 'DestStereotype'. (Nullable)
      */
     public String getDeststereotype() {
@@ -2255,8 +1840,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestStereotype'. <br />
-     * {VARCHAR(255)}
+     * DestStereotype: {VARCHAR(255)} <br />
      * @param deststereotype The value of the column 'DestStereotype'. (Nullable)
      */
     public void setDeststereotype(String deststereotype) {
@@ -2264,12 +1848,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._deststereotype = deststereotype;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String sourcestyle_COLUMN = "SourceStyle";
-
     /**
-     * Get the value of the column 'SourceStyle'. <br />
-     * {LONGCHAR(2147483647)}
+     * SourceStyle: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'SourceStyle'. (Nullable)
      */
     public String getSourcestyle() {
@@ -2277,8 +1857,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'SourceStyle'. <br />
-     * {LONGCHAR(2147483647)}
+     * SourceStyle: {LONGCHAR(2147483647)} <br />
      * @param sourcestyle The value of the column 'SourceStyle'. (Nullable)
      */
     public void setSourcestyle(String sourcestyle) {
@@ -2286,12 +1865,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._sourcestyle = sourcestyle;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String deststyle_COLUMN = "DestStyle";
-
     /**
-     * Get the value of the column 'DestStyle'. <br />
-     * {LONGCHAR(2147483647)}
+     * DestStyle: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'DestStyle'. (Nullable)
      */
     public String getDeststyle() {
@@ -2299,8 +1874,7 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DestStyle'. <br />
-     * {LONGCHAR(2147483647)}
+     * DestStyle: {LONGCHAR(2147483647)} <br />
      * @param deststyle The value of the column 'DestStyle'. (Nullable)
      */
     public void setDeststyle(String deststyle) {
@@ -2308,12 +1882,8 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
         this._deststyle = deststyle;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String eventflags_COLUMN = "EventFlags";
-
     /**
-     * Get the value of the column 'EventFlags'. <br />
-     * {VARCHAR(255)}
+     * EventFlags: {VARCHAR(255)} <br />
      * @return The value of the column 'EventFlags'. (Nullable)
      */
     public String getEventflags() {
@@ -2321,13 +1891,11 @@ public abstract class BsTConnector implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'EventFlags'. <br />
-     * {VARCHAR(255)}
+     * EventFlags: {VARCHAR(255)} <br />
      * @param eventflags The value of the column 'EventFlags'. (Nullable)
      */
     public void setEventflags(String eventflags) {
         _modifiedProperties.addPropertyName("eventflags");
         this._eventflags = eventflags;
     }
-
 }

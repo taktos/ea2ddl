@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objecttypes(TABLE).
+ * The entity of t_objecttypes that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
+public abstract class BsTObjecttypes implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objecttypes. */
-    public static final String TABLE = "t_objecttypes";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_Type'. {UQ : VARCHAR(50)} */
+    /** Object_Type: {UQ : VARCHAR(50)} */
     protected String _objectType;
 
-    /** The attribute of the column 'Description'. {VARCHAR(255)} */
+    /** Description: {VARCHAR(255)} */
     protected String _description;
 
-    /** The attribute of the column 'DesignObject'. {BIT : NotNull} */
+    /** DesignObject: {NotNull : BIT} */
     protected Boolean _designobject;
 
-    /** The attribute of the column 'ImageID'. {SMALLINT} */
+    /** ImageID: {SMALLINT} */
     protected java.lang.Integer _imageid;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjecttypes() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objecttypes";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjecttypes";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String objectType_COLUMN = "Object_Type";
-
     /**
-     * Get the value of the column 'Object_Type'. <br />
-     * {UQ : VARCHAR(50)}
+     * Object_Type: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'Object_Type'. (Nullable)
      */
     public String getObjectType() {
@@ -209,8 +193,7 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Object_Type'. <br />
-     * {UQ : VARCHAR(50)}
+     * Object_Type: {UQ : VARCHAR(50)} <br />
      * @param objectType The value of the column 'Object_Type'. (Nullable)
      */
     public void setObjectType(String objectType) {
@@ -218,12 +201,8 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
         this._objectType = objectType;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(255)}
+     * Description: {VARCHAR(255)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -231,8 +210,7 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(255)}
+     * Description: {VARCHAR(255)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
@@ -240,12 +218,8 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
         this._description = description;
     }
 
-    /** The column annotation for S2Dao. {BIT : NotNull} */
-    public static final String designobject_COLUMN = "DesignObject";
-
     /**
-     * Get the value of the column 'DesignObject'. <br />
-     * {BIT : NotNull}
+     * DesignObject: {NotNull : BIT} <br />
      * @return The value of the column 'DesignObject'. (Nullable)
      */
     public Boolean getDesignobject() {
@@ -253,8 +227,7 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DesignObject'. <br />
-     * {BIT : NotNull}
+     * DesignObject: {NotNull : BIT} <br />
      * @param designobject The value of the column 'DesignObject'. (Nullable)
      */
     public void setDesignobject(Boolean designobject) {
@@ -262,12 +235,8 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
         this._designobject = designobject;
     }
 
-    /** The column annotation for S2Dao. {SMALLINT} */
-    public static final String imageid_COLUMN = "ImageID";
-
     /**
-     * Get the value of the column 'ImageID'. <br />
-     * {SMALLINT}
+     * ImageID: {SMALLINT} <br />
      * @return The value of the column 'ImageID'. (Nullable)
      */
     public java.lang.Integer getImageid() {
@@ -275,13 +244,11 @@ public abstract class BsTObjecttypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ImageID'. <br />
-     * {SMALLINT}
+     * ImageID: {SMALLINT} <br />
      * @param imageid The value of the column 'ImageID'. (Nullable)
      */
     public void setImageid(java.lang.Integer imageid) {
         _modifiedProperties.addPropertyName("imageid");
         this._imageid = imageid;
     }
-
 }

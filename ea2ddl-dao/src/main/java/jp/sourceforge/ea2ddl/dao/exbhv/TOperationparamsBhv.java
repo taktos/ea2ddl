@@ -1,9 +1,10 @@
 package jp.sourceforge.ea2ddl.dao.exbhv;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
 import jp.sourceforge.ea2ddl.dao.cbean.TOperationparamsCB;
 import jp.sourceforge.ea2ddl.dao.exentity.TOperation;
 import jp.sourceforge.ea2ddl.dao.exentity.TOperationparams;
+
+import org.seasar.dbflute.cbean.ListResultBean;
 
 /**
  * The behavior of t_operationparams.

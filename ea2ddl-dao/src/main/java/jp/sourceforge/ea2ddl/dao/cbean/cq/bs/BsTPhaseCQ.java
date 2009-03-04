@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_phase.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
      * @return On-clause query. (NotNull)
      */
     public TPhaseCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TPhaseCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
         return _phaseid;
     }
     protected ConditionValue getCValuePhaseid() { return getPhaseid(); }
-    
+
     public BsTPhaseCQ addOrderBy_Phaseid_Asc() { regOBA("PhaseID"); return this; }
     public BsTPhaseCQ addOrderBy_Phaseid_Desc() { regOBD("PhaseID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
         return _phasename;
     }
     protected ConditionValue getCValuePhasename() { return getPhasename(); }
-    
+
     public BsTPhaseCQ addOrderBy_Phasename_Asc() { regOBA("PhaseName"); return this; }
     public BsTPhaseCQ addOrderBy_Phasename_Desc() { regOBD("PhaseName"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
         return _phasenotes;
     }
     protected ConditionValue getCValuePhasenotes() { return getPhasenotes(); }
-    
+
     public BsTPhaseCQ addOrderBy_Phasenotes_Asc() { regOBA("PhaseNotes"); return this; }
     public BsTPhaseCQ addOrderBy_Phasenotes_Desc() { regOBD("PhaseNotes"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
         return _phasestyle;
     }
     protected ConditionValue getCValuePhasestyle() { return getPhasestyle(); }
-    
+
     public BsTPhaseCQ addOrderBy_Phasestyle_Asc() { regOBA("PhaseStyle"); return this; }
     public BsTPhaseCQ addOrderBy_Phasestyle_Desc() { regOBD("PhaseStyle"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
         return _startdate;
     }
     protected ConditionValue getCValueStartdate() { return getStartdate(); }
-    
+
     public BsTPhaseCQ addOrderBy_Startdate_Asc() { regOBA("StartDate"); return this; }
     public BsTPhaseCQ addOrderBy_Startdate_Desc() { regOBD("StartDate"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
         return _enddate;
     }
     protected ConditionValue getCValueEnddate() { return getEnddate(); }
-    
+
     public BsTPhaseCQ addOrderBy_Enddate_Asc() { regOBA("EndDate"); return this; }
     public BsTPhaseCQ addOrderBy_Enddate_Desc() { regOBD("EndDate"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
         return _phasecontent;
     }
     protected ConditionValue getCValuePhasecontent() { return getPhasecontent(); }
-    
+
     public BsTPhaseCQ addOrderBy_Phasecontent_Asc() { regOBA("PhaseContent"); return this; }
     public BsTPhaseCQ addOrderBy_Phasecontent_Desc() { regOBD("PhaseContent"); return this; }
 
@@ -141,8 +141,11 @@ public class BsTPhaseCQ extends AbstractBsTPhaseCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TPhaseCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TPhaseCB.class.getName(); }
+    String xCQ() { return TPhaseCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

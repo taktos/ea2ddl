@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_clients(TABLE).
+ * The entity of t_clients that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTClients implements Entity, java.io.Serializable {
+public abstract class BsTClients implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,41 +47,37 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_clients. */
-    public static final String TABLE = "t_clients";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Name'. {UQ : VARCHAR(255)} */
+    /** Name: {UQ : VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Organisation'. {VARCHAR(255)} */
+    /** Organisation: {VARCHAR(255)} */
     protected String _organisation;
 
-    /** The attribute of the column 'Phone1'. {VARCHAR(50)} */
+    /** Phone1: {VARCHAR(50)} */
     protected String _phone1;
 
-    /** The attribute of the column 'Phone2'. {VARCHAR(50)} */
+    /** Phone2: {VARCHAR(50)} */
     protected String _phone2;
 
-    /** The attribute of the column 'Mobile'. {VARCHAR(50)} */
+    /** Mobile: {VARCHAR(50)} */
     protected String _mobile;
 
-    /** The attribute of the column 'Fax'. {VARCHAR(50)} */
+    /** Fax: {VARCHAR(50)} */
     protected String _fax;
 
-    /** The attribute of the column 'Email'. {VARCHAR(50)} */
+    /** Email: {VARCHAR(50)} */
     protected String _email;
 
-    /** The attribute of the column 'Roles'. {VARCHAR(255)} */
+    /** Roles: {VARCHAR(255)} */
     protected String _roles;
 
-    /** The attribute of the column 'Notes'. {VARCHAR(255)} */
+    /** Notes: {VARCHAR(255)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -91,19 +87,13 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTClients() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_clients";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TClients";
     }
 
@@ -129,7 +119,6 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -225,13 +214,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {UQ : VARCHAR(255)}
+     * Name: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -239,8 +223,7 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {UQ : VARCHAR(255)}
+     * Name: {UQ : VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -248,12 +231,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String organisation_COLUMN = "Organisation";
-
     /**
-     * Get the value of the column 'Organisation'. <br />
-     * {VARCHAR(255)}
+     * Organisation: {VARCHAR(255)} <br />
      * @return The value of the column 'Organisation'. (Nullable)
      */
     public String getOrganisation() {
@@ -261,8 +240,7 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Organisation'. <br />
-     * {VARCHAR(255)}
+     * Organisation: {VARCHAR(255)} <br />
      * @param organisation The value of the column 'Organisation'. (Nullable)
      */
     public void setOrganisation(String organisation) {
@@ -270,12 +248,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
         this._organisation = organisation;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String phone1_COLUMN = "Phone1";
-
     /**
-     * Get the value of the column 'Phone1'. <br />
-     * {VARCHAR(50)}
+     * Phone1: {VARCHAR(50)} <br />
      * @return The value of the column 'Phone1'. (Nullable)
      */
     public String getPhone1() {
@@ -283,8 +257,7 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Phone1'. <br />
-     * {VARCHAR(50)}
+     * Phone1: {VARCHAR(50)} <br />
      * @param phone1 The value of the column 'Phone1'. (Nullable)
      */
     public void setPhone1(String phone1) {
@@ -292,12 +265,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
         this._phone1 = phone1;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String phone2_COLUMN = "Phone2";
-
     /**
-     * Get the value of the column 'Phone2'. <br />
-     * {VARCHAR(50)}
+     * Phone2: {VARCHAR(50)} <br />
      * @return The value of the column 'Phone2'. (Nullable)
      */
     public String getPhone2() {
@@ -305,8 +274,7 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Phone2'. <br />
-     * {VARCHAR(50)}
+     * Phone2: {VARCHAR(50)} <br />
      * @param phone2 The value of the column 'Phone2'. (Nullable)
      */
     public void setPhone2(String phone2) {
@@ -314,12 +282,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
         this._phone2 = phone2;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String mobile_COLUMN = "Mobile";
-
     /**
-     * Get the value of the column 'Mobile'. <br />
-     * {VARCHAR(50)}
+     * Mobile: {VARCHAR(50)} <br />
      * @return The value of the column 'Mobile'. (Nullable)
      */
     public String getMobile() {
@@ -327,8 +291,7 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Mobile'. <br />
-     * {VARCHAR(50)}
+     * Mobile: {VARCHAR(50)} <br />
      * @param mobile The value of the column 'Mobile'. (Nullable)
      */
     public void setMobile(String mobile) {
@@ -336,12 +299,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
         this._mobile = mobile;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String fax_COLUMN = "Fax";
-
     /**
-     * Get the value of the column 'Fax'. <br />
-     * {VARCHAR(50)}
+     * Fax: {VARCHAR(50)} <br />
      * @return The value of the column 'Fax'. (Nullable)
      */
     public String getFax() {
@@ -349,8 +308,7 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Fax'. <br />
-     * {VARCHAR(50)}
+     * Fax: {VARCHAR(50)} <br />
      * @param fax The value of the column 'Fax'. (Nullable)
      */
     public void setFax(String fax) {
@@ -358,12 +316,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
         this._fax = fax;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String email_COLUMN = "Email";
-
     /**
-     * Get the value of the column 'Email'. <br />
-     * {VARCHAR(50)}
+     * Email: {VARCHAR(50)} <br />
      * @return The value of the column 'Email'. (Nullable)
      */
     public String getEmail() {
@@ -371,8 +325,7 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Email'. <br />
-     * {VARCHAR(50)}
+     * Email: {VARCHAR(50)} <br />
      * @param email The value of the column 'Email'. (Nullable)
      */
     public void setEmail(String email) {
@@ -380,12 +333,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
         this._email = email;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String roles_COLUMN = "Roles";
-
     /**
-     * Get the value of the column 'Roles'. <br />
-     * {VARCHAR(255)}
+     * Roles: {VARCHAR(255)} <br />
      * @return The value of the column 'Roles'. (Nullable)
      */
     public String getRoles() {
@@ -393,8 +342,7 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Roles'. <br />
-     * {VARCHAR(255)}
+     * Roles: {VARCHAR(255)} <br />
      * @param roles The value of the column 'Roles'. (Nullable)
      */
     public void setRoles(String roles) {
@@ -402,12 +350,8 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
         this._roles = roles;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -415,13 +359,11 @@ public abstract class BsTClients implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

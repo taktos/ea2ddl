@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_secuserpermission.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTSecuserpermissionCQ extends AbstractBsTSecuserpermissionCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTSecuserpermissionCQ extends AbstractBsTSecuserpermissionCQ {
      * @return On-clause query. (NotNull)
      */
     public TSecuserpermissionCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TSecuserpermissionCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTSecuserpermissionCQ extends AbstractBsTSecuserpermissionCQ {
         return _userid;
     }
     protected ConditionValue getCValueUserid() { return getUserid(); }
-    
+
     public BsTSecuserpermissionCQ addOrderBy_Userid_Asc() { regOBA("UserID"); return this; }
     public BsTSecuserpermissionCQ addOrderBy_Userid_Desc() { regOBD("UserID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTSecuserpermissionCQ extends AbstractBsTSecuserpermissionCQ {
         return _permissionid;
     }
     protected ConditionValue getCValuePermissionid() { return getPermissionid(); }
-          
+
     public BsTSecuserpermissionCQ addOrderBy_Permissionid_Asc() { regOBA("PermissionID"); return this; }
     public BsTSecuserpermissionCQ addOrderBy_Permissionid_Desc() { regOBD("PermissionID"); return this; }
 
@@ -91,8 +91,11 @@ public class BsTSecuserpermissionCQ extends AbstractBsTSecuserpermissionCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TSecuserpermissionCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TSecuserpermissionCB.class.getName(); }
+    String xCQ() { return TSecuserpermissionCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

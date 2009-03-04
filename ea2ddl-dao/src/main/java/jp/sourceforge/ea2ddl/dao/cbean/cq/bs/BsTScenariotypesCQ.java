@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_scenariotypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTScenariotypesCQ extends AbstractBsTScenariotypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTScenariotypesCQ extends AbstractBsTScenariotypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TScenariotypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TScenariotypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTScenariotypesCQ extends AbstractBsTScenariotypesCQ {
         return _scenariotype;
     }
     protected ConditionValue getCValueScenariotype() { return getScenariotype(); }
-    
+
     public BsTScenariotypesCQ addOrderBy_Scenariotype_Asc() { regOBA("ScenarioType"); return this; }
     public BsTScenariotypesCQ addOrderBy_Scenariotype_Desc() { regOBD("ScenarioType"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTScenariotypesCQ extends AbstractBsTScenariotypesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTScenariotypesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTScenariotypesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTScenariotypesCQ extends AbstractBsTScenariotypesCQ {
         return _numericweight;
     }
     protected ConditionValue getCValueNumericweight() { return getNumericweight(); }
-          
+
     public BsTScenariotypesCQ addOrderBy_Numericweight_Asc() { regOBA("NumericWeight"); return this; }
     public BsTScenariotypesCQ addOrderBy_Numericweight_Desc() { regOBD("NumericWeight"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTScenariotypesCQ extends AbstractBsTScenariotypesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTScenariotypesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTScenariotypesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -111,8 +111,11 @@ public class BsTScenariotypesCQ extends AbstractBsTScenariotypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TScenariotypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TScenariotypesCB.class.getName(); }
+    String xCQ() { return TScenariotypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

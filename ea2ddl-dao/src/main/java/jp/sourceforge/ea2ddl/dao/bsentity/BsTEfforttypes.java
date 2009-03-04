@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_efforttypes(TABLE).
+ * The entity of t_efforttypes that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
+public abstract class BsTEfforttypes implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,26 +47,22 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_efforttypes. */
-    public static final String TABLE = "t_efforttypes";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'EffortType'. {UQ : VARCHAR(12)} */
+    /** EffortType: {UQ : VARCHAR(12)} */
     protected String _efforttype;
 
-    /** The attribute of the column 'Description'. {VARCHAR(255)} */
+    /** Description: {VARCHAR(255)} */
     protected String _description;
 
-    /** The attribute of the column 'NumericWeight'. {DOUBLE} */
+    /** NumericWeight: {DOUBLE} */
     protected java.math.BigDecimal _numericweight;
 
-    /** The attribute of the column 'Notes'. {VARCHAR(255)} */
+    /** Notes: {VARCHAR(255)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -76,19 +72,13 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTEfforttypes() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_efforttypes";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TEfforttypes";
     }
 
@@ -114,7 +104,6 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -195,13 +184,8 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(12)} */
-    public static final String efforttype_COLUMN = "EffortType";
-
     /**
-     * Get the value of the column 'EffortType'. <br />
-     * {UQ : VARCHAR(12)}
+     * EffortType: {UQ : VARCHAR(12)} <br />
      * @return The value of the column 'EffortType'. (Nullable)
      */
     public String getEfforttype() {
@@ -209,8 +193,7 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'EffortType'. <br />
-     * {UQ : VARCHAR(12)}
+     * EffortType: {UQ : VARCHAR(12)} <br />
      * @param efforttype The value of the column 'EffortType'. (Nullable)
      */
     public void setEfforttype(String efforttype) {
@@ -218,12 +201,8 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
         this._efforttype = efforttype;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(255)}
+     * Description: {VARCHAR(255)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -231,8 +210,7 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(255)}
+     * Description: {VARCHAR(255)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
@@ -240,12 +218,8 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
         this._description = description;
     }
 
-    /** The column annotation for S2Dao. {DOUBLE} */
-    public static final String numericweight_COLUMN = "NumericWeight";
-
     /**
-     * Get the value of the column 'NumericWeight'. <br />
-     * {DOUBLE}
+     * NumericWeight: {DOUBLE} <br />
      * @return The value of the column 'NumericWeight'. (Nullable)
      */
     public java.math.BigDecimal getNumericweight() {
@@ -253,8 +227,7 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'NumericWeight'. <br />
-     * {DOUBLE}
+     * NumericWeight: {DOUBLE} <br />
      * @param numericweight The value of the column 'NumericWeight'. (Nullable)
      */
     public void setNumericweight(java.math.BigDecimal numericweight) {
@@ -262,12 +235,8 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
         this._numericweight = numericweight;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -275,13 +244,11 @@ public abstract class BsTEfforttypes implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {VARCHAR(255)}
+     * Notes: {VARCHAR(255)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

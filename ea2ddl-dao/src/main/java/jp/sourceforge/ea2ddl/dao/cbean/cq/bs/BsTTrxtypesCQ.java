@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_trxtypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TTrxtypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TTrxtypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTTrxtypesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTTrxtypesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
         return _numericweight;
     }
     protected ConditionValue getCValueNumericweight() { return getNumericweight(); }
-          
+
     public BsTTrxtypesCQ addOrderBy_Numericweight_Asc() { regOBA("NumericWeight"); return this; }
     public BsTTrxtypesCQ addOrderBy_Numericweight_Desc() { regOBD("NumericWeight"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTTrxtypesCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTTrxtypesCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
         return _trx;
     }
     protected ConditionValue getCValueTrx() { return getTrx(); }
-    
+
     public BsTTrxtypesCQ addOrderBy_Trx_Asc() { regOBA("TRX"); return this; }
     public BsTTrxtypesCQ addOrderBy_Trx_Desc() { regOBD("TRX"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
         return _trxId;
     }
     protected ConditionValue getCValueTrxId() { return getTrxId(); }
-          
+
     public BsTTrxtypesCQ addOrderBy_TrxId_Asc() { regOBA("TRX_ID"); return this; }
     public BsTTrxtypesCQ addOrderBy_TrxId_Desc() { regOBD("TRX_ID"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
         return _style;
     }
     protected ConditionValue getCValueStyle() { return getStyle(); }
-    
+
     public BsTTrxtypesCQ addOrderBy_Style_Asc() { regOBA("Style"); return this; }
     public BsTTrxtypesCQ addOrderBy_Style_Desc() { regOBD("Style"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTTrxtypesCQ extends AbstractBsTTrxtypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TTrxtypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TTrxtypesCB.class.getName(); }
+    String xCQ() { return TTrxtypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

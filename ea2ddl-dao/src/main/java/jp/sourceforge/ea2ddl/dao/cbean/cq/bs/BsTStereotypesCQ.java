@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_stereotypes.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
      * @return On-clause query. (NotNull)
      */
     public TStereotypesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TStereotypesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _stereotype;
     }
     protected ConditionValue getCValueStereotype() { return getStereotype(); }
-    
+
     public BsTStereotypesCQ addOrderBy_Stereotype_Asc() { regOBA("Stereotype"); return this; }
     public BsTStereotypesCQ addOrderBy_Stereotype_Desc() { regOBD("Stereotype"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _appliesto;
     }
     protected ConditionValue getCValueAppliesto() { return getAppliesto(); }
-    
+
     public BsTStereotypesCQ addOrderBy_Appliesto_Asc() { regOBA("AppliesTo"); return this; }
     public BsTStereotypesCQ addOrderBy_Appliesto_Desc() { regOBD("AppliesTo"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTStereotypesCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTStereotypesCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _mfenabled;
     }
     protected ConditionValue getCValueMfenabled() { return getMfenabled(); }
-    
+
     public BsTStereotypesCQ addOrderBy_Mfenabled_Asc() { regOBA("MFEnabled"); return this; }
     public BsTStereotypesCQ addOrderBy_Mfenabled_Desc() { regOBD("MFEnabled"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _mfpath;
     }
     protected ConditionValue getCValueMfpath() { return getMfpath(); }
-    
+
     public BsTStereotypesCQ addOrderBy_Mfpath_Asc() { regOBA("MFPath"); return this; }
     public BsTStereotypesCQ addOrderBy_Mfpath_Desc() { regOBD("MFPath"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _metafile;
     }
     protected ConditionValue getCValueMetafile() { return getMetafile(); }
-    
+
     public BsTStereotypesCQ addOrderBy_Metafile_Asc() { regOBA("Metafile"); return this; }
     public BsTStereotypesCQ addOrderBy_Metafile_Desc() { regOBD("Metafile"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _style;
     }
     protected ConditionValue getCValueStyle() { return getStyle(); }
-    
+
     public BsTStereotypesCQ addOrderBy_Style_Asc() { regOBA("Style"); return this; }
     public BsTStereotypesCQ addOrderBy_Style_Desc() { regOBD("Style"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _eaGuid;
     }
     protected ConditionValue getCValueEaGuid() { return getEaGuid(); }
-    
+
     public BsTStereotypesCQ addOrderBy_EaGuid_Asc() { regOBA("ea_guid"); return this; }
     public BsTStereotypesCQ addOrderBy_EaGuid_Desc() { regOBD("ea_guid"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
         return _visualtype;
     }
     protected ConditionValue getCValueVisualtype() { return getVisualtype(); }
-    
+
     public BsTStereotypesCQ addOrderBy_Visualtype_Asc() { regOBA("VisualType"); return this; }
     public BsTStereotypesCQ addOrderBy_Visualtype_Desc() { regOBD("VisualType"); return this; }
 
@@ -161,8 +161,11 @@ public class BsTStereotypesCQ extends AbstractBsTStereotypesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TStereotypesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TStereotypesCB.class.getName(); }
+    String xCQ() { return TStereotypesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

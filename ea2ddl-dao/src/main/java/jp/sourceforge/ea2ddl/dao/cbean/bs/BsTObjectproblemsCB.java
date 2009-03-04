@@ -2,11 +2,16 @@ package jp.sourceforge.ea2ddl.dao.cbean.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.AbstractConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.SubQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.UnionQuery;
+import org.seasar.dbflute.cbean.AbstractConditionBean;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.ConditionQuery;
+import org.seasar.dbflute.cbean.SubQuery;
+import org.seasar.dbflute.cbean.UnionQuery;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBFluteConfig;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
+import jp.sourceforge.ea2ddl.dao.allcommon.ImplementedSqlClauseCreator;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -14,13 +19,29 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The base condition-bean of t_objectproblems.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectproblemsCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    private final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
     protected TObjectproblemsCQ _conditionQuery;
+
+    // ===================================================================================
+    //                                                                           SqlClause
+    //                                                                           =========
+    @Override
+    protected SqlClause createSqlClause() {
+        return new ImplementedSqlClauseCreator().createSqlClause(this);
+    }
+    
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
+    }
 
     // ===================================================================================
     //                                                                          Table Name
@@ -70,7 +91,11 @@ public class BsTObjectproblemsCB extends AbstractConditionBean {
         return _conditionQuery;
     }
 
-    public ConditionQuery getConditionQueryAsInterface() {
+    /**
+     * {@inheritDoc}
+     * @return The conditionQuery of the local table as interface. (NotNull)
+     */
+    public ConditionQuery localCQ() {
         return getConditionQuery();
     }
 
@@ -108,22 +133,6 @@ public class BsTObjectproblemsCB extends AbstractConditionBean {
         final TObjectproblemsCB cb = new TObjectproblemsCB(); cb.xsetupForUnion(); unionQuery.query(cb);
         final TObjectproblemsCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
-    
-    /**
-     * @param unionQuery The query of 'union'. (NotNull)
-     * @deprecated Sorry! Please use union(UnionQuery<TObjectproblemsCB> unionQuery).
-     */
-    public void union(TObjectproblemsCQ unionQuery) {
-        query().xsetUnionQuery(unionQuery);
-    }
-
-    /**
-     * @param unionQuery The query of 'union'. (NotNull)
-     * @deprecated Sorry! Please use unionAll(UnionQuery<TObjectproblemsCB> unionQuery).
-     */
-    public void unionAll(TObjectproblemsCQ unionQuery) {
-        query().xsetUnionAllQuery(unionQuery);
-    }
 
     public boolean hasUnionQueryOrUnionAllQuery() {
         return query().hasUnionQueryOrUnionAllQuery();
@@ -140,11 +149,16 @@ public class BsTObjectproblemsCB extends AbstractConditionBean {
     protected Specification _specification;
     public Specification specify() {
         if (_specification == null) { _specification = new Specification(this, new SpQyCall<TObjectproblemsCQ>() {
-            public boolean has() { return true; } public TObjectproblemsCQ qy() { return query(); } }, _forDeriveReferrer); } return _specification;
+            public boolean has() { return true; } public TObjectproblemsCQ qy() { return query(); } }, _forDerivedReferrer, _forScalarSelect, _forScalarSubQuery, getDBMetaProvider()); }
+        return _specification;
     }
+
     public static class Specification extends AbstractSpecification<TObjectproblemsCQ> {
         protected SpQyCall<TObjectproblemsCQ> _myQyCall;
-        public Specification(ConditionBean baseCB, SpQyCall<TObjectproblemsCQ> qyCall, boolean forDeriveReferrer) { super(baseCB, qyCall, forDeriveReferrer); _myQyCall = qyCall; }
+        public Specification(ConditionBean baseCB, SpQyCall<TObjectproblemsCQ> qyCall
+                           , boolean forDeriveReferrer, boolean forScalarSelect, boolean forScalarSubQuery
+                           , DBMetaProvider dbmetaProvider)
+        { super(baseCB, qyCall, forDeriveReferrer, forScalarSelect, forScalarSubQuery, dbmetaProvider); _myQyCall = qyCall; }
         public void columnObjectId() { doColumn("Object_ID"); }
         public void columnProblem() { doColumn("Problem"); }
         public void columnProblemtype() { doColumn("ProblemType"); }
@@ -163,6 +177,17 @@ public class BsTObjectproblemsCB extends AbstractConditionBean {
         protected String getTableDbName() { return "t_objectproblems"; }
     }
 
+    // ===================================================================================
+    //                                                                         Display SQL
+    //                                                                         ===========
+    @Override
+    protected String getLogDateFormat() { return DBFluteConfig.getInstance().getLogDateFormat(); }
+    @Override
+    protected String getLogTimestampFormat() { return DBFluteConfig.getInstance().getLogTimestampFormat(); }
+
+    // ===================================================================================
+    //                                                                            Internal
+    //                                                                            ========
     // Very Internal (for Suppressing Warn about 'Not Use Import')
     protected String getConditionBeanClassNameInternally() { return TObjectproblemsCB.class.getName(); }
     protected String getConditionQueryClassNameInternally() { return TObjectproblemsCQ.class.getName(); }

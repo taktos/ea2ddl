@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of usysTables(TABLE).
+ * The entity of usysTables that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsUsystables implements Entity, java.io.Serializable {
+public abstract class BsUsystables implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,29 +47,25 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is usysTables. */
-    public static final String TABLE = "usysTables";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'TableName'. {UQ : VARCHAR(50)} */
+    /** TableName: {UQ : VARCHAR(50)} */
     protected String _tablename;
 
-    /** The attribute of the column 'RelOrder'. {INTEGER} */
+    /** RelOrder: {INTEGER} */
     protected java.lang.Integer _relorder;
 
-    /** The attribute of the column 'DisplayName'. {VARCHAR(50)} */
+    /** DisplayName: {VARCHAR(50)} */
     protected String _displayname;
 
-    /** The attribute of the column 'FromVer'. {VARCHAR(50)} */
+    /** FromVer: {VARCHAR(50)} */
     protected String _fromver;
 
-    /** The attribute of the column 'ToVer'. {VARCHAR(50)} */
+    /** ToVer: {VARCHAR(50)} */
     protected String _tover;
 
     // -----------------------------------------------------
@@ -79,19 +75,13 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsUsystables() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "usysTables";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "usystables";
     }
 
@@ -117,7 +107,6 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -201,13 +190,8 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(50)} */
-    public static final String tablename_COLUMN = "TableName";
-
     /**
-     * Get the value of the column 'TableName'. <br />
-     * {UQ : VARCHAR(50)}
+     * TableName: {UQ : VARCHAR(50)} <br />
      * @return The value of the column 'TableName'. (Nullable)
      */
     public String getTablename() {
@@ -215,8 +199,7 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'TableName'. <br />
-     * {UQ : VARCHAR(50)}
+     * TableName: {UQ : VARCHAR(50)} <br />
      * @param tablename The value of the column 'TableName'. (Nullable)
      */
     public void setTablename(String tablename) {
@@ -224,12 +207,8 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
         this._tablename = tablename;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String relorder_COLUMN = "RelOrder";
-
     /**
-     * Get the value of the column 'RelOrder'. <br />
-     * {INTEGER}
+     * RelOrder: {INTEGER} <br />
      * @return The value of the column 'RelOrder'. (Nullable)
      */
     public java.lang.Integer getRelorder() {
@@ -237,8 +216,7 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'RelOrder'. <br />
-     * {INTEGER}
+     * RelOrder: {INTEGER} <br />
      * @param relorder The value of the column 'RelOrder'. (Nullable)
      */
     public void setRelorder(java.lang.Integer relorder) {
@@ -246,12 +224,8 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
         this._relorder = relorder;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String displayname_COLUMN = "DisplayName";
-
     /**
-     * Get the value of the column 'DisplayName'. <br />
-     * {VARCHAR(50)}
+     * DisplayName: {VARCHAR(50)} <br />
      * @return The value of the column 'DisplayName'. (Nullable)
      */
     public String getDisplayname() {
@@ -259,8 +233,7 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'DisplayName'. <br />
-     * {VARCHAR(50)}
+     * DisplayName: {VARCHAR(50)} <br />
      * @param displayname The value of the column 'DisplayName'. (Nullable)
      */
     public void setDisplayname(String displayname) {
@@ -268,12 +241,8 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
         this._displayname = displayname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String fromver_COLUMN = "FromVer";
-
     /**
-     * Get the value of the column 'FromVer'. <br />
-     * {VARCHAR(50)}
+     * FromVer: {VARCHAR(50)} <br />
      * @return The value of the column 'FromVer'. (Nullable)
      */
     public String getFromver() {
@@ -281,8 +250,7 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'FromVer'. <br />
-     * {VARCHAR(50)}
+     * FromVer: {VARCHAR(50)} <br />
      * @param fromver The value of the column 'FromVer'. (Nullable)
      */
     public void setFromver(String fromver) {
@@ -290,12 +258,8 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
         this._fromver = fromver;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String tover_COLUMN = "ToVer";
-
     /**
-     * Get the value of the column 'ToVer'. <br />
-     * {VARCHAR(50)}
+     * ToVer: {VARCHAR(50)} <br />
      * @return The value of the column 'ToVer'. (Nullable)
      */
     public String getTover() {
@@ -303,13 +267,11 @@ public abstract class BsUsystables implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'ToVer'. <br />
-     * {VARCHAR(50)}
+     * ToVer: {VARCHAR(50)} <br />
      * @param tover The value of the column 'ToVer'. (Nullable)
      */
     public void setTover(String tover) {
         _modifiedProperties.addPropertyName("tover");
         this._tover = tover;
     }
-
 }

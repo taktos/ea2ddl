@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objectproblems.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjectproblemsCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjectproblemsCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTObjectproblemsCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjectproblemsCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _problem;
     }
     protected ConditionValue getCValueProblem() { return getProblem(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Problem_Asc() { regOBA("Problem"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Problem_Desc() { regOBD("Problem"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _problemtype;
     }
     protected ConditionValue getCValueProblemtype() { return getProblemtype(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Problemtype_Asc() { regOBA("ProblemType"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Problemtype_Desc() { regOBD("ProblemType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _datereported;
     }
     protected ConditionValue getCValueDatereported() { return getDatereported(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Datereported_Asc() { regOBA("DateReported"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Datereported_Desc() { regOBD("DateReported"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _status;
     }
     protected ConditionValue getCValueStatus() { return getStatus(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Status_Asc() { regOBA("Status"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Status_Desc() { regOBD("Status"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _problemnotes;
     }
     protected ConditionValue getCValueProblemnotes() { return getProblemnotes(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Problemnotes_Asc() { regOBA("ProblemNotes"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Problemnotes_Desc() { regOBD("ProblemNotes"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _reportedby;
     }
     protected ConditionValue getCValueReportedby() { return getReportedby(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Reportedby_Asc() { regOBA("ReportedBy"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Reportedby_Desc() { regOBD("ReportedBy"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _resolvedby;
     }
     protected ConditionValue getCValueResolvedby() { return getResolvedby(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Resolvedby_Asc() { regOBA("ResolvedBy"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Resolvedby_Desc() { regOBD("ResolvedBy"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _dateresolved;
     }
     protected ConditionValue getCValueDateresolved() { return getDateresolved(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Dateresolved_Asc() { regOBA("DateResolved"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Dateresolved_Desc() { regOBD("DateResolved"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _version;
     }
     protected ConditionValue getCValueVersion() { return getVersion(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Version_Asc() { regOBA("Version"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Version_Desc() { regOBD("Version"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _resolvernotes;
     }
     protected ConditionValue getCValueResolvernotes() { return getResolvernotes(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Resolvernotes_Asc() { regOBA("ResolverNotes"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Resolvernotes_Desc() { regOBD("ResolverNotes"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _priority;
     }
     protected ConditionValue getCValuePriority() { return getPriority(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Priority_Asc() { regOBA("Priority"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Priority_Desc() { regOBD("Priority"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
         return _severity;
     }
     protected ConditionValue getCValueSeverity() { return getSeverity(); }
-    
+
     public BsTObjectproblemsCQ addOrderBy_Severity_Asc() { regOBA("Severity"); return this; }
     public BsTObjectproblemsCQ addOrderBy_Severity_Desc() { regOBD("Severity"); return this; }
 
@@ -201,8 +201,11 @@ public class BsTObjectproblemsCQ extends AbstractBsTObjectproblemsCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjectproblemsCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjectproblemsCB.class.getName(); }
+    String xCQ() { return TObjectproblemsCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

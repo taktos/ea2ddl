@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_projectroles(TABLE).
+ * The entity of t_projectroles that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTProjectroles implements Entity, java.io.Serializable {
+public abstract class BsTProjectroles implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,23 +47,19 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_projectroles. */
-    public static final String TABLE = "t_projectroles";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Role'. {UQ : VARCHAR(255)} */
+    /** Role: {UQ : VARCHAR(255)} */
     protected String _role;
 
-    /** The attribute of the column 'Description'. {VARCHAR(255)} */
+    /** Description: {VARCHAR(255)} */
     protected String _description;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
     // -----------------------------------------------------
@@ -73,19 +69,13 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTProjectroles() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_projectroles";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TProjectroles";
     }
 
@@ -111,7 +101,6 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -189,13 +178,8 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String role_COLUMN = "Role";
-
     /**
-     * Get the value of the column 'Role'. <br />
-     * {UQ : VARCHAR(255)}
+     * Role: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Role'. (Nullable)
      */
     public String getRole() {
@@ -203,8 +187,7 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Role'. <br />
-     * {UQ : VARCHAR(255)}
+     * Role: {UQ : VARCHAR(255)} <br />
      * @param role The value of the column 'Role'. (Nullable)
      */
     public void setRole(String role) {
@@ -212,12 +195,8 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
         this._role = role;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String description_COLUMN = "Description";
-
     /**
-     * Get the value of the column 'Description'. <br />
-     * {VARCHAR(255)}
+     * Description: {VARCHAR(255)} <br />
      * @return The value of the column 'Description'. (Nullable)
      */
     public String getDescription() {
@@ -225,8 +204,7 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Description'. <br />
-     * {VARCHAR(255)}
+     * Description: {VARCHAR(255)} <br />
      * @param description The value of the column 'Description'. (Nullable)
      */
     public void setDescription(String description) {
@@ -234,12 +212,8 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
         this._description = description;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -247,13 +221,11 @@ public abstract class BsTProjectroles implements Entity, java.io.Serializable {
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
         _modifiedProperties.addPropertyName("notes");
         this._notes = notes;
     }
-
 }

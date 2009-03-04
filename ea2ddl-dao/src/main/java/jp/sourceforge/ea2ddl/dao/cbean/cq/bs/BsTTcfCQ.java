@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_tcf.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTTcfCQ extends AbstractBsTTcfCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTTcfCQ extends AbstractBsTTcfCQ {
      * @return On-clause query. (NotNull)
      */
     public TTcfCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TTcfCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTTcfCQ extends AbstractBsTTcfCQ {
         return _tcfid;
     }
     protected ConditionValue getCValueTcfid() { return getTcfid(); }
-    
+
     public BsTTcfCQ addOrderBy_Tcfid_Asc() { regOBA("TCFID"); return this; }
     public BsTTcfCQ addOrderBy_Tcfid_Desc() { regOBD("TCFID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTTcfCQ extends AbstractBsTTcfCQ {
         return _description;
     }
     protected ConditionValue getCValueDescription() { return getDescription(); }
-    
+
     public BsTTcfCQ addOrderBy_Description_Asc() { regOBA("Description"); return this; }
     public BsTTcfCQ addOrderBy_Description_Desc() { regOBD("Description"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTTcfCQ extends AbstractBsTTcfCQ {
         return _weight;
     }
     protected ConditionValue getCValueWeight() { return getWeight(); }
-          
+
     public BsTTcfCQ addOrderBy_Weight_Asc() { regOBA("Weight"); return this; }
     public BsTTcfCQ addOrderBy_Weight_Desc() { regOBD("Weight"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTTcfCQ extends AbstractBsTTcfCQ {
         return _value;
     }
     protected ConditionValue getCValueValue() { return getValue(); }
-          
+
     public BsTTcfCQ addOrderBy_Value_Asc() { regOBA("Value"); return this; }
     public BsTTcfCQ addOrderBy_Value_Desc() { regOBD("Value"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTTcfCQ extends AbstractBsTTcfCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTTcfCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTTcfCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -121,8 +121,11 @@ public class BsTTcfCQ extends AbstractBsTTcfCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TTcfCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TTcfCB.class.getName(); }
+    String xCQ() { return TTcfCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

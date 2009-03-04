@@ -2,10 +2,13 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Collection;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ckey.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.ckey.*;
+import org.seasar.dbflute.cbean.coption.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.dbmeta.DBMetaProvider;
+import jp.sourceforge.ea2ddl.dao.allcommon.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
@@ -13,14 +16,26 @@ import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
  * The abstract condition-query of t_clients.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected final DBMetaProvider _dbmetaProvider = new DBMetaInstanceHandler();
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     public AbstractBsTClientsCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
+    }
+
+    // ===================================================================================
+    //                                                                     DBMeta Provider
+    //                                                                     ===============
+    @Override
+    protected DBMetaProvider getDBMetaProvider() {
+        return _dbmetaProvider;
     }
 
     // ===================================================================================
@@ -39,7 +54,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     //                                                                               =====
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {UQ : VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {UQ : VARCHAR(255)}
      * @param name The value of name as equal.
      */
     public void setName_Equal(String name) {
@@ -47,7 +62,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as notEqual.
      */
     public void setName_NotEqual(String name) {
@@ -55,7 +70,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterThan.
      */
     public void setName_GreaterThan(String name) {
@@ -63,7 +78,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessThan.
      */
     public void setName_LessThan(String name) {
@@ -71,7 +86,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as greaterEqual.
      */
     public void setName_GreaterEqual(String name) {
@@ -79,7 +94,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as lessEqual.
      */
     public void setName_LessEqual(String name) {
@@ -87,20 +102,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param name The value of name as prefixSearch.
      */
     public void setName_PrefixSearch(String name) {
         regName(CK_PS, fRES(name));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param name The value of name as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setName_LikeSearch(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(name), getCValueName(), "Name", "Name", "name", likeSearchOption);
     }
 
     /**
@@ -112,34 +118,38 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param name The collection of name as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setName_InScope(String name, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(name), getCValueName(), "Name", "Name", "name", inScopeOption);
+    public void setName_LikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(name), getCValueName(), "Name", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param name The value of name as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setName_IsNull() { regName(CK_ISN, DUMMY_OBJECT); }
+    public void setName_NotLikeSearch(String name, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(name), getCValueName(), "Name", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setName_IsNotNull() { regName(CK_ISNN, DUMMY_OBJECT); }
+    public void setName_IsNull() { regName(CK_ISN, DOBJ); }
 
-    protected void regName(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
-    protected void registerInlineName(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueName(), "Name", "Name", "name");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setName_IsNotNull() { regName(CK_ISNN, DOBJ); }
+
+    protected void regName(ConditionKey k, Object v) { regQ(k, v, getCValueName(), "Name"); }
     abstract protected ConditionValue getCValueName();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param organisation The value of organisation as equal.
      */
     public void setOrganisation_Equal(String organisation) {
@@ -147,7 +157,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param organisation The value of organisation as notEqual.
      */
     public void setOrganisation_NotEqual(String organisation) {
@@ -155,7 +165,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param organisation The value of organisation as greaterThan.
      */
     public void setOrganisation_GreaterThan(String organisation) {
@@ -163,7 +173,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param organisation The value of organisation as lessThan.
      */
     public void setOrganisation_LessThan(String organisation) {
@@ -171,7 +181,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param organisation The value of organisation as greaterEqual.
      */
     public void setOrganisation_GreaterEqual(String organisation) {
@@ -179,7 +189,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param organisation The value of organisation as lessEqual.
      */
     public void setOrganisation_LessEqual(String organisation) {
@@ -187,20 +197,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param organisation The value of organisation as prefixSearch.
      */
     public void setOrganisation_PrefixSearch(String organisation) {
         regOrganisation(CK_PS, fRES(organisation));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param organisation The value of organisation as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setOrganisation_LikeSearch(String organisation, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(organisation), getCValueOrganisation(), "Organisation", "Organisation", "organisation", likeSearchOption);
     }
 
     /**
@@ -212,34 +213,38 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param organisation The collection of organisation as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param organisation The value of organisation as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setOrganisation_InScope(String organisation, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(organisation), getCValueOrganisation(), "Organisation", "Organisation", "organisation", inScopeOption);
+    public void setOrganisation_LikeSearch(String organisation, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(organisation), getCValueOrganisation(), "Organisation", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param organisation The value of organisation as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setOrganisation_IsNull() { regOrganisation(CK_ISN, DUMMY_OBJECT); }
+    public void setOrganisation_NotLikeSearch(String organisation, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(organisation), getCValueOrganisation(), "Organisation", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setOrganisation_IsNotNull() { regOrganisation(CK_ISNN, DUMMY_OBJECT); }
+    public void setOrganisation_IsNull() { regOrganisation(CK_ISN, DOBJ); }
 
-    protected void regOrganisation(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueOrganisation(), "Organisation", "Organisation", "organisation");
-    }
-    protected void registerInlineOrganisation(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueOrganisation(), "Organisation", "Organisation", "organisation");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setOrganisation_IsNotNull() { regOrganisation(CK_ISNN, DOBJ); }
+
+    protected void regOrganisation(ConditionKey k, Object v) { regQ(k, v, getCValueOrganisation(), "Organisation"); }
     abstract protected ConditionValue getCValueOrganisation();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param phone1 The value of phone1 as equal.
      */
     public void setPhone1_Equal(String phone1) {
@@ -247,7 +252,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone1 The value of phone1 as notEqual.
      */
     public void setPhone1_NotEqual(String phone1) {
@@ -255,7 +260,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone1 The value of phone1 as greaterThan.
      */
     public void setPhone1_GreaterThan(String phone1) {
@@ -263,7 +268,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone1 The value of phone1 as lessThan.
      */
     public void setPhone1_LessThan(String phone1) {
@@ -271,7 +276,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone1 The value of phone1 as greaterEqual.
      */
     public void setPhone1_GreaterEqual(String phone1) {
@@ -279,7 +284,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone1 The value of phone1 as lessEqual.
      */
     public void setPhone1_LessEqual(String phone1) {
@@ -287,20 +292,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone1 The value of phone1 as prefixSearch.
      */
     public void setPhone1_PrefixSearch(String phone1) {
         regPhone1(CK_PS, fRES(phone1));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param phone1 The value of phone1 as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPhone1_LikeSearch(String phone1, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(phone1), getCValuePhone1(), "Phone1", "Phone1", "phone1", likeSearchOption);
     }
 
     /**
@@ -312,34 +308,38 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param phone1 The collection of phone1 as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phone1 The value of phone1 as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPhone1_InScope(String phone1, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(phone1), getCValuePhone1(), "Phone1", "Phone1", "phone1", inScopeOption);
+    public void setPhone1_LikeSearch(String phone1, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(phone1), getCValuePhone1(), "Phone1", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phone1 The value of phone1 as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPhone1_IsNull() { regPhone1(CK_ISN, DUMMY_OBJECT); }
+    public void setPhone1_NotLikeSearch(String phone1, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(phone1), getCValuePhone1(), "Phone1", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPhone1_IsNotNull() { regPhone1(CK_ISNN, DUMMY_OBJECT); }
+    public void setPhone1_IsNull() { regPhone1(CK_ISN, DOBJ); }
 
-    protected void regPhone1(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePhone1(), "Phone1", "Phone1", "phone1");
-    }
-    protected void registerInlinePhone1(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePhone1(), "Phone1", "Phone1", "phone1");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPhone1_IsNotNull() { regPhone1(CK_ISNN, DOBJ); }
+
+    protected void regPhone1(ConditionKey k, Object v) { regQ(k, v, getCValuePhone1(), "Phone1"); }
     abstract protected ConditionValue getCValuePhone1();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param phone2 The value of phone2 as equal.
      */
     public void setPhone2_Equal(String phone2) {
@@ -347,7 +347,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone2 The value of phone2 as notEqual.
      */
     public void setPhone2_NotEqual(String phone2) {
@@ -355,7 +355,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone2 The value of phone2 as greaterThan.
      */
     public void setPhone2_GreaterThan(String phone2) {
@@ -363,7 +363,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone2 The value of phone2 as lessThan.
      */
     public void setPhone2_LessThan(String phone2) {
@@ -371,7 +371,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone2 The value of phone2 as greaterEqual.
      */
     public void setPhone2_GreaterEqual(String phone2) {
@@ -379,7 +379,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone2 The value of phone2 as lessEqual.
      */
     public void setPhone2_LessEqual(String phone2) {
@@ -387,20 +387,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param phone2 The value of phone2 as prefixSearch.
      */
     public void setPhone2_PrefixSearch(String phone2) {
         regPhone2(CK_PS, fRES(phone2));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param phone2 The value of phone2 as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setPhone2_LikeSearch(String phone2, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(phone2), getCValuePhone2(), "Phone2", "Phone2", "phone2", likeSearchOption);
     }
 
     /**
@@ -412,34 +403,38 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param phone2 The collection of phone2 as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phone2 The value of phone2 as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPhone2_InScope(String phone2, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(phone2), getCValuePhone2(), "Phone2", "Phone2", "phone2", inScopeOption);
+    public void setPhone2_LikeSearch(String phone2, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(phone2), getCValuePhone2(), "Phone2", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param phone2 The value of phone2 as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPhone2_IsNull() { regPhone2(CK_ISN, DUMMY_OBJECT); }
+    public void setPhone2_NotLikeSearch(String phone2, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(phone2), getCValuePhone2(), "Phone2", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setPhone2_IsNotNull() { regPhone2(CK_ISNN, DUMMY_OBJECT); }
+    public void setPhone2_IsNull() { regPhone2(CK_ISN, DOBJ); }
 
-    protected void regPhone2(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValuePhone2(), "Phone2", "Phone2", "phone2");
-    }
-    protected void registerInlinePhone2(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValuePhone2(), "Phone2", "Phone2", "phone2");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setPhone2_IsNotNull() { regPhone2(CK_ISNN, DOBJ); }
+
+    protected void regPhone2(ConditionKey k, Object v) { regQ(k, v, getCValuePhone2(), "Phone2"); }
     abstract protected ConditionValue getCValuePhone2();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param mobile The value of mobile as equal.
      */
     public void setMobile_Equal(String mobile) {
@@ -447,7 +442,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param mobile The value of mobile as notEqual.
      */
     public void setMobile_NotEqual(String mobile) {
@@ -455,7 +450,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param mobile The value of mobile as greaterThan.
      */
     public void setMobile_GreaterThan(String mobile) {
@@ -463,7 +458,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param mobile The value of mobile as lessThan.
      */
     public void setMobile_LessThan(String mobile) {
@@ -471,7 +466,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param mobile The value of mobile as greaterEqual.
      */
     public void setMobile_GreaterEqual(String mobile) {
@@ -479,7 +474,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param mobile The value of mobile as lessEqual.
      */
     public void setMobile_LessEqual(String mobile) {
@@ -487,20 +482,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param mobile The value of mobile as prefixSearch.
      */
     public void setMobile_PrefixSearch(String mobile) {
         regMobile(CK_PS, fRES(mobile));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param mobile The value of mobile as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setMobile_LikeSearch(String mobile, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(mobile), getCValueMobile(), "Mobile", "Mobile", "mobile", likeSearchOption);
     }
 
     /**
@@ -512,34 +498,38 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param mobile The collection of mobile as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param mobile The value of mobile as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setMobile_InScope(String mobile, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(mobile), getCValueMobile(), "Mobile", "Mobile", "mobile", inScopeOption);
+    public void setMobile_LikeSearch(String mobile, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(mobile), getCValueMobile(), "Mobile", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param mobile The value of mobile as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setMobile_IsNull() { regMobile(CK_ISN, DUMMY_OBJECT); }
+    public void setMobile_NotLikeSearch(String mobile, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(mobile), getCValueMobile(), "Mobile", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setMobile_IsNotNull() { regMobile(CK_ISNN, DUMMY_OBJECT); }
+    public void setMobile_IsNull() { regMobile(CK_ISN, DOBJ); }
 
-    protected void regMobile(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueMobile(), "Mobile", "Mobile", "mobile");
-    }
-    protected void registerInlineMobile(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueMobile(), "Mobile", "Mobile", "mobile");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setMobile_IsNotNull() { regMobile(CK_ISNN, DOBJ); }
+
+    protected void regMobile(ConditionKey k, Object v) { regQ(k, v, getCValueMobile(), "Mobile"); }
     abstract protected ConditionValue getCValueMobile();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param fax The value of fax as equal.
      */
     public void setFax_Equal(String fax) {
@@ -547,7 +537,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fax The value of fax as notEqual.
      */
     public void setFax_NotEqual(String fax) {
@@ -555,7 +545,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fax The value of fax as greaterThan.
      */
     public void setFax_GreaterThan(String fax) {
@@ -563,7 +553,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fax The value of fax as lessThan.
      */
     public void setFax_LessThan(String fax) {
@@ -571,7 +561,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fax The value of fax as greaterEqual.
      */
     public void setFax_GreaterEqual(String fax) {
@@ -579,7 +569,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fax The value of fax as lessEqual.
      */
     public void setFax_LessEqual(String fax) {
@@ -587,20 +577,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param fax The value of fax as prefixSearch.
      */
     public void setFax_PrefixSearch(String fax) {
         regFax(CK_PS, fRES(fax));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param fax The value of fax as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setFax_LikeSearch(String fax, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(fax), getCValueFax(), "Fax", "Fax", "fax", likeSearchOption);
     }
 
     /**
@@ -612,34 +593,38 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param fax The collection of fax as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param fax The value of fax as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setFax_InScope(String fax, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(fax), getCValueFax(), "Fax", "Fax", "fax", inScopeOption);
+    public void setFax_LikeSearch(String fax, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(fax), getCValueFax(), "Fax", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param fax The value of fax as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setFax_IsNull() { regFax(CK_ISN, DUMMY_OBJECT); }
+    public void setFax_NotLikeSearch(String fax, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(fax), getCValueFax(), "Fax", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setFax_IsNotNull() { regFax(CK_ISNN, DUMMY_OBJECT); }
+    public void setFax_IsNull() { regFax(CK_ISN, DOBJ); }
 
-    protected void regFax(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueFax(), "Fax", "Fax", "fax");
-    }
-    protected void registerInlineFax(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueFax(), "Fax", "Fax", "fax");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setFax_IsNotNull() { regFax(CK_ISNN, DOBJ); }
+
+    protected void regFax(ConditionKey k, Object v) { regQ(k, v, getCValueFax(), "Fax"); }
     abstract protected ConditionValue getCValueFax();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(50)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(50)}
      * @param email The value of email as equal.
      */
     public void setEmail_Equal(String email) {
@@ -647,7 +632,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param email The value of email as notEqual.
      */
     public void setEmail_NotEqual(String email) {
@@ -655,7 +640,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param email The value of email as greaterThan.
      */
     public void setEmail_GreaterThan(String email) {
@@ -663,7 +648,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param email The value of email as lessThan.
      */
     public void setEmail_LessThan(String email) {
@@ -671,7 +656,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param email The value of email as greaterEqual.
      */
     public void setEmail_GreaterEqual(String email) {
@@ -679,7 +664,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param email The value of email as lessEqual.
      */
     public void setEmail_LessEqual(String email) {
@@ -687,20 +672,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param email The value of email as prefixSearch.
      */
     public void setEmail_PrefixSearch(String email) {
         regEmail(CK_PS, fRES(email));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param email The value of email as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setEmail_LikeSearch(String email, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(email), getCValueEmail(), "Email", "Email", "email", likeSearchOption);
     }
 
     /**
@@ -712,34 +688,38 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param email The collection of email as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param email The value of email as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setEmail_InScope(String email, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(email), getCValueEmail(), "Email", "Email", "email", inScopeOption);
+    public void setEmail_LikeSearch(String email, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(email), getCValueEmail(), "Email", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param email The value of email as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setEmail_IsNull() { regEmail(CK_ISN, DUMMY_OBJECT); }
+    public void setEmail_NotLikeSearch(String email, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(email), getCValueEmail(), "Email", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setEmail_IsNotNull() { regEmail(CK_ISNN, DUMMY_OBJECT); }
+    public void setEmail_IsNull() { regEmail(CK_ISN, DOBJ); }
 
-    protected void regEmail(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueEmail(), "Email", "Email", "email");
-    }
-    protected void registerInlineEmail(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueEmail(), "Email", "Email", "email");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setEmail_IsNotNull() { regEmail(CK_ISNN, DOBJ); }
+
+    protected void regEmail(ConditionKey k, Object v) { regQ(k, v, getCValueEmail(), "Email"); }
     abstract protected ConditionValue getCValueEmail();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param roles The value of roles as equal.
      */
     public void setRoles_Equal(String roles) {
@@ -747,7 +727,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as notEqual.
      */
     public void setRoles_NotEqual(String roles) {
@@ -755,7 +735,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as greaterThan.
      */
     public void setRoles_GreaterThan(String roles) {
@@ -763,7 +743,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as lessThan.
      */
     public void setRoles_LessThan(String roles) {
@@ -771,7 +751,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as greaterEqual.
      */
     public void setRoles_GreaterEqual(String roles) {
@@ -779,7 +759,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as lessEqual.
      */
     public void setRoles_LessEqual(String roles) {
@@ -787,20 +767,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param roles The value of roles as prefixSearch.
      */
     public void setRoles_PrefixSearch(String roles) {
         regRoles(CK_PS, fRES(roles));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param roles The value of roles as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setRoles_LikeSearch(String roles, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(roles), getCValueRoles(), "Roles", "Roles", "roles", likeSearchOption);
     }
 
     /**
@@ -812,34 +783,38 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param roles The collection of roles as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param roles The value of roles as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setRoles_InScope(String roles, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(roles), getCValueRoles(), "Roles", "Roles", "roles", inScopeOption);
+    public void setRoles_LikeSearch(String roles, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(roles), getCValueRoles(), "Roles", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param roles The value of roles as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setRoles_IsNull() { regRoles(CK_ISN, DUMMY_OBJECT); }
+    public void setRoles_NotLikeSearch(String roles, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(roles), getCValueRoles(), "Roles", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setRoles_IsNotNull() { regRoles(CK_ISNN, DUMMY_OBJECT); }
+    public void setRoles_IsNull() { regRoles(CK_ISN, DOBJ); }
 
-    protected void regRoles(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueRoles(), "Roles", "Roles", "roles");
-    }
-    protected void registerInlineRoles(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueRoles(), "Roles", "Roles", "roles");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setRoles_IsNotNull() { regRoles(CK_ISNN, DOBJ); }
+
+    protected void regRoles(ConditionKey k, Object v) { regQ(k, v, getCValueRoles(), "Roles"); }
     abstract protected ConditionValue getCValueRoles();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnceRegistered. {VARCHAR(255)}
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. {VARCHAR(255)}
      * @param notes The value of notes as equal.
      */
     public void setNotes_Equal(String notes) {
@@ -847,7 +822,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(!=). And NullOrEmptyIgnored, OnceRegistered.
+     * NotEqual(!=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as notEqual.
      */
     public void setNotes_NotEqual(String notes) {
@@ -855,7 +830,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterThan.
      */
     public void setNotes_GreaterThan(String notes) {
@@ -863,7 +838,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnceRegistered.
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessThan.
      */
     public void setNotes_LessThan(String notes) {
@@ -871,7 +846,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as greaterEqual.
      */
     public void setNotes_GreaterEqual(String notes) {
@@ -879,7 +854,7 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnceRegistered.
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as lessEqual.
      */
     public void setNotes_LessEqual(String notes) {
@@ -887,20 +862,11 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnceRegistered.
+     * PrefixSearch(like 'xxx%'). And NullOrEmptyIgnored, OnlyOnceRegistered.
      * @param notes The value of notes as prefixSearch.
      */
     public void setNotes_PrefixSearch(String notes) {
         regNotes(CK_PS, fRES(notes));
-    }
-
-    /**
-     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
-     * @param notes The value of notes as likeSearch.
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setNotes_LikeSearch(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.LikeSearchOption likeSearchOption) {
-        registerLikeSearchQuery(CK_LS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", likeSearchOption);
     }
 
     /**
@@ -912,33 +878,41 @@ public abstract class AbstractBsTClientsCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope(in ('a', 'b')). And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered.
-     * @param notes The collection of notes as inScope.
-     * @param inScopeOption The option of in-scope. (NotNull)
+     * LikeSearch(like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotes_InScope(String notes, jp.sourceforge.ea2ddl.dao.allcommon.cbean.coption.InScopeOption inScopeOption) {
-        registerInScopeQuery(CK_INS, fRES(notes), getCValueNotes(), "Notes", "Notes", "notes", inScopeOption);
+    public void setNotes_LikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
     }
 
     /**
-     * IsNull(is null). And OnceRegistered.
+     * NotLikeSearch(not like 'xxx%' escape ...). And NullOrEmptyIgnored, SeveralRegistered.
+     * @param notes The value of notes as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotes_IsNull() { regNotes(CK_ISN, DUMMY_OBJECT); }
+    public void setNotes_NotLikeSearch(String notes, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(notes), getCValueNotes(), "Notes", likeSearchOption);
+    }
 
     /**
-     * IsNotNull(is not null). And OnceRegistered.
+     * IsNull(is null). And OnlyOnceRegistered.
      */
-    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DUMMY_OBJECT); }
+    public void setNotes_IsNull() { regNotes(CK_ISN, DOBJ); }
 
-    protected void regNotes(ConditionKey key, Object value) {
-        registerQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
-    protected void registerInlineNotes(ConditionKey key, Object value) {
-        registerInlineQuery(key, value, getCValueNotes(), "Notes", "Notes", "notes");
-    }
+    /**
+     * IsNotNull(is not null). And OnlyOnceRegistered.
+     */
+    public void setNotes_IsNotNull() { regNotes(CK_ISNN, DOBJ); }
+
+    protected void regNotes(ConditionKey k, Object v) { regQ(k, v, getCValueNotes(), "Notes"); }
     abstract protected ConditionValue getCValueNotes();
 
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
     // Very Internal (for Suppressing Warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return TClientsCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return TClientsCQ.class.getName(); }
+    String xCB() { return TClientsCB.class.getName(); }
+    String xCQ() { return TClientsCQ.class.getName(); }
+    String xLSO() { return LikeSearchOption.class.getName(); }
 }

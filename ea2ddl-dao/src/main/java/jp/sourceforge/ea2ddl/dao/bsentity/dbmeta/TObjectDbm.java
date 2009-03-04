@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TObject;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_object. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TObjectDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TObjectDbm _instance = new TObjectDbm();
     private TObjectDbm() {}
     public static TObjectDbm getInstance() { return _instance; }
@@ -29,62 +32,62 @@ public class TObjectDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnObjectId = cci("Object_ID", "objectId", java.lang.Integer.class, true, null, null);
-    protected ColumnInfo _columnObjectType = cci("Object_Type", "objectType", String.class, false, 255, 0);
-    protected ColumnInfo _columnDiagramId = cci("Diagram_ID", "diagramId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnName = cci("Name", "name", String.class, false, 255, 0);
-    protected ColumnInfo _columnAlias = cci("Alias", "alias", String.class, false, 255, 0);
-    protected ColumnInfo _columnAuthor = cci("Author", "author", String.class, false, 255, 0);
-    protected ColumnInfo _columnVersion = cci("Version", "version", String.class, false, 50, 0);
-    protected ColumnInfo _columnNote = cci("Note", "note", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnPackageId = cci("Package_ID", "packageId", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnStereotype = cci("Stereotype", "stereotype", String.class, false, 255, 0);
-    protected ColumnInfo _columnNtype = cci("NType", "ntype", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnComplexity = cci("Complexity", "complexity", String.class, false, 50, 0);
-    protected ColumnInfo _columnEffort = cci("Effort", "effort", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnStyle = cci("Style", "style", String.class, false, 255, 0);
-    protected ColumnInfo _columnBackcolor = cci("Backcolor", "backcolor", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnBorderstyle = cci("BorderStyle", "borderstyle", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnBorderwidth = cci("BorderWidth", "borderwidth", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnFontcolor = cci("Fontcolor", "fontcolor", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnBordercolor = cci("Bordercolor", "bordercolor", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnCreateddate = cci("CreatedDate", "createddate", java.sql.Timestamp.class, false, null, null);
-    protected ColumnInfo _columnModifieddate = cci("ModifiedDate", "modifieddate", java.sql.Timestamp.class, false, null, null);
-    protected ColumnInfo _columnStatus = cci("Status", "status", String.class, false, 50, 0);
-    protected ColumnInfo _columnTagged = cci("Tagged", "tagged", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnPdata1 = cci("PDATA1", "pdata1", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata2 = cci("PDATA2", "pdata2", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata3 = cci("PDATA3", "pdata3", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata4 = cci("PDATA4", "pdata4", String.class, false, 255, 0);
-    protected ColumnInfo _columnPdata5 = cci("PDATA5", "pdata5", String.class, false, 255, 0);
-    protected ColumnInfo _columnConcurrency = cci("Concurrency", "concurrency", String.class, false, 50, 0);
-    protected ColumnInfo _columnVisibility = cci("Visibility", "visibility", String.class, false, 50, 0);
-    protected ColumnInfo _columnPersistence = cci("Persistence", "persistence", String.class, false, 50, 0);
-    protected ColumnInfo _columnCardinality = cci("Cardinality", "cardinality", String.class, false, 50, 0);
-    protected ColumnInfo _columnGentype = cci("GenType", "gentype", String.class, false, 50, 0);
-    protected ColumnInfo _columnGenfile = cci("GenFile", "genfile", String.class, false, 255, 0);
-    protected ColumnInfo _columnHeader1 = cci("Header1", "header1", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnHeader2 = cci("Header2", "header2", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnPhase = cci("Phase", "phase", String.class, false, 50, 0);
-    protected ColumnInfo _columnScope = cci("Scope", "scope", String.class, false, 25, 0);
-    protected ColumnInfo _columnGenoption = cci("GenOption", "genoption", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnGenlinks = cci("GenLinks", "genlinks", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnClassifier = cci("Classifier", "classifier", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnEaGuid = cci("ea_guid", "eaGuid", String.class, false, 40, 0);
-    protected ColumnInfo _columnParentid = cci("ParentID", "parentid", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnRunstate = cci("RunState", "runstate", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnClassifierGuid = cci("Classifier_guid", "classifierGuid", String.class, false, 40, 0);
-    protected ColumnInfo _columnTpos = cci("TPos", "tpos", java.lang.Integer.class, false, null, null);
-    protected ColumnInfo _columnIsroot = cci("IsRoot", "isroot", Boolean.class, false, null, null);
-    protected ColumnInfo _columnIsleaf = cci("IsLeaf", "isleaf", Boolean.class, false, null, null);
-    protected ColumnInfo _columnIsspec = cci("IsSpec", "isspec", Boolean.class, false, null, null);
-    protected ColumnInfo _columnIsactive = cci("IsActive", "isactive", Boolean.class, false, null, null);
-    protected ColumnInfo _columnStateflags = cci("StateFlags", "stateflags", String.class, false, 255, 0);
-    protected ColumnInfo _columnPackageflags = cci("PackageFlags", "packageflags", String.class, false, 255, 0);
-    protected ColumnInfo _columnMultiplicity = cci("Multiplicity", "multiplicity", String.class, false, 50, 0);
-    protected ColumnInfo _columnStyleex = cci("StyleEx", "styleex", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnActionflags = cci("ActionFlags", "actionflags", String.class, false, 255, 0);
-    protected ColumnInfo _columnEventflags = cci("EventFlags", "eventflags", String.class, false, 255, 0);
+    protected ColumnInfo _columnObjectId = cci("Object_ID", null, "objectId", java.lang.Integer.class, true, false, null, null);
+    protected ColumnInfo _columnObjectType = cci("Object_Type", null, "objectType", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnDiagramId = cci("Diagram_ID", null, "diagramId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnName = cci("Name", null, "name", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnAlias = cci("Alias", null, "alias", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnAuthor = cci("Author", null, "author", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnVersion = cci("Version", null, "version", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnNote = cci("Note", null, "note", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnPackageId = cci("Package_ID", null, "packageId", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnStereotype = cci("Stereotype", null, "stereotype", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnNtype = cci("NType", null, "ntype", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnComplexity = cci("Complexity", null, "complexity", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnEffort = cci("Effort", null, "effort", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnStyle = cci("Style", null, "style", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnBackcolor = cci("Backcolor", null, "backcolor", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnBorderstyle = cci("BorderStyle", null, "borderstyle", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnBorderwidth = cci("BorderWidth", null, "borderwidth", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnFontcolor = cci("Fontcolor", null, "fontcolor", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnBordercolor = cci("Bordercolor", null, "bordercolor", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnCreateddate = cci("CreatedDate", null, "createddate", java.sql.Timestamp.class, false, false, null, null);
+    protected ColumnInfo _columnModifieddate = cci("ModifiedDate", null, "modifieddate", java.sql.Timestamp.class, false, false, null, null);
+    protected ColumnInfo _columnStatus = cci("Status", null, "status", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnTagged = cci("Tagged", null, "tagged", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnPdata1 = cci("PDATA1", null, "pdata1", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata2 = cci("PDATA2", null, "pdata2", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata3 = cci("PDATA3", null, "pdata3", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata4 = cci("PDATA4", null, "pdata4", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPdata5 = cci("PDATA5", null, "pdata5", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnConcurrency = cci("Concurrency", null, "concurrency", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnVisibility = cci("Visibility", null, "visibility", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnPersistence = cci("Persistence", null, "persistence", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnCardinality = cci("Cardinality", null, "cardinality", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnGentype = cci("GenType", null, "gentype", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnGenfile = cci("GenFile", null, "genfile", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnHeader1 = cci("Header1", null, "header1", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnHeader2 = cci("Header2", null, "header2", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnPhase = cci("Phase", null, "phase", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnScope = cci("Scope", null, "scope", String.class, false, false, 25, 0);
+    protected ColumnInfo _columnGenoption = cci("GenOption", null, "genoption", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnGenlinks = cci("GenLinks", null, "genlinks", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnClassifier = cci("Classifier", null, "classifier", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnEaGuid = cci("ea_guid", null, "eaGuid", String.class, false, false, 40, 0);
+    protected ColumnInfo _columnParentid = cci("ParentID", null, "parentid", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnRunstate = cci("RunState", null, "runstate", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnClassifierGuid = cci("Classifier_guid", null, "classifierGuid", String.class, false, false, 40, 0);
+    protected ColumnInfo _columnTpos = cci("TPos", null, "tpos", java.lang.Integer.class, false, false, null, null);
+    protected ColumnInfo _columnIsroot = cci("IsRoot", null, "isroot", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnIsleaf = cci("IsLeaf", null, "isleaf", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnIsspec = cci("IsSpec", null, "isspec", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnIsactive = cci("IsActive", null, "isactive", Boolean.class, false, false, null, null);
+    protected ColumnInfo _columnStateflags = cci("StateFlags", null, "stateflags", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnPackageflags = cci("PackageFlags", null, "packageflags", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnMultiplicity = cci("Multiplicity", null, "multiplicity", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnStyleex = cci("StyleEx", null, "styleex", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnActionflags = cci("ActionFlags", null, "actionflags", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnEventflags = cci("EventFlags", null, "eventflags", String.class, false, false, 255, 0);
 
     public ColumnInfo columnObjectId() { return _columnObjectId; }
     public ColumnInfo columnObjectType() { return _columnObjectType; }
@@ -142,23 +145,53 @@ public class TObjectDbm extends AbstractDBMeta {
     public ColumnInfo columnStyleex() { return _columnStyleex; }
     public ColumnInfo columnActionflags() { return _columnActionflags; }
     public ColumnInfo columnEventflags() { return _columnEventflags; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() { return cpui(columnObjectId()); }
+    public boolean hasPrimaryKey() { return true; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+    public ReferrerInfo referrerTObjectpropertiesList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TObjectpropertiesDbm.getInstance().columnObjectId());
+        return cri("TObjectpropertiesList", this, TObjectpropertiesDbm.getInstance(), map, false);
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
+    public ReferrerInfo referrerTAttributeList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TAttributeDbm.getInstance().columnObjectId());
+        return cri("TAttributeList", this, TAttributeDbm.getInstance(), map, false);
     }
+    public ReferrerInfo referrerTOperationList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TOperationDbm.getInstance().columnObjectId());
+        return cri("TOperationList", this, TOperationDbm.getInstance(), map, false);
+    }
+    public ReferrerInfo referrerTConnectorByStartObjectIdList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TConnectorDbm.getInstance().columnStartObjectId());
+        return cri("TConnectorByStartObjectIdList", this, TConnectorDbm.getInstance(), map, false);
+    }
+    public ReferrerInfo referrerTConnectorByEndObjectIdList() {
+        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TConnectorDbm.getInstance().columnEndObjectId());
+        return cri("TConnectorByEndObjectIdList", this, TConnectorDbm.getInstance(), map, false);
+    }
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -180,83 +213,29 @@ public class TObjectDbm extends AbstractDBMeta {
     public TObject newMyEntity() { return new TObject(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() { return createPrimaryUniqueInfo(columnObjectId()); }
-    public boolean hasPrimaryKey() { return true; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-    public ReferrerInfo referrerTObjectpropertiesList() {
-        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TObjectpropertiesDbm.getInstance().columnObjectId());
-	    return cri("TObjectpropertiesList", this, TObjectpropertiesDbm.getInstance(), map, false);
-    }
-    public ReferrerInfo referrerTAttributeList() {
-        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TAttributeDbm.getInstance().columnObjectId());
-	    return cri("TAttributeList", this, TAttributeDbm.getInstance(), map, false);
-    }
-    public ReferrerInfo referrerTOperationList() {
-        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TOperationDbm.getInstance().columnObjectId());
-	    return cri("TOperationList", this, TOperationDbm.getInstance(), map, false);
-    }
-    public ReferrerInfo referrerTConnectorByStartObjectIdList() {
-        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TConnectorDbm.getInstance().columnStartObjectId());
-	    return cri("TConnectorByStartObjectIdList", this, TConnectorDbm.getInstance(), map, false);
-    }
-    public ReferrerInfo referrerTConnectorByEndObjectIdList() {
-        Map<ColumnInfo, ColumnInfo> map = newLinkedHashMap(columnObjectId(), TConnectorDbm.getInstance().columnEndObjectId());
-	    return cri("TConnectorByEndObjectIdList", this, TConnectorDbm.getInstance(), map, false);
-    }
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TObject)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TObject)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TObject)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TObject)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -270,7 +249,7 @@ public class TObjectDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TObject>> _epsMap = newHashMap();
+    protected Map<String, Eps<TObject>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsObjectId(), columnObjectId());
         setupEps(_epsMap, new EpsObjectType(), columnObjectType());
@@ -329,181 +308,121 @@ public class TObjectDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsActionflags(), columnActionflags());
         setupEps(_epsMap, new EpsEventflags(), columnEventflags());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TObject)entity, value);
-    }
-    
-    public static class EpsObjectId implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setObjectId((java.lang.Integer)v); }
-    }
-    public static class EpsObjectType implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setObjectType((String)v); }
-    }
-    public static class EpsDiagramId implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setDiagramId((java.lang.Integer)v); }
-    }
-    public static class EpsName implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setName((String)v); }
-    }
-    public static class EpsAlias implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setAlias((String)v); }
-    }
-    public static class EpsAuthor implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setAuthor((String)v); }
-    }
-    public static class EpsVersion implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setVersion((String)v); }
-    }
-    public static class EpsNote implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setNote((String)v); }
-    }
-    public static class EpsPackageId implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPackageId((java.lang.Integer)v); }
-    }
-    public static class EpsStereotype implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setStereotype((String)v); }
-    }
-    public static class EpsNtype implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setNtype((java.lang.Integer)v); }
-    }
-    public static class EpsComplexity implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setComplexity((String)v); }
-    }
-    public static class EpsEffort implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setEffort((java.lang.Integer)v); }
-    }
-    public static class EpsStyle implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setStyle((String)v); }
-    }
-    public static class EpsBackcolor implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setBackcolor((java.lang.Integer)v); }
-    }
-    public static class EpsBorderstyle implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setBorderstyle((java.lang.Integer)v); }
-    }
-    public static class EpsBorderwidth implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setBorderwidth((java.lang.Integer)v); }
-    }
-    public static class EpsFontcolor implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setFontcolor((java.lang.Integer)v); }
-    }
-    public static class EpsBordercolor implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setBordercolor((java.lang.Integer)v); }
-    }
-    public static class EpsCreateddate implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setCreateddate((java.sql.Timestamp)v); }
-    }
-    public static class EpsModifieddate implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setModifieddate((java.sql.Timestamp)v); }
-    }
-    public static class EpsStatus implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setStatus((String)v); }
-    }
-    public static class EpsTagged implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setTagged((java.lang.Integer)v); }
-    }
-    public static class EpsPdata1 implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPdata1((String)v); }
-    }
-    public static class EpsPdata2 implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPdata2((String)v); }
-    }
-    public static class EpsPdata3 implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPdata3((String)v); }
-    }
-    public static class EpsPdata4 implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPdata4((String)v); }
-    }
-    public static class EpsPdata5 implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPdata5((String)v); }
-    }
-    public static class EpsConcurrency implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setConcurrency((String)v); }
-    }
-    public static class EpsVisibility implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setVisibility((String)v); }
-    }
-    public static class EpsPersistence implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPersistence((String)v); }
-    }
-    public static class EpsCardinality implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setCardinality((String)v); }
-    }
-    public static class EpsGentype implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setGentype((String)v); }
-    }
-    public static class EpsGenfile implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setGenfile((String)v); }
-    }
-    public static class EpsHeader1 implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setHeader1((String)v); }
-    }
-    public static class EpsHeader2 implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setHeader2((String)v); }
-    }
-    public static class EpsPhase implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPhase((String)v); }
-    }
-    public static class EpsScope implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setScope((String)v); }
-    }
-    public static class EpsGenoption implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setGenoption((String)v); }
-    }
-    public static class EpsGenlinks implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setGenlinks((String)v); }
-    }
-    public static class EpsClassifier implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setClassifier((java.lang.Integer)v); }
-    }
-    public static class EpsEaGuid implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setEaGuid((String)v); }
-    }
-    public static class EpsParentid implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setParentid((java.lang.Integer)v); }
-    }
-    public static class EpsRunstate implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setRunstate((String)v); }
-    }
-    public static class EpsClassifierGuid implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setClassifierGuid((String)v); }
-    }
-    public static class EpsTpos implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setTpos((java.lang.Integer)v); }
-    }
-    public static class EpsIsroot implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setIsroot((Boolean)v); }
-    }
-    public static class EpsIsleaf implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setIsleaf((Boolean)v); }
-    }
-    public static class EpsIsspec implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setIsspec((Boolean)v); }
-    }
-    public static class EpsIsactive implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setIsactive((Boolean)v); }
-    }
-    public static class EpsStateflags implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setStateflags((String)v); }
-    }
-    public static class EpsPackageflags implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setPackageflags((String)v); }
-    }
-    public static class EpsMultiplicity implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setMultiplicity((String)v); }
-    }
-    public static class EpsStyleex implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setStyleex((String)v); }
-    }
-    public static class EpsActionflags implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setActionflags((String)v); }
-    }
-    public static class EpsEventflags implements Eps<TObject> {
-        public void setup(TObject e, Object v) { e.setEventflags((String)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TObject)entity, value); }
+
+    public static class EpsObjectId implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setObjectId((java.lang.Integer)v); } }
+    public static class EpsObjectType implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setObjectType((String)v); } }
+    public static class EpsDiagramId implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setDiagramId((java.lang.Integer)v); } }
+    public static class EpsName implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setName((String)v); } }
+    public static class EpsAlias implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setAlias((String)v); } }
+    public static class EpsAuthor implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setAuthor((String)v); } }
+    public static class EpsVersion implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setVersion((String)v); } }
+    public static class EpsNote implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setNote((String)v); } }
+    public static class EpsPackageId implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPackageId((java.lang.Integer)v); } }
+    public static class EpsStereotype implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setStereotype((String)v); } }
+    public static class EpsNtype implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setNtype((java.lang.Integer)v); } }
+    public static class EpsComplexity implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setComplexity((String)v); } }
+    public static class EpsEffort implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setEffort((java.lang.Integer)v); } }
+    public static class EpsStyle implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setStyle((String)v); } }
+    public static class EpsBackcolor implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setBackcolor((java.lang.Integer)v); } }
+    public static class EpsBorderstyle implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setBorderstyle((java.lang.Integer)v); } }
+    public static class EpsBorderwidth implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setBorderwidth((java.lang.Integer)v); } }
+    public static class EpsFontcolor implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setFontcolor((java.lang.Integer)v); } }
+    public static class EpsBordercolor implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setBordercolor((java.lang.Integer)v); } }
+    public static class EpsCreateddate implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setCreateddate((java.sql.Timestamp)v); } }
+    public static class EpsModifieddate implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setModifieddate((java.sql.Timestamp)v); } }
+    public static class EpsStatus implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setStatus((String)v); } }
+    public static class EpsTagged implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setTagged((java.lang.Integer)v); } }
+    public static class EpsPdata1 implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPdata1((String)v); } }
+    public static class EpsPdata2 implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPdata2((String)v); } }
+    public static class EpsPdata3 implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPdata3((String)v); } }
+    public static class EpsPdata4 implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPdata4((String)v); } }
+    public static class EpsPdata5 implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPdata5((String)v); } }
+    public static class EpsConcurrency implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setConcurrency((String)v); } }
+    public static class EpsVisibility implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setVisibility((String)v); } }
+    public static class EpsPersistence implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPersistence((String)v); } }
+    public static class EpsCardinality implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setCardinality((String)v); } }
+    public static class EpsGentype implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setGentype((String)v); } }
+    public static class EpsGenfile implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setGenfile((String)v); } }
+    public static class EpsHeader1 implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setHeader1((String)v); } }
+    public static class EpsHeader2 implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setHeader2((String)v); } }
+    public static class EpsPhase implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPhase((String)v); } }
+    public static class EpsScope implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setScope((String)v); } }
+    public static class EpsGenoption implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setGenoption((String)v); } }
+    public static class EpsGenlinks implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setGenlinks((String)v); } }
+    public static class EpsClassifier implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setClassifier((java.lang.Integer)v); } }
+    public static class EpsEaGuid implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setEaGuid((String)v); } }
+    public static class EpsParentid implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setParentid((java.lang.Integer)v); } }
+    public static class EpsRunstate implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setRunstate((String)v); } }
+    public static class EpsClassifierGuid implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setClassifierGuid((String)v); } }
+    public static class EpsTpos implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setTpos((java.lang.Integer)v); } }
+    public static class EpsIsroot implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setIsroot((Boolean)v); } }
+    public static class EpsIsleaf implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setIsleaf((Boolean)v); } }
+    public static class EpsIsspec implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setIsspec((Boolean)v); } }
+    public static class EpsIsactive implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setIsactive((Boolean)v); } }
+    public static class EpsStateflags implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setStateflags((String)v); } }
+    public static class EpsPackageflags implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setPackageflags((String)v); } }
+    public static class EpsMultiplicity implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setMultiplicity((String)v); } }
+    public static class EpsStyleex implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setStyleex((String)v); } }
+    public static class EpsActionflags implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setActionflags((String)v); } }
+    public static class EpsEventflags implements Eps<TObject>
+    { public void setup(TObject e, Object v) { e.setEventflags((String)v); } }
 }

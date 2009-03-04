@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_attributeconstraints(TABLE).
+ * The entity of t_attributeconstraints that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTAttributeconstraints implements Entity, java.io.Serializable {
+public abstract class BsTAttributeconstraints implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,32 +47,28 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_attributeconstraints. */
-    public static final String TABLE = "t_attributeconstraints";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {INTEGER} */
+    /** Object_ID: {INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Constraint'. {UQ : VARCHAR(255)} */
+    /** Constraint: {UQ : VARCHAR(255)} */
     protected String _constraint;
 
-    /** The attribute of the column 'AttName'. {VARCHAR(255)} */
+    /** AttName: {VARCHAR(255)} */
     protected String _attname;
 
-    /** The attribute of the column 'Type'. {VARCHAR(255)} */
+    /** Type: {VARCHAR(255)} */
     protected String _type;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'ID'. {UQ : INTEGER} */
+    /** ID: {UQ : INTEGER} */
     protected java.lang.Integer _id;
 
     // -----------------------------------------------------
@@ -82,19 +78,13 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTAttributeconstraints() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_attributeconstraints";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TAttributeconstraints";
     }
 
@@ -120,7 +110,6 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -207,13 +196,8 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {INTEGER}
+     * Object_ID: {INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -221,8 +205,7 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {INTEGER}
+     * Object_ID: {INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -230,12 +213,8 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String constraint_COLUMN = "Constraint";
-
     /**
-     * Get the value of the column 'Constraint'. <br />
-     * {UQ : VARCHAR(255)}
+     * Constraint: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Constraint'. (Nullable)
      */
     public String getConstraint() {
@@ -243,8 +222,7 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     }
 
     /**
-     * Set the value of the column 'Constraint'. <br />
-     * {UQ : VARCHAR(255)}
+     * Constraint: {UQ : VARCHAR(255)} <br />
      * @param constraint The value of the column 'Constraint'. (Nullable)
      */
     public void setConstraint(String constraint) {
@@ -252,12 +230,8 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
         this._constraint = constraint;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String attname_COLUMN = "AttName";
-
     /**
-     * Get the value of the column 'AttName'. <br />
-     * {VARCHAR(255)}
+     * AttName: {VARCHAR(255)} <br />
      * @return The value of the column 'AttName'. (Nullable)
      */
     public String getAttname() {
@@ -265,8 +239,7 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     }
 
     /**
-     * Set the value of the column 'AttName'. <br />
-     * {VARCHAR(255)}
+     * AttName: {VARCHAR(255)} <br />
      * @param attname The value of the column 'AttName'. (Nullable)
      */
     public void setAttname(String attname) {
@@ -274,12 +247,8 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
         this._attname = attname;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -287,8 +256,7 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -296,12 +264,8 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -309,8 +273,7 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -318,12 +281,8 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String id_COLUMN = "ID";
-
     /**
-     * Get the value of the column 'ID'. <br />
-     * {UQ : INTEGER}
+     * ID: {UQ : INTEGER} <br />
      * @return The value of the column 'ID'. (Nullable)
      */
     public java.lang.Integer getId() {
@@ -331,13 +290,11 @@ public abstract class BsTAttributeconstraints implements Entity, java.io.Seriali
     }
 
     /**
-     * Set the value of the column 'ID'. <br />
-     * {UQ : INTEGER}
+     * ID: {UQ : INTEGER} <br />
      * @param id The value of the column 'ID'. (Nullable)
      */
     public void setId(java.lang.Integer id) {
         _modifiedProperties.addPropertyName("id");
         this._id = id;
     }
-
 }

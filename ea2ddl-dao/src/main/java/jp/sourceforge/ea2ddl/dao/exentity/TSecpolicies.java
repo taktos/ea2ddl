@@ -4,11 +4,10 @@ package jp.sourceforge.ea2ddl.dao.exentity;
  * The entity of t_secpolicies.
  * <p>
  * You can implement your original methods here.
- * This class is NOT overrided when re-generating.
+ * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TSecpolicies extends jp.sourceforge.ea2ddl.dao.bsentity.BsTSecpolicies {
 
     /** Serial version UID. (Default) */

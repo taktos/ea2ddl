@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_attributetag.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
      * @return On-clause query. (NotNull)
      */
     public TAttributetagCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TAttributetagCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
         return _propertyid;
     }
     protected ConditionValue getCValuePropertyid() { return getPropertyid(); }
-          
+
     public BsTAttributetagCQ addOrderBy_Propertyid_Asc() { regOBA("PropertyID"); return this; }
     public BsTAttributetagCQ addOrderBy_Propertyid_Desc() { regOBD("PropertyID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
         return _elementid;
     }
     protected ConditionValue getCValueElementid() { return getElementid(); }
-          
+
     public BsTAttributetagCQ addOrderBy_Elementid_Asc() { regOBA("ElementID"); return this; }
     public BsTAttributetagCQ addOrderBy_Elementid_Desc() { regOBD("ElementID"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
         return _property;
     }
     protected ConditionValue getCValueProperty() { return getProperty(); }
-    
+
     public BsTAttributetagCQ addOrderBy_Property_Asc() { regOBA("Property"); return this; }
     public BsTAttributetagCQ addOrderBy_Property_Desc() { regOBD("Property"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
         return _value;
     }
     protected ConditionValue getCValueValue() { return getValue(); }
-    
+
     public BsTAttributetagCQ addOrderBy_Value_Asc() { regOBA("VALUE"); return this; }
     public BsTAttributetagCQ addOrderBy_Value_Desc() { regOBD("VALUE"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTAttributetagCQ addOrderBy_Notes_Asc() { regOBA("NOTES"); return this; }
     public BsTAttributetagCQ addOrderBy_Notes_Desc() { regOBD("NOTES"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
         return _eaGuid;
     }
     protected ConditionValue getCValueEaGuid() { return getEaGuid(); }
-    
+
     public BsTAttributetagCQ addOrderBy_EaGuid_Asc() { regOBA("ea_guid"); return this; }
     public BsTAttributetagCQ addOrderBy_EaGuid_Desc() { regOBD("ea_guid"); return this; }
 
@@ -131,8 +131,11 @@ public class BsTAttributetagCQ extends AbstractBsTAttributetagCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TAttributetagCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TAttributetagCB.class.getName(); }
+    String xCQ() { return TAttributetagCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

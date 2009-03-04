@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TObjecteffortCQ;
 
 /**
- * The nest-select-setupper of t_objecteffort.
+ * The nest select set-upper of t_objecteffort.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TObjecteffortNss {
 
     protected TObjecteffortCQ _query;

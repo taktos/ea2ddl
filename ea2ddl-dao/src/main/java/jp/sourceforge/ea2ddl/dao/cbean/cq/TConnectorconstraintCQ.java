@@ -1,9 +1,10 @@
 package jp.sourceforge.ea2ddl.dao.cbean.cq;
 
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionQuery;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.bs.BsTConnectorconstraintCQ;
+
+import org.seasar.dbflute.cbean.ConditionQuery;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 
 /**
  * The condition-query of t_connectorconstraint.

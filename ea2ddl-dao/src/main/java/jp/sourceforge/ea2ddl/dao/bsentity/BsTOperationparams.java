@@ -1,14 +1,15 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 
 /**
- * The entity of t_operationparams(TABLE).
+ * The entity of t_operationparams that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -39,8 +40,7 @@ import jp.sourceforge.ea2ddl.dao.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTOperationparams implements Entity, java.io.Serializable {
+public abstract class BsTOperationparams implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -48,44 +48,40 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_operationparams. */
-    public static final String TABLE = "t_operationparams";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'OperationID'. {UQ : INTEGER : FK to T_OPERATION} */
+    /** OperationID: {UQ : INTEGER : FK to T_OPERATION} */
     protected java.lang.Integer _operationid;
 
-    /** The attribute of the column 'Name'. {UQ : VARCHAR(255)} */
+    /** Name: {UQ : VARCHAR(255)} */
     protected String _name;
 
-    /** The attribute of the column 'Type'. {VARCHAR(255)} */
+    /** Type: {VARCHAR(255)} */
     protected String _type;
 
-    /** The attribute of the column 'Notes'. {LONGCHAR(2147483647)} */
+    /** Notes: {LONGCHAR(2147483647)} */
     protected String _notes;
 
-    /** The attribute of the column 'Pos'. {INTEGER} */
+    /** Pos: {INTEGER} */
     protected java.lang.Integer _pos;
 
-    /** The attribute of the column 'Style'. {VARCHAR(255)} */
+    /** Style: {VARCHAR(255)} */
     protected String _style;
 
-    /** The attribute of the column 'Kind'. {VARCHAR(12)} */
+    /** Kind: {VARCHAR(12)} */
     protected String _kind;
 
-    /** The attribute of the column 'Classifier'. {VARCHAR(50)} */
+    /** Classifier: {VARCHAR(50)} */
     protected String _classifier;
 
-    /** The attribute of the column 'ea_guid'. {VARCHAR(50)} */
+    /** ea_guid: {VARCHAR(50)} */
     protected String _eaGuid;
 
-    /** The attribute of the column 'StyleEx'. {LONGCHAR(2147483647)} */
+    /** StyleEx: {LONGCHAR(2147483647)} */
     protected String _styleex;
 
     // -----------------------------------------------------
@@ -95,19 +91,13 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTOperationparams() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_operationparams";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TOperationparams";
     }
 
@@ -130,17 +120,11 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    // /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    //   Foreign Property = [TOperation]
-    // * * * * * * * * */
-    public static final int TOperation_RELNO = 0;
-    public static final String TOperation_RELKEYS = "OperationID:OperationID";
-
-    /** The entity of foreign property 'TOperation'. */
+    /** t_operation as 'TOperation'. */
     protected TOperation _parentTOperation;
 
     /**
-     * Get the entity of foreign property 'TOperation'. {without lazy-load}
+     * t_operation as 'TOperation'. {without lazy-load}
      * @return The entity of foreign property 'TOperation'. (Nullable: If the foreign key does not have 'NotNull' constraint, please check null.)
      */
     public TOperation getTOperation() {
@@ -148,7 +132,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the entity of foreign property 'TOperation'.
+     * t_operation as 'TOperation'.
      * @param tOperation The entity of foreign property 'TOperation'. (Nullable)
      */
     public void setTOperation(TOperation tOperation) {
@@ -158,7 +142,6 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -257,13 +240,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER : FK to T_OPERATION} */
-    public static final String operationid_COLUMN = "OperationID";
-
     /**
-     * Get the value of the column 'OperationID'. <br />
-     * {UQ : INTEGER : FK to T_OPERATION}
+     * OperationID: {UQ : INTEGER : FK to T_OPERATION} <br />
      * @return The value of the column 'OperationID'. (Nullable)
      */
     public java.lang.Integer getOperationid() {
@@ -271,8 +249,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'OperationID'. <br />
-     * {UQ : INTEGER : FK to T_OPERATION}
+     * OperationID: {UQ : INTEGER : FK to T_OPERATION} <br />
      * @param operationid The value of the column 'OperationID'. (Nullable)
      */
     public void setOperationid(java.lang.Integer operationid) {
@@ -280,12 +257,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._operationid = operationid;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String name_COLUMN = "Name";
-
     /**
-     * Get the value of the column 'Name'. <br />
-     * {UQ : VARCHAR(255)}
+     * Name: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Name'. (Nullable)
      */
     public String getName() {
@@ -293,8 +266,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Name'. <br />
-     * {UQ : VARCHAR(255)}
+     * Name: {UQ : VARCHAR(255)} <br />
      * @param name The value of the column 'Name'. (Nullable)
      */
     public void setName(String name) {
@@ -302,12 +274,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._name = name;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String type_COLUMN = "Type";
-
     /**
-     * Get the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @return The value of the column 'Type'. (Nullable)
      */
     public String getType() {
@@ -315,8 +283,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Type'. <br />
-     * {VARCHAR(255)}
+     * Type: {VARCHAR(255)} <br />
      * @param type The value of the column 'Type'. (Nullable)
      */
     public void setType(String type) {
@@ -324,12 +291,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._type = type;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String notes_COLUMN = "Notes";
-
     /**
-     * Get the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'Notes'. (Nullable)
      */
     public String getNotes() {
@@ -337,8 +300,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Notes'. <br />
-     * {LONGCHAR(2147483647)}
+     * Notes: {LONGCHAR(2147483647)} <br />
      * @param notes The value of the column 'Notes'. (Nullable)
      */
     public void setNotes(String notes) {
@@ -346,12 +308,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._notes = notes;
     }
 
-    /** The column annotation for S2Dao. {INTEGER} */
-    public static final String pos_COLUMN = "Pos";
-
     /**
-     * Get the value of the column 'Pos'. <br />
-     * {INTEGER}
+     * Pos: {INTEGER} <br />
      * @return The value of the column 'Pos'. (Nullable)
      */
     public java.lang.Integer getPos() {
@@ -359,8 +317,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Pos'. <br />
-     * {INTEGER}
+     * Pos: {INTEGER} <br />
      * @param pos The value of the column 'Pos'. (Nullable)
      */
     public void setPos(java.lang.Integer pos) {
@@ -368,12 +325,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._pos = pos;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String style_COLUMN = "Style";
-
     /**
-     * Get the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @return The value of the column 'Style'. (Nullable)
      */
     public String getStyle() {
@@ -381,8 +334,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Style'. <br />
-     * {VARCHAR(255)}
+     * Style: {VARCHAR(255)} <br />
      * @param style The value of the column 'Style'. (Nullable)
      */
     public void setStyle(String style) {
@@ -390,12 +342,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._style = style;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(12)} */
-    public static final String kind_COLUMN = "Kind";
-
     /**
-     * Get the value of the column 'Kind'. <br />
-     * {VARCHAR(12)}
+     * Kind: {VARCHAR(12)} <br />
      * @return The value of the column 'Kind'. (Nullable)
      */
     public String getKind() {
@@ -403,8 +351,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Kind'. <br />
-     * {VARCHAR(12)}
+     * Kind: {VARCHAR(12)} <br />
      * @param kind The value of the column 'Kind'. (Nullable)
      */
     public void setKind(String kind) {
@@ -412,12 +359,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._kind = kind;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String classifier_COLUMN = "Classifier";
-
     /**
-     * Get the value of the column 'Classifier'. <br />
-     * {VARCHAR(50)}
+     * Classifier: {VARCHAR(50)} <br />
      * @return The value of the column 'Classifier'. (Nullable)
      */
     public String getClassifier() {
@@ -425,8 +368,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'Classifier'. <br />
-     * {VARCHAR(50)}
+     * Classifier: {VARCHAR(50)} <br />
      * @param classifier The value of the column 'Classifier'. (Nullable)
      */
     public void setClassifier(String classifier) {
@@ -434,12 +376,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._classifier = classifier;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String eaGuid_COLUMN = "ea_guid";
-
     /**
-     * Get the value of the column 'ea_guid'. <br />
-     * {VARCHAR(50)}
+     * ea_guid: {VARCHAR(50)} <br />
      * @return The value of the column 'ea_guid'. (Nullable)
      */
     public String getEaGuid() {
@@ -447,8 +385,7 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'ea_guid'. <br />
-     * {VARCHAR(50)}
+     * ea_guid: {VARCHAR(50)} <br />
      * @param eaGuid The value of the column 'ea_guid'. (Nullable)
      */
     public void setEaGuid(String eaGuid) {
@@ -456,12 +393,8 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
         this._eaGuid = eaGuid;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String styleex_COLUMN = "StyleEx";
-
     /**
-     * Get the value of the column 'StyleEx'. <br />
-     * {LONGCHAR(2147483647)}
+     * StyleEx: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'StyleEx'. (Nullable)
      */
     public String getStyleex() {
@@ -469,13 +402,11 @@ public abstract class BsTOperationparams implements Entity, java.io.Serializable
     }
 
     /**
-     * Set the value of the column 'StyleEx'. <br />
-     * {LONGCHAR(2147483647)}
+     * StyleEx: {LONGCHAR(2147483647)} <br />
      * @param styleex The value of the column 'StyleEx'. (Nullable)
      */
     public void setStyleex(String styleex) {
         _modifiedProperties.addPropertyName("styleex");
         this._styleex = styleex;
     }
-
 }

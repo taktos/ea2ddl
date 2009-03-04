@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_roleconstraint.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTRoleconstraintCQ extends AbstractBsTRoleconstraintCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTRoleconstraintCQ extends AbstractBsTRoleconstraintCQ {
      * @return On-clause query. (NotNull)
      */
     public TRoleconstraintCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TRoleconstraintCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTRoleconstraintCQ extends AbstractBsTRoleconstraintCQ {
         return _connectorid;
     }
     protected ConditionValue getCValueConnectorid() { return getConnectorid(); }
-          
+
     public BsTRoleconstraintCQ addOrderBy_Connectorid_Asc() { regOBA("ConnectorID"); return this; }
     public BsTRoleconstraintCQ addOrderBy_Connectorid_Desc() { regOBD("ConnectorID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTRoleconstraintCQ extends AbstractBsTRoleconstraintCQ {
         return _constraint;
     }
     protected ConditionValue getCValueConstraint() { return getConstraint(); }
-    
+
     public BsTRoleconstraintCQ addOrderBy_Constraint_Asc() { regOBA("Constraint"); return this; }
     public BsTRoleconstraintCQ addOrderBy_Constraint_Desc() { regOBD("Constraint"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTRoleconstraintCQ extends AbstractBsTRoleconstraintCQ {
         return _connectorend;
     }
     protected ConditionValue getCValueConnectorend() { return getConnectorend(); }
-    
+
     public BsTRoleconstraintCQ addOrderBy_Connectorend_Asc() { regOBA("ConnectorEnd"); return this; }
     public BsTRoleconstraintCQ addOrderBy_Connectorend_Desc() { regOBD("ConnectorEnd"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTRoleconstraintCQ extends AbstractBsTRoleconstraintCQ {
         return _constrainttype;
     }
     protected ConditionValue getCValueConstrainttype() { return getConstrainttype(); }
-    
+
     public BsTRoleconstraintCQ addOrderBy_Constrainttype_Asc() { regOBA("ConstraintType"); return this; }
     public BsTRoleconstraintCQ addOrderBy_Constrainttype_Desc() { regOBD("ConstraintType"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTRoleconstraintCQ extends AbstractBsTRoleconstraintCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTRoleconstraintCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTRoleconstraintCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -121,8 +121,11 @@ public class BsTRoleconstraintCQ extends AbstractBsTRoleconstraintCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TRoleconstraintCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TRoleconstraintCB.class.getName(); }
+    String xCQ() { return TRoleconstraintCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

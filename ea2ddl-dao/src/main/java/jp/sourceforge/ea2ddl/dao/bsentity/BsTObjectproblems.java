@@ -1,13 +1,14 @@
 package jp.sourceforge.ea2ddl.dao.bsentity;
 
+import java.io.Serializable;
 import java.util.*;
-    
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
+
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import jp.sourceforge.ea2ddl.dao.allcommon.DBMetaInstanceHandler;
 
 /**
- * The entity of t_objectproblems(TABLE).
+ * The entity of t_objectproblems that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -38,8 +39,7 @@ import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMetaInstanceHandler;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
-public abstract class BsTObjectproblems implements Entity, java.io.Serializable {
+public abstract class BsTObjectproblems implements Entity, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -47,53 +47,49 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
 
-    /** TABLE-Annotation for S2Dao. The value is t_objectproblems. */
-    public static final String TABLE = "t_objectproblems";
-
-
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** The attribute of the column 'Object_ID'. {UQ : INTEGER} */
+    /** Object_ID: {UQ : INTEGER} */
     protected java.lang.Integer _objectId;
 
-    /** The attribute of the column 'Problem'. {UQ : VARCHAR(255)} */
+    /** Problem: {UQ : VARCHAR(255)} */
     protected String _problem;
 
-    /** The attribute of the column 'ProblemType'. {UQ : VARCHAR(255)} */
+    /** ProblemType: {UQ : VARCHAR(255)} */
     protected String _problemtype;
 
-    /** The attribute of the column 'DateReported'. {DATETIME} */
+    /** DateReported: {DATETIME} */
     protected java.sql.Timestamp _datereported;
 
-    /** The attribute of the column 'Status'. {VARCHAR(50)} */
+    /** Status: {VARCHAR(50)} */
     protected String _status;
 
-    /** The attribute of the column 'ProblemNotes'. {LONGCHAR(2147483647)} */
+    /** ProblemNotes: {LONGCHAR(2147483647)} */
     protected String _problemnotes;
 
-    /** The attribute of the column 'ReportedBy'. {VARCHAR(255)} */
+    /** ReportedBy: {VARCHAR(255)} */
     protected String _reportedby;
 
-    /** The attribute of the column 'ResolvedBy'. {VARCHAR(255)} */
+    /** ResolvedBy: {VARCHAR(255)} */
     protected String _resolvedby;
 
-    /** The attribute of the column 'DateResolved'. {DATETIME} */
+    /** DateResolved: {DATETIME} */
     protected java.sql.Timestamp _dateresolved;
 
-    /** The attribute of the column 'Version'. {VARCHAR(50)} */
+    /** Version: {VARCHAR(50)} */
     protected String _version;
 
-    /** The attribute of the column 'ResolverNotes'. {LONGCHAR(2147483647)} */
+    /** ResolverNotes: {LONGCHAR(2147483647)} */
     protected String _resolvernotes;
 
-    /** The attribute of the column 'Priority'. {VARCHAR(50)} */
+    /** Priority: {VARCHAR(50)} */
     protected String _priority;
 
-    /** The attribute of the column 'Severity'. {VARCHAR(50)} */
+    /** Severity: {VARCHAR(50)} */
     protected String _severity;
 
     // -----------------------------------------------------
@@ -103,19 +99,13 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     protected EntityModifiedProperties _modifiedProperties = newEntityModifiedProperties();
     
     // ===================================================================================
-    //                                                                         Constructor
-    //                                                                         ===========
-    public BsTObjectproblems() {
-    }
-
-    // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
     public String getTableDbName() {
         return "t_objectproblems";
     }
 
-    public String getTablePropertyName() {// as JavaBeansRule
+    public String getTablePropertyName() { // as JavaBeansRule
         return "TObjectproblems";
     }
 
@@ -141,7 +131,6 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-
     // ===================================================================================
     //                                                                       Determination
     //                                                                       =============
@@ -249,13 +238,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-
-    /** The column annotation for S2Dao. {UQ : INTEGER} */
-    public static final String objectId_COLUMN = "Object_ID";
-
     /**
-     * Get the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @return The value of the column 'Object_ID'. (Nullable)
      */
     public java.lang.Integer getObjectId() {
@@ -263,8 +247,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Object_ID'. <br />
-     * {UQ : INTEGER}
+     * Object_ID: {UQ : INTEGER} <br />
      * @param objectId The value of the column 'Object_ID'. (Nullable)
      */
     public void setObjectId(java.lang.Integer objectId) {
@@ -272,12 +255,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._objectId = objectId;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String problem_COLUMN = "Problem";
-
     /**
-     * Get the value of the column 'Problem'. <br />
-     * {UQ : VARCHAR(255)}
+     * Problem: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'Problem'. (Nullable)
      */
     public String getProblem() {
@@ -285,8 +264,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Problem'. <br />
-     * {UQ : VARCHAR(255)}
+     * Problem: {UQ : VARCHAR(255)} <br />
      * @param problem The value of the column 'Problem'. (Nullable)
      */
     public void setProblem(String problem) {
@@ -294,12 +272,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._problem = problem;
     }
 
-    /** The column annotation for S2Dao. {UQ : VARCHAR(255)} */
-    public static final String problemtype_COLUMN = "ProblemType";
-
     /**
-     * Get the value of the column 'ProblemType'. <br />
-     * {UQ : VARCHAR(255)}
+     * ProblemType: {UQ : VARCHAR(255)} <br />
      * @return The value of the column 'ProblemType'. (Nullable)
      */
     public String getProblemtype() {
@@ -307,8 +281,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ProblemType'. <br />
-     * {UQ : VARCHAR(255)}
+     * ProblemType: {UQ : VARCHAR(255)} <br />
      * @param problemtype The value of the column 'ProblemType'. (Nullable)
      */
     public void setProblemtype(String problemtype) {
@@ -316,12 +289,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._problemtype = problemtype;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String datereported_COLUMN = "DateReported";
-
     /**
-     * Get the value of the column 'DateReported'. <br />
-     * {DATETIME}
+     * DateReported: {DATETIME} <br />
      * @return The value of the column 'DateReported'. (Nullable)
      */
     public java.sql.Timestamp getDatereported() {
@@ -329,8 +298,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'DateReported'. <br />
-     * {DATETIME}
+     * DateReported: {DATETIME} <br />
      * @param datereported The value of the column 'DateReported'. (Nullable)
      */
     public void setDatereported(java.sql.Timestamp datereported) {
@@ -338,12 +306,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._datereported = datereported;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String status_COLUMN = "Status";
-
     /**
-     * Get the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @return The value of the column 'Status'. (Nullable)
      */
     public String getStatus() {
@@ -351,8 +315,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Status'. <br />
-     * {VARCHAR(50)}
+     * Status: {VARCHAR(50)} <br />
      * @param status The value of the column 'Status'. (Nullable)
      */
     public void setStatus(String status) {
@@ -360,12 +323,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._status = status;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String problemnotes_COLUMN = "ProblemNotes";
-
     /**
-     * Get the value of the column 'ProblemNotes'. <br />
-     * {LONGCHAR(2147483647)}
+     * ProblemNotes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'ProblemNotes'. (Nullable)
      */
     public String getProblemnotes() {
@@ -373,8 +332,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ProblemNotes'. <br />
-     * {LONGCHAR(2147483647)}
+     * ProblemNotes: {LONGCHAR(2147483647)} <br />
      * @param problemnotes The value of the column 'ProblemNotes'. (Nullable)
      */
     public void setProblemnotes(String problemnotes) {
@@ -382,12 +340,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._problemnotes = problemnotes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String reportedby_COLUMN = "ReportedBy";
-
     /**
-     * Get the value of the column 'ReportedBy'. <br />
-     * {VARCHAR(255)}
+     * ReportedBy: {VARCHAR(255)} <br />
      * @return The value of the column 'ReportedBy'. (Nullable)
      */
     public String getReportedby() {
@@ -395,8 +349,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ReportedBy'. <br />
-     * {VARCHAR(255)}
+     * ReportedBy: {VARCHAR(255)} <br />
      * @param reportedby The value of the column 'ReportedBy'. (Nullable)
      */
     public void setReportedby(String reportedby) {
@@ -404,12 +357,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._reportedby = reportedby;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(255)} */
-    public static final String resolvedby_COLUMN = "ResolvedBy";
-
     /**
-     * Get the value of the column 'ResolvedBy'. <br />
-     * {VARCHAR(255)}
+     * ResolvedBy: {VARCHAR(255)} <br />
      * @return The value of the column 'ResolvedBy'. (Nullable)
      */
     public String getResolvedby() {
@@ -417,8 +366,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ResolvedBy'. <br />
-     * {VARCHAR(255)}
+     * ResolvedBy: {VARCHAR(255)} <br />
      * @param resolvedby The value of the column 'ResolvedBy'. (Nullable)
      */
     public void setResolvedby(String resolvedby) {
@@ -426,12 +374,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._resolvedby = resolvedby;
     }
 
-    /** The column annotation for S2Dao. {DATETIME} */
-    public static final String dateresolved_COLUMN = "DateResolved";
-
     /**
-     * Get the value of the column 'DateResolved'. <br />
-     * {DATETIME}
+     * DateResolved: {DATETIME} <br />
      * @return The value of the column 'DateResolved'. (Nullable)
      */
     public java.sql.Timestamp getDateresolved() {
@@ -439,8 +383,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'DateResolved'. <br />
-     * {DATETIME}
+     * DateResolved: {DATETIME} <br />
      * @param dateresolved The value of the column 'DateResolved'. (Nullable)
      */
     public void setDateresolved(java.sql.Timestamp dateresolved) {
@@ -448,12 +391,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._dateresolved = dateresolved;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String version_COLUMN = "Version";
-
     /**
-     * Get the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @return The value of the column 'Version'. (Nullable)
      */
     public String getVersion() {
@@ -461,8 +400,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Version'. <br />
-     * {VARCHAR(50)}
+     * Version: {VARCHAR(50)} <br />
      * @param version The value of the column 'Version'. (Nullable)
      */
     public void setVersion(String version) {
@@ -470,12 +408,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._version = version;
     }
 
-    /** The column annotation for S2Dao. {LONGCHAR(2147483647)} */
-    public static final String resolvernotes_COLUMN = "ResolverNotes";
-
     /**
-     * Get the value of the column 'ResolverNotes'. <br />
-     * {LONGCHAR(2147483647)}
+     * ResolverNotes: {LONGCHAR(2147483647)} <br />
      * @return The value of the column 'ResolverNotes'. (Nullable)
      */
     public String getResolvernotes() {
@@ -483,8 +417,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'ResolverNotes'. <br />
-     * {LONGCHAR(2147483647)}
+     * ResolverNotes: {LONGCHAR(2147483647)} <br />
      * @param resolvernotes The value of the column 'ResolverNotes'. (Nullable)
      */
     public void setResolvernotes(String resolvernotes) {
@@ -492,12 +425,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._resolvernotes = resolvernotes;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String priority_COLUMN = "Priority";
-
     /**
-     * Get the value of the column 'Priority'. <br />
-     * {VARCHAR(50)}
+     * Priority: {VARCHAR(50)} <br />
      * @return The value of the column 'Priority'. (Nullable)
      */
     public String getPriority() {
@@ -505,8 +434,7 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Priority'. <br />
-     * {VARCHAR(50)}
+     * Priority: {VARCHAR(50)} <br />
      * @param priority The value of the column 'Priority'. (Nullable)
      */
     public void setPriority(String priority) {
@@ -514,12 +442,8 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
         this._priority = priority;
     }
 
-    /** The column annotation for S2Dao. {VARCHAR(50)} */
-    public static final String severity_COLUMN = "Severity";
-
     /**
-     * Get the value of the column 'Severity'. <br />
-     * {VARCHAR(50)}
+     * Severity: {VARCHAR(50)} <br />
      * @return The value of the column 'Severity'. (Nullable)
      */
     public String getSeverity() {
@@ -527,13 +451,11 @@ public abstract class BsTObjectproblems implements Entity, java.io.Serializable 
     }
 
     /**
-     * Set the value of the column 'Severity'. <br />
-     * {VARCHAR(50)}
+     * Severity: {VARCHAR(50)} <br />
      * @param severity The value of the column 'Severity'. (Nullable)
      */
     public void setSeverity(String severity) {
         _modifiedProperties.addPropertyName("severity");
         this._severity = severity;
     }
-
 }

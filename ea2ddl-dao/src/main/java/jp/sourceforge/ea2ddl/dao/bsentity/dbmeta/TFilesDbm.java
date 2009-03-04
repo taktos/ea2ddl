@@ -3,18 +3,21 @@ package jp.sourceforge.ea2ddl.dao.bsentity.dbmeta;
 import java.util.List;
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.Entity;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.Entity;
+import org.seasar.dbflute.dbmeta.AbstractDBMeta;
+import org.seasar.dbflute.dbmeta.info.*;
+import org.seasar.dbflute.helper.StringKeyMap;
 import jp.sourceforge.ea2ddl.dao.exentity.TFiles;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.info.*;
 
 /**
  * The DB meta of t_files. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TFilesDbm extends AbstractDBMeta {
 
+    // ===================================================================================
+    //                                                                           Singleton
+    //                                                                           =========
     private static final TFilesDbm _instance = new TFilesDbm();
     private TFilesDbm() {}
     public static TFilesDbm getInstance() { return _instance; }
@@ -29,14 +32,14 @@ public class TFilesDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected ColumnInfo _columnFileid = cci("FileID", "fileid", String.class, false, 50, 0);
-    protected ColumnInfo _columnAppliesto = cci("AppliesTo", "appliesto", String.class, false, 50, 0);
-    protected ColumnInfo _columnCategory = cci("Category", "category", String.class, false, 100, 0);
-    protected ColumnInfo _columnName = cci("Name", "name", String.class, false, 150, 0);
-    protected ColumnInfo _columnFile = cci("File", "file", String.class, false, 255, 0);
-    protected ColumnInfo _columnNotes = cci("Notes", "notes", String.class, false, 2147483647, 0);
-    protected ColumnInfo _columnFiledate = cci("FileDate", "filedate", java.sql.Timestamp.class, false, null, null);
-    protected ColumnInfo _columnFilesize = cci("FileSize", "filesize", java.lang.Integer.class, false, null, null);
+    protected ColumnInfo _columnFileid = cci("FileID", null, "fileid", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnAppliesto = cci("AppliesTo", null, "appliesto", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnCategory = cci("Category", null, "category", String.class, false, false, 100, 0);
+    protected ColumnInfo _columnName = cci("Name", null, "name", String.class, false, false, 150, 0);
+    protected ColumnInfo _columnFile = cci("File", null, "file", String.class, false, false, 255, 0);
+    protected ColumnInfo _columnNotes = cci("Notes", null, "notes", String.class, false, false, 2147483647, 0);
+    protected ColumnInfo _columnFiledate = cci("FileDate", null, "filedate", java.sql.Timestamp.class, false, false, null, null);
+    protected ColumnInfo _columnFilesize = cci("FileSize", null, "filesize", java.lang.Integer.class, false, false, null, null);
 
     public ColumnInfo columnFileid() { return _columnFileid; }
     public ColumnInfo columnAppliesto() { return _columnAppliesto; }
@@ -46,23 +49,35 @@ public class TFilesDbm extends AbstractDBMeta {
     public ColumnInfo columnNotes() { return _columnNotes; }
     public ColumnInfo columnFiledate() { return _columnFiledate; }
     public ColumnInfo columnFilesize() { return _columnFilesize; }
-    { initializeColumnInfoList(); }
+
+    { initializeInformationResource(); }
 
     // ===================================================================================
-    //                                                                            Name Map
-    //                                                                            ========
-    public Map<String, String> getDbNamePropertyNameKeyToLowerMap() { return createDbNamePropertyNameKeyToLowerMap(); }
-    public Map<String, String> getPropertyNameDbNameKeyToLowerMap() { return createPropertyNameDbNameKeyToLowerMap(); }
-    protected static Map<String, String> _dbNamePropertyNameKeyToLowerMap;
-    protected Map<String, String> createDbNamePropertyNameKeyToLowerMap() {
-        if (_dbNamePropertyNameKeyToLowerMap == null) { _dbNamePropertyNameKeyToLowerMap = setupKeyToLowerMap(true); }
-        return _dbNamePropertyNameKeyToLowerMap;
+    //                                                                         Unique Info
+    //                                                                         ===========
+    // -----------------------------------------------------
+    //                                       Primary Element
+    //                                       ---------------
+    public UniqueInfo getPrimaryUniqueInfo() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
     }
-    protected static Map<String, String> _propertyNameDbNameKeyToLowerMap;
-    protected Map<String, String> createPropertyNameDbNameKeyToLowerMap() {
-        if (_propertyNameDbNameKeyToLowerMap == null) { _propertyNameDbNameKeyToLowerMap = setupKeyToLowerMap(false); }
-        return _propertyNameDbNameKeyToLowerMap;
-    }
+    public boolean hasPrimaryKey() { return false; }
+    public boolean hasTwoOrMorePrimaryKeys() { return false; }
+
+    // ===================================================================================
+    //                                                                       Relation Info
+    //                                                                       =============
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+
+    // ===================================================================================
+    //                                                                        Various Info
+    //                                                                        ============
 
     // ===================================================================================
     //                                                                           Type Name
@@ -84,65 +99,29 @@ public class TFilesDbm extends AbstractDBMeta {
     public TFiles newMyEntity() { return new TFiles(); }
 
     // ===================================================================================
-    //                                                                         Unique Info
-    //                                                                         ===========
-    // -----------------------------------------------------
-    //                                       Primary Element
-    //                                       ---------------
-    public UniqueInfo getPrimaryUniqueInfo() {
-        throw new UnsupportedOperationException("The table doen not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
-    public boolean hasTwoOrMorePrimaryKeys() { return false; }
-
-    // ===================================================================================
-    //                                                                       Relation Info
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-
-    // -----------------------------------------------------
-    //                                     Referrer Property
-    //                                     -----------------
-
-    // ===================================================================================
-    //                                                                        Various Info
-    //                                                                        ============
-
-    // ===================================================================================
     //                                                                     Entity Handling
     //                                                                     ===============  
     // -----------------------------------------------------
     //                                                Accept
     //                                                ------
-    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap) {
-		doAcceptPrimaryKeyMap((TFiles)entity, primaryKeyMap, _epsMap);
-    }
-
-    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString) {
-        MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity);
-    }
-
-    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap) {
-        doAcceptColumnValueMap((TFiles)entity, columnValueMap, _epsMap);
-    }
-
-    public void acceptColumnValueMapString(Entity entity, String columnValueMapString) {
-        MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity);
-    }
+    public void acceptPrimaryKeyMap(Entity entity, Map<String, ? extends Object> primaryKeyMap)
+    { doAcceptPrimaryKeyMap((TFiles)entity, primaryKeyMap, _epsMap); }
+    public void acceptPrimaryKeyMapString(Entity entity, String primaryKeyMapString)
+    { MapStringUtil.acceptPrimaryKeyMapString(primaryKeyMapString, entity); }
+    public void acceptColumnValueMap(Entity entity, Map<String, ? extends Object> columnValueMap)
+    { doAcceptColumnValueMap((TFiles)entity, columnValueMap, _epsMap); }
+    public void acceptColumnValueMapString(Entity entity, String columnValueMapString)
+    { MapStringUtil.acceptColumnValueMapString(columnValueMapString, entity); }
 
     // -----------------------------------------------------
     //                                               Extract
     //                                               -------
     public String extractPrimaryKeyMapString(Entity entity) { return MapStringUtil.extractPrimaryKeyMapString(entity); }
-    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractPrimaryKeyMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractPrimaryKeyMapString(entity, startBrace, endBrace, delimiter, equal); }
     public String extractColumnValueMapString(Entity entity) { return MapStringUtil.extractColumnValueMapString(entity); }
-    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal) {
-        return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal);
-    }
+    public String extractColumnValueMapString(Entity entity, String startBrace, String endBrace, String delimiter, String equal)
+    { return doExtractColumnValueMapString(entity, startBrace, endBrace, delimiter, equal); }
 
     // -----------------------------------------------------
     //                                               Convert
@@ -156,7 +135,7 @@ public class TFilesDbm extends AbstractDBMeta {
     //                                                               Entity Property Setup
     //                                                               =====================
     // It's very INTERNAL!
-    protected Map<String, Eps<TFiles>> _epsMap = newHashMap();
+    protected Map<String, Eps<TFiles>> _epsMap = StringKeyMap.createAsFlexibleConcurrent();
     {
         setupEps(_epsMap, new EpsFileid(), columnFileid());
         setupEps(_epsMap, new EpsAppliesto(), columnAppliesto());
@@ -167,37 +146,25 @@ public class TFilesDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsFiledate(), columnFiledate());
         setupEps(_epsMap, new EpsFilesize(), columnFilesize());
     }
-    
-    public boolean hasEntityPropertySetupper(String propertyName) {
-        return _epsMap.containsKey(propertyName);
-    }
 
-    public void setupEntityProperty(String propertyName, Object entity, Object value) {
-        findEps(_epsMap, propertyName).setup((TFiles)entity, value);
-    }
-    
-    public static class EpsFileid implements Eps<TFiles> {
-        public void setup(TFiles e, Object v) { e.setFileid((String)v); }
-    }
-    public static class EpsAppliesto implements Eps<TFiles> {
-        public void setup(TFiles e, Object v) { e.setAppliesto((String)v); }
-    }
-    public static class EpsCategory implements Eps<TFiles> {
-        public void setup(TFiles e, Object v) { e.setCategory((String)v); }
-    }
-    public static class EpsName implements Eps<TFiles> {
-        public void setup(TFiles e, Object v) { e.setName((String)v); }
-    }
-    public static class EpsFile implements Eps<TFiles> {
-        public void setup(TFiles e, Object v) { e.setFile((String)v); }
-    }
-    public static class EpsNotes implements Eps<TFiles> {
-        public void setup(TFiles e, Object v) { e.setNotes((String)v); }
-    }
-    public static class EpsFiledate implements Eps<TFiles> {
-        public void setup(TFiles e, Object v) { e.setFiledate((java.sql.Timestamp)v); }
-    }
-    public static class EpsFilesize implements Eps<TFiles> {
-        public void setup(TFiles e, Object v) { e.setFilesize((java.lang.Integer)v); }
-    }
+    public boolean hasEntityPropertySetupper(String propertyName) { return _epsMap.containsKey(propertyName); }
+    public void setupEntityProperty(String propertyName, Object entity, Object value)
+    { findEps(_epsMap, propertyName).setup((TFiles)entity, value); }
+
+    public static class EpsFileid implements Eps<TFiles>
+    { public void setup(TFiles e, Object v) { e.setFileid((String)v); } }
+    public static class EpsAppliesto implements Eps<TFiles>
+    { public void setup(TFiles e, Object v) { e.setAppliesto((String)v); } }
+    public static class EpsCategory implements Eps<TFiles>
+    { public void setup(TFiles e, Object v) { e.setCategory((String)v); } }
+    public static class EpsName implements Eps<TFiles>
+    { public void setup(TFiles e, Object v) { e.setName((String)v); } }
+    public static class EpsFile implements Eps<TFiles>
+    { public void setup(TFiles e, Object v) { e.setFile((String)v); } }
+    public static class EpsNotes implements Eps<TFiles>
+    { public void setup(TFiles e, Object v) { e.setNotes((String)v); } }
+    public static class EpsFiledate implements Eps<TFiles>
+    { public void setup(TFiles e, Object v) { e.setFiledate((java.sql.Timestamp)v); } }
+    public static class EpsFilesize implements Eps<TFiles>
+    { public void setup(TFiles e, Object v) { e.setFilesize((java.lang.Integer)v); } }
 }

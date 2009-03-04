@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_document.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
      * @return On-clause query. (NotNull)
      */
     public TDocumentCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TDocumentCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _docid;
     }
     protected ConditionValue getCValueDocid() { return getDocid(); }
-    
+
     public BsTDocumentCQ addOrderBy_Docid_Asc() { regOBA("DocID"); return this; }
     public BsTDocumentCQ addOrderBy_Docid_Desc() { regOBD("DocID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _docname;
     }
     protected ConditionValue getCValueDocname() { return getDocname(); }
-    
+
     public BsTDocumentCQ addOrderBy_Docname_Asc() { regOBA("DocName"); return this; }
     public BsTDocumentCQ addOrderBy_Docname_Desc() { regOBD("DocName"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTDocumentCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTDocumentCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _style;
     }
     protected ConditionValue getCValueStyle() { return getStyle(); }
-    
+
     public BsTDocumentCQ addOrderBy_Style_Asc() { regOBA("Style"); return this; }
     public BsTDocumentCQ addOrderBy_Style_Desc() { regOBD("Style"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _elementid;
     }
     protected ConditionValue getCValueElementid() { return getElementid(); }
-    
+
     public BsTDocumentCQ addOrderBy_Elementid_Asc() { regOBA("ElementID"); return this; }
     public BsTDocumentCQ addOrderBy_Elementid_Desc() { regOBD("ElementID"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _elementtype;
     }
     protected ConditionValue getCValueElementtype() { return getElementtype(); }
-    
+
     public BsTDocumentCQ addOrderBy_Elementtype_Asc() { regOBA("ElementType"); return this; }
     public BsTDocumentCQ addOrderBy_Elementtype_Desc() { regOBD("ElementType"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _strcontent;
     }
     protected ConditionValue getCValueStrcontent() { return getStrcontent(); }
-    
+
     public BsTDocumentCQ addOrderBy_Strcontent_Asc() { regOBA("StrContent"); return this; }
     public BsTDocumentCQ addOrderBy_Strcontent_Desc() { regOBD("StrContent"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _bincontent;
     }
     protected ConditionValue getCValueBincontent() { return getBincontent(); }
-    
+
     public BsTDocumentCQ addOrderBy_Bincontent_Asc() { regOBA("BinContent"); return this; }
     public BsTDocumentCQ addOrderBy_Bincontent_Desc() { regOBD("BinContent"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _doctype;
     }
     protected ConditionValue getCValueDoctype() { return getDoctype(); }
-    
+
     public BsTDocumentCQ addOrderBy_Doctype_Asc() { regOBA("DocType"); return this; }
     public BsTDocumentCQ addOrderBy_Doctype_Desc() { regOBD("DocType"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _author;
     }
     protected ConditionValue getCValueAuthor() { return getAuthor(); }
-    
+
     public BsTDocumentCQ addOrderBy_Author_Asc() { regOBA("Author"); return this; }
     public BsTDocumentCQ addOrderBy_Author_Desc() { regOBD("Author"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _version;
     }
     protected ConditionValue getCValueVersion() { return getVersion(); }
-    
+
     public BsTDocumentCQ addOrderBy_Version_Asc() { regOBA("Version"); return this; }
     public BsTDocumentCQ addOrderBy_Version_Desc() { regOBD("Version"); return this; }
 
@@ -172,7 +172,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _isactive;
     }
     protected ConditionValue getCValueIsactive() { return getIsactive(); }
-          
+
     public BsTDocumentCQ addOrderBy_Isactive_Asc() { regOBA("IsActive"); return this; }
     public BsTDocumentCQ addOrderBy_Isactive_Desc() { regOBD("IsActive"); return this; }
 
@@ -182,7 +182,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _sequence;
     }
     protected ConditionValue getCValueSequence() { return getSequence(); }
-          
+
     public BsTDocumentCQ addOrderBy_Sequence_Asc() { regOBA("Sequence"); return this; }
     public BsTDocumentCQ addOrderBy_Sequence_Desc() { regOBD("Sequence"); return this; }
 
@@ -192,7 +192,7 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
         return _docdate;
     }
     protected ConditionValue getCValueDocdate() { return getDocdate(); }
-    
+
     public BsTDocumentCQ addOrderBy_Docdate_Asc() { regOBA("DocDate"); return this; }
     public BsTDocumentCQ addOrderBy_Docdate_Desc() { regOBD("DocDate"); return this; }
 
@@ -211,8 +211,11 @@ public class BsTDocumentCQ extends AbstractBsTDocumentCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TDocumentCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TDocumentCB.class.getName(); }
+    String xCQ() { return TDocumentCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

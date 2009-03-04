@@ -1,26 +1,25 @@
 package jp.sourceforge.ea2ddl.dao.bsbhv;
 
-
 import java.util.List;
 
+import org.seasar.dbflute.*;
+import org.seasar.dbflute.cbean.ConditionBean;
+import org.seasar.dbflute.cbean.EntityRowHandler;
+import org.seasar.dbflute.cbean.ListResultBean;
+import org.seasar.dbflute.cbean.PagingBean;
+import org.seasar.dbflute.cbean.PagingHandler;
+import org.seasar.dbflute.cbean.PagingInvoker;
+import org.seasar.dbflute.cbean.PagingResultBean;
+import org.seasar.dbflute.cbean.ResultBeanBuilder;
+import org.seasar.dbflute.dbmeta.DBMeta;
+import org.seasar.dbflute.jdbc.StatementConfig;
 import jp.sourceforge.ea2ddl.dao.allcommon.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.bhv.setup.ValueLabelSetupper;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ConditionBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ListResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.ResultBeanBuilder;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingHandler;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingInvoker;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.PagingResultBean;
-import jp.sourceforge.ea2ddl.dao.allcommon.dbmeta.DBMeta;
-import jp.sourceforge.ea2ddl.dao.exdao.*;
 import jp.sourceforge.ea2ddl.dao.exentity.*;
 import jp.sourceforge.ea2ddl.dao.bsentity.dbmeta.*;
 import jp.sourceforge.ea2ddl.dao.cbean.*;
 
-
 /**
- * The behavior of t_testplans.
+ * The behavior of t_testplans that the type is TABLE. <br />
  * <pre>
  * [primary-key]
  *     
@@ -51,18 +50,13 @@ import jp.sourceforge.ea2ddl.dao.cbean.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsTTestplansBhv extends jp.sourceforge.ea2ddl.dao.allcommon.bhv.AbstractBehaviorReadable {
+public abstract class BsTTestplansBhv extends org.seasar.dbflute.bhv.AbstractBehaviorReadable {
 
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
     /*df:BehaviorQueryPathBegin*/
     /*df:BehaviorQueryPathEnd*/
-
-    // ===================================================================================
-    //                                                                           Attribute
-    //                                                                           =========
-    protected TTestplansDao _dao;
 
     // ===================================================================================
     //                                                                          Table name
@@ -73,18 +67,11 @@ public abstract class BsTTestplansBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /** @return The meta data of the database. (NotNull) */
+    /** @return The instance of DBMeta. (NotNull) */
     public DBMeta getDBMeta() { return TTestplansDbm.getInstance(); }
 
-    /** @return The meta data of the database as my table type. (NotNull) */
+    /** @return The instance of DBMeta as my table type. (NotNull) */
     public TTestplansDbm getMyDBMeta() { return TTestplansDbm.getInstance(); }
-
-    // ===================================================================================
-    //                                                                        Dao Accessor
-    //                                                                        ============
-    public TTestplansDao getMyDao() { return _dao; }
-    public void setMyDao(TTestplansDao dao) { assertObjectNotNull("dao", dao); _dao = dao; }
-    public DaoReadable getDaoReadable() { return getMyDao(); }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -95,16 +82,46 @@ public abstract class BsTTestplansBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     public TTestplansCB newMyConditionBean() { return new TTestplansCB(); }
 
     // ===================================================================================
+    //                                                                       Current DBDef
+    //                                                                       =============
+    @Override
+    protected DBDef getCurrentDBDef() {
+        return DBCurrent.getInstance().currentDBDef();
+    }
+
+    // ===================================================================================
+    //                                                             Default StatementConfig
+    //                                                             =======================
+    @Override
+    protected StatementConfig getDefaultStatementConfig() {
+        return DBFluteConfig.getInstance().getDefaultStatementConfig();
+    }
+    
+    // ===================================================================================
     //                                                                        Count Select
     //                                                                        ============
     /**
-     * Select the count of the condition-bean. {IgnorePagingCondition}
+     * Select the count by the condition-bean. {IgnorePagingCondition}
      * @param cb The condition-bean of TTestplans. (NotNull)
      * @return The selected count.
      */
     public int selectCount(TTestplansCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return delegateSelectCount(cb);
+    }
+    
+    // ===================================================================================
+    //                                                                       Cursor Select
+    //                                                                       =============
+    /**
+     * Select the cursor by the condition-bean. <br />
+     * Attention: It has a mapping cost from result set to entity.
+     * @param cb The condition-bean of TTestplans. (NotNull)
+     * @param entityRowHandler The handler of entity row of TTestplans. (NotNull)
+     */
+    public void selectCursor(TTestplansCB cb, EntityRowHandler<TTestplans> entityRowHandler) {
+        assertCBNotNull(cb); assertObjectNotNull("entityRowHandler<TTestplans>", entityRowHandler);
+        delegateSelectCursor(cb, entityRowHandler);
     }
 
     // ===================================================================================
@@ -114,7 +131,7 @@ public abstract class BsTTestplansBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * Select the entity by the condition-bean.
      * @param cb The condition-bean of TTestplans. (NotNull)
      * @return The selected entity. (Nullalble)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TTestplans selectEntity(final TTestplansCB cb) {
         return helpSelectEntityInternally(cb, new InternalSelectEntityCallback<TTestplans, TTestplansCB>() {
@@ -125,8 +142,8 @@ public abstract class BsTTestplansBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * Select the entity by the condition-bean with deleted check.
      * @param cb The condition-bean of TTestplans. (NotNull)
      * @return The selected entity. (NotNull)
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityAlreadyDeletedException When the entity has already been deleted.
-     * @exception jp.sourceforge.ea2ddl.dao.allcommon.exception.EntityDuplicatedException When the entity has been duplicated.
+     * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
+     * @exception org.seasar.dbflute.exception.EntityDuplicatedException When the entity has been duplicated.
      */
     public TTestplans selectEntityWithDeletedCheck(final TTestplansCB cb) {
         return helpSelectEntityWithDeletedCheckInternally(cb, new InternalSelectEntityWithDeletedCheckCallback<TTestplans, TTestplansCB>() {
@@ -143,7 +160,7 @@ public abstract class BsTTestplansBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * @return The result bean of selected list. (NotNull)
      */
     public ListResultBean<TTestplans> selectList(TTestplansCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         return new ResultBeanBuilder<TTestplans>(getTableDbName()).buildListResultBean(cb, delegateSelectList(cb));
     }
 
@@ -156,7 +173,7 @@ public abstract class BsTTestplansBhv extends jp.sourceforge.ea2ddl.dao.allcommo
      * @return The result bean of selected page. (NotNull)
      */
     public PagingResultBean<TTestplans> selectPage(final TTestplansCB cb) {
-        assertConditionBeanNotNull(cb);
+        assertCBNotNull(cb);
         final PagingInvoker<TTestplans> invoker = new PagingInvoker<TTestplans>(getTableDbName());
         final PagingHandler<TTestplans> handler = new PagingHandler<TTestplans>() {
             public PagingBean getPagingBean() { return cb; }
@@ -167,32 +184,46 @@ public abstract class BsTTestplansBhv extends jp.sourceforge.ea2ddl.dao.allcommo
     }
 
     // ===================================================================================
-    //                                                                      Various Select
-    //                                                                      ==============
+    //                                                                       Scalar Select
+    //                                                                       =============
     /**
-     * Select the list of value-label.
-     * @param cb The condition-bean of TTestplans. (NotNull)
-     * @param valueLabelSetupper The setupper of value-label. (NotNull)
-     * @return The list of value-label. (NotNull)
+     * Select the scalar value derived by a function. <br />
+     * Call a function method after this method called like as follows:
+     * <pre>
+     * tTestplansBhv.scalarSelect(Date.class).max(new ScalarQuery(TTestplansCB cb) {
+     *     cb.specify().columnXxxDatetime(); // the required specification of target column
+     *     cb.query().setXxxName_PrefixSearch("S"); // query as you like it
+     * });
+     * </pre>
+     * @param <RESULT> The type of result.
+     * @param resultType The type of result. (NotNull)
+     * @return The scalar value derived by a function. (Nullable)
      */
-    public List<java.util.Map<String, Object>> selectValueLabelList(TTestplansCB cb, ValueLabelSetupper<TTestplans> valueLabelSetupper) {
-        return createValueLabelList(selectList(cb), valueLabelSetupper);
+    public <RESULT> SLFunction<TTestplansCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+        TTestplansCB cb = newMyConditionBean();
+        cb.xsetupForScalarSelect();
+        cb.getSqlClause().disableSelectIndex(); // for when you use union
+        return new SLFunction<TTestplansCB, RESULT>(cb, resultType);
     }
-
-
-
     // ===================================================================================
-    //                                                                     Pullout Foreign
-    //                                                                     ===============
-  
+    //                                                                    Pull out Foreign
+    //                                                                    ================
+    
     // ===================================================================================
     //                                                                     Delegate Method
     //                                                                     ===============
+    // [Behavior Command]
     // -----------------------------------------------------
     //                                                Select
     //                                                ------
-    protected int delegateSelectCount(TTestplansCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectCount(cb); }
-    protected List<TTestplans> delegateSelectList(TTestplansCB cb) { assertConditionBeanNotNull(cb); return getMyDao().selectList(cb); }
+    protected int delegateSelectCount(TTestplansCB cb) { return invoke(createSelectCountCBCommand(cb)); }
+    protected void delegateSelectCursor(TTestplansCB cb, EntityRowHandler<TTestplans> entityRowHandler)
+    { invoke(createSelectCursorCBCommand(cb, entityRowHandler, TTestplans.class)); }
+    protected int doCallReadCount(ConditionBean cb) { return delegateSelectCount((TTestplansCB)cb); }
+    protected List<TTestplans> delegateSelectList(TTestplansCB cb)
+    { return invoke(createSelectListCBCommand(cb, TTestplans.class)); }
+    @SuppressWarnings("unchecked")
+    protected List<Entity> doCallReadList(ConditionBean cb) { return (List)delegateSelectList((TTestplansCB)cb); }
 
     // ===================================================================================
     //                                                                Optimistic Lock Info

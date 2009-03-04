@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objecttrx.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjecttrxCQ extends AbstractBsTObjecttrxCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjecttrxCQ extends AbstractBsTObjecttrxCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjecttrxCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjecttrxCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjecttrxCQ extends AbstractBsTObjecttrxCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTObjecttrxCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjecttrxCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjecttrxCQ extends AbstractBsTObjecttrxCQ {
         return _trx;
     }
     protected ConditionValue getCValueTrx() { return getTrx(); }
-    
+
     public BsTObjecttrxCQ addOrderBy_Trx_Asc() { regOBA("TRX"); return this; }
     public BsTObjecttrxCQ addOrderBy_Trx_Desc() { regOBD("TRX"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjecttrxCQ extends AbstractBsTObjecttrxCQ {
         return _trxtype;
     }
     protected ConditionValue getCValueTrxtype() { return getTrxtype(); }
-    
+
     public BsTObjecttrxCQ addOrderBy_Trxtype_Asc() { regOBA("TRXType"); return this; }
     public BsTObjecttrxCQ addOrderBy_Trxtype_Desc() { regOBD("TRXType"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjecttrxCQ extends AbstractBsTObjecttrxCQ {
         return _weight;
     }
     protected ConditionValue getCValueWeight() { return getWeight(); }
-          
+
     public BsTObjecttrxCQ addOrderBy_Weight_Asc() { regOBA("Weight"); return this; }
     public BsTObjecttrxCQ addOrderBy_Weight_Desc() { regOBD("Weight"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTObjecttrxCQ extends AbstractBsTObjecttrxCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTObjecttrxCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTObjecttrxCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -121,8 +121,11 @@ public class BsTObjecttrxCQ extends AbstractBsTObjecttrxCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjecttrxCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjecttrxCB.class.getName(); }
+    String xCQ() { return TObjecttrxCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

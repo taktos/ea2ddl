@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of usysOldTables.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsUsysoldtablesCQ extends AbstractBsUsysoldtablesCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsUsysoldtablesCQ extends AbstractBsUsysoldtablesCQ {
      * @return On-clause query. (NotNull)
      */
     public UsysoldtablesCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         UsysoldtablesCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsUsysoldtablesCQ extends AbstractBsUsysoldtablesCQ {
         return _tablename;
     }
     protected ConditionValue getCValueTablename() { return getTablename(); }
-    
+
     public BsUsysoldtablesCQ addOrderBy_Tablename_Asc() { regOBA("TableName"); return this; }
     public BsUsysoldtablesCQ addOrderBy_Tablename_Desc() { regOBD("TableName"); return this; }
 
@@ -72,7 +72,7 @@ public class BsUsysoldtablesCQ extends AbstractBsUsysoldtablesCQ {
         return _newname;
     }
     protected ConditionValue getCValueNewname() { return getNewname(); }
-    
+
     public BsUsysoldtablesCQ addOrderBy_Newname_Asc() { regOBA("NewName"); return this; }
     public BsUsysoldtablesCQ addOrderBy_Newname_Desc() { regOBD("NewName"); return this; }
 
@@ -82,7 +82,7 @@ public class BsUsysoldtablesCQ extends AbstractBsUsysoldtablesCQ {
         return _relorder;
     }
     protected ConditionValue getCValueRelorder() { return getRelorder(); }
-          
+
     public BsUsysoldtablesCQ addOrderBy_Relorder_Asc() { regOBA("RelOrder"); return this; }
     public BsUsysoldtablesCQ addOrderBy_Relorder_Desc() { regOBD("RelOrder"); return this; }
 
@@ -92,7 +92,7 @@ public class BsUsysoldtablesCQ extends AbstractBsUsysoldtablesCQ {
         return _fixcode;
     }
     protected ConditionValue getCValueFixcode() { return getFixcode(); }
-    
+
     public BsUsysoldtablesCQ addOrderBy_Fixcode_Asc() { regOBA("FixCode"); return this; }
     public BsUsysoldtablesCQ addOrderBy_Fixcode_Desc() { regOBD("FixCode"); return this; }
 
@@ -111,8 +111,11 @@ public class BsUsysoldtablesCQ extends AbstractBsUsysoldtablesCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return UsysoldtablesCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return UsysoldtablesCB.class.getName(); }
+    String xCQ() { return UsysoldtablesCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

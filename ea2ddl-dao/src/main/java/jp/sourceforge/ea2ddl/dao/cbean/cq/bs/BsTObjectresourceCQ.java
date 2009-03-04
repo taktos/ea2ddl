@@ -2,17 +2,17 @@ package jp.sourceforge.ea2ddl.dao.cbean.cq.bs;
 
 import java.util.Map;
 
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.*;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.cvalue.ConditionValue;
-import jp.sourceforge.ea2ddl.dao.allcommon.cbean.sqlclause.SqlClause;
+import org.seasar.dbflute.cbean.*;
+import org.seasar.dbflute.cbean.cvalue.ConditionValue;
+import org.seasar.dbflute.cbean.sqlclause.SqlClause;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.ciq.*;
+import jp.sourceforge.ea2ddl.dao.cbean.*;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.*;
 
 /**
  * The base condition-query of t_objectresource.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
 
     // ===================================================================================
@@ -48,7 +48,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
      * @return On-clause query. (NotNull)
      */
     public TObjectresourceCIQ on() {
-        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported onClause of Base Table!"); }
+        if (isBaseQuery(this)) { throw new UnsupportedOperationException("Unsupported on-clause for local table!"); }
         TObjectresourceCIQ inlineQuery = inline(); inlineQuery.xsetOnClauseInline(true); return inlineQuery;
     }
 
@@ -62,7 +62,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _objectId;
     }
     protected ConditionValue getCValueObjectId() { return getObjectId(); }
-          
+
     public BsTObjectresourceCQ addOrderBy_ObjectId_Asc() { regOBA("Object_ID"); return this; }
     public BsTObjectresourceCQ addOrderBy_ObjectId_Desc() { regOBD("Object_ID"); return this; }
 
@@ -72,7 +72,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _resource;
     }
     protected ConditionValue getCValueResource() { return getResource(); }
-    
+
     public BsTObjectresourceCQ addOrderBy_Resource_Asc() { regOBA("Resource"); return this; }
     public BsTObjectresourceCQ addOrderBy_Resource_Desc() { regOBD("Resource"); return this; }
 
@@ -82,7 +82,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _role;
     }
     protected ConditionValue getCValueRole() { return getRole(); }
-    
+
     public BsTObjectresourceCQ addOrderBy_Role_Asc() { regOBA("Role"); return this; }
     public BsTObjectresourceCQ addOrderBy_Role_Desc() { regOBD("Role"); return this; }
 
@@ -92,7 +92,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _time;
     }
     protected ConditionValue getCValueTime() { return getTime(); }
-          
+
     public BsTObjectresourceCQ addOrderBy_Time_Asc() { regOBA("Time"); return this; }
     public BsTObjectresourceCQ addOrderBy_Time_Desc() { regOBD("Time"); return this; }
 
@@ -102,7 +102,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _notes;
     }
     protected ConditionValue getCValueNotes() { return getNotes(); }
-    
+
     public BsTObjectresourceCQ addOrderBy_Notes_Asc() { regOBA("Notes"); return this; }
     public BsTObjectresourceCQ addOrderBy_Notes_Desc() { regOBD("Notes"); return this; }
 
@@ -112,7 +112,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _percentcomplete;
     }
     protected ConditionValue getCValuePercentcomplete() { return getPercentcomplete(); }
-          
+
     public BsTObjectresourceCQ addOrderBy_Percentcomplete_Asc() { regOBA("PercentComplete"); return this; }
     public BsTObjectresourceCQ addOrderBy_Percentcomplete_Desc() { regOBD("PercentComplete"); return this; }
 
@@ -122,7 +122,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _datestart;
     }
     protected ConditionValue getCValueDatestart() { return getDatestart(); }
-    
+
     public BsTObjectresourceCQ addOrderBy_Datestart_Asc() { regOBA("DateStart"); return this; }
     public BsTObjectresourceCQ addOrderBy_Datestart_Desc() { regOBD("DateStart"); return this; }
 
@@ -132,7 +132,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _dateend;
     }
     protected ConditionValue getCValueDateend() { return getDateend(); }
-    
+
     public BsTObjectresourceCQ addOrderBy_Dateend_Asc() { regOBA("DateEnd"); return this; }
     public BsTObjectresourceCQ addOrderBy_Dateend_Desc() { regOBD("DateEnd"); return this; }
 
@@ -142,7 +142,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _history;
     }
     protected ConditionValue getCValueHistory() { return getHistory(); }
-    
+
     public BsTObjectresourceCQ addOrderBy_History_Asc() { regOBA("History"); return this; }
     public BsTObjectresourceCQ addOrderBy_History_Desc() { regOBD("History"); return this; }
 
@@ -152,7 +152,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _expectedhours;
     }
     protected ConditionValue getCValueExpectedhours() { return getExpectedhours(); }
-          
+
     public BsTObjectresourceCQ addOrderBy_Expectedhours_Asc() { regOBA("ExpectedHours"); return this; }
     public BsTObjectresourceCQ addOrderBy_Expectedhours_Desc() { regOBD("ExpectedHours"); return this; }
 
@@ -162,7 +162,7 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
         return _actualhours;
     }
     protected ConditionValue getCValueActualhours() { return getActualhours(); }
-          
+
     public BsTObjectresourceCQ addOrderBy_Actualhours_Asc() { regOBA("ActualHours"); return this; }
     public BsTObjectresourceCQ addOrderBy_Actualhours_Desc() { regOBD("ActualHours"); return this; }
 
@@ -181,8 +181,11 @@ public class BsTObjectresourceCQ extends AbstractBsTObjectresourceCQ {
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-
-
-    protected String getConditionQueryClassNameInternally() { return TObjectresourceCQ.class.getName(); }
-    protected String getMapClassNameInternally() { return Map.class.getName(); }
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // Very Internal (for Suppressing Warn about 'Not Use Import')
+    String xCB() { return TObjectresourceCB.class.getName(); }
+    String xCQ() { return TObjectresourceCQ.class.getName(); }
+    String xMap() { return Map.class.getName(); }
 }

@@ -3,10 +3,9 @@ package jp.sourceforge.ea2ddl.dao.cbean.nss;
 import jp.sourceforge.ea2ddl.dao.cbean.cq.TOperationtagCQ;
 
 /**
- * The nest-select-setupper of t_operationtag.
+ * The nest select set-upper of t_operationtag.
  * @author DBFlute(AutoGenerator)
  */
-@SuppressWarnings("unchecked")
 public class TOperationtagNss {
 
     protected TOperationtagCQ _query;
