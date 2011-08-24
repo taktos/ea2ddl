@@ -7,7 +7,6 @@
 		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>jp.sourceforge.ea2ddl</groupId>
 	<artifactId>ea2ddl-dao</artifactId>
 	<name>ea2ddl-dao</name>
 	<url>http://ea2ddl.sourceforge.jp/</url>

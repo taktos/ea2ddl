@@ -6,7 +6,6 @@
 		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>jp.sourceforge.ea2ddl</groupId>
 	<artifactId>ea2ddl-ddl</artifactId>
 	<name>Enterprise Architect to DDL</name>
 	<description>Enterprise Architect to DDL</description>
