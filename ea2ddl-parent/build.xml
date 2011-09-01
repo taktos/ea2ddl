@@ -1,17 +1,17 @@
 <project name="ea2ddl" default="dist" basedir=".">
 
-	<property name="version" value="0.0.1"/>
+	<property name="version" value="0.0.2"/>
 
-	<!-- ================================= 
-          target: clean              
+	<!-- =================================
+          target: clean
          ================================= -->
 	<target name="clean" depends="" description="clean">
 		<delete dir="dist/ea2ddl/lib"/>
 		<delete dir="dist/ea2ddl-${version}.zip"/>
 	</target>
 
-	<!-- ================================= 
-          target: dist              
+	<!-- =================================
+          target: dist
          ================================= -->
 	<target name="dist" depends="clean" description="dist">
 		<mkdir dir="dist/ea2ddl/lib"/>

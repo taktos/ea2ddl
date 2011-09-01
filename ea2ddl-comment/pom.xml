@@ -4,6 +4,7 @@
 		<artifactId>ea2ddl-parent</artifactId>
 		<groupId>jp.sourceforge.ea2ddl</groupId>
 		<version>0.0.2-SNAPSHOT</version>
+		<relativePath>../ea2ddl-parent</relativePath>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>ea2ddl-comment</artifactId>
