@@ -4,6 +4,11 @@
 package jp.sourceforge.ea2ddl.ddl.model;
 
 import java.io.Serializable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import jp.sourceforge.ea2ddl.common.config.Config;
+import jp.sourceforge.ea2ddl.dao.exentity.TAttribute;
 
 /**
  * @author taktos
@@ -16,10 +21,50 @@ public class ColumnModel implements Serializable {
 	private String _alias;
 	private String _note;
 	private String _type;
-	private Integer _length;
 	private Integer _precision;
 	private Integer _scale;
 	private boolean nullable;
+	private boolean ordered;
+
+	public static ColumnModel create(TAttribute columnDef, Config dictionary) {
+		ColumnModel column = new ColumnModel();
+		column.setName(columnDef.getName());
+		column.setAlias(columnDef.getStyle());
+		column.setType(columnDef, dictionary);
+		column.setNullable(Integer.valueOf(0).equals(
+				columnDef.getAllowduplicates()));
+		column.setOrdered(Integer.valueOf(1).equals(columnDef.getIsordered()));
+		column.setNote(columnDef.getNotes());
+		return column;
+	}
+
+	private void setType(TAttribute columnDef, Config dictionary) {
+		String domain = dictionary.getProperty(columnDef.getType());
+		if (domain != null) {
+			Pattern p = Pattern.compile(
+					"^(\\w+)\\s*(\\((\\d+)(,\\s*(\\d+))?\\))?.*",
+					Pattern.CASE_INSENSITIVE);
+			Matcher m = p.matcher(domain);
+			if (m.matches()) {
+				setType(m.group(1));
+				if (m.group(3) != null) {
+					Integer len = Integer.valueOf(m.group(3));
+					setScale(len);
+				}
+				if (m.group(5) != null) {
+					setPrecision(Integer.valueOf(m.group(5)));
+				}
+			}
+			return;
+		}
+		setType(columnDef.getType());
+		if (columnDef.getLength() != null) {
+			setScale(columnDef.getLength());
+		} else if (columnDef.getScale() != null) {
+			setScale(columnDef.getScale());
+		}
+		setPrecision(columnDef.getPrecision());
+	}
 
 	public boolean isNullable() {
 		return nullable;
@@ -27,6 +72,14 @@ public class ColumnModel implements Serializable {
 
 	public void setNullable(boolean nullable) {
 		this.nullable = nullable;
+	}
+
+	public boolean isOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(boolean ordered) {
+		this.ordered = ordered;
 	}
 
 	private String defaultValue;
@@ -63,14 +116,6 @@ public class ColumnModel implements Serializable {
 		_type = type;
 	}
 
-	public Integer getLength() {
-		return _length;
-	}
-
-	public void setLength(Integer length) {
-		_length = length;
-	}
-
 	public Integer getPrecision() {
 		return _precision;
 	}
@@ -96,23 +141,20 @@ public class ColumnModel implements Serializable {
 	}
 
 	public String getDefinition() {
-		StringBuffer b = new StringBuffer();
-		b.append(getType());
-		if ("CHAR".equals(getType()) || "VARCHAR".equals(getType())
-				|| "VARCHAR2".equals(getType()) || "INTEGER".equals(getType())
-				|| "LONG".equals(getType()) || "FLOAT".equals(getType())
-				|| "NCHAR".equals(getType()) || "NVARCHAR".equals(getType())
-				|| "NVARCHAR2".equals(getType()) || "RAW".equals(getType())) {
-			b.append("(").append(getLength()).append(")");
-		} else if ("NUMBER".equals(getType())) {
-			b.append("(").append(getPrecision());
-			if (getScale() != null && 0 != getScale()) {
-				b.append(",").append(getScale());
+		StringBuilder b = new StringBuilder();
+		b.append(_type);
+		if (_scale != null) {
+			b.append("(").append(_scale);
+			if (_precision != null) {
+				b.append(",").append(_precision);
 			}
 			b.append(")");
 		}
 		if (!isNullable()) {
 			b.append(" NOT NULL");
+		}
+		if (isOrdered()) {
+			b.append(" AUTO_INCREMENT");
 		}
 		return b.toString();
 	}

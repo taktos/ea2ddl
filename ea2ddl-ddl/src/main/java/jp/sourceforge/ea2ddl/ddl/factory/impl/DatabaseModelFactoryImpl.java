@@ -109,7 +109,8 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 	public DatabaseModel create() {
 		final DatabaseModel dbModel = new DatabaseModel();
 		final TPackage pkg = getPackage();
-		final List<TObject> objectList = _tObjectBhv.selectListByStereotype(pkg, Constants.STEREOTYPE_TABLE);
+		final List<TObject> objectList = _tObjectBhv.selectListByStereotype(
+				pkg, Constants.STEREOTYPE_TABLE);
 		_log.debug(objectList.size());
 
 		for (TObject object : objectList) {
@@ -120,7 +121,8 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 	}
 
 	protected TPackage getPackage() {
-		return _tPackageBhv.selectPackage(_config.getProperty(ConfigKey.ER_PACKAGE_TREE));
+		return _tPackageBhv.selectPackage(_config
+				.getProperty(ConfigKey.ER_PACKAGE_TREE));
 	}
 
 	protected TableModel generateTableModel(TObject tobject) {
@@ -129,36 +131,29 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 		table.setAlias(tobject.getAlias());
 		table.setNote(tobject.getNote());
 		if (_config.getBoolean(_config.getProperty(ConfigKey.USE_SCHEMA))) {
-			table.setSchema(_tObjectpropertiesBhv.getValue(tobject, Constants.OBJECT_PROPERTIES_OWNER));
+			table.setSchema(_tObjectpropertiesBhv.getValue(tobject,
+					Constants.OBJECT_PROPERTIES_OWNER));
 		}
-		table.setSuppressCommonColumn(_tObjectconstraintBhv.hasConstraint(tobject, Constants.SUPPRESS_COMMON_COLUMN));
+		table.setSuppressCommonColumn(_tObjectconstraintBhv.hasConstraint(
+				tobject, Constants.SUPPRESS_COMMON_COLUMN));
 		generateColumnModel(table, tobject);
 		generatePKModel(table, tobject);
 		generateFKModel(table, tobject);
 		generateUniqueModel(table, tobject);
 		generateIndexModel(table, tobject);
-
 		return table;
 	}
 
 	protected void generateColumnModel(TableModel table, TObject tobject) {
-		final List<TAttribute> attributes = _tAttributeBhv.selectColumns(tobject);
+		final List<TAttribute> attributes = _tAttributeBhv
+				.selectColumns(tobject);
 		for (TAttribute attribute : attributes) {
-			final ColumnModel column = new ColumnModel();
-			column.setName(attribute.getName());
-			column.setAlias(attribute.getStyle());
-			column.setType(getColumnType(attribute));
-			column.setLength(attribute.getLength());
-			column.setPrecision(attribute.getPrecision());
-			column.setScale(attribute.getScale());
-			column.setNullable(Integer.valueOf(0).equals(attribute.getAllowduplicates()));
-			column.setNote(attribute.getNotes());
-			table.addColumn(column);
+			table.addColumn(ColumnModel.create(attribute, _config));
 		}
 	}
 
 	protected String getColumnType(TAttribute attribute) {
-		final String dictionary = _config.getProperty(attribute.getName());
+		final String dictionary = _config.getProperty(attribute.getType());
 		if (dictionary != null) {
 			return dictionary;
 		}
@@ -166,13 +161,14 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 	}
 
 	protected void generatePKModel(TableModel table, TObject tobject) {
-		final ListResultBean<TOperation> pkList = _tOperationBhv.selectOperation(tobject,
-				Constants.STEREOTYPE_PRIMARY_KEY);
+		final ListResultBean<TOperation> pkList = _tOperationBhv
+				.selectOperation(tobject, Constants.STEREOTYPE_PRIMARY_KEY);
 		if (pkList.isEmpty()) {
 			return;
 		}
 		final TOperation opePK = pkList.get(0);
-		final ListResultBean<TOperationparams> params = _tOperationparamsBhv.selectOperationParams(opePK);
+		final ListResultBean<TOperationparams> params = _tOperationparamsBhv
+				.selectOperationParams(opePK);
 		if (!params.isEmpty()) {
 			final PrimaryKeyModel pk = new PrimaryKeyModel();
 			pk.setName(opePK.getName());
@@ -184,14 +180,15 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 	}
 
 	protected void generateFKModel(TableModel table, TObject tobject) {
-		final ListResultBean<TOperation> fkList = _tOperationBhv.selectOperation(tobject,
-				Constants.STEREOTYPE_FOREIGN_KEY);
+		final ListResultBean<TOperation> fkList = _tOperationBhv
+				.selectOperation(tobject, Constants.STEREOTYPE_FOREIGN_KEY);
 		for (TOperation opeFK : fkList) {
 			final ForeignKeyModel fkModel = new ForeignKeyModel();
 			fkModel.setName(opeFK.getName());
 
 			{
-				final ListResultBean<TOperationparams> params = _tOperationparamsBhv.selectOperationParams(opeFK);
+				final ListResultBean<TOperationparams> params = _tOperationparamsBhv
+						.selectOperationParams(opeFK);
 				for (TOperationparams param : params) {
 					fkModel.addColumnName(param.getName());
 				}
@@ -202,13 +199,15 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 				conCB.query().setSourcerole_Equal(opeFK.getName());
 				final TConnector con = _tConnectorBhv.selectEntity(conCB);
 
-				final TObject targetTable = _tObjectBhv.selectEntity(con.getEndObjectId());
+				final TObject targetTable = _tObjectBhv.selectEntity(con
+						.getEndObjectId());
 				fkModel.setTargetTable(targetTable.getName());
 
 				final TOperationCB targetOpeCB = new TOperationCB();
 				targetOpeCB.query().setObjectId_Equal(con.getEndObjectId());
 				targetOpeCB.query().setName_Equal(con.getDestrole());
-				final TOperation targetOpe = _tOperationBhv.selectEntity(targetOpeCB);
+				final TOperation targetOpe = _tOperationBhv
+						.selectEntity(targetOpeCB);
 
 				final ListResultBean<TOperationparams> targetParams = _tOperationparamsBhv
 						.selectOperationParams(targetOpe);
@@ -224,14 +223,16 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 		final TOperationCB cb = new TOperationCB();
 		cb.query().setObjectId_Equal(tobject.getObjectId());
 		cb.query().setStereotype_Equal(Constants.STEREOTYPE_UNIQUE);
-		final ListResultBean<TOperation> uniqueList = _tOperationBhv.selectList(cb);
+		final ListResultBean<TOperation> uniqueList = _tOperationBhv
+				.selectList(cb);
 		for (TOperation unique : uniqueList) {
 			final UniqueModel uniqueModel = new UniqueModel();
 			uniqueModel.setName(unique.getName());
 			final TOperationparamsCB opeCB = new TOperationparamsCB();
 			opeCB.query().setOperationid_Equal(unique.getOperationid());
 			opeCB.query().addOrderBy_Pos_Asc();
-			final ListResultBean<TOperationparams> cols = _tOperationparamsBhv.selectList(opeCB);
+			final ListResultBean<TOperationparams> cols = _tOperationparamsBhv
+					.selectList(opeCB);
 			for (TOperationparams param : cols) {
 				uniqueModel.addColumnName(param.getName());
 			}
@@ -240,11 +241,13 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 	}
 
 	protected void generateIndexModel(TableModel table, TObject tobject) {
-		final ListResultBean<TOperation> indexList = _tOperationBhv.selectOperation(tobject, "index");
+		final ListResultBean<TOperation> indexList = _tOperationBhv
+				.selectOperation(tobject, "index");
 		for (TOperation index : indexList) {
 			final IndexModel indexModel = new IndexModel();
 			indexModel.setName(index.getName());
-			final ListResultBean<TOperationparams> params = _tOperationparamsBhv.selectOperationParams(index);
+			final ListResultBean<TOperationparams> params = _tOperationparamsBhv
+					.selectOperationParams(index);
 			for (TOperationparams param : params) {
 				indexModel.addColumn(param.getName());
 			}
