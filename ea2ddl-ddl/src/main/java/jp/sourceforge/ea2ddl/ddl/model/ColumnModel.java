@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 import jp.sourceforge.ea2ddl.common.config.Config;
 import jp.sourceforge.ea2ddl.dao.exentity.TAttribute;
+import jp.sourceforge.ea2ddl.dao.exentity.TAttributetag;
 
 /**
  * @author taktos
@@ -24,7 +25,7 @@ public class ColumnModel implements Serializable {
 	private Integer _precision;
 	private Integer _scale;
 	private boolean nullable;
-	private boolean ordered;
+	private boolean autoIncrement;
 
 	public static ColumnModel create(TAttribute columnDef, Config dictionary) {
 		ColumnModel column = new ColumnModel();
@@ -33,7 +34,7 @@ public class ColumnModel implements Serializable {
 		column.setType(columnDef, dictionary);
 		column.setNullable(Integer.valueOf(0).equals(
 				columnDef.getAllowduplicates()));
-		column.setOrdered(Integer.valueOf(1).equals(columnDef.getIsordered()));
+		column.setAutoIncrement(columnDef);
 		column.setNote(columnDef.getNotes());
 		return column;
 	}
@@ -49,21 +50,21 @@ public class ColumnModel implements Serializable {
 				setType(m.group(1));
 				if (m.group(3) != null) {
 					Integer len = Integer.valueOf(m.group(3));
-					setScale(len);
+					setPrecision(len);
 				}
 				if (m.group(5) != null) {
-					setPrecision(Integer.valueOf(m.group(5)));
+					setScale(Integer.valueOf(m.group(5)));
 				}
 			}
 			return;
 		}
 		setType(columnDef.getType());
 		if (columnDef.getLength() != null) {
-			setScale(columnDef.getLength());
-		} else if (columnDef.getScale() != null) {
-			setScale(columnDef.getScale());
+			setPrecision(columnDef.getLength());
+		} else if (columnDef.getPrecision() != null) {
+			setPrecision(columnDef.getScale());
 		}
-		setPrecision(columnDef.getPrecision());
+		setScale(columnDef.getScale());
 	}
 
 	public boolean isNullable() {
@@ -74,12 +75,21 @@ public class ColumnModel implements Serializable {
 		this.nullable = nullable;
 	}
 
-	public boolean isOrdered() {
-		return ordered;
+	public boolean isAutoIncrement() {
+		return autoIncrement;
 	}
 
-	public void setOrdered(boolean ordered) {
-		this.ordered = ordered;
+	public void setAutoIncrement(boolean autoIncrement) {
+		this.autoIncrement = autoIncrement;
+	}
+
+	public void setAutoIncrement(TAttribute columnDef) {
+		TAttributetag tag = columnDef.getTags().get("AutoNum");
+		if (tag != null && "True".equals(tag.getValue())) {
+			this.autoIncrement = true;
+		} else {
+			this.autoIncrement = false;
+		}
 	}
 
 	private String defaultValue;
@@ -143,17 +153,17 @@ public class ColumnModel implements Serializable {
 	public String getDefinition() {
 		StringBuilder b = new StringBuilder();
 		b.append(_type);
-		if (_scale != null) {
-			b.append("(").append(_scale);
-			if (_precision != null) {
-				b.append(",").append(_precision);
+		if (_precision != null) {
+			b.append("(").append(_precision);
+			if (_scale != null) {
+				b.append(",").append(_scale);
 			}
 			b.append(")");
 		}
 		if (!isNullable()) {
 			b.append(" NOT NULL");
 		}
-		if (isOrdered()) {
+		if (isAutoIncrement()) {
 			b.append(" AUTO_INCREMENT");
 		}
 		return b.toString();
