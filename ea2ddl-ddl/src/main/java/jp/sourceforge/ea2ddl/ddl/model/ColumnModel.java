@@ -62,9 +62,9 @@ public class ColumnModel implements Serializable {
 		if (columnDef.getLength() != null) {
 			setPrecision(columnDef.getLength());
 		} else if (columnDef.getPrecision() != null) {
-			setPrecision(columnDef.getScale());
+			setPrecision(columnDef.getPrecision());
+			setScale(columnDef.getScale());
 		}
-		setScale(columnDef.getScale());
 	}
 
 	public boolean isNullable() {
