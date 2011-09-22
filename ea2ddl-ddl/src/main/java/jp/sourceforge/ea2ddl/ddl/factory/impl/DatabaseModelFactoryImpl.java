@@ -37,6 +37,7 @@ import jp.sourceforge.ea2ddl.ddl.model.UniqueModel;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.seasar.dbflute.cbean.ListResultBean;
+import org.seasar.dbflute.cbean.coption.LikeSearchOption;
 import org.seasar.framework.container.annotation.tiger.Binding;
 
 /**
@@ -196,7 +197,15 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 			{
 				final TConnectorCB conCB = new TConnectorCB();
 				conCB.query().setStartObjectId_Equal(tobject.getObjectId());
-				conCB.query().setSourcerole_Equal(opeFK.getName());
+				// FK名が長すぎるとEAが勝手に縮めてしまうので、StyleExカラムでLike検索する
+				// String fkName = opeFK.getName();
+				// if (50 < fkName.length()) {
+				// fkName = fkName.substring(0, 47) + "...";
+				// }
+				// conCB.query().setSourcerole_Equal(fkName);
+				conCB.query().setStyleex_LikeSearch(
+						"SRC=" + opeFK.getName() + ":",
+						new LikeSearchOption().likeContain());
 				final TConnector con = _tConnectorBhv.selectEntity(conCB);
 
 				final TObject targetTable = _tObjectBhv.selectEntity(con
