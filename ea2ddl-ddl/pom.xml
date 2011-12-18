@@ -7,8 +7,8 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>ea2ddl-ddl</artifactId>
-	<name>Enterprise Architect to DDL</name>
-	<description>Enterprise Architect to DDL</description>
+	<name>ea2ddl-ddl</name>
+	<description>Main module</description>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

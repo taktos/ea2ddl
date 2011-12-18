@@ -9,8 +9,8 @@
 	<artifactId>ea2ddl-dist</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Packaging Enterprise Architect to DDL</name>
-	<description>Enterprise Architect to DDL</description>
+	<name>ea2ddl-dist</name>
+	<description>distribution module</description>
 	<dependencies>
 		<dependency>
 			<groupId>jp.sourceforge.ea2ddl</groupId>
