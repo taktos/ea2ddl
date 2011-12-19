@@ -19,7 +19,7 @@
 	</licenses>
 	<scm>
 		<connection>scm:git:git://git.sourceforge.jp/gitroot/ea2ddl/ea2ddl.git</connection>
-		<developerConnection>scm:git:git://git.sourceforge.jp/gitroot/ea2ddl/ea2ddl.git</developerConnection>
+		<developerConnection>scm:git:git@git.sourceforge.jp:/gitroot/ea2ddl/ea2ddl.git</developerConnection>
 		<url>http://git.sourceforge.jp/view?p=ea2ddl/ea2ddl.git</url>
 	</scm>
 	<modules>
@@ -91,6 +91,16 @@
 						<argLine>
 							-Xmx512m -XX:PermSize=128m -XX:MaxPermSize=256m
 						</argLine>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.2.2</version>
+					<configuration>
+						<arguments>-Dmaven.test.skip</arguments>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<localCheckout>true</localCheckout>
 					</configuration>
 				</plugin>
 			</plugins>
