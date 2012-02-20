@@ -239,6 +239,7 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 		final TOperationCB cb = new TOperationCB();
 		cb.query().setObjectId_Equal(tobject.getObjectId());
 		cb.query().setStereotype_Equal(Constants.STEREOTYPE_UNIQUE);
+		cb.query().addOrderBy_Name_Asc();
 		final ListResultBean<TOperation> uniqueList = _tOperationBhv
 				.selectList(cb);
 		for (TOperation unique : uniqueList) {

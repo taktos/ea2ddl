@@ -15,7 +15,8 @@ import org.seasar.dbflute.cbean.ListResultBean;
  * 
  * @author DBFlute(AutoGenerator)
  */
-public class TOperationBhv extends jp.sourceforge.ea2ddl.dao.bsbhv.BsTOperationBhv {
+public class TOperationBhv extends
+		jp.sourceforge.ea2ddl.dao.bsbhv.BsTOperationBhv {
 
 	private TOperationparamsBhv _tOperationparamsBhv;
 
@@ -23,13 +24,16 @@ public class TOperationBhv extends jp.sourceforge.ea2ddl.dao.bsbhv.BsTOperationB
 		_tOperationparamsBhv = operationparamsBhv;
 	}
 
-	public ListResultBean<TOperation> selectOperation(TObject object, String stereotype) {
+	public ListResultBean<TOperation> selectOperation(TObject object,
+			String stereotype) {
 		final TOperationCB cb = new TOperationCB();
 		cb.query().setObjectId_Equal(object.getObjectId());
 		cb.query().setStereotype_Equal(stereotype);
+		cb.query().addOrderBy_Name_Asc();
 		final ListResultBean<TOperation> opeList = selectList(cb);
 		for (TOperation ope : opeList) {
-			ope.setTOperationparamsList(_tOperationparamsBhv.selectOperationParams(ope));
+			ope.setTOperationparamsList(_tOperationparamsBhv
+					.selectOperationParams(ope));
 		}
 		return opeList;
 	}
