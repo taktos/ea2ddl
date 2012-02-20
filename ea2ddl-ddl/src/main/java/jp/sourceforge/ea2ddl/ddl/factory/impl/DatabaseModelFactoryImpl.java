@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package jp.sourceforge.ea2ddl.ddl.factory.impl;
 
@@ -207,6 +207,13 @@ public class DatabaseModelFactoryImpl implements ModelFactory {
 						"SRC=" + opeFK.getName() + ":",
 						new LikeSearchOption().likeContain());
 				final TConnector con = _tConnectorBhv.selectEntity(conCB);
+
+				// EAでFKのごみが残ることがある。ごみの情報をログに出してスキップする
+				if (con == null) {
+					_log.warn("Invalid FK was found. Skipped: "
+							+ opeFK.getName() + " of " + tobject.getName());
+					continue;
+				}
 
 				final TObject targetTable = _tObjectBhv.selectEntity(con
 						.getEndObjectId());
