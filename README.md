@@ -9,7 +9,7 @@ Enterprise Architectで作成したファイル（*.eap）はMicrosoft Accessデ
 ea2ddl
 ======
 
-Generate DDL from table definition in Enterprise Architect. It uses the customizable template to generate DDL. So you can generate various style DDL. It comes two templates, MySQL and Oracle.
+Generate DDL from table definition in [Enterprise Architect](http://sparxsystems.com/products/ea/index.html). It uses the customizable template to generate DDL. So you can generate various style DDL. It comes two templates, MySQL and Oracle.
 
 The file created by Enterprise Architect (*.eap) is JUST the Microsoft Access file. Ea2ddl reads the eap file directly using JDBC-ODBC bridge driver. So you don't need to install Enterprise Architect to execute ea2ddl.
 
