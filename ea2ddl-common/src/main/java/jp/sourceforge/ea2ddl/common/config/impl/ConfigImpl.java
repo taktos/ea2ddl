@@ -19,7 +19,7 @@ import org.apache.commons.logging.LogFactory;
  *
  */
 public class ConfigImpl implements Config {
-	private static final Log _log = LogFactory.getLog(ConfigImpl.class);
+	private static final Log LOG = LogFactory.getLog(ConfigImpl.class);
 
 	private Properties _prop = new Properties();
 
@@ -29,7 +29,7 @@ public class ConfigImpl implements Config {
 			in = new URL(configPath).openStream();
 		} catch (MalformedURLException e) {
 		} catch (IOException e) {
-			_log.warn("Failed to read resource:", e);
+			LOG.warn("Failed to read resource:", e);
 		}
 		if (in == null) {
 			in = Thread.currentThread().getContextClassLoader().getResourceAsStream(configPath);
@@ -37,9 +37,9 @@ public class ConfigImpl implements Config {
 		if (in != null) {
 			try {
 				_prop.load(in);
-				_log.debug("config initialized.");
+				LOG.debug("config initialized.");
 			} catch (IOException e) {
-				_log.warn("Failed to read resource:" + e);
+				LOG.warn("Failed to read resource:" + e);
 			}
 		}
 	}

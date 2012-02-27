@@ -12,16 +12,15 @@ import org.seasar.framework.unit.annotation.RootDicon;
 @RootDicon("app.dicon")
 public class ConfigImplTest {
 
-	Config _config;
+	Config config;
 
 	@Test
 	public void testGetPropertyString() {
-		assertEquals("ビュー", _config.getProperty("root.package.name"));
+		assertEquals("ビュー", config.getProperty("root.package.name"));
 	}
 
 	@Test
-	public void testGetPropertyStringString() {
-		assertEquals("テスト", _config.getProperty("test.key"));
+	public void testGetPropertyStringString() throws Exception {
+		assertEquals("テスト", config.getProperty("test.key", "テスト"));
 	}
-
 }
