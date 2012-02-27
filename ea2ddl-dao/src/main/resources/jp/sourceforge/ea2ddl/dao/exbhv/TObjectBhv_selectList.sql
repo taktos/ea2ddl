@@ -36,4 +36,4 @@ select dflocal.Name as [Name], dflocal.Object_ID as Object_ID
    /*IF pmb.stereotype != null*/and dflocal.Stereotype = /*pmb.stereotype*/'table'/*END*/
    /*IF pmb.objectType != null*/and dflocal.Object_Type = /*pmb.objectType*/'Class'/*END*/
 /*END*/
- order by dflocal.Name, dflocal.ea_guid
+ order by dflocal.Name, dflocal.Object_ID
