@@ -26,4 +26,13 @@ public class TAttribute extends jp.sourceforge.ea2ddl.dao.bsentity.BsTAttribute 
 		_tags = tags;
 	}
 
+	private String _default;
+
+	public String getDefault() {
+		return _default;
+	}
+
+	public void setDefault(final String _default) {
+		this._default = _default;
+	}
 }

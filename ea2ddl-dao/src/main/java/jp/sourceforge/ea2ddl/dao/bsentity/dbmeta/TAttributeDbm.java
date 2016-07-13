@@ -54,6 +54,7 @@ public class TAttributeDbm extends AbstractDBMeta {
     protected ColumnInfo _columnScale = cci("Scale", null, "scale", java.lang.Integer.class, false, false, null, null);
     protected ColumnInfo _columnStyle = cci("Style", null, "style", String.class, false, false, 255, 0);
     protected ColumnInfo _columnClassifier = cci("Classifier", null, "classifier", String.class, false, false, 50, 0);
+    protected ColumnInfo _columnDefault = cci("Default", null, "default", String.class, false, false, 255, 0);
     protected ColumnInfo _columnType = cci("Type", null, "type", String.class, false, false, 255, 0);
     protected ColumnInfo _columnEaGuid = cci("ea_guid", null, "eaGuid", String.class, false, false, 50, 0);
     protected ColumnInfo _columnStyleex = cci("StyleEx", null, "styleex", String.class, false, false, 2147483647, 0);
@@ -80,6 +81,7 @@ public class TAttributeDbm extends AbstractDBMeta {
     public ColumnInfo columnScale() { return _columnScale; }
     public ColumnInfo columnStyle() { return _columnStyle; }
     public ColumnInfo columnClassifier() { return _columnClassifier; }
+    public ColumnInfo columnDefault() { return _columnDefault; }
     public ColumnInfo columnType() { return _columnType; }
     public ColumnInfo columnEaGuid() { return _columnEaGuid; }
     public ColumnInfo columnStyleex() { return _columnStyleex; }
@@ -197,6 +199,7 @@ public class TAttributeDbm extends AbstractDBMeta {
         setupEps(_epsMap, new EpsScale(), columnScale());
         setupEps(_epsMap, new EpsStyle(), columnStyle());
         setupEps(_epsMap, new EpsClassifier(), columnClassifier());
+        setupEps(_epsMap, new EpsDefault(), columnDefault());
         setupEps(_epsMap, new EpsType(), columnType());
         setupEps(_epsMap, new EpsEaGuid(), columnEaGuid());
         setupEps(_epsMap, new EpsStyleex(), columnStyleex());
@@ -250,6 +253,8 @@ public class TAttributeDbm extends AbstractDBMeta {
     { public void setup(TAttribute e, Object v) { e.setStyle((String)v); } }
     public static class EpsClassifier implements Eps<TAttribute>
     { public void setup(TAttribute e, Object v) { e.setClassifier((String)v); } }
+    public static class EpsDefault implements Eps<TAttribute>
+    { public void setup(TAttribute e, Object v) { e.setDefault((String)v); } }
     public static class EpsType implements Eps<TAttribute>
     { public void setup(TAttribute e, Object v) { e.setType((String)v); } }
     public static class EpsEaGuid implements Eps<TAttribute>

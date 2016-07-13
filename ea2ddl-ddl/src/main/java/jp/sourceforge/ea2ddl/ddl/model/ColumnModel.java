@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import jp.sourceforge.ea2ddl.common.config.Config;
 import jp.sourceforge.ea2ddl.dao.exentity.TAttribute;
 import jp.sourceforge.ea2ddl.dao.exentity.TAttributetag;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author taktos
@@ -36,6 +37,7 @@ public class ColumnModel implements Serializable {
 				columnDef.getAllowduplicates()));
 		column.setAutoIncrement(columnDef);
 		column.setNote(columnDef.getNotes());
+        column.setDefaultValue(columnDef.getDefault());
 		return column;
 	}
 
@@ -163,8 +165,8 @@ public class ColumnModel implements Serializable {
 		if (!isNullable()) {
 			b.append(" NOT NULL");
 		}
-		if (isAutoIncrement()) {
-			b.append(" AUTO_INCREMENT");
+		if (StringUtils.isNotBlank(getDefaultValue())) {
+			b.append(" DEFAULT ").append(getDefaultValue());
 		}
 		return b.toString();
 	}
